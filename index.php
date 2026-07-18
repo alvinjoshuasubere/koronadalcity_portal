@@ -1721,15 +1721,8 @@
         color: var(--pink)
     }
 
-    .bn-item:active {
-        content: '';
-        position: absolute;
-        top: 0;
-        left: 50%;
-        transform: translateX(-50%);
-        width: 16px;
-        height: 2px;
-        border-radius: 0 0 2px 2px
+    .bn-item.active {
+        color: var(--pink)
     }
 
     .bn-item.active i {
@@ -2266,13 +2259,13 @@
 
     html.force-mobile .svc .sec-head .sec-label,
     .svc-mobile-head .sec-label {
-        color: rgba(255,255,255,.7);
+        color: rgba(255, 255, 255, .7);
         margin-bottom: 8px
     }
 
     html.force-mobile .svc .sec-head .sec-label::after,
     .svc-mobile-head .sec-label::after {
-        background: rgba(255,255,255,.2)
+        background: rgba(255, 255, 255, .2)
     }
 
     html.force-mobile .svc .sec-head h2,
@@ -2284,7 +2277,7 @@
 
     html.force-mobile .svc .sec-head p,
     .svc-mobile-head p {
-        color: rgba(255,255,255,.7);
+        color: rgba(255, 255, 255, .7);
         font-size: .7rem
     }
 
@@ -2408,12 +2401,12 @@
         }
 
         .svc .sec-head .sec-label {
-            color: rgba(255,255,255,.7);
+            color: rgba(255, 255, 255, .7);
             margin-bottom: 8px
         }
 
         .svc .sec-head .sec-label::after {
-            background: rgba(255,255,255,.2)
+            background: rgba(255, 255, 255, .2)
         }
 
         .svc .sec-head h2 {
@@ -2423,7 +2416,7 @@
         }
 
         .svc .sec-head p {
-            color: rgba(255,255,255,.7);
+            color: rgba(255, 255, 255, .7);
             font-size: .7rem
         }
 
@@ -2646,8 +2639,8 @@
             <div class="hs-tags">
                 <span>Popular:</span>
                 <a href="https://koronadalcityportal.com/v2/login" target="_blank" class="ht">Business Permit</a>
-                <a href="https://traffic.koronadalcityonlineservices.com/" target="_blank" class="ht">Traffic
-                    Violation</a>
+                <a href="https://traffic.koronadalcityonlineservices.com/" target="_blank" class="ht">MTOP
+                    Checker</a>
                 <a href="https://jobs.koronadalcityonlineservices.com/" target="_blank" class="ht">Job Openings</a>
             </div>
         </div>
@@ -2879,7 +2872,7 @@
                         <div class="svc-portal-inner">
                             <div class="svc-portal-icon amber"><i class="fas fa-car-crash"></i></div>
                             <div class="svc-portal-body">
-                                <h4>Traffic Violation Check</h4>
+                                <h4>MTOP Checker</h4>
                                 <p>Search & settle violations</p>
                             </div>
                             <i class="fas fa-arrow-up-right-from-square svc-portal-arrow"></i>
@@ -3115,8 +3108,8 @@
                     <div class="fcol-t">Services</div>
                     <ul>
                         <li><a href="https://koronadalcityportal.com/v2/login" target="_blank">Business Permits</a></li>
-                        <li><a href="https://traffic.koronadalcityonlineservices.com/" target="_blank">Traffic
-                                Violations</a></li>
+                        <li><a href="https://traffic.koronadalcityonlineservices.com/" target="_blank">MTOP Checker</a>
+                        </li>
                         <li><a href="https://jobs.koronadalcityonlineservices.com/" target="_blank">Job Openings</a>
                         </li>
                         <li><a href="https://koronadal.gov.ph/bids-and-awards/" target="_blank">Bids & Awards</a></li>
@@ -3161,8 +3154,9 @@
     <nav class="bottomnav" id="bottomnav">
         <div class="bn-row">
             <a href="#home" class="bn-item" data-section="home"><i class="fas fa-house"></i><span>Home</span></a>
-            <a href="#services" class="bn-item" data-section="services"><i
-                    class="fas fa-gears"></i><span>Services</span></a>
+            <a href="#services" class="bn-item" data-section="services">
+                <i class="fas fa-gears"></i><span>Services</span>
+            </a>
             <a href="#services" class="bn-cta" aria-label="Browse"><i class="fas fa-arrow-pointer"></i></a>
             <a href="#quick" class="bn-item" data-section="quick"><i class="fas fa-link"></i><span>Quick</span></a>
             <a href="https://koronadal.gov.ph/" target="_blank" class="bn-item"><i
@@ -3287,16 +3281,19 @@
             }
         });
     }, {
-        threshold: 0.15,
-        rootMargin: '-20% 0px -60% 0px'
+        threshold: 0,
+        rootMargin: '-40% 0px -40% 0px'
     });
     sectionEls.forEach(function(s) {
         bnObs.observe(s)
     });
 
     // Bottom nav click
-    document.querySelectorAll('.bn-item').forEach(function(b) {
+    document.querySelectorAll('.bn-item[data-section]').forEach(function(b) {
         b.addEventListener('click', function(e) {
+            bnItems.forEach(function(item) {
+                item.classList.toggle('active', item === b);
+            });
             var h = this.getAttribute('href');
             if (h && h.startsWith('#') && h !== '#') {
                 e.preventDefault();
