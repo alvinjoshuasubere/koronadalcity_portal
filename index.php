@@ -2231,7 +2231,10 @@
         }
 
         .topnav {
-            display: block
+            display: block;
+            position: fixed;
+            background: var(--paper);
+            border-bottom: 1px solid var(--line)
         }
 
         .topnav-in {
