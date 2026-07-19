@@ -4,8 +4,8 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0" />
-    <meta name="theme-color" content="#0D1B2A" />
-    <title>Koronadal City — Online Services Portal</title>
+    <meta name="theme-color" content="#1A1A2E" />
+    <title>Koronadal City — Online Services</title>
     <link rel="icon" type="image/x-icon" href="favicon.ico" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -15,75 +15,57 @@
     /* ===== THEME ===== */
     :root,
     [data-theme="light"] {
-        --bone: #F8F0F6;
-        --paper: #FDFBFE;
+        --bone: #F5F3F0;
+        --paper: #FAFAF8;
         --card: #FFF;
         --white: #FFF;
-        --ink: #0D1B2A;
-        --ink-soft: #4A5568;
-        --ink-faint: #8896AB;
-        --line: rgba(13, 27, 42, .08);
-        --line-strong: rgba(13, 27, 42, .16);
-        --pink: #E91E63;
-        --pink-d: #C2185B;
-        --pink-l: rgba(233, 30, 99, .07);
-        --pink-wash: #FCEDF2;
-        --navy: #0D1B2A;
-        --navy-l: rgba(13, 27, 42, .06);
-        --blue: #3F51B5;
-        --blue-l: rgba(63, 81, 181, .07);
-        --green: #3F7D43;
-        --green-l: rgba(63, 125, 67, .07);
-        --amber: #9A5B16;
-        --amber-l: rgba(154, 91, 22, .07);
-        --teal: #00897B;
-        --teal-l: rgba(0, 137, 123, .07);
-        --shadow-sm: 0 1px 2px rgba(13, 27, 42, .05), 0 2px 8px rgba(13, 27, 42, .04);
-        --shadow-md: 0 8px 30px rgba(13, 27, 42, .1), 0 2px 6px rgba(13, 27, 42, .06);
-        --shadow-lg: 0 24px 60px rgba(13, 27, 42, .18);
-        --shadow-glow: 0 0 30px rgba(233, 30, 99, .06);
-        --r: 16px;
-        --r-s: 11px;
-        --r-xs: 8px;
-        --r-l: 22px;
-        --r-xl: 28px;
+        --ink: #1A1A2E;
+        --ink-soft: #5C5C6F;
+        --ink-faint: #9E9EB0;
+        --line: rgba(26, 26, 46, .07);
+        --line-strong: rgba(26, 26, 46, .13);
+        --rose: #A83D5C;
+        --rose-d: #8C2848;
+        --rose-l: rgba(168, 61, 92, .08);
+        --rose-wash: #F9EDF1;
+        --navy: #1A1A2E;
+        --navy-l: rgba(26, 26, 46, .05);
+        --shadow-sm: 0 1px 3px rgba(26, 26, 46, .04), 0 1px 6px rgba(26, 26, 46, .03);
+        --shadow-md: 0 4px 20px rgba(26, 26, 46, .07), 0 1px 4px rgba(26, 26, 46, .04);
+        --shadow-lg: 0 16px 48px rgba(26, 26, 46, .12);
+        --r: 12px;
+        --r-s: 8px;
+        --r-xs: 6px;
+        --r-l: 16px;
+        --r-xl: 22px;
         --r-full: 999px;
         --font: "Sora", ui-sans-serif, system-ui, sans-serif;
         --app-w: 1100px;
-        --nav-h: 60px;
-        --bottom-h: 64px;
+        --nav-h: 56px;
+        --bottom-h: 60px;
         --safe-b: env(safe-area-inset-bottom, 0px);
         --safe-t: env(safe-area-inset-top, 0px);
     }
 
     [data-theme="dark"] {
-        --bone: #070A12;
-        --paper: #0C1019;
-        --card: #141B2D;
-        --white: #1A2238;
-        --ink: #E2E8F0;
-        --ink-soft: #94A3B8;
-        --ink-faint: #64748B;
-        --line: rgba(226, 232, 240, .08);
-        --line-strong: rgba(226, 232, 240, .14);
-        --pink: #FF4081;
-        --pink-d: #F50057;
-        --pink-l: rgba(255, 64, 129, .1);
-        --pink-wash: rgba(255, 64, 129, .05);
-        --navy: #0D1B2A;
-        --navy-l: rgba(30, 45, 70, .2);
-        --blue: #7986CB;
-        --blue-l: rgba(121, 134, 203, .1);
-        --green: #499150;
-        --green-l: rgba(73, 145, 80, .1);
-        --amber: #B07B2A;
-        --amber-l: rgba(176, 123, 42, .1);
-        --teal: #4DB6AC;
-        --teal-l: rgba(77, 182, 172, .1);
-        --shadow-sm: 0 1px 2px rgba(0, 0, 0, .4), 0 2px 8px rgba(0, 0, 0, .3);
-        --shadow-md: 0 8px 30px rgba(0, 0, 0, .5), 0 2px 6px rgba(0, 0, 0, .35);
-        --shadow-lg: 0 24px 60px rgba(0, 0, 0, .6);
-        --shadow-glow: 0 0 30px rgba(255, 64, 129, .06);
+        --bone: #0B0E14;
+        --paper: #10141C;
+        --card: #161B26;
+        --white: #1C2230;
+        --ink: #E2E4EA;
+        --ink-soft: #9DA2B0;
+        --ink-faint: #626878;
+        --line: rgba(226, 228, 234, .06);
+        --line-strong: rgba(226, 228, 234, .11);
+        --rose: #D06882;
+        --rose-d: #DA7E96;
+        --rose-l: rgba(208, 104, 130, .1);
+        --rose-wash: rgba(208, 104, 130, .05);
+        --navy: #0B0E14;
+        --navy-l: rgba(15, 20, 30, .3);
+        --shadow-sm: 0 1px 3px rgba(0, 0, 0, .35), 0 1px 6px rgba(0, 0, 0, .25);
+        --shadow-md: 0 4px 20px rgba(0, 0, 0, .45), 0 1px 4px rgba(0, 0, 0, .3);
+        --shadow-lg: 0 16px 48px rgba(0, 0, 0, .55);
     }
 
     /* ===== RESET ===== */
@@ -119,7 +101,7 @@
         inset: 0;
         pointer-events: none;
         z-index: 0;
-        background: radial-gradient(ellipse at 80% 10%, rgba(233, 30, 99, .03), transparent 55%)
+        background: radial-gradient(ellipse at 80% 10%, rgba(168, 61, 92, .03), transparent 55%)
     }
 
     body::after {
@@ -134,7 +116,7 @@
     }
 
     ::selection {
-        background: var(--pink);
+        background: var(--rose);
         color: #fff
     }
 
@@ -165,7 +147,8 @@
         margin: 0 auto;
         min-height: 100dvh;
         display: flex;
-        flex-direction: column
+        flex-direction: column;
+        padding-top: var(--nav-h)
     }
 
     .app-pad {
@@ -175,52 +158,90 @@
     /* ===== VIEW TOGGLE ===== */
     .view-toggle {
         position: fixed;
-        bottom: calc(var(--bottom-h) + var(--safe-b) + 12px);
-        right: 16px;
+        bottom: calc(var(--bottom-h) + var(--safe-b) + 16px);
+        right: 0;
         z-index: 90;
         display: flex;
         align-items: center;
-        gap: 6px;
-        background: var(--card);
-        border: 1px solid var(--line);
-        border-radius: var(--r-full);
-        padding: 4px;
-        box-shadow: var(--shadow-md);
-        backdrop-filter: blur(12px);
-        -webkit-backdrop-filter: blur(12px)
+        gap: 0
+    }
+
+    .view-toggle-menu {
+        display: flex;
+        gap: 4px;
+        opacity: 0;
+        pointer-events: none;
+        transform: translateX(8px);
+        transition: all .25s cubic-bezier(.4, 0, .2, 1);
+        padding-right: 6px
+    }
+
+    .view-toggle.open .view-toggle-menu {
+        opacity: 1;
+        pointer-events: auto;
+        transform: translateX(0)
     }
 
     .view-toggle-btn {
         display: flex;
         align-items: center;
         justify-content: center;
-        gap: 5px;
-        padding: 7px 12px;
+        gap: 4px;
+        padding: 6px 10px;
         border-radius: var(--r-full);
-        font-size: .6rem;
+        font-size: .55rem;
         font-weight: 600;
         color: var(--ink-soft);
-        border: none;
-        background: transparent;
+        border: 1px solid var(--line);
+        background: var(--card);
         cursor: pointer;
         transition: all .2s;
         white-space: nowrap;
-        font-family: var(--font)
+        font-family: var(--font);
+        box-shadow: var(--shadow-sm);
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px)
     }
 
     .view-toggle-btn.active {
-        background: var(--pink);
+        background: var(--rose);
         color: #fff;
-        box-shadow: var(--shadow-sm)
+        border-color: var(--rose)
     }
 
     .view-toggle-btn:hover:not(.active) {
-        background: var(--pink-l);
-        color: var(--pink)
+        background: var(--rose-l);
+        color: var(--rose);
+        border-color: var(--rose-l)
     }
 
     .view-toggle-btn i {
-        font-size: .65rem
+        font-size: .45rem
+    }
+
+    .view-toggle-trigger {
+        width: 30px;
+        height: 30px;
+        border-radius: var(--r-xs) 0 0 var(--r-xs);
+        background: var(--rose);
+        color: #fff;
+        border: none;
+        display: grid;
+        place-items: center;
+        font-size: .55rem;
+        cursor: pointer;
+        box-shadow: -2px 2px 10px rgba(168, 61, 92, .25);
+        transition: all .2s cubic-bezier(.4, 0, .2, 1);
+        flex-shrink: 0
+    }
+
+    .view-toggle-trigger:hover {
+        box-shadow: -2px 2px 14px rgba(168, 61, 92, .35)
+    }
+
+    .view-toggle.open .view-toggle-trigger {
+        background: var(--ink);
+        box-shadow: var(--shadow-sm)
     }
 
     @media(min-width:769px) {
@@ -257,16 +278,16 @@
     .brand {
         display: flex;
         align-items: center;
-        gap: 10px
+        gap: 8px
     }
 
     .brand-img {
-        width: 30px;
-        height: 30px;
+        width: 36px;
+        height: 36px;
         border-radius: var(--r-xs);
         object-fit: contain;
         background: var(--card);
-        padding: 2px;
+        padding: 3px;
         border: 1px solid var(--line)
     }
 
@@ -276,18 +297,18 @@
     }
 
     .brand-text strong {
-        font-size: .8rem;
-        font-weight: 800;
-        line-height: 1.2;
+        font-size: .95rem;
+        font-weight: 700;
+        line-height: 1.15;
         color: var(--ink)
     }
 
     .brand-text small {
-        font-size: .5rem;
+        font-size: .6rem;
         font-weight: 600;
-        letter-spacing: .08em;
+        letter-spacing: .06em;
         text-transform: uppercase;
-        color: var(--pink)
+        color: var(--rose)
     }
 
     .nav-links {
@@ -307,12 +328,12 @@
 
     .nav-links a:hover {
         color: var(--ink);
-        background: var(--pink-wash)
+        background: var(--rose-wash)
     }
 
     .nav-links a.on {
-        color: var(--pink);
-        background: var(--pink-l)
+        color: var(--rose);
+        background: var(--rose-l)
     }
 
     .topnav-r {
@@ -336,8 +357,8 @@
     }
 
     .theme-btn:hover {
-        border-color: var(--pink);
-        color: var(--pink)
+        border-color: var(--rose);
+        color: var(--rose)
     }
 
     .nav-cta {
@@ -346,7 +367,7 @@
         gap: 6px;
         padding: 7px 14px;
         border-radius: var(--r-s);
-        background: var(--pink);
+        background: var(--rose);
         color: #fff;
         font-size: .72rem;
         font-weight: 700;
@@ -356,7 +377,7 @@
     }
 
     .nav-cta:hover {
-        background: var(--pink-d);
+        background: var(--rose-d);
         transform: translateY(-1px);
         box-shadow: var(--shadow-md)
     }
@@ -477,8 +498,8 @@
 
     .mnav-links a:hover,
     .mnav-links a.on {
-        background: var(--pink-l);
-        color: var(--pink)
+        background: var(--rose-l);
+        color: var(--rose)
     }
 
     .mnav-links a i {
@@ -501,7 +522,7 @@
         width: 100%;
         padding: 11px;
         border-radius: var(--r);
-        background: var(--pink);
+        background: var(--rose);
         color: #fff;
         font-size: .78rem;
         font-weight: 700;
@@ -522,19 +543,19 @@
     .hero-bg {
         position: absolute;
         inset: 0;
-        background: linear-gradient(160deg, #0D1B2A 0%, #0A1628 55%, #162D50 100%);
+        background: linear-gradient(160deg, #1A1A2E 0%, #151528 55%, #1E2040 100%);
         z-index: 0
     }
 
     [data-theme="dark"] .hero-bg {
-        background: linear-gradient(160deg, #060A12 0%, #0A1220 55%, #101C35 100%)
+        background: linear-gradient(160deg, #060810 0%, #0A0E18 55%, #0E1420 100%)
     }
 
     .hero-bg::before {
         content: '';
         position: absolute;
         inset: 0;
-        background: radial-gradient(circle at 80% 20%, rgba(233, 30, 99, .18), transparent 50%), radial-gradient(circle at 20% 80%, rgba(63, 81, 181, .12), transparent 40%)
+        background: radial-gradient(circle at 80% 20%, rgba(168, 61, 92, .15), transparent 50%)
     }
 
     .hero-inner {
@@ -612,7 +633,7 @@
     }
 
     .hero h1 .hl {
-        color: var(--pink)
+        color: var(--rose)
     }
 
     .hero-sub {
@@ -687,7 +708,7 @@
         font-weight: 700;
         text-transform: uppercase;
         letter-spacing: .1em;
-        color: var(--pink);
+        color: var(--rose);
         margin-bottom: 4px
     }
 
@@ -713,8 +734,8 @@
     }
 
     .hs-input:focus-within {
-        border-color: var(--pink);
-        box-shadow: 0 0 0 1px var(--pink-wash), var(--shadow-sm)
+        border-color: var(--rose);
+        box-shadow: 0 0 0 1px var(--rose-wash), var(--shadow-sm)
     }
 
     .hs-input input {
@@ -734,7 +755,7 @@
     }
 
     .hs-input button {
-        background: var(--pink);
+        background: var(--rose);
         color: #fff;
         border: none;
         padding: 0 16px;
@@ -743,7 +764,7 @@
     }
 
     .hs-input button:active {
-        background: var(--pink-d)
+        background: var(--rose-d)
     }
 
     .hs-tags {
@@ -771,8 +792,8 @@
     }
 
     .ht:active {
-        background: var(--pink-l);
-        color: var(--pink);
+        background: var(--rose-l);
+        color: var(--rose);
         transform: scale(.95)
     }
 
@@ -803,13 +824,13 @@
     }
 
     .st-item:hover {
-        background: var(--pink-wash)
+        background: var(--rose-wash)
     }
 
     .st-num {
         font-size: 1.3rem;
         font-weight: 800;
-        color: var(--pink);
+        color: var(--rose);
         line-height: 1
     }
 
@@ -874,9 +895,9 @@
 
     .qpill:active {
         transform: scale(.95);
-        background: var(--pink-l);
-        color: var(--pink);
-        border-color: var(--pink-l)
+        background: var(--rose-l);
+        color: var(--rose);
+        border-color: var(--rose-l)
     }
 
     .qpill i {
@@ -898,7 +919,7 @@
         gap: 8px;
         font-size: .56rem;
         font-weight: 700;
-        color: var(--pink);
+        color: var(--rose);
         text-transform: uppercase;
         letter-spacing: .12em;
         margin-bottom: 6px
@@ -971,9 +992,9 @@
     .fb.on {
         opacity: 1;
         border-style: solid;
-        border-color: var(--pink);
+        border-color: var(--rose);
         color: var(--ink);
-        box-shadow: 0 0 0 1px var(--pink-wash), var(--shadow-sm)
+        box-shadow: 0 0 0 1px var(--rose-wash), var(--shadow-sm)
     }
 
     .scnt {
@@ -984,7 +1005,7 @@
     }
 
     .scnt b {
-        color: var(--pink);
+        color: var(--rose);
         font-weight: 700
     }
 
@@ -992,24 +1013,26 @@
     .portals {
         display: grid;
         grid-template-columns: repeat(3, 1fr);
-        gap: 12px;
-        margin-bottom: 28px
+        gap: 16px;
+        margin-bottom: 32px
     }
 
     .portal {
         background: var(--card);
         border: 1px solid var(--line);
-        border-radius: var(--r-l);
+        border-left: 3px solid var(--rose);
+        border-radius: var(--r);
         overflow: hidden;
-        transition: all .2s;
+        transition: all .25s cubic-bezier(.4, 0, .2, 1);
         position: relative;
         display: flex;
         flex-direction: column
     }
 
     .portal:hover {
-        transform: translateY(-2px);
-        box-shadow: var(--shadow-md)
+        transform: translateY(-3px);
+        box-shadow: var(--shadow-md);
+        border-left-color: var(--rose-d)
     }
 
     .portal:active {
@@ -1017,24 +1040,11 @@
     }
 
     .portal-accent {
-        height: 4px;
-        width: 100%
-    }
-
-    .portal-accent.pink {
-        background: linear-gradient(90deg, var(--pink), var(--pink-d))
-    }
-
-    .portal-accent.amber {
-        background: linear-gradient(90deg, var(--amber), #B07B2A)
-    }
-
-    .portal-accent.green {
-        background: linear-gradient(90deg, var(--green), #499150)
+        display: none
     }
 
     .portal-body {
-        padding: 22px 20px 20px;
+        padding: 24px 22px 22px;
         flex: 1;
         display: flex;
         flex-direction: column
@@ -1044,46 +1054,26 @@
         display: flex;
         align-items: flex-start;
         justify-content: space-between;
-        margin-bottom: 14px
+        margin-bottom: 16px
     }
 
     .portal-icon {
-        width: 52px;
-        height: 52px;
-        border-radius: var(--r);
+        width: 48px;
+        height: 48px;
+        border-radius: var(--r-s);
         display: grid;
         place-items: center;
-        font-size: 1.2rem;
-        transition: all .2s
+        font-size: 1.1rem;
+        transition: all .25s cubic-bezier(.4, 0, .2, 1)
     }
 
-    .portal-icon.pink {
-        background: var(--pink-l);
-        color: var(--pink)
+    .portal-icon.rose {
+        background: var(--rose-l);
+        color: var(--rose)
     }
 
-    .portal-icon.amber {
-        background: var(--amber-l);
-        color: var(--amber)
-    }
-
-    .portal-icon.green {
-        background: var(--green-l);
-        color: var(--green)
-    }
-
-    .portal:hover .portal-icon.pink {
-        background: var(--pink);
-        color: #fff
-    }
-
-    .portal:hover .portal-icon.amber {
-        background: var(--amber);
-        color: #fff
-    }
-
-    .portal:hover .portal-icon.green {
-        background: var(--green);
+    .portal:hover .portal-icon.rose {
+        background: var(--rose);
         color: #fff
     }
 
@@ -1092,13 +1082,13 @@
         align-items: center;
         gap: 4px;
         font-size: .48rem;
-        font-weight: 700;
+        font-weight: 600;
         text-transform: uppercase;
         letter-spacing: .06em;
-        padding: 3px 9px;
+        padding: 4px 10px;
         border-radius: var(--r-full);
-        background: var(--green-l);
-        color: var(--green)
+        background: var(--rose-l);
+        color: var(--rose)
     }
 
     .portal-badge i {
@@ -1106,18 +1096,18 @@
     }
 
     .portal h3 {
-        font-size: 1.05rem;
-        font-weight: 800;
+        font-size: 1rem;
+        font-weight: 700;
         color: var(--ink);
-        line-height: 1.15;
+        line-height: 1.2;
         margin-bottom: 6px
     }
 
     .portal-desc {
-        font-size: .72rem;
+        font-size: .75rem;
         color: var(--ink-soft);
         line-height: 1.6;
-        margin-bottom: 16px;
+        margin-bottom: 20px;
         flex: 1
     }
 
@@ -1152,54 +1142,43 @@
         justify-content: center;
         gap: 6px;
         width: 100%;
-        padding: 12px;
+        padding: 11px;
         border-radius: var(--r-s);
-        font-size: .76rem;
-        font-weight: 700;
-        border: none;
+        font-size: .74rem;
+        font-weight: 600;
+        border: 1px solid var(--line-strong);
         cursor: pointer;
-        transition: all .15s;
+        transition: all .2s cubic-bezier(.4, 0, .2, 1);
         text-decoration: none;
-        font-family: var(--font)
+        font-family: var(--font);
+        color: var(--ink-soft);
+        background: transparent
     }
 
     .portal-cta:active {
-        transform: scale(.97);
-        opacity: .9
+        transform: scale(.97)
     }
 
-    .portal-cta.pink {
-        background: var(--pink);
-        color: #fff
+    .portal-cta.rose {
+        background: transparent;
+        color: var(--rose);
+        border-color: var(--rose-l)
     }
 
-    .portal-cta.pink:hover {
-        background: var(--pink-d);
-        box-shadow: 0 4px 16px rgba(233, 30, 99, .25)
-    }
-
-    .portal-cta.amber {
-        background: var(--amber);
-        color: #fff
-    }
-
-    .portal-cta.amber:hover {
-        background: var(--amber);
-        box-shadow: 0 4px 16px rgba(154, 91, 22, .25)
-    }
-
-    .portal-cta.green {
-        background: var(--green);
-        color: #fff
-    }
-
-    .portal-cta.green:hover {
-        background: var(--green);
-        box-shadow: 0 4px 16px rgba(63, 125, 67, .25)
+    .portal-cta.rose:hover {
+        background: var(--rose);
+        color: #fff;
+        border-color: var(--rose);
+        box-shadow: 0 4px 16px rgba(168, 61, 92, .18)
     }
 
     .portal-cta i {
-        font-size: .62rem
+        font-size: .6rem;
+        transition: transform .2s
+    }
+
+    .portal:hover .portal-cta i {
+        transform: translateX(2px)
     }
 
     /* ===== SECONDARY SERVICES (Desktop) ===== */
@@ -1226,61 +1205,46 @@
     .svc-sec {
         display: grid;
         grid-template-columns: repeat(3, 1fr);
-        gap: 8px
+        gap: 10px
     }
 
     .svc-sec-item {
         background: var(--card);
         border: 1px solid var(--line);
         border-radius: var(--r);
-        padding: 14px 14px;
+        padding: 16px;
         display: flex;
         align-items: center;
-        gap: 11px;
-        transition: all .15s;
+        gap: 12px;
+        transition: all .2s cubic-bezier(.4, 0, .2, 1);
         text-decoration: none;
         color: inherit;
         box-shadow: var(--shadow-sm)
     }
 
     .svc-sec-item:hover {
-        border-color: var(--pink-l);
-        box-shadow: 0 0 0 1px var(--pink-wash), var(--shadow-sm);
+        border-color: var(--rose-l);
+        box-shadow: var(--shadow-md);
         transform: translateY(-1px)
     }
 
     .svc-sec-item:active {
-        transform: scale(.97)
+        transform: scale(.98)
     }
 
     .svc-sec-icon {
-        width: 32px;
-        height: 32px;
+        width: 36px;
+        height: 36px;
         border-radius: var(--r-s);
         display: grid;
         place-items: center;
-        font-size: .7rem;
+        font-size: .75rem;
         flex-shrink: 0
     }
 
-    .svc-sec-icon.pink {
-        background: var(--pink-l);
-        color: var(--pink)
-    }
-
-    .svc-sec-icon.green {
-        background: var(--green-l);
-        color: var(--green)
-    }
-
-    .svc-sec-icon.amber {
-        background: var(--amber-l);
-        color: var(--amber)
-    }
-
-    .svc-sec-icon.blue {
-        background: var(--blue-l);
-        color: var(--blue)
+    .svc-sec-icon.rose {
+        background: var(--rose-l);
+        color: var(--rose)
     }
 
     .svc-sec-body {
@@ -1289,15 +1253,15 @@
     }
 
     .svc-sec-body h4 {
-        font-size: .72rem;
-        font-weight: 700;
+        font-size: .75rem;
+        font-weight: 600;
         color: var(--ink);
-        line-height: 1.2;
-        margin-bottom: 1px
+        line-height: 1.3;
+        margin-bottom: 2px
     }
 
     .svc-sec-body p {
-        font-size: .62rem;
+        font-size: .64rem;
         color: var(--ink-faint);
         line-height: 1.4;
         white-space: nowrap;
@@ -1307,13 +1271,13 @@
 
     .svc-sec-arrow {
         color: var(--ink-faint);
-        font-size: .6rem;
+        font-size: .55rem;
         flex-shrink: 0;
-        transition: all .15s
+        transition: all .2s
     }
 
     .svc-sec-item:hover .svc-sec-arrow {
-        color: var(--pink);
+        color: var(--rose);
         transform: translateX(2px)
     }
 
@@ -1356,14 +1320,14 @@
         top: 0;
         bottom: 0;
         width: 3px;
-        background: var(--pink);
+        background: var(--rose);
         opacity: 0;
         transition: opacity .15s
     }
 
     .qc:hover {
-        border-color: var(--pink-l);
-        box-shadow: 0 0 0 1px var(--pink-wash), var(--shadow-sm);
+        border-color: var(--rose-l);
+        box-shadow: 0 0 0 1px var(--rose-wash), var(--shadow-sm);
         transform: translateY(-1px)
     }
 
@@ -1382,14 +1346,14 @@
         display: grid;
         place-items: center;
         font-size: .72rem;
-        background: var(--pink-l);
-        color: var(--pink);
+        background: var(--rose-l);
+        color: var(--rose);
         flex-shrink: 0;
         transition: all .15s
     }
 
     .qc:hover .qc-ico {
-        background: var(--pink);
+        background: var(--rose);
         color: #fff
     }
 
@@ -1421,7 +1385,7 @@
     }
 
     .qc:hover .qc-arrow {
-        color: var(--pink);
+        color: var(--rose);
         opacity: 1;
         transform: translateX(2px)
     }
@@ -1462,7 +1426,7 @@
     .mayor-tag {
         font-size: .5rem;
         font-weight: 700;
-        color: var(--pink);
+        color: var(--rose);
         text-transform: uppercase;
         letter-spacing: .12em;
         margin-bottom: 5px
@@ -1478,7 +1442,7 @@
 
     .mayor-body h2 em {
         font-style: normal;
-        color: var(--pink)
+        color: var(--rose)
     }
 
     .mayor-body .mdesc {
@@ -1490,8 +1454,8 @@
 
     .mayor-quote {
         padding: 12px 14px;
-        background: var(--pink-l);
-        border-left: 3px solid var(--pink);
+        background: var(--rose-l);
+        border-left: 3px solid var(--rose);
         border-radius: 0 var(--r-s) var(--r-s) 0;
         font-size: .7rem;
         color: var(--ink-soft);
@@ -1512,12 +1476,12 @@
         position: absolute;
         inset: 0;
         opacity: .06;
-        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='48' height='48'%3E%3Cpath d='M24 0L48 24L24 48L0 24Z' fill='none' stroke='%23E91E63' stroke-width='1.2'/%3E%3C/svg%3E");
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='48' height='48'%3E%3Cpath d='M24 0L48 24L24 48L0 24Z' fill='none' stroke='%23A83D5C' stroke-width='1.2'/%3E%3C/svg%3E");
         background-size: 48px 48px
     }
 
     [data-theme="dark"] .culture {
-        background: #060A12
+        background: #0B0E14
     }
 
     .culture-in {
@@ -1535,7 +1499,7 @@
         width: 4px;
         height: 4px;
         border-radius: 50%;
-        background: var(--pink);
+        background: var(--rose);
         flex-shrink: 0
     }
 
@@ -1560,7 +1524,7 @@
     }
 
     [data-theme="dark"] .footer {
-        background: #060A12
+        background: #0B0E14
     }
 
     .fgrid {
@@ -1620,7 +1584,7 @@
     }
 
     .f-soc a:hover {
-        background: var(--pink);
+        background: var(--rose);
         color: #fff
     }
 
@@ -1718,11 +1682,11 @@
 
 
     .bn-item:hover {
-        color: var(--pink)
+        color: var(--rose)
     }
 
     .bn-item.active {
-        color: var(--pink)
+        color: var(--rose)
     }
 
     .bn-item.active i {
@@ -1737,12 +1701,12 @@
         width: 46px;
         height: 46px;
         border-radius: 50%;
-        background: var(--pink);
+        background: var(--rose);
         color: #fff;
         display: grid;
         place-items: center;
         font-size: 1rem;
-        box-shadow: 0 4px 16px rgba(233, 30, 99, .3);
+        box-shadow: 0 4px 16px rgba(168, 61, 92, .3);
         margin-top: -16px;
         border: 3px solid var(--paper);
         transition: all .15s;
@@ -1752,7 +1716,7 @@
 
     .bn-cta:active {
         transform: scale(.9);
-        box-shadow: 0 2px 10px rgba(233, 30, 99, .4)
+        box-shadow: 0 2px 10px rgba(168, 61, 92, .4)
     }
 
     /* ===== DIVIDER ===== */
@@ -1816,7 +1780,7 @@
 
     /* ===== VIEW MODE OVERRIDES ===== */
     html.force-mobile .topnav {
-        display: none !important
+        display: block !important
     }
 
     html.force-mobile .bottomnav {
@@ -1868,10 +1832,8 @@
         }
 
         html.force-mobile .view-toggle {
-            left: 50%;
-            transform: translateX(-50%);
-            right: auto;
-            bottom: calc(var(--bottom-h) + 12px)
+            bottom: calc(var(--bottom-h) + 12px);
+            right: 0
         }
 
         html.force-mobile .hero-bg {
@@ -2085,16 +2047,8 @@
         width: 100%
     }
 
-    .svc-portal-accent.pink {
-        background: linear-gradient(90deg, var(--pink), var(--pink-d))
-    }
-
-    .svc-portal-accent.amber {
-        background: linear-gradient(90deg, var(--amber), #D4951C)
-    }
-
-    .svc-portal-accent.green {
-        background: linear-gradient(90deg, var(--green), #52A056)
+    .svc-portal-accent.rose {
+        background: linear-gradient(90deg, var(--rose), var(--rose-d))
     }
 
     .svc-portal-inner {
@@ -2114,19 +2068,9 @@
         flex-shrink: 0
     }
 
-    .svc-portal-icon.pink {
-        background: var(--pink-l);
-        color: var(--pink)
-    }
-
-    .svc-portal-icon.amber {
-        background: var(--amber-l);
-        color: var(--amber)
-    }
-
-    .svc-portal-icon.green {
-        background: var(--green-l);
-        color: var(--green)
+    .svc-portal-icon.rose {
+        background: var(--rose-l);
+        color: var(--rose)
     }
 
     .svc-portal-body {
@@ -2194,24 +2138,9 @@
         flex-shrink: 0
     }
 
-    .svc-row-icon.pink {
-        background: var(--pink-l);
-        color: var(--pink)
-    }
-
-    .svc-row-icon.green {
-        background: var(--green-l);
-        color: var(--green)
-    }
-
-    .svc-row-icon.amber {
-        background: var(--amber-l);
-        color: var(--amber)
-    }
-
-    .svc-row-icon.blue {
-        background: var(--blue-l);
-        color: var(--blue)
+    .svc-row-icon.rose {
+        background: var(--rose-l);
+        color: var(--rose)
     }
 
     .svc-row-body {
@@ -2245,13 +2174,13 @@
 
     .svc-row:active .svc-row-arrow {
         transform: translateX(3px);
-        color: var(--pink)
+        color: var(--rose)
     }
 
     /* Mobile services header panel */
     html.force-mobile .svc .sec-head,
     .svc-mobile-head {
-        background: linear-gradient(135deg, var(--pink), var(--pink-d));
+        background: linear-gradient(135deg, var(--rose), var(--rose-d));
         margin: 0 -16px 16px;
         padding: 20px 16px;
         border-radius: 0 0 var(--r-l) var(--r-l)
@@ -2298,12 +2227,40 @@
     /* ===== RESPONSIVE — MOBILE ===== */
     @media(max-width:768px) {
         :root {
-            --nav-h: 0px
+            --nav-h: 46px
         }
 
-        /* Hide desktop nav, show mobile */
         .topnav {
-            display: none
+            display: block
+        }
+
+        .topnav-in {
+            padding: 0 12px
+        }
+
+        .brand-img {
+            width: 28px;
+            height: 28px
+        }
+
+        .brand-text strong {
+            font-size: .78rem
+        }
+
+        .brand-text small {
+            font-size: .5rem
+        }
+
+        .nav-links {
+            display: none !important
+        }
+
+        .nav-cta {
+            display: none !important
+        }
+
+        .burger {
+            display: flex !important
         }
 
         .bottomnav {
@@ -2319,8 +2276,16 @@
             border-radius: 0
         }
 
+        .hero {
+            margin-top: calc(var(--nav-h) * -1)
+        }
+
         .hero-inner {
-            padding: 20px 16px 28px
+            padding: 60px 16px 20px
+        }
+
+        .hero-brand {
+            margin-bottom: 8px
         }
 
         .hero-brand img {
@@ -2394,7 +2359,7 @@
         }
 
         .svc .sec-head {
-            background: linear-gradient(135deg, var(--pink), var(--pink-d));
+            background: linear-gradient(135deg, var(--rose), var(--rose-d));
             margin: 0 -16px 16px;
             padding: 20px 16px;
             border-radius: 0 0 var(--r-l) var(--r-l)
@@ -2450,7 +2415,7 @@
 
         .svc-row:active .svc-row-arrow {
             transform: translateX(3px);
-            color: var(--pink)
+            color: var(--rose)
         }
 
         /* Quick links grid — mobile 2x3 */
@@ -2537,7 +2502,7 @@
 
         .svc-sec-item:active {
             transform: scale(.97);
-            border-color: var(--pink-l)
+            border-color: var(--rose-l)
         }
 
         .qc:hover {
@@ -2552,7 +2517,7 @@
 
         .qc:active {
             transform: scale(.98);
-            border-color: var(--pink-l)
+            border-color: var(--rose-l)
         }
     }
     </style>
@@ -2565,7 +2530,7 @@
         <div class="topnav-in">
             <a class="brand" href="#">
                 <img src="Logo.png" alt="Koronadal City" class="brand-img" />
-                <div class="brand-text"><strong>Koronadal City</strong><small>Online Services</small></div>
+                <div class="brand-text"><strong>City of Koronadal</strong><small>Online Services</small></div>
             </a>
             <ul class="nav-links">
                 <li><a href="#home" class="on" data-nav="home">Home</a></li>
@@ -2586,8 +2551,8 @@
     <div class="mnav" id="mnav">
         <div class="mnav-head">
             <a class="brand" href="#">
-                <img src="Logo.png" alt="Koronadal City" class="brand-img" style="width:26px;height:26px" />
-                <div class="brand-text"><strong>Koronadal City</strong><small>Online Services</small></div>
+                <img src="Logo.png" alt="Koronadal City" class="brand-img" />
+                <div class="brand-text"><strong>City of Koronadal</strong><small>Online Services</small></div>
             </a>
             <button class="mnav-x" id="mnavClose" aria-label="Close"><i class="fas fa-times"></i></button>
         </div>
@@ -2609,90 +2574,21 @@
         <section class="hero" id="home">
             <div class="hero-bg"></div>
             <div class="hero-inner">
-                <div class="hero-brand">
-                    <img src="Logo.png" alt="Koronadal City" />
-                    <div class="hero-brand-text">
-                        <strong>Koronadal City</strong>
-                        <small>Online Services Portal</small>
-                    </div>
-                </div>
-                <div class="hero-pill"><i class="fas fa-shield-halved"></i> Official Government Portal</div>
-                <h1>All of Koronadal's<br />Services. <span class="hl">One Place.</span></h1>
-                <p class="hero-sub">All Services at Your Fingertips</p>
+                <h1>Maayung Adlaw<br /><span class="hl">Koronadaleño!</span></h1>
+                <p class="hero-sub">Access government services online.</p>
                 <div class="hero-btns">
                     <a href="#services" class="hb hb-w"><i class="fas fa-arrow-pointer" style="font-size:.6rem"></i>
-                        Explore Services</a>
-                    <a href="https://koronadal.gov.ph/" target="_blank" class="hb hb-o"><i class="fas fa-globe"
-                            style="font-size:.6rem"></i> Visit LGU Website</a>
+                        View Services</a>
                 </div>
             </div>
         </section>
-
-        <!-- SEARCH -->
-        <div class="hero-search a">
-            <div class="hs-label">Quick Search</div>
-            <div class="hs-title">How can we help you?</div>
-            <div class="hs-input">
-                <input type="text" placeholder="Type a service name..." id="heroSearch" />
-                <button><i class="fas fa-arrow-right" style="font-size:.72rem"></i></button>
-            </div>
-            <div class="hs-tags">
-                <span>Popular:</span>
-                <a href="https://koronadalcityportal.com/v2/login" target="_blank" class="ht">Business Permit</a>
-                <a href="https://traffic.koronadalcityonlineservices.com/" target="_blank" class="ht">MTOP
-                    Checker</a>
-                <a href="https://jobs.koronadalcityonlineservices.com/" target="_blank" class="ht">Job Openings</a>
-            </div>
-        </div>
-
-        <!-- STATS -->
-        <div class="stats a d1">
-            <div class="stats-bar">
-                <div class="st-item">
-                    <div class="st-num">27</div>
-                    <div class="st-label">Barangays</div>
-                </div>
-                <div class="st-item">
-                    <div class="st-num">12+</div>
-                    <div class="st-label">Services</div>
-                </div>
-                <div class="st-item">
-                    <div class="st-num">24/7</div>
-                    <div class="st-label">Accessible</div>
-                </div>
-                <div class="st-item">
-                    <div class="st-num">100%</div>
-                    <div class="st-label">Transparent</div>
-                </div>
-            </div>
-        </div>
-
-        <!-- QUICK LINKS -->
-        <div class="qnav">
-            <div class="qnav-row">
-                <span class="qnav-lbl">Quick Links</span>
-                <a href="https://koronadal.gov.ph/" target="_blank" class="qpill"><i class="fas fa-home"></i>
-                    Homepage</a>
-                <a href="https://koronadal.gov.ph/city-history/" target="_blank" class="qpill"><i
-                        class="fas fa-landmark"></i> City History</a>
-                <a href="https://koronadal.gov.ph/vision-mission/" target="_blank" class="qpill"><i
-                        class="fas fa-bullseye"></i> Vision & Mission</a>
-                <a href="https://koronadal.gov.ph/27-barangay/" target="_blank" class="qpill"><i
-                        class="fas fa-map-pin"></i> 27 Barangays</a>
-                <a href="https://koronadal.gov.ph/geography/" target="_blank" class="qpill"><i
-                        class="fas fa-globe-asia"></i> Geography</a>
-                <a href="https://koronadal.gov.ph/awards/" target="_blank" class="qpill"><i class="fas fa-trophy"></i>
-                    Awards</a>
-            </div>
-        </div>
 
         <!-- SERVICES -->
         <section class="svc" id="services">
             <div class="sec-pad">
                 <div class="sec-head a">
                     <div class="sec-label"><i class="fas fa-bolt"></i> Online Services</div>
-                    <h2>What Would You Like to Do?</h2>
-                    <p>Select a service below. Everything is available online.</p>
+                    <h2>Services</h2>
                 </div>
                 <div class="svc-filters a d1">
                     <button class="fb on" data-f="all">All Services</button>
@@ -2708,144 +2604,127 @@
                 <div class="portals">
                     <a href="https://koronadalcityportal.com/v2/login" target="_blank" class="portal a d2"
                         data-c="permits">
-                        <div class="portal-accent pink"></div>
+                        <div class="portal-accent rose"></div>
                         <div class="portal-body">
                             <div class="portal-top">
-                                <div class="portal-icon pink"><i class="fas fa-file-contract"></i></div>
-                                <div class="portal-badge"><i class="fas fa-circle"></i> Open Portal</div>
+                                <div class="portal-icon rose"><i class="fas fa-file-contract"></i></div>
+
                             </div>
                             <h3>Business Permits & Licensing</h3>
-                            <p class="portal-desc">Apply for new business permits, renew existing ones, and manage your
-                                compliance requirements — fully online.</p>
-                            <div class="portal-features">
-                                <div class="portal-feat"><i class="fas fa-user-plus"></i> New Application</div>
-                                <div class="portal-feat"><i class="fas fa-sync"></i> Renewal</div>
-                                <div class="portal-feat"><i class="fas fa-credit-card"></i> Online Payment</div>
-                            </div>
-                            <span class="portal-cta pink">Open Business Portal <i class="fas fa-arrow-right"></i></span>
+                            <p class="portal-desc">Apply, renew, and manage business permits online.</p>
+                            <span class="portal-cta rose">Open Portal <i class="fas fa-arrow-right"></i></span>
                         </div>
                     </a>
                     <a href="https://traffic.koronadalcityonlineservices.com/" target="_blank" class="portal a d2"
                         data-c="safety">
-                        <div class="portal-accent amber"></div>
+                        <div class="portal-accent rose"></div>
                         <div class="portal-body">
                             <div class="portal-top">
-                                <div class="portal-icon amber"><i class="fas fa-car-crash"></i></div>
-                                <div class="portal-badge"><i class="fas fa-circle"></i> Open Portal</div>
+                                <div class="portal-icon rose"><i class="fas fa-car-crash"></i></div>
+
                             </div>
                             <h3>MTOP Checker</h3>
-                            <p class="portal-desc">Look up, verify, and settle MTOP quickly — all from
-                                your phone or desktop.</p>
-                            <div class="portal-features">
-                                <div class="portal-feat"><i class="fas fa-search"></i> Search MTOP</div>
-                                <div class="portal-feat"><i class="fas fa-file-alt"></i> View Details</div>
-                            </div>
-                            <span class="portal-cta amber">Open MTOP Portal <i class="fas fa-arrow-right"></i></span>
+                            <p class="portal-desc">Verify MTOP and View traffic violations online.</p>
+                            <span class="portal-cta rose">Open Portal <i class="fas fa-arrow-right"></i></span>
                         </div>
                     </a>
                     <a href="https://jobs.koronadalcityonlineservices.com/" target="_blank" class="portal a d3"
                         data-c="jobs">
-                        <div class="portal-accent green"></div>
+                        <div class="portal-accent rose"></div>
                         <div class="portal-body">
                             <div class="portal-top">
-                                <div class="portal-icon green"><i class="fas fa-briefcase"></i></div>
-                                <div class="portal-badge"><i class="fas fa-circle"></i> Open Portal</div>
+                                <div class="portal-icon rose"><i class="fas fa-briefcase"></i></div>
+
                             </div>
                             <h3>Job Portal</h3>
-                            <p class="portal-desc">Browse current city government job vacancies and apply directly —
-                                track your application status online.</p>
-                            <div class="portal-features">
-                                <div class="portal-feat"><i class="fas fa-list"></i> Browse Jobs</div>
-                                <div class="portal-feat"><i class="fas fa-paper-plane"></i> Apply Online</div>
-                                <div class="portal-feat"><i class="fas fa-chart-bar"></i> Track Status</div>
-                            </div>
-                            <span class="portal-cta green">Open Job Portal <i class="fas fa-arrow-right"></i></span>
+                            <p class="portal-desc">Browse and apply for city government job vacancies.</p>
+                            <span class="portal-cta rose">Open Portal <i class="fas fa-arrow-right"></i></span>
                         </div>
                     </a>
                 </div>
 
                 <!-- DESKTOP: SECONDARY SERVICES -->
                 <div class="svc-sec-head a d3">
-                    <h3>More City Services</h3>
+                    <h3>More Services</h3>
                 </div>
                 <div class="svc-sec">
                     <a href="https://koronadal.gov.ph/citizens-charter/" target="_blank" class="svc-sec-item a d3"
                         data-c="info">
-                        <div class="svc-sec-icon blue"><i class="fas fa-book-open"></i></div>
+                        <div class="svc-sec-icon rose"><i class="fas fa-book-open"></i></div>
                         <div class="svc-sec-body">
                             <h4>Citizen's Charter</h4>
-                            <p>Service guides, requirements & timelines</p>
+                            <p>Service guides & timelines</p>
                         </div>
                         <i class="fas fa-chevron-right svc-sec-arrow"></i>
                     </a>
                     <a href="https://koronadal.gov.ph/bids-and-awards/" target="_blank" class="svc-sec-item a d3"
                         data-c="jobs">
-                        <div class="svc-sec-icon green"><i class="fas fa-gavel"></i></div>
+                        <div class="svc-sec-icon rose"><i class="fas fa-gavel"></i></div>
                         <div class="svc-sec-body">
                             <h4>Bids & Awards</h4>
-                            <p>Procurement opportunities & invitations</p>
+                            <p>Procurement opportunities</p>
                         </div>
                         <i class="fas fa-chevron-right svc-sec-arrow"></i>
                     </a>
                     <a href="https://koronadal.gov.ph/full-disclosure/" target="_blank" class="svc-sec-item a d3"
                         data-c="trans">
-                        <div class="svc-sec-icon blue"><i class="fas fa-receipt"></i></div>
+                        <div class="svc-sec-icon rose"><i class="fas fa-receipt"></i></div>
                         <div class="svc-sec-body">
                             <h4>Financial Reports</h4>
-                            <p>Budget allocations & transparency</p>
+                            <p>Budget & transparency</p>
                         </div>
                         <i class="fas fa-chevron-right svc-sec-arrow"></i>
                     </a>
                     <a href="https://koronadal.gov.ph/emergency-hotlines/" target="_blank" class="svc-sec-item a d3"
                         data-c="safety">
-                        <div class="svc-sec-icon amber"><i class="fas fa-phone-alt"></i></div>
+                        <div class="svc-sec-icon rose"><i class="fas fa-phone-alt"></i></div>
                         <div class="svc-sec-body">
                             <h4>Emergency Contacts</h4>
-                            <p>Police, fire & hospital hotlines</p>
+                            <p>Hotlines directory</p>
                         </div>
                         <i class="fas fa-chevron-right svc-sec-arrow"></i>
                     </a>
                     <a href="https://koronadal.gov.ph/fare-matrix/" target="_blank" class="svc-sec-item a d3"
                         data-c="info">
-                        <div class="svc-sec-icon blue"><i class="fas fa-money-bill-wave"></i></div>
+                        <div class="svc-sec-icon rose"><i class="fas fa-money-bill-wave"></i></div>
                         <div class="svc-sec-body">
                             <h4>Fare Rates</h4>
-                            <p>Official public transport fare matrix</p>
+                            <p>Transport fare matrix</p>
                         </div>
                         <i class="fas fa-chevron-right svc-sec-arrow"></i>
                     </a>
                     <a href="https://koronadal.gov.ph/culture-copy/" target="_blank" class="svc-sec-item a d3"
                         data-c="safety">
-                        <div class="svc-sec-icon amber"><i class="fas fa-heartbeat"></i></div>
+                        <div class="svc-sec-icon rose"><i class="fas fa-heartbeat"></i></div>
                         <div class="svc-sec-body">
                             <h4>Health Services</h4>
-                            <p>Hospitals, health centers & programs</p>
+                            <p>Health facilities & programs</p>
                         </div>
                         <i class="fas fa-chevron-right svc-sec-arrow"></i>
                     </a>
                     <a href="https://koronadal.gov.ph/ordinance/" target="_blank" class="svc-sec-item a d3"
                         data-c="trans">
-                        <div class="svc-sec-icon blue"><i class="fas fa-scale-balanced"></i></div>
+                        <div class="svc-sec-icon rose"><i class="fas fa-scale-balanced"></i></div>
                         <div class="svc-sec-body">
                             <h4>City Ordinances</h4>
-                            <p>Local laws & council resolutions</p>
+                            <p>Local laws & resolutions</p>
                         </div>
                         <i class="fas fa-chevron-right svc-sec-arrow"></i>
                     </a>
                     <a href="https://koronadal.gov.ph/culture/" target="_blank" class="svc-sec-item a d3" data-c="info">
-                        <div class="svc-sec-icon blue"><i class="fas fa-palette"></i></div>
+                        <div class="svc-sec-icon rose"><i class="fas fa-palette"></i></div>
                         <div class="svc-sec-body">
                             <h4>Tourism & Culture</h4>
-                            <p>Attractions, heritage & events</p>
+                            <p>Heritage & events</p>
                         </div>
                         <i class="fas fa-chevron-right svc-sec-arrow"></i>
                     </a>
                     <a href="https://koronadal.gov.ph/city-officials/" target="_blank" class="svc-sec-item a d3"
                         data-c="info">
-                        <div class="svc-sec-icon blue"><i class="fas fa-address-book"></i></div>
+                        <div class="svc-sec-icon rose"><i class="fas fa-address-book"></i></div>
                         <div class="svc-sec-body">
                             <h4>Officials Directory</h4>
-                            <p>Contact info for officials & departments</p>
+                            <p>Officials & departments</p>
                         </div>
                         <i class="fas fa-chevron-right svc-sec-arrow"></i>
                     </a>
@@ -2856,9 +2735,9 @@
                     <!-- Portal cards -->
                     <a href="https://koronadalcityportal.com/v2/login" target="_blank" class="svc-portal a"
                         data-c="permits">
-                        <div class="svc-portal-accent pink"></div>
+                        <div class="svc-portal-accent rose"></div>
                         <div class="svc-portal-inner">
-                            <div class="svc-portal-icon pink"><i class="fas fa-file-contract"></i></div>
+                            <div class="svc-portal-icon rose"><i class="fas fa-file-contract"></i></div>
                             <div class="svc-portal-body">
                                 <h4>Business Permits & Licensing</h4>
                                 <p>Apply, renew & pay online</p>
@@ -2868,9 +2747,9 @@
                     </a>
                     <a href="https://traffic.koronadalcityonlineservices.com/" target="_blank" class="svc-portal a d1"
                         data-c="safety">
-                        <div class="svc-portal-accent amber"></div>
+                        <div class="svc-portal-accent rose"></div>
                         <div class="svc-portal-inner">
-                            <div class="svc-portal-icon amber"><i class="fas fa-car-crash"></i></div>
+                            <div class="svc-portal-icon rose"><i class="fas fa-car-crash"></i></div>
                             <div class="svc-portal-body">
                                 <h4>MTOP Checker</h4>
                                 <p>Search & settle violations</p>
@@ -2880,9 +2759,9 @@
                     </a>
                     <a href="https://jobs.koronadalcityonlineservices.com/" target="_blank" class="svc-portal a d1"
                         data-c="jobs">
-                        <div class="svc-portal-accent green"></div>
+                        <div class="svc-portal-accent rose"></div>
                         <div class="svc-portal-inner">
-                            <div class="svc-portal-icon green"><i class="fas fa-briefcase"></i></div>
+                            <div class="svc-portal-icon rose"><i class="fas fa-briefcase"></i></div>
                             <div class="svc-portal-body">
                                 <h4>Job Portal</h4>
                                 <p>Browse vacancies & apply</p>
@@ -2892,10 +2771,10 @@
                     </a>
 
                     <!-- Secondary services -->
-                    <div class="svc-list-divider a d2">More City Services</div>
+                    <div class="svc-list-divider a d2">More Services</div>
                     <a href="https://koronadal.gov.ph/citizens-charter/" target="_blank" class="svc-row a d2"
                         data-c="info">
-                        <div class="svc-row-icon blue"><i class="fas fa-book-open"></i></div>
+                        <div class="svc-row-icon rose"><i class="fas fa-book-open"></i></div>
                         <div class="svc-row-body">
                             <h4>Citizen's Charter</h4>
                             <p>Service guides, requirements & timelines</p>
@@ -2904,7 +2783,7 @@
                     </a>
                     <a href="https://koronadal.gov.ph/bids-and-awards/" target="_blank" class="svc-row a d2"
                         data-c="jobs">
-                        <div class="svc-row-icon green"><i class="fas fa-gavel"></i></div>
+                        <div class="svc-row-icon rose"><i class="fas fa-gavel"></i></div>
                         <div class="svc-row-body">
                             <h4>Bids & Awards</h4>
                             <p>Procurement opportunities & invitations</p>
@@ -2913,7 +2792,7 @@
                     </a>
                     <a href="https://koronadal.gov.ph/full-disclosure/" target="_blank" class="svc-row a d3"
                         data-c="trans">
-                        <div class="svc-row-icon blue"><i class="fas fa-receipt"></i></div>
+                        <div class="svc-row-icon rose"><i class="fas fa-receipt"></i></div>
                         <div class="svc-row-body">
                             <h4>Financial Reports</h4>
                             <p>Budget allocations & transparency</p>
@@ -2922,7 +2801,7 @@
                     </a>
                     <a href="https://koronadal.gov.ph/emergency-hotlines/" target="_blank" class="svc-row a d3"
                         data-c="safety">
-                        <div class="svc-row-icon amber"><i class="fas fa-phone-alt"></i></div>
+                        <div class="svc-row-icon rose"><i class="fas fa-phone-alt"></i></div>
                         <div class="svc-row-body">
                             <h4>Emergency Contacts</h4>
                             <p>Police, fire & hospital hotlines</p>
@@ -2930,7 +2809,7 @@
                         <i class="fas fa-chevron-right svc-row-arrow"></i>
                     </a>
                     <a href="https://koronadal.gov.ph/fare-matrix/" target="_blank" class="svc-row a d3" data-c="info">
-                        <div class="svc-row-icon blue"><i class="fas fa-money-bill-wave"></i></div>
+                        <div class="svc-row-icon rose"><i class="fas fa-money-bill-wave"></i></div>
                         <div class="svc-row-body">
                             <h4>Fare Rates</h4>
                             <p>Official public transport fare matrix</p>
@@ -2939,7 +2818,7 @@
                     </a>
                     <a href="https://koronadal.gov.ph/culture-copy/" target="_blank" class="svc-row a d3"
                         data-c="safety">
-                        <div class="svc-row-icon amber"><i class="fas fa-heartbeat"></i></div>
+                        <div class="svc-row-icon rose"><i class="fas fa-heartbeat"></i></div>
                         <div class="svc-row-body">
                             <h4>Health Services</h4>
                             <p>Hospitals, health centers & programs</p>
@@ -2947,7 +2826,7 @@
                         <i class="fas fa-chevron-right svc-row-arrow"></i>
                     </a>
                     <a href="https://koronadal.gov.ph/ordinance/" target="_blank" class="svc-row a d3" data-c="trans">
-                        <div class="svc-row-icon blue"><i class="fas fa-scale-balanced"></i></div>
+                        <div class="svc-row-icon rose"><i class="fas fa-scale-balanced"></i></div>
                         <div class="svc-row-body">
                             <h4>City Ordinances</h4>
                             <p>Local laws & council resolutions</p>
@@ -2955,7 +2834,7 @@
                         <i class="fas fa-chevron-right svc-row-arrow"></i>
                     </a>
                     <a href="https://koronadal.gov.ph/culture/" target="_blank" class="svc-row a d3" data-c="info">
-                        <div class="svc-row-icon blue"><i class="fas fa-palette"></i></div>
+                        <div class="svc-row-icon rose"><i class="fas fa-palette"></i></div>
                         <div class="svc-row-body">
                             <h4>Tourism & Culture</h4>
                             <p>Attractions, heritage & events</p>
@@ -2964,7 +2843,7 @@
                     </a>
                     <a href="https://koronadal.gov.ph/city-officials/" target="_blank" class="svc-row a d3"
                         data-c="info">
-                        <div class="svc-row-icon blue"><i class="fas fa-address-book"></i></div>
+                        <div class="svc-row-icon rose"><i class="fas fa-address-book"></i></div>
                         <div class="svc-row-body">
                             <h4>Officials Directory</h4>
                             <p>Contact info for officials & departments</p>
@@ -2974,7 +2853,6 @@
                 </div>
             </div>
         </section>
-        <div class="tn"></div>
 
         <!-- MAYOR -->
         <section class="mayor" id="mayor">
@@ -2998,25 +2876,12 @@
             </div>
         </section>
 
-        <!-- CULTURE -->
-        <div class="culture">
-            <div class="culture-in">
-                <div class="culture-dot"></div>
-                <div class="culture-txt">
-                    <h3>Inspired by T'nalak — The Heritage Weave of South Cotabato</h3>
-                    <p>Rooted in tradition, driven by progress</p>
-                </div>
-                <div class="culture-dot"></div>
-            </div>
-        </div>
-
         <!-- QUICK ACCESS -->
         <section class="qacc" id="quick">
             <div class="sec-pad">
                 <div class="sec-head a">
                     <div class="sec-label"><i class="fas fa-link"></i> Quick Links</div>
                     <h2>Explore Koronadal City</h2>
-                    <p>Learn more about our city.</p>
                 </div>
             </div>
             <!-- Desktop grid -->
@@ -3054,49 +2919,14 @@
                     </a>
                 </div>
             </div>
-            <!-- Mobile carousel -->
-            <div class="qacc-row">
-                <a href="https://koronadal.gov.ph/" target="_blank" class="qc a d1">
-                    <div class="qc-ico"><i class="fas fa-home"></i></div>
-                    <div class="qc-body"><strong>Official Website</strong><small>City homepage</small></div><i
-                        class="fas fa-chevron-right qc-arrow"></i>
-                </a>
-                <a href="https://koronadal.gov.ph/city-history/" target="_blank" class="qc a d1">
-                    <div class="qc-ico"><i class="fas fa-landmark"></i></div>
-                    <div class="qc-body"><strong>City History</strong><small>Heritage &amp; origins</small></div><i
-                        class="fas fa-chevron-right qc-arrow"></i>
-                </a>
-                <a href="https://koronadal.gov.ph/vision-mission/" target="_blank" class="qc a d2">
-                    <div class="qc-ico"><i class="fas fa-bullseye"></i></div>
-                    <div class="qc-body"><strong>Vision &amp; Mission</strong><small>Goals &amp; direction</small></div>
-                    <i class="fas fa-chevron-right qc-arrow"></i>
-                </a>
-                <a href="https://koronadal.gov.ph/27-barangay/" target="_blank" class="qc a d2">
-                    <div class="qc-ico"><i class="fas fa-map-pin"></i></div>
-                    <div class="qc-body"><strong>27 Barangays</strong><small>Districts &amp; areas</small></div><i
-                        class="fas fa-chevron-right qc-arrow"></i>
-                </a>
-                <a href="https://koronadal.gov.ph/geography/" target="_blank" class="qc a d3">
-                    <div class="qc-ico"><i class="fas fa-globe-asia"></i></div>
-                    <div class="qc-body"><strong>Geography</strong><small>Location &amp; climate</small></div><i
-                        class="fas fa-chevron-right qc-arrow"></i>
-                </a>
-                <a href="https://koronadal.gov.ph/awards/" target="_blank" class="qc a d3">
-                    <div class="qc-ico"><i class="fas fa-trophy"></i></div>
-                    <div class="qc-body"><strong>Awards</strong><small>Recognitions</small></div><i
-                        class="fas fa-chevron-right qc-arrow"></i>
-                </a>
-            </div>
         </section>
-        <div class="tn"></div>
 
         <!-- FOOTER -->
         <footer class="footer">
             <div class="fgrid">
                 <div>
                     <div class="f-brand"><img src="Logo.png" alt="Logo" /><strong>Koronadal City</strong></div>
-                    <p class="f-desc">Your one-stop digital portal for all Koronadal City government services. Making
-                        public service accessible, fast, and transparent.</p>
+                    <p class="f-desc">Your one-stop digital portal for Koronadal City government services.</p>
                     <div class="f-soc">
                         <a href="https://www.facebook.com/CityGovernmentofKoronadal" target="_blank"><i
                                 class="fab fa-facebook-f"></i></a>
@@ -3112,9 +2942,6 @@
                         </li>
                         <li><a href="https://jobs.koronadalcityonlineservices.com/" target="_blank">Job Openings</a>
                         </li>
-                        <li><a href="https://koronadal.gov.ph/bids-and-awards/" target="_blank">Bids & Awards</a></li>
-                        <li><a href="https://koronadal.gov.ph/emergency-hotlines/" target="_blank">Emergency
-                                Contacts</a></li>
                     </ul>
                 </div>
                 <div class="fcol">
@@ -3126,16 +2953,12 @@
                         </li>
                         <li><a href="https://koronadal.gov.ph/full-disclosure/" target="_blank">Financial Reports</a>
                         </li>
-                        <li><a href="https://koronadal.gov.ph/ordinance/" target="_blank">City Ordinances</a></li>
-                        <li><a href="https://koronadal.gov.ph/mayors-message/" target="_blank">Mayor's Message</a></li>
                     </ul>
                 </div>
                 <div class="fcol">
                     <div class="fcol-t">City Info</div>
                     <ul>
                         <li><a href="https://koronadal.gov.ph/culture/" target="_blank">Tourism</a></li>
-                        <li><a href="https://koronadal.gov.ph/culture-copy/" target="_blank">Health Facilities</a></li>
-                        <li><a href="https://koronadal.gov.ph/fare-matrix/" target="_blank">Transport Fares</a></li>
                         <li><a href="https://koronadal.gov.ph/27-barangay/" target="_blank">Barangays</a></li>
                         <li><a href="https://koronadal.gov.ph/geography/" target="_blank">About the City</a></li>
                     </ul>
@@ -3144,7 +2967,7 @@
             <div class="f-bottom">
                 <span class="f-copy">&copy; <?php echo date('Y'); ?> City Government of Koronadal. All rights
                     reserved.</span>
-                <span class="f-motto">One People, One Big Dream, One Koronadal</span>
+                <span class="f-motto">One People, One Dream, One Koronadal</span>
             </div>
         </footer>
 
@@ -3166,12 +2989,16 @@
 
     <!-- VIEW TOGGLE -->
     <div class="view-toggle" id="viewToggle">
-        <button class="view-toggle-btn active" data-view="auto" id="viewAuto"><i class="fas fa-sync-alt"></i>
-            Auto</button>
-        <button class="view-toggle-btn" data-view="mobile" id="viewMobile"><i class="fas fa-mobile-screen-button"></i>
-            Mobile</button>
-        <button class="view-toggle-btn" data-view="desktop" id="viewDesktop"><i class="fas fa-desktop"></i>
-            Desktop</button>
+        <div class="view-toggle-menu">
+            <button class="view-toggle-btn active" data-view="auto" id="viewAuto"><i class="fas fa-sync-alt"></i>
+                Auto</button>
+            <button class="view-toggle-btn" data-view="mobile" id="viewMobile"><i
+                    class="fas fa-mobile-screen-button"></i> Mobile</button>
+            <button class="view-toggle-btn" data-view="desktop" id="viewDesktop"><i class="fas fa-desktop"></i>
+                Desktop</button>
+        </div>
+        <button class="view-toggle-trigger" id="viewTrigger" aria-label="Toggle view"><i
+                class="fas fa-arrow-left"></i></button>
     </div>
 
     <script>
@@ -3191,8 +3018,7 @@
         try {
             s = localStorage.getItem('kdc-theme')
         } catch (e) {}
-        if (!s) s = (window.matchMedia && window.matchMedia('(prefers-color-scheme:dark)').matches) ? 'dark' :
-            'light';
+        if (!s) s = 'light';
         setTheme(s)
     })();
     themeBtn.addEventListener('click', function() {
@@ -3201,6 +3027,8 @@
 
     // === VIEW TOGGLE ===
     var viewBtns = document.querySelectorAll('.view-toggle-btn');
+    var viewToggle = document.getElementById('viewToggle');
+    var viewTrigger = document.getElementById('viewTrigger');
 
     function setViewMode(mode) {
         html.classList.remove('force-mobile', 'force-desktop');
@@ -3213,6 +3041,7 @@
         try {
             localStorage.setItem('kdc-view', mode)
         } catch (e) {}
+        viewToggle.classList.remove('open')
     }
     (function() {
         var v = null;
@@ -3221,10 +3050,16 @@
         } catch (e) {}
         setViewMode(v || 'auto')
     })();
+    viewTrigger.addEventListener('click', function() {
+        viewToggle.classList.toggle('open')
+    });
     viewBtns.forEach(function(b) {
         b.addEventListener('click', function() {
             setViewMode(this.dataset.view)
         })
+    });
+    document.addEventListener('click', function(e) {
+        if (!viewToggle.contains(e.target)) viewToggle.classList.remove('open')
     });
 
     // === MOBILE DRAWER ===
@@ -3383,55 +3218,6 @@
             });
             document.getElementById('cnt').textContent = n;
         });
-    });
-
-    // === HERO SEARCH ===
-    document.getElementById('heroSearch').addEventListener('keydown', function(e) {
-        if (e.key === 'Enter') {
-            var q = this.value.toLowerCase().trim();
-            document.querySelectorAll('.fb').forEach(function(b) {
-                b.classList.remove('on')
-            });
-            document.querySelector('.fb[data-f="all"]').classList.add('on');
-            var n = 0;
-            // Desktop portals
-            document.querySelectorAll('.portals .portal').forEach(function(c) {
-                c.style.display = '';
-                var t = (c.querySelector('h3') || {}).textContent || '',
-                    d = (c.querySelector('.portal-desc') || {}).textContent || '';
-                if (q && !t.toLowerCase().includes(q) && !d.toLowerCase().includes(q)) c.style.display =
-                    'none';
-                else n++;
-            });
-            // Desktop secondary
-            document.querySelectorAll('.svc-sec .svc-sec-item').forEach(function(c) {
-                c.style.display = '';
-                var t = (c.querySelector('h4') || {}).textContent || '',
-                    d = (c.querySelector('p') || {}).textContent || '';
-                if (q && !t.toLowerCase().includes(q) && !d.toLowerCase().includes(q)) c.style.display =
-                    'none';
-            });
-            // Mobile portals
-            document.querySelectorAll('.svc-list .svc-portal').forEach(function(c) {
-                c.style.display = '';
-                var t = (c.querySelector('h4') || {}).textContent || '',
-                    d = (c.querySelector('p') || {}).textContent || '';
-                if (q && !t.toLowerCase().includes(q) && !d.toLowerCase().includes(q)) c.style.display =
-                    'none';
-            });
-            // Mobile list rows
-            document.querySelectorAll('.svc-list .svc-row').forEach(function(c) {
-                c.style.display = '';
-                var t = (c.querySelector('h4') || {}).textContent || '',
-                    d = (c.querySelector('p') || {}).textContent || '';
-                if (q && !t.toLowerCase().includes(q) && !d.toLowerCase().includes(q)) c.style.display =
-                    'none';
-            });
-            document.getElementById('cnt').textContent = n;
-            if (q) document.getElementById('services').scrollIntoView({
-                behavior: 'smooth'
-            });
-        }
     });
     </script>
 </body>
