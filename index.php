@@ -3021,8 +3021,7 @@
         try {
             s = localStorage.getItem('kdc-theme')
         } catch (e) {}
-        if (!s) s = 'light';
-        setTheme(s)
+        setTheme(s === 'dark' ? 'dark' : 'light')
     })();
     themeBtn.addEventListener('click', function() {
         setTheme(html.getAttribute('data-theme') === 'dark' ? 'light' : 'dark')
