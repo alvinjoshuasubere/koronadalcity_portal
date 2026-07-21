@@ -3286,6 +3286,18 @@ if (file_exists($officialsFile)) {
         .fgrid {
             grid-template-columns: 1fr 1fr
         }
+
+        .cf-grid {
+            grid-template-columns: repeat(2, 1fr)
+        }
+
+        .co-card {
+            grid-template-columns: 1fr
+        }
+
+        .co-right {
+            grid-template-columns: repeat(4, 1fr)
+        }
     }
 
     /* ===== MOBILE SERVICES SHARED ===== */
@@ -3742,6 +3754,104 @@ if (file_exists($officialsFile)) {
             padding: 24px 0 32px
         }
 
+        /* City Overview mobile */
+        .city-overview {
+            padding: 20px 0 8px
+        }
+
+        .co-card {
+            padding: 20px 16px
+        }
+
+        .co-right {
+            grid-template-columns: repeat(2, 1fr)
+        }
+
+        .co-stat {
+            padding: 10px 8px
+        }
+
+        .co-stat-num {
+            font-size: 1.1rem
+        }
+
+        .co-title {
+            font-size: .95rem
+        }
+
+        .co-desc {
+            font-size: .68rem
+        }
+
+        /* City Features mobile */
+        .city-features {
+            padding: 16px 0
+        }
+
+        .cf-grid {
+            grid-template-columns: repeat(2, 1fr);
+            gap: 10px
+        }
+
+        .cf-card {
+            padding: 16px 12px 14px
+        }
+
+        .cf-icon {
+            width: 44px;
+            height: 44px;
+            font-size: 1rem;
+            margin-bottom: 8px
+        }
+
+        .cf-name {
+            font-size: .75rem
+        }
+
+        .cf-desc {
+            font-size: .6rem
+        }
+
+        /* City Motto mobile */
+        .city-motto {
+            padding: 20px 0
+        }
+
+        .cm-card {
+            padding: 22px 16px
+        }
+
+        .cm-quote {
+            font-size: .85rem
+        }
+
+        .cm-deco {
+            width: 50px;
+            height: 50px
+        }
+
+        /* Hero parallax mobile — smaller shapes */
+        .hp-shape.hex {
+            width: 35px;
+            height: 35px
+        }
+
+        .hp-shape.diamond {
+            width: 22px;
+            height: 22px
+        }
+
+        .hp-shape.circle {
+            width: 30px;
+            height: 30px
+        }
+
+        .hp-shape.tri {
+            border-left-width: 12px;
+            border-right-width: 12px;
+            border-bottom-width: 20px
+        }
+
         /* Footer compact */
         .fgrid {
             grid-template-columns: 1fr;
@@ -3782,6 +3892,23 @@ if (file_exists($officialsFile)) {
         .svc-row-body p {
             font-size: .6rem
         }
+
+        .cf-grid {
+            grid-template-columns: 1fr
+        }
+
+        .co-right {
+            grid-template-columns: repeat(2, 1fr);
+            gap: 8px
+        }
+
+        .co-stat-num {
+            font-size: 1rem
+        }
+
+        .cm-quote {
+            font-size: .78rem
+        }
     }
 
     /* Touch */
@@ -3818,24 +3945,54 @@ if (file_exists($officialsFile)) {
             opacity: 0
         }
 
-        .qc:active {
-            transform: scale(.98);
-            border-color: var(--rose-l)
+        .co-card:hover {
+            transform: none;
+            box-shadow: var(--shadow-md)
         }
 
-        .emergency-card:hover {
+        .co-stat:hover {
+            transform: none;
+            box-shadow: none
+        }
+
+        .cf-card:hover {
+            transform: none;
+            box-shadow: var(--shadow-sm)
+        }
+
+        .cf-card:hover .cf-icon {
             transform: none
         }
 
-        .leader-council-card:hover {
+        .cm-card:hover {
             transform: none;
-            box-shadow: var(--shadow-sm)
+            box-shadow: none
         }
 
-        .leader-vice-card:hover {
+        .svc-feat-card:hover {
             transform: none;
-            box-shadow: var(--shadow-sm)
+            box-shadow: var(--shadow-md)
         }
+    }
+
+    .qc:active {
+        transform: scale(.98);
+        border-color: var(--rose-l)
+    }
+
+    .emergency-card:hover {
+        transform: none
+    }
+
+    .leader-council-card:hover {
+        transform: none;
+        box-shadow: var(--shadow-sm)
+    }
+
+    .leader-vice-card:hover {
+        transform: none;
+        box-shadow: var(--shadow-sm)
+    }
     }
     </style>
 </head>
