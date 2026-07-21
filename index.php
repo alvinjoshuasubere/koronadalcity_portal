@@ -1,3 +1,15 @@
+<?php
+$emergencyData = [];
+$officialsData = [];
+$emergencyFile = __DIR__ . '/data/emergency_contacts.json';
+$officialsFile = __DIR__ . '/data/officials.json';
+if (file_exists($emergencyFile)) {
+    $emergencyData = json_decode(file_get_contents($emergencyFile), true);
+}
+if (file_exists($officialsFile)) {
+    $officialsData = json_decode(file_get_contents($officialsFile), true);
+}
+?>
 <!DOCTYPE html>
 <html lang="en" data-theme="light">
 
@@ -45,6 +57,9 @@
         --bottom-h: 60px;
         --safe-b: env(safe-area-inset-bottom, 0px);
         --safe-t: env(safe-area-inset-top, 0px);
+        --glow-rose: rgba(168, 61, 92, 0.4);
+        --glass-bg: rgba(255, 255, 255, 0.6);
+        --glass-border: rgba(255, 255, 255, 0.3);
     }
 
     [data-theme="dark"] {
@@ -66,6 +81,9 @@
         --shadow-sm: 0 1px 3px rgba(0, 0, 0, .35), 0 1px 6px rgba(0, 0, 0, .25);
         --shadow-md: 0 4px 20px rgba(0, 0, 0, .45), 0 1px 4px rgba(0, 0, 0, .3);
         --shadow-lg: 0 16px 48px rgba(0, 0, 0, .55);
+        --glow-rose: rgba(208, 104, 130, 0.35);
+        --glass-bg: rgba(22, 27, 38, 0.7);
+        --glass-border: rgba(226, 228, 234, 0.08);
     }
 
     /* ===== RESET ===== */
@@ -139,6 +157,61 @@
         overflow: hidden
     }
 
+    /* ===== 3D ANIMATED BACKGROUND ORBS ===== */
+    .floating-orbs {
+        position: fixed;
+        inset: 0;
+        pointer-events: none;
+        z-index: 0;
+        overflow: hidden
+    }
+
+    .orb {
+        position: absolute;
+        border-radius: 50%;
+        filter: blur(80px);
+        opacity: 0.12;
+        animation: floatOrb 20s ease-in-out infinite alternate
+    }
+
+    .orb-1 {
+        width: 400px;
+        height: 400px;
+        background: var(--rose);
+        top: -100px;
+        right: -100px;
+        animation-delay: 0s;
+        animation-duration: 22s
+    }
+
+    .orb-2 {
+        width: 300px;
+        height: 300px;
+        background: #4A6CF7;
+        bottom: 20%;
+        left: -80px;
+        animation-delay: -5s;
+        animation-duration: 18s
+    }
+
+    .orb-3 {
+        width: 250px;
+        height: 250px;
+        background: var(--rose-d);
+        top: 50%;
+        right: 10%;
+        animation-delay: -10s;
+        animation-duration: 25s;
+        opacity: 0.08
+    }
+
+    @keyframes floatOrb {
+        0% { transform: translate(0, 0) scale(1) }
+        33% { transform: translate(30px, -40px) scale(1.05) }
+        66% { transform: translate(-20px, 30px) scale(0.95) }
+        100% { transform: translate(15px, -20px) scale(1.02) }
+    }
+
     /* ===== APP SHELL ===== */
     .app {
         position: relative;
@@ -193,7 +266,7 @@
         font-weight: 600;
         color: var(--ink-soft);
         border: 1px solid var(--line);
-        background: var(--card);
+        background: var(--glass-bg);
         cursor: pointer;
         transition: all .2s;
         white-space: nowrap;
@@ -230,13 +303,13 @@
         place-items: center;
         font-size: .55rem;
         cursor: pointer;
-        box-shadow: -2px 2px 10px rgba(168, 61, 92, .25);
+        box-shadow: 0 0 15px var(--glow-rose);
         transition: all .2s cubic-bezier(.4, 0, .2, 1);
         flex-shrink: 0
     }
 
     .view-toggle-trigger:hover {
-        box-shadow: -2px 2px 14px rgba(168, 61, 92, .35)
+        box-shadow: 0 0 25px var(--glow-rose)
     }
 
     .view-toggle.open .view-toggle-trigger {
@@ -259,10 +332,10 @@
         right: 0;
         z-index: 100;
         height: var(--nav-h);
-        background: var(--paper);
-        border-bottom: 1px solid var(--line);
-        backdrop-filter: blur(20px);
-        -webkit-backdrop-filter: blur(20px)
+        background: var(--glass-bg);
+        border-bottom: 1px solid var(--glass-border);
+        backdrop-filter: blur(24px);
+        -webkit-backdrop-filter: blur(24px)
     }
 
     .topnav-in {
@@ -288,7 +361,8 @@
         object-fit: contain;
         background: var(--card);
         padding: 3px;
-        border: 1px solid var(--line)
+        border: 1px solid var(--line);
+        box-shadow: 0 0 10px var(--glow-rose)
     }
 
     .brand-text {
@@ -347,18 +421,21 @@
         height: 34px;
         border-radius: var(--r-s);
         border: 1px solid var(--line);
-        background: var(--card);
+        background: var(--glass-bg);
         color: var(--ink-soft);
         display: grid;
         place-items: center;
         font-size: .75rem;
         transition: all .15s;
-        box-shadow: var(--shadow-sm)
+        box-shadow: var(--shadow-sm);
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px)
     }
 
     .theme-btn:hover {
         border-color: var(--rose);
-        color: var(--rose)
+        color: var(--rose);
+        box-shadow: 0 0 12px var(--glow-rose)
     }
 
     .nav-cta {
@@ -373,13 +450,13 @@
         font-weight: 700;
         border: none;
         transition: all .15s;
-        box-shadow: var(--shadow-sm)
+        box-shadow: 0 0 12px var(--glow-rose)
     }
 
     .nav-cta:hover {
         background: var(--rose-d);
         transform: translateY(-1px);
-        box-shadow: var(--shadow-md)
+        box-shadow: 0 0 20px var(--glow-rose), var(--shadow-md)
     }
 
     .burger {
@@ -388,11 +465,13 @@
         height: 34px;
         border-radius: var(--r-s);
         border: 1px solid var(--line);
-        background: var(--card);
+        background: var(--glass-bg);
         color: var(--ink-soft);
         align-items: center;
         justify-content: center;
-        font-size: .75rem
+        font-size: .75rem;
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px)
     }
 
     /* ===== MOBILE DRAWER ===== */
@@ -496,6 +575,14 @@
         transition-delay: .16s
     }
 
+    .mnav.on .mnav-links a:nth-child(5) {
+        transition-delay: .20s
+    }
+
+    .mnav.on .mnav-links a:nth-child(6) {
+        transition-delay: .24s
+    }
+
     .mnav-links a:hover,
     .mnav-links a.on {
         background: var(--rose-l);
@@ -555,13 +642,48 @@
         content: '';
         position: absolute;
         inset: 0;
-        background: radial-gradient(circle at 80% 20%, rgba(168, 61, 92, .15), transparent 50%)
+        background: radial-gradient(circle at 80% 20%, rgba(168, 61, 92, .2), transparent 50%)
+    }
+
+    .hero-bg::after {
+        content: '';
+        position: absolute;
+        inset: 0;
+        opacity: .04;
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='60' height='60'%3E%3Cpath d='M0 30h60M30 0v60' stroke='%23A83D5C' stroke-width='.3'/%3E%3Ccircle cx='30' cy='30' r='1.5' fill='%23A83D5C' opacity='.3'/%3E%3C/svg%3E");
+        background-size: 60px 60px;
+        animation: gridPulse 8s ease-in-out infinite
+    }
+
+    @keyframes gridPulse {
+        0%, 100% { opacity: .03 }
+        50% { opacity: .07 }
+    }
+
+    .hero-glow-ring {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 300px;
+        height: 300px;
+        transform: translate(-50%, -50%);
+        border-radius: 50%;
+        border: 1px solid rgba(168, 61, 92, .15);
+        box-shadow: 0 0 60px rgba(168, 61, 92, .1), inset 0 0 60px rgba(168, 61, 92, .05);
+        animation: glowRing 4s ease-in-out infinite;
+        z-index: 1
+    }
+
+    @keyframes glowRing {
+        0%, 100% { transform: translate(-50%, -50%) scale(1); opacity: .5 }
+        50% { transform: translate(-50%, -50%) scale(1.1); opacity: .8 }
     }
 
     .hero-inner {
         position: relative;
         z-index: 2;
-        padding: 28px 16px 32px
+        padding: 28px 16px 32px;
+        perspective: 800px
     }
 
     .hero-brand {
@@ -577,7 +699,14 @@
         border-radius: var(--r-s);
         background: rgba(255, 255, 255, .1);
         padding: 3px;
-        border: 1px solid rgba(255, 255, 255, .15)
+        border: 1px solid rgba(255, 255, 255, .15);
+        box-shadow: 0 0 20px rgba(168, 61, 92, .3);
+        animation: logoPulse 3s ease-in-out infinite
+    }
+
+    @keyframes logoPulse {
+        0%, 100% { box-shadow: 0 0 20px rgba(168, 61, 92, .3) }
+        50% { box-shadow: 0 0 35px rgba(168, 61, 92, .5) }
     }
 
     .hero-brand-text {
@@ -629,11 +758,22 @@
         color: #fff;
         line-height: 1.08;
         letter-spacing: -.03em;
-        margin-bottom: 8px
+        margin-bottom: 8px;
+        text-shadow: 0 0 30px rgba(168, 61, 92, .2)
     }
 
     .hero h1 .hl {
-        color: var(--rose)
+        background: linear-gradient(135deg, var(--rose), #D06882, #E8919F);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        filter: drop-shadow(0 0 20px rgba(168, 61, 92, .3));
+        animation: gradientText 5s ease-in-out infinite alternate
+    }
+
+    @keyframes gradientText {
+        0% { filter: drop-shadow(0 0 20px rgba(168, 61, 92, .3)) }
+        100% { filter: drop-shadow(0 0 30px rgba(168, 61, 92, .5)) }
     }
 
     .hero-sub {
@@ -675,7 +815,7 @@
     }
 
     .hb-w:hover {
-        box-shadow: var(--shadow-md);
+        box-shadow: var(--shadow-md), 0 0 20px rgba(168, 61, 92, .2);
         transform: translateY(-1px)
     }
 
@@ -696,11 +836,13 @@
         position: relative;
         z-index: 2;
         margin: 20px 16px 0;
-        background: var(--card);
-        border: 1px solid var(--line);
+        background: var(--glass-bg);
+        border: 1px solid var(--glass-border);
         border-radius: var(--r);
         padding: 20px;
-        box-shadow: var(--shadow-md)
+        box-shadow: var(--shadow-md), 0 0 30px rgba(168, 61, 92, .05);
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px)
     }
 
     .hs-label {
@@ -735,7 +877,7 @@
 
     .hs-input:focus-within {
         border-color: var(--rose);
-        box-shadow: 0 0 0 1px var(--rose-wash), var(--shadow-sm)
+        box-shadow: 0 0 0 1px var(--rose-wash), 0 0 15px var(--glow-rose)
     }
 
     .hs-input input {
@@ -806,14 +948,22 @@
     }
 
     .stats-bar {
-        background: var(--card);
-        border: 1px solid var(--line);
+        background: var(--glass-bg);
+        border: 1px solid var(--glass-border);
         border-radius: var(--r);
         padding: 16px;
         display: grid;
         grid-template-columns: repeat(4, 1fr);
         gap: 8px;
-        box-shadow: var(--shadow-md)
+        box-shadow: var(--shadow-md), 0 0 20px rgba(168, 61, 92, .05);
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
+        transform: perspective(500px) rotateX(1deg);
+        transition: transform .3s ease
+    }
+
+    .stats-bar:hover {
+        transform: perspective(500px) rotateX(0deg)
     }
 
     .st-item {
@@ -831,7 +981,8 @@
         font-size: 1.3rem;
         font-weight: 800;
         color: var(--rose);
-        line-height: 1
+        line-height: 1;
+        text-shadow: 0 0 10px var(--glow-rose)
     }
 
     .st-label {
@@ -933,7 +1084,7 @@
         content: '';
         flex: 1;
         height: 1px;
-        background: var(--line)
+        background: linear-gradient(90deg, var(--line), transparent)
     }
 
     .sec-head h2 {
@@ -976,13 +1127,15 @@
         font-size: .66rem;
         font-weight: 600;
         border: 1px dashed var(--line-strong);
-        background: var(--card);
+        background: var(--glass-bg);
         color: var(--ink-faint);
         transition: all .15s;
         white-space: nowrap;
         flex-shrink: 0;
         box-shadow: var(--shadow-sm);
-        opacity: .7
+        opacity: .7;
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px)
     }
 
     .fb:active {
@@ -994,7 +1147,7 @@
         border-style: solid;
         border-color: var(--rose);
         color: var(--ink);
-        box-shadow: 0 0 0 1px var(--rose-wash), var(--shadow-sm)
+        box-shadow: 0 0 0 1px var(--rose-wash), 0 0 12px var(--glow-rose)
     }
 
     .scnt {
@@ -1014,24 +1167,28 @@
         display: grid;
         grid-template-columns: repeat(3, 1fr);
         gap: 16px;
-        margin-bottom: 32px
+        margin-bottom: 32px;
+        perspective: 1000px
     }
 
     .portal {
-        background: var(--card);
-        border: 1px solid var(--line);
+        background: var(--glass-bg);
+        border: 1px solid var(--glass-border);
         border-left: 3px solid var(--rose);
         border-radius: var(--r);
         overflow: hidden;
-        transition: all .25s cubic-bezier(.4, 0, .2, 1);
+        transition: all .35s cubic-bezier(.4, 0, .2, 1);
         position: relative;
         display: flex;
-        flex-direction: column
+        flex-direction: column;
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
+        transform-style: preserve-3d
     }
 
     .portal:hover {
-        transform: translateY(-3px);
-        box-shadow: var(--shadow-md);
+        transform: perspective(800px) rotateY(-2deg) rotateX(1deg) translateY(-5px) translateZ(10px);
+        box-shadow: 0 10px 40px rgba(168, 61, 92, .15), 0 0 20px var(--glow-rose);
         border-left-color: var(--rose-d)
     }
 
@@ -1074,7 +1231,8 @@
 
     .portal:hover .portal-icon.rose {
         background: var(--rose);
-        color: #fff
+        color: #fff;
+        box-shadow: 0 0 15px var(--glow-rose)
     }
 
     .portal-badge {
@@ -1169,7 +1327,7 @@
         background: var(--rose);
         color: #fff;
         border-color: var(--rose);
-        box-shadow: 0 4px 16px rgba(168, 61, 92, .18)
+        box-shadow: 0 4px 20px var(--glow-rose)
     }
 
     .portal-cta i {
@@ -1205,27 +1363,31 @@
     .svc-sec {
         display: grid;
         grid-template-columns: repeat(3, 1fr);
-        gap: 10px
+        gap: 10px;
+        perspective: 1200px
     }
 
     .svc-sec-item {
-        background: var(--card);
-        border: 1px solid var(--line);
+        background: var(--glass-bg);
+        border: 1px solid var(--glass-border);
         border-radius: var(--r);
         padding: 16px;
         display: flex;
         align-items: center;
         gap: 12px;
-        transition: all .2s cubic-bezier(.4, 0, .2, 1);
+        transition: all .35s cubic-bezier(.4, 0, .2, 1);
         text-decoration: none;
         color: inherit;
-        box-shadow: var(--shadow-sm)
+        box-shadow: var(--shadow-sm);
+        backdrop-filter: blur(16px);
+        -webkit-backdrop-filter: blur(16px);
+        transform-style: preserve-3d
     }
 
     .svc-sec-item:hover {
         border-color: var(--rose-l);
-        box-shadow: var(--shadow-md);
-        transform: translateY(-1px)
+        box-shadow: var(--shadow-md), 0 0 20px var(--glow-rose);
+        transform: perspective(800px) rotateY(-3deg) rotateX(1deg) translateY(-4px) translateZ(6px)
     }
 
     .svc-sec-item:active {
@@ -1281,9 +1443,267 @@
         transform: translateX(2px)
     }
 
+    /* ===== FEATURED SERVICES ===== */
+    .svc-featured {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 14px;
+        margin-bottom: 28px;
+        perspective: 1200px
+    }
+
+    .svc-feat-card {
+        position: relative;
+        background: var(--glass-bg);
+        border: 1px solid var(--glass-border);
+        border-radius: var(--r-l);
+        padding: 22px 20px;
+        display: flex;
+        align-items: center;
+        gap: 16px;
+        text-decoration: none;
+        color: inherit;
+        overflow: hidden;
+        transition: all .4s cubic-bezier(.4, 0, .2, 1);
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
+        box-shadow: var(--shadow-md), 0 0 0 1px var(--rose-wash);
+        transform-style: preserve-3d
+    }
+
+    .svc-feat-glow {
+        position: absolute;
+        inset: 0;
+        opacity: 0;
+        transition: opacity .4s;
+        pointer-events: none;
+        border-radius: var(--r-l)
+    }
+
+    .svc-feat-emergency .svc-feat-glow {
+        background: radial-gradient(circle at 30% 50%, rgba(168, 61, 92, .08), transparent 70%)
+    }
+
+    .svc-feat-officials .svc-feat-glow {
+        background: radial-gradient(circle at 70% 50%, rgba(168, 61, 92, .08), transparent 70%)
+    }
+
+    .svc-feat-card:hover .svc-feat-glow {
+        opacity: 1
+    }
+
+    .svc-feat-card:hover {
+        transform: perspective(800px) rotateY(-2deg) rotateX(1deg) translateY(-4px) translateZ(8px);
+        box-shadow: var(--shadow-lg), 0 0 30px var(--glow-rose), 0 0 60px rgba(168, 61, 92, .08);
+        border-color: var(--rose-l)
+    }
+
+    .svc-feat-card:active {
+        transform: scale(.98)
+    }
+
+    .svc-feat-icon {
+        width: 48px;
+        height: 48px;
+        border-radius: var(--r);
+        display: grid;
+        place-items: center;
+        font-size: 1rem;
+        background: var(--rose-l);
+        color: var(--rose);
+        flex-shrink: 0;
+        transition: all .3s;
+        position: relative;
+        z-index: 1;
+        box-shadow: 0 0 15px var(--glow-rose)
+    }
+
+    .svc-feat-card:hover .svc-feat-icon {
+        background: var(--rose);
+        color: #fff;
+        box-shadow: 0 0 25px var(--glow-rose)
+    }
+
+    .svc-feat-body {
+        flex: 1;
+        min-width: 0;
+        position: relative;
+        z-index: 1
+    }
+
+    .svc-feat-body h4 {
+        font-size: .82rem;
+        font-weight: 700;
+        color: var(--ink);
+        line-height: 1.3;
+        margin-bottom: 3px
+    }
+
+    .svc-feat-body p {
+        font-size: .64rem;
+        color: var(--ink-faint);
+        line-height: 1.4
+    }
+
+    .svc-feat-badge {
+        width: 30px;
+        height: 30px;
+        border-radius: var(--r-full);
+        display: grid;
+        place-items: center;
+        font-size: .55rem;
+        background: var(--rose);
+        color: #fff;
+        flex-shrink: 0;
+        transition: all .3s;
+        position: relative;
+        z-index: 1;
+        box-shadow: 0 0 12px var(--glow-rose)
+    }
+
+    .svc-feat-card:hover .svc-feat-badge {
+        transform: translateX(3px);
+        box-shadow: 0 0 20px var(--glow-rose)
+    }
+
     /* ===== MOBILE: PORTALS + LIST ===== */
     .svc-list {
         display: none
+    }
+
+    /* ===== EMERGENCY CONTACTS ===== */
+    .emergency {
+        padding: 32px 0
+    }
+
+    .emergency .sec-head h2 {
+        text-shadow: 0 0 20px var(--glow-rose)
+    }
+
+    .emergency-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 12px;
+        perspective: 1000px
+    }
+
+    .emergency-card {
+        background: var(--glass-bg);
+        border: 1px solid var(--glass-border);
+        border-radius: var(--r);
+        padding: 18px;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        transition: all .3s cubic-bezier(.4, 0, .2, 1);
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
+        box-shadow: var(--shadow-sm);
+        position: relative;
+        overflow: hidden;
+        transform-style: preserve-3d
+    }
+
+    .emergency-card::before {
+        content: '';
+        position: absolute;
+        inset: -1px;
+        border-radius: var(--r);
+        border: 1px solid transparent;
+        background: linear-gradient(135deg, rgba(168, 61, 92, .2), transparent 50%) border-box;
+        -webkit-mask: linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0);
+        mask: linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0);
+        -webkit-mask-composite: xor;
+        mask-composite: exclude;
+        pointer-events: none;
+        opacity: 0;
+        transition: opacity .3s
+    }
+
+    .emergency-card:hover::before {
+        opacity: 1
+    }
+
+    .emergency-card:hover {
+        transform: perspective(800px) rotateX(2deg) translateY(-4px);
+        box-shadow: var(--shadow-md), 0 0 25px var(--glow-rose)
+    }
+
+    .em-icon {
+        width: 40px;
+        height: 40px;
+        border-radius: var(--r-s);
+        display: grid;
+        place-items: center;
+        font-size: .85rem;
+        background: var(--rose-l);
+        color: var(--rose);
+        transition: all .25s
+    }
+
+    .emergency-card:hover .em-icon {
+        background: var(--rose);
+        color: #fff;
+        box-shadow: 0 0 15px var(--glow-rose)
+    }
+
+    .em-name {
+        font-size: .82rem;
+        font-weight: 700;
+        color: var(--ink)
+    }
+
+    .em-phone {
+        font-size: .78rem;
+        font-weight: 600;
+        color: var(--rose);
+        transition: all .15s
+    }
+
+    .em-phone:hover {
+        text-shadow: 0 0 10px var(--glow-rose)
+    }
+
+    .em-desc {
+        font-size: .65rem;
+        color: var(--ink-faint);
+        line-height: 1.5
+    }
+
+    .emergency-empty {
+        grid-column: 1 / -1;
+        text-align: center;
+        padding: 40px 16px;
+        color: var(--ink-faint);
+        font-size: .78rem
+    }
+
+    .emergency-link {
+        display: flex;
+        justify-content: flex-end;
+        margin-top: 14px
+    }
+
+    .emergency-link a {
+        font-size: .68rem;
+        font-weight: 600;
+        color: var(--ink-soft);
+        display: inline-flex;
+        align-items: center;
+        gap: 5px;
+        padding: 6px 12px;
+        border-radius: var(--r-s);
+        border: 1px solid var(--line);
+        background: var(--glass-bg);
+        transition: all .15s;
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px)
+    }
+
+    .emergency-link a:hover {
+        color: var(--rose);
+        border-color: var(--rose-l);
+        box-shadow: 0 0 10px var(--glow-rose)
     }
 
     /* ===== QUICK ACCESS ===== */
@@ -1294,12 +1714,13 @@
     .qgrid {
         display: grid;
         grid-template-columns: repeat(3, 1fr);
-        gap: 8px
+        gap: 8px;
+        perspective: 1200px
     }
 
     .qc {
-        background: var(--card);
-        border: 1px solid var(--line);
+        background: var(--glass-bg);
+        border: 1px solid var(--glass-border);
         border-radius: var(--r);
         padding: 14px;
         display: flex;
@@ -1307,10 +1728,13 @@
         gap: 11px;
         text-decoration: none;
         color: inherit;
-        transition: all .15s;
+        transition: all .35s cubic-bezier(.4, 0, .2, 1);
         position: relative;
         overflow: hidden;
-        box-shadow: var(--shadow-sm)
+        box-shadow: var(--shadow-sm);
+        backdrop-filter: blur(16px);
+        -webkit-backdrop-filter: blur(16px);
+        transform-style: preserve-3d
     }
 
     .qc::before {
@@ -1327,8 +1751,8 @@
 
     .qc:hover {
         border-color: var(--rose-l);
-        box-shadow: 0 0 0 1px var(--rose-wash), var(--shadow-sm);
-        transform: translateY(-1px)
+        box-shadow: 0 0 0 1px var(--rose-wash), 0 0 20px var(--glow-rose);
+        transform: perspective(800px) rotateY(2deg) rotateX(-1deg) translateY(-4px) translateZ(8px)
     }
 
     .qc:hover::before {
@@ -1354,7 +1778,8 @@
 
     .qc:hover .qc-ico {
         background: var(--rose);
-        color: #fff
+        color: #fff;
+        box-shadow: 0 0 12px var(--glow-rose)
     }
 
     .qc-body {
@@ -1390,69 +1815,141 @@
         transform: translateX(2px)
     }
 
-    /* ===== MAYOR ===== */
-    .mayor {
+    /* ===== CITY LEADERSHIP ===== */
+    .leadership {
         padding: 32px 0;
         background: var(--paper);
         border-top: 1px solid var(--line);
         border-bottom: 1px solid var(--line)
     }
 
-    .mayor-card {
-        background: var(--card);
-        border: 1px solid var(--line);
-        border-radius: var(--r);
+    /* Mayor — Banner Card */
+    .leader-mayor {
+        border-radius: var(--r-l);
         overflow: hidden;
-        box-shadow: var(--shadow-sm)
+        position: relative;
+        background: var(--glass-bg);
+        border: 1px solid var(--glass-border);
+        box-shadow: var(--shadow-md);
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
+        transition: all .4s cubic-bezier(.4, 0, .2, 1);
+        margin-bottom: 20px
     }
 
-    .mayor-img {
+    .leader-mayor:hover {
+        box-shadow: var(--shadow-lg), 0 0 30px var(--glow-rose)
+    }
+
+    .leader-mayor-img {
         width: 100%;
-        aspect-ratio: 16/9;
-        overflow: hidden
+        aspect-ratio: 16/7;
+        overflow: hidden;
+        position: relative
     }
 
-    .mayor-img img {
+    .leader-mayor-img img {
         width: 100%;
         height: 100%;
         object-fit: cover;
         object-position: top
     }
 
-    .mayor-body {
-        padding: 18px
+    .leader-mayor-overlay {
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(to top, rgba(26, 26, 46, .85) 0%, transparent 60%)
     }
 
-    .mayor-tag {
+    [data-theme="dark"] .leader-mayor-overlay {
+        background: linear-gradient(to top, rgba(11, 14, 20, .9) 0%, transparent 60%)
+    }
+
+    .leader-mayor-body {
+        padding: 20px 24px 22px;
+        margin-top: -40px;
+        position: relative;
+        z-index: 2
+    }
+
+    .leader-mayor-photo-float {
+        width: 90px;
+        height: 90px;
+        border-radius: 50%;
+        overflow: hidden;
+        border: 3px solid var(--rose);
+        box-shadow: 0 0 25px var(--glow-rose), 0 4px 20px rgba(0,0,0,.2);
+        position: absolute;
+        top: -45px;
+        right: 24px;
+        background: var(--rose-l);
+        display: grid;
+        place-items: center;
+        animation: mayorFloatGlow 3s ease-in-out infinite;
+        z-index: 3
+    }
+
+    .leader-mayor-photo-float img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover
+    }
+
+    .leader-mayor-photo-float i {
+        font-size: 1.8rem;
+        color: var(--rose);
+        opacity: .6
+    }
+
+    @keyframes mayorFloatGlow {
+        0%, 100% { box-shadow: 0 0 20px var(--glow-rose), 0 4px 20px rgba(0,0,0,.2) }
+        50% { box-shadow: 0 0 35px var(--glow-rose), 0 4px 30px rgba(0,0,0,.25) }
+    }
+
+    .leader-mayor-badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 5px;
         font-size: .5rem;
         font-weight: 700;
         color: var(--rose);
         text-transform: uppercase;
         letter-spacing: .12em;
-        margin-bottom: 5px
+        padding: 4px 12px;
+        border-radius: var(--r-full);
+        background: var(--rose-l);
+        border: 1px solid var(--rose-wash);
+        margin-bottom: 8px
     }
 
-    .mayor-body h2 {
-        font-size: 1.05rem;
+    .leader-mayor-badge i {
+        font-size: .4rem
+    }
+
+    .leader-mayor-name {
+        font-size: 1.2rem;
         font-weight: 800;
         color: var(--ink);
         line-height: 1.15;
-        margin-bottom: 7px
+        margin-bottom: 8px
     }
 
-    .mayor-body h2 em {
-        font-style: normal;
-        color: var(--rose)
-    }
-
-    .mayor-body .mdesc {
+    .leader-mayor-desc {
         font-size: .74rem;
         color: var(--ink-soft);
         line-height: 1.65;
+        margin-bottom: 10px;
+        max-width: 600px
+    }
+
+    .leader-mayor-tags {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 5px;
         margin-bottom: 12px
     }
 
-    .mayor-quote {
+    .leader-mayor-quote {
         padding: 12px 14px;
         background: var(--rose-l);
         border-left: 3px solid var(--rose);
@@ -1461,6 +1958,225 @@
         color: var(--ink-soft);
         font-style: italic;
         line-height: 1.65
+    }
+
+    /* Shared tag pill */
+    .leader-tag {
+        font-size: .52rem;
+        font-weight: 600;
+        padding: 3px 9px;
+        border-radius: var(--r-full);
+        background: var(--rose-l);
+        color: var(--rose);
+        border: 1px solid var(--rose-wash)
+    }
+
+    /* Vice Mayor — Featured Card */
+    .leader-vice {
+        margin-bottom: 24px
+    }
+
+    .leader-vice-card {
+        display: flex;
+        align-items: center;
+        gap: 20px;
+        padding: 22px 24px;
+        background: var(--glass-bg);
+        border: 1px solid var(--glass-border);
+        border-radius: var(--r-l);
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
+        box-shadow: var(--shadow-sm);
+        transition: all .35s cubic-bezier(.4, 0, .2, 1);
+        perspective: 800px;
+        transform-style: preserve-3d
+    }
+
+    .leader-vice-card:hover {
+        transform: perspective(800px) rotateY(-2deg) translateY(-3px);
+        box-shadow: var(--shadow-md), 0 0 25px var(--glow-rose)
+    }
+
+    .leader-vice-photo {
+        width: 80px;
+        height: 80px;
+        border-radius: 50%;
+        overflow: hidden;
+        flex-shrink: 0;
+        border: 3px solid var(--rose);
+        box-shadow: 0 0 20px var(--glow-rose);
+        display: grid;
+        place-items: center;
+        background: var(--rose-l);
+        animation: viceGlow 3s ease-in-out infinite
+    }
+
+    @keyframes viceGlow {
+        0%, 100% { box-shadow: 0 0 15px var(--glow-rose) }
+        50% { box-shadow: 0 0 30px var(--glow-rose), 0 0 60px rgba(168, 61, 92, .1) }
+    }
+
+    .leader-vice-photo img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover
+    }
+
+    .leader-vice-photo i {
+        font-size: 1.6rem;
+        color: var(--rose);
+        opacity: .6
+    }
+
+    .leader-vice-body {
+        flex: 1;
+        min-width: 0
+    }
+
+    .leader-vice-badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 4px;
+        font-size: .48rem;
+        font-weight: 700;
+        color: var(--rose);
+        text-transform: uppercase;
+        letter-spacing: .1em;
+        margin-bottom: 4px
+    }
+
+    .leader-vice-badge i {
+        font-size: .42rem
+    }
+
+    .leader-vice-name {
+        font-size: 1rem;
+        font-weight: 800;
+        color: var(--ink);
+        line-height: 1.2;
+        margin-bottom: 5px
+    }
+
+    .leader-vice-desc {
+        font-size: .72rem;
+        color: var(--ink-soft);
+        line-height: 1.6;
+        margin-bottom: 8px
+    }
+
+    .leader-vice-tags {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 4px
+    }
+
+    /* Councilors — Grid */
+    .leader-council-label {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        font-size: .6rem;
+        font-weight: 700;
+        color: var(--rose);
+        text-transform: uppercase;
+        letter-spacing: .1em;
+        margin-bottom: 14px
+    }
+
+    .leader-council-label i {
+        font-size: .55rem
+    }
+
+    .leader-council-label::after {
+        content: '';
+        flex: 1;
+        height: 1px;
+        background: var(--line)
+    }
+
+    .leader-council-grid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 12px;
+        perspective: 1200px
+    }
+
+    .leader-council-card {
+        background: var(--glass-bg);
+        border: 1px solid var(--glass-border);
+        border-radius: var(--r);
+        padding: 18px 14px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        gap: 10px;
+        transition: all .35s cubic-bezier(.4, 0, .2, 1);
+        backdrop-filter: blur(16px);
+        -webkit-backdrop-filter: blur(16px);
+        box-shadow: var(--shadow-sm);
+        transform-style: preserve-3d
+    }
+
+    .leader-council-card:hover {
+        transform: perspective(800px) rotateY(2deg) rotateX(-1deg) translateY(-4px) translateZ(6px);
+        box-shadow: var(--shadow-md), 0 0 20px var(--glow-rose)
+    }
+
+    .leader-council-photo {
+        width: 64px;
+        height: 64px;
+        border-radius: 50%;
+        overflow: hidden;
+        border: 2px solid var(--rose-l);
+        box-shadow: 0 0 12px var(--glow-rose);
+        display: grid;
+        place-items: center;
+        background: var(--rose-l);
+        transition: all .3s
+    }
+
+    .leader-council-card:hover .leader-council-photo {
+        border-color: var(--rose);
+        box-shadow: 0 0 20px var(--glow-rose)
+    }
+
+    .leader-council-photo img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover
+    }
+
+    .leader-council-photo i {
+        font-size: 1.2rem;
+        color: var(--rose);
+        opacity: .4
+    }
+
+    .leader-council-body {
+        min-width: 0
+    }
+
+    .leader-council-name {
+        font-size: .72rem;
+        font-weight: 700;
+        color: var(--ink);
+        line-height: 1.2;
+        margin-bottom: 2px
+    }
+
+    .leader-council-pos {
+        font-size: .56rem;
+        color: var(--ink-faint);
+        font-weight: 500;
+        margin-bottom: 6px
+    }
+
+    .leader-council-tags {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 3px;
+        justify-content: center
     }
 
     /* ===== CULTURE ===== */
@@ -1520,7 +2236,19 @@
         background: var(--navy);
         color: rgba(255, 255, 255, .3);
         padding: 40px 16px 16px;
-        margin-top: auto
+        margin-top: auto;
+        position: relative
+    }
+
+    .footer::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 1px;
+        background: linear-gradient(90deg, transparent, var(--rose), transparent);
+        opacity: .4
     }
 
     [data-theme="dark"] .footer {
@@ -1546,7 +2274,8 @@
         height: 24px;
         border-radius: var(--r-xs);
         background: rgba(255, 255, 255, .05);
-        padding: 2px
+        padding: 2px;
+        box-shadow: 0 0 8px var(--glow-rose)
     }
 
     .f-brand strong {
@@ -1585,7 +2314,8 @@
 
     .f-soc a:hover {
         background: var(--rose);
-        color: #fff
+        color: #fff;
+        box-shadow: 0 0 15px var(--glow-rose)
     }
 
     .fcol-t {
@@ -1612,7 +2342,8 @@
     }
 
     .fcol a:hover {
-        color: #fff
+        color: #fff;
+        text-shadow: 0 0 8px var(--glow-rose)
     }
 
     .f-bottom {
@@ -1643,8 +2374,8 @@
         left: 0;
         right: 0;
         z-index: 100;
-        background: var(--paper);
-        border-top: 1px solid var(--line);
+        background: var(--glass-bg);
+        border-top: 1px solid var(--glass-border);
         backdrop-filter: blur(24px);
         -webkit-backdrop-filter: blur(24px);
         padding-bottom: var(--safe-b)
@@ -1706,7 +2437,7 @@
         display: grid;
         place-items: center;
         font-size: 1rem;
-        box-shadow: 0 4px 16px rgba(168, 61, 92, .3);
+        box-shadow: 0 4px 20px var(--glow-rose);
         margin-top: -16px;
         border: 3px solid var(--paper);
         transition: all .15s;
@@ -1716,7 +2447,7 @@
 
     .bn-cta:active {
         transform: scale(.9);
-        box-shadow: 0 2px 10px rgba(168, 61, 92, .4)
+        box-shadow: 0 2px 10px var(--glow-rose)
     }
 
     /* ===== DIVIDER ===== */
@@ -1751,6 +2482,11 @@
             opacity: 1;
             transform: translateX(0)
         }
+    }
+
+    @keyframes borderGlow {
+        0%, 100% { box-shadow: 0 0 5px var(--glow-rose) }
+        50% { box-shadow: 0 0 20px var(--glow-rose) }
     }
 
     .a {
@@ -1876,6 +2612,10 @@
             display: none !important
         }
 
+        html.force-mobile .svc-featured {
+            display: none !important
+        }
+
         html.force-mobile .svc-list {
             display: flex !important;
             flex-direction: column;
@@ -1884,6 +2624,10 @@
 
         html.force-mobile .portals {
             display: none !important
+        }
+
+        html.force-mobile .emergency-grid {
+            grid-template-columns: 1fr !important
         }
 
         html.force-mobile .qgrid {
@@ -1947,6 +2691,10 @@
     }
 
     html.force-desktop .svc-sec {
+        display: grid !important
+    }
+
+    html.force-desktop .svc-featured {
         display: grid !important
     }
 
@@ -2014,6 +2762,10 @@
             grid-template-columns: repeat(2, 1fr)
         }
 
+        .emergency-grid {
+            grid-template-columns: repeat(2, 1fr)
+        }
+
         .qgrid {
             grid-template-columns: repeat(2, 1fr)
         }
@@ -2028,13 +2780,15 @@
         display: block;
         text-decoration: none;
         color: inherit;
-        background: var(--card);
-        border: 1px solid var(--line);
+        background: var(--glass-bg);
+        border: 1px solid var(--glass-border);
         border-radius: var(--r);
         overflow: hidden;
         margin-bottom: 10px;
         transition: all .15s;
-        box-shadow: var(--shadow-sm)
+        box-shadow: var(--shadow-sm);
+        backdrop-filter: blur(16px);
+        -webkit-backdrop-filter: blur(16px)
     }
 
     .svc-portal:active {
@@ -2338,6 +3092,37 @@
             font-size: .48rem
         }
 
+        /* Emergency mobile */
+        .emergency-grid {
+            grid-template-columns: 1fr
+        }
+
+        /* Leadership mobile */
+        .leader-mayor-img {
+            aspect-ratio: 16/5
+        }
+
+        .leader-mayor-name {
+            font-size: 1rem
+        }
+
+        .leader-vice-card {
+            flex-direction: column;
+            text-align: center
+        }
+
+        .leader-mayor-photo-float {
+            width: 70px;
+            height: 70px;
+            top: -35px;
+            right: 16px
+        }
+
+        .leader-council-grid {
+            grid-template-columns: repeat(2, 1fr);
+            gap: 8px
+        }
+
         /* Portals + secondary: HIDE desktop, SHOW mobile list */
         .portals {
             display: none
@@ -2348,6 +3133,10 @@
         }
 
         .svc-sec {
+            display: none
+        }
+
+        .svc-featured {
             display: none
         }
 
@@ -2421,13 +3210,6 @@
             color: var(--rose)
         }
 
-        /* Quick links grid — mobile 2x3 */
-        .qgrid {
-            display: grid !important;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 8px
-        }
-
         .qacc-row {
             display: none
         }
@@ -2469,6 +3251,11 @@
             flex-direction: column;
             align-items: center;
             text-align: center
+        }
+
+        .hero-glow-ring {
+            width: 200px;
+            height: 200px
         }
     }
 
@@ -2522,11 +3309,32 @@
             transform: scale(.98);
             border-color: var(--rose-l)
         }
+
+        .emergency-card:hover {
+            transform: none
+        }
+
+        .leader-council-card:hover {
+            transform: none;
+            box-shadow: var(--shadow-sm)
+        }
+
+        .leader-vice-card:hover {
+            transform: none;
+            box-shadow: var(--shadow-sm)
+        }
     }
     </style>
 </head>
 
 <body>
+
+    <!-- FLOATING ORBS -->
+    <div class="floating-orbs">
+        <div class="orb orb-1"></div>
+        <div class="orb orb-2"></div>
+        <div class="orb orb-3"></div>
+    </div>
 
     <!-- TOP NAV -->
     <nav class="topnav" id="topnav">
@@ -2538,6 +3346,8 @@
             <ul class="nav-links">
                 <li><a href="#home" class="on" data-nav="home">Home</a></li>
                 <li><a href="#services" data-nav="services">Services</a></li>
+                <li><a href="/emergency-contacts.php">Emergency</a></li>
+                <li><a href="/city-officials.php">Officials</a></li>
                 <li><a href="#quick" data-nav="quick">Quick Access</a></li>
                 <li><a href="https://koronadal.gov.ph/" target="_blank">LGU Website</a></li>
             </ul>
@@ -2562,6 +3372,8 @@
         <div class="mnav-links">
             <a href="#home" class="on"><i class="fas fa-home"></i> Home</a>
             <a href="#services"><i class="fas fa-th-large"></i> Services</a>
+            <a href="/emergency-contacts.php"><i class="fas fa-phone-alt"></i> Emergency</a>
+            <a href="/city-officials.php"><i class="fas fa-users"></i> Officials</a>
             <a href="#quick"><i class="fas fa-link"></i> Quick Access</a>
             <a href="https://koronadal.gov.ph/" target="_blank"><i class="fas fa-globe"></i> LGU Website</a>
         </div>
@@ -2576,8 +3388,9 @@
         <!-- HERO -->
         <section class="hero" id="home">
             <div class="hero-bg"></div>
+            <div class="hero-glow-ring"></div>
             <div class="hero-inner">
-                <h1>Maayung Adlaw<br /><span class="hl">Koronadaleño!</span></h1>
+                <h1>Maayung Adlaw<br /><span class="hl">Koronadale&ntilde;o!</span></h1>
                 <p class="hero-sub">Access government services online.</p>
                 <div class="hero-btns">
                     <a href="#services" class="hb hb-w"><i class="fas fa-arrow-pointer" style="font-size:.6rem"></i>
@@ -2646,6 +3459,31 @@
                     </a>
                 </div>
 
+                <!-- FEATURED: Emergency & Officials -->
+                <div class="svc-sec-head a d3">
+                    <h3>Quick Access Services</h3>
+                </div>
+                <div class="svc-featured">
+                    <a href="emergency-contacts.php" class="svc-feat-card svc-feat-emergency a d3" data-c="safety">
+                        <div class="svc-feat-glow"></div>
+                        <div class="svc-feat-icon"><i class="fas fa-phone-alt"></i></div>
+                        <div class="svc-feat-body">
+                            <h4>Emergency Contacts</h4>
+                            <p>24/7 police, fire, hospital & disaster hotlines</p>
+                        </div>
+                        <div class="svc-feat-badge"><i class="fas fa-arrow-right"></i></div>
+                    </a>
+                    <a href="city-officials.php" class="svc-feat-card svc-feat-officials a d3" data-c="info">
+                        <div class="svc-feat-glow"></div>
+                        <div class="svc-feat-icon"><i class="fas fa-address-book"></i></div>
+                        <div class="svc-feat-body">
+                            <h4>Officials Directory</h4>
+                            <p>City officials, ordinances & committees</p>
+                        </div>
+                        <div class="svc-feat-badge"><i class="fas fa-arrow-right"></i></div>
+                    </a>
+                </div>
+
                 <!-- DESKTOP: SECONDARY SERVICES -->
                 <div class="svc-sec-head a d3">
                     <h3>More Services</h3>
@@ -2675,15 +3513,6 @@
                         <div class="svc-sec-body">
                             <h4>Financial Reports</h4>
                             <p>Budget & transparency</p>
-                        </div>
-                        <i class="fas fa-chevron-right svc-sec-arrow"></i>
-                    </a>
-                    <a href="https://koronadal.gov.ph/emergency-hotlines/" target="_blank" class="svc-sec-item a d3"
-                        data-c="safety">
-                        <div class="svc-sec-icon rose"><i class="fas fa-phone-alt"></i></div>
-                        <div class="svc-sec-body">
-                            <h4>Emergency Contacts</h4>
-                            <p>Hotlines directory</p>
                         </div>
                         <i class="fas fa-chevron-right svc-sec-arrow"></i>
                     </a>
@@ -2719,15 +3548,6 @@
                         <div class="svc-sec-body">
                             <h4>Tourism & Culture</h4>
                             <p>Heritage & events</p>
-                        </div>
-                        <i class="fas fa-chevron-right svc-sec-arrow"></i>
-                    </a>
-                    <a href="https://koronadal.gov.ph/city-officials/" target="_blank" class="svc-sec-item a d3"
-                        data-c="info">
-                        <div class="svc-sec-icon rose"><i class="fas fa-address-book"></i></div>
-                        <div class="svc-sec-body">
-                            <h4>Officials Directory</h4>
-                            <p>Officials & departments</p>
                         </div>
                         <i class="fas fa-chevron-right svc-sec-arrow"></i>
                     </a>
@@ -2773,6 +3593,31 @@
                         </div>
                     </a>
 
+                    <!-- Featured: Emergency & Officials -->
+                    <div class="svc-list-divider a d2">Quick Access Services</div>
+                    <a href="emergency-contacts.php" class="svc-portal a d2" data-c="safety">
+                        <div class="svc-portal-accent rose"></div>
+                        <div class="svc-portal-inner">
+                            <div class="svc-portal-icon rose"><i class="fas fa-phone-alt"></i></div>
+                            <div class="svc-portal-body">
+                                <h4>Emergency Contacts</h4>
+                                <p>24/7 hotlines for safety & emergencies</p>
+                            </div>
+                            <i class="fas fa-arrow-right svc-portal-arrow"></i>
+                        </div>
+                    </a>
+                    <a href="city-officials.php" class="svc-portal a d2" data-c="info">
+                        <div class="svc-portal-accent rose"></div>
+                        <div class="svc-portal-inner">
+                            <div class="svc-portal-icon rose"><i class="fas fa-address-book"></i></div>
+                            <div class="svc-portal-body">
+                                <h4>Officials Directory</h4>
+                                <p>City officials, ordinances & committees</p>
+                            </div>
+                            <i class="fas fa-arrow-right svc-portal-arrow"></i>
+                        </div>
+                    </a>
+
                     <!-- Secondary services -->
                     <div class="svc-list-divider a d2">More Services</div>
                     <a href="https://koronadal.gov.ph/citizens-charter/" target="_blank" class="svc-row a d2"
@@ -2799,15 +3644,6 @@
                         <div class="svc-row-body">
                             <h4>Financial Reports</h4>
                             <p>Budget allocations & transparency</p>
-                        </div>
-                        <i class="fas fa-chevron-right svc-row-arrow"></i>
-                    </a>
-                    <a href="https://koronadal.gov.ph/emergency-hotlines/" target="_blank" class="svc-row a d3"
-                        data-c="safety">
-                        <div class="svc-row-icon rose"><i class="fas fa-phone-alt"></i></div>
-                        <div class="svc-row-body">
-                            <h4>Emergency Contacts</h4>
-                            <p>Police, fire & hospital hotlines</p>
                         </div>
                         <i class="fas fa-chevron-right svc-row-arrow"></i>
                     </a>
@@ -2844,38 +3680,68 @@
                         </div>
                         <i class="fas fa-chevron-right svc-row-arrow"></i>
                     </a>
-                    <a href="https://koronadal.gov.ph/city-officials/" target="_blank" class="svc-row a d3"
-                        data-c="info">
-                        <div class="svc-row-icon rose"><i class="fas fa-address-book"></i></div>
-                        <div class="svc-row-body">
-                            <h4>Officials Directory</h4>
-                            <p>Contact info for officials & departments</p>
-                        </div>
-                        <i class="fas fa-chevron-right svc-row-arrow"></i>
-                    </a>
                 </div>
             </div>
         </section>
 
-        <!-- MAYOR -->
-        <section class="mayor" id="mayor">
+        <!-- CITY LEADERSHIP -->
+        <section class="leadership" id="officials">
             <div class="sec-pad">
                 <div class="sec-head a">
-                    <div class="sec-label"><i class="fas fa-landmark"></i> City Leadership</div>
+                    <div class="sec-label"><i class="fas fa-landmark"></i> City Mayor</div>
                     <h2>Building a Smarter Koronadal</h2>
                 </div>
-                <div class="mayor-card a d1">
-                    <div class="mayor-img"><img src="Mayor_bg.png" alt="Mayor Erlinda Pabi-Araquil" /></div>
-                    <div class="mayor-body">
-                        <div class="mayor-tag">City Mayor</div>
-                        <h2>Hon. Erlinda <em>"Bing"</em> Pabi-Araquil</h2>
-                        <p class="mdesc">Leading Koronadal City's digital transformation — bringing government services
-                            closer to every resident through technology, transparency, and community-driven governance.
-                        </p>
-                        <div class="mayor-quote">"Genuine Service for God and for the People... EPAdayon Ang Kanami Sang
-                            Bagong Koronadal"</div>
+
+                <?php
+                $mayorData = null;
+                $viceMayorData = null;
+                $councilors = [];
+                if (!empty($officialsData) && is_array($officialsData)) {
+                    foreach ($officialsData as $off) {
+                        $pos = strtolower($off['position'] ?? '');
+                        if (strpos($pos, 'mayor') !== false && strpos($pos, 'vice') === false) {
+                            $mayorData = $off;
+                        } elseif (strpos($pos, 'vice') !== false) {
+                            $viceMayorData = $off;
+                        } else {
+                            $councilors[] = $off;
+                        }
+                    }
+                }
+                ?>
+
+                <!-- MAYOR — Featured Banner -->
+                <div class="leader-mayor a d1">
+                    <div class="leader-mayor-img">
+                        <img src="Mayor_bg.png" alt="<?= htmlspecialchars($mayorData['name'] ?? 'City Mayor') ?>" />
+                        <div class="leader-mayor-overlay"></div>
+                    </div>
+                    <div class="leader-mayor-body">
+                        <div class="leader-mayor-photo-float">
+                            <?php if (!empty($mayorData['image'])): ?>
+                                <img src="<?= htmlspecialchars($mayorData['image']) ?>" alt="<?= htmlspecialchars($mayorData['name'] ?? '') ?>" loading="lazy" />
+                            <?php else: ?>
+                                <i class="fas fa-user-tie"></i>
+                            <?php endif; ?>
+                        </div>
+                        <div class="leader-mayor-badge"><i class="fas fa-star"></i> City Mayor</div>
+                        <h2 class="leader-mayor-name"><?= htmlspecialchars($mayorData['name'] ?? 'Hon. Erlinda "Bing" Pabi-Araquil') ?></h2>
+                        <?php if (!empty($mayorData['ordinance'])): ?>
+                            <p class="leader-mayor-desc"><?= htmlspecialchars($mayorData['ordinance']) ?></p>
+                        <?php else: ?>
+                            <p class="leader-mayor-desc">Leading Koronadal City's digital transformation — bringing government services closer to every resident through technology, transparency, and community-driven governance.</p>
+                        <?php endif; ?>
+                        <?php if (!empty($mayorData['committee'])): ?>
+                            <div class="leader-mayor-tags">
+                                <?php foreach (array_map('trim', explode(',', $mayorData['committee'])) as $tag): ?>
+                                    <span class="leader-tag"><?= htmlspecialchars($tag) ?></span>
+                                <?php endforeach; ?>
+                            </div>
+                        <?php endif; ?>
+                        <div class="leader-mayor-quote">"Genuine Service for God and for the People... EPAdayon Ang Kanami Sang Bagong Koronadal"</div>
                     </div>
                 </div>
+
             </div>
         </section>
 
@@ -2950,7 +3816,7 @@
                 <div class="fcol">
                     <div class="fcol-t">Government</div>
                     <ul>
-                        <li><a href="https://koronadal.gov.ph/city-officials/" target="_blank">Officials Directory</a>
+                        <li><a href="city-officials.php">Officials Directory</a>
                         </li>
                         <li><a href="https://koronadal.gov.ph/citizens-charter/" target="_blank">Citizen's Charter</a>
                         </li>
@@ -2983,10 +3849,7 @@
             <a href="#services" class="bn-item" data-section="services">
                 <i class="fas fa-gears"></i><span>Services</span>
             </a>
-            <a href="#services" class="bn-cta" aria-label="Browse"><i class="fas fa-arrow-pointer"></i></a>
             <a href="#quick" class="bn-item" data-section="quick"><i class="fas fa-link"></i><span>Quick</span></a>
-            <a href="https://koronadal.gov.ph/" target="_blank" class="bn-item"><i
-                    class="fas fa-globe"></i><span>LGU</span></a>
         </div>
     </nav>
 
@@ -3092,9 +3955,16 @@
             var h = this.getAttribute('href');
             if (h && h.startsWith('#') && h !== '#') setTimeout(function() {
                 var t = document.querySelector(h);
-                if (t) t.scrollIntoView({
-                    behavior: 'smooth'
-                })
+                if (t) {
+                    if (t.style.display === 'none') {
+                        t.style.display = '';
+                        setTimeout(function() {
+                            t.scrollIntoView({ behavior: 'smooth' });
+                        }, 50);
+                    } else {
+                        t.scrollIntoView({ behavior: 'smooth' });
+                    }
+                }
             }, 350)
         })
     });
@@ -3125,7 +3995,7 @@
         bnObs.observe(s)
     });
 
-    // Bottom nav click
+    // Bottom nav click (with lazy reveal)
     document.querySelectorAll('.bn-item[data-section]').forEach(function(b) {
         b.addEventListener('click', function(e) {
             bnItems.forEach(function(item) {
@@ -3135,9 +4005,16 @@
             if (h && h.startsWith('#') && h !== '#') {
                 e.preventDefault();
                 var t = document.querySelector(h);
-                if (t) t.scrollIntoView({
-                    behavior: 'smooth'
-                })
+                if (t) {
+                    if (t.style.display === 'none') {
+                        t.style.display = '';
+                        setTimeout(function() {
+                            t.scrollIntoView({ behavior: 'smooth' });
+                        }, 50);
+                    } else {
+                        t.scrollIntoView({ behavior: 'smooth' });
+                    }
+                }
             }
         });
     });
@@ -3158,15 +4035,21 @@
         obs.observe(el)
     });
 
-    // === DESKTOP NAV smooth scroll ===
+    // === DESKTOP NAV smooth scroll (with lazy reveal for emergency/officials) ===
     document.querySelectorAll('.nav-links a[href^="#"]').forEach(function(a) {
         a.addEventListener('click', function(e) {
-            var t = document.querySelector(this.getAttribute('href'));
+            var h = this.getAttribute('href');
+            var t = document.querySelector(h);
             if (t) {
                 e.preventDefault();
-                t.scrollIntoView({
-                    behavior: 'smooth'
-                })
+                if (t.style.display === 'none') {
+                    t.style.display = '';
+                    setTimeout(function() {
+                        t.scrollIntoView({ behavior: 'smooth' });
+                    }, 50);
+                } else {
+                    t.scrollIntoView({ behavior: 'smooth' });
+                }
             }
         })
     });

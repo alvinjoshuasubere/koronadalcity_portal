@@ -1,0 +1,44 @@
+[
+    {
+        "id": 1,
+        "name": "Koronadal City Emergency",
+        "type": "general",
+        "phone": "911",
+        "description": "National Emergency Hotline"
+    },
+    {
+        "id": 2,
+        "name": "Koronadal City Police Station",
+        "type": "police",
+        "phone": "(083) 228-6095",
+        "description": "City police headquarters"
+    },
+    {
+        "id": 3,
+        "name": "Koronadal City Fire Station",
+        "type": "fire",
+        "phone": "(083) 228-8114",
+        "description": "Fire & rescue services"
+    },
+    {
+        "id": 4,
+        "name": "SOCCSKSARGEN Regional Hospital",
+        "type": "hospital",
+        "phone": "(083) 228-0046",
+        "description": "Primary government hospital"
+    },
+    {
+        "id": 5,
+        "name": "City Disaster Risk Reduction",
+        "type": "disaster",
+        "phone": "(083) 228-6095 ext. 205",
+        "description": "CDRRMO emergency operations"
+    },
+    {
+        "id": 6,
+        "name": "Red Cross Koronadal",
+        "type": "medical",
+        "phone": "(083) 228-1915",
+        "description": "Blood bank & first aid"
+    }
+]

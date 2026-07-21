@@ -1,0 +1,122 @@
+[
+    {
+        "id": 1,
+        "name": "HON. ERLINDA PABI-ARAQUIL",
+        "position": "City Mayor",
+        "ordinance": "Spearheading digital governance and smart city initiatives for Koronadal City",
+        "committee": "",
+        "image": "static\/officials\/default.svg"
+    },
+    {
+        "id": 2,
+        "name": "HON. MA. ESTER M. CATORCE",
+        "position": "City Vice Mayor",
+        "ordinance": "Presiding officer of the Sangguniang Panlungsod, championing legislative reforms",
+        "committee": "",
+        "image": "static\/officials\/default.svg"
+    },
+    {
+        "id": 3,
+        "name": "HON. MAYLENE MAY S. BASCON-DE GUZMAN",
+        "position": "Sangguniang Panlungsod Member",
+        "ordinance": "Committee on Labor, Manpower and Development Committee on Games and Amusement Committee on Good Government, Public Ethics and Accountability",
+        "committee": "",
+        "image": "static\/officials\/default.svg"
+    },
+    {
+        "id": 4,
+        "name": "HON. EDWIN G. ABRIS",
+        "position": "Sangguniang Panlungsod Member",
+        "ordinance": "Committee on Finance, Budget and Appropriation Committee on Transportation and Energy Committee on Ways and Means",
+        "committee": "",
+        "image": "static\/officials\/default.svg"
+    },
+    {
+        "id": 5,
+        "name": "HON. HANDEL DEE R. CADELLINO-CUBILO",
+        "position": "Sangguniang Panlungsod Member",
+        "ordinance": "Committee on Cooperatives Committee on Oversight",
+        "committee": "",
+        "image": "static\/officials\/default.svg"
+    },
+    {
+        "id": 6,
+        "name": "HON. MARK C. LAPIDEZ",
+        "position": "Sangguniang Panlungsod Member",
+        "ordinance": "Committee on Housing and human Settlement Committee on Environment and Natural Resources \r\nCommittee on Public Information, People Empowerment and Participation",
+        "committee": "",
+        "image": "static\/officials\/default.svg"
+    },
+    {
+        "id": 7,
+        "name": "HON. CHARENE KRISTELLE C. JUMILLA-PAMA",
+        "position": "Sangguniang Panlungsod Member",
+        "ordinance": "Committee on Commerce, Trade and Industry Committee on Health, Nutrition and Sanitation \r\nCommittee on Land Use and Urban Development",
+        "committee": "",
+        "image": "static\/officials\/default.svg"
+    },
+    {
+        "id": 8,
+        "name": "HON. BERNARDO B. HINAY",
+        "position": "Sangguniang Panlungsod Member",
+        "ordinance": "Committee on Agriculture and Food Committee on Public Order, Security and Traffic Management",
+        "committee": "",
+        "image": "static\/officials\/default.svg"
+    },
+    {
+        "id": 9,
+        "name": "HON. JOHN REY P. RODRIGUEZ",
+        "position": "Sangguniang Panlungsod Member",
+        "ordinance": "Committee on Rules, Resolutions and Ordinances\r\nCommittee on Infrastructures, Public Works and Highways\r\nCommittee on Tourism Development, Arts and Culture",
+        "committee": "",
+        "image": "static\/officials\/default.svg"
+    },
+    {
+        "id": 10,
+        "name": "HON. ELLEN GRACE N. SUBERE-ALBIOS",
+        "position": "Sangguniang Panlungsod Member",
+        "ordinance": "Committee on Information, Communication and Technology Committee on Public Information and People Empowerment",
+        "committee": "",
+        "image": "static\/officials\/default.svg"
+    },
+    {
+        "id": 11,
+        "name": "HON. MARGARITA D. SUBALDO",
+        "position": "Sangguniang Panlungsod Member",
+        "ordinance": "Committee on Social Services and Disaster Risk Reduction and Management\r\nCommittee on Women, Children and Family Relations",
+        "committee": "",
+        "image": "static\/officials\/default.svg"
+    },
+    {
+        "id": 12,
+        "name": "HON. SUELLEN C. OGENA",
+        "position": "Sangguniang Panlungsod Member",
+        "ordinance": "Committee on Education, Science and Technology\r\nCommittee on Civil Service, Employees Welfare and Development\r\nCommittee on Human Rights, Justice and Legal Matters",
+        "committee": "",
+        "image": "static\/officials\/default.svg"
+    },
+    {
+        "id": 13,
+        "name": "HON. MARVIN IAN C. GUMBAO",
+        "position": "ABC President",
+        "ordinance": "Committee on Barangay Affairs",
+        "committee": "",
+        "image": "static\/officials\/default.svg"
+    },
+    {
+        "id": 14,
+        "name": "HON. DELIA P. LAWIAN",
+        "position": "IPMR Representative",
+        "ordinance": "Committee on Indigenous Peoples and Muslim Affairs",
+        "committee": "",
+        "image": "static\/officials\/default.svg"
+    },
+    {
+        "id": 16,
+        "name": "HON. CHARLES RONN C. TRINIDAD",
+        "position": "SK Federation President",
+        "ordinance": "Committee on Youth and Sports Development",
+        "committee": "",
+        "image": "static\/officials\/default.svg"
+    }
+]
