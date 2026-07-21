@@ -206,10 +206,21 @@ if (file_exists($officialsFile)) {
     }
 
     @keyframes floatOrb {
-        0% { transform: translate(0, 0) scale(1) }
-        33% { transform: translate(30px, -40px) scale(1.05) }
-        66% { transform: translate(-20px, 30px) scale(0.95) }
-        100% { transform: translate(15px, -20px) scale(1.02) }
+        0% {
+            transform: translate(0, 0) scale(1)
+        }
+
+        33% {
+            transform: translate(30px, -40px) scale(1.05)
+        }
+
+        66% {
+            transform: translate(-20px, 30px) scale(0.95)
+        }
+
+        100% {
+            transform: translate(15px, -20px) scale(1.02)
+        }
     }
 
     /* ===== APP SHELL ===== */
@@ -656,8 +667,15 @@ if (file_exists($officialsFile)) {
     }
 
     @keyframes gridPulse {
-        0%, 100% { opacity: .03 }
-        50% { opacity: .07 }
+
+        0%,
+        100% {
+            opacity: .03
+        }
+
+        50% {
+            opacity: .07
+        }
     }
 
     .hero-glow-ring {
@@ -675,8 +693,17 @@ if (file_exists($officialsFile)) {
     }
 
     @keyframes glowRing {
-        0%, 100% { transform: translate(-50%, -50%) scale(1); opacity: .5 }
-        50% { transform: translate(-50%, -50%) scale(1.1); opacity: .8 }
+
+        0%,
+        100% {
+            transform: translate(-50%, -50%) scale(1);
+            opacity: .5
+        }
+
+        50% {
+            transform: translate(-50%, -50%) scale(1.1);
+            opacity: .8
+        }
     }
 
     .hero-inner {
@@ -705,8 +732,15 @@ if (file_exists($officialsFile)) {
     }
 
     @keyframes logoPulse {
-        0%, 100% { box-shadow: 0 0 20px rgba(168, 61, 92, .3) }
-        50% { box-shadow: 0 0 35px rgba(168, 61, 92, .5) }
+
+        0%,
+        100% {
+            box-shadow: 0 0 20px rgba(168, 61, 92, .3)
+        }
+
+        50% {
+            box-shadow: 0 0 35px rgba(168, 61, 92, .5)
+        }
     }
 
     .hero-brand-text {
@@ -772,8 +806,13 @@ if (file_exists($officialsFile)) {
     }
 
     @keyframes gradientText {
-        0% { filter: drop-shadow(0 0 20px rgba(168, 61, 92, .3)) }
-        100% { filter: drop-shadow(0 0 30px rgba(168, 61, 92, .5)) }
+        0% {
+            filter: drop-shadow(0 0 20px rgba(168, 61, 92, .3))
+        }
+
+        100% {
+            filter: drop-shadow(0 0 30px rgba(168, 61, 92, .5))
+        }
     }
 
     .hero-sub {
@@ -1878,7 +1917,7 @@ if (file_exists($officialsFile)) {
         border-radius: 50%;
         overflow: hidden;
         border: 3px solid var(--rose);
-        box-shadow: 0 0 25px var(--glow-rose), 0 4px 20px rgba(0,0,0,.2);
+        box-shadow: 0 0 25px var(--glow-rose), 0 4px 20px rgba(0, 0, 0, .2);
         position: absolute;
         top: -45px;
         right: 24px;
@@ -1902,8 +1941,15 @@ if (file_exists($officialsFile)) {
     }
 
     @keyframes mayorFloatGlow {
-        0%, 100% { box-shadow: 0 0 20px var(--glow-rose), 0 4px 20px rgba(0,0,0,.2) }
-        50% { box-shadow: 0 0 35px var(--glow-rose), 0 4px 30px rgba(0,0,0,.25) }
+
+        0%,
+        100% {
+            box-shadow: 0 0 20px var(--glow-rose), 0 4px 20px rgba(0, 0, 0, .2)
+        }
+
+        50% {
+            box-shadow: 0 0 35px var(--glow-rose), 0 4px 30px rgba(0, 0, 0, .25)
+        }
     }
 
     .leader-mayor-badge {
@@ -2012,8 +2058,15 @@ if (file_exists($officialsFile)) {
     }
 
     @keyframes viceGlow {
-        0%, 100% { box-shadow: 0 0 15px var(--glow-rose) }
-        50% { box-shadow: 0 0 30px var(--glow-rose), 0 0 60px rgba(168, 61, 92, .1) }
+
+        0%,
+        100% {
+            box-shadow: 0 0 15px var(--glow-rose)
+        }
+
+        50% {
+            box-shadow: 0 0 30px var(--glow-rose), 0 0 60px rgba(168, 61, 92, .1)
+        }
     }
 
     .leader-vice-photo img {
@@ -2459,6 +2512,459 @@ if (file_exists($officialsFile)) {
         background-repeat: repeat-x
     }
 
+    /* ===== 3D INTERACTIVE FEATURES ===== */
+
+    /* Hero mouse parallax layers */
+    .hero-parallax {
+        position: absolute;
+        inset: 0;
+        pointer-events: none;
+        z-index: 1;
+        perspective: 800px;
+        overflow: hidden
+    }
+
+    .hp-layer {
+        position: absolute;
+        transition: transform .15s ease-out;
+        will-change: transform
+    }
+
+    .hp-shape {
+        border: 1px solid rgba(168, 61, 92, .12);
+        background: rgba(168, 61, 92, .04);
+        backdrop-filter: blur(4px)
+    }
+
+    .hp-shape.hex {
+        width: 60px;
+        height: 60px;
+        clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+        animation: hexSpin 12s linear infinite
+    }
+
+    .hp-shape.diamond {
+        width: 40px;
+        height: 40px;
+        transform: rotate(45deg);
+        animation: diamondFloat 8s ease-in-out infinite
+    }
+
+    .hp-shape.circle {
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        border: 1px solid rgba(168, 61, 92, .1);
+        background: radial-gradient(circle, rgba(168, 61, 92, .06), transparent);
+        animation: circlePulse 6s ease-in-out infinite
+    }
+
+    .hp-shape.tri {
+        width: 0;
+        height: 0;
+        border-left: 20px solid transparent;
+        border-right: 20px solid transparent;
+        border-bottom: 34px solid rgba(168, 61, 92, .08);
+        background: none;
+        border-top: none;
+        animation: triFloat 10s ease-in-out infinite
+    }
+
+    .hp-shape.dot {
+        width: 6px;
+        height: 6px;
+        border-radius: 50%;
+        background: rgba(168, 61, 92, .3);
+        box-shadow: 0 0 8px rgba(168, 61, 92, .2)
+    }
+
+    @keyframes hexSpin {
+        from {
+            transform: rotate(0deg) scale(1)
+        }
+
+        to {
+            transform: rotate(360deg) scale(1)
+        }
+    }
+
+    @keyframes diamondFloat {
+
+        0%,
+        100% {
+            transform: rotate(45deg) translateY(0)
+        }
+
+        50% {
+            transform: rotate(45deg) translateY(-12px)
+        }
+    }
+
+    @keyframes circlePulse {
+
+        0%,
+        100% {
+            transform: scale(1);
+            opacity: .6
+        }
+
+        50% {
+            transform: scale(1.15);
+            opacity: 1
+        }
+    }
+
+    @keyframes triFloat {
+
+        0%,
+        100% {
+            transform: translateY(0) rotate(0deg)
+        }
+
+        50% {
+            transform: translateY(-10px) rotate(5deg)
+        }
+    }
+
+    /* City Overview 3D Glass Card */
+    .city-overview {
+        padding: 28px 0 12px;
+        perspective: 1200px
+    }
+
+    .co-card {
+        background: var(--glass-bg);
+        border: 1px solid var(--glass-border);
+        border-radius: var(--r-l);
+        padding: 28px 24px;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 20px;
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
+        box-shadow: var(--shadow-md), 0 0 0 1px var(--rose-wash);
+        transition: all .4s cubic-bezier(.4, 0, .2, 1);
+        transform-style: preserve-3d;
+        position: relative;
+        overflow: hidden
+    }
+
+    .co-card::before {
+        content: '';
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(135deg, rgba(168, 61, 92, .04), transparent 40%, transparent 60%, rgba(74, 108, 247, .03));
+        pointer-events: none
+    }
+
+    .co-card:hover {
+        transform: perspective(1000px) rotateX(2deg) rotateY(-1deg) translateY(-4px) translateZ(8px);
+        box-shadow: var(--shadow-lg), 0 0 40px var(--glow-rose)
+    }
+
+    .co-left {
+        position: relative;
+        z-index: 1
+    }
+
+    .co-label {
+        display: inline-flex;
+        align-items: center;
+        gap: 5px;
+        font-size: .5rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: .1em;
+        color: var(--rose);
+        padding: 4px 10px;
+        border-radius: var(--r-full);
+        background: var(--rose-l);
+        border: 1px solid var(--rose-wash);
+        margin-bottom: 10px
+    }
+
+    .co-title {
+        font-size: 1.1rem;
+        font-weight: 800;
+        color: var(--ink);
+        line-height: 1.2;
+        margin-bottom: 6px
+    }
+
+    .co-desc {
+        font-size: .72rem;
+        color: var(--ink-soft);
+        line-height: 1.65;
+        margin-bottom: 14px
+    }
+
+    .co-tags {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 4px
+    }
+
+    .co-right {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 10px;
+        position: relative;
+        z-index: 1
+    }
+
+    .co-stat {
+        background: var(--bone);
+        border: 1px solid var(--line);
+        border-radius: var(--r);
+        padding: 14px 12px;
+        text-align: center;
+        transition: all .3s;
+        transform-style: preserve-3d;
+        cursor: default
+    }
+
+    .co-stat:hover {
+        transform: perspective(600px) rotateX(4deg) translateY(-3px) translateZ(6px);
+        border-color: var(--rose-l);
+        box-shadow: 0 8px 25px rgba(168, 61, 92, .1)
+    }
+
+    .co-stat-num {
+        font-size: 1.4rem;
+        font-weight: 800;
+        color: var(--rose);
+        line-height: 1;
+        margin-bottom: 3px;
+        text-shadow: 0 0 10px var(--glow-rose)
+    }
+
+    .co-stat-lbl {
+        font-size: .52rem;
+        font-weight: 600;
+        color: var(--ink-faint);
+        text-transform: uppercase;
+        letter-spacing: .04em
+    }
+
+    @media(max-width:600px) {
+        .co-card {
+            grid-template-columns: 1fr
+        }
+
+        .co-right {
+            grid-template-columns: repeat(4, 1fr)
+        }
+    }
+
+    /* 3D City Feature Cards */
+    .city-features {
+        padding: 24px 0;
+        perspective: 1200px
+    }
+
+    .cf-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 14px
+    }
+
+    .cf-card {
+        position: relative;
+        background: var(--glass-bg);
+        border: 1px solid var(--glass-border);
+        border-radius: var(--r);
+        padding: 22px 18px 18px;
+        text-align: center;
+        backdrop-filter: blur(16px);
+        -webkit-backdrop-filter: blur(16px);
+        box-shadow: var(--shadow-sm);
+        transition: all .4s cubic-bezier(.4, 0, .2, 1);
+        transform-style: preserve-3d;
+        cursor: default;
+        overflow: hidden
+    }
+
+    .cf-card::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 3px;
+        background: linear-gradient(90deg, transparent, var(--rose), transparent);
+        opacity: 0;
+        transition: opacity .3s
+    }
+
+    .cf-card::after {
+        content: '';
+        position: absolute;
+        inset: 0;
+        border-radius: var(--r);
+        padding: 1px;
+        background: linear-gradient(135deg, rgba(168, 61, 92, .2), transparent 50%, rgba(74, 108, 247, .1));
+        -webkit-mask: linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0);
+        mask: linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0);
+        -webkit-mask-composite: xor;
+        mask-composite: exclude;
+        opacity: 0;
+        transition: opacity .3s;
+        pointer-events: none
+    }
+
+    .cf-card:hover {
+        transform: perspective(800px) rotateY(-3deg) rotateX(2deg) translateY(-6px) translateZ(10px);
+        box-shadow: 0 14px 40px rgba(168, 61, 92, .12), 0 0 25px var(--glow-rose);
+        border-color: var(--rose-l)
+    }
+
+    .cf-card:hover::before,
+    .cf-card:hover::after {
+        opacity: 1
+    }
+
+    .cf-icon {
+        width: 52px;
+        height: 52px;
+        border-radius: 50%;
+        display: grid;
+        place-items: center;
+        font-size: 1.2rem;
+        margin: 0 auto 12px;
+        background: var(--rose-l);
+        color: var(--rose);
+        transition: all .3s;
+        box-shadow: 0 0 15px rgba(168, 61, 92, .15);
+        position: relative;
+        z-index: 1
+    }
+
+    .cf-card:hover .cf-icon {
+        background: var(--rose);
+        color: #fff;
+        box-shadow: 0 0 25px var(--glow-rose);
+        transform: translateZ(12px) scale(1.05)
+    }
+
+    .cf-name {
+        font-size: .82rem;
+        font-weight: 700;
+        color: var(--ink);
+        margin-bottom: 4px;
+        position: relative;
+        z-index: 1
+    }
+
+    .cf-desc {
+        font-size: .64rem;
+        color: var(--ink-faint);
+        line-height: 1.5;
+        position: relative;
+        z-index: 1
+    }
+
+    @media(max-width:768px) {
+        .cf-grid {
+            grid-template-columns: repeat(2, 1fr)
+        }
+    }
+
+    @media(max-width:480px) {
+        .cf-grid {
+            grid-template-columns: 1fr
+        }
+    }
+
+    /* City Motto 3D Parallax */
+    .city-motto {
+        padding: 32px 0;
+        perspective: 800px;
+        overflow: hidden;
+        position: relative
+    }
+
+    .cm-card {
+        background: linear-gradient(135deg, rgba(168, 61, 92, .06), rgba(74, 108, 247, .03));
+        border: 1px solid var(--rose-wash);
+        border-radius: var(--r-l);
+        padding: 32px 28px;
+        text-align: center;
+        position: relative;
+        overflow: hidden;
+        transition: all .4s;
+        transform-style: preserve-3d
+    }
+
+    .cm-card::before {
+        content: '';
+        position: absolute;
+        inset: 0;
+        background: radial-gradient(circle at 50% 0%, rgba(168, 61, 92, .08), transparent 60%);
+        pointer-events: none
+    }
+
+    .cm-card:hover {
+        transform: perspective(800px) rotateX(2deg) translateY(-3px);
+        box-shadow: var(--shadow-md), 0 0 30px rgba(168, 61, 92, .08)
+    }
+
+    .cm-quote {
+        font-size: clamp(.85rem, 2.5vw, 1.15rem);
+        font-weight: 700;
+        color: var(--ink);
+        line-height: 1.5;
+        margin-bottom: 12px;
+        font-style: italic;
+        position: relative;
+        z-index: 1
+    }
+
+    .cm-quote .hl {
+        color: var(--rose);
+        text-shadow: 0 0 15px var(--glow-rose)
+    }
+
+    .cm-attr {
+        font-size: .65rem;
+        color: var(--ink-faint);
+        font-weight: 500;
+        position: relative;
+        z-index: 1
+    }
+
+    .cm-deco {
+        position: absolute;
+        width: 80px;
+        height: 80px;
+        border: 1px solid rgba(168, 61, 92, .08);
+        border-radius: 50%;
+        pointer-events: none
+    }
+
+    .cm-deco-1 {
+        top: -20px;
+        right: -20px;
+        animation: cmSpin 15s linear infinite
+    }
+
+    .cm-deco-2 {
+        bottom: -15px;
+        left: -15px;
+        width: 60px;
+        height: 60px;
+        animation: cmSpin 20s linear infinite reverse
+    }
+
+    @keyframes cmSpin {
+        from {
+            transform: rotate(0deg)
+        }
+
+        to {
+            transform: rotate(360deg)
+        }
+    }
+
     /* ===== ANIMATIONS ===== */
     @keyframes rise {
         from {
@@ -2485,8 +2991,15 @@ if (file_exists($officialsFile)) {
     }
 
     @keyframes borderGlow {
-        0%, 100% { box-shadow: 0 0 5px var(--glow-rose) }
-        50% { box-shadow: 0 0 20px var(--glow-rose) }
+
+        0%,
+        100% {
+            box-shadow: 0 0 5px var(--glow-rose)
+        }
+
+        50% {
+            box-shadow: 0 0 20px var(--glow-rose)
+        }
     }
 
     .a {
@@ -3389,12 +3902,141 @@ if (file_exists($officialsFile)) {
         <section class="hero" id="home">
             <div class="hero-bg"></div>
             <div class="hero-glow-ring"></div>
+            <!-- 3D Parallax Shapes -->
+            <div class="hero-parallax" id="heroParallax">
+                <div class="hp-layer" data-speed="0.02" style="top:15%;left:10%">
+                    <div class="hp-shape hex"></div>
+                </div>
+                <div class="hp-layer" data-speed="0.04" style="top:60%;left:8%">
+                    <div class="hp-shape diamond"></div>
+                </div>
+                <div class="hp-layer" data-speed="0.03" style="top:25%;right:12%">
+                    <div class="hp-shape circle"></div>
+                </div>
+                <div class="hp-layer" data-speed="0.05" style="top:70%;right:15%">
+                    <div class="hp-shape tri"></div>
+                </div>
+                <div class="hp-layer" data-speed="0.02" style="top:40%;left:50%">
+                    <div class="hp-shape hex" style="width:40px;height:40px;animation-duration:18s"></div>
+                </div>
+                <div class="hp-layer" data-speed="0.06" style="top:80%;left:45%">
+                    <div class="hp-shape dot"></div>
+                </div>
+                <div class="hp-layer" data-speed="0.03" style="top:10%;left:70%">
+                    <div class="hp-shape dot" style="width:4px;height:4px"></div>
+                </div>
+                <div class="hp-layer" data-speed="0.04" style="top:50%;right:5%">
+                    <div class="hp-shape diamond" style="width:25px;height:25px"></div>
+                </div>
+                <div class="hp-layer" data-speed="0.05" style="top:35%;left:25%">
+                    <div class="hp-shape dot"
+                        style="width:5px;height:5px;background:rgba(74,108,247,.3);box-shadow:0 0 8px rgba(74,108,247,.2)">
+                    </div>
+                </div>
+            </div>
             <div class="hero-inner">
                 <h1>Maayung Adlaw<br /><span class="hl">Koronadale&ntilde;o!</span></h1>
                 <p class="hero-sub">Access government services online.</p>
                 <div class="hero-btns">
                     <a href="#services" class="hb hb-w"><i class="fas fa-arrow-pointer" style="font-size:.6rem"></i>
                         View Services</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- CITY OVERVIEW — 3D Glass Card -->
+        <section class="city-overview a d1">
+            <div class="sec-pad">
+                <div class="co-card">
+                    <div class="co-left">
+                        <div class="co-label"><i class="fas fa-location-dot"></i> South Cotabato, Philippines</div>
+                        <h2 class="co-title">The Spring Garden City</h2>
+                        <p class="co-desc">Koronadal City, officially the City of Koronadal and also known as Marbel, is
+                            a 1st class component city and capital of the province of South Cotabato, Philippines. Known
+                            for its rich cultural heritage, vibrant economy, and natural beauty.</p>
+                        <div class="co-tags">
+                            <span class="leader-tag">SOCCSKSARGEN</span>
+                            <span class="leader-tag">Region XII</span>
+                            <span class="leader-tag">South Cotabato</span>
+                        </div>
+                    </div>
+                    <div class="co-right">
+                        <div class="co-stat">
+                            <div class="co-stat-num">27</div>
+                            <div class="co-stat-lbl">Barangays</div>
+                        </div>
+                        <div class="co-stat">
+                            <div class="co-stat-num">165K+</div>
+                            <div class="co-stat-lbl">Population</div>
+                        </div>
+                        <div class="co-stat">
+                            <div class="co-stat-num">268km²</div>
+                            <div class="co-stat-lbl">Land Area</div>
+                        </div>
+                        <div class="co-stat">
+                            <div class="co-stat-num">451m</div>
+                            <div class="co-stat-lbl">Elevation</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CITY MOTTO — 3D Parallax -->
+        <section class="city-motto a d2">
+            <div class="sec-pad">
+                <div class="cm-card">
+                    <div class="cm-deco cm-deco-1"></div>
+                    <div class="cm-deco cm-deco-2"></div>
+                    <div class="cm-quote">"<span class="hl">EPAdayon ang Kanami sang Bagong Koronadal</span>"</div>
+                    <div class="cm-attr">City of Koronadal Official Motto</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 3D CITY FEATURES -->
+        <section class="city-features a d3">
+            <div class="sec-pad">
+                <div class="sec-head a">
+                    <div class="sec-label"><i class="fas fa-star"></i> Discover Koronadal</div>
+                    <h2>What Makes Us Unique</h2>
+                </div>
+                <div class="cf-grid">
+                    <div class="cf-card a d1">
+                        <div class="cf-icon"><i class="fas fa-mountain"></i></div>
+                        <div class="cf-name">Natural Beauty</div>
+                        <div class="cf-desc">Nestled in the valley surrounded by mountains, with lush greenery and cool
+                            climate year-round</div>
+                    </div>
+                    <div class="cf-card a d2">
+                        <div class="cf-icon"><i class="fas fa-users-rectangle"></i></div>
+                        <div class="cf-name">Cultural Heritage</div>
+                        <div class="cf-desc">Home to diverse cultures — B'laan, T'boli, Ilonggo, and Tagalog communities
+                            living in harmony</div>
+                    </div>
+                    <div class="cf-card a d3">
+                        <div class="cf-icon"><i class="fas fa-seedling"></i></div>
+                        <div class="cf-name">Garden City</div>
+                        <div class="cf-desc">Known as the Spring Garden City with abundant flowers, parks, and green
+                            public spaces</div>
+                    </div>
+                    <div class="cf-card a d1">
+                        <div class="cf-icon"><i class="fas fa-store"></i></div>
+                        <div class="cf-name">Economic Hub</div>
+                        <div class="cf-desc">Regional commercial center of SOCCSKSARGEN with thriving trade and industry
+                        </div>
+                    </div>
+                    <div class="cf-card a d2">
+                        <div class="cf-icon"><i class="fas fa-graduation-cap"></i></div>
+                        <div class="cf-name">Education Center</div>
+                        <div class="cf-desc">Home to universities and colleges serving students across the region</div>
+                    </div>
+                    <div class="cf-card a d3">
+                        <div class="cf-icon"><i class="fas fa-handshake"></i></div>
+                        <div class="cf-name">Peace & Unity</div>
+                        <div class="cf-desc">A model of interfaith dialogue and peaceful coexistence among diverse
+                            communities</div>
+                    </div>
                 </div>
             </div>
         </section>
@@ -3719,26 +4361,31 @@ if (file_exists($officialsFile)) {
                     <div class="leader-mayor-body">
                         <div class="leader-mayor-photo-float">
                             <?php if (!empty($mayorData['image'])): ?>
-                                <img src="<?= htmlspecialchars($mayorData['image']) ?>" alt="<?= htmlspecialchars($mayorData['name'] ?? '') ?>" loading="lazy" />
+                            <img src="<?= htmlspecialchars($mayorData['image']) ?>"
+                                alt="<?= htmlspecialchars($mayorData['name'] ?? '') ?>" loading="lazy" />
                             <?php else: ?>
-                                <i class="fas fa-user-tie"></i>
+                            <i class="fas fa-user-tie"></i>
                             <?php endif; ?>
                         </div>
                         <div class="leader-mayor-badge"><i class="fas fa-star"></i> City Mayor</div>
-                        <h2 class="leader-mayor-name"><?= htmlspecialchars($mayorData['name'] ?? 'Hon. Erlinda "Bing" Pabi-Araquil') ?></h2>
+                        <h2 class="leader-mayor-name">
+                            <?= htmlspecialchars($mayorData['name'] ?? 'Hon. Erlinda "Bing" Pabi-Araquil') ?></h2>
                         <?php if (!empty($mayorData['ordinance'])): ?>
-                            <p class="leader-mayor-desc"><?= htmlspecialchars($mayorData['ordinance']) ?></p>
+                        <p class="leader-mayor-desc"><?= htmlspecialchars($mayorData['ordinance']) ?></p>
                         <?php else: ?>
-                            <p class="leader-mayor-desc">Leading Koronadal City's digital transformation — bringing government services closer to every resident through technology, transparency, and community-driven governance.</p>
+                        <p class="leader-mayor-desc">Leading Koronadal City's digital transformation — bringing
+                            government services closer to every resident through technology, transparency, and
+                            community-driven governance.</p>
                         <?php endif; ?>
                         <?php if (!empty($mayorData['committee'])): ?>
-                            <div class="leader-mayor-tags">
-                                <?php foreach (array_map('trim', explode(',', $mayorData['committee'])) as $tag): ?>
-                                    <span class="leader-tag"><?= htmlspecialchars($tag) ?></span>
-                                <?php endforeach; ?>
-                            </div>
+                        <div class="leader-mayor-tags">
+                            <?php foreach (array_map('trim', explode(',', $mayorData['committee'])) as $tag): ?>
+                            <span class="leader-tag"><?= htmlspecialchars($tag) ?></span>
+                            <?php endforeach; ?>
+                        </div>
                         <?php endif; ?>
-                        <div class="leader-mayor-quote">"Genuine Service for God and for the People... EPAdayon Ang Kanami Sang Bagong Koronadal"</div>
+                        <div class="leader-mayor-quote">"Genuine Service for God and for the People... EPAdayon Ang
+                            Kanami Sang Bagong Koronadal"</div>
                     </div>
                 </div>
 
@@ -3959,10 +4606,14 @@ if (file_exists($officialsFile)) {
                     if (t.style.display === 'none') {
                         t.style.display = '';
                         setTimeout(function() {
-                            t.scrollIntoView({ behavior: 'smooth' });
+                            t.scrollIntoView({
+                                behavior: 'smooth'
+                            });
                         }, 50);
                     } else {
-                        t.scrollIntoView({ behavior: 'smooth' });
+                        t.scrollIntoView({
+                            behavior: 'smooth'
+                        });
                     }
                 }
             }, 350)
@@ -4009,14 +4660,90 @@ if (file_exists($officialsFile)) {
                     if (t.style.display === 'none') {
                         t.style.display = '';
                         setTimeout(function() {
-                            t.scrollIntoView({ behavior: 'smooth' });
+                            t.scrollIntoView({
+                                behavior: 'smooth'
+                            });
                         }, 50);
                     } else {
-                        t.scrollIntoView({ behavior: 'smooth' });
+                        t.scrollIntoView({
+                            behavior: 'smooth'
+                        });
                     }
                 }
             }
         });
+    });
+
+    // === HERO 3D PARALLAX ===
+    var heroSection = document.getElementById('home');
+    var parallaxLayers = document.querySelectorAll('#heroParallax .hp-layer');
+    if (heroSection && parallaxLayers.length) {
+        heroSection.addEventListener('mousemove', function(e) {
+            var rect = heroSection.getBoundingClientRect();
+            var mx = (e.clientX - rect.left) / rect.width - 0.5;
+            var my = (e.clientY - rect.top) / rect.height - 0.5;
+            parallaxLayers.forEach(function(layer) {
+                var speed = parseFloat(layer.dataset.speed) || 0.03;
+                var x = mx * speed * 400;
+                var y = my * speed * 400;
+                layer.style.transform = 'translate(' + x + 'px, ' + y + 'px)';
+            });
+        });
+        heroSection.addEventListener('mouseleave', function() {
+            parallaxLayers.forEach(function(layer) {
+                layer.style.transform = 'translate(0,0)';
+            });
+        });
+    }
+
+    // === 3D TILT ON CARDS ===
+    document.querySelectorAll('.co-card, .cf-card, .svc-feat-card, .qc').forEach(function(card) {
+        card.addEventListener('mousemove', function(e) {
+            var rect = card.getBoundingClientRect();
+            var x = e.clientX - rect.left;
+            var y = e.clientY - rect.top;
+            var cx = rect.width / 2;
+            var cy = rect.height / 2;
+            var ry = ((x - cx) / cx) * 4;
+            var rx = ((cy - y) / cy) * 3;
+            card.style.transform = 'perspective(800px) rotateY(' + ry + 'deg) rotateX(' + rx +
+                'deg) translateY(-4px) translateZ(6px)';
+        });
+        card.addEventListener('mouseleave', function() {
+            card.style.transform = '';
+        });
+    });
+
+    // === ANIMATED STAT COUNTERS ===
+    var statNums = document.querySelectorAll('.co-stat-num');
+    var statObs = new IntersectionObserver(function(entries) {
+        entries.forEach(function(e) {
+            if (e.isIntersecting) {
+                var el = e.target;
+                var text = el.textContent.trim();
+                var match = text.match(/^(\d+)/);
+                if (match) {
+                    var target = parseInt(match[1]);
+                    var suffix = text.replace(/^\d+/, '');
+                    var current = 0;
+                    var step = Math.max(1, Math.floor(target / 30));
+                    var timer = setInterval(function() {
+                        current += step;
+                        if (current >= target) {
+                            current = target;
+                            clearInterval(timer);
+                        }
+                        el.textContent = current + suffix;
+                    }, 30);
+                }
+                statObs.unobserve(el);
+            }
+        });
+    }, {
+        threshold: 0.5
+    });
+    statNums.forEach(function(s) {
+        statObs.observe(s);
     });
 
     // === SCROLL REVEAL ===
@@ -4045,10 +4772,14 @@ if (file_exists($officialsFile)) {
                 if (t.style.display === 'none') {
                     t.style.display = '';
                     setTimeout(function() {
-                        t.scrollIntoView({ behavior: 'smooth' });
+                        t.scrollIntoView({
+                            behavior: 'smooth'
+                        });
                     }, 50);
                 } else {
-                    t.scrollIntoView({ behavior: 'smooth' });
+                    t.scrollIntoView({
+                        behavior: 'smooth'
+                    });
                 }
             }
         })
