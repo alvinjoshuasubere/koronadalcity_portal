@@ -4160,7 +4160,7 @@ if (file_exists($officialsFile)) {
                 <div class="co-card">
                     <div class="co-left">
                         <div class="co-label"><i class="fas fa-location-dot"></i> South Cotabato, Philippines</div>
-                        <h2 class="co-title">The Spring Garden City</h2>
+                        <h2 class="co-title">Crown City of the South</h2>
                         <p class="co-desc">Koronadal City, officially the City of Koronadal and also known as Marbel, is
                             a 1st class component city and capital of the province of South Cotabato, Philippines. Known
                             for its rich cultural heritage, vibrant economy, and natural beauty.</p>
