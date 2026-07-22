@@ -569,7 +569,7 @@ function getCommitteeColor($tag, $committeeColors, $defaultColor) {
     <a href="/" class="nav-brand">
         <img src="Logo.png" alt="Koronadal City" onerror="this.style.display='none'">
         <div class="nav-brand-text">
-            <strong>Koronadal City</strong>
+            <strong>City of Koronadal</strong>
             <small>Online Services</small>
         </div>
     </a>

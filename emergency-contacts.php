@@ -716,7 +716,7 @@ $typeConfig = [
         <a href="/" class="brand">
             <img src="Logo.png" alt="Koronadal City" class="brand-img">
             <div class="brand-text">
-                <strong>Koronadal City</strong>
+                <strong>City of Koronadal</strong>
                 <small>Online Services</small>
             </div>
         </a>

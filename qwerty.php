@@ -112,6 +112,10 @@ th{font-size:0.6rem;font-weight:700;text-transform:uppercase;letter-spacing:0.06
 td{padding:12px 16px;font-size:0.82rem;border-bottom:1px solid rgba(255,255,255,0.03);color:#C8CAD1}
 tr:last-child td{border-bottom:none}
 tr:hover td{background:rgba(255,255,255,0.015)}
+.brand-img {
+        width: 32px;
+        height: 32px;
+    }
 
 .badge{display:inline-block;padding:2px 10px;border-radius:20px;font-size:0.62rem;font-weight:600;text-transform:uppercase;letter-spacing:0.03em;background:rgba(168,61,92,0.15);color:#A83D5C}
 .badge-police{background:rgba(52,152,219,0.15);color:#3498DB}
@@ -198,9 +202,9 @@ td:nth-last-of-type(2){
 <div class="nav">
   <div class="nav-in">
     <a href="/" class="nav-brand">
-      <i class="fas fa-shield-halved"></i>
+      <img src="Logo.png" alt="Koronadal City" class="brand-img" />
       <div>
-        <strong>Koronadal City</strong>
+        <strong>City of Koronadal</strong>
         <small>Portal</small>
       </div>
     </a>
