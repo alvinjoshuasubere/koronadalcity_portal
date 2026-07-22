@@ -783,7 +783,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             <?php else: ?>
             <?php foreach ($officials as $official): ?>
             <div class="official-card">
-                <img class="official-photo" src="/<?= htmlspecialchars($official['image']) ?>"
+                <img class="official-photo" src="<?= htmlspecialchars($official['image']) ?>"
                     alt="<?= htmlspecialchars($official['name']) ?>">
                 <h3><?= htmlspecialchars($official['name']) ?></h3>
                 <div class="position"><?= htmlspecialchars($official['position']) ?></div>
@@ -958,7 +958,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         document.getElementById('formImage').value = '';
         document.getElementById('imagePreview').style.display = 'none';
         document.getElementById('currentImageWrap').style.display = 'block';
-        document.getElementById('currentImage').src = '/' + official.image;
+        document.getElementById('currentImage').src = official.image;
         document.getElementById('formSubmitBtn').innerHTML = '<i class="fa-solid fa-check"></i> Update Official';
         showModal('officialModal');
     }
