@@ -534,18 +534,49 @@ function getCommitteeColor($tag, $committeeColors, $defaultColor) {
             .nav { padding: 0 1.2rem; height: 60px }
             .nav-back span { display: none }
             .nav-back { padding: 8px 14px }
-            .hero { padding: 120px 1.2rem 50px }
+            .hero { padding: 110px 1.2rem 50px }
             .hero h1 { font-size: 2rem }
             .hero-sub { font-size: .88rem }
+            .hero-stats .stat-num { font-size: 1.6rem }
+            .hero-stats .stat-label { font-size: .7rem }
             .content { padding: 10px 1.2rem 60px }
-            .mayor-hero-card { flex-direction: column }
+            .mayor-hero-card { flex-direction: column; border-radius: 18px }
             .mayor-photo-section { width: 100%; min-height: 220px }
+            .mayor-photo-section::after { background: linear-gradient(to bottom, transparent 60%, var(--surface)) }
             .mayor-info { padding: 24px 22px }
             .mayor-name { font-size: 1.3rem }
-            .leader-featured { grid-template-columns: 1fr }
-            .vice-card { flex-direction: column; text-align: center }
+            .mayor-desc { font-size: .8rem }
+            .mayor-quote { font-size: .75rem }
+            .leader-featured { grid-template-columns: 1fr; gap: 16px }
+            .vice-card { flex-direction: column; text-align: center; gap: 16px }
             .vice-tags { justify-content: center }
+            .council-grid { grid-template-columns: repeat(2, 1fr); gap: 16px }
+            .council-card { padding: 22px 18px 20px }
+            .council-avatar, .council-avatar img, .council-avatar .initials { width: 80px; height: 80px }
+        }
+        @media (max-width: 480px) {
+            .nav { padding: 0 1rem }
+            .hero { padding: 95px 1rem 40px }
+            .hero h1 { font-size: 1.7rem }
+            .hero-sub { font-size: .8rem }
+            .hero-stats { padding: 14px 28px }
+            .content { padding: 8px 1rem 50px }
+            .mayor-photo-section { min-height: 200px }
+            .mayor-avatar-frame, .mayor-avatar-frame img, .mayor-avatar-frame .initials { width: 130px; height: 130px }
+            .mayor-info { padding: 20px 18px }
+            .mayor-name { font-size: 1.15rem }
+            .mayor-desc { font-size: .75rem }
+            .mayor-quote { font-size: .7rem }
+            .vice-card { padding: 20px }
+            .vice-avatar { width: 80px; height: 80px }
+            .vice-name { font-size: 1rem }
             .council-grid { grid-template-columns: 1fr; gap: 14px }
+            .council-card { padding: 24px 20px 20px }
+            .council-avatar, .council-avatar img, .council-avatar .initials { width: 88px; height: 88px }
+            .council-name { font-size: .88rem }
+            .council-pos { font-size: .65rem }
+            .council-ordinance { font-size: .72rem; padding: 10px 12px }
+            .tag-pill { font-size: .6rem; padding: 4px 12px }
         }
 
         /* ── SCROLLBAR ── */

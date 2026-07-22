@@ -54,7 +54,7 @@ if (file_exists($officialsFile)) {
         --font: "Sora", ui-sans-serif, system-ui, sans-serif;
         --app-w: 1100px;
         --nav-h: 56px;
-        --bottom-h: 60px;
+        --bottom-h: 56px;
         --safe-b: env(safe-area-inset-bottom, 0px);
         --safe-t: env(safe-area-inset-top, 0px);
         --glow-rose: rgba(168, 61, 92, 0.4);
@@ -2427,80 +2427,86 @@ if (file_exists($officialsFile)) {
         left: 0;
         right: 0;
         z-index: 100;
-        background: var(--glass-bg);
-        border-top: 1px solid var(--glass-border);
-        backdrop-filter: blur(24px);
-        -webkit-backdrop-filter: blur(24px);
+        height: var(--bottom-h);
+        background: var(--card);
+        border-top: 1px solid var(--line);
+        box-shadow: 0 -2px 8px rgba(26, 26, 46, .06);
         padding-bottom: var(--safe-b)
     }
 
     .bn-row {
-        display: flex;
-        align-items: center;
-        justify-content: space-around;
+        max-width: var(--app-w);
+        margin: 0 auto;
         height: var(--bottom-h);
-        padding: 0 4px;
-        position: relative
+        display: flex;
+        align-items: stretch
     }
 
     .bn-item {
+        flex: 1;
         display: flex;
         flex-direction: column;
         align-items: center;
-        gap: 1px;
-        padding: 6px 10px;
-        border-radius: var(--r-s);
-        transition: all .2s;
+        justify-content: center;
+        gap: 2px;
         text-decoration: none;
         color: var(--ink-faint);
-        font-size: .5rem;
-        font-weight: 600;
+        font-size: .6rem;
+        font-weight: 500;
+        letter-spacing: .02em;
         position: relative;
-        min-width: 48px
+        transition: color .2s;
+        -webkit-tap-highlight-color: transparent
     }
 
-    .bn-item i {
-        font-size: .85rem;
+    .bn-item .bn-icon {
+        width: 24px;
+        height: 24px;
+        display: grid;
+        place-items: center;
+        border-radius: 50%;
+        font-size: .9rem;
+        position: relative;
+        z-index: 1;
         transition: all .2s
     }
 
+    .bn-item .bn-label {
+        position: relative;
+        z-index: 1;
+        line-height: 1
+    }
+
+    .bn-item::before {
+        content: '';
+        position: absolute;
+        top: 6px;
+        width: 0;
+        height: 28px;
+        border-radius: 14px;
+        background: var(--rose-l);
+        transition: width .25s cubic-bezier(.4, 0, .2, 1);
+        z-index: 0
+    }
 
     .bn-item:hover {
-        color: var(--rose)
+        color: var(--ink-soft)
     }
 
     .bn-item.active {
         color: var(--rose)
     }
 
-    .bn-item.active i {
-        transform: scale(1.1)
+    .bn-item.active .bn-icon {
+        font-weight: 700
     }
 
-    .bn-item:active {
+    .bn-item.active::before {
+        width: 56px
+    }
+
+    .bn-item:active .bn-icon {
         transform: scale(.9)
-    }
-
-    .bn-cta {
-        width: 46px;
-        height: 46px;
-        border-radius: 50%;
-        background: var(--rose);
-        color: #fff;
-        display: grid;
-        place-items: center;
-        font-size: 1rem;
-        box-shadow: 0 4px 20px var(--glow-rose);
-        margin-top: -16px;
-        border: 3px solid var(--paper);
-        transition: all .15s;
-        position: relative;
-        z-index: 2
-    }
-
-    .bn-cta:active {
-        transform: scale(.9);
-        box-shadow: 0 2px 10px var(--glow-rose)
     }
 
     /* ===== DIVIDER ===== */
@@ -2748,11 +2754,37 @@ if (file_exists($officialsFile)) {
 
     @media(max-width:600px) {
         .co-card {
-            grid-template-columns: 1fr
+            grid-template-columns: 1fr;
+            gap: 12px;
+            padding: 20px 16px
+        }
+
+        .co-left {
+            background: var(--bone);
+            border: 1px solid var(--line);
+            border-radius: var(--r);
+            padding: 18px 16px
         }
 
         .co-right {
-            grid-template-columns: repeat(4, 1fr)
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 10px
+        }
+
+        .co-stat {
+            background: var(--bone);
+            border: 1px solid var(--line);
+            border-radius: var(--r);
+            padding: 14px 10px
+        }
+
+        .co-title {
+            font-size: 1rem
+        }
+
+        .co-desc {
+            font-size: .68rem
         }
     }
 
@@ -3292,11 +3324,21 @@ if (file_exists($officialsFile)) {
         }
 
         .co-card {
-            grid-template-columns: 1fr
+            grid-template-columns: 1fr 1fr;
+            gap: 16px
+        }
+
+        .co-left {
+            background: var(--bone);
+            border: 1px solid var(--line);
+            border-radius: var(--r);
+            padding: 20px 18px
         }
 
         .co-right {
-            grid-template-columns: repeat(4, 1fr)
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 10px
         }
     }
 
@@ -3760,15 +3802,26 @@ if (file_exists($officialsFile)) {
         }
 
         .co-card {
-            padding: 20px 16px
+            grid-template-columns: 1fr;
+            gap: 12px;
+            padding: 18px 14px
+        }
+
+        .co-left {
+            background: var(--bone);
+            border: 1px solid var(--line);
+            border-radius: var(--r);
+            padding: 16px 14px
         }
 
         .co-right {
-            grid-template-columns: repeat(2, 1fr)
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 10px
         }
 
         .co-stat {
-            padding: 10px 8px
+            padding: 12px 8px
         }
 
         .co-stat-num {
@@ -4516,14 +4569,6 @@ if (file_exists($officialsFile)) {
                         <div class="leader-mayor-overlay"></div>
                     </div>
                     <div class="leader-mayor-body">
-                        <div class="leader-mayor-photo-float">
-                            <?php if (!empty($mayorData['image'])): ?>
-                            <img src="<?= htmlspecialchars($mayorData['image']) ?>"
-                                alt="<?= htmlspecialchars($mayorData['name'] ?? '') ?>" loading="lazy" />
-                            <?php else: ?>
-                            <i class="fas fa-user-tie"></i>
-                            <?php endif; ?>
-                        </div>
                         <div class="leader-mayor-badge"><i class="fas fa-star"></i> City Mayor</div>
                         <h2 class="leader-mayor-name">
                             <?= htmlspecialchars($mayorData['name'] ?? 'Hon. Erlinda "Bing" Pabi-Araquil') ?></h2>
@@ -4649,11 +4694,9 @@ if (file_exists($officialsFile)) {
     <!-- BOTTOM NAV -->
     <nav class="bottomnav" id="bottomnav">
         <div class="bn-row">
-            <a href="#home" class="bn-item" data-section="home"><i class="fas fa-house"></i><span>Home</span></a>
-            <a href="#services" class="bn-item" data-section="services">
-                <i class="fas fa-gears"></i><span>Services</span>
-            </a>
-            <a href="#quick" class="bn-item" data-section="quick"><i class="fas fa-link"></i><span>Quick</span></a>
+            <a href="#home" class="bn-item active" data-bnav="home"><span class="bn-icon"><i class="fas fa-house"></i></span><span class="bn-label">Home</span></a>
+            <a href="#services" class="bn-item" data-bnav="services"><span class="bn-icon"><i class="fas fa-gears"></i></span><span class="bn-label">Services</span></a>
+            <a href="#quick" class="bn-item" data-bnav="quick"><span class="bn-icon"><i class="fas fa-link"></i></span><span class="bn-label">Quick</span></a>
         </div>
     </nav>
 
@@ -4781,7 +4824,7 @@ if (file_exists($officialsFile)) {
     });
 
     // === BOTTOM NAV — IntersectionObserver tracking ===
-    var bnItems = document.querySelectorAll('.bn-item[data-section]');
+    var bnItems = document.querySelectorAll('.bn-item[data-bnav]');
     var sections = ['home', 'services', 'quick'];
     var sectionEls = sections.map(function(id) {
         return document.getElementById(id)
@@ -4791,7 +4834,7 @@ if (file_exists($officialsFile)) {
             if (e.isIntersecting) {
                 var id = e.target.id;
                 bnItems.forEach(function(b) {
-                    b.classList.toggle('active', b.dataset.section === id);
+                    b.classList.toggle('active', b.dataset.bnav === id);
                 });
             }
         });
@@ -4804,7 +4847,7 @@ if (file_exists($officialsFile)) {
     });
 
     // Bottom nav click (with lazy reveal)
-    document.querySelectorAll('.bn-item[data-section]').forEach(function(b) {
+    document.querySelectorAll('.bn-item[data-bnav]').forEach(function(b) {
         b.addEventListener('click', function(e) {
             bnItems.forEach(function(item) {
                 item.classList.toggle('active', item === b);

@@ -706,22 +706,161 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     @media(max-width:900px) {
         .officials-grid {
-            grid-template-columns: repeat(2, 1fr)
+            grid-template-columns: repeat(3, 1fr)
+        }
+
+        .official-photo {
+            width: 80px;
+            height: 80px
+        }
+
+        .official-card {
+            padding: 1rem
+        }
+
+        .official-card h3 {
+            font-size: .82rem
+        }
+
+        .official-card .position {
+            font-size: .7rem
+        }
+
+        .official-card .ordinance {
+            font-size: .68rem
+        }
+
+        .committee-tag {
+            font-size: .58rem;
+            padding: .1rem .45rem
+        }
+
+        .card-actions .btn {
+            padding: .3rem .7rem;
+            font-size: .65rem
+        }
+
+        .stat-card {
+            padding: .8rem 1rem
+        }
+
+        .stat-card .stat-value {
+            font-size: 1.4rem
         }
     }
 
     @media(max-width:600px) {
         .officials-grid {
-            grid-template-columns: 1fr
+            grid-template-columns: repeat(3, 1fr);
+            gap: .6rem
         }
 
-        .page-header {
-            flex-direction: column;
-            align-items: flex-start
+        .container {
+            padding: 70px .8rem 2rem
+        }
+
+        nav {
+            padding: 0 .8rem
+        }
+
+        .nav-brand span {
+            font-size: .78rem
+        }
+
+        .page-header h1 {
+            font-size: 1.1rem
+        }
+
+        .page-header h1 i {
+            display: none
+        }
+
+        .btn {
+            padding: .45rem .9rem;
+            font-size: .72rem
+        }
+
+        .official-photo {
+            width: 60px;
+            height: 60px;
+            border-width: 2px
+        }
+
+        .official-card {
+            padding: .7rem .5rem;
+            border-radius: 12px
+        }
+
+        .official-card h3 {
+            font-size: .68rem
+        }
+
+        .official-card .position {
+            font-size: .6rem;
+            margin-bottom: .3rem
+        }
+
+        .official-card .ordinance {
+            font-size: .58rem;
+            -webkit-line-clamp: 1
+        }
+
+        .committee-tags {
+            gap: .2rem;
+            margin-bottom: .5rem
+        }
+
+        .committee-tag {
+            font-size: .5rem;
+            padding: .05rem .35rem
+        }
+
+        .card-actions {
+            margin-top: .2rem
+        }
+
+        .card-actions .btn {
+            padding: .25rem .5rem;
+            font-size: .58rem;
+            gap: .2rem
+        }
+
+        .card-actions .btn i {
+            font-size: .55rem
+        }
+
+        .stats-bar {
+            gap: .5rem
+        }
+
+        .stat-card {
+            padding: .6rem .8rem
+        }
+
+        .stat-card .stat-value {
+            font-size: 1.2rem
+        }
+
+        .stat-card .stat-label {
+            font-size: .62rem
+        }
+
+        .stat-card .stat-sub {
+            font-size: .65rem
         }
 
         .nav-center {
-            display: none
+            font-size: .72rem
+        }
+
+        .modal {
+            width: 95%;
+            padding: 1.2rem;
+            border-radius: 14px
+        }
+
+        .modal h2 {
+            font-size: 1rem
         }
     }
 
