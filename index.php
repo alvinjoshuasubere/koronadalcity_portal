@@ -4176,11 +4176,11 @@ if (file_exists($officialsFile)) {
                             <div class="co-stat-lbl">Barangays</div>
                         </div>
                         <div class="co-stat">
-                            <div class="co-stat-num">165K+</div>
+                            <div class="co-stat-num">201K+</div>
                             <div class="co-stat-lbl">Population</div>
                         </div>
                         <div class="co-stat">
-                            <div class="co-stat-num">268km²</div>
+                            <div class="co-stat-num">277km²</div>
                             <div class="co-stat-lbl">Land Area</div>
                         </div>
                         <div class="co-stat">
