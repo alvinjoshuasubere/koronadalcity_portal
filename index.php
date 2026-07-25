@@ -2006,6 +2006,41 @@ if (file_exists($officialsFile)) {
         line-height: 1.65
     }
 
+    .leader-mayor-cta {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        margin-top: 16px;
+        padding: 10px 22px;
+        border-radius: var(--r-s);
+        background: linear-gradient(135deg, var(--rose), #c44e6e);
+        color: #fff;
+        font-size: .72rem;
+        font-weight: 700;
+        letter-spacing: .04em;
+        text-transform: uppercase;
+        text-decoration: none;
+        border: 1px solid rgba(255,255,255,0.1);
+        transition: all .25s cubic-bezier(.4, 0, .2, 1);
+        cursor: pointer;
+        box-shadow: 0 2px 12px rgba(168, 61, 92, 0.3)
+    }
+
+    .leader-mayor-cta:hover {
+        background: linear-gradient(135deg, var(--rose-d), #a83250);
+        box-shadow: 0 4px 24px var(--glow-rose), 0 0 0 1px rgba(168, 61, 92, 0.4);
+        transform: translateY(-2px)
+    }
+
+    .leader-mayor-cta i {
+        font-size: .55rem;
+        transition: transform .2s
+    }
+
+    .leader-mayor-cta:hover i {
+        transform: translateX(3px)
+    }
+
     /* Shared tag pill */
     .leader-tag {
         font-size: .52rem;
@@ -4071,6 +4106,7 @@ if (file_exists($officialsFile)) {
                 <li><a href="#services" data-nav="services">Services</a></li>
                 <li><a href="/emergency-contacts.php">Emergency</a></li>
                 <li><a href="/city-officials.php">Officials</a></li>
+                <li><a href="/mayor-corner.php">Mayor's Corner</a></li>
                 <li><a href="#quick" data-nav="quick">Quick Access</a></li>
                 <li><a href="https://koronadal.gov.ph/" target="_blank">LGU Website</a></li>
             </ul>
@@ -4097,6 +4133,7 @@ if (file_exists($officialsFile)) {
             <a href="#services"><i class="fas fa-th-large"></i> Services</a>
             <a href="/emergency-contacts.php"><i class="fas fa-phone-alt"></i> Emergency</a>
             <a href="/city-officials.php"><i class="fas fa-users"></i> Officials</a>
+            <a href="/mayor-corner.php"><i class="fas fa-landmark"></i> Mayor's Corner</a>
             <a href="#quick"><i class="fas fa-link"></i> Quick Access</a>
             <a href="https://koronadal.gov.ph/" target="_blank"><i class="fas fa-globe"></i> LGU Website</a>
         </div>
@@ -4288,10 +4325,10 @@ if (file_exists($officialsFile)) {
                         <div class="portal-accent rose"></div>
                         <div class="portal-body">
                             <div class="portal-top">
-                                <div class="portal-icon rose"><i class="fas fa-car-crash"></i></div>
+                                <div class="portal-icon rose"><i class="fas fa-motorcycle"></i></div>
 
                             </div>
-                            <h3>MTOP Checker</h3>
+                            <h3>MTOP Verification Portal</h3>
                             <p class="portal-desc">Verify MTOP and View traffic violations online.</p>
                             <span class="portal-cta rose">Open Portal <i class="fas fa-arrow-right"></i></span>
                         </div>
@@ -4306,6 +4343,32 @@ if (file_exists($officialsFile)) {
                             </div>
                             <h3>Job Portal</h3>
                             <p class="portal-desc">Browse and apply for city government job vacancies.</p>
+                            <span class="portal-cta rose">Open Portal <i class="fas fa-arrow-right"></i></span>
+                        </div>
+                    </a>
+                    <a href="https://careers.koronadalcityonlineservices.com/" target="_blank" class="portal a d3"
+                        data-c="jobs">
+                        <div class="portal-accent rose"></div>
+                        <div class="portal-body">
+                            <div class="portal-top">
+                                <div class="portal-icon rose"><i class="fas fa-user-tie"></i></div>
+
+                            </div>
+                            <h3>LGU Recruitment Tracking</h3>
+                            <p class="portal-desc">Apply online for government positions.</p>
+                            <span class="portal-cta rose">Open Portal <i class="fas fa-arrow-right"></i></span>
+                        </div>
+                    </a>
+                    <a href="https://citizen.koronadalcityonlineservices.com/" target="_blank" class="portal a d3"
+                        data-c="info">
+                        <div class="portal-accent rose"></div>
+                        <div class="portal-body">
+                            <div class="portal-top">
+                                <div class="portal-icon rose"><i class="fas fa-database"></i></div>
+
+                            </div>
+                            <h3>Unified Systems Portal</h3>
+                            <p class="portal-desc">Access all city services in one unified platform.</p>
                             <span class="portal-cta rose">Open Portal <i class="fas fa-arrow-right"></i></span>
                         </div>
                     </a>
@@ -4440,6 +4503,30 @@ if (file_exists($officialsFile)) {
                             <div class="svc-portal-body">
                                 <h4>Job Portal</h4>
                                 <p>Browse vacancies & apply</p>
+                            </div>
+                            <i class="fas fa-arrow-up-right-from-square svc-portal-arrow"></i>
+                        </div>
+                    </a>
+                    <a href="https://careers.koronadalcityonlineservices.com/" target="_blank" class="svc-portal a d1"
+                        data-c="jobs">
+                        <div class="svc-portal-accent rose"></div>
+                        <div class="svc-portal-inner">
+                            <div class="svc-portal-icon rose"><i class="fas fa-user-tie"></i></div>
+                            <div class="svc-portal-body">
+                                <h4>LGU Recruitment Tracking</h4>
+                                <p>Track recruitment applications & status</p>
+                            </div>
+                            <i class="fas fa-arrow-up-right-from-square svc-portal-arrow"></i>
+                        </div>
+                    </a>
+                    <a href="https://citizen.koronadalcityonlineservices.com/" target="_blank" class="svc-portal a d1"
+                        data-c="info">
+                        <div class="svc-portal-accent rose"></div>
+                        <div class="svc-portal-inner">
+                            <div class="svc-portal-icon rose"><i class="fas fa-grid-2"></i></div>
+                            <div class="svc-portal-body">
+                                <h4>Unified Systems Portal</h4>
+                                <p>Access all city services in one platform</p>
                             </div>
                             <i class="fas fa-arrow-up-right-from-square svc-portal-arrow"></i>
                         </div>
@@ -4588,6 +4675,8 @@ if (file_exists($officialsFile)) {
                         <?php endif; ?>
                         <div class="leader-mayor-quote">"Genuine Service for God and for the People... EPAdayon Ang
                             Kanami Sang Bagong Koronadal"</div>
+                        <a href="mayor-corner.php" class="leader-mayor-cta"><i class="fas fa-landmark"></i> Mayor's Corner <i
+                                class="fas fa-arrow-right"></i></a>
                     </div>
                 </div>
 
@@ -4660,6 +4749,12 @@ if (file_exists($officialsFile)) {
                         </li>
                         <li><a href="https://jobs.koronadalcityonlineservices.com/" target="_blank">Job Openings</a>
                         </li>
+                        <li><a href="https://careers.koronadalcityonlineservices.com/" target="_blank">LGU
+                                Recruitment</a>
+                        </li>
+                        <li><a href="https://citizen.koronadalcityonlineservices.com/" target="_blank">Unified
+                                Systems</a>
+                        </li>
                     </ul>
                 </div>
                 <div class="fcol">
@@ -4694,9 +4789,12 @@ if (file_exists($officialsFile)) {
     <!-- BOTTOM NAV -->
     <nav class="bottomnav" id="bottomnav">
         <div class="bn-row">
-            <a href="#home" class="bn-item active" data-bnav="home"><span class="bn-icon"><i class="fas fa-house"></i></span><span class="bn-label">Home</span></a>
-            <a href="#services" class="bn-item" data-bnav="services"><span class="bn-icon"><i class="fas fa-gears"></i></span><span class="bn-label">Services</span></a>
-            <a href="#quick" class="bn-item" data-bnav="quick"><span class="bn-icon"><i class="fas fa-link"></i></span><span class="bn-label">Quick</span></a>
+            <a href="#home" class="bn-item active" data-bnav="home"><span class="bn-icon"><i
+                        class="fas fa-house"></i></span><span class="bn-label">Home</span></a>
+            <a href="#services" class="bn-item" data-bnav="services"><span class="bn-icon"><i
+                        class="fas fa-gears"></i></span><span class="bn-label">Services</span></a>
+            <a href="#quick" class="bn-item" data-bnav="quick"><span class="bn-icon"><i
+                        class="fas fa-link"></i></span><span class="bn-label">Quick</span></a>
         </div>
     </nav>
 
