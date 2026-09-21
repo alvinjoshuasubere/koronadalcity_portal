@@ -997,8 +997,7 @@ if (file_exists($officialsFile)) {
     .qnav-row {
         display: flex;
         gap: 6px;
-        overflow-x: auto;
-        scroll-snap-type: x mandatory;
+        overflow-x: auto;        scroll-snap-type: x mandatory;
         scrollbar-width: none;
         -webkit-overflow-scrolling: touch;
         padding: 0 16px
@@ -1997,8 +1996,7 @@ if (file_exists($officialsFile)) {
         padding: 3px 9px;
         border-radius: var(--r-full);
         background: var(--rose-l);
-        color: var(--rose);
-        border: 1px solid var(--rose-wash)
+        color: var(--rose);        border: 1px solid var(--rose-wash)
     }
 
     /* Vice Mayor — Featured Card */
@@ -2998,7 +2996,6 @@ if (file_exists($officialsFile)) {
     }
 
     @keyframes borderGlow {
-
         0%,
         100% {
             box-shadow: 0 0 5px var(--glow-rose)
@@ -3997,8 +3994,7 @@ if (file_exists($officialsFile)) {
         }
 
         .svc-feat-card:hover {
-            transform: none;
-            box-shadow: var(--shadow-md)
+            transform: none;            box-shadow: var(--shadow-md)
         }
     }
     .qc:active {
@@ -4997,8 +4993,7 @@ if (file_exists($officialsFile)) {
                     if (t.style.display === 'none') {
                         t.style.display = '';
                         setTimeout(function() {
-                            t.scrollIntoView({
-                                behavior: 'smooth'
+                            t.scrollIntoView({                                behavior: 'smooth'
                             });
                         }, 50);
                     } else {
@@ -5168,7 +5163,7 @@ if (file_exists($officialsFile)) {
             dividers.forEach(function(d) {
                 d.style.display = f === 'all' ? '' : 'none'
             });
-            document.getElementById('cnt').textContent = document.querySelectorAll('.portals .portal[style=""], .portals .portal:not([style])').length || n;
+            document.getElementById('cnt').textContent = n;
         });
     });
     </script>
