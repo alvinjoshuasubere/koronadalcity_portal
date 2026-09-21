@@ -4862,23 +4862,48 @@ body.mc-page{
 
 
 /* =========================================================
-   HOME MAYOR'S CORNER — INLINE MOBILE APP CARD
-   Keeps the Mayor's Corner inside the main portal flow.
+   HOME MAYOR'S CORNER — CENTERED APP CARD
+   Text stays on the left and the Mayor image stays on the right.
    ========================================================= */
+.home-section-head-centered{
+  justify-content:center!important;
+  text-align:center!important;
+}
+.home-section-head-centered > div:last-child{
+  text-align:center!important;
+}
+.home-section-head-centered .home-section-icon{
+  flex:0 0 auto!important;
+}
+
 .home-mayor-card{
   width:100%!important;
-  max-width:560px!important;
+  max-width:900px!important;
+  min-height:270px!important;
   margin:0 auto!important;
+  display:grid!important;
+  grid-template-columns:minmax(0,1.25fr) minmax(220px,.75fr)!important;
+  grid-template-areas:"content photo"!important;
   overflow:hidden!important;
   border:1px solid #E3E8EF!important;
-  border-radius:18px!important;
+  border-radius:20px!important;
   background:#fff!important;
-  box-shadow:0 8px 24px rgba(22,42,72,.07)!important;
+  box-shadow:0 12px 32px rgba(22,42,72,.08)!important;
+}
+.home-mayor-content{
+  grid-area:content!important;
+  min-width:0!important;
+  display:flex!important;
+  flex-direction:column!important;
+  justify-content:center!important;
+  padding:24px 26px!important;
 }
 .home-mayor-cover{
+  grid-area:photo!important;
   position:relative!important;
-  width:100%!important;
-  height:150px!important;
+  min-width:0!important;
+  min-height:270px!important;
+  height:100%!important;
   overflow:hidden!important;
   background:#1557D6!important;
 }
@@ -4887,23 +4912,23 @@ body.mc-page{
   height:100%!important;
   display:block!important;
   object-fit:cover!important;
-  object-position:center 24%!important;
+  object-position:center 22%!important;
 }
 .home-mayor-cover-shade{
   position:absolute!important;
   inset:0!important;
-  background:linear-gradient(180deg,rgba(9,47,115,.08) 20%,rgba(7,30,72,.68) 100%)!important;
+  background:linear-gradient(90deg,rgba(7,30,72,.12),rgba(7,30,72,.42))!important;
 }
 .home-mayor-status{
   position:absolute!important;
-  left:12px!important;
-  bottom:11px!important;
+  right:12px!important;
+  bottom:12px!important;
   display:inline-flex!important;
   align-items:center!important;
   gap:6px!important;
-  padding:6px 9px!important;
+  padding:7px 10px!important;
   border-radius:999px!important;
-  background:rgba(255,255,255,.94)!important;
+  background:rgba(255,255,255,.95)!important;
   color:#1557D6!important;
   font:800 7px/1 "Sora",Arial,sans-serif!important;
   letter-spacing:.05em!important;
@@ -4911,18 +4936,15 @@ body.mc-page{
   box-shadow:0 3px 10px rgba(0,0,0,.12)!important;
 }
 .home-mayor-status i{font-size:8px!important;color:#C62828!important}
-.home-mayor-content{
-  padding:14px!important;
-}
 .home-mayor-heading{
   display:flex!important;
   align-items:flex-start!important;
   justify-content:space-between!important;
-  gap:10px!important;
+  gap:12px!important;
 }
 .home-mayor-kicker{
   display:block!important;
-  margin-bottom:4px!important;
+  margin-bottom:5px!important;
   color:#1557D6!important;
   font:800 7px/1.2 "Sora",Arial,sans-serif!important;
   letter-spacing:.08em!important;
@@ -4930,87 +4952,125 @@ body.mc-page{
 .home-mayor-heading h3{
   margin:0!important;
   color:#202B36!important;
-  font:800 16px/1.2 "Sora",Arial,sans-serif!important;
+  font:800 19px/1.2 "Sora",Arial,sans-serif!important;
   letter-spacing:-.025em!important;
 }
 .home-mayor-seal{
-  width:30px!important;
-  height:30px!important;
-  min-width:30px!important;
-  display:flex!important;
-  align-items:center!important;
-  justify-content:center!important;
-  border-radius:9px!important;
-  background:#FFF7D8!important;
-  color:#A77A00!important;
-  font-size:11px!important;
+  width:34px!important;height:34px!important;min-width:34px!important;
+  display:flex!important;align-items:center!important;justify-content:center!important;
+  border-radius:10px!important;background:#FFF7D8!important;color:#A77A00!important;
+  font-size:12px!important;
 }
 .home-mayor-desc{
-  margin:8px 0 10px!important;
+  margin:10px 0 11px!important;
   color:#687481!important;
-  font:500 8px/1.6 "Sora",Arial,sans-serif!important;
+  font:500 8px/1.65 "Sora",Arial,sans-serif!important;
+  max-width:590px!important;
 }
 .home-mayor-motto{
   display:flex!important;
   align-items:flex-start!important;
   gap:8px!important;
-  margin:0 0 10px!important;
-  padding:9px 10px!important;
+  margin:0 0 11px!important;
+  padding:9px 11px!important;
   border-left:3px solid #F4C542!important;
   border-radius:8px!important;
   background:#FAFBFD!important;
   color:#4D5864!important;
-  font:600 italic 8px/1.5 "Sora",Arial,sans-serif!important;
+  font:600 italic 7.5px/1.5 "Sora",Arial,sans-serif!important;
 }
-.home-mayor-motto i{
-  flex:0 0 auto!important;
-  margin-top:2px!important;
-  color:#1557D6!important;
-  font-size:9px!important;
-}
+.home-mayor-motto i{flex:0 0 auto!important;margin-top:2px!important;color:#1557D6!important;font-size:9px!important}
 .home-mayor-tags{
-  display:flex!important;
-  flex-wrap:wrap!important;
-  gap:5px!important;
-  margin:0 0 11px!important;
+  display:flex!important;flex-wrap:wrap!important;gap:5px!important;margin:0 0 11px!important;
 }
 .home-mayor-tags span{
-  padding:5px 7px!important;
-  border-radius:999px!important;
-  background:#EEF4FF!important;
-  color:#1557D6!important;
+  padding:5px 7px!important;border-radius:999px!important;background:#EEF4FF!important;color:#1557D6!important;
   font:800 6px/1 "Sora",Arial,sans-serif!important;
 }
 .home-mayor-link{
+  width:max-content!important;
+  min-width:190px!important;
   min-height:38px!important;
-  display:flex!important;
-  align-items:center!important;
-  justify-content:space-between!important;
-  gap:10px!important;
-  padding:0 11px!important;
-  border-radius:10px!important;
-  background:#1557D6!important;
-  color:#fff!important;
-  text-decoration:none!important;
+  display:flex!important;align-items:center!important;justify-content:space-between!important;
+  gap:14px!important;padding:0 12px!important;border-radius:10px!important;
+  background:#1557D6!important;color:#fff!important;text-decoration:none!important;
   font:800 7px/1 "Sora",Arial,sans-serif!important;
-  letter-spacing:.01em!important;
 }
 .home-mayor-link i{font-size:9px!important}
 .home-mayor-link:hover{background:#0E43A5!important;color:#fff!important}
 
-@media(max-width:560px){
-  .home-mayor-card{
-    max-width:none!important;
-    border-radius:15px!important;
-  }
-  .home-mayor-cover{height:132px!important}
-  .home-mayor-content{padding:12px!important}
-  .home-mayor-heading h3{font-size:14px!important}
-  .home-mayor-desc{font-size:7.5px!important;line-height:1.55!important}
-  .home-mayor-motto{font-size:7.5px!important}
+html.auto-mobile .home-mayor-card,
+html.force-mobile .home-mayor-card{
+  max-width:560px!important;
+  min-height:210px!important;
+  grid-template-columns:minmax(0,1.18fr) minmax(150px,.82fr)!important;
+  grid-template-areas:"content photo"!important;
+  border-radius:15px!important;
 }
-
-
+html.auto-mobile .home-mayor-content,
+html.force-mobile .home-mayor-content{
+  padding:15px!important;
+}
+html.auto-mobile .home-mayor-cover,
+html.force-mobile .home-mayor-cover{
+  min-height:210px!important;
+}
+html.auto-mobile .home-mayor-heading h3,
+html.force-mobile .home-mayor-heading h3{
+  font-size:14px!important;
+}
+html.auto-mobile .home-mayor-desc,
+html.force-mobile .home-mayor-desc{
+  font-size:6.7px!important;
+  line-height:1.55!important;
+}
+html.auto-mobile .home-mayor-motto,
+html.force-mobile .home-mayor-motto{
+  font-size:6.4px!important;
+  padding:8px!important;
+}
+html.auto-mobile .home-mayor-link,
+html.force-mobile .home-mayor-link{
+  width:100%!important;
+  min-width:0!important;
+  min-height:34px!important;
+  padding:0 9px!important;
+}
+html.auto-mobile .home-mayor-status,
+html.force-mobile .home-mayor-status{
+  right:7px!important;
+  bottom:7px!important;
+  padding:5px 7px!important;
+  font-size:5.5px!important;
+}
+html.auto-desktop .home-mayor-card{
+  max-width:900px!important;
+  grid-template-columns:minmax(0,1.25fr) minmax(260px,.75fr)!important;
+}
+html.force-desktop .home-mayor-card{
+  max-width:900px!important;
+  grid-template-columns:minmax(0,1.25fr) minmax(260px,.75fr)!important;
+}
+html.force-desktop .home-mayor-content{
+  padding:30px!important;
+}
+html.force-desktop .home-mayor-heading h3{
+  font-size:22px!important;
+}
+@media(max-width:430px){
+  .home-mayor-card{
+    grid-template-columns:minmax(0,1.08fr) minmax(120px,.92fr)!important;
+    min-height:200px!important;
+  }
+  .home-mayor-content{padding:12px!important}
+  .home-mayor-heading h3{font-size:12px!important}
+  .home-mayor-seal{width:28px!important;height:28px!important;min-width:28px!important;font-size:10px!important}
+  .home-mayor-desc{font-size:6px!important;line-height:1.45!important;margin:7px 0 8px!important}
+  .home-mayor-motto{font-size:5.8px!important;line-height:1.4!important;margin-bottom:8px!important}
+  .home-mayor-tags{display:none!important}
+  .home-mayor-cover{min-height:200px!important}
+  .home-mayor-link{min-height:31px!important;font-size:6px!important}
+}
 /* =========================================================
    HOMEPAGE — NATIVE MOBILE APP SECTIONS + DESKTOP MODE
    Default: Auto. Auto <=768px behaves as mobile app.
@@ -5419,4 +5479,99 @@ html.auto-desktop .bottomnav{display:none!important}
   .home-section-head h2{font-size:12px!important}
   .home-section-head p{font-size:6.5px!important}
   .home-quick-card{min-height:58px!important}
+}
+
+
+/* =========================================================
+   VIEW MODE SWITCHER — FLOATING / OLD PORTAL STYLE
+   Auto is the default; buttons remain selectable at all sizes.
+   ========================================================= */
+.view-toggle{
+  position:fixed!important;
+  right:16px!important;
+  bottom:18px!important;
+  z-index:10000!important;
+  display:flex!important;
+  align-items:center!important;
+  gap:6px!important;
+  pointer-events:auto!important;
+}
+.view-toggle-menu{
+  display:flex!important;
+  align-items:center!important;
+  gap:4px!important;
+  padding:5px!important;
+  border:1px solid rgba(255,255,255,.72)!important;
+  border-radius:14px!important;
+  background:rgba(255,255,255,.96)!important;
+  box-shadow:0 10px 30px rgba(16,38,70,.16)!important;
+  backdrop-filter:blur(14px)!important;
+  -webkit-backdrop-filter:blur(14px)!important;
+}
+.view-toggle-btn{
+  border:0!important;
+  outline:0!important;
+  cursor:pointer!important;
+  display:inline-flex!important;
+  align-items:center!important;
+  justify-content:center!important;
+  gap:5px!important;
+  min-height:30px!important;
+  padding:0 9px!important;
+  border-radius:9px!important;
+  background:transparent!important;
+  color:#65717D!important;
+  font:800 6.5px/1 "Sora",Arial,sans-serif!important;
+  white-space:nowrap!important;
+  transition:background .18s ease,color .18s ease,transform .18s ease!important;
+}
+.view-toggle-btn i{font-size:8px!important}
+.view-toggle-btn:hover{
+  background:#F0F5FF!important;
+  color:#1557D6!important;
+}
+.view-toggle-btn.active{
+  background:#1557D6!important;
+  color:#fff!important;
+  box-shadow:0 4px 10px rgba(21,87,214,.22)!important;
+}
+.view-toggle-trigger{
+  width:34px!important;
+  height:34px!important;
+  min-width:34px!important;
+  border:0!important;
+  border-radius:11px!important;
+  display:flex!important;
+  align-items:center!important;
+  justify-content:center!important;
+  cursor:pointer!important;
+  background:#1557D6!important;
+  color:#fff!important;
+  box-shadow:0 8px 20px rgba(21,87,214,.24)!important;
+  transition:transform .2s ease,background .2s ease!important;
+}
+.view-toggle-trigger:hover{background:#0E43A5!important}
+.view-toggle.open .view-toggle-trigger{transform:rotate(180deg)!important}
+.view-toggle.open .view-toggle-menu{display:flex!important}
+@media(min-width:769px){
+  .view-toggle{
+    right:22px!important;
+    bottom:22px!important;
+  }
+}
+@media(max-width:768px){
+  .view-toggle{
+    right:10px!important;
+    bottom:calc(var(--bottom-h) + var(--safe-b) + 10px)!important;
+  }
+}
+@media(max-width:430px){
+  .view-toggle{right:8px!important}
+  .view-toggle-menu{gap:2px!important;padding:4px!important}
+  .view-toggle-btn{min-height:28px!important;padding:0 7px!important;font-size:6px!important}
+  .view-toggle-btn i{font-size:7px!important}
+  .view-toggle-trigger{width:32px!important;height:32px!important;min-width:32px!important}
+}
+@media(max-width:360px){
+  .view-toggle-btn{padding:0 6px!important}
 }
