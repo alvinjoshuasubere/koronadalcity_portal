@@ -2500,3 +2500,195 @@ a[href="#"] .svc-icon, a[href="#"] .list-icon, a[href="#"] .feature-mark, a[href
 .leader-mayor-card>.leader-mayor-content,.leader-mayor-card>.leader-mayor-copy{max-width:100%!important;width:100%!important;flex:0 0 auto!important;order:1!important}
 .leader-mayor-card>.leader-mayor-img{width:100%!important;max-width:100%!important;min-height:220px!important;height:260px!important;order:2!important}
 }
+
+
+/* =========================================================
+   PHILIPPINE E-GOV STYLE — FINAL CLEAN OVERRIDES
+   Keep existing content/functionality; unify the visual system.
+   ========================================================= */
+
+:root{
+  --egov-blue:#1557D6;
+  --egov-blue-dark:#1048B8;
+  --egov-blue-soft:#EEF4FF;
+  --egov-red:#C62828;
+  --egov-yellow:#F4C542;
+  --egov-ink:#263238;
+  --egov-muted:#707984;
+  --egov-line:#E4E8EF;
+  --egov-bg:#F6F8FB;
+  --egov-white:#FFFFFF;
+}
+
+/* page */
+html,body{background:var(--egov-bg)!important;color:var(--egov-ink)!important}
+body{font-family:"Sora",system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif!important}
+.app{background:var(--egov-bg)!important}
+.floating-orbs{display:none!important}
+
+/* official-looking compact header */
+.topnav{background:#fff!important;border-bottom:1px solid var(--egov-line)!important;box-shadow:0 2px 12px rgba(20,40,70,.06)!important}
+.topnav-in{max-width:1200px!important;margin:0 auto!important;padding:0 20px!important;min-height:64px!important}
+.brand{gap:10px!important;text-decoration:none!important}
+.topnav .brand-img,.mnav .brand-img{
+ width:40px!important;height:40px!important;min-width:40px!important;min-height:40px!important;
+ max-width:40px!important;max-height:40px!important;object-fit:contain!important;box-shadow:none!important
+}
+.brand-text strong{color:var(--egov-ink)!important;font-size:.72rem!important}
+.brand-text small{color:var(--egov-blue)!important;font-size:.46rem!important;font-weight:800!important}
+.nav-links{gap:3px!important}
+.nav-links a{border-radius:8px!important;padding:8px 10px!important;color:#59636f!important;font-weight:600!important}
+.nav-links a:hover,.nav-links a.on{color:var(--egov-blue)!important;background:var(--egov-blue-soft)!important}
+.nav-cta{background:var(--egov-blue)!important;border:1px solid var(--egov-blue)!important;border-radius:8px!important}
+.nav-cta:hover{background:var(--egov-blue-dark)!important}
+
+/* mobile header */
+.mnav{background:#fff!important}
+.mnav-head{border-bottom:1px solid var(--egov-line)!important}
+.mnav-links a{border-radius:9px!important;color:#4f5965!important}
+.mnav-links a:hover,.mnav-links a.on{background:var(--egov-blue-soft)!important;color:var(--egov-blue)!important}
+
+/* E-Gov application surface */
+.egov-full-app{background:var(--egov-bg)!important;min-height:auto!important}
+.egov-app-body{max-width:1080px!important;margin:0 auto!important;padding:28px 22px 45px!important}
+.egov-welcome-row{margin-bottom:16px!important}
+.egov-kicker{color:var(--egov-blue)!important;font-weight:800!important}
+.egov-welcome-row h1{color:#27313b!important;font-weight:700!important}
+.egov-welcome-row h1 b{color:var(--egov-blue)!important}
+.egov-weather{background:#fff!important;border:1px solid var(--egov-line)!important;border-radius:12px!important;color:var(--egov-blue)!important}
+
+/* search */
+.egov-search{height:46px!important;background:#fff!important;border:1px solid #DDE3EB!important;border-radius:10px!important;box-shadow:0 3px 12px rgba(20,40,70,.04)!important}
+.egov-search:focus-within{border-color:#9DB8EC!important;box-shadow:0 0 0 3px rgba(21,87,214,.08)!important}
+.egov-search input{color:#34404c!important}
+
+/* featured banner */
+.egov-hero-card{
+ min-height:220px!important;border-radius:14px!important;background:linear-gradient(110deg,#1557D6 0%,#1048B8 65%,#0E439F 100%)!important;
+ box-shadow:0 8px 25px rgba(21,87,214,.16)!important;border:0!important
+}
+.egov-hero-copy{padding:30px!important}
+.egov-hero-copy small{color:rgba(255,255,255,.78)!important}
+.egov-hero-copy h2,.egov-hero-copy h2 b{color:#fff!important}
+.egov-hero-copy p{color:rgba(255,255,255,.78)!important}
+.egov-hero-copy a{background:#fff!important;color:var(--egov-blue)!important;border-radius:8px!important}
+
+/* hide decorative fake artwork but preserve banner */
+.egov-city-art{opacity:.28!important;filter:saturate(.65)!important}
+
+/* modules */
+.egov-module{margin-top:26px!important}
+.egov-module-title h2{color:#2D333B!important;font-weight:700!important}
+.egov-module-title small{color:var(--egov-blue)!important}
+.egov-module-title>a{color:var(--egov-blue)!important}
+
+/* services — official portal grid */
+.egov-service-grid{
+ grid-template-columns:repeat(6,1fr)!important;gap:0!important;padding:8px!important;
+ background:#fff!important;border:1px solid var(--egov-line)!important;border-radius:14px!important;
+ box-shadow:0 3px 14px rgba(20,40,70,.035)!important
+}
+.egov-service{padding:14px 6px!important;border-radius:10px!important}
+.egov-service:hover{background:#F7F9FC!important}
+.svc-icon,.svc-icon.blue,.svc-icon.purple,.svc-icon.cyan,.svc-icon.pink,.svc-icon.indigo,.svc-icon.green,.svc-icon.red,.svc-icon.orange,.svc-icon.teal,.svc-icon.yellow,.svc-icon.gold,.svc-icon.slate{
+ width:48px!important;height:48px!important;border-radius:12px!important;
+ color:var(--egov-blue)!important;background:var(--egov-blue-soft)!important
+}
+.svc-icon.red{color:var(--egov-red)!important;background:#FFF0F0!important}
+.svc-icon.yellow,.svc-icon.gold{color:#8A6900!important;background:#FFF8DC!important}
+.svc-icon em{background:var(--egov-red)!important}
+.egov-service b{font-size:.52rem!important;color:#505965!important}
+
+/* featured cards */
+.egov-feature-row{gap:12px!important}
+.egov-feature{border:1px solid var(--egov-line)!important;border-radius:14px!important;box-shadow:0 3px 14px rgba(20,40,70,.035)!important}
+.egov-feature:hover,.egov-info-card:hover,.egov-list>a:hover{border-color:#B8CBEA!important;background:#FBFCFF!important}
+.feature-tag{color:var(--egov-blue)!important}
+.feature-mark{color:#9CB5E8!important}
+.emergency-feature{background:#FFF9F8!important}
+.emergency-feature .feature-tag,.emergency-feature .feature-mark{color:var(--egov-red)!important}
+
+/* information cards */
+.egov-info-card{border:1px solid var(--egov-line)!important;border-radius:12px!important;box-shadow:none!important}
+.egov-info-card>i:first-child{background:var(--egov-blue-soft)!important;color:var(--egov-blue)!important}
+.egov-info-card.danger>i:first-child{background:#FFF0F0!important;color:var(--egov-red)!important}
+.egov-info-card small{color:var(--egov-blue)!important}
+.egov-info-card.danger small{color:var(--egov-red)!important}
+
+/* service list */
+.egov-list{border:1px solid var(--egov-line)!important;border-radius:14px!important;box-shadow:0 3px 14px rgba(20,40,70,.035)!important}
+.egov-list>a:hover{transform:none!important}
+.list-icon,.list-icon.blue,.list-icon.orange,.list-icon.purple,.list-icon.indigo,.list-icon.cyan,.list-icon.green{
+ background:var(--egov-blue-soft)!important;color:var(--egov-blue)!important
+}
+
+/* account */
+.egov-account{background:linear-gradient(110deg,var(--egov-blue),var(--egov-blue-dark))!important;border-radius:14px!important}
+.account-avatar{width:48px!important;height:48px!important}
+.account-avatar img{width:100%!important;height:100%!important;object-fit:contain!important;padding:5px!important}
+.egov-account>a{color:var(--egov-blue)!important;border-radius:8px!important}
+
+/* legacy sections — keep same visual language */
+.hero-bg{background:linear-gradient(135deg,#EEF5FF 0%,#F8FAFD 55%,#FFF9E8 100%)!important}
+.hero{background:var(--egov-bg)!important}
+.hero h1 .hl{background:linear-gradient(135deg,var(--egov-blue-dark),var(--egov-blue))!important;-webkit-background-clip:text!important;background-clip:text!important}
+.hb-w{background:var(--egov-blue)!important}
+.hb-o{background:#fff!important;color:var(--egov-blue)!important;border-color:#C9D7EE!important}
+.co-card,.cf-card,.citizen-hub-card,.portal,.svc-feat-card,.qc{
+ border-color:var(--egov-line)!important;box-shadow:0 4px 18px rgba(20,40,70,.045)!important
+}
+.portal:hover,.svc-feat-card:hover,.qc:hover{border-color:#B8CBEA!important}
+.progress-bar,.accent-bar{background:var(--egov-yellow)!important}
+.section-kicker,.eyebrow,.label-accent,.required{color:var(--egov-red)!important}
+.btn-danger,.btn-red{background:var(--egov-red)!important;border-color:var(--egov-red)!important}
+.btn-warning,.btn-yellow{background:var(--egov-yellow)!important;border-color:var(--egov-yellow)!important;color:#27313b!important}
+
+/* Mayor's Corner: reliable left-text/right-photo */
+.leader-mayor-card{
+ display:grid!important;grid-template-columns:minmax(0,1fr) 320px!important;
+ align-items:stretch!important;overflow:hidden!important;background:#fff!important;
+ border:1px solid var(--egov-line)!important;border-radius:14px!important
+}
+.leader-mayor-card>.leader-mayor-content,.leader-mayor-card>.leader-mayor-copy{
+ grid-column:1!important;grid-row:1!important;max-width:none!important;width:auto!important;
+ padding:30px!important;text-align:left!important;align-self:center!important;order:1!important
+}
+.leader-mayor-card>.leader-mayor-img{
+ grid-column:2!important;grid-row:1!important;width:100%!important;max-width:none!important;
+ min-height:300px!important;height:auto!important;margin:0!important;order:2!important;
+ background-size:cover!important;background-position:center top!important
+}
+
+/* footer */
+.footer{background:#fff!important;border-top:1px solid var(--egov-line)!important}
+.f-brand img{width:34px!important;height:34px!important;max-width:34px!important;max-height:34px!important;object-fit:contain!important;box-shadow:none!important}
+.fcol-t{color:var(--egov-blue)!important}
+.f-soc a:hover{color:var(--egov-blue)!important}
+
+/* bottom nav */
+.bottomnav{background:#fff!important;border-top:1px solid var(--egov-line)!important}
+.bn-item.active,.bn-item:hover{color:var(--egov-blue)!important}
+.bn-center .bn-icon{background:var(--egov-blue)!important}
+
+/* remove fake icon when link has no usable destination */
+a:not([href]) .svc-icon,a[href=""] .svc-icon,a[href="#"] .svc-icon{display:none!important}
+
+@media(max-width:900px){
+ .egov-service-grid{grid-template-columns:repeat(4,1fr)!important}
+}
+@media(max-width:768px){
+ .topnav-in{padding:0 14px!important}
+ .topnav .brand-img,.mnav .brand-img{width:38px!important;height:38px!important;min-width:38px!important;min-height:38px!important;max-width:38px!important;max-height:38px!important}
+ .egov-app-body{padding:18px 14px 35px!important}
+ .egov-hero-card{min-height:190px!important}
+ .egov-hero-copy{width:65%!important;padding:22px 0 20px 18px!important}
+ .egov-service-grid{grid-template-columns:repeat(4,1fr)!important;padding:6px!important}
+ .svc-icon{width:44px!important;height:44px!important}
+ .egov-feature{box-shadow:none!important}
+ .leader-mayor-card{grid-template-columns:1fr!important}
+ .leader-mayor-card>.leader-mayor-content,.leader-mayor-card>.leader-mayor-copy{grid-column:1!important;grid-row:1!important;padding:22px!important}
+ .leader-mayor-card>.leader-mayor-img{grid-column:1!important;grid-row:2!important;min-height:240px!important;height:280px!important}
+}
+@media(min-width:769px){
+ .bottomnav{display:none!important}
+}
