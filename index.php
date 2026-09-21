@@ -16,13 +16,20 @@ if (file_exists($officialsFile)) {
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0" />
-    <meta name="theme-color" content="#0A192F" />
+    <meta name="theme-color" content="#0B63B6" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+    <meta name="apple-mobile-web-app-title" content="Koronadal City" />
+    <meta name="description" content="Koronadal City digital gateway for online government services, emergency contacts, city information and citizen resources." />
+    <link rel="manifest" href="manifest.webmanifest" />
     <title>Koronadal City — Online Services</title>
     <link rel="icon" type="image/x-icon" href="favicon.ico" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="static/css/koronadal-app.css" />
+
     <style>
     /* ===== THEME ===== */
     :root {
@@ -997,8 +1004,7 @@ if (file_exists($officialsFile)) {
         padding: 0 16px
     }
 
-    .qnav-row::-webkit-scrollbar {
-        display: none
+    .qnav-row::-webkit-scrollbar {        display: none
     }
 
     .qnav-lbl {
@@ -1997,8 +2003,7 @@ if (file_exists($officialsFile)) {
 
     /* Vice Mayor — Featured Card */
     .leader-vice {
-        margin-bottom: 24px
-    }
+        margin-bottom: 24px    }
 
     .leader-vice-card {
         display: flex;
@@ -2998,7 +3003,6 @@ if (file_exists($officialsFile)) {
         100% {
             box-shadow: 0 0 5px var(--glow-rose)
         }
-
         50% {
             box-shadow: 0 0 20px var(--glow-rose)
         }
@@ -3997,7 +4001,6 @@ if (file_exists($officialsFile)) {
             box-shadow: var(--shadow-md)
         }
     }
-
     .qc:active {
         transform: scale(.98);
         border-color: var(--rose-l)
@@ -4079,6 +4082,14 @@ if (file_exists($officialsFile)) {
     <!-- APP CONTENT -->
     <div class="app">
 
+<div class="city-service-strip">
+            <div><i class="fas fa-location-dot"></i><span><strong>Koronadal City</strong> · South Cotabato · Region XII</span></div>
+            <div class="strip-links">
+                <a href="emergency-contacts.php"><i class="fas fa-phone"></i> Emergency</a>
+                <a href="https://koronadal.gov.ph/" target="_blank" rel="noopener"><i class="fas fa-bullhorn"></i> City Updates</a>
+            </div>
+        </div>
+
         <!-- HERO -->
         <section class="hero" id="home">
             <div class="hero-bg"></div>
@@ -4117,10 +4128,12 @@ if (file_exists($officialsFile)) {
             </div>
             <div class="hero-inner">
                 <h1>Maayung Adlaw<br /><span class="hl">Koronadale&ntilde;o!</span></h1>
-                <p class="hero-sub">Access government services online.</p>
+                <p class="hero-sub">Your digital gateway to city services, emergency assistance, public information and everyday government transactions.</p>
                 <div class="hero-btns">
-                    <a href="#services" class="hb hb-w"><i class="fas fa-arrow-pointer" style="font-size:.6rem"></i>
-                        View Services</a>
+                    <a href="#citizen-hub" class="hb hb-w"><i class="fas fa-grid-2" style="font-size:.6rem"></i>
+                        Explore Koronadal</a>
+                    <a href="emergency-contacts.php" class="hb hb-o"><i class="fas fa-phone" style="font-size:.6rem"></i>
+                        Emergency</a>
                 </div>
             </div>
         </section>
@@ -4217,6 +4230,80 @@ if (file_exists($officialsFile)) {
                         <div class="cf-name">Peace & Unity</div>
                         <div class="cf-desc">A model of interfaith dialogue and peaceful coexistence among diverse
                             communities</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+<!-- CITIZEN HUB — MyNaga-inspired citizen-first gateway -->
+        <section class="citizen-hub a d2" id="citizen-hub">
+            <div class="sec-pad">
+                <div class="citizen-hub-card">
+                    <div class="citizen-hub-head">
+                        <div>
+                            <div class="sec-label"><i class="fas fa-sparkles"></i> Koronadal Digital Gateway</div>
+                            <h2>Everything you need from the City, in one place.</h2>
+                            <p>Find services, emergency contacts, public information and official city resources without having to search through multiple pages.</p>
+                        </div>
+                        <div class="hub-badge"><i class="fas fa-mobile-screen-button"></i><span>Mobile ready</span></div>
+                    </div>
+
+                    <div class="hub-search">
+                        <i class="fas fa-magnifying-glass"></i>
+                        <input id="serviceSearch" type="search" placeholder="Search services, permits, jobs, health, ordinances..." aria-label="Search Koronadal City services">
+                        <button id="clearServiceSearch" type="button" aria-label="Clear service search"><i class="fas fa-xmark"></i></button>
+                    </div>
+
+                    <div class="hub-actions" aria-label="Citizen shortcuts">
+                        <a href="#services" class="hub-action action-blue">
+                            <span class="hub-action-icon"><i class="fas fa-landmark"></i></span>
+                            <span><strong>City Services</strong><small>Permits & online transactions</small></span>
+                            <i class="fas fa-chevron-right"></i>
+                        </a>
+                        <a href="emergency-contacts.php" class="hub-action action-red">
+                            <span class="hub-action-icon"><i class="fas fa-phone-volume"></i></span>
+                            <span><strong>Emergency</strong><small>Korona 911 & hotlines</small></span>
+                            <i class="fas fa-chevron-right"></i>
+                        </a>
+                        <a href="https://koronadal.gov.ph/citizens-charter/" target="_blank" rel="noopener" class="hub-action action-green">
+                            <span class="hub-action-icon"><i class="fas fa-book-open"></i></span>
+                            <span><strong>Citizen's Charter</strong><small>Requirements & service guides</small></span>
+                            <i class="fas fa-chevron-right"></i>
+                        </a>
+                        <a href="city-officials.php" class="hub-action action-orange">
+                            <span class="hub-action-icon"><i class="fas fa-address-card"></i></span>
+                            <span><strong>City Directory</strong><small>Offices & public officials</small></span>
+                            <i class="fas fa-chevron-right"></i>
+                        </a>
+                        <a href="https://jobs.koronadalcityonlineservices.com/" target="_blank" rel="noopener" class="hub-action action-yellow">
+                            <span class="hub-action-icon"><i class="fas fa-briefcase"></i></span>
+                            <span><strong>Jobs</strong><small>Current opportunities</small></span>
+                            <i class="fas fa-chevron-right"></i>
+                        </a>
+                        <a href="https://koronadal.gov.ph/ordinance/" target="_blank" rel="noopener" class="hub-action action-purple">
+                            <span class="hub-action-icon"><i class="fas fa-scale-balanced"></i></span>
+                            <span><strong>Ordinances</strong><small>Local laws & resolutions</small></span>
+                            <i class="fas fa-chevron-right"></i>
+                        </a>
+                    </div>
+
+                    <div class="hub-info-grid">
+                        <a href="https://koronadal.gov.ph/full-disclosure/" target="_blank" rel="noopener" class="hub-info">
+                            <span class="hub-info-icon"><i class="fas fa-chart-line"></i></span>
+                            <span><strong>Transparency</strong><small>Full disclosure & reports</small></span>
+                        </a>
+                        <a href="https://koronadal.gov.ph/culture/" target="_blank" rel="noopener" class="hub-info">
+                            <span class="hub-info-icon"><i class="fas fa-camera-retro"></i></span>
+                            <span><strong>Tourism & Culture</strong><small>Discover Koronadal</small></span>
+                        </a>
+                        <a href="https://koronadal.gov.ph/27-barangay/" target="_blank" rel="noopener" class="hub-info">
+                            <span class="hub-info-icon"><i class="fas fa-map-location-dot"></i></span>
+                            <span><strong>27 Barangays</strong><small>Community information</small></span>
+                        </a>
+                        <a href="https://koronadal.gov.ph/" target="_blank" rel="noopener" class="hub-info">
+                            <span class="hub-info-icon"><i class="fas fa-globe"></i></span>
+                            <span><strong>Official Website</strong><small>News & announcements</small></span>
+                        </a>
                     </div>
                 </div>
             </div>
@@ -4788,6 +4875,42 @@ if (file_exists($officialsFile)) {
         if (!viewToggle.contains(e.target)) viewToggle.classList.remove('open')
     });
 
+    
+    // === CITIZEN HUB SERVICE SEARCH ===
+    var serviceSearch = document.getElementById('serviceSearch');
+    var clearServiceSearch = document.getElementById('clearServiceSearch');
+    if (serviceSearch) {
+        function filterCitizenServices(term) {
+            var q = (term || '').toLowerCase().trim();
+            var cards = document.querySelectorAll('.portals .portal, .svc-sec .svc-sec-item, .svc-list .svc-portal, .svc-list .svc-row');
+            cards.forEach(function(card) {
+                var text = (card.textContent || '').toLowerCase();
+                card.style.display = (!q || text.indexOf(q) !== -1) ? '' : 'none';
+            });
+            clearServiceSearch.style.opacity = q ? '1' : '.45';
+        }
+        serviceSearch.addEventListener('input', function() {
+            filterCitizenServices(this.value);
+        });
+        if (clearServiceSearch) {
+            clearServiceSearch.addEventListener('click', function() {
+                serviceSearch.value = '';
+                filterCitizenServices('');
+                serviceSearch.focus();
+            });
+        }
+    }
+
+    // Auto mode follows the actual viewport while manual modes remain fixed.
+    function syncAutoView() {
+        if (!html.classList.contains('force-mobile') && !html.classList.contains('force-desktop')) {
+            html.classList.toggle('auto-mobile', window.innerWidth <= 768);
+            html.classList.toggle('auto-desktop', window.innerWidth > 768);
+        }
+    }
+    window.addEventListener('resize', syncAutoView);
+    syncAutoView();
+
     // === MOBILE DRAWER ===
     var burgerBtn = document.getElementById('burgerBtn'),
         mnav = document.getElementById('mnav'),
@@ -4998,7 +5121,6 @@ if (file_exists($officialsFile)) {
             }
         })
     });
-
     // === FILTERS ===
     document.querySelectorAll('.fb').forEach(function(b) {
         b.addEventListener('click', function() {
@@ -5046,7 +5168,7 @@ if (file_exists($officialsFile)) {
             dividers.forEach(function(d) {
                 d.style.display = f === 'all' ? '' : 'none'
             });
-            document.getElementById('cnt').textContent = n;
+            document.getElementById('cnt').textContent = document.querySelectorAll('.portals .portal[style=""], .portals .portal:not([style])').length || n;
         });
     });
     </script>
