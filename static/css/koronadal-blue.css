@@ -1,0 +1,25 @@
+/* KORONADAL CITY PORTAL — BLUE CIVIC THEME */
+:root{
+--portal-blue:#1769AA;--portal-blue-dark:#0D47A1;--portal-blue-light:#3D8FD1;--portal-sky:#EAF4FF;--portal-sky-2:#DCEEFF;--portal-navy:#123B63;
+--rose:#1769AA!important;--rose-d:#0D47A1!important;--rose-l:rgba(23,105,170,.09)!important;--rose-wash:#EAF4FF!important;
+--navy:#123B63!important;--navy-l:rgba(18,59,99,.06)!important;--glow-rose:rgba(23,105,170,.28)!important;--glass-border:rgba(23,105,170,.12)!important
+}
+::selection{background:#1769AA!important;color:#fff!important}
+body::before{background:radial-gradient(ellipse at 80% 10%,rgba(23,105,170,.045),transparent 55%)!important}
+.orb-2{background:#3D8FD1!important}
+.hero-bg{background:linear-gradient(160deg,#EAF4FF 0%,#EAF4FF 55%,#DCEEFF 100%)!important}
+.hero-bg::before{background:radial-gradient(circle at 80% 20%,rgba(23,105,170,.16),transparent 50%)!important}
+.hero-bg::after{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='60' height='60'%3E%3Cpath d='M0 30h60M30 0v60' stroke='%231769AA' stroke-width='.3'/%3E%3Ccircle cx='30' cy='30' r='1.5' fill='%231769AA' opacity='.3'/%3E%3C/svg%3E")!important}
+.hero-glow-ring{border-color:rgba(23,105,170,.18)!important;box-shadow:0 0 60px rgba(23,105,170,.11),inset 0 0 60px rgba(23,105,170,.06)!important}
+.hero h1 .hl{background:linear-gradient(135deg,#0D47A1,#1769AA,#3D8FD1)!important;filter:drop-shadow(0 0 16px rgba(23,105,170,.18))!important}
+.hero-brand img,.brand-img{box-shadow:0 0 20px rgba(23,105,170,.22)!important}
+.nav-cta,.mnav-foot a,.view-toggle-btn.active,.view-toggle-trigger{background:#1769AA!important;border-color:#1769AA!important}
+.nav-cta:hover,.mnav-foot a:hover{background:#0D47A1!important}
+.nav-links a:hover,.mnav-links a:hover,.mnav-links a.on,.view-toggle-btn:hover:not(.active){color:#1769AA!important;background:#EAF4FF!important}
+.nav-links a.on,.brand-text small{color:#1769AA!important}
+.egov-account{background:linear-gradient(115deg,#0D47A1,#1769AA,#3D8FD1)!important}
+.egov-service:hover,.egov-feature:hover,.egov-info-card:hover{border-color:rgba(23,105,170,.25)!important;box-shadow:0 12px 30px rgba(23,105,170,.10)!important}
+/* Hide decorative icons only when their anchor has no usable destination. */
+a:not([href]) .svc-icon,a:not([href]) .list-icon,a:not([href]) .feature-mark,a:not([href]) .arrow,
+a[href=""] .svc-icon,a[href=""] .list-icon,a[href=""] .feature-mark,a[href=""] .arrow,
+a[href="#"] .svc-icon,a[href="#"] .list-icon,a[href="#"] .feature-mark,a[href="#"] .arrow{display:none!important}
