@@ -272,13 +272,31 @@ function mcInitials($name) {
     </div>
 </div>
 
-<!-- Footer -->
-<footer class="footer">
-    <div class="footer-brand">
-        <img src="Logo.png" alt="Koronadal City" onerror="this.style.display='none'">
-        <span>Koronadal City</span>
+<!-- App Footer -->
+<footer class="footer mc-footer">
+    <div class="mc-footer-inner">
+        <div class="mc-footer-main">
+            <div class="mc-footer-brand">
+                <div class="mc-footer-logo">
+                    <img src="Logo.png" alt="Koronadal City" onerror="this.style.display='none'">
+                </div>
+                <div>
+                    <strong>City Government of Koronadal</strong>
+                    <span>Office of the City Mayor</span>
+                </div>
+            </div>
+            <p class="mc-footer-desc">Serving Koronadal with faith, integrity, and genuine public service.</p>
+            <div class="mc-footer-actions">
+                <a href="/" class="mc-footer-action"><i class="fas fa-house"></i><span>Portal Home</span></a>
+                <a href="city-officials.php" class="mc-footer-action"><i class="fas fa-users"></i><span>Officials</span></a>
+                <a href="mailto:info.koronadalcity@gmail.com" class="mc-footer-action"><i class="fas fa-envelope"></i><span>Contact</span></a>
+            </div>
+        </div>
+        <div class="mc-footer-note">
+            <span><i class="fas fa-shield-halved"></i> Official City Government Portal</span>
+            <span>&copy; <?= date('Y') ?> City Government of Koronadal</span>
+        </div>
     </div>
-    <p>&copy; <?= date('Y') ?> Koronadal City Government. All rights reserved.</p>
 </footer>
 
 <script>
