@@ -5009,3 +5009,414 @@ body.mc-page{
   .home-mayor-desc{font-size:7.5px!important;line-height:1.55!important}
   .home-mayor-motto{font-size:7.5px!important}
 }
+
+
+/* =========================================================
+   HOMEPAGE — NATIVE MOBILE APP SECTIONS + DESKTOP MODE
+   Default: Auto. Auto <=768px behaves as mobile app.
+   ========================================================= */
+
+/* Shared compact section heading */
+.home-section-head{
+  width:100%!important;
+  display:flex!important;
+  align-items:center!important;
+  gap:10px!important;
+  margin:0 0 12px!important;
+}
+.home-section-icon{
+  width:34px!important;
+  height:34px!important;
+  min-width:34px!important;
+  display:flex!important;
+  align-items:center!important;
+  justify-content:center!important;
+  border-radius:11px!important;
+  background:#EEF4FF!important;
+  color:#1557D6!important;
+  font-size:12px!important;
+}
+.home-section-head span{
+  display:block!important;
+  color:#1557D6!important;
+  font:800 6px/1.2 "Sora",Arial,sans-serif!important;
+  letter-spacing:.1em!important;
+}
+.home-section-head h2{
+  margin:2px 0 0!important;
+  color:#202B36!important;
+  font:800 14px/1.2 "Sora",Arial,sans-serif!important;
+  letter-spacing:-.02em!important;
+}
+.home-section-head p{
+  margin:2px 0 0!important;
+  color:#7B8691!important;
+  font:500 7px/1.35 "Sora",Arial,sans-serif!important;
+}
+
+/* Replace the old large leadership heading spacing */
+.home-quick,
+.leadership{
+  width:100%!important;
+}
+.leadership .sec-pad,
+.home-quick .sec-pad{
+  max-width:560px!important;
+  margin:0 auto!important;
+}
+
+/* Mayor card sits naturally inside the homepage app column */
+.leadership .leader-mayor{
+  max-width:560px!important;
+  margin-left:auto!important;
+  margin-right:auto!important;
+}
+
+/* Promotional strip */
+.home-promo-strip{
+  position:relative!important;
+  display:flex!important;
+  align-items:center!important;
+  gap:10px!important;
+  width:100%!important;
+  margin:0 0 11px!important;
+  padding:11px!important;
+  overflow:hidden!important;
+  border-radius:13px!important;
+  background:linear-gradient(135deg,#1557D6 0%,#0E43A5 100%)!important;
+  color:#fff!important;
+  box-shadow:0 7px 18px rgba(21,87,214,.13)!important;
+}
+.home-promo-strip:after{
+  content:""!important;
+  position:absolute!important;
+  right:-28px!important;
+  top:-35px!important;
+  width:100px!important;
+  height:100px!important;
+  border:20px solid rgba(255,255,255,.08)!important;
+  border-radius:50%!important;
+}
+.home-promo-icon{
+  width:34px!important;
+  height:34px!important;
+  min-width:34px!important;
+  display:flex!important;
+  align-items:center!important;
+  justify-content:center!important;
+  border-radius:10px!important;
+  background:rgba(255,255,255,.15)!important;
+  font-size:12px!important;
+}
+.home-promo-copy{
+  min-width:0!important;
+  flex:1!important;
+  position:relative!important;
+  z-index:1!important;
+}
+.home-promo-copy span{
+  display:block!important;
+  margin-bottom:3px!important;
+  color:rgba(255,255,255,.68)!important;
+  font:800 5.5px/1.2 "Sora",Arial,sans-serif!important;
+  letter-spacing:.08em!important;
+}
+.home-promo-copy strong{
+  display:block!important;
+  color:#fff!important;
+  font:800 8.5px/1.25 "Sora",Arial,sans-serif!important;
+}
+.home-promo-copy small{
+  display:block!important;
+  margin-top:3px!important;
+  color:rgba(255,255,255,.76)!important;
+  font:500 6.5px/1.45 "Sora",Arial,sans-serif!important;
+}
+.home-promo-strip>a{
+  position:relative!important;
+  z-index:2!important;
+  width:27px!important;
+  height:27px!important;
+  min-width:27px!important;
+  display:flex!important;
+  align-items:center!important;
+  justify-content:center!important;
+  border-radius:8px!important;
+  background:#fff!important;
+  color:#1557D6!important;
+  text-decoration:none!important;
+  font-size:8px!important;
+}
+
+/* Quick links = native app list/grid */
+.home-quick-grid{
+  display:grid!important;
+  grid-template-columns:repeat(2,minmax(0,1fr))!important;
+  gap:7px!important;
+  width:100%!important;
+}
+.home-quick-card{
+  min-width:0!important;
+  min-height:62px!important;
+  display:grid!important;
+  grid-template-columns:29px minmax(0,1fr) 9px!important;
+  align-items:center!important;
+  gap:7px!important;
+  padding:8px!important;
+  border:1px solid #E5E9F0!important;
+  border-radius:12px!important;
+  background:#fff!important;
+  color:#202B36!important;
+  text-decoration:none!important;
+  box-shadow:0 4px 13px rgba(22,42,72,.045)!important;
+  transition:transform .18s ease,box-shadow .18s ease,border-color .18s ease!important;
+}
+.home-quick-card:hover{
+  transform:translateY(-2px)!important;
+  border-color:#C9D8F5!important;
+  box-shadow:0 8px 18px rgba(22,42,72,.08)!important;
+}
+.home-quick-icon{
+  width:29px!important;
+  height:29px!important;
+  display:flex!important;
+  align-items:center!important;
+  justify-content:center!important;
+  border-radius:9px!important;
+  font-size:10px!important;
+}
+.home-quick-icon.blue{background:#EEF4FF!important;color:#1557D6!important}
+.home-quick-icon.gold{background:#FFF8DD!important;color:#9B7600!important}
+.home-quick-icon.red{background:#FFF0F0!important;color:#C62828!important}
+.home-quick-icon.green{background:#EAF8F0!important;color:#25844D!important}
+.home-quick-icon.cyan{background:#EAF8FB!important;color:#16879A!important}
+.home-quick-icon.purple{background:#F3EDFF!important;color:#7145B8!important}
+.home-quick-card>span:nth-child(2){min-width:0!important}
+.home-quick-card strong{
+  display:block!important;
+  overflow:hidden!important;
+  color:#26323E!important;
+  font:800 7.2px/1.25 "Sora",Arial,sans-serif!important;
+  white-space:nowrap!important;
+  text-overflow:ellipsis!important;
+}
+.home-quick-card small{
+  display:block!important;
+  margin-top:2px!important;
+  overflow:hidden!important;
+  color:#87919B!important;
+  font:500 6px/1.25 "Sora",Arial,sans-serif!important;
+  white-space:nowrap!important;
+  text-overflow:ellipsis!important;
+}
+.home-quick-card>i{
+  color:#A4ADB7!important;
+  font-size:7px!important;
+}
+
+/* Additional promotion cards */
+.home-promo-grid{
+  display:grid!important;
+  grid-template-columns:1fr!important;
+  gap:7px!important;
+  margin-top:11px!important;
+}
+.home-promo-card{
+  min-width:0!important;
+  display:grid!important;
+  grid-template-columns:30px minmax(0,1fr) 9px!important;
+  align-items:center!important;
+  gap:8px!important;
+  padding:9px!important;
+  border:1px solid #E5E9F0!important;
+  border-radius:12px!important;
+  background:#fff!important;
+  color:#202B36!important;
+  text-decoration:none!important;
+}
+.home-promo-card>span{
+  width:30px!important;height:30px!important;
+  display:flex!important;align-items:center!important;justify-content:center!important;
+  border-radius:9px!important;
+  background:#EEF4FF!important;color:#1557D6!important;font-size:10px!important;
+}
+.home-promo-card.danger>span{background:#FFF0F0!important;color:#C62828!important}
+.home-promo-card div{min-width:0!important}
+.home-promo-card div small{
+  display:block!important;
+  color:#1557D6!important;
+  font:800 5px/1.2 "Sora",Arial,sans-serif!important;
+  letter-spacing:.07em!important;
+}
+.home-promo-card.danger div small{color:#C62828!important}
+.home-promo-card div strong{
+  display:block!important;
+  margin-top:2px!important;
+  font:800 7.5px/1.25 "Sora",Arial,sans-serif!important;
+}
+.home-promo-card div p{
+  margin:2px 0 0!important;
+  color:#87919B!important;
+  font:500 6px/1.3 "Sora",Arial,sans-serif!important;
+}
+.home-promo-card>i{
+  color:#A4ADB7!important;
+  font-size:7px!important;
+}
+
+/* Default and AUTO mobile: one centered phone-like app column */
+html.auto-mobile .app,
+html.force-mobile .app{
+  width:100%!important;
+  max-width:560px!important;
+  margin:0 auto!important;
+  overflow:hidden!important;
+}
+html.auto-mobile .topnav,
+html.force-mobile .topnav{
+  width:100%!important;
+}
+html.auto-mobile .home-quick-grid,
+html.force-mobile .home-quick-grid{
+  grid-template-columns:repeat(2,minmax(0,1fr))!important;
+}
+html.auto-mobile .home-promo-strip,
+html.force-mobile .home-promo-strip{
+  border-radius:12px!important;
+}
+html.auto-mobile .bottomnav,
+html.force-mobile .bottomnav{
+  display:block!important;
+}
+
+/* Explicit DESKTOP view */
+html.force-desktop body{
+  background:#F1F4F8!important;
+}
+html.force-desktop .app{
+  width:100%!important;
+  max-width:1280px!important;
+  margin:0 auto!important;
+  background:#F7F9FC!important;
+  box-shadow:0 0 45px rgba(20,40,70,.06)!important;
+}
+html.force-desktop .topnav-in{
+  max-width:1180px!important;
+  margin:0 auto!important;
+}
+html.force-desktop .nav-links{display:flex!important}
+html.force-desktop .burger{display:none!important}
+html.force-desktop .egov-full-app,
+html.force-desktop .hero,
+html.force-desktop .city-overview,
+html.force-desktop .city-motto,
+html.force-desktop .city-features,
+html.force-desktop .citizen-hub,
+html.force-desktop .svc,
+html.force-desktop .leadership,
+html.force-desktop .qacc,
+html.force-desktop .footer{
+  width:100%!important;
+}
+html.force-desktop .sec-pad{
+  max-width:1120px!important;
+  margin-left:auto!important;
+  margin-right:auto!important;
+}
+html.force-desktop .egov-app-body{
+  max-width:1120px!important;
+  margin:0 auto!important;
+}
+html.force-desktop .home-section-head{
+  margin-bottom:16px!important;
+}
+html.force-desktop .home-section-icon{
+  width:42px!important;height:42px!important;min-width:42px!important;
+  border-radius:13px!important;font-size:15px!important;
+}
+html.force-desktop .home-section-head h2{font-size:20px!important}
+html.force-desktop .home-section-head span{font-size:8px!important}
+html.force-desktop .home-section-head p{font-size:9px!important}
+html.force-desktop .leadership .leader-mayor{
+  max-width:900px!important;
+  display:grid!important;
+  grid-template-columns:42% 58%!important;
+  min-height:300px!important;
+  margin:0 auto!important;
+}
+html.force-desktop .leadership .leader-mayor-img{
+  min-height:300px!important;
+}
+html.force-desktop .leadership .leader-mayor-body{
+  padding:30px!important;
+}
+html.force-desktop .home-promo-strip{
+  max-width:900px!important;
+  margin-left:auto!important;
+  margin-right:auto!important;
+  padding:16px!important;
+}
+html.force-desktop .home-promo-copy strong{font-size:12px!important}
+html.force-desktop .home-promo-copy small{font-size:8px!important}
+html.force-desktop .home-quick-grid{
+  max-width:900px!important;
+  margin:0 auto!important;
+  grid-template-columns:repeat(3,minmax(0,1fr))!important;
+  gap:10px!important;
+}
+html.force-desktop .home-quick-card{
+  min-height:82px!important;
+  padding:12px!important;
+}
+html.force-desktop .home-quick-icon{
+  width:36px!important;height:36px!important;font-size:12px!important;
+}
+html.force-desktop .home-quick-card{
+  grid-template-columns:36px minmax(0,1fr) 10px!important;
+}
+html.force-desktop .home-quick-card strong{font-size:9px!important}
+html.force-desktop .home-quick-card small{font-size:7px!important}
+html.force-desktop .home-promo-grid{
+  max-width:900px!important;
+  margin:12px auto 0!important;
+  grid-template-columns:repeat(3,minmax(0,1fr))!important;
+}
+html.force-desktop .home-promo-card{min-height:86px!important;padding:12px!important}
+html.force-desktop .bottomnav{display:none!important}
+html.force-desktop .view-toggle{
+  z-index:9999!important;
+}
+
+/* Auto desktop follows desktop layout without requiring the toggle */
+html.auto-desktop .app{
+  width:100%!important;
+  max-width:1280px!important;
+  margin:0 auto!important;
+}
+html.auto-desktop .sec-pad{
+  max-width:1120px!important;
+  margin-left:auto!important;
+  margin-right:auto!important;
+}
+html.auto-desktop .home-quick-grid{
+  max-width:900px!important;
+  margin:0 auto!important;
+  grid-template-columns:repeat(3,minmax(0,1fr))!important;
+}
+html.auto-desktop .home-promo-grid{
+  max-width:900px!important;
+  margin:12px auto 0!important;
+  grid-template-columns:repeat(3,minmax(0,1fr))!important;
+}
+html.auto-desktop .leadership .leader-mayor{
+  max-width:900px!important;
+}
+html.auto-desktop .bottomnav{display:none!important}
+
+@media(max-width:560px){
+  .home-section-head{gap:8px!important;margin-bottom:10px!important}
+  .home-section-icon{width:31px!important;height:31px!important;min-width:31px!important;border-radius:10px!important;font-size:10px!important}
+  .home-section-head h2{font-size:12px!important}
+  .home-section-head p{font-size:6.5px!important}
+  .home-quick-card{min-height:58px!important}
+}
