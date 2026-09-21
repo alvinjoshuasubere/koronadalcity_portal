@@ -1,0 +1,17 @@
+{
+  "name": "Koronadal City Portal",
+  "short_name": "Koronadal",
+  "start_url": "./index.php",
+  "display": "standalone",
+  "background_color": "#F5F9FD",
+  "theme_color": "#0B63B6",
+  "description": "Digital gateway for Koronadal City government services and citizen information.",
+  "icons": [
+    {
+      "src": "./Logo.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}
