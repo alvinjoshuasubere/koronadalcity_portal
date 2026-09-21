@@ -1,69 +1,9 @@
-/* =========================================================
-   KORONADAL CITY — SHARED GREEN THEME
-   Linked after each page's inline styles so it overrides the
-   base palette across:
-     - index.php
-     - city-officials.php
-     - emergency-contacts.php
-     - mayor-corner.php
-   ========================================================= */
-
-:root {
-    /* ---- Brand greens (single source of truth) ---- */
-    --brand-green:        #2D8A57;
-    --brand-green-dark:   #1B6B44;
-    --brand-green-light:  #35A96E;
-    --brand-leaf:         #62A85D;
-    --brand-forest:       #123524;
-    --brand-forest-2:     #1B4D33;
-    --brand-mint:         #EAF7EF;
-    --brand-mint-2:       #E1F3E8;
-
-    /* ---- index.php token scheme ---- */
-    --rose:        #2D8A57;
-    --rose-d:      #1B6B44;
-    --rose-l:      rgba(45, 138, 87, .08);
-    --rose-wash:   #EAF7EF;
-    --navy:        #123524;
-    --navy-l:      rgba(18, 53, 36, .05);
-    --glow-rose:   rgba(45, 138, 87, .32);
-
-    /* ---- city-officials.php + mayor-corner.php token scheme ---- */
-    --rose-light:  #35A96E;
-    --rose-glow:   rgba(45, 138, 87, .25);
-    --cyan:        #62A85D;
-    --cyan-glow:   rgba(98, 168, 93, .2);
-    --border-glow: rgba(45, 138, 87, .25);
-    --gold:        #1B4D33;
-    --gold-dim:    rgba(27, 77, 51, .10);
-    --text-bright: #123524;
+/* KORONADAL CITY — SHARED BLUE CIVIC THEME */
+:root{
+--brand-blue:#1769AA;--brand-blue-dark:#0D47A1;--brand-blue-light:#3D8FD1;--brand-sky:#EAF4FF;--brand-sky-2:#DCEEFF;--brand-navy:#123B63;
+--rose:#1769AA;--rose-d:#0D47A1;--rose-l:rgba(23,105,170,.09);--rose-wash:#EAF4FF;--navy:#123B63;--navy-l:rgba(18,59,99,.06);--glow-rose:rgba(23,105,170,.28);
+--rose-light:#3D8FD1;--rose-glow:rgba(23,105,170,.25);--cyan:#4AA3DF;--cyan-glow:rgba(74,163,223,.20);--border-glow:rgba(23,105,170,.25);--gold:#1769AA;--gold-dim:rgba(23,105,170,.10);--text-bright:#123B63
 }
-
-::selection {
-    background: #2D8A57;
-    color: #fff;
-}
-
-html {
-    scrollbar-color: #2D8A57 transparent;
-}
-
-/* ---- Citizen Account card (index.php) ---- */
-.egov-account {
-    background: linear-gradient(115deg, #1B6B44, #35A96E);
-}
-
-.egov-account > a {
-    color: #1B6B44;
-}
-
-.account-avatar {
-    background: rgba(214, 241, 224, .14);
-    border: 1px solid rgba(255, 255, 255, .35);
-    box-shadow: inset 0 1px 2px rgba(255, 255, 255, .4), 0 4px 12px rgba(0, 0, 0, .12);
-}
-
-.account-avatar img {
-    padding: 8px;
-    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, .2));
-}
+::selection{background:#1769AA;color:#fff}html{scrollbar-color:#1769AA transparent}
+.egov-account{background:linear-gradient(115deg,#0D47A1,#1769AA,#3D8FD1)}
+.account-avatar{background:rgba(219,238,255,.16)}
