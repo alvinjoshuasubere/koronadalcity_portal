@@ -1,0 +1,115 @@
+/* Koronadal City Portal — citizen-first responsive layer
+   Inspired by the citizen-service approach of MyNaga, adapted for Koronadal branding.
+*/
+:root{
+  --kdc-blue:#0B63B6;
+  --kdc-blue-deep:#08457F;
+  --kdc-sky:#2EA7E0;
+  --kdc-green:#2E9B62;
+  --kdc-yellow:#F5C542;
+  --kdc-orange:#F28C28;
+  --kdc-red:#D9534F;
+  --kdc-purple:#7254C8;
+  --kdc-soft:#F5F9FD;
+}
+html,body{min-width:320px}
+html{background:var(--kdc-soft)}
+body{background:linear-gradient(180deg,#f7fbff 0%,#f5f8fc 42%,#fff 100%)}
+body::before{background:radial-gradient(ellipse at 85% 8%,rgba(11,99,182,.07),transparent 52%),radial-gradient(ellipse at 5% 45%,rgba(46,155,98,.035),transparent 45%)}
+::selection{background:var(--kdc-blue);color:#fff}
+.hero-bg{background:linear-gradient(135deg,#e8f5ff 0%,#f7fbff 48%,#eaf7f0 100%)}
+.hero-bg::before{background:radial-gradient(circle at 82% 18%,rgba(11,99,182,.18),transparent 46%),radial-gradient(circle at 12% 85%,rgba(245,197,66,.13),transparent 34%)}
+.hero h1 .hl{background:linear-gradient(135deg,var(--kdc-blue-deep),var(--kdc-blue),var(--kdc-green));filter:drop-shadow(0 0 16px rgba(11,99,182,.16))}
+.hero-brand img,.brand-img{box-shadow:0 0 18px rgba(11,99,182,.18)}
+.nav-cta,.view-toggle-btn.active,.view-toggle-trigger{background:var(--kdc-blue);border-color:var(--kdc-blue)}
+.nav-cta:hover{background:var(--kdc-blue-deep)}
+.brand-text small,.sec-label,.portal-cta.rose,.svc-sec-icon.rose{color:var(--kdc-blue)}
+.portal-accent.rose,.portal-icon.rose{background:var(--kdc-blue)}
+.hb-w{background:var(--kdc-blue)!important}
+.hb-w:hover{background:var(--kdc-blue-deep)!important}
+.hb-o{background:#fff!important;color:var(--kdc-blue)!important;border:1px solid rgba(11,99,182,.18)!important}
+.hb-o:hover{background:#eef7ff!important}
+.city-service-strip{max-width:var(--app-w);margin:0 auto;padding:8px 16px;display:flex;justify-content:space-between;gap:12px;align-items:center;background:#fff;border-bottom:1px solid var(--line);font-size:.64rem;color:var(--ink-soft)}
+.city-service-strip>div{display:flex;align-items:center;gap:7px}
+.city-service-strip i{color:var(--kdc-blue)}
+.city-service-strip strong{color:var(--ink)}
+.strip-links{gap:14px!important}
+.strip-links a{font-weight:700;color:var(--ink-soft)}
+.strip-links a:hover{color:var(--kdc-blue)}
+.citizen-hub{padding:20px 0 6px}
+.citizen-hub-card{position:relative;overflow:hidden;background:linear-gradient(145deg,#fff 0%,#f8fbff 100%);border:1px solid rgba(11,99,182,.12);border-radius:22px;box-shadow:0 18px 50px rgba(8,69,127,.09);padding:22px}
+.citizen-hub-card::before{content:"";position:absolute;inset:0 0 auto;height:4px;background:linear-gradient(90deg,var(--kdc-blue),var(--kdc-green),var(--kdc-yellow),var(--kdc-orange),var(--kdc-red))}
+.citizen-hub-head{display:flex;justify-content:space-between;gap:20px;align-items:flex-start}
+.citizen-hub-head h2{font-size:clamp(1.1rem,3vw,1.55rem);line-height:1.2;color:var(--navy);margin:5px 0 7px}
+.citizen-hub-head p{max-width:670px;color:var(--ink-soft);font-size:.72rem;line-height:1.65}
+.hub-badge{display:flex;align-items:center;gap:7px;padding:8px 11px;border-radius:999px;background:#eef8f2;color:var(--kdc-green);font-size:.58rem;font-weight:800;white-space:nowrap}
+.hub-search{margin:18px 0 14px;display:flex;align-items:center;gap:10px;background:#fff;border:1px solid rgba(11,99,182,.14);border-radius:12px;padding:0 12px;box-shadow:0 5px 20px rgba(8,69,127,.05)}
+.hub-search>i{color:var(--kdc-blue);font-size:.75rem}
+.hub-search input{flex:1;border:0;outline:0;background:transparent;padding:12px 0;font:600 .7rem var(--font);color:var(--ink)}
+.hub-search input::placeholder{color:var(--ink-faint);font-weight:500}
+.hub-search button{border:0;background:transparent;color:var(--ink-faint);padding:8px;opacity:.45}
+.hub-search button:hover{color:var(--kdc-blue)}
+.hub-actions{display:grid;grid-template-columns:repeat(3,1fr);gap:9px}
+.hub-action{display:grid;grid-template-columns:38px 1fr 14px;align-items:center;gap:9px;min-height:67px;padding:10px;border:1px solid var(--line);border-radius:14px;background:#fff;transition:.2s ease;box-shadow:0 3px 12px rgba(10,25,47,.025)}
+.hub-action:hover{transform:translateY(-3px);box-shadow:0 10px 24px rgba(10,25,47,.08);border-color:rgba(11,99,182,.18)}
+.hub-action-icon{width:38px;height:38px;border-radius:11px;display:grid;place-items:center;font-size:.8rem}
+.hub-action strong{display:block;font-size:.67rem;color:var(--ink);margin-bottom:2px}
+.hub-action small{display:block;font-size:.52rem;color:var(--ink-soft);line-height:1.35}
+.hub-action>i:last-child{font-size:.55rem;color:var(--ink-faint)}
+.action-blue .hub-action-icon{background:#eaf4ff;color:var(--kdc-blue)}
+.action-red .hub-action-icon{background:#fff0ef;color:var(--kdc-red)}
+.action-green .hub-action-icon{background:#edf9f2;color:var(--kdc-green)}
+.action-orange .hub-action-icon{background:#fff5e9;color:var(--kdc-orange)}
+.action-yellow .hub-action-icon{background:#fff9df;color:#B68A00}
+.action-purple .hub-action-icon{background:#f2efff;color:var(--kdc-purple)}
+.hub-info-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-top:10px}
+.hub-info{display:flex;align-items:center;gap:8px;padding:10px;border-radius:12px;background:rgba(11,99,182,.035);border:1px solid rgba(11,99,182,.06)}
+.hub-info-icon{width:28px;height:28px;border-radius:8px;display:grid;place-items:center;background:#fff;color:var(--kdc-blue);font-size:.62rem;flex-shrink:0}
+.hub-info strong{display:block;font-size:.56rem;color:var(--ink)}
+.hub-info small{display:block;font-size:.48rem;color:var(--ink-soft);margin-top:1px}
+.hub-info:hover{background:#eef7ff}
+#serviceSearch:focus{box-shadow:none}
+.auto-mobile .city-service-strip{display:none}
+.force-mobile .city-service-strip{display:none}
+.force-mobile .citizen-hub{padding-top:8px}
+.force-mobile .citizen-hub-card{border-radius:0 0 18px 18px;padding:18px 14px}
+.force-mobile .citizen-hub-head{display:block}
+.force-mobile .hub-badge{display:inline-flex;margin-top:10px}
+.force-mobile .hub-actions{grid-template-columns:1fr 1fr}
+.force-mobile .hub-info-grid{grid-template-columns:1fr 1fr}
+.force-mobile .hub-action{grid-template-columns:34px 1fr 12px;min-height:62px;padding:8px}
+.force-mobile .hub-action-icon{width:34px;height:34px}
+.force-mobile .hub-action strong{font-size:.58rem}
+.force-mobile .hub-action small{font-size:.48rem}
+.force-mobile .citizen-hub-head h2{font-size:1.05rem}
+.force-mobile .citizen-hub-head p{font-size:.62rem}
+.force-mobile .hub-search input{font-size:.62rem}
+.force-desktop .citizen-hub{max-width:none}
+@media(max-width:900px){
+  .hub-actions{grid-template-columns:repeat(2,1fr)}
+  .hub-info-grid{grid-template-columns:repeat(2,1fr)}
+}
+@media(max-width:768px){
+  .city-service-strip{padding:7px 12px}
+  .citizen-hub{padding:10px 0}
+  .citizen-hub-card{border-radius:18px;padding:18px 14px}
+  .citizen-hub-head{display:block}
+  .hub-badge{display:inline-flex;margin-top:10px}
+  .hub-actions{grid-template-columns:1fr 1fr}
+  .hub-info-grid{grid-template-columns:1fr 1fr}
+  .hub-action{grid-template-columns:34px 1fr 12px;min-height:62px;padding:8px}
+  .hub-action-icon{width:34px;height:34px}
+  .hub-action strong{font-size:.58rem}
+  .hub-action small{font-size:.48rem}
+  .citizen-hub-head h2{font-size:1.05rem}
+  .citizen-hub-head p{font-size:.62rem}
+  .hub-search input{font-size:.62rem}
+}
+@media(max-width:420px){
+  .hub-actions{grid-template-columns:1fr}
+  .hub-info-grid{grid-template-columns:1fr}
+  .hub-action{min-height:58px}
+}
+@media(prefers-reduced-motion:reduce){
+  *,*::before,*::after{scroll-behavior:auto!important;animation-duration:.01ms!important;transition-duration:.01ms!important}
+}
