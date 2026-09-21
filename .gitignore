@@ -1,0 +1,25 @@
+# Environment & secrets
+.env
+.env.*
+
+# Node / build
+node_modules/
+dist/
+
+# Android / Capacitor build artifacts
+android/.gradle/
+android/build/
+android/app/build/
+android/local.properties
+
+# OS / IDE
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+
+# Logs
+*.log
+
+# Kilo worktrees
+.kilo/worktrees/
