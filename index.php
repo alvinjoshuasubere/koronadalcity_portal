@@ -57,7 +57,8 @@ if (file_exists($officialsFile)) {
                 <li><a href="https://koronadal.gov.ph/" target="_blank">LGU Website</a></li>
             </ul>
             <div class="topnav-r">
-                <a href="#services" class="nav-cta"><i class="fas fa-th-large" style="font-size:.5rem"></i> Browse</a>
+                <span class="topnav-status"><i class="fas fa-circle"></i> Official City Portal</span>
+                <a href="#egov-services" class="nav-cta"><i class="fas fa-th-large" style="font-size:.5rem"></i> Services</a>
                 <button class="burger" id="burgerBtn" aria-label="Menu"><i class="fas fa-bars"></i></button>
             </div>
         </div>
