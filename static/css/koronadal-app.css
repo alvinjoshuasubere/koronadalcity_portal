@@ -4658,3 +4658,204 @@ html.auto-mobile .bottomnav{display:block!important}
     padding-right:18px!important;
   }
 }
+
+
+/* =========================================================
+   MAYOR'S CORNER — TRUE INLINE MOBILE APP SCREEN
+   No oversized desktop canvas; content stays phone-width.
+   ========================================================= */
+html:has(body.mc-page),
+body.mc-page{
+  margin:0!important;
+  padding:0!important;
+  min-height:100%!important;
+  width:100%!important;
+  overflow-x:hidden!important;
+  background:#F3F5F8!important;
+}
+.mc-page *{box-sizing:border-box!important}
+.mc-page{
+  width:100%!important;
+  min-height:100vh!important;
+  background:#F3F5F8!important;
+}
+.mc-page .nav{
+  width:100%!important;
+  max-width:none!important;
+  height:58px!important;
+  min-height:58px!important;
+  padding:0 12px!important;
+  border-radius:0!important;
+  box-shadow:0 1px 10px rgba(15,30,55,.08)!important;
+}
+.mc-page .nav-brand img{
+  width:32px!important;height:32px!important;
+  min-width:32px!important;max-width:32px!important;
+  min-height:32px!important;max-height:32px!important;
+}
+.mc-page .nav-brand-text strong{font-size:10px!important}
+.mc-page .nav-brand-text small{font-size:6.5px!important}
+.mc-page .nav-back{
+  width:32px!important;height:32px!important;min-width:32px!important;
+  border-radius:9px!important;
+}
+
+/* All screen content follows one compact app column */
+.mc-page .hero,
+.mc-page .tabs-section,
+.mc-page .tab-panels{
+  width:100%!important;
+  max-width:600px!important;
+  margin-left:auto!important;
+  margin-right:auto!important;
+}
+.mc-page .hero{
+  padding:20px 14px 18px!important;
+  border-radius:0 0 20px 20px!important;
+}
+.mc-page .hero-photo-wrap,
+.mc-page .hero-photo-ring{
+  width:108px!important;height:108px!important;
+}
+.mc-page .hero-photo-wrap{margin-bottom:10px!important}
+.mc-page .hero-photo-badge{
+  width:26px!important;height:26px!important;
+  right:0!important;bottom:2px!important;
+  font-size:8px!important;
+}
+.mc-page .hero-name{
+  font-size:18px!important;
+  line-height:1.15!important;
+}
+.mc-page .hero-title{font-size:8.5px!important;margin-top:5px!important}
+.mc-page .hero-label{font-size:6.5px!important;padding:5px 8px!important;margin-bottom:6px!important}
+.mc-page .hero-motto-line{margin-top:9px!important;padding-top:9px!important}
+.mc-page .hero-motto-text{font-size:12px!important}
+
+/* segmented tab bar — never wider than the app screen */
+.mc-page .tabs-section{
+  padding:10px 10px 0!important;
+}
+.mc-page .tabs-nav{
+  border-radius:12px!important;
+  padding:3px!important;
+  gap:3px!important;
+}
+.mc-page .tab-btn{
+  min-height:43px!important;
+  border-radius:9px!important;
+  font-size:6.5px!important;
+}
+.mc-page .tab-btn i{font-size:10px!important}
+
+/* shorter cards and tighter reading width */
+.mc-page .tab-panels{
+  padding:5px 10px 22px!important;
+}
+.mc-page .formal-section{margin:9px 0!important}
+.mc-page .formal-heading{margin:0 2px 6px!important;gap:7px!important}
+.mc-page .formal-heading-text{font-size:9px!important}
+.mc-page .formal-card,
+.mc-page .formal-letter{
+  padding:12px!important;
+  border-radius:11px!important;
+}
+.mc-page .formal-card p,
+.mc-page .formal-letter p,
+.mc-page .epa-body p,
+.mc-page .sector-card p,
+.mc-page .outcome-block p{
+  font-size:8px!important;
+  line-height:1.62!important;
+  margin-bottom:7px!important;
+}
+.mc-page .formal-quote{
+  margin:9px 0!important;
+  padding:13px 10px!important;
+  border-radius:11px!important;
+}
+.mc-page .formal-quote-text{font-size:14px!important}
+.mc-page .formal-quote-attr{font-size:6.5px!important;margin-top:5px!important}
+
+.mc-page .epa-card{
+  grid-template-columns:32px minmax(0,1fr)!important;
+  gap:9px!important;
+  padding:10px!important;
+  border-radius:11px!important;
+}
+.mc-page .epa-letter-box{
+  width:32px!important;height:32px!important;
+  border-radius:8px!important;font-size:14px!important;
+}
+.mc-page .epa-card h3{font-size:8.5px!important;margin-bottom:4px!important}
+
+.mc-page .sector-card{
+  padding:11px!important;border-radius:11px!important;
+}
+.mc-page .sector-icon{
+  width:29px!important;height:29px!important;
+  margin-bottom:6px!important;border-radius:8px!important;
+  font-size:10px!important;
+}
+.mc-page .sector-card h4{font-size:8.5px!important;margin-bottom:4px!important}
+.mc-page .outcome-block{padding:12px!important;border-radius:11px!important}
+
+/* compact footer becomes part of the same app screen */
+.mc-page .footer.mc-footer{
+  width:100%!important;
+  max-width:600px!important;
+  margin:0 auto!important;
+  padding:0 10px 14px!important;
+  background:#F3F5F8!important;
+}
+.mc-page .mc-footer-inner{
+  width:100%!important;
+  max-width:none!important;
+  padding:13px!important;
+  border-radius:13px!important;
+  box-shadow:none!important;
+}
+.mc-page .mc-footer-brand{gap:8px!important}
+.mc-page .mc-footer-logo{
+  width:32px!important;height:32px!important;min-width:32px!important;
+  border-radius:9px!important;
+}
+.mc-page .mc-footer-logo img{
+  width:25px!important;height:25px!important;
+  max-width:25px!important;max-height:25px!important;
+}
+.mc-page .mc-footer-brand strong{font-size:8.5px!important}
+.mc-page .mc-footer-brand span{font-size:6px!important;margin-top:2px!important}
+.mc-page .mc-footer-desc{
+  margin:8px 0!important;font-size:7px!important;line-height:1.45!important;
+}
+.mc-page .mc-footer-actions{gap:5px!important}
+.mc-page .mc-footer-action{
+  min-height:36px!important;border-radius:8px!important;
+  font-size:6px!important;gap:3px!important;
+}
+.mc-page .mc-footer-action i{font-size:9px!important}
+.mc-page .mc-footer-note{
+  margin-top:8px!important;padding-top:7px!important;
+  gap:2px!important;font-size:5.5px!important;
+}
+
+/* Remove any legacy desktop containers around the Mayor screen */
+.mc-page .container,
+.mc-page .wrapper,
+.mc-page .content,
+.mc-page main{
+  max-width:600px!important;
+  margin-left:auto!important;
+  margin-right:auto!important;
+}
+@media(max-width:420px){
+  .mc-page .hero{padding-left:12px!important;padding-right:12px!important}
+  .mc-page .hero-name{font-size:17px!important}
+  .mc-page .tab-btn{font-size:6px!important}
+  .mc-page .formal-card p,
+  .mc-page .formal-letter p,
+  .mc-page .epa-body p,
+  .mc-page .sector-card p,
+  .mc-page .outcome-block p{font-size:7.5px!important}
+}
