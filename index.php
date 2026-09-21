@@ -4089,6 +4089,25 @@ if (file_exists($officialsFile)) {
     
         <!-- KORONADAL eGOV APP HOME -->
         <section class="egov-app-home" id="egovHome">
+            <aside class="egov-desktop-sidebar" aria-label="Koronadal eGov desktop navigation">
+                <div class="egov-side-brand">
+                    <div class="egov-side-logo"><img src="Logo.png" alt="Koronadal City"></div>
+                    <div><strong>Koronadal</strong><small>City eGov</small></div>
+                </div>
+                <nav class="egov-side-nav">
+                    <a class="side-active" href="#egovHome"><i class="fas fa-house"></i><span>Dashboard</span></a>
+                    <a href="#services"><i class="fas fa-grid-2"></i><span>City Services</span></a>
+                    <a href="#citizen-hub"><i class="fas fa-id-card"></i><span>Citizen Hub</span></a>
+                    <a href="#quick"><i class="fas fa-newspaper"></i><span>News & Updates</span></a>
+                    <a href="emergency-contacts.php"><i class="fas fa-triangle-exclamation"></i><span>Emergency</span></a>
+                    <a href="city-officials.php"><i class="fas fa-address-book"></i><span>Directory</span></a>
+                </nav>
+                <div class="egov-side-bottom">
+                    <a href="#citizen-hub"><i class="fas fa-circle-info"></i><span>Help & Information</span></a>
+                    <div class="egov-side-city"><i class="fas fa-location-dot"></i><span>Koronadal City<br><small>South Cotabato</small></span></div>
+                </div>
+            </aside>
+            <div class="egov-desktop-content">
             <div class="egov-top">
                 <div class="egov-profile">
                     <div class="egov-avatar"><img src="Logo.png" alt="Koronadal City"></div>
@@ -4190,6 +4209,7 @@ if (file_exists($officialsFile)) {
                 <div><strong>27</strong><span>Barangays</span></div>
                 <div><strong>24/7</strong><span>Emergency</span></div>
                 <div><strong>1</strong><span>City Gateway</span></div>
+            </div>
             </div>
         </section>
 
