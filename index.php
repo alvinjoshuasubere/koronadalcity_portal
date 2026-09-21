@@ -4213,6 +4213,55 @@ if (file_exists($officialsFile)) {
             </div>
         </section>
 
+        <!-- FULL KORONADAL eGOV APP SHELL -->
+        <main class="egov-full-app" id="egovFullApp">
+            <div class="egov-appbar">
+                <div class="egov-appbar-brand"><div class="egov-app-logo"><img src="Logo.png" alt="Koronadal City"></div><div><small>KORONADAL CITY</small><strong>eGov</strong></div></div>
+                <div class="egov-appbar-actions"><button type="button" aria-label="Search" onclick="document.getElementById('egovSearch').focus()"><i class="fas fa-search"></i></button><button type="button" aria-label="Notifications"><i class="fas fa-bell"></i><span class="app-dot"></span></button><a href="#account" aria-label="Account"><i class="fas fa-user"></i></a></div>
+            </div>
+            <section class="egov-app-body">
+                <div class="egov-welcome-row"><div><span class="egov-kicker">MAAYUNG ADLAW, KORONADELEÑO!</span><h1>How can we help you<br><b>today?</b></h1></div><div class="egov-weather"><i class="fas fa-sun"></i><span>Koronadal<br><small>South Cotabato</small></span></div></div>
+                <div class="egov-search"><i class="fas fa-search"></i><input id="egovSearch" type="search" placeholder="Search city services, permits, jobs..." aria-label="Search city services"><button type="button" aria-label="Clear search" onclick="document.getElementById('egovSearch').value='';document.getElementById('egovSearch').dispatchEvent(new Event('input'));"><i class="fas fa-xmark"></i></button></div>
+                <section class="egov-hero-card"><div class="egov-hero-copy"><small>YOUR DIGITAL CITY GATEWAY</small><h2>Koronadal City<br><b>eGov Services</b></h2><p>Access government services, information and assistance wherever you are.</p><a href="#egov-services">Explore services <i class="fas fa-arrow-right"></i></a></div><div class="egov-city-art" aria-hidden="true"><div class="city-art-sun"></div><div class="city-art-mountain m1"></div><div class="city-art-mountain m2"></div><div class="city-art-road"></div><div class="city-art-jeep"><span>KORONADAL</span><i></i><i></i></div></div></section>
+                <section id="egov-services" class="egov-module"><div class="egov-module-title"><div><small>QUICK ACCESS</small><h2>City Services</h2></div><a href="#egov-all-services">See all <i class="fas fa-chevron-right"></i></a></div>
+                    <div class="egov-service-grid" id="egovServiceGrid">
+                        <a href="#egov-all-services" data-service="business permits licensing" class="egov-service"><span class="svc-icon blue"><i class="fas fa-file-signature"></i></span><b>Permits</b></a>
+                        <a href="https://jobs.koronadalcityonlineservices.com/" target="_blank" rel="noopener" data-service="jobs careers employment" class="egov-service"><span class="svc-icon purple"><i class="fas fa-briefcase"></i><em>New</em></span><b>Jobs</b></a>
+                        <a href="https://citizen.koronadalcityonlineservices.com/" target="_blank" rel="noopener" data-service="citizen services documents" class="egov-service"><span class="svc-icon cyan"><i class="fas fa-id-card"></i></span><b>Citizen</b></a>
+                        <a href="#egov-all-services" data-service="health social assistance" class="egov-service"><span class="svc-icon pink"><i class="fas fa-heart-pulse"></i></span><b>Health</b></a>
+                        <a href="#egov-all-services" data-service="transport mtop traffic" class="egov-service"><span class="svc-icon indigo"><i class="fas fa-motorcycle"></i></span><b>Transport</b></a>
+                        <a href="#egov-all-services" data-service="agriculture farmers" class="egov-service"><span class="svc-icon green"><i class="fas fa-wheat-awn"></i></span><b>Agriculture</b></a>
+                        <a href="emergency-contacts.php" data-service="emergency report korona 911" class="egov-service"><span class="svc-icon red"><i class="fas fa-triangle-exclamation"></i><em>24/7</em></span><b>Emergency</b></a>
+                        <a href="city-officials.php" data-service="directory barangay officials" class="egov-service"><span class="svc-icon orange"><i class="fas fa-address-book"></i></span><b>Directory</b></a>
+                        <a href="#egov-all-services" data-service="tourism culture events" class="egov-service"><span class="svc-icon teal"><i class="fas fa-compass"></i></span><b>Tourism</b></a>
+                        <a href="#egov-all-services" data-service="transparency reports" class="egov-service"><span class="svc-icon yellow"><i class="fas fa-chart-line"></i></span><b>Transparency</b></a>
+                        <a href="#egov-all-services" data-service="citizens charter requirements" class="egov-service"><span class="svc-icon gold"><i class="fas fa-book-open"></i></span><b>Charter</b></a>
+                        <a href="#egov-all-services" data-service="ordinances resolutions laws" class="egov-service"><span class="svc-icon slate"><i class="fas fa-scale-balanced"></i></span><b>Ordinances</b></a>
+                    </div>
+                </section>
+                <section class="egov-module"><div class="egov-module-title"><div><small>FEATURED</small><h2>eGov Services</h2></div><a href="#egov-all-services">View all <i class="fas fa-chevron-right"></i></a></div><div class="egov-feature-row">
+                    <a class="egov-feature" href="https://citizen.koronadalcityonlineservices.com/" target="_blank" rel="noopener"><span class="feature-tag">CITIZEN</span><h3>Koronadal Citizen<br>Services</h3><p>Digital transactions and citizen records</p><i class="fas fa-id-card feature-mark"></i></a>
+                    <a class="egov-feature" href="https://koronadalcityportal.com/v2/login" target="_blank" rel="noopener"><span class="feature-tag">BUSINESS</span><h3>Business Permit<br>Portal</h3><p>Apply and manage permits online</p><i class="fas fa-building feature-mark"></i></a>
+                    <a class="egov-feature emergency-feature" href="emergency-contacts.php"><span class="feature-tag">EMERGENCY</span><h3>Korona 911<br>Assistance</h3><p>Emergency hotlines and response</p><i class="fas fa-phone-volume feature-mark"></i></a>
+                </div></section>
+                <section class="egov-info-grid">
+                    <a href="#egov-all-services" class="egov-info-card"><i class="fas fa-calendar-days"></i><div><small>UPDATES</small><strong>City Events & Announcements</strong><span>Stay informed about Koronadal</span></div><i class="fas fa-chevron-right arrow"></i></a>
+                    <a href="https://koronadal.gov.ph/citizens-charter/" target="_blank" rel="noopener" class="egov-info-card"><i class="fas fa-book-open"></i><div><small>GUIDE</small><strong>Citizen's Charter</strong><span>Requirements, steps and processing times</span></div><i class="fas fa-chevron-right arrow"></i></a>
+                    <a href="city-officials.php" class="egov-info-card"><i class="fas fa-building-columns"></i><div><small>DIRECTORY</small><strong>City Offices & Officials</strong><span>Find the right office to contact</span></div><i class="fas fa-chevron-right arrow"></i></a>
+                    <a href="emergency-contacts.php" class="egov-info-card danger"><i class="fas fa-shield-heart"></i><div><small>SAFETY</small><strong>Emergency Contacts</strong><span>Police, fire, hospital and disaster assistance</span></div><i class="fas fa-chevron-right arrow"></i></a>
+                </section>
+                <section id="egov-all-services" class="egov-all-services"><div class="egov-module-title"><div><small>ALL DIGITAL SERVICES</small><h2>Explore Koronadal</h2></div></div><div class="egov-list">
+                    <a href="https://koronadalcityportal.com/v2/login" target="_blank" rel="noopener"><span class="list-icon blue"><i class="fas fa-file-contract"></i></span><div><strong>Business Permits & Licensing</strong><small>Apply, renew and manage business permits</small></div><i class="fas fa-chevron-right"></i></a>
+                    <a href="https://traffic.koronadalcityonlineservices.com/" target="_blank" rel="noopener"><span class="list-icon orange"><i class="fas fa-motorcycle"></i></span><div><strong>MTOP Verification</strong><small>Verify motorized tricycle operator permits</small></div><i class="fas fa-chevron-right"></i></a>
+                    <a href="https://jobs.koronadalcityonlineservices.com/" target="_blank" rel="noopener"><span class="list-icon purple"><i class="fas fa-briefcase"></i></span><div><strong>Koronadal Job Portal</strong><small>Browse city government opportunities</small></div><i class="fas fa-chevron-right"></i></a>
+                    <a href="https://careers.koronadalcityonlineservices.com/" target="_blank" rel="noopener"><span class="list-icon indigo"><i class="fas fa-user-tie"></i></span><div><strong>LGU Recruitment</strong><small>Track applications and recruitment</small></div><i class="fas fa-chevron-right"></i></a>
+                    <a href="https://citizen.koronadalcityonlineservices.com/" target="_blank" rel="noopener"><span class="list-icon cyan"><i class="fas fa-database"></i></span><div><strong>Unified Citizen Services</strong><small>Access integrated city transactions</small></div><i class="fas fa-chevron-right"></i></a>
+                    <a href="https://koronadal.gov.ph/full-disclosure/" target="_blank" rel="noopener"><span class="list-icon green"><i class="fas fa-chart-line"></i></span><div><strong>Transparency & Full Disclosure</strong><small>Public reports and financial information</small></div><i class="fas fa-chevron-right"></i></a>
+                </div></section>
+                <section id="account" class="egov-account"><div class="account-avatar"><img src="Logo.png" alt="Koronadal City"></div><div><small>KORONADAL CITY</small><h2>Citizen Account</h2><p>Sign in to access personalized transactions, applications and service history.</p></div><a href="https://citizen.koronadalcityonlineservices.com/" target="_blank" rel="noopener">Open Citizen Portal <i class="fas fa-arrow-right"></i></a></section>
+            </section>
+        </main>
+
     <!-- HERO -->
         <section class="hero" id="home">
             <div class="hero-bg"></div>
@@ -4933,11 +4982,11 @@ if (file_exists($officialsFile)) {
     <!-- BOTTOM NAV -->
     <nav class="bottomnav" id="bottomnav">
         <div class="bn-row">
-            <a href="#egovHome" class="bn-item active" data-bnav="home"><span class="bn-icon"><i class="fas fa-house"></i></span><span class="bn-label">Home</span></a>
+            <a href="#egovFullApp" class="bn-item active" data-bnav="home"><span class="bn-icon"><i class="fas fa-house"></i></span><span class="bn-label">Home</span></a>
             <a href="#services" class="bn-item" data-bnav="services"><span class="bn-icon"><i class="fas fa-th-large"></i></span><span class="bn-label">Services</span></a>
             <a href="#services" class="bn-item bn-center" data-bnav="services-qr"><span class="bn-icon"><i class="fas fa-qrcode"></i></span><span class="bn-label">Scan</span></a>
-            <a href="#quick" class="bn-item" data-bnav="quick"><span class="bn-icon"><i class="fas fa-bullhorn"></i></span><span class="bn-label">News</span></a>
-            <a href="#citizen-hub" class="bn-item" data-bnav="account"><span class="bn-icon"><i class="fas fa-user"></i></span><span class="bn-label">Account</span></a>
+            <a href="#egov-all-services" class="bn-item" data-bnav="news"><span class="bn-icon"><i class="fas fa-bullhorn"></i></span><span class="bn-label">News</span></a>
+            <a href="#account" class="bn-item" data-bnav="account"><span class="bn-icon"><i class="fas fa-user"></i></span><span class="bn-label">Account</span></a>
         </div>
     </nav>
 
