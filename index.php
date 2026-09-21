@@ -717,34 +717,41 @@ if (file_exists($officialsFile)) {
                 }
                 ?>
 
-                <!-- MAYOR — Featured Banner -->
-                <div class="leader-mayor a d1">
-                    <div class="leader-mayor-img">
+                <!-- MAYOR'S CORNER — compact inline mobile-app card -->
+                <div class="home-mayor-card a d1">
+                    <div class="home-mayor-cover">
                         <img src="Mayor_bg.png" alt="<?= htmlspecialchars($mayorData['name'] ?? 'City Mayor') ?>" />
-                        <div class="leader-mayor-overlay"></div>
+                        <div class="home-mayor-cover-shade"></div>
+                        <span class="home-mayor-status"><i class="fas fa-landmark"></i> City Mayor</span>
                     </div>
-                    <div class="leader-mayor-body">
-                        <div class="leader-mayor-badge"><i class="fas fa-star"></i> City Mayor</div>
-                        <h2 class="leader-mayor-name">
-                            <?= htmlspecialchars($mayorData['name'] ?? 'Hon. Erlinda "Bing" Pabi-Araquil') ?></h2>
-                        <?php if (!empty($mayorData['ordinance'])): ?>
-                        <p class="leader-mayor-desc"><?= htmlspecialchars($mayorData['ordinance']) ?></p>
-                        <?php else: ?>
-                        <p class="leader-mayor-desc">Leading Koronadal City's digital transformation — bringing
-                            government services closer to every resident through technology, transparency, and
-                            community-driven governance.</p>
-                        <?php endif; ?>
+                    <div class="home-mayor-content">
+                        <div class="home-mayor-heading">
+                            <div>
+                                <span class="home-mayor-kicker">MAYOR'S CORNER</span>
+                                <h3><?= htmlspecialchars($mayorData['name'] ?? 'Hon. Erlinda "Bing" Pabi-Araquil') ?></h3>
+                            </div>
+                            <span class="home-mayor-seal"><i class="fas fa-star"></i></span>
+                        </div>
+                        <p class="home-mayor-desc">
+                            <?= !empty($mayorData['ordinance'])
+                                ? htmlspecialchars($mayorData['ordinance'])
+                                : 'Leading Koronadal City with genuine service, transparency, innovation, and community-centered governance.' ?>
+                        </p>
+                        <div class="home-mayor-motto">
+                            <i class="fas fa-quote-left"></i>
+                            <span>“Genuine Service for God and for the People... EPAdayon Ang Kanami Sang Bagong Koronadal”</span>
+                        </div>
                         <?php if (!empty($mayorData['committee'])): ?>
-                        <div class="leader-mayor-tags">
-                            <?php foreach (array_map('trim', explode(',', $mayorData['committee'])) as $tag): ?>
-                            <span class="leader-tag"><?= htmlspecialchars($tag) ?></span>
+                        <div class="home-mayor-tags">
+                            <?php foreach (array_slice(array_map('trim', explode(',', $mayorData['committee'])), 0, 3) as $tag): ?>
+                                <span><?= htmlspecialchars($tag) ?></span>
                             <?php endforeach; ?>
                         </div>
                         <?php endif; ?>
-                        <div class="leader-mayor-quote">"Genuine Service for God and for the People... EPAdayon Ang
-                            Kanami Sang Bagong Koronadal"</div>
-                        <a href="mayor-corner.php" class="leader-mayor-cta"><i class="fas fa-landmark"></i> Mayor's Corner <i
-                                class="fas fa-arrow-right"></i></a>
+                        <a href="mayor-corner.php" class="home-mayor-link">
+                            <span>View Mayor's Corner</span>
+                            <i class="fas fa-arrow-right"></i>
+                        </a>
                     </div>
                 </div>
 
