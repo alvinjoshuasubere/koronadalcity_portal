@@ -2692,3 +2692,733 @@ a:not([href]) .svc-icon,a[href=""] .svc-icon,a[href="#"] .svc-icon{display:none!
 @media(min-width:769px){
  .bottomnav{display:none!important}
 }
+
+
+/* =========================================================
+   KORONADAL CITY eGOV — HEADER / MAYOR / BOTTOM BAR REBUILD
+   Final component layer. No HTML/JS changes required.
+   ========================================================= */
+
+/* ---------- GLOBAL APP FRAME ---------- */
+:root{
+  --kc-blue:#1557D6;
+  --kc-blue-dark:#0E43A5;
+  --kc-blue-soft:#EEF4FF;
+  --kc-red:#C62828;
+  --kc-yellow:#F4C542;
+  --kc-text:#263238;
+  --kc-muted:#69737F;
+  --kc-border:#E3E8F0;
+  --kc-surface:#FFFFFF;
+  --kc-page:#F5F7FA;
+  --kc-shadow:0 8px 28px rgba(23,43,77,.08);
+}
+html{scroll-behavior:smooth}
+body{
+  margin:0!important;
+  background:var(--kc-page)!important;
+  color:var(--kc-text)!important;
+  overflow-x:hidden!important;
+}
+
+/* ---------- DESKTOP TOPBAR ---------- */
+.topnav{
+  position:sticky!important;
+  top:0!important;
+  left:0!important;
+  right:0!important;
+  width:100%!important;
+  height:72px!important;
+  min-height:72px!important;
+  padding:0!important;
+  margin:0!important;
+  display:block!important;
+  background:rgba(255,255,255,.98)!important;
+  border:0!important;
+  border-bottom:1px solid var(--kc-border)!important;
+  box-shadow:0 2px 18px rgba(22,43,75,.07)!important;
+  z-index:1000!important;
+}
+.topnav-in{
+  width:100%!important;
+  max-width:1240px!important;
+  height:72px!important;
+  min-height:72px!important;
+  margin:0 auto!important;
+  padding:0 22px!important;
+  display:flex!important;
+  align-items:center!important;
+  justify-content:space-between!important;
+  gap:24px!important;
+  box-sizing:border-box!important;
+}
+.topnav .brand{
+  flex:0 0 auto!important;
+  display:flex!important;
+  align-items:center!important;
+  gap:11px!important;
+  min-width:210px!important;
+  color:var(--kc-text)!important;
+}
+.topnav .brand-img{
+  width:42px!important;height:42px!important;
+  min-width:42px!important;max-width:42px!important;
+  min-height:42px!important;max-height:42px!important;
+  object-fit:contain!important;
+  display:block!important;
+  flex:0 0 42px!important;
+}
+.topnav .brand-text{
+  display:flex!important;
+  flex-direction:column!important;
+  justify-content:center!important;
+  line-height:1.05!important;
+}
+.topnav .brand-text strong{
+  display:block!important;
+  color:#263238!important;
+  font-size:.78rem!important;
+  font-weight:800!important;
+  letter-spacing:-.01em!important;
+  white-space:nowrap!important;
+}
+.topnav .brand-text small{
+  display:block!important;
+  margin-top:4px!important;
+  color:var(--kc-blue)!important;
+  font-size:.48rem!important;
+  font-weight:800!important;
+  letter-spacing:.06em!important;
+  text-transform:uppercase!important;
+  white-space:nowrap!important;
+}
+.nav-links{
+  flex:1 1 auto!important;
+  display:flex!important;
+  align-items:center!important;
+  justify-content:center!important;
+  gap:2px!important;
+  margin:0!important;
+  padding:0!important;
+  list-style:none!important;
+}
+.nav-links li{margin:0!important;padding:0!important}
+.nav-links a{
+  position:relative!important;
+  display:inline-flex!important;
+  align-items:center!important;
+  justify-content:center!important;
+  min-height:38px!important;
+  padding:0 11px!important;
+  border-radius:9px!important;
+  color:#59636F!important;
+  font-size:.58rem!important;
+  font-weight:700!important;
+  text-decoration:none!important;
+  transition:background .18s ease,color .18s ease,transform .18s ease!important;
+  white-space:nowrap!important;
+}
+.nav-links a:hover{
+  color:var(--kc-blue)!important;
+  background:var(--kc-blue-soft)!important;
+}
+.nav-links a.on{
+  color:var(--kc-blue)!important;
+  background:var(--kc-blue-soft)!important;
+}
+.nav-links a.on::after{
+  content:""!important;
+  position:absolute!important;
+  left:12px!important;
+  right:12px!important;
+  bottom:3px!important;
+  height:2px!important;
+  border-radius:2px!important;
+  background:var(--kc-yellow)!important;
+}
+.topnav-r{
+  flex:0 0 auto!important;
+  display:flex!important;
+  align-items:center!important;
+  gap:8px!important;
+}
+.nav-cta{
+  display:inline-flex!important;
+  align-items:center!important;
+  justify-content:center!important;
+  min-height:38px!important;
+  padding:0 14px!important;
+  border-radius:9px!important;
+  background:var(--kc-blue)!important;
+  color:#fff!important;
+  border:1px solid var(--kc-blue)!important;
+  box-shadow:0 4px 12px rgba(21,87,214,.16)!important;
+  font-size:.55rem!important;
+  font-weight:800!important;
+  text-decoration:none!important;
+}
+.nav-cta:hover{
+  background:var(--kc-blue-dark)!important;
+  color:#fff!important;
+  transform:translateY(-1px)!important;
+}
+.burger{display:none!important}
+
+/* ---------- MOBILE DRAWER ---------- */
+.mnav{
+  position:fixed!important;
+  top:0!important;
+  right:0!important;
+  width:min(330px,88vw)!important;
+  height:100vh!important;
+  background:#fff!important;
+  box-shadow:-14px 0 40px rgba(20,38,68,.16)!important;
+  border-left:1px solid var(--kc-border)!important;
+  z-index:2200!important;
+}
+.mnav-head{
+  min-height:70px!important;
+  padding:0 17px!important;
+  display:flex!important;
+  align-items:center!important;
+  justify-content:space-between!important;
+  border-bottom:1px solid var(--kc-border)!important;
+}
+.mnav .brand{display:flex!important;align-items:center!important;gap:10px!important}
+.mnav .brand-img{
+  width:38px!important;height:38px!important;
+  min-width:38px!important;max-width:38px!important;
+  min-height:38px!important;max-height:38px!important;
+  object-fit:contain!important;
+}
+.mnav .brand-text strong{font-size:.7rem!important;color:var(--kc-text)!important}
+.mnav .brand-text small{font-size:.44rem!important;color:var(--kc-blue)!important}
+.mnav-x{
+  width:36px!important;height:36px!important;
+  border:1px solid var(--kc-border)!important;
+  border-radius:9px!important;
+  background:#fff!important;color:#58636f!important;
+}
+.mnav-links{
+  padding:16px 12px!important;
+  display:flex!important;
+  flex-direction:column!important;
+  gap:4px!important;
+}
+.mnav-links a{
+  min-height:46px!important;
+  padding:0 13px!important;
+  display:flex!important;
+  align-items:center!important;
+  gap:12px!important;
+  border-radius:10px!important;
+  color:#4E5965!important;
+  font-size:.58rem!important;
+  font-weight:700!important;
+  text-decoration:none!important;
+}
+.mnav-links a i{width:18px!important;text-align:center!important;color:#7C8793!important}
+.mnav-links a:hover,.mnav-links a.on{
+  background:var(--kc-blue-soft)!important;
+  color:var(--kc-blue)!important;
+}
+.mnav-links a:hover i,.mnav-links a.on i{color:var(--kc-blue)!important}
+.mnav-foot{
+  margin:4px 12px 0!important;
+  padding-top:15px!important;
+  border-top:1px solid var(--kc-border)!important;
+}
+.mnav-foot a{
+  min-height:42px!important;
+  display:flex!important;
+  align-items:center!important;
+  justify-content:center!important;
+  border-radius:9px!important;
+  background:var(--kc-blue)!important;
+  color:#fff!important;
+  font-size:.54rem!important;
+  font-weight:800!important;
+  text-decoration:none!important;
+}
+
+/* ---------- eGOV MAIN CONTENT ---------- */
+.egov-full-app{
+  width:100%!important;
+  background:var(--kc-page)!important;
+}
+.egov-app-body{
+  width:100%!important;
+  max-width:1120px!important;
+  margin:0 auto!important;
+  padding:30px 24px 48px!important;
+  box-sizing:border-box!important;
+}
+.egov-welcome-row{
+  display:flex!important;
+  align-items:flex-end!important;
+  justify-content:space-between!important;
+  gap:20px!important;
+  margin-bottom:16px!important;
+}
+.egov-welcome-row h1{
+  margin:5px 0 0!important;
+  font-size:1.8rem!important;
+  line-height:1.08!important;
+  letter-spacing:-.04em!important;
+  font-weight:700!important;
+}
+.egov-welcome-row h1 b{font-weight:800!important}
+.egov-weather{
+  flex:0 0 auto!important;
+  min-width:145px!important;
+  min-height:44px!important;
+  box-sizing:border-box!important;
+}
+.egov-search{
+  width:100%!important;
+  box-sizing:border-box!important;
+  margin-bottom:20px!important;
+}
+
+/* Hero */
+.egov-hero-card{
+  width:100%!important;
+  min-height:225px!important;
+  display:block!important;
+  position:relative!important;
+  margin-bottom:26px!important;
+  border-radius:16px!important;
+  overflow:hidden!important;
+}
+.egov-hero-copy{
+  width:55%!important;
+  max-width:560px!important;
+  box-sizing:border-box!important;
+  padding:34px!important;
+}
+.egov-hero-copy h2{
+  font-size:1.9rem!important;
+  line-height:1.08!important;
+}
+.egov-city-art{pointer-events:none!important}
+
+/* Services */
+.egov-module{width:100%!important;margin-top:27px!important}
+.egov-module-title{
+  display:flex!important;
+  align-items:flex-end!important;
+  justify-content:space-between!important;
+  gap:15px!important;
+  margin-bottom:12px!important;
+}
+.egov-module-title h2{
+  margin:3px 0 0!important;
+  font-size:1rem!important;
+  line-height:1.2!important;
+}
+.egov-service-grid{
+  width:100%!important;
+  box-sizing:border-box!important;
+  display:grid!important;
+  grid-template-columns:repeat(6,minmax(0,1fr))!important;
+  gap:1px!important;
+  padding:1px!important;
+  overflow:hidden!important;
+}
+.egov-service{
+  min-width:0!important;
+  min-height:108px!important;
+  display:flex!important;
+  flex-direction:column!important;
+  align-items:center!important;
+  justify-content:center!important;
+  gap:9px!important;
+  padding:12px 5px!important;
+  text-align:center!important;
+  text-decoration:none!important;
+  border-radius:9px!important;
+}
+.egov-service:hover{background:var(--kc-blue-soft)!important}
+.svc-icon{
+  flex:0 0 48px!important;
+  width:48px!important;height:48px!important;
+  min-width:48px!important;
+  display:grid!important;
+  place-items:center!important;
+  border-radius:12px!important;
+  font-size:1rem!important;
+  box-shadow:none!important;
+}
+.egov-service b{
+  display:block!important;
+  max-width:100%!important;
+  font-size:.55rem!important;
+  line-height:1.25!important;
+  font-weight:700!important;
+}
+
+/* Featured / info / list */
+.egov-feature-row{display:grid!important;grid-template-columns:repeat(3,minmax(0,1fr))!important;gap:12px!important}
+.egov-feature{min-width:0!important;min-height:150px!important}
+.egov-info-grid{display:grid!important;grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:12px!important}
+.egov-list{overflow:hidden!important}
+.egov-list>a{min-height:68px!important}
+.egov-account{
+  display:flex!important;
+  align-items:center!important;
+  gap:15px!important;
+  padding:18px!important;
+  box-sizing:border-box!important;
+}
+
+/* ---------- MAYOR'S CORNER REBUILD ---------- */
+.leader-mayor-card,
+.mayor-corner-card,
+.mayor-corner,
+.mayors-corner{
+  position:relative!important;
+  width:100%!important;
+  max-width:1120px!important;
+  margin-left:auto!important;
+  margin-right:auto!important;
+  overflow:hidden!important;
+  box-sizing:border-box!important;
+  background:#fff!important;
+  border:1px solid var(--kc-border)!important;
+  border-radius:16px!important;
+  box-shadow:var(--kc-shadow)!important;
+}
+
+/* Preferred existing markup */
+.leader-mayor-card{
+  display:grid!important;
+  grid-template-columns:minmax(0,1fr) 350px!important;
+  grid-template-areas:"copy photo"!important;
+  align-items:stretch!important;
+}
+.leader-mayor-card>.leader-mayor-content,
+.leader-mayor-card>.leader-mayor-copy{
+  grid-area:copy!important;
+  width:auto!important;
+  max-width:none!important;
+  min-width:0!important;
+  padding:38px 42px!important;
+  margin:0!important;
+  text-align:left!important;
+  align-self:center!important;
+  order:unset!important;
+}
+.leader-mayor-card>.leader-mayor-content h2,
+.leader-mayor-card>.leader-mayor-copy h2{
+  margin:7px 0 10px!important;
+  color:var(--kc-text)!important;
+  font-size:1.55rem!important;
+  line-height:1.1!important;
+  letter-spacing:-.025em!important;
+}
+.leader-mayor-card>.leader-mayor-content p,
+.leader-mayor-card>.leader-mayor-copy p{
+  max-width:620px!important;
+  margin:0 0 16px!important;
+  color:var(--kc-muted)!important;
+  font-size:.64rem!important;
+  line-height:1.65!important;
+}
+.leader-mayor-card>.leader-mayor-img{
+  grid-area:photo!important;
+  width:100%!important;
+  max-width:none!important;
+  min-width:0!important;
+  min-height:330px!important;
+  height:auto!important;
+  margin:0!important;
+  order:unset!important;
+  background-color:#EAF1FA!important;
+  background-repeat:no-repeat!important;
+  background-size:cover!important;
+  background-position:center top!important;
+  align-self:stretch!important;
+}
+/* If image is an actual img rather than background */
+.leader-mayor-card>.leader-mayor-img img{
+  width:100%!important;
+  height:100%!important;
+  min-height:330px!important;
+  display:block!important;
+  object-fit:cover!important;
+  object-position:center top!important;
+}
+/* Common inner image wrapper */
+.leader-mayor-card>.leader-mayor-image{
+  grid-area:photo!important;
+  width:100%!important;
+  min-height:330px!important;
+  margin:0!important;
+  display:flex!important;
+  align-items:flex-end!important;
+  justify-content:center!important;
+  overflow:hidden!important;
+}
+.leader-mayor-card>.leader-mayor-image img{
+  width:100%!important;
+  height:100%!important;
+  min-height:330px!important;
+  display:block!important;
+  object-fit:cover!important;
+  object-position:center top!important;
+}
+
+/* ---------- FOOTER ---------- */
+.footer{
+  position:relative!important;
+  width:100%!important;
+  box-sizing:border-box!important;
+  background:#fff!important;
+  border-top:1px solid var(--kc-border)!important;
+}
+.fgrid{
+  width:100%!important;
+  max-width:1120px!important;
+  margin:0 auto!important;
+  box-sizing:border-box!important;
+}
+.f-bottom{
+  max-width:1120px!important;
+  margin:0 auto!important;
+  box-sizing:border-box!important;
+}
+
+/* ---------- MOBILE BOTTOM BAR ---------- */
+.bottomnav{
+  position:fixed!important;
+  left:0!important;
+  right:0!important;
+  bottom:0!important;
+  width:100%!important;
+  height:68px!important;
+  min-height:68px!important;
+  padding:0!important;
+  margin:0!important;
+  display:none!important;
+  background:rgba(255,255,255,.98)!important;
+  border:0!important;
+  border-top:1px solid var(--kc-border)!important;
+  box-shadow:0 -8px 26px rgba(25,43,72,.10)!important;
+  z-index:1800!important;
+  backdrop-filter:blur(14px)!important;
+  -webkit-backdrop-filter:blur(14px)!important;
+}
+.bn-row{
+  width:100%!important;
+  max-width:520px!important;
+  height:68px!important;
+  margin:0 auto!important;
+  padding:4px 7px 3px!important;
+  display:grid!important;
+  grid-template-columns:repeat(5,1fr)!important;
+  align-items:stretch!important;
+  box-sizing:border-box!important;
+}
+.bn-item{
+  position:relative!important;
+  min-width:0!important;
+  height:60px!important;
+  display:flex!important;
+  flex-direction:column!important;
+  align-items:center!important;
+  justify-content:center!important;
+  gap:3px!important;
+  color:#89929D!important;
+  text-decoration:none!important;
+  font-size:.47rem!important;
+  font-weight:700!important;
+  line-height:1!important;
+  border-radius:10px!important;
+}
+.bn-item::before{
+  content:""!important;
+  position:absolute!important;
+  top:3px!important;
+  width:34px!important;
+  height:25px!important;
+  border-radius:9px!important;
+  background:transparent!important;
+  z-index:0!important;
+  transition:.18s ease!important;
+}
+.bn-item .bn-icon{
+  position:relative!important;
+  z-index:1!important;
+  width:27px!important;
+  height:25px!important;
+  display:grid!important;
+  place-items:center!important;
+  border-radius:8px!important;
+  font-size:.86rem!important;
+  color:inherit!important;
+  background:transparent!important;
+  border:0!important;
+  box-shadow:none!important;
+  margin:0!important;
+}
+.bn-item .bn-label{
+  position:relative!important;
+  z-index:1!important;
+  display:block!important;
+  font-size:.47rem!important;
+  font-weight:700!important;
+}
+.bn-item.active{color:var(--kc-blue)!important}
+.bn-item.active::before{background:var(--kc-blue-soft)!important}
+.bn-item.active .bn-icon{color:var(--kc-blue)!important}
+.bn-item:hover{color:var(--kc-blue)!important}
+.bn-center .bn-icon{
+  width:48px!important;
+  height:48px!important;
+  margin-top:-23px!important;
+  border-radius:50%!important;
+  background:var(--kc-blue)!important;
+  color:#fff!important;
+  border:4px solid var(--kc-page)!important;
+  box-shadow:0 7px 17px rgba(21,87,214,.25)!important;
+  font-size:.95rem!important;
+}
+.bn-center .bn-label{margin-top:1px!important}
+
+/* ---------- RESPONSIVE ---------- */
+@media (max-width:1100px) and (min-width:769px){
+  .topnav-in{padding:0 16px!important;gap:12px!important}
+  .nav-links a{padding:0 8px!important;font-size:.53rem!important}
+  .topnav .brand{min-width:190px!important}
+  .nav-cta{padding:0 10px!important}
+  .egov-app-body{padding-left:18px!important;padding-right:18px!important}
+  .leader-mayor-card{grid-template-columns:minmax(0,1fr) 300px!important}
+}
+@media (max-width:900px) and (min-width:769px){
+  .nav-links li:nth-child(6){display:none!important}
+  .nav-links a{padding:0 6px!important}
+  .leader-mayor-card{grid-template-columns:minmax(0,1fr) 270px!important}
+}
+@media (max-width:768px){
+  body{
+    padding-bottom:76px!important;
+  }
+  .topnav{
+    position:relative!important;
+    height:0!important;
+    min-height:0!important;
+    overflow:hidden!important;
+    border:0!important;
+    box-shadow:none!important;
+  }
+  .topnav-in{height:0!important;min-height:0!important;padding:0!important}
+  .topnav .brand,.nav-links,.nav-cta{display:none!important}
+  .burger{
+    position:fixed!important;
+    top:14px!important;
+    right:14px!important;
+    z-index:2100!important;
+    width:42px!important;
+    height:42px!important;
+    display:grid!important;
+    place-items:center!important;
+    border:1px solid var(--kc-border)!important;
+    border-radius:11px!important;
+    background:#fff!important;
+    color:var(--kc-blue)!important;
+    box-shadow:0 5px 18px rgba(20,40,70,.10)!important;
+  }
+  .egov-app-body{
+    max-width:520px!important;
+    padding:16px 13px 30px!important;
+  }
+  .egov-welcome-row{
+    align-items:flex-start!important;
+    padding-right:50px!important;
+  }
+  .egov-welcome-row h1{font-size:1.4rem!important}
+  .egov-weather{
+    min-width:0!important;
+    padding:7px 9px!important;
+  }
+  .egov-hero-card{
+    min-height:190px!important;
+    border-radius:14px!important;
+  }
+  .egov-hero-copy{
+    width:72%!important;
+    padding:23px 18px!important;
+  }
+  .egov-hero-copy h2{font-size:1.35rem!important}
+  .egov-service-grid{
+    grid-template-columns:repeat(4,minmax(0,1fr))!important;
+  }
+  .egov-service{min-height:94px!important;padding:10px 3px!important}
+  .svc-icon{width:43px!important;height:43px!important;min-width:43px!important;flex-basis:43px!important;border-radius:11px!important}
+  .egov-service b{font-size:.49rem!important}
+  .egov-feature-row{display:flex!important;overflow-x:auto!important;padding-bottom:5px!important;scroll-snap-type:x mandatory!important}
+  .egov-feature{flex:0 0 84%!important;scroll-snap-align:start!important}
+  .egov-info-grid{grid-template-columns:1fr!important}
+  .egov-account{align-items:flex-start!important;flex-wrap:wrap!important}
+  .egov-account>a{margin-left:auto!important}
+  
+  .leader-mayor-card,
+  .mayor-corner-card,
+  .mayor-corner,
+  .mayors-corner{
+    display:grid!important;
+    grid-template-columns:1fr!important;
+    grid-template-areas:"copy" "photo"!important;
+    border-radius:14px!important;
+  }
+  .leader-mayor-card>.leader-mayor-content,
+  .leader-mayor-card>.leader-mayor-copy{
+    grid-area:copy!important;
+    padding:24px 20px!important;
+  }
+  .leader-mayor-card>.leader-mayor-content h2,
+  .leader-mayor-card>.leader-mayor-copy h2{
+    font-size:1.25rem!important;
+  }
+  .leader-mayor-card>.leader-mayor-img{
+    grid-area:photo!important;
+    min-height:250px!important;
+    height:280px!important;
+    background-position:center top!important;
+  }
+  .leader-mayor-card>.leader-mayor-img img,
+  .leader-mayor-card>.leader-mayor-image img{
+    min-height:250px!important;
+    height:280px!important;
+  }
+  .bottomnav{display:block!important}
+}
+@media (max-width:390px){
+  .egov-app-body{padding-left:10px!important;padding-right:10px!important}
+  .egov-service-grid{grid-template-columns:repeat(4,minmax(0,1fr))!important}
+  .egov-service{min-height:88px!important}
+  .svc-icon{width:40px!important;height:40px!important;min-width:40px!important;flex-basis:40px!important}
+  .egov-service b{font-size:.45rem!important}
+  .bn-item .bn-label{font-size:.44rem!important}
+  .bn-center .bn-icon{width:45px!important;height:45px!important}
+}
+@media (min-width:769px){
+  .bottomnav{display:none!important}
+}
+
+/* ---------- VIEW TOGGLE: keep it away from bottom navigation ---------- */
+@media(max-width:768px){
+  .view-toggle{
+    bottom:82px!important;
+    z-index:1750!important;
+  }
+}
+
+/* ---------- ACCESSIBILITY ---------- */
+.topnav a:focus-visible,
+.mnav a:focus-visible,
+.bottomnav a:focus-visible,
+button:focus-visible{
+  outline:3px solid rgba(21,87,214,.22)!important;
+  outline-offset:2px!important;
+}
