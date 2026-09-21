@@ -4086,7 +4086,114 @@ if (file_exists($officialsFile)) {
             </div>
         </div>
 
-        <!-- HERO -->
+    
+        <!-- KORONADAL eGOV APP HOME -->
+        <section class="egov-app-home" id="egovHome">
+            <div class="egov-top">
+                <div class="egov-profile">
+                    <div class="egov-avatar"><img src="Logo.png" alt="Koronadal City"></div>
+                    <div class="egov-greeting">
+                        <span>Hi, Koronadaleño!</span>
+                        <strong>What can we help you with today?</strong>
+                    </div>
+                </div>
+                <button class="egov-notify" type="button" aria-label="Notifications">
+                    <i class="fas fa-bell"></i><span></span>
+                </button>
+            </div>
+
+            <div class="egov-banner">
+                <div class="egov-banner-copy">
+                    <small>WELCOME TO</small>
+                    <h1>Koronadal City<br><b>eGov</b></h1>
+                    <p>Your city services, information and assistance in one place.</p>
+                    <a href="#services">Explore Services <i class="fas fa-arrow-right"></i></a>
+                </div>
+                <div class="egov-banner-art" aria-hidden="true">
+                    <div class="art-sun"></div>
+                    <div class="art-hill hill-a"></div>
+                    <div class="art-hill hill-b"></div>
+                    <div class="art-road"></div>
+                    <div class="art-bus"><span></span><i></i><i></i><b></b></div>
+                    <div class="art-palm palm-a"></div>
+                    <div class="art-palm palm-b"></div>
+                </div>
+            </div>
+
+            <div class="egov-section-head">
+                <div>
+                    <small>QUICK ACCESS</small>
+                    <h2>Koronadal Services</h2>
+                </div>
+                <a href="#services">See all <i class="fas fa-chevron-right"></i></a>
+            </div>
+
+            <div class="egov-icon-grid">
+                <a href="#services" class="egov-icon-item">
+                    <span class="egov-icon blue"><i class="fas fa-building-columns"></i></span><b>City Hall</b>
+                </a>
+                <a href="#services" class="egov-icon-item">
+                    <span class="egov-icon orange"><i class="fas fa-file-signature"></i></span><b>Permits</b>
+                </a>
+                <a href="https://jobs.koronadalcityonlineservices.com/" target="_blank" rel="noopener" class="egov-icon-item">
+                    <span class="egov-icon purple"><i class="fas fa-briefcase"></i><em>New</em></span><b>Jobs</b>
+                </a>
+                <a href="https://koronadal.gov.ph/" target="_blank" rel="noopener" class="egov-icon-item">
+                    <span class="egov-icon teal"><i class="fas fa-compass"></i></span><b>Tourism</b>
+                </a>
+                <a href="#services" class="egov-icon-item">
+                    <span class="egov-icon indigo"><i class="fas fa-route"></i></span><b>Transport</b>
+                </a>
+                <a href="https://citizen.koronadalcityonlineservices.com/" target="_blank" rel="noopener" class="egov-icon-item">
+                    <span class="egov-icon green"><i class="fas fa-rocket"></i><em>New</em></span><b>Start-up</b>
+                </a>
+                <a href="#services" class="egov-icon-item">
+                    <span class="egov-icon pink"><i class="fas fa-heart-pulse"></i></span><b>Health</b>
+                </a>
+                <a href="#services" class="egov-icon-item">
+                    <span class="egov-icon yellow"><i class="fas fa-wheat-awn"></i></span><b>Agriculture</b>
+                </a>
+                <a href="#services" class="egov-icon-item">
+                    <span class="egov-icon cyan"><i class="fas fa-id-card"></i></span><b>Citizen ID</b>
+                </a>
+                <a href="emergency-contacts.php" class="egov-icon-item">
+                    <span class="egov-icon red"><i class="fas fa-triangle-exclamation"></i><em>24/7</em></span><b>Report</b>
+                </a>
+                <a href="#services" class="egov-icon-item">
+                    <span class="egov-icon gold"><i class="fas fa-user-group"></i></span><b>Barangays</b>
+                </a>
+                <a href="#more-services" class="egov-icon-item egov-more">
+                    <span class="egov-icon slate"><i class="fas fa-ellipsis"></i></span><b>Show More</b>
+                </a>
+            </div>
+
+            <div class="egov-featured-head">
+                <h2>Featured eGov Services</h2>
+                <a href="#services">View all <i class="fas fa-chevron-right"></i></a>
+            </div>
+            <div class="egov-featured">
+                <a href="https://citizen.koronadalcityonlineservices.com/" target="_blank" rel="noopener" class="egov-feature-card">
+                    <div class="feature-copy"><small>LOCAL GOVERNMENT</small><strong>Koronadal<br>Citizen Services</strong><span>Access digital city transactions</span></div>
+                    <div class="feature-visual visual-city"><i class="fas fa-city"></i><i class="fas fa-id-card"></i><i class="fas fa-file-circle-check"></i></div>
+                </a>
+                <a href="#services" class="egov-feature-card">
+                    <div class="feature-copy"><small>LOCAL GOVERNMENT</small><strong>City Online<br>Services</strong><span>Permits, jobs, information & more</span></div>
+                    <div class="feature-visual visual-services"><i class="fas fa-building"></i><i class="fas fa-laptop"></i><i class="fas fa-check"></i></div>
+                </a>
+                <a href="emergency-contacts.php" class="egov-feature-card">
+                    <div class="feature-copy"><small>EMERGENCY</small><strong>Korona<br>911 Assistance</strong><span>Emergency hotlines and response</span></div>
+                    <div class="feature-visual visual-emergency"><i class="fas fa-phone-volume"></i><i class="fas fa-shield-heart"></i></div>
+                </a>
+            </div>
+
+            <div class="egov-stat-strip">
+                <div><strong>27</strong><span>Barangays</span></div>
+                <div><strong>24/7</strong><span>Emergency</span></div>
+                <div><strong>1</strong><span>City Gateway</span></div>
+            </div>
+        </section>
+
+    <!-- HERO -->
         <section class="hero" id="home">
             <div class="hero-bg"></div>
             <div class="hero-glow-ring"></div>
@@ -4806,12 +4913,11 @@ if (file_exists($officialsFile)) {
     <!-- BOTTOM NAV -->
     <nav class="bottomnav" id="bottomnav">
         <div class="bn-row">
-            <a href="#home" class="bn-item active" data-bnav="home"><span class="bn-icon"><i
-                        class="fas fa-house"></i></span><span class="bn-label">Home</span></a>
-            <a href="#services" class="bn-item" data-bnav="services"><span class="bn-icon"><i
-                        class="fas fa-gears"></i></span><span class="bn-label">Services</span></a>
-            <a href="#quick" class="bn-item" data-bnav="quick"><span class="bn-icon"><i
-                        class="fas fa-link"></i></span><span class="bn-label">Quick</span></a>
+            <a href="#egovHome" class="bn-item active" data-bnav="home"><span class="bn-icon"><i class="fas fa-house"></i></span><span class="bn-label">Home</span></a>
+            <a href="#services" class="bn-item" data-bnav="services"><span class="bn-icon"><i class="fas fa-th-large"></i></span><span class="bn-label">Services</span></a>
+            <a href="#qr-access" class="bn-item bn-center" data-bnav="qr"><span class="bn-icon"><i class="fas fa-qrcode"></i></span><span class="bn-label">Scan</span></a>
+            <a href="#quick" class="bn-item" data-bnav="quick"><span class="bn-icon"><i class="fas fa-bullhorn"></i></span><span class="bn-label">News</span></a>
+            <a href="#account" class="bn-item" data-bnav="account"><span class="bn-icon"><i class="fas fa-user"></i></span><span class="bn-label">Account</span></a>
         </div>
     </nav>
 
