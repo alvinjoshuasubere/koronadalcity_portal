@@ -694,7 +694,7 @@ if (file_exists($officialsFile)) {
         <!-- CITY LEADERSHIP -->
         <section class="leadership" id="officials">
             <div class="sec-pad">
-                <div class="home-section-head a">
+                <div class="home-section-head home-section-head-centered a">
                     <div class="home-section-icon"><i class="fas fa-landmark"></i></div>
                     <div>
                         <span>LEADERSHIP</span>
@@ -721,13 +721,8 @@ if (file_exists($officialsFile)) {
                 }
                 ?>
 
-                <!-- MAYOR'S CORNER — compact inline mobile-app card -->
+                <!-- MAYOR'S CORNER — centered app card, text left / photo right -->
                 <div class="home-mayor-card a d1">
-                    <div class="home-mayor-cover">
-                        <img src="Mayor_bg.png" alt="<?= htmlspecialchars($mayorData['name'] ?? 'City Mayor') ?>" />
-                        <div class="home-mayor-cover-shade"></div>
-                        <span class="home-mayor-status"><i class="fas fa-landmark"></i> City Mayor</span>
-                    </div>
                     <div class="home-mayor-content">
                         <div class="home-mayor-heading">
                             <div>
@@ -757,7 +752,12 @@ if (file_exists($officialsFile)) {
                             <i class="fas fa-arrow-right"></i>
                         </a>
                     </div>
-                </div>
+                    <div class="home-mayor-cover">
+                        <img src="Mayor_bg.png" alt="<?= htmlspecialchars($mayorData['name'] ?? 'City Mayor') ?>" />
+                        <div class="home-mayor-cover-shade"></div>
+                        <span class="home-mayor-status"><i class="fas fa-landmark"></i> City Mayor</span>
+                    </div>
+                </div>>
 
             </div>
         </section>
