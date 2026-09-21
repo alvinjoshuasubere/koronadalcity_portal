@@ -283,3 +283,36 @@ body::before{background:radial-gradient(ellipse at 85% 8%,rgba(11,99,182,.07),tr
 .force-mobile .egov-app-home{padding-top:10px}
 .force-desktop .bottomnav{display:none!important}
 .force-desktop .egov-app-home{max-width:1100px;margin:0 auto}
+
+/* =========================================================
+   APP VS DESKTOP DASHBOARD
+   Mobile = app shell / Desktop = LGU service dashboard
+   ========================================================= */
+.egov-desktop-sidebar{display:none}.egov-desktop-content{min-width:0}
+@media(max-width:768px){
+  .egov-app-home{width:100%;max-width:480px;margin:0 auto;min-height:100dvh;padding-top:10px;padding-bottom:18px;background:#F8F9FC}
+  .egov-top{padding-top:8px}.egov-desktop-content{width:100%}
+}
+@media(min-width:769px){
+  body{background:#F1F4F8}
+  .egov-app-home{width:calc(100% - 32px);max-width:1280px;min-height:calc(100vh - 90px);margin:18px auto 34px;padding:0;display:grid;grid-template-columns:228px minmax(0,1fr);gap:0;background:#fff;border:1px solid #E4E8EF;border-radius:22px;overflow:hidden;box-shadow:0 12px 40px rgba(24,43,77,.08)}
+  .egov-desktop-sidebar{display:flex;flex-direction:column;min-height:720px;background:linear-gradient(180deg,#104FC6 0%,#174DB5 62%,#123F96 100%);color:#fff;padding:24px 15px 18px}
+  .egov-side-brand{display:flex;align-items:center;gap:11px;padding:0 9px 24px;border-bottom:1px solid rgba(255,255,255,.14)}
+  .egov-side-logo{width:42px;height:42px;border-radius:12px;background:#fff;display:grid;place-items:center;overflow:hidden}
+  .egov-side-logo img{width:100%;height:100%;object-fit:contain;padding:4px}
+  .egov-side-brand strong{display:block;font-size:.9rem;line-height:1.1}.egov-side-brand small{display:block;font-size:.52rem;opacity:.7;margin-top:4px}
+  .egov-side-nav{display:flex;flex-direction:column;gap:5px;margin-top:22px}
+  .egov-side-nav a,.egov-side-bottom>a{display:flex;align-items:center;gap:12px;min-height:45px;padding:0 12px;border-radius:11px;color:rgba(255,255,255,.74);font-size:.58rem;font-weight:600;transition:.2s ease}
+  .egov-side-nav a i,.egov-side-bottom>a i{width:18px;text-align:center;font-size:.75rem}
+  .egov-side-nav a:hover,.egov-side-nav a.side-active{color:#fff;background:rgba(255,255,255,.13)}
+  .egov-side-nav a.side-active{box-shadow:inset 3px 0 0 #FFD35A}
+  .egov-side-bottom{margin-top:auto}.egov-side-bottom>a{margin-bottom:15px;background:rgba(255,255,255,.08)}
+  .egov-side-city{border-top:1px solid rgba(255,255,255,.12);padding:17px 10px 0;display:flex;gap:9px;align-items:flex-start;color:rgba(255,255,255,.72);font-size:.5rem;line-height:1.5}
+  .egov-side-city i{margin-top:2px}.egov-side-city small{opacity:.65;font-size:.46rem}
+  .egov-desktop-content{padding:0 28px 30px;background:#F8F9FC}
+  .egov-top{padding:22px 0 19px;min-height:78px}.egov-avatar{width:42px;height:42px}.egov-greeting span{font-size:.72rem}.egov-greeting strong{font-size:.52rem}.egov-notify{width:39px;height:39px}
+  .egov-banner{margin:0 0 23px;min-height:220px;border-radius:20px}
+  .egov-banner-copy{padding:31px 0 27px 30px;width:49%}.egov-banner-copy small{font-size:.5rem}.egov-banner-copy h1{font-size:2rem}.egov-banner-copy p{font-size:.62rem;max-width:330px}.egov-banner-copy a{font-size:.55rem;padding:9px 13px}.egov-banner-art{width:55%}
+  .egov-icon-grid{grid-template-columns:repeat(8,1fr);background:#fff;border:1px solid #E9ECF1;border-radius:16px;padding:20px 14px 19px;gap:18px 8px;margin-bottom:22px}
+  .egov-icon{width:58px;height:58px}.egov-featured-head{padding:0 0 11px}.egov-featured{padding:0 0 22px}.egov-feature-card{flex-basis:31.8%;min-height:150px}.egov-stat-strip{margin:0 0 4px}
+}
