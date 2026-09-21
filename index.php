@@ -4915,9 +4915,9 @@ if (file_exists($officialsFile)) {
         <div class="bn-row">
             <a href="#egovHome" class="bn-item active" data-bnav="home"><span class="bn-icon"><i class="fas fa-house"></i></span><span class="bn-label">Home</span></a>
             <a href="#services" class="bn-item" data-bnav="services"><span class="bn-icon"><i class="fas fa-th-large"></i></span><span class="bn-label">Services</span></a>
-            <a href="#qr-access" class="bn-item bn-center" data-bnav="qr"><span class="bn-icon"><i class="fas fa-qrcode"></i></span><span class="bn-label">Scan</span></a>
+            <a href="#services" class="bn-item bn-center" data-bnav="services-qr"><span class="bn-icon"><i class="fas fa-qrcode"></i></span><span class="bn-label">Scan</span></a>
             <a href="#quick" class="bn-item" data-bnav="quick"><span class="bn-icon"><i class="fas fa-bullhorn"></i></span><span class="bn-label">News</span></a>
-            <a href="#account" class="bn-item" data-bnav="account"><span class="bn-icon"><i class="fas fa-user"></i></span><span class="bn-label">Account</span></a>
+            <a href="#citizen-hub" class="bn-item" data-bnav="account"><span class="bn-icon"><i class="fas fa-user"></i></span><span class="bn-label">Account</span></a>
         </div>
     </nav>
 
@@ -5064,7 +5064,7 @@ if (file_exists($officialsFile)) {
 
     // === BOTTOM NAV — IntersectionObserver tracking ===
     var bnItems = document.querySelectorAll('.bn-item[data-bnav]');
-    var sections = ['home', 'services', 'quick'];
+    var sections = ['egovHome', 'home', 'services', 'quick', 'citizen-hub'];
     var sectionEls = sections.map(function(id) {
         return document.getElementById(id)
     }).filter(Boolean);
@@ -5072,6 +5072,7 @@ if (file_exists($officialsFile)) {
         entries.forEach(function(e) {
             if (e.isIntersecting) {
                 var id = e.target.id;
+                if (id === 'home') id = 'egovHome';
                 bnItems.forEach(function(b) {
                     b.classList.toggle('active', b.dataset.bnav === id);
                 });
