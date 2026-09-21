@@ -694,9 +694,13 @@ if (file_exists($officialsFile)) {
         <!-- CITY LEADERSHIP -->
         <section class="leadership" id="officials">
             <div class="sec-pad">
-                <div class="sec-head a">
-                    <div class="sec-label"><i class="fas fa-landmark"></i> City Mayor</div>
-                    <h2>Building a Smarter Koronadal</h2>
+                <div class="home-section-head a">
+                    <div class="home-section-icon"><i class="fas fa-landmark"></i></div>
+                    <div>
+                        <span>LEADERSHIP</span>
+                        <h2>City Mayor</h2>
+                        <p>Building a Smarter Koronadal</p>
+                    </div>
                 </div>
 
                 <?php
@@ -758,46 +762,76 @@ if (file_exists($officialsFile)) {
             </div>
         </section>
 
-        <!-- QUICK ACCESS -->
-        <section class="qacc" id="quick">
+        <!-- QUICK ACCESS — MOBILE APP STYLE -->
+        <section class="qacc home-quick" id="quick">
             <div class="sec-pad">
-                <div class="sec-head a">
-                    <div class="sec-label"><i class="fas fa-link"></i> Quick Links</div>
-                    <h2>Explore Koronadal City</h2>
+                <div class="home-section-head a">
+                    <div class="home-section-icon"><i class="fas fa-compass"></i></div>
+                    <div>
+                        <span>DISCOVER</span>
+                        <h2>Quick Links</h2>
+                        <p>Explore Koronadal City</p>
+                    </div>
                 </div>
-            </div>
-            <!-- Desktop grid -->
-            <div class="sec-pad">
-                <div class="qgrid">
-                    <a href="https://koronadal.gov.ph/" target="_blank" class="qc a d1">
-                        <div class="qc-ico"><i class="fas fa-home"></i></div>
-                        <div class="qc-body"><strong>Official Website</strong><small>City homepage</small></div><i
-                            class="fas fa-chevron-right qc-arrow"></i>
+
+                <div class="home-promo-strip a d1">
+                    <div class="home-promo-icon"><i class="fas fa-city"></i></div>
+                    <div class="home-promo-copy">
+                        <span>YOUR CITY • YOUR SERVICES</span>
+                        <strong>Everything Koronadal, right at your fingertips.</strong>
+                        <small>Discover city programs, public information, community resources and official services in one digital gateway.</small>
+                    </div>
+                    <a href="#Digital GatewayFullApp" aria-label="Explore Koronadal"><i class="fas fa-arrow-right"></i></a>
+                </div>
+
+                <div class="home-quick-grid">
+                    <a href="https://koronadal.gov.ph/" target="_blank" rel="noopener" class="home-quick-card a d1">
+                        <span class="home-quick-icon blue"><i class="fas fa-globe"></i></span>
+                        <span><strong>Official Website</strong><small>News & announcements</small></span>
+                        <i class="fas fa-arrow-up-right-from-square"></i>
                     </a>
-                    <a href="https://koronadal.gov.ph/city-history/" target="_blank" class="qc a d1">
-                        <div class="qc-ico"><i class="fas fa-landmark"></i></div>
-                        <div class="qc-body"><strong>City History</strong><small>Heritage &amp; origins</small></div><i
-                            class="fas fa-chevron-right qc-arrow"></i>
+                    <a href="https://koronadal.gov.ph/city-history/" target="_blank" rel="noopener" class="home-quick-card a d1">
+                        <span class="home-quick-icon gold"><i class="fas fa-landmark"></i></span>
+                        <span><strong>City History</strong><small>Heritage & origins</small></span>
+                        <i class="fas fa-arrow-up-right-from-square"></i>
                     </a>
-                    <a href="https://koronadal.gov.ph/vision-mission/" target="_blank" class="qc a d2">
-                        <div class="qc-ico"><i class="fas fa-bullseye"></i></div>
-                        <div class="qc-body"><strong>Vision &amp; Mission</strong><small>Goals &amp; direction</small>
-                        </div><i class="fas fa-chevron-right qc-arrow"></i>
+                    <a href="https://koronadal.gov.ph/vision-mission/" target="_blank" rel="noopener" class="home-quick-card a d2">
+                        <span class="home-quick-icon red"><i class="fas fa-bullseye"></i></span>
+                        <span><strong>Vision & Mission</strong><small>Goals & direction</small></span>
+                        <i class="fas fa-arrow-up-right-from-square"></i>
                     </a>
-                    <a href="https://koronadal.gov.ph/27-barangay/" target="_blank" class="qc a d2">
-                        <div class="qc-ico"><i class="fas fa-map-pin"></i></div>
-                        <div class="qc-body"><strong>27 Barangays</strong><small>Districts &amp; areas</small></div><i
-                            class="fas fa-chevron-right qc-arrow"></i>
+                    <a href="https://koronadal.gov.ph/27-barangay/" target="_blank" rel="noopener" class="home-quick-card a d2">
+                        <span class="home-quick-icon green"><i class="fas fa-map-location-dot"></i></span>
+                        <span><strong>27 Barangays</strong><small>Community information</small></span>
+                        <i class="fas fa-arrow-up-right-from-square"></i>
                     </a>
-                    <a href="https://koronadal.gov.ph/geography/" target="_blank" class="qc a d3">
-                        <div class="qc-ico"><i class="fas fa-globe-asia"></i></div>
-                        <div class="qc-body"><strong>Geography</strong><small>Location &amp; climate</small></div><i
-                            class="fas fa-chevron-right qc-arrow"></i>
+                    <a href="https://koronadal.gov.ph/geography/" target="_blank" rel="noopener" class="home-quick-card a d3">
+                        <span class="home-quick-icon cyan"><i class="fas fa-globe-asia"></i></span>
+                        <span><strong>Geography</strong><small>Location & climate</small></span>
+                        <i class="fas fa-arrow-up-right-from-square"></i>
                     </a>
-                    <a href="https://koronadal.gov.ph/awards/" target="_blank" class="qc a d3">
-                        <div class="qc-ico"><i class="fas fa-trophy"></i></div>
-                        <div class="qc-body"><strong>Awards</strong><small>Recognitions</small></div><i
-                            class="fas fa-chevron-right qc-arrow"></i>
+                    <a href="https://koronadal.gov.ph/awards/" target="_blank" rel="noopener" class="home-quick-card a d3">
+                        <span class="home-quick-icon purple"><i class="fas fa-trophy"></i></span>
+                        <span><strong>City Awards</strong><small>Recognitions & milestones</small></span>
+                        <i class="fas fa-arrow-up-right-from-square"></i>
+                    </a>
+                </div>
+
+                <div class="home-promo-grid">
+                    <a href="city-officials.php" class="home-promo-card a d2">
+                        <span><i class="fas fa-users"></i></span>
+                        <div><small>MEET THE TEAM</small><strong>City Officials</strong><p>Know the people serving Koronadal.</p></div>
+                        <i class="fas fa-chevron-right"></i>
+                    </a>
+                    <a href="emergency-contacts.php" class="home-promo-card danger a d2">
+                        <span><i class="fas fa-phone-volume"></i></span>
+                        <div><small>READY WHEN YOU NEED IT</small><strong>Emergency Assistance</strong><p>Find important hotlines and response contacts.</p></div>
+                        <i class="fas fa-chevron-right"></i>
+                    </a>
+                    <a href="https://koronadal.gov.ph/citizens-charter/" target="_blank" rel="noopener" class="home-promo-card a d3">
+                        <span><i class="fas fa-book-open"></i></span>
+                        <div><small>KNOW YOUR SERVICE</small><strong>Citizen's Charter</strong><p>Requirements, steps and processing information.</p></div>
+                        <i class="fas fa-arrow-up-right-from-square"></i>
                     </a>
                 </div>
             </div>
