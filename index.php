@@ -4983,7 +4983,7 @@ if (file_exists($officialsFile)) {
     <nav class="bottomnav" id="bottomnav">
         <div class="bn-row">
             <a href="#egovFullApp" class="bn-item active" data-bnav="home"><span class="bn-icon"><i class="fas fa-house"></i></span><span class="bn-label">Home</span></a>
-            <a href="#services" class="bn-item" data-bnav="services"><span class="bn-icon"><i class="fas fa-th-large"></i></span><span class="bn-label">Services</span></a>
+            <a href="#egov-services" class="bn-item" data-bnav="services"><span class="bn-icon"><i class="fas fa-th-large"></i></span><span class="bn-label">Services</span></a>
             <a href="#services" class="bn-item bn-center" data-bnav="services-qr"><span class="bn-icon"><i class="fas fa-qrcode"></i></span><span class="bn-label">Scan</span></a>
             <a href="#egov-all-services" class="bn-item" data-bnav="news"><span class="bn-icon"><i class="fas fa-bullhorn"></i></span><span class="bn-label">News</span></a>
             <a href="#account" class="bn-item" data-bnav="account"><span class="bn-icon"><i class="fas fa-user"></i></span><span class="bn-label">Account</span></a>
@@ -5047,6 +5047,20 @@ if (file_exists($officialsFile)) {
     });
 
     
+    // === eGOV APP SERVICE SEARCH ===
+    (function(){
+        var input=document.getElementById('egovSearch');
+        var grid=document.getElementById('egovServiceGrid');
+        if(!input || !grid) return;
+        input.addEventListener('input',function(){
+            var q=(this.value||'').toLowerCase().trim();
+            grid.querySelectorAll('.egov-service').forEach(function(item){
+                var hay=(item.textContent+' '+(item.getAttribute('data-service')||'')).toLowerCase();
+                item.style.display=(!q || hay.indexOf(q)!==-1)?'flex':'none';
+            });
+        });
+    })();
+
     // === CITIZEN HUB SERVICE SEARCH ===
     var serviceSearch = document.getElementById('serviceSearch');
     var clearServiceSearch = document.getElementById('clearServiceSearch');
