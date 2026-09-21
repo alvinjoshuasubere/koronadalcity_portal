@@ -16,7 +16,7 @@ if (file_exists($officialsFile)) {
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0" />
-    <meta name="theme-color" content="#0B63B6" />
+    <meta name="theme-color" content="#2D8A57" />
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-status-bar-style" content="default" />
     <meta name="apple-mobile-web-app-title" content="Koronadal City" />
@@ -40,17 +40,17 @@ if (file_exists($officialsFile)) {
         --ink: #1E293B;
         --ink-soft: #64748B;
         --ink-faint: #94A3B8;
-        --line: rgba(10, 25, 47, .08);
-        --line-strong: rgba(10, 25, 47, .14);
-        --rose: #1D4ED8;
-        --rose-d: #0052CC;
-        --rose-l: rgba(29, 78, 216, .08);
-        --rose-wash: #F0F5FF;
-        --navy: #0A192F;
-        --navy-l: rgba(10, 25, 47, .05);
-        --shadow-sm: 0 1px 3px rgba(10, 25, 47, .04), 0 1px 6px rgba(10, 25, 47, .03);
-        --shadow-md: 0 4px 20px rgba(10, 25, 47, .07), 0 1px 4px rgba(10, 25, 47, .04);
-        --shadow-lg: 0 16px 48px rgba(10, 25, 47, .12);
+        --line: rgba(18, 53, 36, .08);
+        --line-strong: rgba(18, 53, 36, .14);
+        --rose: #2D8A57;
+        --rose-d: #1B6B44;
+        --rose-l: rgba(45, 138, 87, .08);
+        --rose-wash: #EAF7EF;
+        --navy: #123524;
+        --navy-l: rgba(18, 53, 36, .05);
+        --shadow-sm: 0 1px 3px rgba(18, 53, 36, .04), 0 1px 6px rgba(18, 53, 36, .03);
+        --shadow-md: 0 4px 20px rgba(18, 53, 36, .07), 0 1px 4px rgba(18, 53, 36, .04);
+        --shadow-lg: 0 16px 48px rgba(18, 53, 36, .12);
         --r: 12px;
         --r-s: 8px;
         --r-xs: 6px;
@@ -63,9 +63,9 @@ if (file_exists($officialsFile)) {
         --bottom-h: 56px;
         --safe-b: env(safe-area-inset-bottom, 0px);
         --safe-t: env(safe-area-inset-top, 0px);
-        --glow-rose: rgba(29, 78, 216, 0.32);
+        --glow-rose: rgba(45, 138, 87, 0.32);
         --glass-bg: rgba(255, 255, 255, 0.75);
-        --glass-border: rgba(10, 25, 47, .08);
+        --glass-border: rgba(18, 53, 36, .08);
     }
 
     /* ===== RESET ===== */
@@ -101,7 +101,7 @@ if (file_exists($officialsFile)) {
         inset: 0;
         pointer-events: none;
         z-index: 0;
-        background: radial-gradient(ellipse at 80% 10%, rgba(29, 78, 216, .03), transparent 55%)
+        background: radial-gradient(ellipse at 80% 10%, rgba(45, 138, 87, .03), transparent 55%)
     }
 
     body::after {
@@ -169,7 +169,7 @@ if (file_exists($officialsFile)) {
     .orb-2 {
         width: 300px;
         height: 300px;
-        background: #64B5F6;
+        background: #62A85D;
         bottom: 20%;
         left: -80px;
         animation-delay: -5s;
@@ -601,7 +601,7 @@ if (file_exists($officialsFile)) {
     .hero-bg {
         position: absolute;
         inset: 0;
-        background: linear-gradient(160deg, #E8F0FE 0%, #F0F5FF 55%, #E3ECF9 100%);
+        background: linear-gradient(160deg, #EAF7EF 0%, #EAF7EF 55%, #E1F3E8 100%);
         z-index: 0
     }
 
@@ -609,7 +609,7 @@ if (file_exists($officialsFile)) {
         content: '';
         position: absolute;
         inset: 0;
-        background: radial-gradient(circle at 80% 20%, rgba(29, 78, 216, .14), transparent 50%)
+        background: radial-gradient(circle at 80% 20%, rgba(45, 138, 87, .14), transparent 50%)
     }
 
     .hero-bg::after {
@@ -617,7 +617,7 @@ if (file_exists($officialsFile)) {
         position: absolute;
         inset: 0;
         opacity: .04;
-        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='60' height='60'%3E%3Cpath d='M0 30h60M30 0v60' stroke='%231D4ED8' stroke-width='.3'/%3E%3Ccircle cx='30' cy='30' r='1.5' fill='%231D4ED8' opacity='.3'/%3E%3C/svg%3E");
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='60' height='60'%3E%3Cpath d='M0 30h60M30 0v60' stroke='%232D8A57' stroke-width='.3'/%3E%3Ccircle cx='30' cy='30' r='1.5' fill='%232D8A57' opacity='.3'/%3E%3C/svg%3E");
         background-size: 60px 60px;
         animation: gridPulse 8s ease-in-out infinite
     }
@@ -642,8 +642,8 @@ if (file_exists($officialsFile)) {
         height: 300px;
         transform: translate(-50%, -50%);
         border-radius: 50%;
-        border: 1px solid rgba(29, 78, 216, .15);
-        box-shadow: 0 0 60px rgba(29, 78, 216, .1), inset 0 0 60px rgba(29, 78, 216, .05);
+        border: 1px solid rgba(45, 138, 87, .15);
+        box-shadow: 0 0 60px rgba(45, 138, 87, .1), inset 0 0 60px rgba(45, 138, 87, .05);
         animation: glowRing 4s ease-in-out infinite;
         z-index: 1
     }
@@ -683,7 +683,7 @@ if (file_exists($officialsFile)) {
         background: #fff;
         padding: 3px;
         border: 1px solid var(--line);
-        box-shadow: 0 0 20px rgba(29, 78, 216, .25);
+        box-shadow: 0 0 20px rgba(45, 138, 87, .25);
         animation: logoPulse 3s ease-in-out infinite
     }
 
@@ -691,11 +691,11 @@ if (file_exists($officialsFile)) {
 
         0%,
         100% {
-            box-shadow: 0 0 20px rgba(29, 78, 216, .3)
+            box-shadow: 0 0 20px rgba(45, 138, 87, .3)
         }
 
         50% {
-            box-shadow: 0 0 35px rgba(29, 78, 216, .5)
+            box-shadow: 0 0 35px rgba(45, 138, 87, .5)
         }
     }
 
@@ -749,25 +749,25 @@ if (file_exists($officialsFile)) {
         line-height: 1.08;
         letter-spacing: -.03em;
         margin-bottom: 8px;
-        text-shadow: 0 0 30px rgba(29, 78, 216, .1)
+        text-shadow: 0 0 30px rgba(45, 138, 87, .1)
     }
 
     .hero h1 .hl {
-        background: linear-gradient(135deg, #0F2C59, #1D4ED8, #2563EB);
+        background: linear-gradient(135deg, #1B4D33, #2D8A57, #35A96E);
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
         background-clip: text;
-        filter: drop-shadow(0 0 16px rgba(29, 78, 216, .18));
+        filter: drop-shadow(0 0 16px rgba(45, 138, 87, .18));
         animation: gradientText 5s ease-in-out infinite alternate
     }
 
     @keyframes gradientText {
         0% {
-            filter: drop-shadow(0 0 20px rgba(29, 78, 216, .3))
+            filter: drop-shadow(0 0 20px rgba(45, 138, 87, .3))
         }
 
         100% {
-            filter: drop-shadow(0 0 30px rgba(29, 78, 216, .5))
+            filter: drop-shadow(0 0 30px rgba(45, 138, 87, .5))
         }
     }
 
@@ -810,7 +810,7 @@ if (file_exists($officialsFile)) {
     }
 
     .hb-w:hover {
-        box-shadow: var(--shadow-md), 0 0 20px rgba(29, 78, 216, .25);
+        box-shadow: var(--shadow-md), 0 0 20px rgba(45, 138, 87, .25);
         background: var(--rose-d);
         transform: translateY(-1px)
     }
@@ -837,7 +837,7 @@ if (file_exists($officialsFile)) {
         border: 1px solid var(--glass-border);
         border-radius: var(--r);
         padding: 20px;
-        box-shadow: var(--shadow-md), 0 0 30px rgba(29, 78, 216, .05);
+        box-shadow: var(--shadow-md), 0 0 30px rgba(45, 138, 87, .05);
         backdrop-filter: blur(20px);
         -webkit-backdrop-filter: blur(20px)
     }
@@ -948,7 +948,7 @@ if (file_exists($officialsFile)) {
         display: grid;
         grid-template-columns: repeat(4, 1fr);
         gap: 8px;
-        box-shadow: var(--shadow-md), 0 0 20px rgba(29, 78, 216, .05);
+        box-shadow: var(--shadow-md), 0 0 20px rgba(45, 138, 87, .05);
         backdrop-filter: blur(20px);
         -webkit-backdrop-filter: blur(20px);
         transform: perspective(500px) rotateX(1deg);
@@ -1179,7 +1179,7 @@ if (file_exists($officialsFile)) {
 
     .portal:hover {
         transform: perspective(800px) rotateY(-2deg) rotateX(1deg) translateY(-5px) translateZ(10px);
-        box-shadow: 0 10px 40px rgba(29, 78, 216, .15), 0 0 20px var(--glow-rose);
+        box-shadow: 0 10px 40px rgba(45, 138, 87, .15), 0 0 20px var(--glow-rose);
         border-left-color: var(--rose-d)
     }
 
@@ -1472,11 +1472,11 @@ if (file_exists($officialsFile)) {
     }
 
     .svc-feat-emergency .svc-feat-glow {
-        background: radial-gradient(circle at 30% 50%, rgba(29, 78, 216, .08), transparent 70%)
+        background: radial-gradient(circle at 30% 50%, rgba(45, 138, 87, .08), transparent 70%)
     }
 
     .svc-feat-officials .svc-feat-glow {
-        background: radial-gradient(circle at 70% 50%, rgba(29, 78, 216, .08), transparent 70%)
+        background: radial-gradient(circle at 70% 50%, rgba(45, 138, 87, .08), transparent 70%)
     }
 
     .svc-feat-card:hover .svc-feat-glow {
@@ -1485,7 +1485,7 @@ if (file_exists($officialsFile)) {
 
     .svc-feat-card:hover {
         transform: perspective(800px) rotateY(-2deg) rotateX(1deg) translateY(-4px) translateZ(8px);
-        box-shadow: var(--shadow-lg), 0 0 30px var(--glow-rose), 0 0 60px rgba(29, 78, 216, .08);
+        box-shadow: var(--shadow-lg), 0 0 30px var(--glow-rose), 0 0 60px rgba(45, 138, 87, .08);
         border-color: var(--rose-l)
     }
 
@@ -1601,7 +1601,7 @@ if (file_exists($officialsFile)) {
         inset: -1px;
         border-radius: var(--r);
         border: 1px solid transparent;
-        background: linear-gradient(135deg, rgba(29, 78, 216, .2), transparent 50%) border-box;
+        background: linear-gradient(135deg, rgba(45, 138, 87, .2), transparent 50%) border-box;
         -webkit-mask: linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0);
         mask: linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0);
         -webkit-mask-composite: xor;
@@ -1849,7 +1849,7 @@ if (file_exists($officialsFile)) {
     .leader-mayor-overlay {
         position: absolute;
         inset: 0;
-        background: linear-gradient(to top, rgba(10, 25, 47, .85) 0%, transparent 60%)
+        background: linear-gradient(to top, rgba(18, 53, 36, .85) 0%, transparent 60%)
     }
 
     .leader-mayor-body {
@@ -1961,7 +1961,7 @@ if (file_exists($officialsFile)) {
         margin-top: 16px;
         padding: 10px 22px;
         border-radius: var(--r-s);
-        background: linear-gradient(135deg, var(--rose), #2563EB);
+        background: linear-gradient(135deg, var(--rose), #35A96E);
         color: #fff;
         font-size: .72rem;
         font-weight: 700;
@@ -1971,12 +1971,12 @@ if (file_exists($officialsFile)) {
         border: 1px solid rgba(255,255,255,0.1);
         transition: all .25s cubic-bezier(.4, 0, .2, 1);
         cursor: pointer;
-        box-shadow: 0 2px 12px rgba(29, 78, 216, 0.3)
+        box-shadow: 0 2px 12px rgba(45, 138, 87, 0.3)
     }
 
     .leader-mayor-cta:hover {
-        background: linear-gradient(135deg, var(--rose-d), #1E40AF);
-        box-shadow: 0 4px 24px var(--glow-rose), 0 0 0 1px rgba(29, 78, 216, 0.4);
+        background: linear-gradient(135deg, var(--rose-d), #1B6B44);
+        box-shadow: 0 4px 24px var(--glow-rose), 0 0 0 1px rgba(45, 138, 87, 0.4);
         transform: translateY(-2px)
     }
 
@@ -2046,7 +2046,7 @@ if (file_exists($officialsFile)) {
         }
 
         50% {
-            box-shadow: 0 0 30px var(--glow-rose), 0 0 60px rgba(29, 78, 216, .1)
+            box-shadow: 0 0 30px var(--glow-rose), 0 0 60px rgba(45, 138, 87, .1)
         }
     }
 
@@ -2226,7 +2226,7 @@ if (file_exists($officialsFile)) {
         position: absolute;
         inset: 0;
         opacity: .06;
-        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='48' height='48'%3E%3Cpath d='M24 0L48 24L24 48L0 24Z' fill='none' stroke='%231D4ED8' stroke-width='1.2'/%3E%3C/svg%3E");
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='48' height='48'%3E%3Cpath d='M24 0L48 24L24 48L0 24Z' fill='none' stroke='%232D8A57' stroke-width='1.2'/%3E%3C/svg%3E");
         background-size: 48px 48px
     }
 
@@ -2403,7 +2403,7 @@ if (file_exists($officialsFile)) {
         height: var(--bottom-h);
         background: var(--card);
         border-top: 1px solid var(--line);
-        box-shadow: 0 -2px 8px rgba(10, 25, 47, .06);
+        box-shadow: 0 -2px 8px rgba(18, 53, 36, .06);
         padding-bottom: var(--safe-b)
     }
 
@@ -2510,8 +2510,8 @@ if (file_exists($officialsFile)) {
     }
 
     .hp-shape {
-        border: 1px solid rgba(29, 78, 216, .12);
-        background: rgba(29, 78, 216, .04);
+        border: 1px solid rgba(45, 138, 87, .12);
+        background: rgba(45, 138, 87, .04);
         backdrop-filter: blur(4px)
     }
 
@@ -2533,8 +2533,8 @@ if (file_exists($officialsFile)) {
         width: 50px;
         height: 50px;
         border-radius: 50%;
-        border: 1px solid rgba(29, 78, 216, .1);
-        background: radial-gradient(circle, rgba(29, 78, 216, .06), transparent);
+        border: 1px solid rgba(45, 138, 87, .1);
+        background: radial-gradient(circle, rgba(45, 138, 87, .06), transparent);
         animation: circlePulse 6s ease-in-out infinite
     }
 
@@ -2543,7 +2543,7 @@ if (file_exists($officialsFile)) {
         height: 0;
         border-left: 20px solid transparent;
         border-right: 20px solid transparent;
-        border-bottom: 34px solid rgba(29, 78, 216, .08);
+        border-bottom: 34px solid rgba(45, 138, 87, .08);
         background: none;
         border-top: none;
         animation: triFloat 10s ease-in-out infinite
@@ -2553,8 +2553,8 @@ if (file_exists($officialsFile)) {
         width: 6px;
         height: 6px;
         border-radius: 50%;
-        background: rgba(29, 78, 216, .3);
-        box-shadow: 0 0 8px rgba(29, 78, 216, .2)
+        background: rgba(45, 138, 87, .3);
+        box-shadow: 0 0 8px rgba(45, 138, 87, .2)
     }
 
     @keyframes hexSpin {
@@ -2632,7 +2632,7 @@ if (file_exists($officialsFile)) {
         content: '';
         position: absolute;
         inset: 0;
-        background: linear-gradient(135deg, rgba(29, 78, 216, .04), transparent 40%, transparent 60%, rgba(29, 78, 216, .03));
+        background: linear-gradient(135deg, rgba(45, 138, 87, .04), transparent 40%, transparent 60%, rgba(45, 138, 87, .03));
         pointer-events: none
     }
 
@@ -2705,7 +2705,7 @@ if (file_exists($officialsFile)) {
     .co-stat:hover {
         transform: perspective(600px) rotateX(4deg) translateY(-3px) translateZ(6px);
         border-color: var(--rose-l);
-        box-shadow: 0 8px 25px rgba(29, 78, 216, .1)
+        box-shadow: 0 8px 25px rgba(45, 138, 87, .1)
     }
 
     .co-stat-num {
@@ -2807,7 +2807,7 @@ if (file_exists($officialsFile)) {
         inset: 0;
         border-radius: var(--r);
         padding: 1px;
-        background: linear-gradient(135deg, rgba(29, 78, 216, .2), transparent 50%, rgba(29, 78, 216, .1));
+        background: linear-gradient(135deg, rgba(45, 138, 87, .2), transparent 50%, rgba(45, 138, 87, .1));
         -webkit-mask: linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0);
         mask: linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0);
         -webkit-mask-composite: xor;
@@ -2819,7 +2819,7 @@ if (file_exists($officialsFile)) {
 
     .cf-card:hover {
         transform: perspective(800px) rotateY(-3deg) rotateX(2deg) translateY(-6px) translateZ(10px);
-        box-shadow: 0 14px 40px rgba(29, 78, 216, .12), 0 0 25px var(--glow-rose);
+        box-shadow: 0 14px 40px rgba(45, 138, 87, .12), 0 0 25px var(--glow-rose);
         border-color: var(--rose-l)
     }
 
@@ -2839,7 +2839,7 @@ if (file_exists($officialsFile)) {
         background: var(--rose-l);
         color: var(--rose);
         transition: all .3s;
-        box-shadow: 0 0 15px rgba(29, 78, 216, .15);
+        box-shadow: 0 0 15px rgba(45, 138, 87, .15);
         position: relative;
         z-index: 1
     }
@@ -2889,7 +2889,7 @@ if (file_exists($officialsFile)) {
     }
 
     .cm-card {
-        background: linear-gradient(135deg, rgba(29, 78, 216, .06), rgba(29, 78, 216, .02));
+        background: linear-gradient(135deg, rgba(45, 138, 87, .06), rgba(45, 138, 87, .02));
         border: 1px solid var(--rose-wash);
         border-radius: var(--r-l);
         padding: 32px 28px;
@@ -2904,13 +2904,13 @@ if (file_exists($officialsFile)) {
         content: '';
         position: absolute;
         inset: 0;
-        background: radial-gradient(circle at 50% 0%, rgba(29, 78, 216, .08), transparent 60%);
+        background: radial-gradient(circle at 50% 0%, rgba(45, 138, 87, .08), transparent 60%);
         pointer-events: none
     }
 
     .cm-card:hover {
         transform: perspective(800px) rotateX(2deg) translateY(-3px);
-        box-shadow: var(--shadow-md), 0 0 30px rgba(29, 78, 216, .08)
+        box-shadow: var(--shadow-md), 0 0 30px rgba(45, 138, 87, .08)
     }
 
     .cm-quote {
@@ -2941,7 +2941,7 @@ if (file_exists($officialsFile)) {
         position: absolute;
         width: 80px;
         height: 80px;
-        border: 1px solid rgba(29, 78, 216, .08);
+        border: 1px solid rgba(45, 138, 87, .08);
         border-radius: 50%;
         pointer-events: none
     }
@@ -4017,6 +4017,7 @@ if (file_exists($officialsFile)) {
     }
     }
     </style>
+    <link rel="stylesheet" href="static/css/koronadal-theme.css" />
 </head>
 
 <body>
@@ -4157,7 +4158,7 @@ if (file_exists($officialsFile)) {
                 </div>
                 <div class="hp-layer" data-speed="0.05" style="top:35%;left:25%">
                     <div class="hp-shape dot"
-                        style="width:5px;height:5px;background:rgba(29, 78, 216, .3);box-shadow:0 0 8px rgba(29, 78, 216, .2)">
+                        style="width:5px;height:5px;background:rgba(45, 138, 87, .3);box-shadow:0 0 8px rgba(45, 138, 87, .2)">
                     </div>
                 </div>
             </div>

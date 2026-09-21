@@ -1,7 +1,0 @@
-<?xml version='1.0' encoding='utf-8'?>
-<resources>
-    <string name="app_name">Koronadal City Portal</string>
-    <string name="title_activity_main">Koronadal City Portal</string>
-    <string name="package_name">com.koronadalcity.portal</string>
-    <string name="custom_url_scheme">com.koronadalcity.portal</string>
-</resources>

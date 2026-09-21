@@ -23,7 +23,7 @@ $typeConfig = [
     'hospital' => ['icon' => 'fa-hospital',       'color' => '#22c55e', 'label' => 'Hospital'],
     'medical'  => ['icon' => 'fa-heart-pulse',    'color' => '#ef4444', 'label' => 'Medical'],
     'disaster' => ['icon' => 'fa-triangle-exclamation', 'color' => '#f59e0b', 'label' => 'Disaster'],
-    'general'  => ['icon' => 'fa-phone',           'color' => '#1D4ED8', 'label' => 'General'],
+    'general'  => ['icon' => 'fa-phone',           'color' => '#0D9488', 'label' => 'General'],
 ];
 ?>
 <!DOCTYPE html>
@@ -32,7 +32,7 @@ $typeConfig = [
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="theme-color" content="#0A192F">
+    <meta name="theme-color" content="#123524">
     <title>Emergency Contacts — Koronadal City</title>
     <link rel="icon" type="image/x-icon" href="favicon.ico">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -67,7 +67,7 @@ $typeConfig = [
     }
 
     ::selection {
-        background: #1D4ED8;
+        background: #2D8A57;
         color: #fff;
     }
 
@@ -100,7 +100,7 @@ $typeConfig = [
     .orb-1 {
         width: 500px;
         height: 500px;
-        background: radial-gradient(circle, rgba(29, 78, 216, 0.35), transparent 70%);
+        background: radial-gradient(circle, rgba(45, 138, 87, 0.35), transparent 70%);
         top: -15%;
         right: -10%;
         animation: floatOrb 22s ease-in-out infinite alternate;
@@ -109,7 +109,7 @@ $typeConfig = [
     .orb-2 {
         width: 350px;
         height: 350px;
-        background: radial-gradient(circle, rgba(29, 78, 216, 0.2), transparent 70%);
+        background: radial-gradient(circle, rgba(45, 138, 87, 0.2), transparent 70%);
         bottom: 10%;
         left: -8%;
         animation: floatOrb 18s ease-in-out infinite alternate-reverse;
@@ -119,7 +119,7 @@ $typeConfig = [
     .orb-3 {
         width: 280px;
         height: 280px;
-        background: radial-gradient(circle, rgba(29, 78, 216, 0.25), transparent 70%);
+        background: radial-gradient(circle, rgba(45, 138, 87, 0.25), transparent 70%);
         top: 45%;
         right: 15%;
         animation: floatOrb 25s ease-in-out infinite alternate;
@@ -182,7 +182,7 @@ $typeConfig = [
         background: #fff;
         padding: 4px;
         border: 1px solid #E2E8F0;
-        box-shadow: 0 0 15px rgba(29, 78, 216, 0.25);
+        box-shadow: 0 0 15px rgba(45, 138, 87, 0.25);
     }
 
     .brand-text {
@@ -193,7 +193,7 @@ $typeConfig = [
     .brand-text strong {
         font-size: 0.95rem;
         font-weight: 700;
-        color: #0A192F;
+        color: #123524;
         line-height: 1.15;
     }
 
@@ -202,7 +202,7 @@ $typeConfig = [
         font-weight: 600;
         letter-spacing: 0.08em;
         text-transform: uppercase;
-        color: #1D4ED8;
+        color: #2D8A57;
     }
 
     .nav-back {
@@ -224,10 +224,10 @@ $typeConfig = [
     }
 
     .nav-back:hover {
-        background: rgba(29, 78, 216, 0.08);
-        border-color: rgba(29, 78, 216, 0.3);
-        color: #1D4ED8;
-        box-shadow: 0 0 20px rgba(29, 78, 216, 0.15);
+        background: rgba(45, 138, 87, 0.08);
+        border-color: rgba(45, 138, 87, 0.3);
+        color: #2D8A57;
+        box-shadow: 0 0 20px rgba(45, 138, 87, 0.15);
     }
 
     .nav-back i {
@@ -246,7 +246,7 @@ $typeConfig = [
         content: '';
         position: absolute;
         inset: 0;
-        background: radial-gradient(ellipse at 50% 30%, rgba(29, 78, 216, 0.12), transparent 65%);
+        background: radial-gradient(ellipse at 50% 30%, rgba(45, 138, 87, 0.12), transparent 65%);
         pointer-events: none;
     }
 
@@ -255,7 +255,7 @@ $typeConfig = [
         position: absolute;
         inset: 0;
         opacity: 0.03;
-        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='60' height='60'%3E%3Cpath d='M0 30h60M30 0v60' stroke='%231D4ED8' stroke-width='.3'/%3E%3Ccircle cx='30' cy='30' r='1.5' fill='%231D4ED8' opacity='.3'/%3E%3C/svg%3E");
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='60' height='60'%3E%3Cpath d='M0 30h60M30 0v60' stroke='%232D8A57' stroke-width='.3'/%3E%3Ccircle cx='30' cy='30' r='1.5' fill='%232D8A57' opacity='.3'/%3E%3C/svg%3E");
         background-size: 60px 60px;
         pointer-events: none;
     }
@@ -276,12 +276,12 @@ $typeConfig = [
         width: 80px;
         height: 80px;
         border-radius: 50%;
-        background: rgba(29, 78, 216, 0.12);
-        border: 1px solid rgba(29, 78, 216, 0.2);
+        background: rgba(45, 138, 87, 0.12);
+        border: 1px solid rgba(45, 138, 87, 0.2);
         display: grid;
         place-items: center;
         font-size: 2rem;
-        color: #1D4ED8;
+        color: #2D8A57;
         position: relative;
         z-index: 2;
     }
@@ -294,7 +294,7 @@ $typeConfig = [
         height: 80px;
         transform: translate(-50%, -50%);
         border-radius: 50%;
-        border: 2px solid rgba(29, 78, 216, 0.25);
+        border: 2px solid rgba(45, 138, 87, 0.25);
         animation: pulseRing 2.5s cubic-bezier(0.4, 0, 0.2, 1) infinite;
     }
 
@@ -317,18 +317,18 @@ $typeConfig = [
     .hero h1 {
         font-size: clamp(2rem, 6vw, 3.2rem);
         font-weight: 800;
-        color: #0A192F;
+        color: #123524;
         letter-spacing: -0.04em;
         margin-bottom: 12px;
-        text-shadow: 0 0 40px rgba(29, 78, 216, 0.2), 0 0 80px rgba(29, 78, 216, 0.08);
+        text-shadow: 0 0 40px rgba(45, 138, 87, 0.2), 0 0 80px rgba(45, 138, 87, 0.08);
     }
 
     .hero h1 .hl {
-        background: linear-gradient(135deg, #0F2C59, #1D4ED8, #2563EB);
+        background: linear-gradient(135deg, #1B4D33, #2D8A57, #35A96E);
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
         background-clip: text;
-        filter: drop-shadow(0 0 25px rgba(29, 78, 216, 0.4));
+        filter: drop-shadow(0 0 25px rgba(45, 138, 87, 0.4));
     }
 
     .hero-sub {
@@ -349,7 +349,7 @@ $typeConfig = [
         padding: 10px 8px;
         backdrop-filter: blur(20px);
         -webkit-backdrop-filter: blur(20px);
-        box-shadow: 0 4px 30px rgba(10, 25, 47, 0.10);
+        box-shadow: 0 4px 30px rgba(18, 53, 36, 0.10);
         flex-wrap: wrap;
         justify-content: center;
     }
@@ -363,15 +363,15 @@ $typeConfig = [
     }
 
     .stat-item:hover {
-        background: rgba(29, 78, 216, 0.1);
+        background: rgba(45, 138, 87, 0.1);
     }
 
     .stat-num {
         font-size: 1.4rem;
         font-weight: 800;
-        color: #1D4ED8;
+        color: #2D8A57;
         line-height: 1;
-        text-shadow: 0 0 15px rgba(29, 78, 216, 0.4);
+        text-shadow: 0 0 15px rgba(45, 138, 87, 0.4);
     }
 
     .stat-label {
@@ -406,7 +406,7 @@ $typeConfig = [
         gap: 10px;
         font-size: 0.58rem;
         font-weight: 700;
-        color: #1D4ED8;
+        color: #2D8A57;
         text-transform: uppercase;
         letter-spacing: 0.14em;
         margin-bottom: 28px;
@@ -420,7 +420,7 @@ $typeConfig = [
         content: '';
         flex: 1;
         height: 1px;
-        background: linear-gradient(90deg, rgba(29, 78, 216, 0.3), transparent);
+        background: linear-gradient(90deg, rgba(45, 138, 87, 0.3), transparent);
     }
 
     /* ===== CARDS GRID ===== */
@@ -461,7 +461,7 @@ $typeConfig = [
         inset: -1px;
         border-radius: 16px;
         border: 1px solid transparent;
-        background: linear-gradient(135deg, rgba(29, 78, 216, 0.25), transparent 50%) border-box;
+        background: linear-gradient(135deg, rgba(45, 138, 87, 0.25), transparent 50%) border-box;
         -webkit-mask: linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0);
         mask: linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0);
         -webkit-mask-composite: xor;
@@ -473,7 +473,7 @@ $typeConfig = [
 
     .contact-card:hover {
         transform: perspective(800px) rotateX(2deg) rotateY(-2deg) translateY(-5px);
-        box-shadow: 0 0 30px rgba(29, 78, 216, 0.3);
+        box-shadow: 0 0 30px rgba(45, 138, 87, 0.3);
     }
 
     .contact-card:hover::before {
@@ -578,12 +578,12 @@ $typeConfig = [
     }
 
     .type-general .type-icon {
-        background: rgba(29, 78, 216, 0.12);
-        color: #1D4ED8;
+        background: rgba(45, 138, 87, 0.12);
+        color: #2D8A57;
     }
 
     .type-general .type-icon::after {
-        box-shadow: 0 0 20px rgba(29, 78, 216, 0.4);
+        box-shadow: 0 0 20px rgba(45, 138, 87, 0.4);
     }
 
     .contact-card:hover .type-icon {
@@ -627,14 +627,14 @@ $typeConfig = [
     }
 
     .type-general .type-badge {
-        background: rgba(29, 78, 216, 0.12);
-        color: #1D4ED8;
+        background: rgba(45, 138, 87, 0.12);
+        color: #2D8A57;
     }
 
     .card-name {
         font-size: 1.02rem;
         font-weight: 700;
-        color: #0A192F;
+        color: #123524;
         line-height: 1.25;
     }
 
@@ -652,15 +652,15 @@ $typeConfig = [
         gap: 10px;
         padding: 14px 18px;
         border-radius: 12px;
-        background: #F0F5FF;
+        background: #EAF7EF;
         border: 1px solid #E2E8F0;
         transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
         margin-top: 4px;
     }
 
     .card-phone:hover {
-        background: rgba(29, 78, 216, 0.12);
-        border-color: rgba(29, 78, 216, 0.3);
+        background: rgba(45, 138, 87, 0.12);
+        border-color: rgba(45, 138, 87, 0.3);
     }
 
     .card-phone-icon {
@@ -689,7 +689,7 @@ $typeConfig = [
     }
 
     .type-general .card-phone-icon {
-        color: #1D4ED8;
+        color: #2D8A57;
     }
 
     .card-phone-num {
@@ -720,7 +720,7 @@ $typeConfig = [
     }
 
     .type-general .card-phone-num {
-        color: #1D4ED8;
+        color: #2D8A57;
     }
 
     .type-police .card-phone:hover .card-phone-num {
@@ -744,7 +744,7 @@ $typeConfig = [
     }
 
     .type-general .card-phone:hover .card-phone-num {
-        text-shadow: 0 0 20px rgba(29, 78, 216, 0.5);
+        text-shadow: 0 0 20px rgba(45, 138, 87, 0.5);
     }
 
     .card-phone-call {
@@ -756,7 +756,7 @@ $typeConfig = [
     }
 
     .card-phone:hover .card-phone-call {
-        color: #1D4ED8;
+        color: #2D8A57;
     }
 
     /* Empty state */
@@ -768,14 +768,14 @@ $typeConfig = [
 
     .empty-state i {
         font-size: 2.5rem;
-        color: rgba(29, 78, 216, 0.3);
+        color: rgba(45, 138, 87, 0.3);
         margin-bottom: 16px;
     }
 
     .empty-state h3 {
         font-size: 1.1rem;
         font-weight: 700;
-        color: #0A192F;
+        color: #123524;
         margin-bottom: 8px;
     }
 
@@ -800,7 +800,7 @@ $typeConfig = [
         left: 0;
         right: 0;
         height: 1px;
-        background: linear-gradient(90deg, transparent, rgba(29, 78, 216, 0.4), transparent);
+        background: linear-gradient(90deg, transparent, rgba(45, 138, 87, 0.4), transparent);
     }
 
     .footer-in {
@@ -831,7 +831,7 @@ $typeConfig = [
     .footer-brand strong {
         font-size: 0.82rem;
         font-weight: 700;
-        color: #0A192F;
+        color: #123524;
     }
 
     .footer-brand small {
@@ -924,6 +924,7 @@ $typeConfig = [
         }
     }
     </style>
+    <link rel="stylesheet" href="static/css/koronadal-theme.css" />
 </head>
 
 <body>
