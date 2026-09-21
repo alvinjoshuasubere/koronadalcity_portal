@@ -1,9 +1,12 @@
-/* KORONADAL CITY — SHARED BLUE CIVIC THEME */
+/* KORONADAL CITY — SHARED MINIMALIST CIVIC THEME */
 :root{
---brand-blue:#1769AA;--brand-blue-dark:#0D47A1;--brand-blue-light:#3D8FD1;--brand-sky:#EAF4FF;--brand-sky-2:#DCEEFF;--brand-navy:#123B63;
---rose:#1769AA;--rose-d:#0D47A1;--rose-l:rgba(23,105,170,.09);--rose-wash:#EAF4FF;--navy:#123B63;--navy-l:rgba(18,59,99,.06);--glow-rose:rgba(23,105,170,.28);
---rose-light:#3D8FD1;--rose-glow:rgba(23,105,170,.25);--cyan:#4AA3DF;--cyan-glow:rgba(74,163,223,.20);--border-glow:rgba(23,105,170,.25);--gold:#1769AA;--gold-dim:rgba(23,105,170,.10);--text-bright:#123B63
-}
+--brand-blue:#1769AA;--brand-blue-dark:#0D47A1;--brand-blue-light:#3D8FD1;
+--brand-red:#C62828;--brand-red-dark:#9E1B1B;--brand-yellow:#F2C94C;
+--brand-sky:#F4F8FC;--brand-navy:#163A5F;
+--rose:#1769AA;--rose-d:#0D47A1;--rose-l:rgba(23,105,170,.08);--rose-wash:#F4F8FC;
+--navy:#163A5F;--navy-l:rgba(22,58,95,.05);--glow-rose:rgba(23,105,170,.18);
+--rose-light:#3D8FD1;--rose-glow:rgba(23,105,170,.16);--cyan:#4AA3DF;--cyan-glow:rgba(74,163,223,.14);
+--border-glow:rgba(23,105,170,.20);--gold:#F2C94C;--gold-dim:rgba(242,201,76,.12);--text-bright:#163A5F}
 ::selection{background:#1769AA;color:#fff}html{scrollbar-color:#1769AA transparent}
-.egov-account{background:linear-gradient(115deg,#0D47A1,#1769AA,#3D8FD1)}
-.account-avatar{background:rgba(219,238,255,.16)}
+.egov-account{background:linear-gradient(115deg,#0D47A1,#1769AA)}
+.account-avatar{background:rgba(219,238,255,.18)}
