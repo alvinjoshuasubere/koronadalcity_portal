@@ -6,15 +6,15 @@
  */
 
 :root {
-  --kdc-blue: #0b63b6;
-  --kdc-blue-deep: #08457f;
-  --kdc-sky: #2ea7e0;
-  --kdc-green: #2e9b62;
-  --kdc-yellow: #f5c542;
-  --kdc-orange: #f28c28;
-  --kdc-red: #d9534f;
-  --kdc-purple: #7254c8;
-  --kdc-soft: #f5f9fd;
+  --kdc-blue: #1769AA;
+  --kdc-blue-deep: #0D47A1;
+  --kdc-sky: #3D8FD1;
+  --kdc-green: #1769AA;
+  --kdc-yellow: #F2C94C;
+  --kdc-orange: #F2C94C;
+  --kdc-red: #C62828;
+  --kdc-purple: #1769AA;
+  --kdc-soft: #F4F8FC;
 }
 html,
 body {
@@ -2470,3 +2470,33 @@ a[href="#"] .svc-icon, a[href="#"] .list-icon, a[href="#"] .feature-mark, a[href
   }
 }
 
+
+
+/* FINAL FIX: logo sizing, legacy palette, and reliable layout overrides */
+.topnav .brand-img,.mnav .brand-img{width:42px!important;height:42px!important;max-width:42px!important;max-height:42px!important;min-width:42px!important;min-height:42px!important;object-fit:contain!important;display:block!important;flex:0 0 42px!important}
+.brand{display:inline-flex!important;align-items:center!important;gap:10px!important;min-width:0!important}
+.topnav .brand-text,.mnav .brand-text{min-width:0!important;line-height:1.05!important}
+.topnav .brand-text strong,.mnav .brand-text strong{font-size:.72rem!important;line-height:1.1!important}
+.topnav .brand-text small,.mnav .brand-text small{font-size:.47rem!important;line-height:1.2!important}
+.f-brand img{width:34px!important;height:34px!important;max-width:34px!important;max-height:34px!important;object-fit:contain!important;display:block!important}
+.account-avatar{width:54px!important;height:54px!important;flex:0 0 54px!important;overflow:hidden!important}
+.account-avatar img{width:100%!important;height:100%!important;max-width:100%!important;max-height:100%!important;object-fit:contain!important;padding:6px!important}
+.topnav,.topnav-in,.mnav-head{min-height:68px!important}
+.egov-full-app{--egov-blue:var(--brand-blue);--egov-blue-dark:var(--brand-blue-dark);--egov-blue-soft:#EAF4FF}
+.egov-kicker,.egov-welcome-row h1 b,.egov-weather,.egov-search>i,.egov-hero-copy small,.egov-hero-copy h2 b,.egov-module-title small,.egov-module-title>a,.feature-tag,.egov-section-head small,.egov-section-head>a,.egov-featured-head>a{color:var(--brand-blue)!important}
+.egov-hero-copy a,.egov-account{background:linear-gradient(135deg,var(--brand-blue-dark),var(--brand-blue))!important}
+.svc-icon.blue,.svc-icon.cyan,.svc-icon.indigo,.svc-icon.green,.svc-icon.teal,.svc-icon.purple,.svc-icon.pink,.svc-icon.orange,.svc-icon.slate{color:var(--brand-blue)!important;background:#EAF4FF!important}
+.svc-icon.red,.emergency-feature .feature-tag,.emergency-feature .feature-mark,.egov-info-card.danger>i:first-child,.egov-info-card.danger small{color:var(--brand-red)!important}
+.svc-icon.red,.egov-info-card.danger>i:first-child{background:#FFF0F0!important}
+.svc-icon.yellow,.svc-icon.gold{color:#9A7800!important;background:var(--brand-yellow-soft)!important}
+.list-icon.blue,.list-icon.orange,.list-icon.purple,.list-icon.indigo,.list-icon.cyan,.list-icon.green{color:var(--brand-blue)!important;background:#EAF4FF!important}
+.hero h1 .hl{background:linear-gradient(135deg,var(--brand-blue-dark),var(--brand-blue))!important;-webkit-background-clip:text;background-clip:text;color:transparent}
+.leader-mayor-card{display:flex!important;align-items:stretch!important}
+.leader-mayor-card>.leader-mayor-content,.leader-mayor-card>.leader-mayor-copy{flex:1 1 62%!important;width:auto!important;max-width:62%!important;order:1!important;text-align:left!important}
+.leader-mayor-card>.leader-mayor-img{width:38%!important;max-width:38%!important;min-height:280px!important;height:auto!important;float:none!important;margin-left:auto!important;order:2!important;background-size:cover!important;background-position:center top!important}
+@media(max-width:768px){
+.topnav .brand-img,.mnav .brand-img{width:38px!important;height:38px!important;max-width:38px!important;max-height:38px!important;min-width:38px!important;min-height:38px!important;flex-basis:38px!important}
+.leader-mayor-card{flex-direction:column!important}
+.leader-mayor-card>.leader-mayor-content,.leader-mayor-card>.leader-mayor-copy{max-width:100%!important;width:100%!important;flex:0 0 auto!important;order:1!important}
+.leader-mayor-card>.leader-mayor-img{width:100%!important;max-width:100%!important;min-height:220px!important;height:260px!important;order:2!important}
+}
