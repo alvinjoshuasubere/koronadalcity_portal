@@ -98,7 +98,7 @@ if (file_exists($officialsFile)) {
             <section class="egov-app-body">
                 <div class="egov-welcome-row"><div><span class="egov-kicker">KORONADAL CITY</span><h1>Maayung Adlaw!<br><b>Koronadaleño!</b></h1></div><div class="egov-weather"><i class="fas fa-sun"></i><span>Koronadal<br><small>South Cotabato</small></span></div></div>
                 <div class="egov-search"><i class="fas fa-search"></i><input id="Digital GatewaySearch" type="search" placeholder="What do you need today?" aria-label="Search city services"><button type="button" aria-label="Clear search" onclick="document.getElementById('Digital GatewaySearch').value='';document.getElementById('Digital GatewaySearch').dispatchEvent(new Event('input'));"><i class="fas fa-xmark"></i></button></div>
-                <section class="egov-hero-card"><div class="egov-hero-copy"><small>YOUR DIGITAL CITY GATEWAY</small><h2>Koronadal City<br><b>Digital Gateway Services</b></h2><p>Access government services, information and assistance wherever you are.</p><a href="#egov-services">Explore services <i class="fas fa-arrow-right"></i></a></div><div class="egov-city-art gateway-nature" aria-hidden="true"><div class="nature-sun"></div><div class="nature-cloud cloud-1"></div><div class="nature-cloud cloud-2"></div><div class="nature-mountain mountain-back"></div><div class="nature-mountain mountain-front"></div><div class="nature-field field-back"></div><div class="nature-field field-front"></div><div class="nature-tree tree-left"><i></i><i></i><i></i></div><div class="nature-tree tree-right"><i></i><i></i><i></i></div><div class="nature-leaf leaf-1">✦</div><div class="nature-leaf leaf-2">✦</div><div class="nature-badge"><i class="fas fa-leaf"></i><span>Nature • Community • Service</span></div></div></section>
+                <section class="egov-hero-card"><div class="egov-hero-copy"><small>YOUR DIGITAL CITY GATEWAY</small><h2>Koronadal City<br><b>Digital Gateway Services</b></h2><p>Access government services, information and assistance wherever you are.</p><a href="#egov-services">Explore services <i class="fas fa-arrow-right"></i></a></div><div class="egov-city-art gateway-nature" aria-hidden="true"><div class="nature-sun"></div><div class="nature-cloud cloud-1"></div><div class="nature-cloud cloud-2"></div><div class="nature-mountain mountain-back"></div><div class="nature-mountain mountain-front"></div><div class="nature-field field-back"></div><div class="nature-field field-front"></div><div class="nature-tree tree-left"><i></i><i></i><i></i></div><div class="nature-tree tree-right"><i></i><i></i><i></i></div></div></section>
                 <section id="egov-services" class="egov-module"><div class="egov-module-title"><div><small>QUICK ACCESS</small><h2>City Services</h2></div><a href="#egov-all-services">See all <i class="fas fa-chevron-right"></i></a></div>
                     <div class="egov-service-grid" id="egovServiceGrid">
                         <a href="#egov-all-services" data-service="business permits licensing" class="egov-service"><span class="svc-icon blue"><i class="fas fa-file-signature"></i></span><b>Permits</b></a>
@@ -758,7 +758,7 @@ if (file_exists($officialsFile)) {
                         <div class="home-mayor-cover-shade"></div>
                         <span class="home-mayor-status"><i class="fas fa-landmark"></i> City Mayor</span>
                     </div>
-                </div>>
+                </div>
 
             </div>
         </section>
