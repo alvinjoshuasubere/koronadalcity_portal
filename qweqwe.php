@@ -106,8 +106,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     body {
         font-family: 'Sora', sans-serif;
-        background: #0B0E14;
-        color: #e0e0e0;
+        background: #F8FAFC;
+        color: #1E293B;
         min-height: 100vh;
         overflow-x: hidden;
     }
@@ -133,7 +133,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     .bg-orbs .orb:nth-child(1) {
         width: 600px;
         height: 600px;
-        background: #A83D5C;
+        background: #1D4ED8;
         top: -200px;
         left: -100px;
         animation: floatOrb 20s ease-in-out infinite
@@ -142,7 +142,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     .bg-orbs .orb:nth-child(2) {
         width: 500px;
         height: 500px;
-        background: #4a1a3a;
+        background: #0A192F;
         bottom: -150px;
         right: -100px;
         animation: floatOrb 25s ease-in-out infinite reverse
@@ -151,7 +151,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     .bg-orbs .orb:nth-child(3) {
         width: 400px;
         height: 400px;
-        background: #A83D5C;
+        background: #1D4ED8;
         top: 50%;
         left: 50%;
         transform: translate(-50%, -50%);
@@ -184,9 +184,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         left: 0;
         right: 0;
         z-index: 100;
-        background: rgba(11, 14, 20, .85);
+        background: rgba(255, 255, 255, .9);
         backdrop-filter: blur(24px);
-        border-bottom: 1px solid rgba(255, 255, 255, .06);
+        border-bottom: 1px solid #E2E8F0;
         padding: 0 2rem;
         height: 60px;
         display: flex;
@@ -204,7 +204,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     .nav-brand .logo {
         width: 32px;
         height: 32px;
-        background: linear-gradient(135deg, #A83D5C, #7a2840);
+        background: linear-gradient(135deg, #1D4ED8, #0A192F);
         border-radius: 8px;
         display: flex;
         align-items: center;
@@ -216,12 +216,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     .nav-brand span {
         font-weight: 600;
-        color: #fff;
+        color: #0A192F;
         font-size: .95rem
     }
 
     .nav-center {
-        color: rgba(255, 255, 255, .7);
+        color: #64748B;
         font-size: .85rem;
         font-weight: 400;
         position: absolute;
@@ -236,7 +236,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 
     .nav-right a {
-        color: rgba(255, 255, 255, .6);
+        color: #1D4ED8;
         text-decoration: none;
         font-size: .82rem;
         transition: color .2s;
@@ -246,7 +246,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 
     .nav-right a:hover {
-        color: #A83D5C
+        color: #0052CC
     }
 
     .container {
@@ -269,11 +269,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     .page-header h1 {
         font-size: 1.6rem;
         font-weight: 700;
-        color: #fff
+        color: #0A192F
     }
 
     .page-header h1 i {
-        color: #A83D5C;
+        color: #1D4ED8;
         margin-right: .5rem
     }
 
@@ -297,25 +297,26 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 
     .btn-rose {
-        background: linear-gradient(135deg, #A83D5C, #7a2840);
+        background: linear-gradient(135deg, #1D4ED8, #0A192F);
         color: #fff;
-        box-shadow: 0 4px 20px rgba(168, 61, 92, .3);
+        box-shadow: 0 4px 20px rgba(29, 78, 216, .3);
     }
 
     .btn-rose:hover {
         transform: translateY(-2px);
-        box-shadow: 0 6px 28px rgba(168, 61, 92, .5)
+        background: linear-gradient(135deg, #0052CC, #0A192F);
+        box-shadow: 0 6px 28px rgba(29, 78, 216, .5)
     }
 
     .btn-ghost {
-        background: rgba(255, 255, 255, .06);
-        color: rgba(255, 255, 255, .7);
-        border: 1px solid rgba(255, 255, 255, .08);
+        background: #FFFFFF;
+        color: #64748B;
+        border: 1px solid #E2E8F0;
     }
 
     .btn-ghost:hover {
-        background: rgba(255, 255, 255, .1);
-        color: #fff
+        background: #F0F5FF;
+        color: #0A192F
     }
 
     .btn-danger {
@@ -336,9 +337,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 
     .stat-card {
-        background: rgba(22, 27, 38, .8);
+        background: #FFFFFF;
         backdrop-filter: blur(20px);
-        border: 1px solid rgba(255, 255, 255, .06);
+        border: 1px solid #E2E8F0;
         border-radius: 14px;
         padding: 1rem 1.5rem;
         flex: 1;
@@ -347,7 +348,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     .stat-card .stat-label {
         font-size: .72rem;
-        color: rgba(255, 255, 255, .45);
+        color: #64748B;
         text-transform: uppercase;
         letter-spacing: .05em;
         margin-bottom: .3rem
@@ -356,12 +357,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     .stat-card .stat-value {
         font-size: 1.8rem;
         font-weight: 700;
-        color: #A83D5C
+        color: #1D4ED8
     }
 
     .stat-card .stat-sub {
         font-size: .75rem;
-        color: rgba(255, 255, 255, .35);
+        color: #94A3B8;
         margin-top: .15rem
     }
 
@@ -372,9 +373,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 
     .official-card {
-        background: rgba(22, 27, 38, .8);
+        background: #FFFFFF;
         backdrop-filter: blur(20px);
-        border: 1px solid rgba(255, 255, 255, .06);
+        border: 1px solid #E2E8F0;
         border-radius: 16px;
         padding: 1.5rem;
         text-align: center;
@@ -390,15 +391,15 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         left: 0;
         right: 0;
         height: 3px;
-        background: linear-gradient(90deg, transparent, #A83D5C, transparent);
+        background: linear-gradient(90deg, transparent, #1D4ED8, transparent);
         opacity: 0;
         transition: opacity .3s;
     }
 
     .official-card:hover {
-        border-color: rgba(168, 61, 92, .3);
+        border-color: rgba(29, 78, 216, .3);
         transform: translateY(-4px);
-        box-shadow: 0 8px 40px rgba(168, 61, 92, .12), 0 0 0 1px rgba(168, 61, 92, .1);
+        box-shadow: 0 8px 40px rgba(29, 78, 216, .12), 0 0 0 1px rgba(29, 78, 216, .1);
     }
 
     .official-card:hover::before {
@@ -411,29 +412,29 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         border-radius: 50%;
         object-fit: cover;
         margin: 0 auto .8rem;
-        border: 3px solid rgba(168, 61, 92, .4);
-        box-shadow: 0 0 15px rgba(168, 61, 92, .4), 0 0 30px rgba(168, 61, 92, .15);
+        border: 3px solid rgba(29, 78, 216, .4);
+        box-shadow: 0 0 15px rgba(29, 78, 216, .4), 0 0 30px rgba(29, 78, 216, .15);
         display: block;
-        background: rgba(168, 61, 92, .1);
+        background: rgba(29, 78, 216, .1);
     }
 
     .official-card h3 {
         font-size: .95rem;
         font-weight: 600;
-        color: #fff;
+        color: #0A192F;
         margin-bottom: .2rem
     }
 
     .official-card .position {
         font-size: .78rem;
-        color: #A83D5C;
+        color: #1D4ED8;
         font-weight: 500;
         margin-bottom: .5rem
     }
 
     .official-card .ordinance {
         font-size: .75rem;
-        color: rgba(255, 255, 255, .5);
+        color: #64748B;
         line-height: 1.45;
         margin-bottom: .6rem;
         display: -webkit-box;
@@ -451,13 +452,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 
     .committee-tag {
-        background: rgba(168, 61, 92, .15);
-        color: rgba(168, 61, 92, .9);
+        background: rgba(29, 78, 216, .15);
+        color: rgba(29, 78, 216, .9);
         padding: .15rem .55rem;
         border-radius: 20px;
         font-size: .65rem;
         font-weight: 500;
-        border: 1px solid rgba(168, 61, 92, .2);
+        border: 1px solid rgba(29, 78, 216, .2);
     }
 
     .card-actions {
@@ -479,7 +480,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         right: 0;
         bottom: 0;
         z-index: 200;
-        background: rgba(0, 0, 0, .6);
+        background: rgba(10, 25, 47, .5);
         backdrop-filter: blur(8px);
         display: none;
         align-items: center;
@@ -494,9 +495,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 
     .modal {
-        background: rgba(22, 27, 38, .95);
+        background: #FFFFFF;
         backdrop-filter: blur(30px);
-        border: 1px solid rgba(255, 255, 255, .08);
+        border: 1px solid #E2E8F0;
         border-radius: 20px;
         width: 90%;
         max-width: 520px;
@@ -505,7 +506,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         padding: 2rem;
         transform: scale(.92) translateY(20px);
         transition: transform .3s ease;
-        box-shadow: 0 20px 60px rgba(0, 0, 0, .5), 0 0 40px rgba(168, 61, 92, .08);
+        box-shadow: 0 20px 60px rgba(10, 25, 47, .12), 0 0 40px rgba(29, 78, 216, .08);
     }
 
     .modal-overlay.active .modal {
@@ -515,12 +516,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     .modal h2 {
         font-size: 1.15rem;
         font-weight: 600;
-        color: #fff;
+        color: #0A192F;
         margin-bottom: 1.2rem
     }
 
     .modal h2 i {
-        color: #A83D5C;
+        color: #1D4ED8;
         margin-right: .4rem
     }
 
@@ -532,7 +533,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         display: block;
         font-size: .75rem;
         font-weight: 500;
-        color: rgba(255, 255, 255, .6);
+        color: #64748B;
         margin-bottom: .35rem
     }
 
@@ -541,9 +542,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         width: 100%;
         padding: .65rem .9rem;
         border-radius: 10px;
-        border: 1px solid rgba(255, 255, 255, .08);
-        background: rgba(255, 255, 255, .04);
-        color: #fff;
+        border: 1px solid #E2E8F0;
+        background: #F8FAFC;
+        color: #1E293B;
         font-family: 'Sora', sans-serif;
         font-size: .85rem;
         transition: border-color .2s;
@@ -552,7 +553,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     .form-group input:focus,
     .form-group textarea:focus {
         outline: none;
-        border-color: rgba(168, 61, 92, .5)
+        border-color: rgba(29, 78, 216, .5)
     }
 
     .form-group textarea {
@@ -561,7 +562,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 
     .image-upload-area {
-        border: 2px dashed rgba(255, 255, 255, .1);
+        border: 2px dashed #E2E8F0;
         border-radius: 12px;
         padding: 1rem;
         text-align: center;
@@ -571,7 +572,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 
     .image-upload-area:hover {
-        border-color: rgba(168, 61, 92, .4)
+        border-color: rgba(29, 78, 216, .4)
     }
 
     .image-upload-area input[type="file"] {
@@ -586,26 +587,26 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     .image-upload-area i {
         font-size: 1.5rem;
-        color: rgba(255, 255, 255, .2);
+        color: #94A3B8;
         margin-bottom: .3rem;
         display: block
     }
 
     .image-upload-area span {
         font-size: .75rem;
-        color: rgba(255, 255, 255, .35)
+        color: #94A3B8
     }
 
     .tag-input-wrap {
-        border: 1px solid rgba(255, 255, 255, .08);
+        border: 1px solid #E2E8F0;
         border-radius: 10px;
-        background: rgba(255, 255, 255, .04);
+        background: #F8FAFC;
         padding: .5rem;
         min-height: 44px;
     }
 
     .tag-input-wrap:focus-within {
-        border-color: rgba(168, 61, 92, .5)
+        border-color: rgba(29, 78, 216, .5)
     }
 
     .tag-input-tags {
@@ -624,19 +625,19 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         display: inline-flex;
         align-items: center;
         gap: 4px;
-        background: rgba(168, 61, 92, .2);
-        color: rgba(255, 255, 255, .85);
+        background: rgba(29, 78, 216, .2);
+        color: #0A192F;
         padding: .2rem .6rem;
         border-radius: 20px;
         font-size: .72rem;
         font-weight: 500;
-        border: 1px solid rgba(168, 61, 92, .3);
+        border: 1px solid rgba(29, 78, 216, .3);
     }
 
     .tag-input-item button {
         background: none;
         border: none;
-        color: rgba(255, 255, 255, .4);
+        color: #94A3B8;
         cursor: pointer;
         font-size: .7rem;
         padding: 0 2px;
@@ -657,9 +658,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         flex: 1;
         padding: .4rem .6rem;
         border-radius: 8px;
-        border: 1px solid rgba(255, 255, 255, .06);
-        background: rgba(255, 255, 255, .04);
-        color: #fff;
+        border: 1px solid #E2E8F0;
+        background: #F8FAFC;
+        color: #1E293B;
         font-family: 'Sora', sans-serif;
         font-size: .8rem;
     }
@@ -673,8 +674,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         border-radius: 8px;
         border: none;
         cursor: pointer;
-        background: rgba(168, 61, 92, .2);
-        color: rgba(255, 255, 255, .7);
+        background: rgba(29, 78, 216, .2);
+        color: #1D4ED8;
         font-family: 'Sora', sans-serif;
         font-size: .75rem;
         font-weight: 500;
@@ -683,7 +684,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 
     .tag-add-btn:hover {
-        background: rgba(168, 61, 92, .4);
+        background: #1D4ED8;
         color: #fff
     }
 
@@ -692,7 +693,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         height: 80px;
         border-radius: 50%;
         object-fit: cover;
-        border: 2px solid rgba(168, 61, 92, .3);
+        border: 2px solid rgba(29, 78, 216, .3);
         margin: 0 auto .5rem;
         display: block;
     }
@@ -868,13 +869,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         grid-column: 1/-1;
         text-align: center;
         padding: 3rem 1rem;
-        color: rgba(255, 255, 255, .3);
+        color: #94A3B8;
     }
 
     .empty-state i {
         font-size: 2.5rem;
         margin-bottom: .8rem;
-        color: rgba(168, 61, 92, .3);
+        color: rgba(29, 78, 216, .3);
         display: block
     }
     </style>
@@ -959,7 +960,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
                 <div id="currentImageWrap" style="display:none;text-align:center;margin-bottom:.8rem">
                     <img id="currentImage" class="image-preview" src="" alt="Current">
-                    <div style="font-size:.7rem;color:rgba(255,255,255,.35)">Current photo</div>
+                    <div style="font-size:.7rem;color:#94A3B8">Current photo</div>
                 </div>
 
                 <div class="form-group">
@@ -1012,8 +1013,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             <i class="fa-solid fa-triangle-exclamation"
                 style="font-size:2rem;color:#ff6b6b;margin-bottom:.5rem;display:block"></i>
             <h2 style="justify-content:center">Delete Official?</h2>
-            <p style="font-size:.85rem;color:rgba(255,255,255,.5);margin-bottom:1.2rem">
-                Are you sure you want to remove <strong id="deleteName" style="color:#fff"></strong> from the directory?
+            <p style="font-size:.85rem;color:#64748B;margin-bottom:1.2rem">
+                Are you sure you want to remove <strong id="deleteName" style="color:#0A192F"></strong> from the directory?
                 This cannot be undone.
             </p>
             <form method="POST">

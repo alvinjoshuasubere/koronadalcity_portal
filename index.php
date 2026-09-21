@@ -16,7 +16,7 @@ if (file_exists($officialsFile)) {
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0" />
-    <meta name="theme-color" content="#1A1A2E" />
+    <meta name="theme-color" content="#0A192F" />
     <title>Koronadal City — Online Services</title>
     <link rel="icon" type="image/x-icon" href="favicon.ico" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -25,26 +25,25 @@ if (file_exists($officialsFile)) {
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet" />
     <style>
     /* ===== THEME ===== */
-    :root,
-    [data-theme="light"] {
-        --bone: #F5F3F0;
-        --paper: #FAFAF8;
-        --card: #FFF;
-        --white: #FFF;
-        --ink: #1A1A2E;
-        --ink-soft: #5C5C6F;
-        --ink-faint: #9E9EB0;
-        --line: rgba(26, 26, 46, .07);
-        --line-strong: rgba(26, 26, 46, .13);
-        --rose: #A83D5C;
-        --rose-d: #8C2848;
-        --rose-l: rgba(168, 61, 92, .08);
-        --rose-wash: #F9EDF1;
-        --navy: #1A1A2E;
-        --navy-l: rgba(26, 26, 46, .05);
-        --shadow-sm: 0 1px 3px rgba(26, 26, 46, .04), 0 1px 6px rgba(26, 26, 46, .03);
-        --shadow-md: 0 4px 20px rgba(26, 26, 46, .07), 0 1px 4px rgba(26, 26, 46, .04);
-        --shadow-lg: 0 16px 48px rgba(26, 26, 46, .12);
+    :root {
+        --bone: #F8FAFC;
+        --paper: #FFFFFF;
+        --card: #FFFFFF;
+        --white: #FFFFFF;
+        --ink: #1E293B;
+        --ink-soft: #64748B;
+        --ink-faint: #94A3B8;
+        --line: rgba(10, 25, 47, .08);
+        --line-strong: rgba(10, 25, 47, .14);
+        --rose: #1D4ED8;
+        --rose-d: #0052CC;
+        --rose-l: rgba(29, 78, 216, .08);
+        --rose-wash: #F0F5FF;
+        --navy: #0A192F;
+        --navy-l: rgba(10, 25, 47, .05);
+        --shadow-sm: 0 1px 3px rgba(10, 25, 47, .04), 0 1px 6px rgba(10, 25, 47, .03);
+        --shadow-md: 0 4px 20px rgba(10, 25, 47, .07), 0 1px 4px rgba(10, 25, 47, .04);
+        --shadow-lg: 0 16px 48px rgba(10, 25, 47, .12);
         --r: 12px;
         --r-s: 8px;
         --r-xs: 6px;
@@ -57,33 +56,9 @@ if (file_exists($officialsFile)) {
         --bottom-h: 56px;
         --safe-b: env(safe-area-inset-bottom, 0px);
         --safe-t: env(safe-area-inset-top, 0px);
-        --glow-rose: rgba(168, 61, 92, 0.4);
-        --glass-bg: rgba(255, 255, 255, 0.6);
-        --glass-border: rgba(255, 255, 255, 0.3);
-    }
-
-    [data-theme="dark"] {
-        --bone: #0B0E14;
-        --paper: #10141C;
-        --card: #161B26;
-        --white: #1C2230;
-        --ink: #E2E4EA;
-        --ink-soft: #9DA2B0;
-        --ink-faint: #626878;
-        --line: rgba(226, 228, 234, .06);
-        --line-strong: rgba(226, 228, 234, .11);
-        --rose: #D06882;
-        --rose-d: #DA7E96;
-        --rose-l: rgba(208, 104, 130, .1);
-        --rose-wash: rgba(208, 104, 130, .05);
-        --navy: #0B0E14;
-        --navy-l: rgba(15, 20, 30, .3);
-        --shadow-sm: 0 1px 3px rgba(0, 0, 0, .35), 0 1px 6px rgba(0, 0, 0, .25);
-        --shadow-md: 0 4px 20px rgba(0, 0, 0, .45), 0 1px 4px rgba(0, 0, 0, .3);
-        --shadow-lg: 0 16px 48px rgba(0, 0, 0, .55);
-        --glow-rose: rgba(208, 104, 130, 0.35);
-        --glass-bg: rgba(22, 27, 38, 0.7);
-        --glass-border: rgba(226, 228, 234, 0.08);
+        --glow-rose: rgba(29, 78, 216, 0.32);
+        --glass-bg: rgba(255, 255, 255, 0.75);
+        --glass-border: rgba(10, 25, 47, .08);
     }
 
     /* ===== RESET ===== */
@@ -119,7 +94,7 @@ if (file_exists($officialsFile)) {
         inset: 0;
         pointer-events: none;
         z-index: 0;
-        background: radial-gradient(ellipse at 80% 10%, rgba(168, 61, 92, .03), transparent 55%)
+        background: radial-gradient(ellipse at 80% 10%, rgba(29, 78, 216, .03), transparent 55%)
     }
 
     body::after {
@@ -170,7 +145,7 @@ if (file_exists($officialsFile)) {
         position: absolute;
         border-radius: 50%;
         filter: blur(80px);
-        opacity: 0.12;
+        opacity: 0.10;
         animation: floatOrb 20s ease-in-out infinite alternate
     }
 
@@ -187,7 +162,7 @@ if (file_exists($officialsFile)) {
     .orb-2 {
         width: 300px;
         height: 300px;
-        background: #4A6CF7;
+        background: #64B5F6;
         bottom: 20%;
         left: -80px;
         animation-delay: -5s;
@@ -202,7 +177,7 @@ if (file_exists($officialsFile)) {
         right: 10%;
         animation-delay: -10s;
         animation-duration: 25s;
-        opacity: 0.08
+        opacity: 0.06
     }
 
     @keyframes floatOrb {
@@ -427,28 +402,6 @@ if (file_exists($officialsFile)) {
         gap: 8px
     }
 
-    .theme-btn {
-        width: 34px;
-        height: 34px;
-        border-radius: var(--r-s);
-        border: 1px solid var(--line);
-        background: var(--glass-bg);
-        color: var(--ink-soft);
-        display: grid;
-        place-items: center;
-        font-size: .75rem;
-        transition: all .15s;
-        box-shadow: var(--shadow-sm);
-        backdrop-filter: blur(12px);
-        -webkit-backdrop-filter: blur(12px)
-    }
-
-    .theme-btn:hover {
-        border-color: var(--rose);
-        color: var(--rose);
-        box-shadow: 0 0 12px var(--glow-rose)
-    }
-
     .nav-cta {
         display: inline-flex;
         align-items: center;
@@ -641,19 +594,15 @@ if (file_exists($officialsFile)) {
     .hero-bg {
         position: absolute;
         inset: 0;
-        background: linear-gradient(160deg, #1A1A2E 0%, #151528 55%, #1E2040 100%);
+        background: linear-gradient(160deg, #E8F0FE 0%, #F0F5FF 55%, #E3ECF9 100%);
         z-index: 0
-    }
-
-    [data-theme="dark"] .hero-bg {
-        background: linear-gradient(160deg, #060810 0%, #0A0E18 55%, #0E1420 100%)
     }
 
     .hero-bg::before {
         content: '';
         position: absolute;
         inset: 0;
-        background: radial-gradient(circle at 80% 20%, rgba(168, 61, 92, .2), transparent 50%)
+        background: radial-gradient(circle at 80% 20%, rgba(29, 78, 216, .14), transparent 50%)
     }
 
     .hero-bg::after {
@@ -661,7 +610,7 @@ if (file_exists($officialsFile)) {
         position: absolute;
         inset: 0;
         opacity: .04;
-        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='60' height='60'%3E%3Cpath d='M0 30h60M30 0v60' stroke='%23A83D5C' stroke-width='.3'/%3E%3Ccircle cx='30' cy='30' r='1.5' fill='%23A83D5C' opacity='.3'/%3E%3C/svg%3E");
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='60' height='60'%3E%3Cpath d='M0 30h60M30 0v60' stroke='%231D4ED8' stroke-width='.3'/%3E%3Ccircle cx='30' cy='30' r='1.5' fill='%231D4ED8' opacity='.3'/%3E%3C/svg%3E");
         background-size: 60px 60px;
         animation: gridPulse 8s ease-in-out infinite
     }
@@ -686,8 +635,8 @@ if (file_exists($officialsFile)) {
         height: 300px;
         transform: translate(-50%, -50%);
         border-radius: 50%;
-        border: 1px solid rgba(168, 61, 92, .15);
-        box-shadow: 0 0 60px rgba(168, 61, 92, .1), inset 0 0 60px rgba(168, 61, 92, .05);
+        border: 1px solid rgba(29, 78, 216, .15);
+        box-shadow: 0 0 60px rgba(29, 78, 216, .1), inset 0 0 60px rgba(29, 78, 216, .05);
         animation: glowRing 4s ease-in-out infinite;
         z-index: 1
     }
@@ -724,10 +673,10 @@ if (file_exists($officialsFile)) {
         width: 40px;
         height: 40px;
         border-radius: var(--r-s);
-        background: rgba(255, 255, 255, .1);
+        background: #fff;
         padding: 3px;
-        border: 1px solid rgba(255, 255, 255, .15);
-        box-shadow: 0 0 20px rgba(168, 61, 92, .3);
+        border: 1px solid var(--line);
+        box-shadow: 0 0 20px rgba(29, 78, 216, .25);
         animation: logoPulse 3s ease-in-out infinite
     }
 
@@ -735,11 +684,11 @@ if (file_exists($officialsFile)) {
 
         0%,
         100% {
-            box-shadow: 0 0 20px rgba(168, 61, 92, .3)
+            box-shadow: 0 0 20px rgba(29, 78, 216, .3)
         }
 
         50% {
-            box-shadow: 0 0 35px rgba(168, 61, 92, .5)
+            box-shadow: 0 0 35px rgba(29, 78, 216, .5)
         }
     }
 
@@ -751,14 +700,14 @@ if (file_exists($officialsFile)) {
     .hero-brand-text strong {
         font-size: .7rem;
         font-weight: 700;
-        color: rgba(255, 255, 255, .9);
+        color: var(--navy);
         letter-spacing: .02em
     }
 
     .hero-brand-text small {
         font-size: .5rem;
         font-weight: 500;
-        color: rgba(255, 255, 255, .4);
+        color: var(--ink-soft);
         text-transform: uppercase;
         letter-spacing: .08em
     }
@@ -767,13 +716,13 @@ if (file_exists($officialsFile)) {
         display: inline-flex;
         align-items: center;
         gap: 5px;
-        background: rgba(255, 255, 255, .07);
-        border: 1px solid rgba(255, 255, 255, .08);
+        background: rgba(255, 255, 255, .8);
+        border: 1px solid var(--line);
         padding: 5px 12px;
         border-radius: var(--r-full);
         font-size: .55rem;
         font-weight: 600;
-        color: rgba(255, 255, 255, .5);
+        color: var(--ink-soft);
         letter-spacing: .06em;
         text-transform: uppercase;
         margin-bottom: 14px;
@@ -789,35 +738,35 @@ if (file_exists($officialsFile)) {
     .hero h1 {
         font-size: clamp(1.5rem, 5vw, 2.2rem);
         font-weight: 800;
-        color: #fff;
+        color: var(--navy);
         line-height: 1.08;
         letter-spacing: -.03em;
         margin-bottom: 8px;
-        text-shadow: 0 0 30px rgba(168, 61, 92, .2)
+        text-shadow: 0 0 30px rgba(29, 78, 216, .1)
     }
 
     .hero h1 .hl {
-        background: linear-gradient(135deg, var(--rose), #D06882, #E8919F);
+        background: linear-gradient(135deg, #0F2C59, #1D4ED8, #2563EB);
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
         background-clip: text;
-        filter: drop-shadow(0 0 20px rgba(168, 61, 92, .3));
+        filter: drop-shadow(0 0 16px rgba(29, 78, 216, .18));
         animation: gradientText 5s ease-in-out infinite alternate
     }
 
     @keyframes gradientText {
         0% {
-            filter: drop-shadow(0 0 20px rgba(168, 61, 92, .3))
+            filter: drop-shadow(0 0 20px rgba(29, 78, 216, .3))
         }
 
         100% {
-            filter: drop-shadow(0 0 30px rgba(168, 61, 92, .5))
+            filter: drop-shadow(0 0 30px rgba(29, 78, 216, .5))
         }
     }
 
     .hero-sub {
         font-size: .78rem;
-        color: rgba(255, 255, 255, .5);
+        color: var(--ink-soft);
         max-width: 360px;
         line-height: 1.65;
         margin-bottom: 20px
@@ -849,25 +798,27 @@ if (file_exists($officialsFile)) {
     }
 
     .hb-w {
-        background: var(--ink);
-        color: var(--paper)
+        background: var(--rose);
+        color: #fff
     }
 
     .hb-w:hover {
-        box-shadow: var(--shadow-md), 0 0 20px rgba(168, 61, 92, .2);
+        box-shadow: var(--shadow-md), 0 0 20px rgba(29, 78, 216, .25);
+        background: var(--rose-d);
         transform: translateY(-1px)
     }
 
     .hb-o {
-        background: rgba(255, 255, 255, .07);
-        color: #fff;
-        border: 1px solid rgba(255, 255, 255, .1);
+        background: rgba(255, 255, 255, .8);
+        color: var(--navy);
+        border: 1px solid var(--line-strong);
         backdrop-filter: blur(6px);
         -webkit-backdrop-filter: blur(6px)
     }
 
     .hb-o:hover {
-        background: rgba(255, 255, 255, .12)
+        background: #fff;
+        border-color: var(--rose)
     }
 
     /* Hero search */
@@ -879,7 +830,7 @@ if (file_exists($officialsFile)) {
         border: 1px solid var(--glass-border);
         border-radius: var(--r);
         padding: 20px;
-        box-shadow: var(--shadow-md), 0 0 30px rgba(168, 61, 92, .05);
+        box-shadow: var(--shadow-md), 0 0 30px rgba(29, 78, 216, .05);
         backdrop-filter: blur(20px);
         -webkit-backdrop-filter: blur(20px)
     }
@@ -908,10 +859,6 @@ if (file_exists($officialsFile)) {
         transition: all .15s;
         background: var(--white);
         box-shadow: var(--shadow-sm)
-    }
-
-    [data-theme="dark"] .hs-input {
-        background: var(--card)
     }
 
     .hs-input:focus-within {
@@ -994,7 +941,7 @@ if (file_exists($officialsFile)) {
         display: grid;
         grid-template-columns: repeat(4, 1fr);
         gap: 8px;
-        box-shadow: var(--shadow-md), 0 0 20px rgba(168, 61, 92, .05);
+        box-shadow: var(--shadow-md), 0 0 20px rgba(29, 78, 216, .05);
         backdrop-filter: blur(20px);
         -webkit-backdrop-filter: blur(20px);
         transform: perspective(500px) rotateX(1deg);
@@ -1227,7 +1174,7 @@ if (file_exists($officialsFile)) {
 
     .portal:hover {
         transform: perspective(800px) rotateY(-2deg) rotateX(1deg) translateY(-5px) translateZ(10px);
-        box-shadow: 0 10px 40px rgba(168, 61, 92, .15), 0 0 20px var(--glow-rose);
+        box-shadow: 0 10px 40px rgba(29, 78, 216, .15), 0 0 20px var(--glow-rose);
         border-left-color: var(--rose-d)
     }
 
@@ -1520,11 +1467,11 @@ if (file_exists($officialsFile)) {
     }
 
     .svc-feat-emergency .svc-feat-glow {
-        background: radial-gradient(circle at 30% 50%, rgba(168, 61, 92, .08), transparent 70%)
+        background: radial-gradient(circle at 30% 50%, rgba(29, 78, 216, .08), transparent 70%)
     }
 
     .svc-feat-officials .svc-feat-glow {
-        background: radial-gradient(circle at 70% 50%, rgba(168, 61, 92, .08), transparent 70%)
+        background: radial-gradient(circle at 70% 50%, rgba(29, 78, 216, .08), transparent 70%)
     }
 
     .svc-feat-card:hover .svc-feat-glow {
@@ -1533,7 +1480,7 @@ if (file_exists($officialsFile)) {
 
     .svc-feat-card:hover {
         transform: perspective(800px) rotateY(-2deg) rotateX(1deg) translateY(-4px) translateZ(8px);
-        box-shadow: var(--shadow-lg), 0 0 30px var(--glow-rose), 0 0 60px rgba(168, 61, 92, .08);
+        box-shadow: var(--shadow-lg), 0 0 30px var(--glow-rose), 0 0 60px rgba(29, 78, 216, .08);
         border-color: var(--rose-l)
     }
 
@@ -1649,7 +1596,7 @@ if (file_exists($officialsFile)) {
         inset: -1px;
         border-radius: var(--r);
         border: 1px solid transparent;
-        background: linear-gradient(135deg, rgba(168, 61, 92, .2), transparent 50%) border-box;
+        background: linear-gradient(135deg, rgba(29, 78, 216, .2), transparent 50%) border-box;
         -webkit-mask: linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0);
         mask: linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0);
         -webkit-mask-composite: xor;
@@ -1897,11 +1844,7 @@ if (file_exists($officialsFile)) {
     .leader-mayor-overlay {
         position: absolute;
         inset: 0;
-        background: linear-gradient(to top, rgba(26, 26, 46, .85) 0%, transparent 60%)
-    }
-
-    [data-theme="dark"] .leader-mayor-overlay {
-        background: linear-gradient(to top, rgba(11, 14, 20, .9) 0%, transparent 60%)
+        background: linear-gradient(to top, rgba(10, 25, 47, .85) 0%, transparent 60%)
     }
 
     .leader-mayor-body {
@@ -2013,7 +1956,7 @@ if (file_exists($officialsFile)) {
         margin-top: 16px;
         padding: 10px 22px;
         border-radius: var(--r-s);
-        background: linear-gradient(135deg, var(--rose), #c44e6e);
+        background: linear-gradient(135deg, var(--rose), #2563EB);
         color: #fff;
         font-size: .72rem;
         font-weight: 700;
@@ -2023,12 +1966,12 @@ if (file_exists($officialsFile)) {
         border: 1px solid rgba(255,255,255,0.1);
         transition: all .25s cubic-bezier(.4, 0, .2, 1);
         cursor: pointer;
-        box-shadow: 0 2px 12px rgba(168, 61, 92, 0.3)
+        box-shadow: 0 2px 12px rgba(29, 78, 216, 0.3)
     }
 
     .leader-mayor-cta:hover {
-        background: linear-gradient(135deg, var(--rose-d), #a83250);
-        box-shadow: 0 4px 24px var(--glow-rose), 0 0 0 1px rgba(168, 61, 92, 0.4);
+        background: linear-gradient(135deg, var(--rose-d), #1E40AF);
+        box-shadow: 0 4px 24px var(--glow-rose), 0 0 0 1px rgba(29, 78, 216, 0.4);
         transform: translateY(-2px)
     }
 
@@ -2100,7 +2043,7 @@ if (file_exists($officialsFile)) {
         }
 
         50% {
-            box-shadow: 0 0 30px var(--glow-rose), 0 0 60px rgba(168, 61, 92, .1)
+            box-shadow: 0 0 30px var(--glow-rose), 0 0 60px rgba(29, 78, 216, .1)
         }
     }
 
@@ -2280,12 +2223,8 @@ if (file_exists($officialsFile)) {
         position: absolute;
         inset: 0;
         opacity: .06;
-        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='48' height='48'%3E%3Cpath d='M24 0L48 24L24 48L0 24Z' fill='none' stroke='%23A83D5C' stroke-width='1.2'/%3E%3C/svg%3E");
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='48' height='48'%3E%3Cpath d='M24 0L48 24L24 48L0 24Z' fill='none' stroke='%231D4ED8' stroke-width='1.2'/%3E%3C/svg%3E");
         background-size: 48px 48px
-    }
-
-    [data-theme="dark"] .culture {
-        background: #0B0E14
     }
 
     .culture-in {
@@ -2337,10 +2276,6 @@ if (file_exists($officialsFile)) {
         height: 1px;
         background: linear-gradient(90deg, transparent, var(--rose), transparent);
         opacity: .4
-    }
-
-    [data-theme="dark"] .footer {
-        background: #0B0E14
     }
 
     .fgrid {
@@ -2465,7 +2400,7 @@ if (file_exists($officialsFile)) {
         height: var(--bottom-h);
         background: var(--card);
         border-top: 1px solid var(--line);
-        box-shadow: 0 -2px 8px rgba(26, 26, 46, .06);
+        box-shadow: 0 -2px 8px rgba(10, 25, 47, .06);
         padding-bottom: var(--safe-b)
     }
 
@@ -2572,8 +2507,8 @@ if (file_exists($officialsFile)) {
     }
 
     .hp-shape {
-        border: 1px solid rgba(168, 61, 92, .12);
-        background: rgba(168, 61, 92, .04);
+        border: 1px solid rgba(29, 78, 216, .12);
+        background: rgba(29, 78, 216, .04);
         backdrop-filter: blur(4px)
     }
 
@@ -2595,8 +2530,8 @@ if (file_exists($officialsFile)) {
         width: 50px;
         height: 50px;
         border-radius: 50%;
-        border: 1px solid rgba(168, 61, 92, .1);
-        background: radial-gradient(circle, rgba(168, 61, 92, .06), transparent);
+        border: 1px solid rgba(29, 78, 216, .1);
+        background: radial-gradient(circle, rgba(29, 78, 216, .06), transparent);
         animation: circlePulse 6s ease-in-out infinite
     }
 
@@ -2605,7 +2540,7 @@ if (file_exists($officialsFile)) {
         height: 0;
         border-left: 20px solid transparent;
         border-right: 20px solid transparent;
-        border-bottom: 34px solid rgba(168, 61, 92, .08);
+        border-bottom: 34px solid rgba(29, 78, 216, .08);
         background: none;
         border-top: none;
         animation: triFloat 10s ease-in-out infinite
@@ -2615,8 +2550,8 @@ if (file_exists($officialsFile)) {
         width: 6px;
         height: 6px;
         border-radius: 50%;
-        background: rgba(168, 61, 92, .3);
-        box-shadow: 0 0 8px rgba(168, 61, 92, .2)
+        background: rgba(29, 78, 216, .3);
+        box-shadow: 0 0 8px rgba(29, 78, 216, .2)
     }
 
     @keyframes hexSpin {
@@ -2694,7 +2629,7 @@ if (file_exists($officialsFile)) {
         content: '';
         position: absolute;
         inset: 0;
-        background: linear-gradient(135deg, rgba(168, 61, 92, .04), transparent 40%, transparent 60%, rgba(74, 108, 247, .03));
+        background: linear-gradient(135deg, rgba(29, 78, 216, .04), transparent 40%, transparent 60%, rgba(29, 78, 216, .03));
         pointer-events: none
     }
 
@@ -2767,7 +2702,7 @@ if (file_exists($officialsFile)) {
     .co-stat:hover {
         transform: perspective(600px) rotateX(4deg) translateY(-3px) translateZ(6px);
         border-color: var(--rose-l);
-        box-shadow: 0 8px 25px rgba(168, 61, 92, .1)
+        box-shadow: 0 8px 25px rgba(29, 78, 216, .1)
     }
 
     .co-stat-num {
@@ -2869,7 +2804,7 @@ if (file_exists($officialsFile)) {
         inset: 0;
         border-radius: var(--r);
         padding: 1px;
-        background: linear-gradient(135deg, rgba(168, 61, 92, .2), transparent 50%, rgba(74, 108, 247, .1));
+        background: linear-gradient(135deg, rgba(29, 78, 216, .2), transparent 50%, rgba(29, 78, 216, .1));
         -webkit-mask: linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0);
         mask: linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0);
         -webkit-mask-composite: xor;
@@ -2881,7 +2816,7 @@ if (file_exists($officialsFile)) {
 
     .cf-card:hover {
         transform: perspective(800px) rotateY(-3deg) rotateX(2deg) translateY(-6px) translateZ(10px);
-        box-shadow: 0 14px 40px rgba(168, 61, 92, .12), 0 0 25px var(--glow-rose);
+        box-shadow: 0 14px 40px rgba(29, 78, 216, .12), 0 0 25px var(--glow-rose);
         border-color: var(--rose-l)
     }
 
@@ -2901,7 +2836,7 @@ if (file_exists($officialsFile)) {
         background: var(--rose-l);
         color: var(--rose);
         transition: all .3s;
-        box-shadow: 0 0 15px rgba(168, 61, 92, .15);
+        box-shadow: 0 0 15px rgba(29, 78, 216, .15);
         position: relative;
         z-index: 1
     }
@@ -2951,7 +2886,7 @@ if (file_exists($officialsFile)) {
     }
 
     .cm-card {
-        background: linear-gradient(135deg, rgba(168, 61, 92, .06), rgba(74, 108, 247, .03));
+        background: linear-gradient(135deg, rgba(29, 78, 216, .06), rgba(29, 78, 216, .02));
         border: 1px solid var(--rose-wash);
         border-radius: var(--r-l);
         padding: 32px 28px;
@@ -2966,13 +2901,13 @@ if (file_exists($officialsFile)) {
         content: '';
         position: absolute;
         inset: 0;
-        background: radial-gradient(circle at 50% 0%, rgba(168, 61, 92, .08), transparent 60%);
+        background: radial-gradient(circle at 50% 0%, rgba(29, 78, 216, .08), transparent 60%);
         pointer-events: none
     }
 
     .cm-card:hover {
         transform: perspective(800px) rotateX(2deg) translateY(-3px);
-        box-shadow: var(--shadow-md), 0 0 30px rgba(168, 61, 92, .08)
+        box-shadow: var(--shadow-md), 0 0 30px rgba(29, 78, 216, .08)
     }
 
     .cm-quote {
@@ -3003,7 +2938,7 @@ if (file_exists($officialsFile)) {
         position: absolute;
         width: 80px;
         height: 80px;
-        border: 1px solid rgba(168, 61, 92, .08);
+        border: 1px solid rgba(29, 78, 216, .08);
         border-radius: 50%;
         pointer-events: none
     }
@@ -4111,7 +4046,6 @@ if (file_exists($officialsFile)) {
                 <li><a href="https://koronadal.gov.ph/" target="_blank">LGU Website</a></li>
             </ul>
             <div class="topnav-r">
-                <button class="theme-btn" id="themeBtn" aria-label="Toggle theme"><i class="fas fa-moon"></i></button>
                 <a href="#services" class="nav-cta"><i class="fas fa-th-large" style="font-size:.5rem"></i> Browse</a>
                 <button class="burger" id="burgerBtn" aria-label="Menu"><i class="fas fa-bars"></i></button>
             </div>
@@ -4177,7 +4111,7 @@ if (file_exists($officialsFile)) {
                 </div>
                 <div class="hp-layer" data-speed="0.05" style="top:35%;left:25%">
                     <div class="hp-shape dot"
-                        style="width:5px;height:5px;background:rgba(74,108,247,.3);box-shadow:0 0 8px rgba(74,108,247,.2)">
+                        style="width:5px;height:5px;background:rgba(29, 78, 216, .3);box-shadow:0 0 8px rgba(29, 78, 216, .2)">
                     </div>
                 </div>
             </div>
@@ -4814,26 +4748,8 @@ if (file_exists($officialsFile)) {
 
     <script>
     // === THEME ===
-    var html = document.documentElement,
-        themeBtn = document.getElementById('themeBtn');
-
-    function setTheme(t) {
-        html.setAttribute('data-theme', t);
-        themeBtn.innerHTML = t === 'dark' ? '<i class="fas fa-sun"></i>' : '<i class="fas fa-moon"></i>';
-        try {
-            localStorage.setItem('kdc-theme', t)
-        } catch (e) {}
-    }
-    (function() {
-        var s = null;
-        try {
-            s = localStorage.getItem('kdc-theme')
-        } catch (e) {}
-        setTheme(s === 'dark' ? 'dark' : 'light')
-    })();
-    themeBtn.addEventListener('click', function() {
-        setTheme(html.getAttribute('data-theme') === 'dark' ? 'light' : 'dark')
-    });
+    var html = document.documentElement;
+    document.documentElement.setAttribute('data-theme', 'light');
 
     // === VIEW TOGGLE ===
     var viewBtns = document.querySelectorAll('.view-toggle-btn');

@@ -35,20 +35,20 @@ function getInitials($name) {
 }
 
 $committeeColors = [
-    'Executive' => ['bg' => 'rgba(168,61,92,0.18)', 'border' => 'rgba(168,61,92,0.5)', 'text' => '#e88aa0'],
-    'General Governance' => ['bg' => 'rgba(130,80,220,0.18)', 'border' => 'rgba(130,80,220,0.5)', 'text' => '#b890f0'],
-    'Legislative Affairs' => ['bg' => 'rgba(50,150,200,0.18)', 'border' => 'rgba(50,150,200,0.5)', 'text' => '#6ac0e8'],
-    'Ethics' => ['bg' => 'rgba(200,160,50,0.18)', 'border' => 'rgba(200,160,50,0.5)', 'text' => '#e8cc60'],
-    'Health' => ['bg' => 'rgba(50,200,120,0.18)', 'border' => 'rgba(50,200,120,0.5)', 'text' => '#60e8a0'],
-    'Social Services' => ['bg' => 'rgba(200,80,160,0.18)', 'border' => 'rgba(200,80,160,0.5)', 'text' => '#e880c8'],
-    'Infrastructure' => ['bg' => 'rgba(220,160,50,0.18)', 'border' => 'rgba(220,160,50,0.5)', 'text' => '#e8c060'],
-    'Public Works' => ['bg' => 'rgba(80,170,220,0.18)', 'border' => 'rgba(80,170,220,0.5)', 'text' => '#80c8e8'],
-    'Education' => ['bg' => 'rgba(80,190,220,0.18)', 'border' => 'rgba(80,190,220,0.5)', 'text' => '#80d8f0'],
-    'Culture' => ['bg' => 'rgba(220,80,100,0.18)', 'border' => 'rgba(220,80,100,0.5)', 'text' => '#e88090'],
-    'Agriculture' => ['bg' => 'rgba(60,200,80,0.18)', 'border' => 'rgba(60,200,80,0.5)', 'text' => '#70e880'],
-    'Food' => ['bg' => 'rgba(220,180,60,0.18)', 'border' => 'rgba(220,180,60,0.5)', 'text' => '#e8d070'],
+    'Executive' => ['bg' => 'rgba(29,78,216,0.08)', 'border' => 'rgba(29,78,216,0.25)', 'text' => '#1D4ED8'],
+    'General Governance' => ['bg' => 'rgba(130,80,220,0.08)', 'border' => 'rgba(130,80,220,0.25)', 'text' => '#b890f0'],
+    'Legislative Affairs' => ['bg' => 'rgba(50,150,200,0.08)', 'border' => 'rgba(50,150,200,0.25)', 'text' => '#6ac0e8'],
+    'Ethics' => ['bg' => 'rgba(200,160,50,0.08)', 'border' => 'rgba(200,160,50,0.25)', 'text' => '#e8cc60'],
+    'Health' => ['bg' => 'rgba(50,200,120,0.08)', 'border' => 'rgba(50,200,120,0.25)', 'text' => '#60e8a0'],
+    'Social Services' => ['bg' => 'rgba(200,80,160,0.08)', 'border' => 'rgba(200,80,160,0.25)', 'text' => '#e880c8'],
+    'Infrastructure' => ['bg' => 'rgba(220,160,50,0.08)', 'border' => 'rgba(220,160,50,0.25)', 'text' => '#e8c060'],
+    'Public Works' => ['bg' => 'rgba(80,170,220,0.08)', 'border' => 'rgba(80,170,220,0.25)', 'text' => '#80c8e8'],
+    'Education' => ['bg' => 'rgba(80,190,220,0.08)', 'border' => 'rgba(80,190,220,0.25)', 'text' => '#80d8f0'],
+    'Culture' => ['bg' => 'rgba(220,80,100,0.08)', 'border' => 'rgba(220,80,100,0.25)', 'text' => '#e88090'],
+    'Agriculture' => ['bg' => 'rgba(60,200,80,0.08)', 'border' => 'rgba(60,200,80,0.25)', 'text' => '#70e880'],
+    'Food' => ['bg' => 'rgba(220,180,60,0.08)', 'border' => 'rgba(220,180,60,0.25)', 'text' => '#e8d070'],
 ];
-$defaultColor = ['bg' => 'rgba(168,61,92,0.15)', 'border' => 'rgba(168,61,92,0.35)', 'text' => '#d4729a'];
+$defaultColor = ['bg' => 'rgba(29,78,216,0.08)', 'border' => 'rgba(29,78,216,0.2)', 'text' => '#2563EB'];
 
 function getCommitteeColor($tag, $committeeColors, $defaultColor) {
     if (isset($committeeColors[$tag])) return $committeeColors[$tag];
@@ -80,20 +80,20 @@ function getCommitteeColor($tag, $committeeColors, $defaultColor) {
     }
 
     :root {
-        --bg: #060a12;
-        --surface: rgba(14, 18, 30, 0.85);
-        --surface-2: rgba(20, 26, 44, 0.7);
-        --glass: rgba(22, 28, 48, 0.6);
-        --border: rgba(255, 255, 255, 0.05);
-        --border-glow: rgba(168, 61, 92, 0.3);
-        --rose: #A83D5C;
-        --rose-light: #d4729a;
-        --rose-glow: rgba(168, 61, 92, 0.4);
-        --cyan: #3ad8d8;
-        --cyan-glow: rgba(58, 216, 216, 0.3);
-        --text: #c8cdd8;
-        --text-dim: rgba(200, 205, 216, 0.5);
-        --text-bright: #eef0f5;
+        --bg: #F8FAFC;
+        --surface: #FFFFFF;
+        --surface-2: #FFFFFF;
+        --glass: rgba(255, 255, 255, .85);
+        --border: #E2E8F0;
+        --border-glow: rgba(29, 78, 216, .25);
+        --rose: #1D4ED8;
+        --rose-light: #2563EB;
+        --rose-glow: rgba(29, 78, 216, .25);
+        --cyan: #60A5FA;
+        --cyan-glow: rgba(96, 165, 250, .2);
+        --text: #1E293B;
+        --text-dim: #64748B;
+        --text-bright: #0A192F;
     }
 
     body {
@@ -123,7 +123,7 @@ function getCommitteeColor($tag, $committeeColors, $defaultColor) {
     .bg-orb-1 {
         width: 600px;
         height: 600px;
-        background: radial-gradient(circle, rgba(168, 61, 92, 0.25), transparent 70%);
+        background: radial-gradient(circle, rgba(29, 78, 216, 0.25), transparent 70%);
         top: -200px;
         left: -150px;
         animation: orbDrift1 25s ease-in-out infinite;
@@ -132,7 +132,7 @@ function getCommitteeColor($tag, $committeeColors, $defaultColor) {
     .bg-orb-2 {
         width: 400px;
         height: 400px;
-        background: radial-gradient(circle, rgba(58, 216, 216, 0.12), transparent 70%);
+        background: radial-gradient(circle, rgba(96, 165, 250, 0.12), transparent 70%);
         bottom: -100px;
         right: -100px;
         animation: orbDrift2 20s ease-in-out infinite;
@@ -186,7 +186,7 @@ function getCommitteeColor($tag, $committeeColors, $defaultColor) {
     .bg-grid {
         position: absolute;
         inset: 0;
-        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='60' height='60'%3E%3Cpath d='M0 30h60M30 0v60' stroke='%23A83D5C' stroke-width='.15' opacity='.08'/%3E%3C/svg%3E");
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='60' height='60'%3E%3Cpath d='M0 30h60M30 0v60' stroke='%231D4ED8' stroke-width='.15' opacity='.08'/%3E%3C/svg%3E");
         background-size: 60px 60px;
         animation: gridFade 10s ease-in-out infinite;
     }
@@ -215,7 +215,7 @@ function getCommitteeColor($tag, $committeeColors, $defaultColor) {
         justify-content: space-between;
         padding: 0 2.5rem;
         height: 68px;
-        background: rgba(6, 10, 18, 0.7);
+        background: rgba(255, 255, 255, .85);
         backdrop-filter: blur(30px);
         -webkit-backdrop-filter: blur(30px);
         border-bottom: 1px solid var(--border);
@@ -223,8 +223,8 @@ function getCommitteeColor($tag, $committeeColors, $defaultColor) {
     }
 
     .nav.scrolled {
-        background: rgba(6, 10, 18, 0.95);
-        border-bottom-color: rgba(168, 61, 92, 0.1)
+        background: rgba(255, 255, 255, .97);
+        border-bottom-color: rgba(29, 78, 216, .1)
     }
 
     .nav-brand {
@@ -240,8 +240,8 @@ function getCommitteeColor($tag, $committeeColors, $defaultColor) {
         object-fit: contain;
         border-radius: 10px;
         padding: 3px;
-        border: 1px solid rgba(168, 61, 92, 0.2);
-        filter: drop-shadow(0 0 8px rgba(168, 61, 92, 0.2));
+        border: 1px solid rgba(29, 78, 216, 0.2);
+        filter: drop-shadow(0 0 8px rgba(29, 78, 216, 0.2));
     }
 
     .nav-brand-text {
@@ -253,7 +253,7 @@ function getCommitteeColor($tag, $committeeColors, $defaultColor) {
     .nav-brand-text strong {
         font-size: .95rem;
         font-weight: 700;
-        color: #fff
+        color: var(--text-bright)
     }
 
     .nav-brand-text small {
@@ -270,8 +270,8 @@ function getCommitteeColor($tag, $committeeColors, $defaultColor) {
         gap: 8px;
         padding: 9px 20px;
         border-radius: 10px;
-        background: rgba(168, 61, 92, 0.1);
-        border: 1px solid rgba(168, 61, 92, 0.2);
+        background: rgba(29, 78, 216, 0.1);
+        border: 1px solid rgba(29, 78, 216, 0.2);
         color: var(--rose-light);
         font-size: .78rem;
         font-weight: 500;
@@ -280,11 +280,11 @@ function getCommitteeColor($tag, $committeeColors, $defaultColor) {
     }
 
     .nav-back:hover {
-        background: rgba(168, 61, 92, 0.2);
-        border-color: rgba(168, 61, 92, 0.4);
+        background: rgba(29, 78, 216, 0.2);
+        border-color: rgba(29, 78, 216, 0.4);
         color: #fff;
         transform: translateY(-1px);
-        box-shadow: 0 4px 20px rgba(168, 61, 92, 0.2);
+        box-shadow: 0 4px 20px rgba(29, 78, 216, 0.2);
     }
 
     /* ── HERO ── */
@@ -399,8 +399,8 @@ function getCommitteeColor($tag, $committeeColors, $defaultColor) {
         width: 90px;
         height: 90px;
         border-radius: 50%;
-        background: linear-gradient(135deg, rgba(168, 61, 92, 0.15), rgba(58, 216, 216, 0.08));
-        border: 1px solid rgba(168, 61, 92, 0.2);
+        background: linear-gradient(135deg, rgba(29, 78, 216, 0.15), rgba(96, 165, 250, 0.08));
+        border: 1px solid rgba(29, 78, 216, 0.2);
         margin-bottom: 24px;
         position: relative;
         animation: iconFloat 4s ease-in-out infinite;
@@ -411,7 +411,7 @@ function getCommitteeColor($tag, $committeeColors, $defaultColor) {
         position: absolute;
         inset: -8px;
         border-radius: 50%;
-        border: 1px dashed rgba(168, 61, 92, 0.15);
+        border: 1px dashed rgba(29, 78, 216, 0.15);
         animation: iconSpin 20s linear infinite;
     }
 
@@ -420,7 +420,7 @@ function getCommitteeColor($tag, $committeeColors, $defaultColor) {
         position: absolute;
         inset: -16px;
         border-radius: 50%;
-        border: 1px dashed rgba(58, 216, 216, 0.1);
+        border: 1px dashed rgba(96, 165, 250, 0.1);
         animation: iconSpin 30s linear infinite reverse;
     }
 
@@ -455,7 +455,7 @@ function getCommitteeColor($tag, $committeeColors, $defaultColor) {
     .hero h1 {
         font-size: clamp(2.4rem, 5vw, 3.8rem);
         font-weight: 800;
-        color: #fff;
+        color: var(--text-bright);
         letter-spacing: -.03em;
         line-height: 1.1;
         margin-bottom: 12px;
@@ -517,7 +517,7 @@ function getCommitteeColor($tag, $committeeColors, $defaultColor) {
         content: '';
         position: absolute;
         inset: 0;
-        background: linear-gradient(135deg, rgba(168, 61, 92, 0.05), transparent, rgba(58, 216, 216, 0.03));
+        background: linear-gradient(135deg, rgba(29, 78, 216, 0.05), transparent, rgba(96, 165, 250, 0.03));
     }
 
     .hero-stats .stat-num {
@@ -582,7 +582,7 @@ function getCommitteeColor($tag, $committeeColors, $defaultColor) {
         inset: 0;
         border-radius: 24px;
         padding: 1px;
-        background: linear-gradient(135deg, rgba(168, 61, 92, 0.3), transparent 40%, transparent 60%, rgba(58, 216, 216, 0.2));
+        background: linear-gradient(135deg, rgba(29, 78, 216, 0.3), transparent 40%, transparent 60%, rgba(96, 165, 250, 0.2));
         -webkit-mask: linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0);
         mask: linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0);
         -webkit-mask-composite: xor;
@@ -598,7 +598,7 @@ function getCommitteeColor($tag, $committeeColors, $defaultColor) {
 
     .mayor-hero-card:hover {
         transform: perspective(1000px) rotateY(-1deg) translateY(-4px);
-        box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3), 0 0 40px rgba(168, 61, 92, 0.08);
+        box-shadow: 0 20px 60px rgba(10, 25, 47, 0.12), 0 0 40px rgba(29, 78, 216, 0.08);
     }
 
     .mayor-photo-section {
@@ -606,7 +606,7 @@ function getCommitteeColor($tag, $committeeColors, $defaultColor) {
         min-height: 300px;
         flex-shrink: 0;
         position: relative;
-        background: linear-gradient(135deg, rgba(168, 61, 92, 0.08), rgba(20, 26, 44, 0.9));
+        background: linear-gradient(135deg, rgba(29, 78, 216, 0.08), rgba(29, 78, 216, 0.08));
         display: flex;
         align-items: center;
         justify-content: center;
@@ -631,7 +631,7 @@ function getCommitteeColor($tag, $committeeColors, $defaultColor) {
         inset: -6px;
         border: 2px solid var(--rose);
         border-radius: 50%;
-        box-shadow: 0 0 30px var(--rose-glow), inset 0 0 30px rgba(168, 61, 92, 0.1);
+        box-shadow: 0 0 30px var(--rose-glow), inset 0 0 30px rgba(29, 78, 216, 0.1);
         animation: mayorGlow 4s ease-in-out infinite;
     }
 
@@ -639,11 +639,11 @@ function getCommitteeColor($tag, $committeeColors, $defaultColor) {
 
         0%,
         100% {
-            box-shadow: 0 0 20px var(--rose-glow), inset 0 0 20px rgba(168, 61, 92, 0.05)
+            box-shadow: 0 0 20px var(--rose-glow), inset 0 0 20px rgba(29, 78, 216, 0.05)
         }
 
         50% {
-            box-shadow: 0 0 40px var(--rose-glow), 0 0 80px rgba(168, 61, 92, 0.1), inset 0 0 40px rgba(168, 61, 92, 0.1)
+            box-shadow: 0 0 40px var(--rose-glow), 0 0 80px rgba(29, 78, 216, 0.1), inset 0 0 40px rgba(29, 78, 216, 0.1)
         }
     }
 
@@ -654,7 +654,7 @@ function getCommitteeColor($tag, $committeeColors, $defaultColor) {
         object-fit: cover;
         position: relative;
         z-index: 1;
-        background: rgba(30, 36, 54, 0.9);
+        background: rgba(29, 78, 216, 0.08);
     }
 
     .mayor-avatar-frame .initials {
@@ -667,7 +667,7 @@ function getCommitteeColor($tag, $committeeColors, $defaultColor) {
         font-size: 3rem;
         font-weight: 700;
         color: var(--rose-light);
-        background: linear-gradient(135deg, rgba(168, 61, 92, 0.2), rgba(58, 216, 216, 0.1));
+        background: linear-gradient(135deg, rgba(29, 78, 216, 0.2), rgba(96, 165, 250, 0.1));
         position: relative;
         z-index: 1;
     }
@@ -686,8 +686,8 @@ function getCommitteeColor($tag, $committeeColors, $defaultColor) {
         gap: 6px;
         padding: 6px 16px;
         border-radius: 30px;
-        background: rgba(168, 61, 92, 0.12);
-        border: 1px solid rgba(168, 61, 92, 0.25);
+        background: rgba(29, 78, 216, 0.12);
+        border: 1px solid rgba(29, 78, 216, 0.25);
         color: var(--rose-light);
         font-size: .65rem;
         font-weight: 700;
@@ -704,7 +704,7 @@ function getCommitteeColor($tag, $committeeColors, $defaultColor) {
     .mayor-name {
         font-size: 1.6rem;
         font-weight: 800;
-        color: #fff;
+        color: var(--text-bright);
         line-height: 1.2;
         margin-bottom: 10px;
     }
@@ -726,7 +726,7 @@ function getCommitteeColor($tag, $committeeColors, $defaultColor) {
     .mayor-quote {
         padding: 14px 18px;
         border-left: 3px solid var(--rose);
-        background: rgba(168, 61, 92, 0.06);
+        background: rgba(29, 78, 216, 0.06);
         border-radius: 0 12px 12px 0;
         font-size: .78rem;
         color: var(--text-dim);
@@ -756,7 +756,7 @@ function getCommitteeColor($tag, $committeeColors, $defaultColor) {
         content: '';
         position: absolute;
         inset: 0;
-        background: linear-gradient(135deg, rgba(58, 216, 216, 0.03), transparent, rgba(168, 61, 92, 0.03));
+        background: linear-gradient(135deg, rgba(96, 165, 250, 0.03), transparent, rgba(29, 78, 216, 0.03));
         opacity: 0;
         transition: opacity .4s;
         pointer-events: none;
@@ -768,8 +768,8 @@ function getCommitteeColor($tag, $committeeColors, $defaultColor) {
 
     .vice-card:hover {
         transform: perspective(800px) rotateY(1deg) translateY(-4px);
-        box-shadow: 0 16px 50px rgba(0, 0, 0, 0.25), 0 0 30px rgba(58, 216, 216, 0.06);
-        border-color: rgba(58, 216, 216, 0.15);
+        box-shadow: 0 16px 50px rgba(10, 25, 47, 0.10), 0 0 30px rgba(96, 165, 250, 0.06);
+        border-color: rgba(96, 165, 250, 0.15);
     }
 
     .vice-avatar {
@@ -783,7 +783,7 @@ function getCommitteeColor($tag, $committeeColors, $defaultColor) {
         overflow: hidden;
         display: grid;
         place-items: center;
-        background: rgba(58, 216, 216, 0.08);
+        background: rgba(96, 165, 250, 0.08);
         position: relative;
     }
 
@@ -795,7 +795,7 @@ function getCommitteeColor($tag, $committeeColors, $defaultColor) {
         }
 
         50% {
-            box-shadow: 0 0 30px var(--cyan-glow), 0 0 60px rgba(58, 216, 216, 0.1)
+            box-shadow: 0 0 30px var(--cyan-glow), 0 0 60px rgba(96, 165, 250, 0.1)
         }
     }
 
@@ -835,7 +835,7 @@ function getCommitteeColor($tag, $committeeColors, $defaultColor) {
     .vice-name {
         font-size: 1.1rem;
         font-weight: 700;
-        color: #fff;
+        color: var(--text-bright);
         margin-bottom: 6px
     }
 
@@ -883,14 +883,14 @@ function getCommitteeColor($tag, $committeeColors, $defaultColor) {
     .council-header h2 {
         font-size: 1.1rem;
         font-weight: 700;
-        color: #fff;
+        color: var(--text-bright);
     }
 
     .council-header::after {
         content: '';
         flex: 1;
         height: 1px;
-        background: linear-gradient(90deg, rgba(168, 61, 92, 0.2), transparent);
+        background: linear-gradient(90deg, rgba(29, 78, 216, 0.2), transparent);
     }
 
     .council-header .count {
@@ -899,8 +899,8 @@ function getCommitteeColor($tag, $committeeColors, $defaultColor) {
         color: var(--text-dim);
         padding: 4px 12px;
         border-radius: 20px;
-        background: rgba(168, 61, 92, 0.08);
-        border: 1px solid rgba(168, 61, 92, 0.15);
+        background: rgba(29, 78, 216, 0.08);
+        border: 1px solid rgba(29, 78, 216, 0.15);
     }
 
     /* ── COUNCIL GRID ── */
@@ -945,7 +945,7 @@ function getCommitteeColor($tag, $committeeColors, $defaultColor) {
         inset: 0;
         border-radius: 18px;
         padding: 1px;
-        background: linear-gradient(135deg, rgba(168, 61, 92, 0.2), transparent 50%, rgba(58, 216, 216, 0.1));
+        background: linear-gradient(135deg, rgba(29, 78, 216, 0.2), transparent 50%, rgba(96, 165, 250, 0.1));
         -webkit-mask: linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0);
         mask: linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0);
         -webkit-mask-composite: xor;
@@ -957,8 +957,8 @@ function getCommitteeColor($tag, $committeeColors, $defaultColor) {
 
     .council-card:hover {
         transform: perspective(800px) rotateY(2deg) rotateX(-1deg) translateY(-6px);
-        border-color: rgba(168, 61, 92, 0.15);
-        box-shadow: 0 16px 50px rgba(0, 0, 0, 0.25), 0 0 30px rgba(168, 61, 92, 0.06);
+        border-color: rgba(29, 78, 216, 0.15);
+        box-shadow: 0 16px 50px rgba(10, 25, 47, 0.10), 0 0 30px rgba(29, 78, 216, 0.06);
     }
 
     .council-card:hover::before,
@@ -983,8 +983,8 @@ function getCommitteeColor($tag, $committeeColors, $defaultColor) {
         position: absolute;
         inset: -4px;
         border-radius: 50%;
-        border: 2px solid rgba(168, 61, 92, 0.4);
-        box-shadow: 0 0 15px rgba(168, 61, 92, 0.15);
+        border: 2px solid rgba(29, 78, 216, 0.4);
+        box-shadow: 0 0 15px rgba(29, 78, 216, 0.15);
         transition: all .4s;
     }
 
@@ -1000,7 +1000,7 @@ function getCommitteeColor($tag, $committeeColors, $defaultColor) {
         object-fit: cover;
         position: relative;
         z-index: 1;
-        background: rgba(30, 36, 54, 0.9);
+        background: rgba(29, 78, 216, 0.08);
     }
 
     .council-avatar .initials {
@@ -1013,7 +1013,7 @@ function getCommitteeColor($tag, $committeeColors, $defaultColor) {
         font-size: 1.5rem;
         font-weight: 700;
         color: var(--rose-light);
-        background: linear-gradient(135deg, rgba(168, 61, 92, 0.2), rgba(58, 216, 216, 0.08));
+        background: linear-gradient(135deg, rgba(29, 78, 216, 0.2), rgba(96, 165, 250, 0.08));
         position: relative;
         z-index: 1;
     }
@@ -1021,7 +1021,7 @@ function getCommitteeColor($tag, $committeeColors, $defaultColor) {
     .council-name {
         font-size: .88rem;
         font-weight: 700;
-        color: #fff;
+        color: var(--text-bright);
         line-height: 1.3;
         margin-bottom: 4px;
     }
@@ -1042,8 +1042,8 @@ function getCommitteeColor($tag, $committeeColors, $defaultColor) {
         text-align: left;
         padding: 10px 12px;
         margin-bottom: 12px;
-        border-left: 2px solid rgba(168, 61, 92, 0.3);
-        background: rgba(168, 61, 92, 0.03);
+        border-left: 2px solid rgba(29, 78, 216, 0.3);
+        background: rgba(29, 78, 216, 0.03);
         border-radius: 0 8px 8px 0;
         line-height: 1.55;
     }
@@ -1063,7 +1063,7 @@ function getCommitteeColor($tag, $committeeColors, $defaultColor) {
 
     .empty-state i {
         font-size: 3rem;
-        color: rgba(168, 61, 92, 0.2);
+        color: rgba(29, 78, 216, 0.2);
         margin-bottom: 16px
     }
 
@@ -1087,7 +1087,7 @@ function getCommitteeColor($tag, $committeeColors, $defaultColor) {
         text-align: center;
         padding: 40px 2rem;
         border-top: 1px solid var(--border);
-        background: rgba(6, 10, 18, 0.9);
+        background: rgba(248, 250, 252, 0.9);
     }
 
     .footer-brand {
@@ -1341,12 +1341,12 @@ function getCommitteeColor($tag, $committeeColors, $defaultColor) {
     }
 
     ::-webkit-scrollbar-thumb {
-        background: rgba(168, 61, 92, 0.3);
+        background: rgba(29, 78, 216, 0.3);
         border-radius: 3px
     }
 
     ::-webkit-scrollbar-thumb:hover {
-        background: rgba(168, 61, 92, 0.5)
+        background: rgba(29, 78, 216, 0.5)
     }
     </style>
 </head>

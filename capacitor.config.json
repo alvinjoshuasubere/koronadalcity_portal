@@ -1,0 +1,16 @@
+{
+  "appId": "com.koronadalcity.portal",
+  "appName": "Koronadal City Portal",
+  "webDir": "www",
+  "server": {
+    "androidScheme": "https"
+  },
+  "android": {
+    "buildOptions": {
+      "keystorePath": "release-key.keystore",
+      "keystorePassword": "koronadal2024",
+      "keystoreAlias": "koronadal",
+      "keystoreAliasPassword": "koronadal2024"
+    }
+  }
+}

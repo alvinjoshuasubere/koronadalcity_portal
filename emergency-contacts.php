@@ -23,7 +23,7 @@ $typeConfig = [
     'hospital' => ['icon' => 'fa-hospital',       'color' => '#22c55e', 'label' => 'Hospital'],
     'medical'  => ['icon' => 'fa-heart-pulse',    'color' => '#ef4444', 'label' => 'Medical'],
     'disaster' => ['icon' => 'fa-triangle-exclamation', 'color' => '#f59e0b', 'label' => 'Disaster'],
-    'general'  => ['icon' => 'fa-phone',           'color' => '#A83D5C', 'label' => 'General'],
+    'general'  => ['icon' => 'fa-phone',           'color' => '#1D4ED8', 'label' => 'General'],
 ];
 ?>
 <!DOCTYPE html>
@@ -32,7 +32,7 @@ $typeConfig = [
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="theme-color" content="#0B0E14">
+    <meta name="theme-color" content="#0A192F">
     <title>Emergency Contacts — Koronadal City</title>
     <link rel="icon" type="image/x-icon" href="favicon.ico">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -54,8 +54,8 @@ $typeConfig = [
 
     body {
         font-family: 'Sora', ui-sans-serif, system-ui, sans-serif;
-        background: #0B0E14;
-        color: #E2E4EA;
+        background: #F8FAFC;
+        color: #1E293B;
         -webkit-font-smoothing: antialiased;
         -moz-osx-font-smoothing: grayscale;
         line-height: 1.6;
@@ -67,7 +67,7 @@ $typeConfig = [
     }
 
     ::selection {
-        background: #A83D5C;
+        background: #1D4ED8;
         color: #fff;
     }
 
@@ -100,7 +100,7 @@ $typeConfig = [
     .orb-1 {
         width: 500px;
         height: 500px;
-        background: radial-gradient(circle, rgba(168, 61, 92, 0.35), transparent 70%);
+        background: radial-gradient(circle, rgba(29, 78, 216, 0.35), transparent 70%);
         top: -15%;
         right: -10%;
         animation: floatOrb 22s ease-in-out infinite alternate;
@@ -109,7 +109,7 @@ $typeConfig = [
     .orb-2 {
         width: 350px;
         height: 350px;
-        background: radial-gradient(circle, rgba(168, 61, 92, 0.2), transparent 70%);
+        background: radial-gradient(circle, rgba(29, 78, 216, 0.2), transparent 70%);
         bottom: 10%;
         left: -8%;
         animation: floatOrb 18s ease-in-out infinite alternate-reverse;
@@ -119,7 +119,7 @@ $typeConfig = [
     .orb-3 {
         width: 280px;
         height: 280px;
-        background: radial-gradient(circle, rgba(140, 40, 72, 0.25), transparent 70%);
+        background: radial-gradient(circle, rgba(29, 78, 216, 0.25), transparent 70%);
         top: 45%;
         right: 15%;
         animation: floatOrb 25s ease-in-out infinite alternate;
@@ -152,10 +152,10 @@ $typeConfig = [
         right: 0;
         z-index: 100;
         height: 60px;
-        background: rgba(11, 14, 20, 0.75);
+        background: rgba(255,255,255,.85);
         backdrop-filter: blur(24px);
         -webkit-backdrop-filter: blur(24px);
-        border-bottom: 1px solid rgba(226, 228, 234, 0.06);
+        border-bottom: 1px solid #E2E8F0;
     }
 
     .navbar-in {
@@ -179,10 +179,10 @@ $typeConfig = [
         height: 38px;
         border-radius: 8px;
         object-fit: contain;
-        background: rgba(22, 27, 38, 0.8);
+        background: #fff;
         padding: 4px;
-        border: 1px solid rgba(255, 255, 255, 0.08);
-        box-shadow: 0 0 15px rgba(168, 61, 92, 0.3);
+        border: 1px solid #E2E8F0;
+        box-shadow: 0 0 15px rgba(29, 78, 216, 0.25);
     }
 
     .brand-text {
@@ -193,7 +193,7 @@ $typeConfig = [
     .brand-text strong {
         font-size: 0.95rem;
         font-weight: 700;
-        color: #E2E4EA;
+        color: #0A192F;
         line-height: 1.15;
     }
 
@@ -202,7 +202,7 @@ $typeConfig = [
         font-weight: 600;
         letter-spacing: 0.08em;
         text-transform: uppercase;
-        color: #A83D5C;
+        color: #1D4ED8;
     }
 
     .nav-back {
@@ -211,9 +211,9 @@ $typeConfig = [
         gap: 7px;
         padding: 8px 16px;
         border-radius: 8px;
-        background: rgba(255, 255, 255, 0.06);
-        border: 1px solid rgba(255, 255, 255, 0.08);
-        color: #9DA2B0;
+        background: #fff;
+        border: 1px solid #E2E8F0;
+        color: #64748B;
         font-size: 0.72rem;
         font-weight: 600;
         font-family: 'Sora', sans-serif;
@@ -224,10 +224,10 @@ $typeConfig = [
     }
 
     .nav-back:hover {
-        background: rgba(168, 61, 92, 0.15);
-        border-color: rgba(168, 61, 92, 0.3);
-        color: #A83D5C;
-        box-shadow: 0 0 20px rgba(168, 61, 92, 0.15);
+        background: rgba(29, 78, 216, 0.08);
+        border-color: rgba(29, 78, 216, 0.3);
+        color: #1D4ED8;
+        box-shadow: 0 0 20px rgba(29, 78, 216, 0.15);
     }
 
     .nav-back i {
@@ -246,7 +246,7 @@ $typeConfig = [
         content: '';
         position: absolute;
         inset: 0;
-        background: radial-gradient(ellipse at 50% 30%, rgba(168, 61, 92, 0.12), transparent 65%);
+        background: radial-gradient(ellipse at 50% 30%, rgba(29, 78, 216, 0.12), transparent 65%);
         pointer-events: none;
     }
 
@@ -255,7 +255,7 @@ $typeConfig = [
         position: absolute;
         inset: 0;
         opacity: 0.03;
-        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='60' height='60'%3E%3Cpath d='M0 30h60M30 0v60' stroke='%23A83D5C' stroke-width='.3'/%3E%3Ccircle cx='30' cy='30' r='1.5' fill='%23A83D5C' opacity='.3'/%3E%3C/svg%3E");
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='60' height='60'%3E%3Cpath d='M0 30h60M30 0v60' stroke='%231D4ED8' stroke-width='.3'/%3E%3Ccircle cx='30' cy='30' r='1.5' fill='%231D4ED8' opacity='.3'/%3E%3C/svg%3E");
         background-size: 60px 60px;
         pointer-events: none;
     }
@@ -276,12 +276,12 @@ $typeConfig = [
         width: 80px;
         height: 80px;
         border-radius: 50%;
-        background: rgba(168, 61, 92, 0.12);
-        border: 1px solid rgba(168, 61, 92, 0.2);
+        background: rgba(29, 78, 216, 0.12);
+        border: 1px solid rgba(29, 78, 216, 0.2);
         display: grid;
         place-items: center;
         font-size: 2rem;
-        color: #A83D5C;
+        color: #1D4ED8;
         position: relative;
         z-index: 2;
     }
@@ -294,7 +294,7 @@ $typeConfig = [
         height: 80px;
         transform: translate(-50%, -50%);
         border-radius: 50%;
-        border: 2px solid rgba(168, 61, 92, 0.25);
+        border: 2px solid rgba(29, 78, 216, 0.25);
         animation: pulseRing 2.5s cubic-bezier(0.4, 0, 0.2, 1) infinite;
     }
 
@@ -317,23 +317,23 @@ $typeConfig = [
     .hero h1 {
         font-size: clamp(2rem, 6vw, 3.2rem);
         font-weight: 800;
-        color: #fff;
+        color: #0A192F;
         letter-spacing: -0.04em;
         margin-bottom: 12px;
-        text-shadow: 0 0 40px rgba(168, 61, 92, 0.35), 0 0 80px rgba(168, 61, 92, 0.15);
+        text-shadow: 0 0 40px rgba(29, 78, 216, 0.2), 0 0 80px rgba(29, 78, 216, 0.08);
     }
 
     .hero h1 .hl {
-        background: linear-gradient(135deg, #A83D5C, #D06882, #E8919F);
+        background: linear-gradient(135deg, #0F2C59, #1D4ED8, #2563EB);
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
         background-clip: text;
-        filter: drop-shadow(0 0 25px rgba(168, 61, 92, 0.4));
+        filter: drop-shadow(0 0 25px rgba(29, 78, 216, 0.4));
     }
 
     .hero-sub {
         font-size: clamp(0.82rem, 2vw, 1rem);
-        color: rgba(255, 255, 255, 0.45);
+        color: rgba(30, 41, 59, 0.55);
         max-width: 440px;
         margin: 0 auto 32px;
         line-height: 1.7;
@@ -343,13 +343,13 @@ $typeConfig = [
     .stats-bar {
         display: inline-flex;
         gap: 4px;
-        background: rgba(22, 27, 38, 0.7);
-        border: 1px solid rgba(255, 255, 255, 0.06);
+        background: #fff;
+        border: 1px solid #E2E8F0;
         border-radius: 14px;
         padding: 10px 8px;
         backdrop-filter: blur(20px);
         -webkit-backdrop-filter: blur(20px);
-        box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3);
+        box-shadow: 0 4px 30px rgba(10, 25, 47, 0.10);
         flex-wrap: wrap;
         justify-content: center;
     }
@@ -363,20 +363,20 @@ $typeConfig = [
     }
 
     .stat-item:hover {
-        background: rgba(168, 61, 92, 0.1);
+        background: rgba(29, 78, 216, 0.1);
     }
 
     .stat-num {
         font-size: 1.4rem;
         font-weight: 800;
-        color: #A83D5C;
+        color: #1D4ED8;
         line-height: 1;
-        text-shadow: 0 0 15px rgba(168, 61, 92, 0.4);
+        text-shadow: 0 0 15px rgba(29, 78, 216, 0.4);
     }
 
     .stat-label {
         font-size: 0.52rem;
-        color: rgba(255, 255, 255, 0.35);
+        color: rgba(30, 41, 59, 0.55);
         font-weight: 600;
         text-transform: uppercase;
         letter-spacing: 0.06em;
@@ -385,7 +385,7 @@ $typeConfig = [
 
     .stat-divider {
         width: 1px;
-        background: rgba(255, 255, 255, 0.06);
+        background: #E2E8F0;
         align-self: stretch;
         margin: 4px 2px;
     }
@@ -406,7 +406,7 @@ $typeConfig = [
         gap: 10px;
         font-size: 0.58rem;
         font-weight: 700;
-        color: #A83D5C;
+        color: #1D4ED8;
         text-transform: uppercase;
         letter-spacing: 0.14em;
         margin-bottom: 28px;
@@ -420,7 +420,7 @@ $typeConfig = [
         content: '';
         flex: 1;
         height: 1px;
-        background: linear-gradient(90deg, rgba(168, 61, 92, 0.3), transparent);
+        background: linear-gradient(90deg, rgba(29, 78, 216, 0.3), transparent);
     }
 
     /* ===== CARDS GRID ===== */
@@ -432,10 +432,10 @@ $typeConfig = [
     }
 
     .contact-card {
-        background: rgba(22, 27, 38, 0.8);
+        background: #fff;
         backdrop-filter: blur(20px);
         -webkit-backdrop-filter: blur(20px);
-        border: 1px solid rgba(255, 255, 255, 0.06);
+        border: 1px solid #E2E8F0;
         border-radius: 16px;
         padding: 28px 24px;
         display: flex;
@@ -461,7 +461,7 @@ $typeConfig = [
         inset: -1px;
         border-radius: 16px;
         border: 1px solid transparent;
-        background: linear-gradient(135deg, rgba(168, 61, 92, 0.25), transparent 50%) border-box;
+        background: linear-gradient(135deg, rgba(29, 78, 216, 0.25), transparent 50%) border-box;
         -webkit-mask: linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0);
         mask: linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0);
         -webkit-mask-composite: xor;
@@ -473,7 +473,7 @@ $typeConfig = [
 
     .contact-card:hover {
         transform: perspective(800px) rotateX(2deg) rotateY(-2deg) translateY(-5px);
-        box-shadow: 0 0 30px rgba(168, 61, 92, 0.3);
+        box-shadow: 0 0 30px rgba(29, 78, 216, 0.3);
     }
 
     .contact-card:hover::before {
@@ -578,12 +578,12 @@ $typeConfig = [
     }
 
     .type-general .type-icon {
-        background: rgba(168, 61, 92, 0.12);
-        color: #A83D5C;
+        background: rgba(29, 78, 216, 0.12);
+        color: #1D4ED8;
     }
 
     .type-general .type-icon::after {
-        box-shadow: 0 0 20px rgba(168, 61, 92, 0.4);
+        box-shadow: 0 0 20px rgba(29, 78, 216, 0.4);
     }
 
     .contact-card:hover .type-icon {
@@ -627,20 +627,20 @@ $typeConfig = [
     }
 
     .type-general .type-badge {
-        background: rgba(168, 61, 92, 0.12);
-        color: #A83D5C;
+        background: rgba(29, 78, 216, 0.12);
+        color: #1D4ED8;
     }
 
     .card-name {
         font-size: 1.02rem;
         font-weight: 700;
-        color: #E2E4EA;
+        color: #0A192F;
         line-height: 1.25;
     }
 
     .card-desc {
         font-size: 0.78rem;
-        color: rgba(255, 255, 255, 0.4);
+        color: rgba(30, 41, 59, 0.55);
         line-height: 1.6;
         flex: 1;
     }
@@ -652,15 +652,15 @@ $typeConfig = [
         gap: 10px;
         padding: 14px 18px;
         border-radius: 12px;
-        background: rgba(255, 255, 255, 0.04);
-        border: 1px solid rgba(255, 255, 255, 0.06);
+        background: #F0F5FF;
+        border: 1px solid #E2E8F0;
         transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
         margin-top: 4px;
     }
 
     .card-phone:hover {
-        background: rgba(168, 61, 92, 0.12);
-        border-color: rgba(168, 61, 92, 0.3);
+        background: rgba(29, 78, 216, 0.12);
+        border-color: rgba(29, 78, 216, 0.3);
     }
 
     .card-phone-icon {
@@ -689,7 +689,7 @@ $typeConfig = [
     }
 
     .type-general .card-phone-icon {
-        color: #A83D5C;
+        color: #1D4ED8;
     }
 
     .card-phone-num {
@@ -720,7 +720,7 @@ $typeConfig = [
     }
 
     .type-general .card-phone-num {
-        color: #A83D5C;
+        color: #1D4ED8;
     }
 
     .type-police .card-phone:hover .card-phone-num {
@@ -744,19 +744,19 @@ $typeConfig = [
     }
 
     .type-general .card-phone:hover .card-phone-num {
-        text-shadow: 0 0 20px rgba(168, 61, 92, 0.5);
+        text-shadow: 0 0 20px rgba(29, 78, 216, 0.5);
     }
 
     .card-phone-call {
         font-size: 0.62rem;
         font-weight: 600;
-        color: rgba(255, 255, 255, 0.3);
+        color: #64748B;
         margin-left: auto;
         transition: color 0.2s;
     }
 
     .card-phone:hover .card-phone-call {
-        color: #fff;
+        color: #1D4ED8;
     }
 
     /* Empty state */
@@ -768,26 +768,26 @@ $typeConfig = [
 
     .empty-state i {
         font-size: 2.5rem;
-        color: rgba(168, 61, 92, 0.3);
+        color: rgba(29, 78, 216, 0.3);
         margin-bottom: 16px;
     }
 
     .empty-state h3 {
         font-size: 1.1rem;
         font-weight: 700;
-        color: rgba(255, 255, 255, 0.6);
+        color: #0A192F;
         margin-bottom: 8px;
     }
 
     .empty-state p {
         font-size: 0.82rem;
-        color: rgba(255, 255, 255, 0.3);
+        color: #64748B;
     }
 
     /* ===== FOOTER ===== */
     .footer {
-        background: #080A0F;
-        border-top: 1px solid rgba(255, 255, 255, 0.04);
+        background: #F8FAFC;
+        border-top: 1px solid #E2E8F0;
         padding: 40px 20px 24px;
         margin-top: auto;
         position: relative;
@@ -800,7 +800,7 @@ $typeConfig = [
         left: 0;
         right: 0;
         height: 1px;
-        background: linear-gradient(90deg, transparent, rgba(168, 61, 92, 0.4), transparent);
+        background: linear-gradient(90deg, transparent, rgba(29, 78, 216, 0.4), transparent);
     }
 
     .footer-in {
@@ -823,27 +823,27 @@ $typeConfig = [
         width: 32px;
         height: 32px;
         border-radius: 6px;
-        background: rgba(22, 27, 38, 0.6);
+        background: #fff;
         padding: 3px;
-        border: 1px solid rgba(255, 255, 255, 0.06);
+        border: 1px solid #E2E8F0;
     }
 
     .footer-brand strong {
         font-size: 0.82rem;
         font-weight: 700;
-        color: rgba(255, 255, 255, 0.5);
+        color: #0A192F;
     }
 
     .footer-brand small {
         display: block;
         font-size: 0.52rem;
-        color: rgba(255, 255, 255, 0.2);
+        color: #64748B;
         font-weight: 500;
     }
 
     .footer-copy {
         font-size: 0.62rem;
-        color: rgba(255, 255, 255, 0.2);
+        color: #64748B;
         font-weight: 500;
     }
 
