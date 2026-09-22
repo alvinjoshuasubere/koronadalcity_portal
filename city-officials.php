@@ -35,7 +35,7 @@ function getInitials($name) {
 }
 
 $committeeColors = [
-    'Executive' => ['bg' => 'rgba(45,138,87,0.08)', 'border' => 'rgba(45,138,87,0.25)', 'text' => '#2D8A57'],
+    'Executive' => ['bg' => 'rgba(23,105,170,0.08)', 'border' => 'rgba(23,105,170,0.25)', 'text' => '#1769AA'],
     'General Governance' => ['bg' => 'rgba(130,80,220,0.08)', 'border' => 'rgba(130,80,220,0.25)', 'text' => '#b890f0'],
     'Legislative Affairs' => ['bg' => 'rgba(50,150,200,0.08)', 'border' => 'rgba(50,150,200,0.25)', 'text' => '#6ac0e8'],
     'Ethics' => ['bg' => 'rgba(200,160,50,0.08)', 'border' => 'rgba(200,160,50,0.25)', 'text' => '#e8cc60'],
@@ -48,7 +48,7 @@ $committeeColors = [
     'Agriculture' => ['bg' => 'rgba(60,200,80,0.08)', 'border' => 'rgba(60,200,80,0.25)', 'text' => '#70e880'],
     'Food' => ['bg' => 'rgba(220,180,60,0.08)', 'border' => 'rgba(220,180,60,0.25)', 'text' => '#e8d070'],
 ];
-$defaultColor = ['bg' => 'rgba(45,138,87,0.08)', 'border' => 'rgba(45,138,87,0.2)', 'text' => '#35A96E'];
+$defaultColor = ['bg' => 'rgba(23,105,170,0.08)', 'border' => 'rgba(23,105,170,0.2)', 'text' => '#3D8FD1'];
 
 function getCommitteeColor($tag, $committeeColors, $defaultColor) {
     if (isset($committeeColors[$tag])) return $committeeColors[$tag];
@@ -64,6 +64,7 @@ function getCommitteeColor($tag, $committeeColors, $defaultColor) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#1769AA">
     <title>City Officials Directory - Koronadal City</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -85,15 +86,15 @@ function getCommitteeColor($tag, $committeeColors, $defaultColor) {
         --surface-2: #FFFFFF;
         --glass: rgba(255, 255, 255, .85);
         --border: #E2E8F0;
-        --border-glow: rgba(45, 138, 87, .25);
-        --rose: #2D8A57;
-        --rose-light: #35A96E;
-        --rose-glow: rgba(45, 138, 87, .25);
-        --cyan: #62A85D;
-        --cyan-glow: rgba(98, 168, 93, .2);
+        --border-glow: rgba(23, 105, 170, .25);
+        --rose: #1769AA;
+        --rose-light: #3D8FD1;
+        --rose-glow: rgba(23, 105, 170, .25);
+        --cyan: #3D8FD1;
+        --cyan-glow: rgba(61, 143, 209, .2);
         --text: #1E293B;
         --text-dim: #64748B;
-        --text-bright: #123524;
+        --text-bright: #163A5F;
     }
 
     body {
@@ -123,7 +124,7 @@ function getCommitteeColor($tag, $committeeColors, $defaultColor) {
     .bg-orb-1 {
         width: 600px;
         height: 600px;
-        background: radial-gradient(circle, rgba(45, 138, 87, 0.25), transparent 70%);
+        background: radial-gradient(circle, rgba(23, 105, 170, 0.25), transparent 70%);
         top: -200px;
         left: -150px;
         animation: orbDrift1 25s ease-in-out infinite;
@@ -132,7 +133,7 @@ function getCommitteeColor($tag, $committeeColors, $defaultColor) {
     .bg-orb-2 {
         width: 400px;
         height: 400px;
-        background: radial-gradient(circle, rgba(98, 168, 93, 0.12), transparent 70%);
+        background: radial-gradient(circle, rgba(61, 143, 209, 0.12), transparent 70%);
         bottom: -100px;
         right: -100px;
         animation: orbDrift2 20s ease-in-out infinite;
@@ -224,7 +225,7 @@ function getCommitteeColor($tag, $committeeColors, $defaultColor) {
 
     .nav.scrolled {
         background: rgba(255, 255, 255, .97);
-        border-bottom-color: rgba(45, 138, 87, .1)
+        border-bottom-color: rgba(23, 105, 170, .1)
     }
 
     .nav-brand {
@@ -240,8 +241,8 @@ function getCommitteeColor($tag, $committeeColors, $defaultColor) {
         object-fit: contain;
         border-radius: 10px;
         padding: 3px;
-        border: 1px solid rgba(45, 138, 87, 0.2);
-        filter: drop-shadow(0 0 8px rgba(45, 138, 87, 0.2));
+        border: 1px solid rgba(23, 105, 170, 0.2);
+        filter: drop-shadow(0 0 8px rgba(23, 105, 170, 0.2));
     }
 
     .nav-brand-text {
@@ -270,8 +271,8 @@ function getCommitteeColor($tag, $committeeColors, $defaultColor) {
         gap: 8px;
         padding: 9px 20px;
         border-radius: 10px;
-        background: rgba(45, 138, 87, 0.1);
-        border: 1px solid rgba(45, 138, 87, 0.2);
+        background: rgba(23, 105, 170, 0.1);
+        border: 1px solid rgba(23, 105, 170, 0.2);
         color: var(--rose-light);
         font-size: .78rem;
         font-weight: 500;
@@ -280,11 +281,11 @@ function getCommitteeColor($tag, $committeeColors, $defaultColor) {
     }
 
     .nav-back:hover {
-        background: rgba(45, 138, 87, 0.2);
-        border-color: rgba(45, 138, 87, 0.4);
+        background: rgba(23, 105, 170, 0.2);
+        border-color: rgba(23, 105, 170, 0.4);
         color: #fff;
         transform: translateY(-1px);
-        box-shadow: 0 4px 20px rgba(45, 138, 87, 0.2);
+        box-shadow: 0 4px 20px rgba(23, 105, 170, 0.2);
     }
 
     /* ── HERO ── */
@@ -399,8 +400,8 @@ function getCommitteeColor($tag, $committeeColors, $defaultColor) {
         width: 90px;
         height: 90px;
         border-radius: 50%;
-        background: linear-gradient(135deg, rgba(45, 138, 87, 0.15), rgba(98, 168, 93, 0.08));
-        border: 1px solid rgba(45, 138, 87, 0.2);
+        background: linear-gradient(135deg, rgba(23, 105, 170, 0.15), rgba(61, 143, 209, 0.08));
+        border: 1px solid rgba(23, 105, 170, 0.2);
         margin-bottom: 24px;
         position: relative;
         animation: iconFloat 4s ease-in-out infinite;
@@ -411,7 +412,7 @@ function getCommitteeColor($tag, $committeeColors, $defaultColor) {
         position: absolute;
         inset: -8px;
         border-radius: 50%;
-        border: 1px dashed rgba(45, 138, 87, 0.15);
+        border: 1px dashed rgba(23, 105, 170, 0.15);
         animation: iconSpin 20s linear infinite;
     }
 
@@ -420,7 +421,7 @@ function getCommitteeColor($tag, $committeeColors, $defaultColor) {
         position: absolute;
         inset: -16px;
         border-radius: 50%;
-        border: 1px dashed rgba(98, 168, 93, 0.1);
+        border: 1px dashed rgba(61, 143, 209, 0.1);
         animation: iconSpin 30s linear infinite reverse;
     }
 
@@ -517,7 +518,7 @@ function getCommitteeColor($tag, $committeeColors, $defaultColor) {
         content: '';
         position: absolute;
         inset: 0;
-        background: linear-gradient(135deg, rgba(45, 138, 87, 0.05), transparent, rgba(98, 168, 93, 0.03));
+        background: linear-gradient(135deg, rgba(23, 105, 170, 0.05), transparent, rgba(61, 143, 209, 0.03));
     }
 
     .hero-stats .stat-num {
@@ -582,7 +583,7 @@ function getCommitteeColor($tag, $committeeColors, $defaultColor) {
         inset: 0;
         border-radius: 24px;
         padding: 1px;
-        background: linear-gradient(135deg, rgba(45, 138, 87, 0.3), transparent 40%, transparent 60%, rgba(98, 168, 93, 0.2));
+        background: linear-gradient(135deg, rgba(23, 105, 170, 0.3), transparent 40%, transparent 60%, rgba(61, 143, 209, 0.2));
         -webkit-mask: linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0);
         mask: linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0);
         -webkit-mask-composite: xor;
@@ -598,7 +599,7 @@ function getCommitteeColor($tag, $committeeColors, $defaultColor) {
 
     .mayor-hero-card:hover {
         transform: perspective(1000px) rotateY(-1deg) translateY(-4px);
-        box-shadow: 0 20px 60px rgba(18, 53, 36, 0.12), 0 0 40px rgba(45, 138, 87, 0.08);
+        box-shadow: 0 20px 60px rgba(22, 58, 95, 0.12), 0 0 40px rgba(23, 105, 170, 0.08);
     }
 
     .mayor-photo-section {
@@ -606,7 +607,7 @@ function getCommitteeColor($tag, $committeeColors, $defaultColor) {
         min-height: 300px;
         flex-shrink: 0;
         position: relative;
-        background: linear-gradient(135deg, rgba(45, 138, 87, 0.08), rgba(45, 138, 87, 0.08));
+        background: linear-gradient(135deg, rgba(23, 105, 170, 0.08), rgba(23, 105, 170, 0.08));
         display: flex;
         align-items: center;
         justify-content: center;
@@ -631,7 +632,7 @@ function getCommitteeColor($tag, $committeeColors, $defaultColor) {
         inset: -6px;
         border: 2px solid var(--rose);
         border-radius: 50%;
-        box-shadow: 0 0 30px var(--rose-glow), inset 0 0 30px rgba(45, 138, 87, 0.1);
+        box-shadow: 0 0 30px var(--rose-glow), inset 0 0 30px rgba(23, 105, 170, 0.1);
         animation: mayorGlow 4s ease-in-out infinite;
     }
 
@@ -639,11 +640,11 @@ function getCommitteeColor($tag, $committeeColors, $defaultColor) {
 
         0%,
         100% {
-            box-shadow: 0 0 20px var(--rose-glow), inset 0 0 20px rgba(45, 138, 87, 0.05)
+            box-shadow: 0 0 20px var(--rose-glow), inset 0 0 20px rgba(23, 105, 170, 0.05)
         }
 
         50% {
-            box-shadow: 0 0 40px var(--rose-glow), 0 0 80px rgba(45, 138, 87, 0.1), inset 0 0 40px rgba(45, 138, 87, 0.1)
+            box-shadow: 0 0 40px var(--rose-glow), 0 0 80px rgba(23, 105, 170, 0.1), inset 0 0 40px rgba(23, 105, 170, 0.1)
         }
     }
 
@@ -654,7 +655,7 @@ function getCommitteeColor($tag, $committeeColors, $defaultColor) {
         object-fit: cover;
         position: relative;
         z-index: 1;
-        background: rgba(45, 138, 87, 0.08);
+        background: rgba(23, 105, 170, 0.08);
     }
 
     .mayor-avatar-frame .initials {
@@ -667,7 +668,7 @@ function getCommitteeColor($tag, $committeeColors, $defaultColor) {
         font-size: 3rem;
         font-weight: 700;
         color: var(--rose-light);
-        background: linear-gradient(135deg, rgba(45, 138, 87, 0.2), rgba(98, 168, 93, 0.1));
+        background: linear-gradient(135deg, rgba(23, 105, 170, 0.2), rgba(61, 143, 209, 0.1));
         position: relative;
         z-index: 1;
     }
@@ -686,8 +687,8 @@ function getCommitteeColor($tag, $committeeColors, $defaultColor) {
         gap: 6px;
         padding: 6px 16px;
         border-radius: 30px;
-        background: rgba(45, 138, 87, 0.12);
-        border: 1px solid rgba(45, 138, 87, 0.25);
+        background: rgba(23, 105, 170, 0.12);
+        border: 1px solid rgba(23, 105, 170, 0.25);
         color: var(--rose-light);
         font-size: .65rem;
         font-weight: 700;
@@ -726,7 +727,7 @@ function getCommitteeColor($tag, $committeeColors, $defaultColor) {
     .mayor-quote {
         padding: 14px 18px;
         border-left: 3px solid var(--rose);
-        background: rgba(45, 138, 87, 0.06);
+        background: rgba(23, 105, 170, 0.06);
         border-radius: 0 12px 12px 0;
         font-size: .78rem;
         color: var(--text-dim);
@@ -756,7 +757,7 @@ function getCommitteeColor($tag, $committeeColors, $defaultColor) {
         content: '';
         position: absolute;
         inset: 0;
-        background: linear-gradient(135deg, rgba(98, 168, 93, 0.03), transparent, rgba(45, 138, 87, 0.03));
+        background: linear-gradient(135deg, rgba(61, 143, 209, 0.03), transparent, rgba(23, 105, 170, 0.03));
         opacity: 0;
         transition: opacity .4s;
         pointer-events: none;
@@ -768,8 +769,8 @@ function getCommitteeColor($tag, $committeeColors, $defaultColor) {
 
     .vice-card:hover {
         transform: perspective(800px) rotateY(1deg) translateY(-4px);
-        box-shadow: 0 16px 50px rgba(18, 53, 36, 0.10), 0 0 30px rgba(98, 168, 93, 0.06);
-        border-color: rgba(98, 168, 93, 0.15);
+        box-shadow: 0 16px 50px rgba(22, 58, 95, 0.10), 0 0 30px rgba(61, 143, 209, 0.06);
+        border-color: rgba(61, 143, 209, 0.15);
     }
 
     .vice-avatar {
@@ -783,7 +784,7 @@ function getCommitteeColor($tag, $committeeColors, $defaultColor) {
         overflow: hidden;
         display: grid;
         place-items: center;
-        background: rgba(98, 168, 93, 0.08);
+        background: rgba(61, 143, 209, 0.08);
         position: relative;
     }
 
@@ -795,7 +796,7 @@ function getCommitteeColor($tag, $committeeColors, $defaultColor) {
         }
 
         50% {
-            box-shadow: 0 0 30px var(--cyan-glow), 0 0 60px rgba(98, 168, 93, 0.1)
+            box-shadow: 0 0 30px var(--cyan-glow), 0 0 60px rgba(61, 143, 209, 0.1)
         }
     }
 
@@ -890,7 +891,7 @@ function getCommitteeColor($tag, $committeeColors, $defaultColor) {
         content: '';
         flex: 1;
         height: 1px;
-        background: linear-gradient(90deg, rgba(45, 138, 87, 0.2), transparent);
+        background: linear-gradient(90deg, rgba(23, 105, 170, 0.2), transparent);
     }
 
     .council-header .count {
@@ -899,8 +900,8 @@ function getCommitteeColor($tag, $committeeColors, $defaultColor) {
         color: var(--text-dim);
         padding: 4px 12px;
         border-radius: 20px;
-        background: rgba(45, 138, 87, 0.08);
-        border: 1px solid rgba(45, 138, 87, 0.15);
+        background: rgba(23, 105, 170, 0.08);
+        border: 1px solid rgba(23, 105, 170, 0.15);
     }
 
     /* ── COUNCIL GRID ── */
@@ -945,7 +946,7 @@ function getCommitteeColor($tag, $committeeColors, $defaultColor) {
         inset: 0;
         border-radius: 18px;
         padding: 1px;
-        background: linear-gradient(135deg, rgba(45, 138, 87, 0.2), transparent 50%, rgba(98, 168, 93, 0.1));
+        background: linear-gradient(135deg, rgba(23, 105, 170, 0.2), transparent 50%, rgba(61, 143, 209, 0.1));
         -webkit-mask: linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0);
         mask: linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0);
         -webkit-mask-composite: xor;
@@ -957,8 +958,8 @@ function getCommitteeColor($tag, $committeeColors, $defaultColor) {
 
     .council-card:hover {
         transform: perspective(800px) rotateY(2deg) rotateX(-1deg) translateY(-6px);
-        border-color: rgba(45, 138, 87, 0.15);
-        box-shadow: 0 16px 50px rgba(18, 53, 36, 0.10), 0 0 30px rgba(45, 138, 87, 0.06);
+        border-color: rgba(23, 105, 170, 0.15);
+        box-shadow: 0 16px 50px rgba(22, 58, 95, 0.10), 0 0 30px rgba(23, 105, 170, 0.06);
     }
 
     .council-card:hover::before,
@@ -983,8 +984,8 @@ function getCommitteeColor($tag, $committeeColors, $defaultColor) {
         position: absolute;
         inset: -4px;
         border-radius: 50%;
-        border: 2px solid rgba(45, 138, 87, 0.4);
-        box-shadow: 0 0 15px rgba(45, 138, 87, 0.15);
+        border: 2px solid rgba(23, 105, 170, 0.4);
+        box-shadow: 0 0 15px rgba(23, 105, 170, 0.15);
         transition: all .4s;
     }
 
@@ -1000,7 +1001,7 @@ function getCommitteeColor($tag, $committeeColors, $defaultColor) {
         object-fit: cover;
         position: relative;
         z-index: 1;
-        background: rgba(45, 138, 87, 0.08);
+        background: rgba(23, 105, 170, 0.08);
     }
 
     .council-avatar .initials {
@@ -1013,7 +1014,7 @@ function getCommitteeColor($tag, $committeeColors, $defaultColor) {
         font-size: 1.5rem;
         font-weight: 700;
         color: var(--rose-light);
-        background: linear-gradient(135deg, rgba(45, 138, 87, 0.2), rgba(98, 168, 93, 0.08));
+        background: linear-gradient(135deg, rgba(23, 105, 170, 0.2), rgba(61, 143, 209, 0.08));
         position: relative;
         z-index: 1;
     }
@@ -1042,8 +1043,8 @@ function getCommitteeColor($tag, $committeeColors, $defaultColor) {
         text-align: left;
         padding: 10px 12px;
         margin-bottom: 12px;
-        border-left: 2px solid rgba(45, 138, 87, 0.3);
-        background: rgba(45, 138, 87, 0.03);
+        border-left: 2px solid rgba(23, 105, 170, 0.3);
+        background: rgba(23, 105, 170, 0.03);
         border-radius: 0 8px 8px 0;
         line-height: 1.55;
     }
@@ -1063,7 +1064,7 @@ function getCommitteeColor($tag, $committeeColors, $defaultColor) {
 
     .empty-state i {
         font-size: 3rem;
-        color: rgba(45, 138, 87, 0.2);
+        color: rgba(23, 105, 170, 0.2);
         margin-bottom: 16px
     }
 
@@ -1341,12 +1342,12 @@ function getCommitteeColor($tag, $committeeColors, $defaultColor) {
     }
 
     ::-webkit-scrollbar-thumb {
-        background: rgba(45, 138, 87, 0.3);
+        background: rgba(23, 105, 170, 0.3);
         border-radius: 3px
     }
 
     ::-webkit-scrollbar-thumb:hover {
-        background: rgba(45, 138, 87, 0.5)
+        background: rgba(23, 105, 170, 0.5)
     }
     </style>
     <link rel="stylesheet" href="static/css/koronadal-theme.css" />

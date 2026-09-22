@@ -1,0 +1,67 @@
+/* =========================================================
+   KORONADAL CITY PORTAL — Shared Blue Theme
+   Matches the main-page palette (index.php: brand blue #1769AA).
+   Linked last in every page so it overrides earlier layers.
+   ========================================================= */
+
+:root {
+  --bg: #F8FAFC;
+  --brand-blue: #1769AA;
+  --brand-blue-dark: #0D47A1;
+  --brand-blue-light: #3D8FD1;
+  --brand-navy: #163A5F;
+  --brand-sky: #F4F8FC;
+  --brand-red: #C62828;
+  --brand-yellow: #F2C94C;
+
+  --kdc-blue: var(--brand-blue);
+  --kdc-blue-dark: var(--brand-blue-dark);
+  --kdc-blue-soft: rgba(23, 105, 170, .10);
+
+  --kc-blue: var(--brand-blue);
+  --kc-blue-dark: var(--brand-blue-dark);
+  --kc-blue-soft: rgba(23, 105, 170, .10);
+
+  --egov-blue: var(--brand-blue);
+  --egov-blue-dark: var(--brand-blue-dark);
+  --egov-blue-soft: rgba(23, 105, 170, .10);
+
+  --rose: var(--brand-blue);
+  --rose-light: var(--brand-blue-light);
+  --rose-glow: rgba(23, 105, 170, .25);
+  --rose-soft: rgba(23, 105, 170, .10);
+  --cyan: var(--brand-blue-light);
+  --navy: var(--brand-navy);
+  --border-glow: rgba(23, 105, 170, .25);
+}
+
+html { color-scheme: light; }
+::selection { background-color: rgba(23, 105, 170, .18); }
+input, select, textarea { caret-color: var(--brand-blue); }
+
+/* ---------- Mobile: horizontally scrollable services ---------- */
+@media (max-width: 768px) {
+  .egov-service-grid {
+    display: flex !important;
+    flex-direction: row !important;
+    flex-wrap: nowrap !important;
+    justify-content: flex-start !important;
+    align-items: stretch !important;
+    overflow-x: auto !important;
+    overflow-y: hidden !important;
+    gap: 14px !important;
+    padding: 14px 12px !important;
+    scroll-snap-type: x mandatory !important;
+    -webkit-overflow-scrolling: touch !important;
+  }
+  .egov-service-grid .egov-service,
+  .egov-service-grid > a {
+    flex: 0 0 auto !important;
+    width: 84px !important;
+    min-height: 120px !important;
+    scroll-snap-align: start !important;
+  }
+  .egov-service-grid::-webkit-scrollbar { height: 5px !important; }
+  .egov-service-grid::-webkit-scrollbar-track { background: rgba(23, 105, 170, .08) !important; border-radius: 99px !important; }
+  .egov-service-grid::-webkit-scrollbar-thumb { background: rgba(23, 105, 170, .35) !important; border-radius: 99px !important; }
+}

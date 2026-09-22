@@ -29,6 +29,7 @@ if (file_exists($officialsFile)) {
     <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet" />
     <link rel="stylesheet" href="static/css/koronadal-app.css" />
+    <link rel="stylesheet" href="static/css/koronadal-theme.css" />
 </head>
 
 <body>
@@ -170,7 +171,7 @@ if (file_exists($officialsFile)) {
                 </div>
                 <div class="hp-layer" data-speed="0.05" style="top:35%;left:25%">
                     <div class="hp-shape dot"
-                        style="width:5px;height:5px;background:rgba(45, 138, 87, .3);box-shadow:0 0 8px rgba(45, 138, 87, .2)">
+                        style="width:5px;height:5px;background:rgba(23, 105, 170, .3);box-shadow:0 0 8px rgba(23, 105, 170, .2)">
                     </div>
                 </div>
             </div>
