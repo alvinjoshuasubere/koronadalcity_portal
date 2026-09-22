@@ -1,43 +1,253 @@
-/* =========================================================
-   KORONADAL CITY PORTAL — Shared Blue Theme
-   Matches the main-page palette (index.php: brand blue #1769AA).
-   Linked last in every page so it overrides earlier layers.
-   ========================================================= */
+/**
+ * =========================================================
+ *    KORONADAL CITY PORTAL — Shared Blue Theme
+ *    Matches the main-page palette (index.php: brand blue #1769AA).
+ *    Linked last in every page so it overrides earlier layers.
+ *    =========================================================
+ *
+ * @format
+ */
 
 :root {
-  --bg: #F8FAFC;
-  --brand-blue: #1769AA;
-  --brand-blue-dark: #0D47A1;
-  --brand-blue-light: #3D8FD1;
-  --brand-navy: #163A5F;
-  --brand-sky: #F4F8FC;
-  --brand-red: #C62828;
-  --brand-yellow: #F2C94C;
+  --bg: #f8fafc;
+  --brand-blue: #1769aa;
+  --brand-blue-dark: #0d47a1;
+  --brand-blue-light: #3d8fd1;
+  --brand-navy: #163a5f;
+  --brand-sky: #f4f8fc;
+  --brand-red: #c62828;
+  --brand-yellow: #f2c94c;
 
   --kdc-blue: var(--brand-blue);
   --kdc-blue-dark: var(--brand-blue-dark);
-  --kdc-blue-soft: rgba(23, 105, 170, .10);
+  --kdc-blue-soft: rgba(23, 105, 170, 0.1);
 
   --kc-blue: var(--brand-blue);
   --kc-blue-dark: var(--brand-blue-dark);
-  --kc-blue-soft: rgba(23, 105, 170, .10);
+  --kc-blue-soft: rgba(23, 105, 170, 0.1);
 
   --egov-blue: var(--brand-blue);
   --egov-blue-dark: var(--brand-blue-dark);
-  --egov-blue-soft: rgba(23, 105, 170, .10);
+  --egov-blue-soft: rgba(23, 105, 170, 0.1);
 
   --rose: var(--brand-blue);
   --rose-light: var(--brand-blue-light);
-  --rose-glow: rgba(23, 105, 170, .25);
-  --rose-soft: rgba(23, 105, 170, .10);
+  --rose-glow: rgba(23, 105, 170, 0.25);
+  --rose-soft: rgba(23, 105, 170, 0.1);
   --cyan: var(--brand-blue-light);
   --navy: var(--brand-navy);
-  --border-glow: rgba(23, 105, 170, .25);
+  --border-glow: rgba(23, 105, 170, 0.25);
 }
 
-html { color-scheme: light; }
-::selection { background-color: rgba(23, 105, 170, .18); }
-input, select, textarea { caret-color: var(--brand-blue); }
+html {
+  color-scheme: light;
+}
+::selection {
+  background-color: rgba(23, 105, 170, 0.18);
+}
+input,
+select,
+textarea {
+  caret-color: var(--brand-blue);
+}
+
+/* ---------- Citizen account: full circle logo ---------- */
+.account-avatar {
+  width: 48px !important;
+  height: 48px !important;
+  aspect-ratio: 1 / 1 !important;
+  border-radius: 50% !important;
+  background: #fff !important;
+  overflow: hidden !important;
+}
+.account-avatar img {
+  width: 80% !important;
+  height: 80% !important;
+  max-width: 100% !important;
+  max-height: 100% !important;
+  object-fit: cover !important;
+  border-radius: 50% !important;
+  padding: 0 !important;
+}
+
+/* ---------- Center Discover / Quick Links + Leadership headings, small top margin ---------- */
+.home-quick .home-section-head,
+.leadership .home-section-head {
+  justify-content: center !important;
+  text-align: center !important;
+}
+.home-quick .home-section-head > div:last-child,
+.leadership .home-section-head > div:last-child {
+  text-align: center !important;
+}
+.home-quick .home-promo-strip {
+  justify-content: center !important;
+}
+.home-quick .home-promo-copy {
+  text-align: center !important;
+}
+.home-quick {
+  margin-top: 10px !important;
+}
+.leadership {
+  margin-top: 0 !important;
+}
+@media (max-width: 768px) {
+  .home-quick {
+    margin-top: 8px !important;
+  }
+  .leadership {
+    margin-top: 0 !important;
+  }
+}
+
+/* ---------- Quick Links header — modern & simple ---------- */
+.home-quick .home-section-head {
+  gap: 14px !important;
+  margin: 0 0 18px !important;
+  justify-content: center !important;
+  text-align: center !important;
+}
+.home-quick .home-section-head > div:last-child {
+  text-align: center !important;
+}
+.home-quick .home-section-icon {
+  width: 44px !important;
+  height: 44px !important;
+  min-width: 44px !important;
+  border-radius: 50% !important;
+  background: linear-gradient(135deg, #1769aa, #0d47a1) !important;
+  color: #fff !important;
+  font-size: 16px !important;
+  box-shadow: 0 8px 18px rgba(23, 105, 170, 0.25) !important;
+}
+.home-quick .home-section-head span {
+  margin-bottom: 3px !important;
+  color: #0d47a1 !important;
+  font-size: 7px !important;
+  letter-spacing: 0.18em !important;
+}
+.home-quick .home-section-head h2 {
+  margin: 0 !important;
+  color: #16222e !important;
+  font-size: 19px !important;
+  letter-spacing: -0.03em !important;
+}
+.home-quick .home-section-head p {
+  margin: 4px 0 0 !important;
+  color: #8a95a1 !important;
+  font-size: 8px !important;
+}
+
+/* ---------- Mayor card — modern & simple ---------- */
+.leadership .home-mayor-card {
+  border-radius: 22px !important;
+  border: 1px solid #edf1f6 !important;
+  box-shadow: 0 18px 44px rgba(22, 42, 72, 0.07) !important;
+  background: #fff !important;
+}
+.leadership .home-mayor-content {
+  padding: 30px 32px !important;
+}
+.home-mayor-kicker {
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 6px !important;
+  margin-bottom: 8px !important;
+  padding: 6px 11px !important;
+  border-radius: 999px !important;
+  background: #eaf2fa !important;
+  color: #0d47a1 !important;
+  font-size: 6.5px !important;
+  line-height: 1 !important;
+  letter-spacing: 0.12em !important;
+}
+.home-mayor-kicker::before {
+  content: "" !important;
+  width: 5px !important;
+  height: 5px !important;
+  border-radius: 50% !important;
+  background: #1769aa !important;
+}
+.home-mayor-seal {
+  width: 32px !important;
+  height: 32px !important;
+  min-width: 32px !important;
+  border-radius: 50% !important;
+  background: #f1f5f9 !important;
+  color: #1769aa !important;
+  font-size: 11px !important;
+  box-shadow: none !important;
+}
+.home-mayor-heading h3 {
+  color: #14202c !important;
+  font-size: 21px !important;
+  letter-spacing: -0.03em !important;
+}
+.home-mayor-desc {
+  margin: 12px 0 !important;
+  color: #5f6b77 !important;
+  font-size: 8.5px !important;
+  line-height: 1.75 !important;
+}
+.home-mayor-motto {
+  border-left: 0 !important;
+  background: transparent !important;
+  border-radius: 0 !important;
+  padding: 0 0 12px !important;
+  margin: 0 !important;
+  color: #6b7682 !important;
+  font-size: 7.5px !important;
+}
+.home-mayor-motto i {
+  color: #1769aa !important;
+}
+.home-mayor-tags span {
+  background: #f4f7fb !important;
+  border: 1px solid #e3eaf2 !important;
+  color: #0d47a1 !important;
+  padding: 6px 9px !important;
+  font-size: 6.5px !important;
+}
+.home-mayor-link {
+  border-radius: 12px !important;
+  background: linear-gradient(135deg, #1769aa, #0d47a1) !important;
+  box-shadow: 0 10px 22px rgba(23, 105, 170, 0.28) !important;
+}
+.home-mayor-cover-shade {
+  background: linear-gradient(90deg, rgba(7, 30, 72, 0.06), rgba(7, 30, 72, 0.38)) !important;
+}
+.home-mayor-status {
+  right: 14px !important;
+  bottom: 14px !important;
+  background: rgba(255, 255, 255, 0.96) !important;
+  border: 1px solid rgba(23, 105, 170, 0.14) !important;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.1) !important;
+}
+
+@media (max-width: 768px) {
+  html.auto-mobile .home-mayor-card,
+  html.force-mobile .home-mayor-card {
+    border-radius: 18px !important;
+  }
+  html.auto-mobile .home-mayor-content,
+  html.force-mobile .home-mayor-content {
+    padding: 18px !important;
+  }
+  html.auto-mobile .home-mayor-heading h3,
+  html.force-mobile .home-mayor-heading h3 {
+    font-size: 16px !important;
+  }
+  html.auto-mobile .home-mayor-desc,
+  html.force-mobile .home-mayor-desc {
+    font-size: 7.5px !important;
+    line-height: 1.6 !important;
+  }
+  html.auto-mobile .home-mayor-motto,
+  html.force-mobile .home-mayor-motto {
+    font-size: 7px !important;
+  }
+}
 
 /* ---------- Mobile: horizontally scrollable services ---------- */
 @media (max-width: 768px) {
@@ -61,7 +271,15 @@ input, select, textarea { caret-color: var(--brand-blue); }
     min-height: 120px !important;
     scroll-snap-align: start !important;
   }
-  .egov-service-grid::-webkit-scrollbar { height: 5px !important; }
-  .egov-service-grid::-webkit-scrollbar-track { background: rgba(23, 105, 170, .08) !important; border-radius: 99px !important; }
-  .egov-service-grid::-webkit-scrollbar-thumb { background: rgba(23, 105, 170, .35) !important; border-radius: 99px !important; }
+  .egov-service-grid::-webkit-scrollbar {
+    height: 5px !important;
+  }
+  .egov-service-grid::-webkit-scrollbar-track {
+    background: rgba(23, 105, 170, 0.08) !important;
+    border-radius: 99px !important;
+  }
+  .egov-service-grid::-webkit-scrollbar-thumb {
+    background: rgba(23, 105, 170, 0.35) !important;
+    border-radius: 99px !important;
+  }
 }

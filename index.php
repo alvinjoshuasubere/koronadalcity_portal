@@ -138,6 +138,77 @@ if (file_exists($officialsFile)) {
                 <section id="account" class="egov-account"><div class="account-avatar"><img src="Logo.png" alt="Koronadal City"></div><div><small>KORONADAL CITY</small><h2>Citizen Account</h2><p>Sign in to access personalized transactions, applications and service history.</p></div><a href="https://citizen.koronadalcityonlineservices.com/" target="_blank" rel="noopener">Open Citizen Portal <i class="fas fa-arrow-right"></i></a></section>
             </section>
         </main>
+        <!-- CITY LEADERSHIP -->
+        <section class="leadership" id="officials">
+            <div class="sec-pad">
+                <!-- <div class="home-section-head home-section-head-centered a">
+                    <div class="home-section-icon"><i class="fas fa-landmark"></i></div>
+                    <div>
+                        <span>LEADERSHIP</span>
+                        <h2>City Mayor</h2>
+                        <p>Building a Smarter Koronadal</p>
+                    </div>
+                </div> -->
+
+                <?php
+                $mayorData = null;
+                $viceMayorData = null;
+                $councilors = [];
+                if (!empty($officialsData) && is_array($officialsData)) {
+                    foreach ($officialsData as $off) {
+                        $pos = strtolower($off['position'] ?? '');
+                        if (strpos($pos, 'mayor') !== false && strpos($pos, 'vice') === false) {
+                            $mayorData = $off;
+                        } elseif (strpos($pos, 'vice') !== false) {
+                            $viceMayorData = $off;
+                        } else {
+                            $councilors[] = $off;
+                        }
+                    }
+                }
+                ?>
+
+                <!-- MAYOR'S CORNER — centered app card, text left / photo right -->
+                <div class="home-mayor-card a d1">
+                    <div class="home-mayor-content">
+                        <div class="home-mayor-heading">
+                            <div>
+                                <span class="home-mayor-kicker">MAYOR'S CORNER</span>
+                                <h3><?= htmlspecialchars($mayorData['name'] ?? 'Hon. Erlinda "Bing" Pabi-Araquil') ?></h3>
+                            </div>
+                            <span class="home-mayor-seal"><i class="fas fa-star"></i></span>
+                        </div>
+                        <p class="home-mayor-desc">
+                            <?= !empty($mayorData['ordinance'])
+                                ? htmlspecialchars($mayorData['ordinance'])
+                                : 'Leading Koronadal City with genuine service, transparency, innovation, and community-centered governance.' ?>
+                        </p>
+                        <div class="home-mayor-motto">
+                            <i class="fas fa-quote-left"></i>
+                            <span>“Genuine Service for God and for the People... EPAdayon Ang Kanami Sang Bagong Koronadal”</span>
+                        </div>
+                        <?php if (!empty($mayorData['committee'])): ?>
+                        <div class="home-mayor-tags">
+                            <?php foreach (array_slice(array_map('trim', explode(',', $mayorData['committee'])), 0, 3) as $tag): ?>
+                                <span><?= htmlspecialchars($tag) ?></span>
+                            <?php endforeach; ?>
+                        </div>
+                        <?php endif; ?>
+                        <a href="mayor-corner.php" class="home-mayor-link">
+                            <span>View Mayor's Corner</span>
+                            <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                    <div class="home-mayor-cover">
+                        <img src="Mayor_bg.png" alt="<?= htmlspecialchars($mayorData['name'] ?? 'City Mayor') ?>" />
+                        <div class="home-mayor-cover-shade"></div>
+                        <span class="home-mayor-status"><i class="fas fa-landmark"></i> City Mayor</span>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
 
     <!-- HERO -->
         <section class="hero" id="home">
@@ -693,88 +764,11 @@ if (file_exists($officialsFile)) {
             </div>
         </section>
 
-        <!-- CITY LEADERSHIP -->
-        <section class="leadership" id="officials">
-            <div class="sec-pad">
-                <div class="home-section-head home-section-head-centered a">
-                    <div class="home-section-icon"><i class="fas fa-landmark"></i></div>
-                    <div>
-                        <span>LEADERSHIP</span>
-                        <h2>City Mayor</h2>
-                        <p>Building a Smarter Koronadal</p>
-                    </div>
-                </div>
-
-                <?php
-                $mayorData = null;
-                $viceMayorData = null;
-                $councilors = [];
-                if (!empty($officialsData) && is_array($officialsData)) {
-                    foreach ($officialsData as $off) {
-                        $pos = strtolower($off['position'] ?? '');
-                        if (strpos($pos, 'mayor') !== false && strpos($pos, 'vice') === false) {
-                            $mayorData = $off;
-                        } elseif (strpos($pos, 'vice') !== false) {
-                            $viceMayorData = $off;
-                        } else {
-                            $councilors[] = $off;
-                        }
-                    }
-                }
-                ?>
-
-                <!-- MAYOR'S CORNER — centered app card, text left / photo right -->
-                <div class="home-mayor-card a d1">
-                    <div class="home-mayor-content">
-                        <div class="home-mayor-heading">
-                            <div>
-                                <span class="home-mayor-kicker">MAYOR'S CORNER</span>
-                                <h3><?= htmlspecialchars($mayorData['name'] ?? 'Hon. Erlinda "Bing" Pabi-Araquil') ?></h3>
-                            </div>
-                            <span class="home-mayor-seal"><i class="fas fa-star"></i></span>
-                        </div>
-                        <p class="home-mayor-desc">
-                            <?= !empty($mayorData['ordinance'])
-                                ? htmlspecialchars($mayorData['ordinance'])
-                                : 'Leading Koronadal City with genuine service, transparency, innovation, and community-centered governance.' ?>
-                        </p>
-                        <div class="home-mayor-motto">
-                            <i class="fas fa-quote-left"></i>
-                            <span>“Genuine Service for God and for the People... EPAdayon Ang Kanami Sang Bagong Koronadal”</span>
-                        </div>
-                        <?php if (!empty($mayorData['committee'])): ?>
-                        <div class="home-mayor-tags">
-                            <?php foreach (array_slice(array_map('trim', explode(',', $mayorData['committee'])), 0, 3) as $tag): ?>
-                                <span><?= htmlspecialchars($tag) ?></span>
-                            <?php endforeach; ?>
-                        </div>
-                        <?php endif; ?>
-                        <a href="mayor-corner.php" class="home-mayor-link">
-                            <span>View Mayor's Corner</span>
-                            <i class="fas fa-arrow-right"></i>
-                        </a>
-                    </div>
-                    <div class="home-mayor-cover">
-                        <img src="Mayor_bg.png" alt="<?= htmlspecialchars($mayorData['name'] ?? 'City Mayor') ?>" />
-                        <div class="home-mayor-cover-shade"></div>
-                        <span class="home-mayor-status"><i class="fas fa-landmark"></i> City Mayor</span>
-                    </div>
-                </div>
-
-            </div>
-        </section>
 
         <!-- QUICK ACCESS — MOBILE APP STYLE -->
         <section class="qacc home-quick" id="quick">
             <div class="sec-pad">
-                <div class="home-section-head a">
-                    <div class="home-section-icon"><i class="fas fa-compass"></i></div>
-                    <div>
-                        <span>DISCOVER</span>
-                        <h2>Quick Links</h2>
-                        <p>Explore Koronadal City</p>
-                    </div>
-                </div>
+                
 
                 <div class="home-promo-strip a d1">
                     <div class="home-promo-icon"><i class="fas fa-city"></i></div>
