@@ -39,26 +39,15 @@ if (file_exists($officialsFile)) {
     <div class="header-actions"><span class="official-pill"><i class="fas fa-circle"></i> Official Portal</span><a class="header-service-btn" href="#services"><i class="fas fa-grid-2"></i> Services</a><button class="menu-btn" id="menuBtn"><i class="fas fa-bars"></i></button></div>
   </div><div class="brand-accent"><i></i><i></i><i></i></div>
 </header>
-<div class="drawer-backdrop" id="drawerBackdrop"></div>
-<aside class="mobile-drawer" id="mobileDrawer">
-  <div class="drawer-head"><a class="brand" href="#home"><img src="Logo.png" alt=""><span><strong>City of Koronadal</strong><small>Digital Gateway</small></span></a><button class="drawer-close" id="drawerClose"><i class="fas fa-xmark"></i></button></div>
-  <div class="drawer-nav">
-    <a href="#home"><i class="fas fa-house"></i><span>Home</span><i class="fas fa-chevron-right"></i></a>
-    <a href="#services"><i class="fas fa-grid-2"></i><span>Services</span><i class="fas fa-chevron-right"></i></a>
-    <a href="#portals"><i class="fas fa-window-restore"></i><span>Digital Portals</span><i class="fas fa-chevron-right"></i></a>
-    <a href="#information"><i class="fas fa-city"></i><span>City Information</span><i class="fas fa-chevron-right"></i></a>
-    <a href="#leadership"><i class="fas fa-landmark"></i><span>Mayor's Corner</span><i class="fas fa-chevron-right"></i></a>
-    <a href="city-officials.php"><i class="fas fa-users"></i><span>City Officials</span><i class="fas fa-chevron-right"></i></a>
-    <a href="emergency-contacts.php"><i class="fas fa-phone-volume"></i><span>Emergency</span><i class="fas fa-chevron-right"></i></a>
-    <a href="https://koronadal.gov.ph/" target="_blank"><i class="fas fa-globe"></i><span>LGU Website</span><i class="fas fa-arrow-up-right-from-square"></i></a>
-  </div>
-  <div class="drawer-emergency"><small>NEED HELP NOW?</small><strong><i class="fas fa-phone"></i> 911</strong><span>Koronadal City Emergency</span></div>
-</aside>
 <main class="portal-shell" id="home">
   <section class="home-hero">
-    <div class="hero-content"><div class="hero-kicker"><span class="live-dot"></span> CITY OF KORONADAL</div><h1>Maayung Adlaw,<br><b>Koronadaleño!</b></h1><p>Your digital front door to city services, information and assistance.</p><div class="hero-actions"><a href="#services" class="primary-action"><i class="fas fa-arrow-down"></i> Find a Service</a><a href="emergency-contacts.php" class="secondary-action"><i class="fas fa-phone-volume"></i> Emergency</a></div></div>
-    <div class="hero-visual" aria-hidden="true"><div class="sun"></div><div class="cloud cloud-a"></div><div class="cloud cloud-b"></div><div class="mountain mountain-a"></div><div class="mountain mountain-b"></div><div class="field field-a"></div><div class="field field-b"></div><div class="city-seal"><img src="Logo.png" alt=""><span>KORONADAL<br><b>CITY</b></span></div></div>
-  </section>
+  <div class="hero-content">
+    <div class="hero-kicker"><span class="live-dot"></span> CITY OF KORONADAL</div>
+    <h1>Maayung Adlaw,<br><b>Koronadaleño!</b></h1>
+    <p>Your digital front door to city services, information and assistance.</p>
+    <div class="hero-actions"><a href="#services" class="primary-action"><i class="fas fa-arrow-down"></i> Find a Service</a><a href="emergency-contacts.php" class="secondary-action"><i class="fas fa-phone-volume"></i> Emergency</a></div>
+  </div>
+</section>
   <div class="portal-search"><i class="fas fa-search"></i><input id="serviceSearch" type="search" placeholder="Search services, portals or city information..."><button id="clearSearch"><i class="fas fa-xmark"></i></button></div>
   <section class="quick-strip">
     <a href="https://citizen.koronadalcityonlineservices.com/" target="_blank"><span class="quick-icon blue"><i class="fas fa-id-card"></i></span><span><b>Citizen Portal</b><small>Online transactions</small></span><i class="fas fa-chevron-right"></i></a>
@@ -115,10 +104,6 @@ if (file_exists($officialsFile)) {
 <script>
 (function(){
  var body=document.body,drawer=document.getElementById('mobileDrawer'),back=document.getElementById('drawerBackdrop');
- document.getElementById('menuBtn').onclick=function(){drawer.classList.add('open');back.classList.add('open')};
- document.getElementById('drawerClose').onclick=close;back.onclick=close;
- function close(){drawer.classList.remove('open');back.classList.remove('open')}
- document.querySelectorAll('.mobile-drawer a').forEach(function(a){a.onclick=close});
  var search=document.getElementById('serviceSearch'), empty=document.getElementById('searchEmpty');
  search.oninput=function(){var q=search.value.toLowerCase().trim(),n=0;document.querySelectorAll('.service-card').forEach(function(c){var ok=!q||(c.innerText+' '+(c.dataset.search||'')).toLowerCase().includes(q);c.hidden=!ok;if(ok)n++});empty.classList.toggle('show',!!q&&!n)};
  document.getElementById('clearSearch').onclick=function(){search.value='';search.oninput();search.focus()};
