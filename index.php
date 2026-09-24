@@ -48,11 +48,11 @@ if (file_exists($officialsFile)) {
                 <div class="brand-text"><strong>City of Koronadal</strong><small>Online Services</small></div>
             </a>
             <ul class="nav-links">
-                <li><a href="#home" class="on" data-nav="home">Home</a></li>
+                <li><a href="#Digital GatewayFullApp" class="on" data-nav="home">Home</a></li>
                 <li><a href="#egov-services" data-nav="services">Services</a></li>
                 <li><a href="/emergency-contacts.php">Emergency</a></li>
                 <li><a href="/city-officials.php">Officials</a></li>
-                <li><a href="/mayor-corner.php">Mayor's Corner</a></li>
+                <li><a href="#officials">Mayor's Corner</a></li>
                 <li><a href="#egov-all-services" data-nav="quick">Quick Access</a></li>
                 <li><a href="https://koronadal.gov.ph/" target="_blank">LGU Website</a></li>
             </ul>
@@ -75,11 +75,11 @@ if (file_exists($officialsFile)) {
             <button class="mnav-x" id="mnavClose" aria-label="Close"><i class="fas fa-times"></i></button>
         </div>
         <div class="mnav-links">
-            <a href="#home" class="on"><i class="fas fa-home"></i> Home</a>
+            <a href="#Digital GatewayFullApp" class="on"><i class="fas fa-home"></i> Home</a>
             <a href="#egov-services"><i class="fas fa-th-large"></i> Services</a>
             <a href="/emergency-contacts.php"><i class="fas fa-phone-alt"></i> Emergency</a>
             <a href="/city-officials.php"><i class="fas fa-users"></i> Officials</a>
-            <a href="/mayor-corner.php"><i class="fas fa-landmark"></i> Mayor's Corner</a>
+            <a href="#officials"><i class="fas fa-landmark"></i> Mayor's Corner</a>
             <a href="#egov-all-services"><i class="fas fa-link"></i> Quick Access</a>
             <a href="https://koronadal.gov.ph/" target="_blank"><i class="fas fa-globe"></i> LGU Website</a>
         </div>
@@ -954,7 +954,7 @@ if (file_exists($officialsFile)) {
     // === Digital Gateway app SERVICE SEARCH ===
     (function(){
         var input=document.getElementById('Digital GatewaySearch');
-        var grid=document.getElementById('Digital GatewayServiceGrid');
+        var grid=document.getElementById('egovServiceGrid');
         if(!input || !grid) return;
         input.addEventListener('input',function(){
             var q=(this.value||'').toLowerCase().trim();
