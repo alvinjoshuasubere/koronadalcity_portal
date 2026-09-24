@@ -29,7 +29,6 @@ if (file_exists($officialsFile)) {
     <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet" />
     <link rel="stylesheet" href="static/css/koronadal-app.css" />
-    <link rel="stylesheet" href="static/css/koronadal-theme.css" />
 </head>
 
 <body>
@@ -50,7 +49,7 @@ if (file_exists($officialsFile)) {
             </a>
             <ul class="nav-links">
                 <li><a href="#home" class="on" data-nav="home">Home</a></li>
-                <li><a href="#services" data-nav="services">Services</a></li>
+                <li><a href="#egov-services" data-nav="services">Services</a></li>
                 <li><a href="/emergency-contacts.php">Emergency</a></li>
                 <li><a href="/city-officials.php">Officials</a></li>
                 <li><a href="/mayor-corner.php">Mayor's Corner</a></li>
@@ -123,6 +122,8 @@ if (file_exists($officialsFile)) {
                         <a class="egov-feature" href="city-officials.php"><span class="feature-tag">DIRECTORY</span><h3>City Offices &<br>Officials</h3><p>Find the right office and contact information</p><i class="fas fa-building-columns feature-mark"></i></a>
                         <a class="egov-feature" href="https://koronadal.gov.ph/citizens-charter/" target="_blank" rel="noopener"><span class="feature-tag">GUIDE</span><h3>Citizen's<br>Charter</h3><p>Requirements, steps and processing times</p><i class="fas fa-book-open feature-mark"></i></a>
                         <a class="egov-feature" href="emergency-contacts.php"><span class="feature-tag">SAFETY</span><h3>Emergency<br>Contacts</h3><p>Police, fire, hospital and disaster assistance</p><i class="fas fa-shield-heart feature-mark"></i></a>
+                        <a class="egov-feature" href="https://koronadal.gov.ph/city-history/" target="_blank" rel="noopener"><span class="feature-tag">HERITAGE</span><h3>City<br>History</h3><p>Learn about Koronadal's history and identity</p><i class="fas fa-landmark feature-mark"></i></a>
+                        <a class="egov-feature" href="https://koronadal.gov.ph/27-barangay/" target="_blank" rel="noopener"><span class="feature-tag">COMMUNITY</span><h3>27<br>Barangays</h3><p>Community information and local resources</p><i class="fas fa-map-location-dot feature-mark"></i></a>
                     </div>
                 </section>
                 <section id="egov-all-services" class="egov-all-services"><div class="egov-module-title"><div><small>ALL LGU SERVICES</small><h2>Explore City Services</h2></div></div><p class="egov-section-note">More services and online portals available from the City Government of Koronadal.</p><div class="egov-list">
@@ -136,74 +137,6 @@ if (file_exists($officialsFile)) {
                 <section id="account" class="egov-account"><div class="account-avatar"><img src="Logo.png" alt="Koronadal City"></div><div><small>KORONADAL CITY</small><h2>Citizen Account</h2><p>Sign in to access personalized transactions, applications and service history.</p></div><a href="https://citizen.koronadalcityonlineservices.com/" target="_blank" rel="noopener">Open Citizen Portal <i class="fas fa-arrow-right"></i></a></section>
             </section>
         </main>
-        <!-- CITY LEADERSHIP -->
-        <section class="leadership" id="officials">
-            <div class="sec-pad">
-                <div class="home-section-head home-section-head-centered home-mayor-section-head a">
-                    <div class="home-section-icon"><i class="fas fa-landmark"></i></div>
-                    <div>
-                        <span>LEADERSHIP</span>
-                        <h2>Mayor's Corner</h2>
-                        <p>Building a Smarter Koronadal</p>
-                    </div>
-                </div>
-
-                <?php
-                $mayorData = null;
-                $viceMayorData = null;
-                $councilors = [];
-                if (!empty($officialsData) && is_array($officialsData)) {
-                    foreach ($officialsData as $off) {
-                        $pos = strtolower($off['position'] ?? '');
-                        if (strpos($pos, 'mayor') !== false && strpos($pos, 'vice') === false) {
-                            $mayorData = $off;
-                        } elseif (strpos($pos, 'vice') !== false) {
-                            $viceMayorData = $off;
-                        } else {
-                            $councilors[] = $off;
-                        }
-                    }
-                }
-                ?>
-
-                <!-- MAYOR'S CORNER — centered app card, text left / photo right -->
-                <div class="home-mayor-card a d1">
-                    <div class="home-mayor-content">
-                        <div class="home-mayor-heading">
-                            <div>
-                                <span class="home-mayor-kicker">MAYOR'S CORNER</span>
-                                <h3><?= htmlspecialchars($mayorData['name'] ?? 'Hon. Erlinda "Bing" Pabi-Araquil') ?></h3>
-                            </div>
-                            <span class="home-mayor-seal">CITY MAYOR</span>
-                        </div>
-                        <p class="home-mayor-desc">
-                            <?= !empty($mayorData['ordinance'])
-                                ? htmlspecialchars($mayorData['ordinance'])
-                                : 'Leading Koronadal City with genuine service, transparency, innovation, and community-centered governance.' ?>
-                        </p>
-                        <div class="home-mayor-motto">
-                            <i class="fas fa-quote-left"></i>
-                            <span>“Genuine Service for God and for the People... EPAdayon Ang Kanami Sang Bagong Koronadal”</span>
-                        </div>
-                        <?php if (!empty($mayorData['committee'])): ?>
-                        <div class="home-mayor-tags">
-                            <?php foreach (array_slice(array_map('trim', explode(',', $mayorData['committee'])), 0, 3) as $tag): ?>
-                                <span><?= htmlspecialchars($tag) ?></span>
-                            <?php endforeach; ?>
-                        </div>
-                        <?php endif; ?>
-                    </div>
-                    <div class="home-mayor-cover">
-                        <img src="Mayor_bg.png" alt="<?= htmlspecialchars($mayorData['name'] ?? 'City Mayor') ?>" />
-                        <div class="home-mayor-cover-shade"></div>
-                        <span class="home-mayor-status"><i class="fas fa-landmark"></i> City Mayor</span>
-                    </div>
-                </div>
-
-            </div>
-        </section>
-
-
     <!-- HERO -->
         <section class="hero" id="home">
             <div class="hero-bg"></div>
