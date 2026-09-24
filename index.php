@@ -53,7 +53,7 @@ if (file_exists($officialsFile)) {
                 <li><a href="/emergency-contacts.php">Emergency</a></li>
                 <li><a href="/city-officials.php">Officials</a></li>
                 <li><a href="/mayor-corner.php">Mayor's Corner</a></li>
-                <li><a href="#quick" data-nav="quick">Quick Access</a></li>
+                <li><a href="#egov-all-services" data-nav="quick">Quick Access</a></li>
                 <li><a href="https://koronadal.gov.ph/" target="_blank">LGU Website</a></li>
             </ul>
             <div class="topnav-r">
@@ -76,15 +76,15 @@ if (file_exists($officialsFile)) {
         </div>
         <div class="mnav-links">
             <a href="#home" class="on"><i class="fas fa-home"></i> Home</a>
-            <a href="#services"><i class="fas fa-th-large"></i> Services</a>
+            <a href="#egov-services"><i class="fas fa-th-large"></i> Services</a>
             <a href="/emergency-contacts.php"><i class="fas fa-phone-alt"></i> Emergency</a>
             <a href="/city-officials.php"><i class="fas fa-users"></i> Officials</a>
             <a href="/mayor-corner.php"><i class="fas fa-landmark"></i> Mayor's Corner</a>
-            <a href="#quick"><i class="fas fa-link"></i> Quick Access</a>
+            <a href="#egov-all-services"><i class="fas fa-link"></i> Quick Access</a>
             <a href="https://koronadal.gov.ph/" target="_blank"><i class="fas fa-globe"></i> LGU Website</a>
         </div>
         <div class="mnav-foot">
-            <a href="#services"><i class="fas fa-arrow-pointer" style="font-size:.6rem"></i> Browse Services</a>
+            <a href="#egov-services"><i class="fas fa-arrow-pointer" style="font-size:.6rem"></i> Browse Services</a>
         </div>
     </div>
 
@@ -99,6 +99,71 @@ if (file_exists($officialsFile)) {
                 <div class="egov-welcome-row"><div><span class="egov-kicker">KORONADAL CITY</span><h1>Maayung Adlaw!<br><b>Koronadaleño!</b></h1></div><div class="egov-weather"><i class="fas fa-sun"></i><span>Koronadal<br><small>South Cotabato</small></span></div></div>
                 <div class="egov-search"><i class="fas fa-search"></i><input id="Digital GatewaySearch" type="search" placeholder="What do you need today?" aria-label="Search city services"><button type="button" aria-label="Clear search" onclick="document.getElementById('Digital GatewaySearch').value='';document.getElementById('Digital GatewaySearch').dispatchEvent(new Event('input'));"><i class="fas fa-xmark"></i></button></div>
                 <section class="egov-hero-card"><div class="egov-hero-copy"><small>YOUR DIGITAL CITY GATEWAY</small><h2>Koronadal City<br><b>Digital Gateway Services</b></h2><p>Access government services, information and assistance wherever you are.</p><a href="#egov-services">Explore services <i class="fas fa-arrow-right"></i></a></div><div class="egov-city-art gateway-nature" aria-hidden="true"><div class="nature-sun"></div><div class="nature-cloud cloud-1"></div><div class="nature-cloud cloud-2"></div><div class="nature-mountain mountain-back"></div><div class="nature-mountain mountain-front"></div><div class="nature-field field-back"></div><div class="nature-field field-front"></div><div class="nature-tree tree-left"><i></i><i></i><i></i></div><div class="nature-tree tree-right"><i></i><i></i><i></i></div></div></section>
+        <!-- CITY LEADERSHIP — compact app placement -->
+                <section class="leadership" id="officials">
+                    <div class="sec-pad">
+                        <div class="home-section-head home-section-head-centered home-mayor-section-head a">
+                            <div class="home-section-icon"><i class="fas fa-landmark"></i></div>
+                            <div>
+                                <span>LEADERSHIP</span>
+                                <h2>Mayor's Corner</h2>
+                                <p>Building a Smarter Koronadal</p>
+                            </div>
+                        </div>
+
+                        <?php
+                        $mayorData = null;
+                        $viceMayorData = null;
+                        $councilors = [];
+                        if (!empty($officialsData) && is_array($officialsData)) {
+                            foreach ($officialsData as $off) {
+                                $pos = strtolower($off['position'] ?? '');
+                                if (strpos($pos, 'mayor') !== false && strpos($pos, 'vice') === false) {
+                                    $mayorData = $off;
+                                } elseif (strpos($pos, 'vice') !== false) {
+                                    $viceMayorData = $off;
+                                } else {
+                                    $councilors[] = $off;
+                                }
+                            }
+                        }
+                        ?>
+
+                        <div class="home-mayor-card a d1">
+                            <div class="home-mayor-content">
+                                <div class="home-mayor-heading">
+                                    <div>
+                                        <span class="home-mayor-kicker">MAYOR'S CORNER</span>
+                                        <h3><?= htmlspecialchars($mayorData['name'] ?? 'Hon. Erlinda "Bing" Pabi-Araquil') ?></h3>
+                                    </div>
+                                    <span class="home-mayor-seal">CITY MAYOR</span>
+                                </div>
+                                <p class="home-mayor-desc">
+                                    <?= !empty($mayorData['ordinance'])
+                                        ? htmlspecialchars($mayorData['ordinance'])
+                                        : 'Leading Koronadal City with genuine service, transparency, innovation, and community-centered governance.' ?>
+                                </p>
+                                <div class="home-mayor-motto">
+                                    <i class="fas fa-quote-left"></i>
+                                    <span>“Genuine Service for God and for the People... EPAdayon Ang Kanami Sang Bagong Koronadal”</span>
+                                </div>
+                                <?php if (!empty($mayorData['committee'])): ?>
+                                <div class="home-mayor-tags">
+                                    <?php foreach (array_slice(array_map('trim', explode(',', $mayorData['committee'])), 0, 3) as $tag): ?>
+                                        <span><?= htmlspecialchars($tag) ?></span>
+                                    <?php endforeach; ?>
+                                </div>
+                                <?php endif; ?>
+                            </div>
+                            <div class="home-mayor-cover">
+                                <img src="Mayor_bg.png" alt="<?= htmlspecialchars($mayorData['name'] ?? 'City Mayor') ?>" />
+                                <div class="home-mayor-cover-shade"></div>
+                                <span class="home-mayor-status">City Mayor</span>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
                 <section id="egov-services" class="egov-module egov-services-section">
                     <div class="egov-module-title">
                         <div><small>LGU SERVICES</small><h2>What can we help you with?</h2></div>
@@ -823,7 +888,7 @@ if (file_exists($officialsFile)) {
         <div class="bn-row">
             <a href="#Digital GatewayFullApp" class="bn-item active" data-bnav="home"><span class="bn-icon"><i class="fas fa-house"></i></span><span class="bn-label">Home</span></a>
             <a href="#egov-services" class="bn-item" data-bnav="services"><span class="bn-icon"><i class="fas fa-th-large"></i></span><span class="bn-label">Services</span></a>
-            <a href="#services" class="bn-item bn-center" data-bnav="services-qr"><span class="bn-icon"><i class="fas fa-qrcode"></i></span><span class="bn-label">Scan</span></a>
+            <a href="#egov-services" class="bn-item bn-center" data-bnav="services-qr"><span class="bn-icon"><i class="fas fa-qrcode"></i></span><span class="bn-label">Scan</span></a>
             <a href="#egov-all-services" class="bn-item" data-bnav="news"><span class="bn-icon"><i class="fas fa-bullhorn"></i></span><span class="bn-label">News</span></a>
             <a href="#account" class="bn-item" data-bnav="account"><span class="bn-icon"><i class="fas fa-user"></i></span><span class="bn-label">Account</span></a>
         </div>
