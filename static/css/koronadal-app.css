@@ -6124,3 +6124,224 @@ html.auto-mobile .topnav{
   .egov-service small{font-size:7px!important}
   .egov-module-title h2{font-size:16px!important}
 }
+
+
+/* =========================================================
+   MAYOR'S CORNER — MAIN PAGE APP CARD
+   No action/function button. Text left, photo right.
+   ========================================================= */
+.home-mayor-section-head{
+  width:100%!important;
+  max-width:900px!important;
+  margin:0 auto 14px!important;
+  justify-content:center!important;
+  text-align:center!important;
+}
+.home-mayor-section-head>div:last-child{
+  text-align:center!important;
+}
+.home-mayor-section-head .home-section-icon{
+  display:none!important;
+}
+.home-mayor-card{
+  width:100%!important;
+  max-width:900px!important;
+  min-height:300px!important;
+  margin:0 auto 28px!important;
+  display:grid!important;
+  grid-template-columns:minmax(0,1.12fr) minmax(270px,.88fr)!important;
+  grid-template-areas:"content photo"!important;
+  overflow:hidden!important;
+  border:1px solid #E4EAF2!important;
+  border-radius:22px!important;
+  background:#fff!important;
+  box-shadow:0 12px 34px rgba(20,45,80,.09)!important;
+}
+.home-mayor-content{
+  grid-area:content!important;
+  display:flex!important;
+  flex-direction:column!important;
+  justify-content:center!important;
+  min-width:0!important;
+  padding:30px 30px 28px!important;
+}
+.home-mayor-heading{
+  display:flex!important;
+  align-items:flex-start!important;
+  justify-content:space-between!important;
+  gap:12px!important;
+  margin-bottom:12px!important;
+}
+.home-mayor-kicker{
+  display:block!important;
+  margin-bottom:6px!important;
+  color:#1769AA!important;
+  font-size:8px!important;
+  font-weight:800!important;
+  letter-spacing:.10em!important;
+}
+.home-mayor-heading h3{
+  margin:0!important;
+  color:#172333!important;
+  font-size:22px!important;
+  line-height:1.12!important;
+  font-weight:800!important;
+  letter-spacing:-.025em!important;
+}
+.home-mayor-seal{
+  flex:0 0 auto!important;
+  padding:7px 9px!important;
+  border:1px solid #E5EAF1!important;
+  border-radius:999px!important;
+  color:#6E7A88!important;
+  background:#F8FAFC!important;
+  font-size:6px!important;
+  font-weight:800!important;
+  letter-spacing:.06em!important;
+}
+.home-mayor-desc{
+  margin:0 0 13px!important;
+  color:#596675!important;
+  font-size:10px!important;
+  line-height:1.6!important;
+}
+.home-mayor-motto{
+  display:flex!important;
+  align-items:flex-start!important;
+  gap:9px!important;
+  margin:0!important;
+  padding:12px 13px!important;
+  border-left:3px solid #1769AA!important;
+  border-radius:0 11px 11px 0!important;
+  background:#F6F9FD!important;
+  color:#465465!important;
+  font-size:8px!important;
+  line-height:1.55!important;
+  font-weight:700!important;
+}
+.home-mayor-motto>i{
+  flex:0 0 auto!important;
+  margin-top:2px!important;
+  color:#1769AA!important;
+  font-size:9px!important;
+}
+.home-mayor-tags{
+  display:flex!important;
+  flex-wrap:wrap!important;
+  gap:5px!important;
+  margin-top:12px!important;
+}
+.home-mayor-tags span{
+  padding:5px 8px!important;
+  border-radius:999px!important;
+  background:#EEF4FF!important;
+  color:#1769AA!important;
+  font-size:6px!important;
+  font-weight:800!important;
+}
+.home-mayor-cover{
+  grid-area:photo!important;
+  position:relative!important;
+  min-width:0!important;
+  min-height:300px!important;
+  overflow:hidden!important;
+  background:#EAF0F7!important;
+}
+.home-mayor-cover img{
+  display:block!important;
+  width:100%!important;
+  height:100%!important;
+  min-height:300px!important;
+  object-fit:cover!important;
+  object-position:center!important;
+}
+.home-mayor-cover-shade{
+  position:absolute!important;
+  inset:0!important;
+  background:linear-gradient(90deg,rgba(17,36,61,.18),rgba(17,36,61,0) 45%,rgba(17,36,61,.08))!important;
+  pointer-events:none!important;
+}
+.home-mayor-status{
+  position:absolute!important;
+  right:12px!important;
+  bottom:12px!important;
+  display:inline-flex!important;
+  align-items:center!important;
+  padding:7px 10px!important;
+  border-radius:999px!important;
+  background:rgba(255,255,255,.94)!important;
+  color:#344255!important;
+  box-shadow:0 5px 14px rgba(20,45,80,.12)!important;
+  font-size:6px!important;
+  font-weight:800!important;
+  letter-spacing:.04em!important;
+}
+.home-mayor-status i{
+  display:none!important;
+}
+
+/* Mobile: preserve text-left / photo-right rather than stacking. */
+@media(max-width:768px){
+  .home-mayor-section-head{
+    margin-bottom:10px!important;
+  }
+  .home-mayor-section-head h2{
+    font-size:18px!important;
+  }
+  .home-mayor-section-head p{
+    font-size:8px!important;
+  }
+  .home-mayor-card{
+    max-width:620px!important;
+    min-height:245px!important;
+    grid-template-columns:minmax(0,1.15fr) minmax(145px,.85fr)!important;
+    grid-template-areas:"content photo"!important;
+    border-radius:18px!important;
+    margin-bottom:24px!important;
+  }
+  .home-mayor-content{
+    padding:20px 16px!important;
+  }
+  .home-mayor-kicker{font-size:6px!important}
+  .home-mayor-heading h3{font-size:15px!important}
+  .home-mayor-seal{
+    padding:5px 6px!important;
+    font-size:5px!important;
+  }
+  .home-mayor-desc{
+    font-size:7.5px!important;
+    line-height:1.5!important;
+    margin-bottom:9px!important;
+  }
+  .home-mayor-motto{
+    padding:9px!important;
+    gap:6px!important;
+    font-size:6.5px!important;
+    line-height:1.45!important;
+  }
+  .home-mayor-motto>i{font-size:7px!important}
+  .home-mayor-tags{display:none!important}
+  .home-mayor-cover,
+  .home-mayor-cover img{
+    min-height:245px!important;
+  }
+  .home-mayor-status{
+    right:8px!important;
+    bottom:8px!important;
+    padding:5px 7px!important;
+    font-size:5px!important;
+  }
+}
+@media(max-width:390px){
+  .home-mayor-card{
+    min-height:215px!important;
+    grid-template-columns:minmax(0,1.13fr) minmax(125px,.87fr)!important;
+  }
+  .home-mayor-content{padding:16px 12px!important}
+  .home-mayor-heading{margin-bottom:8px!important}
+  .home-mayor-heading h3{font-size:13px!important}
+  .home-mayor-desc{font-size:6.5px!important}
+  .home-mayor-motto{font-size:5.8px!important;padding:7px!important}
+  .home-mayor-cover,
+  .home-mayor-cover img{min-height:215px!important}
+}
