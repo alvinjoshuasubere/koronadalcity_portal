@@ -98,7 +98,7 @@ if (file_exists($officialsFile)) {
             <section class="egov-app-body">
                 <div class="egov-welcome-row"><div><span class="egov-kicker">KORONADAL CITY</span><h1>Maayung Adlaw!<br><b>Koronadaleño!</b></h1></div><div class="egov-weather"><i class="fas fa-sun"></i><span>Koronadal<br><small>South Cotabato</small></span></div></div>
                 <div class="egov-search"><i class="fas fa-search"></i><input id="Digital GatewaySearch" type="search" placeholder="What do you need today?" aria-label="Search city services"><button type="button" aria-label="Clear search" onclick="document.getElementById('Digital GatewaySearch').value='';document.getElementById('Digital GatewaySearch').dispatchEvent(new Event('input'));"><i class="fas fa-xmark"></i></button></div>
-                <section class="egov-hero-card"><div class="egov-hero-copy"><small>YOUR DIGITAL CITY GATEWAY</small><h2>Koronadal City<br><b>Digital Gateway Services</b></h2><p>Access government services, information and assistance wherever you are.</p><a href="#egov-services">Explore services <i class="fas fa-arrow-right"></i></a></div><div class="egov-city-art gateway-nature" aria-hidden="true"><div class="nature-sun"></div><div class="nature-cloud cloud-1"></div><div class="nature-cloud cloud-2"></div><div class="nature-mountain mountain-back"></div><div class="nature-mountain mountain-front"></div><div class="nature-field field-back"></div><div class="nature-field field-front"></div><div class="nature-tree tree-left"><i></i><i></i><i></i></div><div class="nature-tree tree-right"><i></i><i></i><i></i></div></div></section>
+                <section class="egov-hero-card"><div class="egov-hero-copy"><small>YOUR DIGITAL CITY GATEWAY</small><h2>Koronadal City<br><b>Digital Gateway Services</b></h2><p>Access government services, information and assistance wherever you are.</p></div><div class="egov-city-art gateway-nature" aria-hidden="true"><div class="nature-sun"></div><div class="nature-cloud cloud-1"></div><div class="nature-cloud cloud-2"></div><div class="nature-mountain mountain-back"></div><div class="nature-mountain mountain-front"></div><div class="nature-field field-back"></div><div class="nature-field field-front"></div><div class="nature-tree tree-left"><i></i><i></i><i></i></div><div class="nature-tree tree-right"><i></i><i></i><i></i></div></div></section>
         <!-- CITY LEADERSHIP — compact app placement -->
                 <section class="leadership" id="officials">
                     <div class="sec-pad">
@@ -167,7 +167,7 @@ if (file_exists($officialsFile)) {
                 <section id="egov-services" class="egov-module egov-services-section">
                     <div class="egov-module-title">
                         <div><small>LGU SERVICES</small><h2>What can we help you with?</h2></div>
-                        <a href="#egov-all-services">View all <i class="fas fa-chevron-right"></i></a>
+                        <span class="egov-module-count">8 SERVICES</span>
                     </div>
                     <p class="egov-section-note">Choose a service below to start your city transaction or find the right office.</p>
                     <div class="egov-service-grid" id="egovServiceGrid">
@@ -202,6 +202,25 @@ if (file_exists($officialsFile)) {
                 <section id="account" class="egov-account"><div class="account-avatar"><img src="Logo.png" alt="Koronadal City"></div><div><small>KORONADAL CITY</small><h2>Citizen Account</h2><p>Sign in to access personalized transactions, applications and service history.</p></div><a href="https://citizen.koronadalcityonlineservices.com/" target="_blank" rel="noopener">Open Citizen Portal <i class="fas fa-arrow-right"></i></a></section>
             </section>
         </main>
+        <footer class="portal-footer" id="portal-footer">
+            <div class="portal-footer-main">
+                <div class="portal-footer-brand">
+                    <img src="Logo.png" alt="City of Koronadal">
+                    <div><strong>City of Koronadal</strong><span>Digital Gateway</span></div>
+                </div>
+                <p>Official digital access to city services, information, assistance and citizen resources.</p>
+            </div>
+            <div class="portal-footer-links">
+                <a href="city-officials.php">Officials</a>
+                <a href="emergency-contacts.php">Emergency</a>
+                <a href="https://koronadal.gov.ph/" target="_blank" rel="noopener">LGU Website</a>
+                <a href="#egov-services">Services</a>
+            </div>
+            <div class="portal-footer-bottom">
+                <span>© <?= date('Y') ?> City Government of Koronadal</span>
+                <span>Official City Portal</span>
+            </div>
+        </footer>
     <!-- HERO -->
         <section class="hero" id="home">
             <div class="hero-bg"></div>
