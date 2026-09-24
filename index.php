@@ -139,14 +139,14 @@ if (file_exists($officialsFile)) {
         <!-- CITY LEADERSHIP -->
         <section class="leadership" id="officials">
             <div class="sec-pad">
-                <!-- <div class="home-section-head home-section-head-centered a">
+                <div class="home-section-head home-section-head-centered home-mayor-section-head a">
                     <div class="home-section-icon"><i class="fas fa-landmark"></i></div>
                     <div>
                         <span>LEADERSHIP</span>
-                        <h2>City Mayor</h2>
+                        <h2>Mayor's Corner</h2>
                         <p>Building a Smarter Koronadal</p>
                     </div>
-                </div> -->
+                </div>
 
                 <?php
                 $mayorData = null;
@@ -174,7 +174,7 @@ if (file_exists($officialsFile)) {
                                 <span class="home-mayor-kicker">MAYOR'S CORNER</span>
                                 <h3><?= htmlspecialchars($mayorData['name'] ?? 'Hon. Erlinda "Bing" Pabi-Araquil') ?></h3>
                             </div>
-                            <span class="home-mayor-seal"><i class="fas fa-star"></i></span>
+                            <span class="home-mayor-seal">CITY MAYOR</span>
                         </div>
                         <p class="home-mayor-desc">
                             <?= !empty($mayorData['ordinance'])
@@ -192,10 +192,6 @@ if (file_exists($officialsFile)) {
                             <?php endforeach; ?>
                         </div>
                         <?php endif; ?>
-                        <a href="mayor-corner.php" class="home-mayor-link">
-                            <span>View Mayor's Corner</span>
-                            <i class="fas fa-arrow-right"></i>
-                        </a>
                     </div>
                     <div class="home-mayor-cover">
                         <img src="Mayor_bg.png" alt="<?= htmlspecialchars($mayorData['name'] ?? 'City Mayor') ?>" />
