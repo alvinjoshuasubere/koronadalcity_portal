@@ -5848,3 +5848,279 @@ html.auto-mobile .topnav{
   .egov-feature{flex-basis:300px!important;width:300px!important;min-width:300px!important}
   .egov-feature-row{justify-content:flex-start!important}
 }
+
+
+/* =========================================================
+   MOBILE APP SERVICE EXPERIENCE — FINAL
+   Larger touch targets, clearer hierarchy, no duplicate
+   service cards, and clean app-like sections.
+   ========================================================= */
+
+.egov-app-body{
+  max-width:620px!important;
+  padding:20px 16px 105px!important;
+}
+.egov-module{
+  margin-top:28px!important;
+}
+.egov-module-title{
+  display:flex!important;
+  align-items:flex-end!important;
+  justify-content:space-between!important;
+  gap:12px!important;
+  margin-bottom:7px!important;
+}
+.egov-module-title small{
+  display:block!important;
+  margin-bottom:4px!important;
+  color:#1769AA!important;
+  font-size:8px!important;
+  font-weight:800!important;
+  letter-spacing:.08em!important;
+}
+.egov-module-title h2{
+  margin:0!important;
+  color:#182536!important;
+  font-size:18px!important;
+  line-height:1.15!important;
+  letter-spacing:-.025em!important;
+}
+.egov-module-title>a{
+  flex:0 0 auto!important;
+  color:#1769AA!important;
+  font-size:9px!important;
+  font-weight:800!important;
+  text-decoration:none!important;
+}
+.egov-section-note{
+  margin:0 0 12px!important;
+  color:#748091!important;
+  font-size:9px!important;
+  line-height:1.55!important;
+}
+
+/* Main service launcher: larger cards and readable labels. */
+.egov-service-grid{
+  display:grid!important;
+  grid-template-columns:repeat(2,minmax(0,1fr))!important;
+  gap:10px!important;
+  overflow:visible!important;
+  padding:0!important;
+  background:transparent!important;
+  box-shadow:none!important;
+}
+.egov-service-grid::after{display:none!important}
+.egov-service{
+  width:auto!important;
+  min-width:0!important;
+  min-height:126px!important;
+  display:flex!important;
+  flex-direction:column!important;
+  align-items:flex-start!important;
+  justify-content:center!important;
+  gap:7px!important;
+  padding:15px!important;
+  border:1px solid #E5EAF1!important;
+  border-radius:17px!important;
+  background:#fff!important;
+  box-shadow:0 5px 18px rgba(20,45,80,.055)!important;
+  text-decoration:none!important;
+  transition:transform .18s ease,box-shadow .18s ease,border-color .18s ease!important;
+}
+.egov-service:active{
+  transform:scale(.98)!important;
+}
+.egov-service .svc-icon{
+  width:50px!important;
+  height:50px!important;
+  min-width:50px!important;
+  flex-basis:50px!important;
+  border-radius:14px!important;
+  font-size:20px!important;
+  box-shadow:none!important;
+}
+.egov-service .svc-icon em{
+  font-size:6px!important;
+}
+.egov-service b{
+  max-width:100%!important;
+  overflow:visible!important;
+  text-overflow:clip!important;
+  white-space:normal!important;
+  color:#1D2939!important;
+  font-size:11px!important;
+  line-height:1.2!important;
+  font-weight:800!important;
+}
+.egov-service small{
+  display:block!important;
+  color:#8792A0!important;
+  font-size:7.5px!important;
+  line-height:1.25!important;
+  font-weight:600!important;
+}
+
+/* Featured/discovery cards are informational, not duplicates of the service launcher. */
+.egov-feature-row{
+  display:flex!important;
+  gap:11px!important;
+  overflow-x:auto!important;
+  padding:2px 2px 8px!important;
+  scrollbar-width:none!important;
+  scroll-snap-type:x mandatory!important;
+}
+.egov-feature{
+  flex:0 0 76%!important;
+  min-width:76%!important;
+  min-height:158px!important;
+  padding:19px!important;
+  border-radius:18px!important;
+  scroll-snap-align:start!important;
+}
+.egov-feature h3{
+  font-size:18px!important;
+  line-height:1.1!important;
+}
+.egov-feature p{
+  max-width:210px!important;
+  font-size:8px!important;
+  line-height:1.45!important;
+}
+.egov-feature .feature-mark{
+  font-size:42px!important;
+  opacity:.18!important;
+}
+
+/* All services becomes a clean vertical app list. */
+.egov-all-services{
+  margin-top:30px!important;
+}
+.egov-list{
+  display:flex!important;
+  flex-direction:column!important;
+  gap:7px!important;
+  background:transparent!important;
+  box-shadow:none!important;
+  border-radius:0!important;
+}
+.egov-list>a{
+  min-height:76px!important;
+  padding:11px!important;
+  border:1px solid #E6EBF2!important;
+  border-radius:14px!important;
+  background:#fff!important;
+  box-shadow:0 3px 12px rgba(20,45,80,.045)!important;
+}
+.egov-list>a>div strong{
+  display:block!important;
+  color:#1D2939!important;
+  font-size:10px!important;
+  line-height:1.25!important;
+}
+.egov-list>a>div small{
+  display:block!important;
+  margin-top:3px!important;
+  color:#7A8594!important;
+  font-size:7.5px!important;
+  line-height:1.35!important;
+}
+.egov-list .list-icon{
+  width:44px!important;
+  height:44px!important;
+  min-width:44px!important;
+  border-radius:12px!important;
+  font-size:15px!important;
+}
+.egov-list>a>i{
+  font-size:9px!important;
+  color:#A4ADB7!important;
+}
+
+/* Cleaner mobile welcome/search/hero spacing. */
+.egov-welcome-row{
+  margin-bottom:14px!important;
+}
+.egov-welcome-row h1{
+  font-size:22px!important;
+}
+.egov-kicker{
+  font-size:8px!important;
+}
+.egov-weather{
+  padding:8px 10px!important;
+  font-size:8px!important;
+}
+.egov-search{
+  height:50px!important;
+  border-radius:14px!important;
+}
+.egov-search input{
+  font-size:10px!important;
+}
+.egov-hero-card{
+  min-height:225px!important;
+  border-radius:19px!important;
+}
+.egov-hero-copy{
+  padding:27px 22px!important;
+}
+.egov-hero-copy small{font-size:7px!important}
+.egov-hero-copy h2{
+  font-size:21px!important;
+}
+.egov-hero-copy p{
+  font-size:8.5px!important;
+  line-height:1.55!important;
+}
+.egov-hero-copy a{
+  padding:10px 13px!important;
+  font-size:8px!important;
+}
+
+/* Hide decorative duplicate icons that do not provide navigation value. */
+.egov-search>i,
+.egov-search button i{
+  font-size:11px!important;
+}
+.egov-weather>i{
+  font-size:14px!important;
+}
+
+/* Desktop retains the app structure but gives services more breathing room. */
+@media(min-width:769px){
+  .egov-app-body{
+    max-width:1120px!important;
+    padding:30px 32px 100px!important;
+  }
+  .egov-service-grid{
+    grid-template-columns:repeat(4,minmax(0,1fr))!important;
+    gap:12px!important;
+  }
+  .egov-service{
+    min-height:145px!important;
+    padding:18px!important;
+  }
+  .egov-service .svc-icon{
+    width:56px!important;height:56px!important;min-width:56px!important;
+    font-size:21px!important;
+  }
+  .egov-service b{font-size:12px!important}
+  .egov-service small{font-size:8px!important}
+}
+
+/* Very small phones: keep two columns but reduce only spacing. */
+@media(max-width:380px){
+  .egov-app-body{padding-left:12px!important;padding-right:12px!important}
+  .egov-service-grid{gap:8px!important}
+  .egov-service{
+    min-height:116px!important;
+    padding:12px!important;
+  }
+  .egov-service .svc-icon{
+    width:45px!important;height:45px!important;min-width:45px!important;
+    font-size:17px!important;
+  }
+  .egov-service b{font-size:10px!important}
+  .egov-service small{font-size:7px!important}
+  .egov-module-title h2{font-size:16px!important}
+}
