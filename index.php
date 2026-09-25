@@ -42,6 +42,7 @@ if (file_exists($officialsFile)) {
 <main class="portal-shell" id="home">
   <section class="home-hero">
   <div class="hero-content">
+    <div class="hero-logo"><img src="Logo.png" alt="Koronadal City"></div>
     <div class="hero-kicker"><span class="live-dot"></span> CITY OF KORONADAL</div>
     <h1>Maayung Adlaw,<br><b>Koronadaleño!</b></h1>
     <p>Your digital front door to city services, information and assistance.</p>
@@ -99,13 +100,15 @@ if (file_exists($officialsFile)) {
   <section class="citizen-banner"><div class="citizen-badge"><i class="fas fa-id-card"></i></div><div><span>CITIZEN ACCESS</span><h2>Continue your city transaction</h2><p>Use the Citizen Portal for online services and digital transactions.</p></div><a href="https://citizen.koronadalcityonlineservices.com/" target="_blank">Open Citizen Portal <i class="fas fa-arrow-right"></i></a></section>
 </main>
 <footer class="portal-footer"><div class="footer-inner"><div class="footer-brand"><img src="Logo.png" alt="Koronadal City"><div><strong>City of Koronadal</strong><span>Digital Gateway</span></div></div><div class="footer-copy">Official digital access to city services, information, assistance and citizen resources.</div><div class="footer-links"><a href="#services">Services</a><a href="#portals">Digital Portals</a><a href="#information">City Info</a><a href="city-officials.php">Officials</a><a href="emergency-contacts.php">Emergency</a><a href="https://koronadal.gov.ph/" target="_blank">LGU Website</a></div><div class="footer-bottom"><span>© <?= date('Y') ?> City Government of Koronadal</span><span>Official City Portal</span></div></div></footer>
-<nav class="bottom-nav"><a href="#home" class="active"><i class="fas fa-house"></i><span>Home</span></a><a href="#services"><i class="fas fa-grid-2"></i><span>Services</span></a><a href="#portals" class="center"><i class="fas fa-window-restore"></i><span>Portals</span></a><a href="#information"><i class="fas fa-city"></i><span>City</span></a><a href="emergency-contacts.php"><i class="fas fa-phone-volume"></i><span>Help</span></a></nav>
+<nav class="bottom-nav"><a href="#home" class="active"><i class="fas fa-house"></i><span>Home</span></a><a href="#services"><i class="fas fa-link"></i><span>Services</span></a><a href="#portals" class="center"><i class="fas fa-window-restore"></i><span>Portals</span></a><a href="#information"><i class="fas fa-city"></i><span>City</span></a><a href="emergency-contacts.php"><i class="fas fa-phone-volume"></i><span>Help</span></a></nav>
 <div class="view-switcher" id="viewSwitcher"><button class="view-trigger" id="viewTrigger"><i class="fas fa-sliders"></i></button><div class="view-menu"><button data-view="auto" class="active">Auto</button><button data-view="mobile">Mobile</button><button data-view="desktop">Desktop</button></div></div>
 <script>
 (function(){
- var body=document.body,drawer=document.getElementById('mobileDrawer'),back=document.getElementById('drawerBackdrop');
- var search=document.getElementById('serviceSearch'), empty=document.getElementById('searchEmpty');
- search.oninput=function(){var q=search.value.toLowerCase().trim(),n=0;document.querySelectorAll('.service-card').forEach(function(c){var ok=!q||(c.innerText+' '+(c.dataset.search||'')).toLowerCase().includes(q);c.hidden=!ok;if(ok)n++});empty.classList.toggle('show',!!q&&!n)};
+ var body=document.body;
+ var menuBtn=document.getElementById('menuBtn');
+ menuBtn.onclick=function(){body.classList.toggle('header-collapsed');menuBtn.querySelector('i').className=body.classList.contains('header-collapsed')?'fas fa-xmark':'fas fa-bars'};
+ var search=document.getElementById('serviceSearch'), empty=document.getElementById('searchEmpty'),count=document.querySelector('.section-count');
+ search.oninput=function(){var q=search.value.toLowerCase().trim(),n=0;document.querySelectorAll('.service-card,.portal-row,.info-card').forEach(function(c){var ok=!q||(c.innerText+' '+(c.dataset.search||'')).toLowerCase().includes(q);c.hidden=!ok;if(ok)n++});empty.classList.toggle('show',!!q&&!n);if(count)count.textContent=q?n+' RESULTS':'8 SERVICES'};
  document.getElementById('clearSearch').onclick=function(){search.value='';search.oninput();search.focus()};
  document.querySelectorAll('a[href^="#"]').forEach(function(a){a.onclick=function(e){var t=document.querySelector(a.getAttribute('href'));if(t){e.preventDefault();t.scrollIntoView({behavior:'smooth',block:'start'})}}});
  var ids=['home','services','portals','information','emergency','leadership'], obs=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){document.querySelectorAll('.bottom-nav a').forEach(function(a){a.classList.toggle('active',a.getAttribute('href')==='#'+e.target.id)});document.querySelectorAll('.desktop-nav a').forEach(function(a){a.classList.toggle('active',a.getAttribute('href')==='#'+e.target.id)})}})},{rootMargin:'-45% 0px -45% 0px'});
