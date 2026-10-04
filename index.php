@@ -108,7 +108,17 @@ $type = $hotline['type'] ?? 'general';
 $logo = $type === 'police' ? 'fa-shield-halved' : ($type === 'fire' ? 'fa-fire-flame-curved' : ($type === 'hospital' ? 'fa-hospital' : 'fa-phone'));
 ?>
 <a href="tel:<?= htmlspecialchars(preg_replace('/[^0-9+]/', '', $hotline['phone'] ?? '')) ?>" class="hotline-card hotline-<?= htmlspecialchars($type) ?>">
-  <span class="hotline-logo"><i class="fas <?= $logo ?>"></i></span>
+  <span class="hotline-logo">
+    <?php if ($type === 'police'): ?>
+      <img src="https://upload.wikimedia.org/wikipedia/commons/1/1e/Badge_of_the_Philippine_National_Police.svg" alt="Philippine National Police">
+    <?php elseif ($type === 'fire'): ?>
+      <img src="https://upload.wikimedia.org/wikipedia/commons/4/42/Bureau_of_Fire_Protection.png" alt="Bureau of Fire Protection">
+    <?php elseif ($type === 'hospital'): ?>
+      <img src="https://upload.wikimedia.org/wikipedia/commons/3/39/DOH_PH_new_logo.svg" alt="SOCCSKSARGEN General Hospital">
+    <?php else: ?>
+      <i class="fas <?= $logo ?>"></i>
+    <?php endif; ?>
+  </span>
   <span><b><?= htmlspecialchars($hotline['name'] ?? '') ?></b><small><?= htmlspecialchars($hotline['phone'] ?? '') ?></small></span>
 </a>
 <?php endforeach; ?></div>
