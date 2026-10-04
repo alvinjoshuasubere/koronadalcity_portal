@@ -924,7 +924,7 @@ $typeConfig = [
         }
     }
     </style>
-    <link rel="stylesheet" href="static/css/koronadal-theme.css" />
+    <link rel="stylesheet" href="koronadal-theme.css" />
 </head>
 
 <body>
