@@ -3973,3 +3973,13 @@ body,body *{
 html,body,body *,button,input,textarea,select{
   font-family:"Sora","Poppins","Inter","Segoe UI",Arial,sans-serif!important;
 }
+
+/* Font Awesome must stay on icon elements */
+i[class^="fa-"],i[class*=" fa-"],svg[class^="fa-"],svg[class*=" fa-"],
+.fa,.fas,.far,.fab,.fal,.fad,.fa-solid,.fa-regular,.fa-brands{
+  font-family:"Font Awesome 6 Free","Font Awesome 6 Brands"!important;
+  font-style:normal!important;
+}
+.fas,.fa-solid{font-weight:900!important}
+.far,.fa-regular{font-weight:400!important}
+.fab,.fa-brands{font-weight:400!important}
