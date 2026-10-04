@@ -3750,3 +3750,109 @@ body,body *{
   .hotline-grid{padding:0 20px 16px!important;grid-template-columns:1fr!important}
   .hotline-grid a.hotline-card{min-height:80px!important}
 }
+
+/* Emergency — title, 911, then three readable agency cards */
+.emergency-panel{
+  padding:0!important;
+  overflow:hidden!important;
+}
+.emergency-main{
+  display:flex!important;
+  flex-direction:column!important;
+  align-items:center!important;
+  justify-content:center!important;
+  text-align:center!important;
+  gap:14px!important;
+  padding:30px 24px 24px!important;
+}
+.emergency-heading>span{
+  font-size:10px!important;
+  letter-spacing:.18em!important;
+  font-weight:800!important;
+}
+.emergency-heading h2{
+  margin:7px 0 0!important;
+  font-size:clamp(25px,3vw,34px)!important;
+  font-weight:700!important;
+}
+.emergency-heading p{display:none!important}
+.emergency-call{
+  width:150px!important;
+  min-width:150px!important;
+  min-height:70px!important;
+  padding:9px 18px!important;
+  display:flex!important;
+  flex-direction:column!important;
+  align-items:center!important;
+  justify-content:center!important;
+  border-radius:16px!important;
+}
+.emergency-call strong{font-size:32px!important;line-height:1!important}
+.emergency-call small{font-size:9px!important;margin-top:4px!important;letter-spacing:.12em!important}
+.hotline-grid{
+  display:grid!important;
+  grid-template-columns:repeat(3,minmax(0,1fr))!important;
+  gap:14px!important;
+  padding:0 24px 24px!important;
+}
+.hotline-grid a.hotline-card{
+  min-height:118px!important;
+  padding:18px 14px!important;
+  display:flex!important;
+  flex-direction:column!important;
+  align-items:center!important;
+  justify-content:center!important;
+  text-align:center!important;
+  gap:9px!important;
+  border-radius:16px!important;
+}
+.hotline-card .hotline-logo{
+  width:52px!important;
+  height:52px!important;
+  flex-basis:52px!important;
+  border-radius:14px!important;
+  font-size:22px!important;
+}
+.hotline-card b{
+  display:block!important;
+  font-size:13px!important;
+  line-height:1.35!important;
+}
+.hotline-card small{
+  display:block!important;
+  margin-top:5px!important;
+  font-size:13px!important;
+  line-height:1.3!important;
+  font-weight:800!important;
+}
+.emergency-panel .panel-link{
+  display:block!important;
+  text-align:center!important;
+  padding:0 20px 20px!important;
+  font-size:11px!important;
+}
+@media(max-width:760px){
+  .emergency-main{padding:25px 18px 20px!important}
+  .emergency-heading h2{font-size:25px!important}
+  .emergency-call{width:140px!important;min-width:140px!important}
+  .hotline-grid{
+    grid-template-columns:repeat(3,minmax(0,1fr))!important;
+    gap:8px!important;
+    padding:0 12px 18px!important;
+  }
+  .hotline-grid a.hotline-card{
+    min-height:126px!important;
+    padding:13px 7px!important;
+  }
+  .hotline-card .hotline-logo{
+    width:46px!important;height:46px!important;flex-basis:46px!important;font-size:19px!important;
+  }
+  .hotline-card b{font-size:11px!important}
+  .hotline-card small{font-size:10px!important}
+}
+@media(max-width:430px){
+  .hotline-grid{gap:6px!important;padding-left:10px!important;padding-right:10px!important}
+  .hotline-grid a.hotline-card{min-height:118px!important;padding:11px 5px!important}
+  .hotline-card b{font-size:10px!important}
+  .hotline-card small{font-size:9px!important}
+}
