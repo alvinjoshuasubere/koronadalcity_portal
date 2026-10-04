@@ -1350,7 +1350,7 @@ function getCommitteeColor($tag, $committeeColors, $defaultColor) {
         background: rgba(23, 105, 170, 0.5)
     }
     </style>
-    <link rel="stylesheet" href="static/css/koronadal-theme.css" />
+    <link rel="stylesheet" href="koronadal-theme.css" />
 </head>
 
 <body>
