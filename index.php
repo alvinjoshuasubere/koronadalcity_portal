@@ -83,11 +83,6 @@ if (file_exists($officialsFile)) {
     <a href="#information"><i class="fas fa-circle-info"></i> City Info</a>
     <a href="#landmarks"><i class="fas fa-location-dot"></i> Landmarks</a>
   </div>
-  <section class="quick-strip" aria-label="Quick access">
-    <a href="https://citizen.koronadalcityonlineservices.com/register" target="_blank"><span class="quick-icon blue"><i class="fas fa-id-card"></i></span><span><b>Citizen Portal</b><small>Online transactions</small></span><i class="fas fa-chevron-right"></i></a>
-    <a href="https://jobs.koronadalcityonlineservices.com/" target="_blank"><span class="quick-icon purple"><i class="fas fa-briefcase"></i></span><span><b>Job Portal</b><small>Find opportunities</small></span><i class="fas fa-chevron-right"></i></a>
-    <a href="emergency-contacts.php"><span class="quick-icon red"><i class="fas fa-phone"></i></span><span><b>Emergency</b><small>Help is available</small></span><i class="fas fa-chevron-right"></i></a>
-  </section>
   <section class="portal-section services-section" id="services">
   <div class="services-title">
     <span>ONLINE SERVICES</span>
