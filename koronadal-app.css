@@ -3873,3 +3873,98 @@ body,body *{
   .hotline-police .hotline-logo img{width:36px!important;height:41px!important}
   .hotline-fire .hotline-logo img,.hotline-hospital .hotline-logo img{width:38px!important;height:38px!important}
 }
+
+/* Modern emergency interaction — restrained motion, no pulsing circles */
+.emergency-panel .hotline-card{
+  position:relative!important;
+  overflow:hidden!important;
+  transform:translateZ(0);
+  transition:transform .28s cubic-bezier(.2,.8,.2,1),box-shadow .28s ease,border-color .28s ease,background-color .28s ease!important;
+}
+.emergency-panel .hotline-card::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:linear-gradient(120deg,transparent 20%,rgba(255,255,255,.16) 48%,transparent 72%);
+  transform:translateX(-125%);
+  transition:transform .55s cubic-bezier(.22,1,.36,1);
+  pointer-events:none;
+}
+.emergency-panel .hotline-card::after{
+  content:"";
+  position:absolute;
+  left:18px;
+  right:18px;
+  bottom:0;
+  height:3px;
+  border-radius:99px 99px 0 0;
+  background:currentColor;
+  opacity:.0;
+  transform:scaleX(.35);
+  transform-origin:center;
+  transition:transform .3s ease,opacity .3s ease;
+}
+.emergency-panel .hotline-card:hover{
+  transform:translateY(-7px);
+  box-shadow:0 18px 30px rgba(8,43,85,.13)!important;
+}
+.emergency-panel .hotline-card:hover::before{transform:translateX(125%)}
+.emergency-panel .hotline-card:hover::after{opacity:.28;transform:scaleX(1)}
+.emergency-panel .hotline-card .hotline-logo{
+  transition:transform .3s cubic-bezier(.2,.8,.2,1),box-shadow .3s ease!important;
+}
+.emergency-panel .hotline-card:hover .hotline-logo{
+  transform:translateY(-2px) scale(1.05);
+  box-shadow:0 8px 18px rgba(8,43,85,.12);
+}
+.emergency-panel .hotline-card b,
+.emergency-panel .hotline-card small{
+  transition:transform .25s ease,color .25s ease;
+}
+.emergency-panel .hotline-card:hover b{transform:translateY(-1px)}
+.emergency-panel .hotline-card:hover small{color:inherit}
+.emergency-panel .emergency-call{
+  position:relative!important;
+  overflow:hidden!important;
+  isolation:isolate;
+  transition:transform .3s cubic-bezier(.2,.8,.2,1),box-shadow .3s ease!important;
+}
+.emergency-panel .emergency-call::before{
+  content:"";
+  position:absolute;
+  inset:-40%;
+  background:linear-gradient(115deg,transparent 42%,rgba(255,255,255,.26) 50%,transparent 58%);
+  transform:translateX(-70%) rotate(8deg);
+  transition:transform .65s cubic-bezier(.22,1,.36,1);
+  z-index:-1;
+}
+.emergency-panel .emergency-call:hover{
+  transform:translateY(-4px) scale(1.025);
+  box-shadow:0 16px 30px rgba(0,0,0,.18)!important;
+}
+.emergency-panel .emergency-call:hover::before{transform:translateX(70%) rotate(8deg)}
+.emergency-panel .panel-link{
+  transition:gap .25s ease,color .25s ease,transform .25s ease!important;
+}
+.emergency-panel .panel-link:hover{
+  transform:translateY(-1px);
+}
+.emergency-panel .panel-link i{
+  transition:transform .25s ease;
+}
+.emergency-panel .panel-link:hover i{transform:translateX(5px)}
+@media(max-width:760px){
+  .emergency-panel .hotline-card:hover{transform:translateY(-4px)}
+  .emergency-panel .emergency-call:hover{transform:translateY(-2px) scale(1.015)}
+}
+@media(prefers-reduced-motion:reduce){
+  .emergency-panel .hotline-card,
+  .emergency-panel .emergency-call,
+  .emergency-panel .hotline-card .hotline-logo,
+  .emergency-panel .panel-link,
+  .emergency-panel .panel-link i{
+    transition:none!important;
+  }
+  .emergency-panel .hotline-card::before,
+  .emergency-panel .emergency-call::before{display:none!important}
+}
