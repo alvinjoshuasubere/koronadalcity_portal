@@ -2538,3 +2538,19 @@ a:focus-visible,button:focus-visible,input:focus-visible{
 .service-card:not(.service-unavailable)::after{content:"";position:absolute;right:-22px;bottom:-22px;width:78px;height:78px;border-radius:50%;background:rgba(23,105,170,.055);pointer-events:none;transition:transform .25s ease}.service-card:not(.service-unavailable):hover::after{transform:scale(1.35)}
 .service-card:not(.service-unavailable)::before{content:"";position:absolute;left:0;top:0;width:4px;height:0;border-radius:20px 0 0 20px;background:#1769aa;transition:height .25s ease}.service-card:not(.service-unavailable):hover::before{height:100%}
 .service-card:not(.service-unavailable) .service-icon{box-shadow:0 8px 18px rgba(20,45,72,.10);transition:transform .25s ease,box-shadow .25s ease}.service-card:not(.service-unavailable):hover .service-icon{transform:translateY(-2px) scale(1.04);box-shadow:0 12px 24px rgba(20,45,72,.14)}
+
+/* Refined service motion — restrained, smooth, civic */
+.service-card{overflow:hidden;will-change:transform;transition:transform .32s cubic-bezier(.22,.61,.36,1),box-shadow .32s ease,border-color .32s ease!important}
+.service-card::before,.service-card::after{transition:all .4s cubic-bezier(.22,.61,.36,1)!important}
+.service-card:not(.service-unavailable)::before{opacity:0;height:100%!important;transform:scaleY(.35);transform-origin:center;transition:opacity .3s ease,transform .4s cubic-bezier(.22,.61,.36,1)!important}
+.service-card:not(.service-unavailable):hover::before{opacity:1;transform:scaleY(1)}
+.service-card:not(.service-unavailable)::after{opacity:0;transform:scale(.7);transition:opacity .4s ease,transform .5s cubic-bezier(.22,.61,.36,1)!important}
+.service-card:not(.service-unavailable):hover::after{opacity:1;transform:scale(1.1)}
+.service-card:not(.service-unavailable):hover{transform:translateY(-3px)!important;box-shadow:0 12px 28px rgba(20,45,72,.10)!important}
+.service-icon{transition:transform .32s cubic-bezier(.22,.61,.36,1),box-shadow .32s ease!important}
+.service-card:not(.service-unavailable):hover .service-icon{transform:translateY(-2px) scale(1.025)!important;box-shadow:0 10px 20px rgba(20,45,72,.11)!important}
+.service-card strong,.service-card small,.service-card em{transition:transform .3s ease,opacity .3s ease!important}
+.service-card:not(.service-unavailable):hover strong{transform:translateX(2px)}
+.service-card:not(.service-unavailable):hover small{transform:translateX(2px)}
+.service-unavailable{transition:opacity .3s ease,filter .3s ease,transform .3s ease!important}.service-unavailable:hover{transform:translateY(-1px)!important}
+@media(prefers-reduced-motion:reduce){.service-card,.service-card::before,.service-card::after,.service-icon,.service-card strong,.service-card small,.service-card em{transition:none!important;animation:none!important}.service-card:hover{transform:none!important}}
