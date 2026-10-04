@@ -56,6 +56,11 @@ if (file_exists($officialsFile)) {
     <a href="emergency-contacts.php"><span class="quick-icon red"><i class="fas fa-phone"></i></span><span><b>Emergency</b><small>Help is available</small></span><i class="fas fa-chevron-right"></i></a>
   </section>
   <section class="portal-section services-section" id="services">
+  <div class="services-title">
+    <span>ONLINE SERVICES</span>
+    <h2>City Portal Services</h2>
+    <p>Access Koronadal City’s digital services and official online portals.</p>
+  </div>
     <div class="service-grid" id="serviceGrid">
       <a class="service-card" href="https://koronadalcityportal.com/v2/login" target="_blank" rel="noopener" data-search="business permits licensing"><span class="service-icon"><i class="fas fa-file-signature"></i></span><strong>Business Permits & Licensing</strong><small>Apply, renew and manage business permits.</small><i class="fas fa-arrow-up-right-from-square service-open"></i></a>
       <a class="service-card" href="https://citizen.koronadalcityonlineservices.com/register" target="_blank" rel="noopener" data-search="citizen records transactions"><span class="service-icon"><i class="fas fa-id-card"></i></span><strong>Unified Citizen Services</strong><small>Access integrated citizen transactions.</small><i class="fas fa-arrow-up-right-from-square service-open"></i></a>
