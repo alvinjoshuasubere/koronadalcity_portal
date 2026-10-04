@@ -49,6 +49,31 @@ if (file_exists($officialsFile)) {
     <div class="hero-actions"><a href="#services" class="primary-action"><i class="fas fa-arrow-down"></i> Find a Service</a><a href="emergency-contacts.php" class="secondary-action"><i class="fas fa-phone-volume"></i> Emergency</a></div>
   </div>
 </section>
+  <script>
+  (function(){
+    var hero=document.querySelector('.home-hero');
+    if(!hero || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    var raf=0, px=0, py=0;
+    hero.addEventListener('pointermove',function(e){
+      var r=hero.getBoundingClientRect();
+      px=((e.clientX-r.left)/r.width-.5)*10;
+      py=((e.clientY-r.top)/r.height-.5)*7;
+      hero.style.setProperty('--mx',((e.clientX-r.left)/r.width*100)+'%');
+      hero.style.setProperty('--my',((e.clientY-r.top)/r.height*100)+'%');
+      if(!raf) raf=requestAnimationFrame(function(){
+        hero.style.setProperty('--hero-x',px.toFixed(2)+'px');
+        hero.style.setProperty('--hero-y',py.toFixed(2)+'px');
+        raf=0;
+      });
+    });
+    hero.addEventListener('pointerleave',function(){
+      hero.style.setProperty('--hero-x','0px');
+      hero.style.setProperty('--hero-y','0px');
+      hero.style.setProperty('--mx','50%');
+      hero.style.setProperty('--my','50%');
+    });
+  })();
+  </script>
   <div class="portal-search"><i class="fas fa-search"></i><input id="serviceSearch" type="search" placeholder="Search services, portals or city information..."><button id="clearSearch"><i class="fas fa-xmark"></i></button></div>
   <section class="quick-strip" aria-label="Quick access">
     <a href="https://citizen.koronadalcityonlineservices.com/register" target="_blank"><span class="quick-icon blue"><i class="fas fa-id-card"></i></span><span><b>Citizen Portal</b><small>Online transactions</small></span><i class="fas fa-chevron-right"></i></a>
