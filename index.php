@@ -110,7 +110,7 @@ $logo = $type === 'police' ? 'fa-shield-halved' : ($type === 'fire' ? 'fa-fire-f
 <a href="tel:<?= htmlspecialchars(preg_replace('/[^0-9+]/', '', $hotline['phone'] ?? '')) ?>" class="hotline-card hotline-<?= htmlspecialchars($type) ?>">
   <span class="hotline-logo">
     <?php if ($type === 'police'): ?>
-      <img src="https://upload.wikimedia.org/wikipedia/commons/1/1e/Badge_of_the_Philippine_National_Police.svg" alt="Philippine National Police">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/4/4f/Philippine_National_Police_seal.svg" alt="Philippine National Police">
     <?php elseif ($type === 'fire'): ?>
       <img src="https://upload.wikimedia.org/wikipedia/commons/4/42/Bureau_of_Fire_Protection.png" alt="Bureau of Fire Protection">
     <?php elseif ($type === 'hospital'): ?>
