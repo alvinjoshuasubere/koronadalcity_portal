@@ -50,12 +50,12 @@ if (file_exists($officialsFile)) {
   </div>
 </section>
   <div class="portal-search"><i class="fas fa-search"></i><input id="serviceSearch" type="search" placeholder="Search services, portals or city information..."><button id="clearSearch"><i class="fas fa-xmark"></i></button></div>
-  <section class="quick-strip">
+  <section class="quick-strip" aria-label="Quick access">
     <a href="https://citizen.koronadalcityonlineservices.com/register" target="_blank"><span class="quick-icon blue"><i class="fas fa-id-card"></i></span><span><b>Citizen Portal</b><small>Online transactions</small></span><i class="fas fa-chevron-right"></i></a>
     <a href="https://jobs.koronadalcityonlineservices.com/" target="_blank"><span class="quick-icon purple"><i class="fas fa-briefcase"></i></span><span><b>Job Portal</b><small>Find opportunities</small></span><i class="fas fa-chevron-right"></i></a>
     <a href="emergency-contacts.php"><span class="quick-icon red"><i class="fas fa-phone"></i></span><span><b>Emergency</b><small>Help is available</small></span><i class="fas fa-chevron-right"></i></a>
   </section>
-  <section class="portal-section" id="services">
+  <section class="portal-section services-section" id="services">
     <div class="service-grid" id="serviceGrid">
       <a class="service-card" href="https://koronadalcityportal.com/v2/login" target="_blank" rel="noopener" data-search="business permits licensing"><span class="service-icon"><i class="fas fa-file-signature"></i></span><strong>Business Permits & Licensing</strong><small>Apply, renew and manage business permits.</small><i class="fas fa-arrow-up-right-from-square service-open"></i></a>
       <a class="service-card" href="https://citizen.koronadalcityonlineservices.com/register" target="_blank" rel="noopener" data-search="citizen records transactions"><span class="service-icon"><i class="fas fa-id-card"></i></span><strong>Unified Citizen Services</strong><small>Access integrated citizen transactions.</small><i class="fas fa-arrow-up-right-from-square service-open"></i></a>
@@ -67,7 +67,7 @@ if (file_exists($officialsFile)) {
       <a class="service-card service-unavailable" href="#developmentNotice" data-search="agriculture farmers livelihood"><span class="service-icon"><i class="fas fa-wheat-awn"></i></span><strong>Agriculture</strong><small>Farmers and livelihood services.</small><em><i class="fas fa-clock"></i> Coming Soon</em></a>
       <a class="service-card service-unavailable" href="#developmentNotice" data-search="tourism culture history places"><span class="service-icon"><i class="fas fa-compass"></i></span><strong>Tourism</strong><small>Places, culture and city attractions.</small><em><i class="fas fa-clock"></i> Coming Soon</em></a>
     </div>
-    <div class="search-empty" id="searchEmpty">No matching service found. Try business, citizen, jobs or emergency.</div>
+    <div class="search-empty" id="searchEmpty">No service found. Try another search.</div>
   </section>
   <section class="development-notice" id="developmentNotice" hidden><div class="development-icon"><i class="fas fa-screwdriver-wrench"></i></div><div><span>COMING SOON</span><h2>Ongoing Development</h2><p>This digital service does not have an active online portal yet. The City is working on its digital service and will make it available here once ready.</p></div></section>
   <section class="emergency-panel" id="emergency">
