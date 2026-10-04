@@ -56,7 +56,7 @@ if (file_exists($officialsFile)) {
     <a href="emergency-contacts.php"><span class="quick-icon red"><i class="fas fa-phone"></i></span><span><b>Emergency</b><small>Help is available</small></span><i class="fas fa-chevron-right"></i></a>
   </section>
   <section class="portal-section" id="services">
-    <div class="section-heading"><div><span>START HERE</span><h2>What do you need today?</h2><p>Everything is grouped by what you want to accomplish.</p></div><span class="section-count">8 SERVICES</span></div>
+    
     <div class="service-grid" id="serviceGrid">
       <a class="service-card" href="#portals" data-search="business permit licensing business"><span class="service-icon blue"><i class="fas fa-file-signature"></i></span><strong>Business</strong><small>Permits & licensing</small></a>
       <a class="service-card" href="https://citizen.koronadalcityonlineservices.com/register" target="_blank" data-search="citizen id documents online services"><span class="service-icon cyan"><i class="fas fa-id-card"></i></span><strong>Citizen</strong><small>Records & transactions</small></a>
