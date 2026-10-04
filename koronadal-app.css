@@ -3968,3 +3968,8 @@ body,body *{
   .emergency-panel .hotline-card::before,
   .emergency-panel .emergency-call::before{display:none!important}
 }
+
+/* Final global typography lock */
+html,body,body *,button,input,textarea,select{
+  font-family:"Sora","Poppins","Inter","Segoe UI",Arial,sans-serif!important;
+}
