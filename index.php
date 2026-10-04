@@ -85,6 +85,36 @@ if (file_exists($officialsFile)) {
     <div class="hotline-grid"><?php foreach (array_slice($emergencyData, 1, 3) as $hotline): ?><a href="tel:<?= htmlspecialchars(preg_replace('/[^0-9+]/', '', $hotline['phone'] ?? '')) ?>"><i class="fas fa-phone"></i><span><b><?= htmlspecialchars($hotline['name'] ?? '') ?></b><small><?= htmlspecialchars($hotline['phone'] ?? '') ?></small></span></a><?php endforeach; ?></div>
     <a class="panel-link" href="emergency-contacts.php">View all emergency contacts <i class="fas fa-arrow-right"></i></a>
   </section>
+  <section class="portal-section landmarks-section" id="landmarks">
+    <div class="section-heading">
+      <div><span>DISCOVER KORONADAL</span><h2>Landmarks & city highlights</h2><p>Places and stories that help define the identity of the City of Koronadal.</p></div>
+      <span class="section-count">CITY GUIDE</span>
+    </div>
+    <div class="landmark-grid">
+      <a class="landmark-card landmark-featured" href="https://koronadal.gov.ph/2026/05/19/from-the-ground-to-the-monument/" target="_blank">
+        <div class="landmark-visual"><span class="landmark-number">01</span><i class="fas fa-monument"></i></div>
+        <div class="landmark-copy"><span>ICONIC LANDMARK</span><h3>General Paulino Santos Monument</h3><p>The towering monument at the famous Roundball is one of Koronadal's recognizable city landmarks.</p><b>Explore the story <i class="fas fa-arrow-up-right-from-square"></i></b></div>
+      </a>
+      <a class="landmark-card" href="https://koronadal.gov.ph/2026/03/23/from-eyesore-to-cultural-landmark-koronadals-cultourism-hub-rises/" target="_blank">
+        <div class="landmark-visual"><span class="landmark-number">02</span><i class="fas fa-tree-city"></i></div>
+        <div class="landmark-copy"><span>CULTURE & COMMUNITY</span><h3>Rizal Park</h3><p>A central public space being enhanced with cultural, community and recreational activities, including the Cultourism Hub.</p><b>Learn more <i class="fas fa-arrow-up-right-from-square"></i></b></div>
+      </a>
+      <a class="landmark-card" href="https://koronadal.gov.ph/2024/01/23/rehabilitated-municipal-hall-a-new-center-for-education-and-enterprise/" target="_blank">
+        <div class="landmark-visual"><span class="landmark-number">03</span><i class="fas fa-landmark"></i></div>
+        <div class="landmark-copy"><span>HERITAGE</span><h3>Old Municipal Hall</h3><p>A historic civic building rehabilitated as a multi-purpose space for the city library, pasalubong center and proposed museum.</p><b>Discover its history <i class="fas fa-arrow-up-right-from-square"></i></b></div>
+      </a>
+      <a class="landmark-card" href="https://koronadal.gov.ph/culture/" target="_blank">
+        <div class="landmark-visual"><span class="landmark-number">04</span><i class="fas fa-masks-theater"></i></div>
+        <div class="landmark-copy"><span>CULTURE</span><h3>Hinugyaw Festival</h3><p>Koronadal's annual celebration of its founding, bringing together street dancing, community activities and local culture.</p><b>Discover local culture <i class="fas fa-arrow-up-right-from-square"></i></b></div>
+      </a>
+    </div>
+    <div class="city-facts">
+      <div><i class="fas fa-location-dot"></i><strong>SOCCSKSARGEN Regional Center</strong><small>Koronadal serves as the regional center and seat of SOCCSKSARGEN.</small></div>
+      <div><i class="fas fa-map"></i><strong>27 Barangays</strong><small>Explore communities across the City of Koronadal.</small></div>
+      <div><i class="fas fa-mountain-sun"></i><strong>Southern Mindanao</strong><small>Located in the northeastern part of South Cotabato.</small></div>
+      <div><i class="fas fa-language"></i><strong>Hiligaynon</strong><small>The city's most spoken local language, alongside Cebuano and Ilocano.</small></div>
+    </div>
+  </section>
   <section class="portal-section leadership-section" id="leadership">
     <div class="section-heading"><div><span>CITY LEADERSHIP</span><h2>Mayor's Corner</h2><p>Leadership, service and a smarter Koronadal.</p></div><a class="text-link" href="city-officials.php">All officials <i class="fas fa-arrow-right"></i></a></div>
     <div class="mayor-card"><div class="mayor-copy"><div class="mayor-label"><i class="fas fa-landmark"></i> CITY MAYOR</div><h3><?= htmlspecialchars($mayor['name'] ?? 'HON. ERLINDA PABI-ARAQUIL') ?></h3><p><?= htmlspecialchars($mayor['ordinance'] ?? 'Spearheading digital governance and smart city initiatives for Koronadal City') ?></p><div class="mayor-motto"><i class="fas fa-quote-left"></i><span>“Genuine Service for God and for the People... EPAdayon Ang Kanami Sang Bagong Koronadal”</span></div><div class="mayor-meta"><span><i class="fas fa-building"></i> City Government of Koronadal</span><a href="city-officials.php">Meet the city officials <i class="fas fa-arrow-right"></i></a></div></div><div class="mayor-photo"><img src="Mayor_bg.png" alt="<?= htmlspecialchars($mayor['name'] ?? 'City Mayor') ?>"><span>Mayor's Corner</span></div></div>
