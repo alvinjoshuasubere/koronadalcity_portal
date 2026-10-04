@@ -114,7 +114,7 @@ $logo = $type === 'police' ? 'fa-shield-halved' : ($type === 'fire' ? 'fa-fire-f
     <?php elseif ($type === 'fire'): ?>
       <img src="https://upload.wikimedia.org/wikipedia/commons/4/42/Bureau_of_Fire_Protection.png" alt="Bureau of Fire Protection">
     <?php elseif ($type === 'hospital'): ?>
-      <img src="https://upload.wikimedia.org/wikipedia/commons/3/39/DOH_PH_new_logo.svg" alt="SOCCSKSARGEN General Hospital">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/2/2a/DOH_PH_new_logo.svg" alt="SOCCSKSARGEN General Hospital">
     <?php else: ?>
       <i class="fas <?= $logo ?>"></i>
     <?php endif; ?>
