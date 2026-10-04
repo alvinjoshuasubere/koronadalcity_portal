@@ -75,6 +75,14 @@ if (file_exists($officialsFile)) {
   })();
   </script>
   <div class="portal-search"><i class="fas fa-search"></i><input id="serviceSearch" type="search" placeholder="Search services, portals or city information..."><button id="clearSearch"><i class="fas fa-xmark"></i></button></div>
+  <div class="quick-search" aria-label="Quick search">
+    <span class="quick-search-label">Quick Search</span>
+    <a href="#services" data-quick-search="services"><i class="fas fa-grid-2"></i> Services</a>
+    <a href="emergency-contacts.php"><i class="fas fa-phone-volume"></i> Emergency</a>
+    <a href="#leadership"><i class="fas fa-landmark"></i> Mayor</a>
+    <a href="#information"><i class="fas fa-circle-info"></i> City Info</a>
+    <a href="#landmarks"><i class="fas fa-location-dot"></i> Landmarks</a>
+  </div>
   <section class="quick-strip" aria-label="Quick access">
     <a href="https://citizen.koronadalcityonlineservices.com/register" target="_blank"><span class="quick-icon blue"><i class="fas fa-id-card"></i></span><span><b>Citizen Portal</b><small>Online transactions</small></span><i class="fas fa-chevron-right"></i></a>
     <a href="https://jobs.koronadalcityonlineservices.com/" target="_blank"><span class="quick-icon purple"><i class="fas fa-briefcase"></i></span><span><b>Job Portal</b><small>Find opportunities</small></span><i class="fas fa-chevron-right"></i></a>
