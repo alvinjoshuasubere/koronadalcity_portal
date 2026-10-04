@@ -3664,3 +3664,15 @@ body,body *{
     transition-duration:.01ms!important;
   }
 }
+
+/* Tighten top spacing before City Portal Services */
+.services-section{
+  padding-top:38px!important;
+}
+.services-section .services-title{
+  margin-top:0!important;
+  padding-top:0!important;
+}
+@media(max-width:760px){
+  .services-section{padding-top:30px!important}
+}
