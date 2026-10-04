@@ -3139,3 +3139,28 @@ body select{
 @media(prefers-reduced-motion:reduce){
   .mayor-motto::after{animation:none!important}
 }
+
+/* Final typography override: Mayor's Corner */
+.leadership-section .mayor-card,
+.leadership-section .mayor-card *{
+  font-family:"Sora","Poppins","Inter","Segoe UI",Arial,sans-serif!important;
+}
+.leadership-section .mayor-copy p{
+  font-size:16px!important;
+  line-height:1.7!important;
+}
+.leadership-section .mayor-copy .mayor-motto span{
+  font-size:clamp(20px,2.5vw,29px)!important;
+  line-height:1.4!important;
+  font-weight:700!important;
+}
+.leadership-section .mayor-copy .mayor-meta a{
+  font-size:15px!important;
+  min-height:54px!important;
+  padding:15px 24px!important;
+}
+@media(max-width:620px){
+  .leadership-section .mayor-copy p{font-size:14px!important}
+  .leadership-section .mayor-copy .mayor-motto span{font-size:19px!important}
+  .leadership-section .mayor-copy .mayor-meta a{font-size:14px!important;min-height:52px!important}
+}
