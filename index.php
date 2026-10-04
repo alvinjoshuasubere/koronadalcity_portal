@@ -71,7 +71,7 @@ if (file_exists($officialsFile)) {
   <section class="development-notice" id="developmentNotice" hidden><div class="development-icon"><i class="fas fa-screwdriver-wrench"></i></div><div><span>COMING SOON</span><h2>Ongoing Development</h2><p>This digital service does not have an active online portal yet. The City is working on its digital service and will make it available here once ready.</p></div></section>
   <section class="portal-section" id="portals">
     <div class="section-heading">
-      <div><span>ONLINE SERVICES</span><h2>Access city services</h2><p>Select a service to open its official online portal.</p></div>
+      <div><span>DIRECT ACCESS</span><h2>Official city portals</h2><p>Open the city's online systems directly. Choose a service below to continue to its official website.</p></div>
     </div>
     <div class="portal-list">
       <a class="portal-row" href="https://koronadalcityportal.com/v2/login" target="_blank" rel="noopener"><span class="portal-logo"><i class="fas fa-file-contract"></i></span><span class="portal-copy"><strong>Business Permits & Licensing</strong><small>Open the official portal to apply, renew or manage business permits.</small></span><i class="fas fa-arrow-up-right-from-square"></i></a>
