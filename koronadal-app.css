@@ -3856,3 +3856,20 @@ body,body *{
   .hotline-card b{font-size:10px!important}
   .hotline-card small{font-size:9px!important}
 }
+
+/* Official agency logos in emergency cards */
+.hotline-card .hotline-logo img{
+  width:40px!important;
+  height:40px!important;
+  object-fit:contain!important;
+  display:block!important;
+  filter:drop-shadow(0 2px 4px rgba(0,0,0,.12));
+}
+.hotline-police .hotline-logo img{width:42px!important;height:48px!important}
+.hotline-fire .hotline-logo img{width:46px!important;height:46px!important}
+.hotline-hospital .hotline-logo img{width:44px!important;height:44px!important}
+@media(max-width:760px){
+  .hotline-card .hotline-logo img{width:35px!important;height:35px!important}
+  .hotline-police .hotline-logo img{width:36px!important;height:41px!important}
+  .hotline-fire .hotline-logo img,.hotline-hospital .hotline-logo img{width:38px!important;height:38px!important}
+}
