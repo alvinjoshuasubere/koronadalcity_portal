@@ -2998,3 +2998,75 @@ h1,h2,h3,h4,strong,button,.nav-link,.service-card{
   .home-hero .hero-content,.home-hero .hero-logo,.home-hero .hero-kicker,
   .home-hero .hero-actions a{transition:none!important;transform:none!important}
 }
+
+/* Seamless typography across the main page */
+body,
+body p,
+body span,
+body small,
+body strong,
+body a,
+body button,
+body input,
+body textarea,
+body select{
+  font-family:"Poppins","Inter","Segoe UI",Arial,sans-serif;
+}
+.mayor-section,
+.mayor-section p,
+.mayor-section span,
+.mayor-section strong,
+.mayor-section small,
+.mayor-section a{
+  font-family:"Poppins","Inter","Segoe UI",Arial,sans-serif!important;
+}
+.mayor-section p{
+  font-size:14px!important;
+  line-height:1.7!important;
+  color:#52677c!important;
+}
+.mayor-section .mayor-copy h2,
+.mayor-section h2{
+  font-size:clamp(24px,3vw,34px)!important;
+  line-height:1.15!important;
+  font-weight:700!important;
+  letter-spacing:-.025em!important;
+}
+.mayor-section .mayor-copy strong,
+.mayor-section .mayor-label{
+  font-size:11px!important;
+  line-height:1.4!important;
+  letter-spacing:.1em!important;
+}
+.mayor-section .mayor-copy{
+  font-size:14px!important;
+}
+.mayor-section .mayor-copy .mayor-description,
+.mayor-section .mayor-copy .description{
+  font-size:14px!important;
+  line-height:1.7!important;
+}
+.portal-section .section-heading h2,
+.landmarks-section .section-heading h2,
+.info-section h2{
+  font-size:clamp(23px,2.8vw,32px)!important;
+  line-height:1.18!important;
+}
+.portal-section .section-heading p,
+.landmarks-section .section-heading p{
+  font-size:13px!important;
+  line-height:1.6!important;
+}
+@media(max-width:620px){
+  .mayor-section p,
+  .mayor-section .mayor-copy,
+  .mayor-section .mayor-copy .mayor-description,
+  .mayor-section .mayor-copy .description{
+    font-size:12px!important;
+    line-height:1.6!important;
+  }
+  .mayor-section .mayor-copy h2,
+  .mayor-section h2{
+    font-size:24px!important;
+  }
+}
