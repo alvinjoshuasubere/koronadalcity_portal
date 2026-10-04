@@ -2179,3 +2179,35 @@ body {
 .force-mobile .mayor-card { grid-template-columns: 1fr; }
 .force-mobile .mayor-photo { order: -1; min-height: 210px; }
 .force-mobile .mayor-photo img { min-height: 210px; }
+
+/* MOBILE FINAL: prevent overlap and establish clear visual priority */
+@media (max-width:620px){
+  .home-hero{display:block!important;min-height:auto!important;padding:30px 20px 28px!important}
+  .home-hero .hero-content{width:100%!important;max-width:none!important}
+  .home-hero .hero-content h1{font-size:clamp(34px,10vw,46px)!important;line-height:1.02!important;max-width:360px}
+  .home-hero .hero-content p{font-size:15px!important;line-height:1.55!important;max-width:360px!important}
+  .hero-actions{display:grid!important;grid-template-columns:1fr 1fr!important;gap:8px!important}
+  .primary-action,.secondary-action{width:100%!important;min-width:0!important;height:46px!important;justify-content:center!important;font-size:11px!important;padding:0 8px!important}
+  .portal-search{margin:12px 2px 20px!important;height:56px!important}
+  .quick-strip{grid-template-columns:1fr!important;gap:8px!important}
+  .quick-strip a{min-height:68px!important;grid-template-columns:44px minmax(0,1fr) 12px!important}
+  .quick-strip b{font-size:13px!important}.quick-strip small{font-size:10px!important}
+  .section-heading{align-items:flex-end!important;gap:8px!important}.section-heading>div{min-width:0;flex:1}
+  .section-heading h2{font-size:23px!important;line-height:1.12!important}.section-heading p{font-size:11px!important;line-height:1.45!important}
+  .service-grid{grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:9px!important}
+  .service-card{min-width:0;min-height:132px!important}.service-card strong{font-size:13px!important;line-height:1.18!important}.service-card small{font-size:9px!important}
+  .portal-list{grid-template-columns:1fr!important;gap:8px!important}
+  .portal-row{grid-template-columns:46px minmax(0,1fr) 16px!important;min-height:78px!important;min-width:0;padding:11px!important}
+  .portal-badge{display:none!important}.portal-copy{min-width:0}.portal-copy strong{font-size:12px!important}.portal-copy small{font-size:9px!important;white-space:normal!important;overflow:visible!important}
+  .emergency-main{grid-template-columns:46px minmax(0,1fr)!important;gap:11px!important}.emergency-main h2{font-size:20px!important}.emergency-main p{font-size:10px!important;line-height:1.4!important}
+  .emergency-call{grid-column:1/-1!important;width:100%!important;min-width:0!important;min-height:52px;display:flex!important;align-items:center;justify-content:center;gap:10px}.emergency-call strong{font-size:23px!important}.emergency-call small{font-size:8px!important;margin-top:0!important}
+  .hotline-grid{grid-template-columns:1fr!important}
+  .mayor-card{display:flex!important;flex-direction:column!important;min-height:0!important}.mayor-photo,.mayor-photo img{height:205px!important;min-height:205px!important}.mayor-copy{padding:20px!important}.mayor-copy h3{font-size:22px!important}.mayor-copy>p{font-size:11px!important;line-height:1.6!important}.mayor-motto{font-size:9px!important}
+  .info-grid{grid-template-columns:repeat(2,minmax(0,1fr))!important}.info-card{min-width:0;min-height:142px!important}.info-card strong{font-size:11px!important}.info-card small{font-size:9px!important}
+  .citizen-banner{grid-template-columns:44px minmax(0,1fr)!important}.citizen-banner>a{grid-column:1/-1!important;width:100%;justify-content:center}
+  .portal-shell{width:calc(100% - 20px)!important;max-width:430px;padding-bottom:108px!important;overflow:visible}
+  .bottom-nav{width:calc(100% - 16px)!important;height:64px!important;bottom:max(7px,env(safe-area-inset-bottom))!important}.bottom-nav a span{font-size:8px!important;white-space:nowrap}
+  .view-switcher{right:9px!important;bottom:calc(max(7px,env(safe-area-inset-bottom)) + 73px)!important}.portal-footer{padding-bottom:112px!important}
+}
+@media (max-width:370px){.home-hero{padding:26px 17px 24px!important}.home-hero .hero-content h1{font-size:32px!important}.home-hero .hero-content p{font-size:13px!important}.section-heading h2{font-size:21px!important}.service-card strong{font-size:12px!important}}
+.force-mobile .hero-actions{display:grid!important;grid-template-columns:1fr 1fr!important}.force-mobile .emergency-main{grid-template-columns:46px minmax(0,1fr)!important}.force-mobile .emergency-call{grid-column:1/-1!important}.force-mobile .portal-list{grid-template-columns:1fr!important}.force-mobile .portal-row{grid-template-columns:46px minmax(0,1fr) 16px!important}
