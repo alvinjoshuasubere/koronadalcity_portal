@@ -2531,3 +2531,10 @@ a:focus-visible,button:focus-visible,input:focus-visible{
  .portal-section#portals{margin-top:48px!important}.portal-section#portals .section-heading h2{font-size:24px!important}
 }
 @media(max-width:370px){.home-hero .hero-content h1{font-size:26px!important}.service-card{min-height:150px!important}.service-card strong{font-size:13px!important}}
+
+/* Coming-soon services — intentionally subdued */
+.service-unavailable{opacity:.5!important;filter:saturate(.55)!important}.service-unavailable:hover{opacity:.62!important;filter:saturate(.7)!important}.service-unavailable .service-icon{box-shadow:none!important}.service-unavailable em{background:#e8edf2!important;color:#64748b!important}
+/* Professional service-card interaction details */
+.service-card:not(.service-unavailable)::after{content:"";position:absolute;right:-22px;bottom:-22px;width:78px;height:78px;border-radius:50%;background:rgba(23,105,170,.055);pointer-events:none;transition:transform .25s ease}.service-card:not(.service-unavailable):hover::after{transform:scale(1.35)}
+.service-card:not(.service-unavailable)::before{content:"";position:absolute;left:0;top:0;width:4px;height:0;border-radius:20px 0 0 20px;background:#1769aa;transition:height .25s ease}.service-card:not(.service-unavailable):hover::before{height:100%}
+.service-card:not(.service-unavailable) .service-icon{box-shadow:0 8px 18px rgba(20,45,72,.10);transition:transform .25s ease,box-shadow .25s ease}.service-card:not(.service-unavailable):hover .service-icon{transform:translateY(-2px) scale(1.04);box-shadow:0 12px 24px rgba(20,45,72,.14)}
