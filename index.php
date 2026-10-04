@@ -28,7 +28,7 @@ if (file_exists($officialsFile)) {
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet" />
-    <link rel="stylesheet" href="koronadal-app.css?v=20261004-02" />
+    <link rel="stylesheet" href="koronadal-app.css?v=20261004-03" />
 </head>
 
 <body>
@@ -150,8 +150,8 @@ if (file_exists($officialsFile)) {
   </section>
   <section class="citizen-banner"><div class="citizen-badge"><i class="fas fa-id-card"></i></div><div><span>CITIZEN ACCESS</span><h2>Continue your city transaction</h2><p>Use the Citizen Portal for online services and digital transactions.</p></div><a href="https://citizen.koronadalcityonlineservices.com/register" target="_blank">Open Citizen Portal <i class="fas fa-arrow-right"></i></a></section>
 </main>
-<footer class="portal-footer"><div class="footer-inner"><div class="footer-brand"><img src="Logo.png" alt="Koronadal City"><div><strong>City of Koronadal</strong><span>Digital Gateway</span></div></div><div class="footer-copy">Official digital access to city services, information, assistance and citizen resources.</div><div class="footer-links"><a href="#services">Services</a><a href="#portals">Digital Portals</a><a href="#information">City Info</a><a href="city-officials.php">Officials</a><a href="emergency-contacts.php">Emergency</a><a href="https://koronadal.gov.ph/" target="_blank">LGU Website</a></div><div class="footer-bottom"><span>© <?= date('Y') ?> City Government of Koronadal</span><span>Official City Portal</span></div></div></footer>
-<nav class="bottom-nav"><a href="#home" class="active"><i class="fas fa-house"></i><span>Home</span></a><a href="#services"><i class="fas fa-link"></i><span>Services</span></a><a href="#portals" class="center"><i class="fas fa-window-restore"></i><span>Portals</span></a><a href="#information"><i class="fas fa-city"></i><span>City</span></a><a href="emergency-contacts.php"><i class="fas fa-phone-volume"></i><span>Help</span></a></nav>
+<footer class="portal-footer"><div class="footer-inner"><div class="footer-brand"><img src="Logo.png" alt="Koronadal City"><div><strong>City of Koronadal</strong><span>Digital Gateway</span></div></div><div class="footer-copy">Official digital access to city services, information, assistance and citizen resources.</div><div class="footer-links"><a href="#services">Services</a><a href="#services">Digital Portals</a><a href="#information">City Info</a><a href="city-officials.php">Officials</a><a href="emergency-contacts.php">Emergency</a><a href="https://koronadal.gov.ph/" target="_blank">LGU Website</a></div><div class="footer-bottom"><span>© <?= date('Y') ?> City Government of Koronadal</span><span>Official City Portal</span></div></div></footer>
+<nav class="bottom-nav"><a href="#home" class="active"><i class="fas fa-house"></i><span>Home</span></a><a href="#services"><i class="fas fa-link"></i><span>Services</span></a><a href="#services" class="center"><i class="fas fa-window-restore"></i><span>Services</span></a><a href="#information"><i class="fas fa-city"></i><span>City</span></a><a href="emergency-contacts.php"><i class="fas fa-phone-volume"></i><span>Help</span></a></nav>
 <div class="view-switcher" id="viewSwitcher"><button class="view-trigger" id="viewTrigger"><i class="fas fa-sliders"></i></button><div class="view-menu"><button data-view="auto" class="active">Auto</button><button data-view="mobile">Mobile</button><button data-view="desktop">Desktop</button></div></div>
 <script>
 (function(){
