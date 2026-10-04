@@ -68,7 +68,7 @@ if (file_exists($officialsFile)) {
       <a class="service-card emergency-card" href="emergency-contacts.php" data-search="emergency police fire hospital 911"><span class="service-icon red"><i class="fas fa-phone-volume"></i></span><strong>Emergency</strong><small>911 & local hotlines</small></a>
     </div><div class="search-empty" id="searchEmpty">No matching service found. Try business, citizen, jobs or emergency.</div>
   </section>
-  <section class="portal-section" id="portals">
+  <section class="development-notice" id="developmentNotice" hidden><div class="development-icon"><i class="fas fa-screwdriver-wrench"></i></div><div><span>PORTAL UPDATE</span><h2>Ongoing Development</h2><p>This service is currently being improved. Please check back soon while we complete updates and system enhancements.</p></div></section>\n  <section class="portal-section" id="portals">
     <div class="section-heading"><div><span>DIGITAL PORTALS</span><h2>Go directly to a service</h2><p>One place for the city's most-used online systems.</p></div></div>
     <div class="portal-list">
       <a class="portal-row" href="https://koronadalcityportal.com/v2/login" target="_blank"><span class="portal-logo blue"><i class="fas fa-file-contract"></i></span><span class="portal-copy"><strong>Business Permits & Licensing</strong><small>Apply, renew and manage business permits.</small></span><span class="portal-badge">BUSINESS</span><i class="fas fa-arrow-up-right-from-square"></i></a>
@@ -119,4 +119,4 @@ if (file_exists($officialsFile)) {
  var saved=localStorage.getItem('kdc-view')||'auto',sb=document.querySelector('.view-menu button[data-view="'+saved+'"]');if(sb)sb.click();
 })();
 </script>
-</body></html>
+<script>\n(function(){\n  const notice=document.getElementById("developmentNotice");\n  const cards=[...document.querySelectorAll(".service-card")];\n  cards.forEach(card=>{\n    if(card.getAttribute("href")==="#portals"){\n      card.addEventListener("click",function(e){\n        e.preventDefault();\n        if(notice){notice.hidden=false; notice.scrollIntoView({behavior:"smooth",block:"center"});}\n      });\n    }\n  });\n})();\n</script>\n</body></html>
