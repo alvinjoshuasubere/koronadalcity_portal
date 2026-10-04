@@ -3676,3 +3676,77 @@ body,body *{
 @media(max-width:760px){
   .services-section{padding-top:30px!important}
 }
+
+/* Emergency section: compact heading + larger agency-specific marks */
+.emergency-main{
+  padding:22px 28px!important;
+  min-height:0!important;
+}
+.emergency-heading>span{
+  font-size:9px!important;
+  letter-spacing:.14em!important;
+  font-weight:800!important;
+}
+.emergency-heading h2{
+  margin:4px 0 3px!important;
+  font-size:clamp(21px,2.4vw,28px)!important;
+  line-height:1.15!important;
+}
+.emergency-heading p{
+  margin:0!important;
+  font-size:11px!important;
+  line-height:1.45!important;
+}
+.emergency-symbol{display:none!important}
+.hotline-grid{
+  gap:12px!important;
+  padding:0 28px 18px!important;
+}
+.hotline-grid a.hotline-card{
+  min-height:86px!important;
+  padding:14px 15px!important;
+  gap:13px!important;
+  border-radius:14px!important;
+}
+.hotline-card .hotline-logo{
+  flex:0 0 54px;
+  width:54px!important;
+  height:54px!important;
+  display:flex!important;
+  align-items:center!important;
+  justify-content:center!important;
+  border-radius:15px!important;
+  background:rgba(255,255,255,.14)!important;
+  color:#fff!important;
+  font-size:23px!important;
+  box-shadow:inset 0 0 0 1px rgba(255,255,255,.12)!important;
+}
+.hotline-police .hotline-logo{background:rgba(42,111,194,.9)!important}
+.hotline-fire .hotline-logo{background:rgba(211,71,48,.95)!important}
+.hotline-hospital .hotline-logo{background:rgba(28,139,105,.95)!important}
+.hotline-card b{
+  font-size:12px!important;
+  line-height:1.35!important;
+}
+.hotline-card small{
+  display:block!important;
+  margin-top:4px!important;
+  font-size:12px!important;
+  font-weight:700!important;
+  line-height:1.3!important;
+}
+.emergency-call{
+  min-width:92px!important;
+  min-height:66px!important;
+}
+.emergency-call strong{font-size:25px!important}
+.emergency-call small{font-size:8px!important}
+@media(max-width:760px){
+  .emergency-main{
+    padding:18px 20px!important;
+  }
+  .emergency-heading h2{font-size:22px!important}
+  .emergency-heading p{font-size:10px!important}
+  .hotline-grid{padding:0 20px 16px!important;grid-template-columns:1fr!important}
+  .hotline-grid a.hotline-card{min-height:80px!important}
+}
