@@ -44,7 +44,7 @@ if (file_exists($officialsFile)) {
   <div class="hero-content">
     <div class="hero-logo"><img src="Logo.png" alt="Koronadal City"></div>
     <div class="hero-kicker"><span class="live-dot"></span> CITY OF KORONADAL</div>
-    <h1>Maayung Adlaw,<br><b>Koronadaleño!</b></h1>
+    <h1>Maayong Adlaw,<br><b>Koronadaleño!</b></h1>
     <p>Your digital front door to city services, information and assistance.</p>
     <div class="hero-actions"><a href="#services" class="primary-action"><i class="fas fa-arrow-down"></i> Find a Service</a><a href="emergency-contacts.php" class="secondary-action"><i class="fas fa-phone-volume"></i> Emergency</a></div>
   </div>
