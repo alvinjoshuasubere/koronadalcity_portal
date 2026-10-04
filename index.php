@@ -101,8 +101,17 @@ if (file_exists($officialsFile)) {
   </section>
   <section class="development-notice" id="developmentNotice" hidden><div class="development-icon"><i class="fas fa-screwdriver-wrench"></i></div><div><span>COMING SOON</span><h2>Ongoing Development</h2><p>This digital service does not have an active online portal yet. The City is working on its digital service and will make it available here once ready.</p></div></section>
   <section class="emergency-panel" id="emergency">
-    <div class="emergency-main"><div class="emergency-symbol"><i class="fas fa-phone-volume"></i></div><div><span>EMERGENCY ASSISTANCE</span><h2>Need help right now?</h2><p>For urgent emergencies, call the appropriate hotline immediately.</p></div><a href="tel:911" class="emergency-call"><strong>911</strong><small>CALL NOW</small></a></div>
-    <div class="hotline-grid"><?php foreach (array_slice($emergencyData, 1, 3) as $hotline): ?><a href="tel:<?= htmlspecialchars(preg_replace('/[^0-9+]/', '', $hotline['phone'] ?? '')) ?>"><i class="fas fa-phone"></i><span><b><?= htmlspecialchars($hotline['name'] ?? '') ?></b><small><?= htmlspecialchars($hotline['phone'] ?? '') ?></small></span></a><?php endforeach; ?></div>
+    <div class="emergency-main"><div class="emergency-heading"><span>EMERGENCY ASSISTANCE</span><h2>Need help right now?</h2><p>For urgent emergencies, call the appropriate hotline immediately.</p></div><a href="tel:911" class="emergency-call"><strong>911</strong><small>CALL NOW</small></a></div>
+    <div class="hotline-grid"><?php foreach (array_slice($emergencyData, 1, 3) as $hotline): ?>
+<?php
+$type = $hotline['type'] ?? 'general';
+$logo = $type === 'police' ? 'fa-shield-halved' : ($type === 'fire' ? 'fa-fire-flame-curved' : ($type === 'hospital' ? 'fa-hospital' : 'fa-phone'));
+?>
+<a href="tel:<?= htmlspecialchars(preg_replace('/[^0-9+]/', '', $hotline['phone'] ?? '')) ?>" class="hotline-card hotline-<?= htmlspecialchars($type) ?>">
+  <span class="hotline-logo"><i class="fas <?= $logo ?>"></i></span>
+  <span><b><?= htmlspecialchars($hotline['name'] ?? '') ?></b><small><?= htmlspecialchars($hotline['phone'] ?? '') ?></small></span>
+</a>
+<?php endforeach; ?></div>
     <a class="panel-link" href="emergency-contacts.php">View all emergency contacts <i class="fas fa-arrow-right"></i></a>
   </section>
   <section class="portal-section landmarks-section" id="landmarks">
