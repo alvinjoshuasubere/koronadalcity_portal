@@ -2619,3 +2619,30 @@ a:focus-visible,button:focus-visible,input:focus-visible{
 .city-facts small{display:block;margin-top:5px;color:#64748b;font-size:10px;line-height:1.5}
 @media(max-width:900px){.landmark-grid{grid-template-columns:1fr 1fr}.landmark-featured{grid-row:auto}.city-facts{grid-template-columns:1fr 1fr}.city-facts>div:nth-child(2){border-right:0}.city-facts>div:nth-child(-n+2){border-bottom:1px solid var(--civic-line)}}
 @media(max-width:620px){.landmark-grid{grid-template-columns:1fr}.landmark-card,.landmark-featured{min-height:0}.landmark-featured .landmark-visual,.landmark-visual{height:145px}.landmark-copy{padding:17px}.landmark-copy h3{font-size:16px}.landmark-copy p{font-size:11px}.city-facts{grid-template-columns:1fr}.city-facts>div{border-right:0!important;border-bottom:1px solid var(--civic-line)!important}.city-facts>div:last-child{border-bottom:0!important}}
+
+/* Unified civic icon palette — emergency remains distinct */
+.service-grid .service-icon,
+.quick-strip .quick-icon,
+.portal-logo,
+.info-card>span{
+  background:#eaf3fb!important;
+  color:#1769aa!important;
+}
+.service-card .service-icon.green,
+.service-card .service-icon.teal,
+.service-card .service-icon.purple,
+.service-card .service-icon.cyan,
+.service-card .service-icon.rose,
+.service-card .service-icon.indigo,
+.service-card .service-icon.blue{
+  background:#eaf3fb!important;color:#1769aa!important;
+}
+.service-card.emergency-card .service-icon,
+.service-card .service-icon.red,
+.quick-strip .quick-icon.red,
+.emergency-symbol{
+  background:#8f1d2c!important;color:#fff!important;
+}
+.emergency-card{border-color:rgba(143,29,44,.16)!important}
+.emergency-card:hover{border-color:rgba(143,29,44,.3)!important;box-shadow:0 16px 34px rgba(143,29,44,.12)!important}
+.portal-logo.red,.info-card .red{background:#f5e5e8!important;color:#8f1d2c!important}
