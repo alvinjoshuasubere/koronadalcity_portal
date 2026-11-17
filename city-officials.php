@@ -1351,9 +1351,10 @@ function getCommitteeColor($tag, $committeeColors, $defaultColor) {
     }
     </style>
     <link rel="stylesheet" href="koronadal-theme.css" />
+    <link rel="stylesheet" href="portal-unified.css?v=20261118" />
 </head>
 
-<body>
+<body class="officials-page">
 
     <div class="bg-layer">
         <div class="bg-orb bg-orb-1"></div>
@@ -1581,23 +1582,7 @@ function getCommitteeColor($tag, $committeeColors, $defaultColor) {
             });
         }
 
-        // 3D tilt on council cards
-        cards.forEach(function(card) {
-            card.addEventListener('mousemove', function(e) {
-                var rect = card.getBoundingClientRect();
-                var x = e.clientX - rect.left;
-                var y = e.clientY - rect.top;
-                var cx = rect.width / 2;
-                var cy = rect.height / 2;
-                var ry = ((x - cx) / cx) * 5;
-                var rx = ((cy - y) / cy) * 4;
-                card.style.transform = 'perspective(800px) rotateY(' + ry + 'deg) rotateX(' +
-                    rx + 'deg) translateY(-6px)';
-            });
-            card.addEventListener('mouseleave', function() {
-                card.style.transform = '';
-            });
-        });
+        // Keep profile cards steady for touch and keyboard users.
 
         // Navbar scroll
         var nav = document.getElementById('nav');
