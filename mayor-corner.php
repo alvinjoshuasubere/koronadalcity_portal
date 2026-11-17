@@ -35,6 +35,7 @@ function mcInitials($name) {
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
     <link rel="stylesheet" href="koronadal-app.css?v=20261004-05" />
     <link rel="stylesheet" href="koronadal-theme.css" />
+    <link rel="stylesheet" href="portal-unified.css?v=20261118" />
 </head>
 <body class="mc-page">
 
