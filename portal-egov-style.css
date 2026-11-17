@@ -186,3 +186,14 @@ body.force-mobile .bottom-nav a.center{background:#f0f8c8!important;border-radiu
 body.force-mobile .view-switcher{bottom:calc(89px + env(safe-area-inset-bottom))!important;right:12px!important}
 body.force-mobile .view-trigger{min-height:43px!important;font-size:11px!important;padding:0 12px!important}
 
+
+/* Center the phone preview's navigation when viewing Mobile on a wide monitor. */
+@media(min-width:761px){
+ body.force-mobile .bottom-nav{left:50%!important;transform:translateX(-50%)!important;width:530px!important;max-width:530px!important}
+ body.force-mobile .view-switcher{right:max(12px,calc((100vw - 530px)/2 + 12px))!important}
+}
+@media(max-width:390px){
+ body:not(.force-desktop) .portal-dashboard .top-task i{width:56px!important;height:56px!important;flex-basis:56px!important}
+ body:not(.force-desktop) .portal-dashboard .top-task strong{font-size:10px!important}
+ body:not(.force-desktop) .app-featured-content{max-width:83%!important}
+}
