@@ -26,7 +26,7 @@ function mcInitials($name) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="theme-color" content="#1769AA">
+    <meta name="theme-color" content="#102d50">
     <title>Mayor's Corner — Koronadal City</title>
     <link rel="icon" type="image/x-icon" href="favicon.ico">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -36,6 +36,7 @@ function mcInitials($name) {
     <link rel="stylesheet" href="koronadal-app.css?v=20261004-05" />
     <link rel="stylesheet" href="koronadal-theme.css" />
     <link rel="stylesheet" href="portal-unified.css?v=20261118" />
+    <link rel="stylesheet" href="portal-glacier.css?v=20261118-2" />
 </head>
 <body class="mc-page">
 
