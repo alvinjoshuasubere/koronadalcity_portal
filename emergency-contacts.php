@@ -925,9 +925,10 @@ $typeConfig = [
     }
     </style>
     <link rel="stylesheet" href="koronadal-theme.css" />
+    <link rel="stylesheet" href="portal-unified.css?v=20261118" />
 </head>
 
-<body>
+<body class="emergency-page">
 
     <!-- Floating Orbs -->
     <div class="orbs">
@@ -1077,11 +1078,7 @@ $typeConfig = [
             });
         }
 
-        cards.forEach(function(card) {
-            card.addEventListener('mouseenter', function() {
-                this.style.transform =
-                    'perspective(800px) rotateX(2deg) rotateY(-2deg) translateY(-5px)';
-            });
+        // Cards retain a stable layout while users select emergency numbers.
             card.addEventListener('mouseleave', function() {
                 this.style.transform = '';
             });
