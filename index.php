@@ -9,6 +9,16 @@ if (file_exists($emergencyFile)) {
 if (file_exists($officialsFile)) {
     $officialsData = json_decode(file_get_contents($officialsFile), true);
 }
+$mayor = null;
+if (is_array($officialsData)) {
+    foreach ($officialsData as $official) {
+        $position = strtolower($official['position'] ?? '');
+        if (strpos($position, 'mayor') !== false && strpos($position, 'vice') === false) {
+            $mayor = $official;
+            break;
+        }
+    }
+}
 ?>
 <!DOCTYPE html>
 <html lang="en" data-theme="light">
@@ -29,14 +39,15 @@ if (file_exists($officialsFile)) {
     <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet" />
     <link rel="stylesheet" href="koronadal-app.css?v=20261004-05" />
+    <link rel="stylesheet" href="portal-refresh.css?v=20261118" />
 </head>
 
 <body>
 <header class="portal-header" id="portalHeader">
   <div class="header-inner">
     <a class="brand" href="#home"><img src="Logo.png" alt="City of Koronadal"><span><strong>City of Koronadal</strong><small>Digital Gateway</small></span></a>
-    <nav class="desktop-nav"><a href="#home" class="active">Home</a><a href="#services">Services</a><a href="#information">City Info</a><a href="#leadership">Leadership</a><a href="emergency-contacts.php">Emergency</a></nav>
-    <div class="header-actions"><span class="official-pill"><i class="fas fa-circle"></i> Official Portal</span><a class="header-service-btn" href="#services"><i class="fas fa-grid-2"></i> Services</a><button class="menu-btn" id="menuBtn"><i class="fas fa-bars"></i></button></div>
+    <nav class="desktop-nav" id="desktopNav" aria-label="Main navigation"><a href="#home" class="active">Home</a><a href="#services">Services</a><a href="#information">City Info</a><a href="#leadership">Leadership</a><a href="emergency-contacts.php">Emergency</a></nav>
+    <div class="header-actions"><span class="official-pill"><i class="fas fa-circle"></i> Official Portal</span><a class="header-service-btn" href="#services"><i class="fas fa-grid-2"></i> Services</a><button class="menu-btn" id="menuBtn" type="button" aria-label="Toggle navigation" aria-controls="desktopNav" aria-expanded="false"><i class="fas fa-bars"></i></button></div>
   </div><div class="brand-accent"><i></i><i></i><i></i></div>
 </header>
 <main class="portal-shell" id="home">
@@ -74,7 +85,7 @@ if (file_exists($officialsFile)) {
     });
   })();
   </script>
-  <div class="portal-search"><i class="fas fa-search"></i><input id="serviceSearch" type="search" placeholder="Search services, portals or city information..."><button id="clearSearch"><i class="fas fa-xmark"></i></button></div>
+  <div class="portal-search"><i class="fas fa-search"></i><input id="serviceSearch" type="search" aria-label="Search city services" placeholder="Search services, permits, jobs and more..."><button id="clearSearch" type="button" aria-label="Clear search"><i class="fas fa-xmark"></i></button></div>
   <div class="quick-search" aria-label="Quick search">
     <span class="quick-search-label">Quick Search</span>
     <a href="#services" data-quick-search="services"><i class="fas fa-grid-2"></i> Services</a>
@@ -179,11 +190,11 @@ $logo = $type === 'police' ? 'fa-shield-halved' : ($type === 'fire' ? 'fa-fire-f
 (function(){
  var body=document.body;
  var menuBtn=document.getElementById('menuBtn');
- menuBtn.onclick=function(){body.classList.toggle('header-collapsed');menuBtn.querySelector('i').className=body.classList.contains('header-collapsed')?'fas fa-xmark':'fas fa-bars'};
+ menuBtn.onclick=function(){body.classList.toggle('header-collapsed');var expanded=body.classList.contains('header-collapsed');menuBtn.setAttribute('aria-expanded',String(expanded));menuBtn.querySelector('i').className=expanded?'fas fa-xmark':'fas fa-bars'};
  var search=document.getElementById('serviceSearch'), empty=document.getElementById('searchEmpty'),count=document.querySelector('.section-count');
- search.oninput=function(){var q=search.value.toLowerCase().trim(),n=0;document.querySelectorAll('.service-card,.portal-row,.info-card').forEach(function(c){var ok=!q||(c.innerText+' '+(c.dataset.search||'')).toLowerCase().includes(q);c.hidden=!ok;if(ok)n++});empty.classList.toggle('show',!!q&&!n);if(count)count.textContent=q?n+' RESULTS':'8 SERVICES'};
+ search.oninput=function(){var q=search.value.toLowerCase().trim(),n=0;document.querySelectorAll('.service-card,.portal-row,.info-card').forEach(function(c){var ok=!q||(c.innerText+' '+(c.dataset.search||'')).toLowerCase().includes(q);c.hidden=!ok;if(ok)n++});empty.classList.toggle('show',!!q&&!n);if(count)count.textContent=q?n+' RESULTS':'CITY GUIDE'};
  document.getElementById('clearSearch').onclick=function(){search.value='';search.oninput();search.focus()};
- document.querySelectorAll('a[href^="#"]').forEach(function(a){a.onclick=function(e){var t=document.querySelector(a.getAttribute('href'));if(t){e.preventDefault();t.scrollIntoView({behavior:'smooth',block:'start'})}}});
+ document.querySelectorAll('a[href^="#"]').forEach(function(a){a.onclick=function(e){var hash=a.getAttribute('href');if(!hash||hash==='#')return;var t=document.getElementById(hash.slice(1));if(t){e.preventDefault();t.scrollIntoView({behavior:'smooth',block:'start'})}}});
  var ids=['home','services','portals','information','emergency','leadership'], obs=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){document.querySelectorAll('.bottom-nav a').forEach(function(a){a.classList.toggle('active',a.getAttribute('href')==='#'+e.target.id)});document.querySelectorAll('.desktop-nav a').forEach(function(a){a.classList.toggle('active',a.getAttribute('href')==='#'+e.target.id)})}})},{rootMargin:'-45% 0px -45% 0px'});
  ids.forEach(function(id){var el=document.getElementById(id);if(el)obs.observe(el)});
  var sw=document.getElementById('viewSwitcher');document.getElementById('viewTrigger').onclick=function(e){e.stopPropagation();sw.classList.toggle('open')};
