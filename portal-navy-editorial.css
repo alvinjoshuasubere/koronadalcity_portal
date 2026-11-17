@@ -1,0 +1,96 @@
+/* CITY OF KORONADAL · Deep navy civic interface · November 2026 */
+:root{--navy:#101e38;--deep-navy:#09162b;--portal-ink:#12213d;--portal-blue:#3157bd;--portal-line:#dfe6f0;--ui-navy:#101e38;--ui-deep:#09162b;--ui-glacier:#edf2fc;--ui-ice:#f8faff;--ui-glacier-blue:#5674c3;--ui-lemon:#f0bc64;--app-navy:#101e38;--app-lemon:#f0bc64;--civic-navy:#101e38;--civic-blue:#3157bd;--civic-paper:#f7f9fc;--civic-border:#dfe6f0;--civic-ink:#172641}
+html{scroll-padding-top:92px}
+body{background:#f7f9fc!important;color:#172641!important}
+.portal-header{background:#fff!important;border-bottom:1px solid #e3e9f2!important;box-shadow:0 3px 14px rgba(10,23,46,.035)!important}
+.portal-header .header-inner{max-width:1420px!important;min-height:82px!important}
+.brand-accent{background:linear-gradient(90deg,#152a52 0 75%,#f0bc64 75% 100%)!important;height:3px!important}
+.brand strong{color:#111f38!important}.brand small{color:#71829a!important}
+.desktop-nav a{color:#344661!important;font-weight:700!important}
+.desktop-nav a.active,.desktop-nav a:hover{background:#eef2fa!important;color:#163a83!important}
+.header-service-btn{background:#142647!important;color:white!important}
+.official-pill{background:#edf2fb!important;border-color:#dbe4f4!important;color:#233d6b!important}
+.portal-shell{max-width:1400px!important;width:calc(100% - 72px)!important;padding-top:30px!important}
+.home-hero{background:linear-gradient(113deg,#07152b 0%,#13274a 66%,#254e89 100%)!important;min-height:410px!important;padding:62px 65px!important;border-radius:25px!important;box-shadow:0 17px 40px rgba(10,28,60,.12)!important}
+.home-hero:before{background:radial-gradient(circle at 85% 27%,rgba(110,149,235,.22),transparent 34%),repeating-linear-gradient(145deg,transparent 0 85px,rgba(255,255,255,.018) 86px 87px)!important}
+.home-hero:after{border-color:rgba(183,205,245,.22)!important}
+.home-hero .hero-kicker{color:#aabde2!important;font-weight:800!important;letter-spacing:.16em!important}
+.home-hero .hero-content h1{font-size:clamp(48px,5.3vw,81px)!important;line-height:1.02!important;letter-spacing:-.065em!important;max-width:880px!important}
+.home-hero .hero-content h1 b{color:#f4c77d!important}
+.home-hero .hero-content p{font-size:17px!important;color:#ccd7eb!important;max-width:540px!important}
+.hero-side-note{display:flex!important;background:rgba(255,255,255,.07)!important;border-color:rgba(255,255,255,.12)!important}
+.hero-side-note i{background:#f0bc64!important;color:#16223b!important}
+.hero-actions .primary-action{background:#f0bc64!important;color:#101e38!important}
+.hero-actions .primary-action:hover{background:#f6d396!important}
+.hero-actions .secondary-action{background:rgba(255,255,255,.07)!important;color:#fff!important}
+.portal-search{max-width:880px!important;min-height:65px!important;border:1px solid #dee5f0!important;box-shadow:0 14px 35px rgba(18,36,65,.085)!important}
+.portal-search>i{color:#3f5d96!important}
+.quick-search a{background:white!important;border-color:#e1e8f1!important;color:#405573!important}
+.quick-search a:hover{background:#edf2fc!important}
+.dashboard-panel .dashboard-eyebrow,.services-title>span,.section-heading span:not(.section-count){color:#4b66a8!important}
+.dashboard-panel h2,.services-title h2,.section-heading h2{color:#111f38!important}
+.portal-dashboard .top-task{border:1px solid #e1e7f0!important;border-radius:16px!important;background:white!important;box-shadow:0 5px 18px rgba(19,36,69,.035)!important}
+.portal-dashboard .top-task i{background:#e9effb!important;color:#3157bd!important;border-radius:16px!important}
+.portal-dashboard .top-task:nth-child(2) i{background:#fff2d9!important;color:#8b5d17!important}
+.portal-dashboard .top-task:nth-child(3) i{background:#e7f0fa!important;color:#29558c!important}
+.portal-dashboard .top-task:nth-child(4) i{background:#fcebed!important;color:#a43c50!important}
+.portal-dashboard .top-task strong{color:#132644!important}
+.app-featured{background:linear-gradient(108deg,#e9eef8 0%,#f6f8fd 63%,#fff5e4 100%)!important;border-color:#dee6f1!important;border-radius:22px!important}
+.app-featured-kicker{color:#3f60a3!important}
+.app-featured h2{color:#12233f!important}
+.app-featured-content>a{background:#152f61!important;color:white!important}
+.art-circle{color:#3157bd!important;border-color:#e1e8f1!important}
+.art-three{background:#f6d7a4!important;color:#1b3154!important}
+.app-directory-link{color:#1d417d!important;border-color:#dce4f1!important}
+.services-section .service-card{background:white!important;border:1px solid #e1e7f1!important;border-radius:15px!important;box-shadow:none!important}
+.services-section .service-card:hover{border-color:#b1c3e7!important;background:#fafbfe!important}
+.services-section .service-card .service-icon{background:#edf2fc!important;color:#3157bd!important;border-radius:15px!important}
+.services-section .service-card:nth-child(3n + 2) .service-icon{background:#fff2dc!important;color:#9b681b!important}
+.services-section .service-card strong{color:#122746!important}
+.services-section .service-card small{color:#728096!important}
+.services-section .service-card .service-open{color:#6480b6!important}
+.service-step .step-number{background:#e8effc!important;color:#234b97!important}
+.emergency-panel{border:1px solid #e0e8f2!important}
+.landmark-card,.mayor-card,.info-card{border-color:#e2e8f1!important}
+.citizen-banner{background:linear-gradient(105deg,#0d1d38,#204078)!important}
+.citizen-banner a{background:#f0bc64!important;color:#0c1e3a!important}
+.portal-footer{background:#0b1930!important}
+.bottom-nav a.center{background:#e6edfa!important;color:#183c82!important}
+.bottom-nav a.center i,.bottom-nav a.center span{color:#183c82!important}
+/* The view-mode launcher is only an icon. Labels are available within the opened menu. */
+.view-switcher{z-index:1800!important}
+.view-switcher .view-trigger{width:53px!important;height:53px!important;min-height:53px!important;padding:0!important;border-radius:17px!important;gap:0!important;background:#14294d!important;color:#fff!important;border:1px solid #3a4f74!important;box-shadow:0 12px 30px rgba(8,23,48,.22)!important}
+.view-switcher .view-trigger>i:first-child{font-size:20px!important;color:#f0bc64!important}
+.view-switcher .view-trigger .view-label,.view-switcher .view-trigger .view-chevron{display:none!important}
+.view-switcher .view-menu{width:238px!important;border:1px solid #dae2ee!important;border-radius:16px!important}
+.view-switcher .view-menu button.active{background:#eaf0fc!important;box-shadow:inset 3px 0 #3157bd!important;color:#173869!important}
+.view-switcher .view-menu button.active i{color:#3157bd!important}
+.view-switcher .view-menu-title{color:#172d51!important}
+body.officials-page,body.emergency-page,body.mc-page{background:#f7f9fc!important;color:#172641!important}
+.officials-page .nav,.emergency-page .navbar,.mc-page .nav{background:#fff!important;border-bottom:2px solid #dce6f2!important}
+.officials-page .nav-back,.emergency-page .nav-back,.mc-page .nav-back{background:#edf2fb!important;color:#163a75!important;border-color:#dfe5ef!important}
+.officials-page .hero,.emergency-page .hero,.mc-page .hero{background:linear-gradient(112deg,#0b1932,#203f78)!important}
+.officials-page .hero .hl,.emergency-page .hero .hl,.mc-page .hero-label{color:#f0bc64!important}
+.officials-page .mayor-hero-card,.officials-page .vice-card,.officials-page .council-card,.emergency-page .contact-card,.mc-page .formal-card,.mc-page .epa-card,.mc-page .sector-card{border-color:#dfe6f0!important}
+.mc-page .tab-btn.active{background:#e9effa!important;color:#223f83!important}
+.emergency-page .card-phone-call{background:#182d50!important}
+@media(max-width:760px){
+body:not(.force-desktop){background:white!important}
+body:not(.force-desktop) .home-hero{background:linear-gradient(125deg,#0b1b36,#274a83)!important}
+body:not(.force-desktop) .home-hero .hero-content h1 b{color:#f4c77d!important}
+body:not(.force-desktop) .portal-search{border-color:#e1e7f1!important}
+body:not(.force-desktop) .portal-dashboard .top-task i{background:#eaf0fa!important;color:#3157bd!important}
+body:not(.force-desktop) .portal-dashboard .top-task:nth-child(2) i{background:#fff3dc!important;color:#946217!important}
+body:not(.force-desktop) .app-featured{background:linear-gradient(115deg,#e8eef9,#f8f9ff 70%,#fff3de)!important}
+body:not(.force-desktop) .services-section .service-card{border-color:#e6eaf2!important}
+body:not(.force-desktop) .bottom-nav{background:#fff!important;border-color:#e6eaf2!important}
+body:not(.force-desktop) .bottom-nav a.center{background:#e8effb!important}
+body:not(.force-desktop) .view-switcher .view-trigger{width:49px!important;height:49px!important;min-height:49px!important;border-radius:15px!important}
+}
+body.force-mobile .home-hero{background:linear-gradient(125deg,#0b1b36,#274a83)!important}
+body.force-mobile .home-hero .hero-content h1 b{color:#f4c77d!important}
+body.force-mobile .portal-dashboard .top-task i{background:#eaf0fa!important;color:#3157bd!important}
+body.force-mobile .portal-dashboard .top-task:nth-child(2) i{background:#fff3dc!important;color:#946217!important}
+body.force-mobile .app-featured{background:linear-gradient(115deg,#e8eef9,#f8f9ff 70%,#fff3de)!important}
+body.force-mobile .bottom-nav a.center{background:#e8effb!important}
+@media(prefers-reduced-motion:reduce){.home-hero *,.service-card,.top-task{animation:none!important;transition:none!important}}
