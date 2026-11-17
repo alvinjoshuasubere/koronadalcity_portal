@@ -927,6 +927,7 @@ $typeConfig = [
     <link rel="stylesheet" href="koronadal-theme.css" />
     <link rel="stylesheet" href="portal-unified.css?v=20261118" />
     <link rel="stylesheet" href="portal-glacier.css?v=20261118-2" />
+    <link rel="stylesheet" href="portal-navy-editorial.css?v=20261118-1" />
 </head>
 
 <body class="emergency-page">
