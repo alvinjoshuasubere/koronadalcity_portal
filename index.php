@@ -53,13 +53,13 @@ if (is_array($officialsData)) {
   </div><div class="brand-accent"><i></i><i></i><i></i></div>
 </header>
 <main class="portal-shell" id="home">
-  <div class="mobile-welcome"><div class="welcome-copy"><span>Your city. Your services.</span><strong>Welcome, Koronadaleño!</strong></div><div class="welcome-icon" aria-hidden="true"><i class="fas fa-sun"></i></div></div>
+  <div class="mobile-welcome"><div class="welcome-copy"><span>CITY OF KORONADAL</span><strong>Maayong Adlaw!</strong></div><div class="welcome-icon" aria-hidden="true"><i class="fas fa-sun"></i></div></div>
   <section class="home-hero">
   <div class="hero-content">
     <div class="hero-logo"><img src="Logo.png" alt="Koronadal City"></div>
-    <div class="hero-kicker"><span class="live-dot"></span> CITY OF KORONADAL</div>
-    <h1>Maayong Adlaw,<br><b>Koronadaleño!</b></h1>
-    <p>Your digital front door to city services, information and assistance.</p>
+    <div class="hero-kicker"><span class="live-dot"></span> CITY SERVICES, MADE SIMPLE</div>
+    <h1>Welcome to<br><b>Koronadal City</b></h1>
+    <p>Your city services, information and assistance in one place.</p>
     <div class="hero-actions"><a href="#services" class="primary-action"><i class="fas fa-arrow-down"></i> Explore Services</a><a href="emergency-contacts.php" class="secondary-action"><i class="fas fa-phone-volume"></i> Emergency Help</a></div>
   </div>
   <div class="hero-side-note"><i class="fas fa-shield-halved" aria-hidden="true"></i><span><strong>City services, in one place</strong><small>Access information and official service links.</small></span></div>
@@ -101,8 +101,8 @@ if (is_array($officialsData)) {
   <section class="portal-dashboard" aria-label="Quick access and citizen assistance">
     <div class="dashboard-panel">
       <span class="dashboard-eyebrow"><i class="fas fa-bolt" aria-hidden="true"></i> QUICK ACCESS</span>
-      <h2>What would you like to do?</h2>
-      <p>Start with a popular city service or explore the full directory below.</p>
+      <h2>Your quick services</h2>
+      <p>Tap a service to get started.</p>
       <div class="top-task-grid">
         <a class="top-task" href="https://koronadalcityportal.com/v2/login" target="_blank" rel="noopener noreferrer"><i class="fas fa-file-signature" aria-hidden="true"></i><span><strong>Business Permit</strong><small>Application and renewal</small></span></a>
         <a class="top-task" href="https://citizen.koronadalcityonlineservices.com/register" target="_blank" rel="noopener noreferrer"><i class="fas fa-id-card" aria-hidden="true"></i><span><strong>Citizen Portal</strong><small>Online transactions</small></span></a>
@@ -122,13 +122,13 @@ if (is_array($officialsData)) {
       <div class="assist-footer">You can open these official service links directly. Requirements and processing details depend on the service.</div>
     </aside>
   </section>
+<section class="app-featured" aria-label="Featured city services">
+ <div class="app-featured-content"><span class="app-featured-kicker"><i class="fas fa-star" aria-hidden="true"></i> FEATURED SERVICE</span><h2>One city. Easier access.</h2><p>Connect to the Unified Citizen Portal for available city transactions and services.</p><a href="https://citizen.koronadalcityonlineservices.com/register" target="_blank" rel="noopener noreferrer">Open Citizen Portal <i class="fas fa-arrow-right" aria-hidden="true"></i></a></div>
+ <div class="app-featured-art" aria-hidden="true"><span class="art-circle art-one"><i class="fas fa-id-card"></i></span><span class="art-circle art-two"><i class="fas fa-file-circle-check"></i></span><span class="art-circle art-three"><i class="fas fa-building-columns"></i></span></div>
+ </section>
   <section class="portal-section services-section" id="services">
-  <div class="services-title">
-    <span>ONLINE SERVICES</span>
-    <h2>City Portal Services</h2>
-    <p>Access Koronadal City’s digital services and official online portals.</p>
-  </div>
-    <div class="service-grid" id="serviceGrid">
+  <div class="services-title"><div><span>ONLINE SERVICES</span><h2>Explore city services</h2><p>Choose a service to view information or continue to its online portal.</p></div><a class="app-directory-link" href="https://koronadal.gov.ph/citizens-charter/" target="_blank" rel="noopener noreferrer">Service guide <i class="fas fa-arrow-right"></i></a></div>
+    <div class="service-grid" id="serviceGrid" aria-label="Available online services">
       <a class="service-card" href="https://koronadalcityportal.com/v2/login" target="_blank" rel="noopener" data-search="business permits licensing"><span class="service-icon"><i class="fas fa-file-signature"></i></span><strong>Business Permits & Licensing</strong><small>Apply, renew and manage business permits.</small><i class="fas fa-arrow-up-right-from-square service-open"></i></a>
       <a class="service-card" href="https://citizen.koronadalcityonlineservices.com/register" target="_blank" rel="noopener" data-search="citizen records transactions"><span class="service-icon"><i class="fas fa-id-card"></i></span><strong>Unified Citizen Services</strong><small>Access integrated citizen transactions.</small><i class="fas fa-arrow-up-right-from-square service-open"></i></a>
       <a class="service-card" href="https://jobs.koronadalcityonlineservices.com/" target="_blank" rel="noopener" data-search="jobs career employment"><span class="service-icon"><i class="fas fa-briefcase"></i></span><strong>Koronadal Job Portal</strong><small>Browse employment opportunities.</small><i class="fas fa-arrow-up-right-from-square service-open"></i></a>
