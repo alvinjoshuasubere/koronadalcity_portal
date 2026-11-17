@@ -41,6 +41,7 @@ if (is_array($officialsData)) {
     <link rel="stylesheet" href="koronadal-app.css?v=20261004-05" />
     <link rel="stylesheet" href="portal-refresh.css?v=20261118" />
     <link rel="stylesheet" href="portal-glacier.css?v=20261118-2" />
+    <link rel="stylesheet" href="portal-view-modes.css?v=20261118-1" />
 </head>
 
 <body>
@@ -213,7 +214,17 @@ $logo = $type === 'police' ? 'fa-shield-halved' : ($type === 'fire' ? 'fa-fire-f
 </main>
 <footer class="portal-footer"><div class="footer-inner"><div class="footer-brand"><img src="Logo.png" alt="Koronadal City"><div><strong>City of Koronadal</strong><span>Digital Gateway</span></div></div><div class="footer-copy">Official digital access to city services, information, assistance and citizen resources.</div><div class="footer-links"><a href="#services">Services</a><a href="#services">Digital Portals</a><a href="#information">City Info</a><a href="city-officials.php">Officials</a><a href="emergency-contacts.php">Emergency</a><a href="https://koronadal.gov.ph/" target="_blank">LGU Website</a></div><div class="footer-bottom"><span>© <?= date('Y') ?> City Government of Koronadal</span><span>Official City Portal</span></div></div></footer>
 <nav class="bottom-nav" aria-label="Mobile navigation"><a href="#home" class="active" aria-label="Home"><i class="fas fa-house"></i><span>Home</span></a><a href="#leadership" aria-label="City leadership"><i class="fas fa-users"></i><span>Officials</span></a><a href="#services" class="center" aria-label="Browse services"><i class="fas fa-grip"></i><span>Services</span></a><a href="#information" aria-label="City information"><i class="fas fa-city"></i><span>City</span></a><a href="emergency-contacts.php" aria-label="Emergency contacts"><i class="fas fa-phone-volume"></i><span>Help</span></a></nav>
-
+<div class="view-switcher" id="viewSwitcher">
+  <button type="button" class="view-trigger" id="viewTrigger" aria-label="Choose layout mode" aria-haspopup="true" aria-controls="viewModeMenu" aria-expanded="false">
+    <i class="fas fa-display" aria-hidden="true"></i><span id="viewLabel">Auto view</span><i class="fas fa-chevron-up" aria-hidden="true"></i>
+  </button>
+  <div class="view-menu" id="viewModeMenu" role="group" aria-label="Layout preview mode">
+    <span class="view-menu-title">Choose your view</span>
+    <button type="button" data-view="auto" class="active" aria-pressed="true"><i class="fas fa-arrows-left-right" aria-hidden="true"></i> Auto (responsive)</button>
+    <button type="button" data-view="mobile" aria-pressed="false"><i class="fas fa-mobile-screen-button" aria-hidden="true"></i> Mobile app view</button>
+    <button type="button" data-view="desktop" aria-pressed="false"><i class="fas fa-desktop" aria-hidden="true"></i> Desktop view</button>
+  </div>
+</div>
 <script>
 (function(){
  var body=document.body;
@@ -223,8 +234,40 @@ $logo = $type === 'police' ? 'fa-shield-halved' : ($type === 'fire' ? 'fa-fire-f
  search.oninput=function(){var q=search.value.toLowerCase().trim(),n=0;document.querySelectorAll('.service-card,.portal-row,.info-card').forEach(function(c){var ok=!q||(c.innerText+' '+(c.dataset.search||'')).toLowerCase().includes(q);c.hidden=!ok;if(ok)n++});empty.classList.toggle('show',!!q&&!n);if(count)count.textContent=q?n+' RESULTS':'CITY GUIDE'};
  document.getElementById('clearSearch').onclick=function(){search.value='';search.oninput();search.focus()};
  document.querySelectorAll('a[href^="#"]').forEach(function(a){a.onclick=function(e){var hash=a.getAttribute('href');if(!hash||hash==='#')return;var t=document.getElementById(hash.slice(1));if(t){e.preventDefault();t.scrollIntoView({behavior:window.matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth',block:'start'});if(body.classList.contains('header-collapsed'))menuBtn.click()}}});
- var ids=['home','services','portals','information','emergency','leadership'], obs=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){document.querySelectorAll('.bottom-nav a').forEach(function(a){a.classList.toggle('active',a.getAttribute('href')==='#'+e.target.id)});document.querySelectorAll('.desktop-nav a').forEach(function(a){a.classList.toggle('active',a.getAttribute('href')==='#'+e.target.id)})}})},{rootMargin:'-45% 0px -45% 0px'});
+ var ids=['home','services','information','emergency','leadership'], obs=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){document.querySelectorAll('.bottom-nav a').forEach(function(a){a.classList.toggle('active',a.getAttribute('href')==='#'+e.target.id)});document.querySelectorAll('.desktop-nav a').forEach(function(a){a.classList.toggle('active',a.getAttribute('href')==='#'+e.target.id)})}})},{rootMargin:'-45% 0px -45% 0px'});
  ids.forEach(function(id){var el=document.getElementById(id);if(el)obs.observe(el)});
+
+ // Auto follows screen size. Manual modes persist across reloads and device widths.
+ var switcher=document.getElementById('viewSwitcher');
+ var trigger=document.getElementById('viewTrigger');
+ var label=document.getElementById('viewLabel');
+ var controls=Array.from(switcher.querySelectorAll('[data-view]'));
+ function setMenu(open){
+   switcher.classList.toggle('open',open);
+   trigger.setAttribute('aria-expanded',String(open));
+ }
+ function setView(mode){
+   if(!['auto','mobile','desktop'].includes(mode))mode='auto';
+   body.classList.remove('force-mobile','force-desktop','header-collapsed');
+   menuBtn.setAttribute('aria-expanded','false');
+   menuBtn.querySelector('i').className='fas fa-bars';
+   if(mode!=='auto')body.classList.add('force-'+mode);
+   label.textContent=mode.charAt(0).toUpperCase()+mode.slice(1)+' view';
+   controls.forEach(function(button){
+     var chosen=button.dataset.view===mode;
+     button.classList.toggle('active',chosen);
+     button.setAttribute('aria-pressed',String(chosen));
+   });
+   try{localStorage.setItem('kdc-view',mode)}catch(e){}
+   setMenu(false);
+ }
+ trigger.addEventListener('click',function(){setMenu(!switcher.classList.contains('open'))});
+ controls.forEach(function(button){button.addEventListener('click',function(){setView(button.dataset.view)})});
+ document.addEventListener('click',function(e){if(!switcher.contains(e.target))setMenu(false)});
+ document.addEventListener('keydown',function(e){if(e.key==='Escape'&&switcher.classList.contains('open')){setMenu(false);trigger.focus()}});
+ var savedMode='auto';
+ try{savedMode=localStorage.getItem('kdc-view')||'auto'}catch(e){}
+ setView(savedMode);
 
 })();
 </script>
