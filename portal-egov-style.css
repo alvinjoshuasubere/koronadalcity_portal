@@ -1,0 +1,128 @@
+/* App-inspired Koronadal public portal, adapted from supplied eGovPH visual reference.
+   Responsive modes: auto follows viewport; mobile previews app canvas; desktop shows full dashboard. */
+:root{--ui-navy:#102c4f;--ui-deep:#071e39;--ui-glacier:#e9f7fd;--ui-ice:#f5fbff;--ui-glacier-blue:#62b9d9;--ui-lemon:#eaf56d;--ui-border:#dcebf4;--ui-text:#193c5a}
+body{background:#f6faff!important;color:var(--ui-text)!important}
+.portal-header{background:#fff!important;border-bottom:1px solid var(--ui-border)!important;box-shadow:0 4px 18px rgba(13,53,90,.045)!important}
+.header-inner{max-width:1400px!important}
+.header-service-btn{background:var(--ui-navy)!important;color:#fff!important}
+.portal-shell{max-width:1390px!important;width:calc(100% - 64px)!important;padding-top:30px!important}
+.mobile-welcome{display:none!important}
+.home-hero{min-height:330px!important;padding:47px 58px!important;background:linear-gradient(108deg,#0d3157 0%,#235c83 64%,#94d2e7 100%)!important;border-radius:26px!important;box-shadow:0 15px 40px rgba(12,64,95,.11)!important}
+.home-hero .hero-content h1{font-size:clamp(42px,4vw,62px)!important;line-height:1.08!important}
+.home-hero .hero-content h1 b{color:var(--ui-lemon)!important}
+.home-hero .hero-content p{font-size:17px!important;max-width:530px!important}
+.hero-side-note{display:flex!important}
+.hero-actions .primary-action{background:var(--ui-lemon)!important;color:var(--ui-navy)!important}
+.portal-search{width:min(820px,100%)!important;min-height:66px!important;margin:-28px auto 0!important}
+.quick-search{margin:19px 0 4px!important}
+.portal-dashboard{display:block!important;margin:32px 0 0!important;padding:0!important}
+.portal-dashboard>.dashboard-panel:first-child{padding:0!important;background:transparent!important;border:0!important;box-shadow:none!important}
+.dashboard-panel .dashboard-eyebrow{font-size:11px!important}
+.dashboard-panel h2{font-size:27px!important;margin:8px 0!important}
+.dashboard-panel>p{font-size:14px!important;margin:0 0 22px!important}
+.portal-dashboard .top-task-grid{display:grid!important;grid-template-columns:repeat(4,minmax(0,1fr))!important;gap:17px!important}
+.portal-dashboard .top-task{min-height:160px!important;display:flex!important;flex-direction:column!important;align-items:flex-start!important;justify-content:center!important;text-align:left!important;gap:15px!important;padding:24px!important;background:white!important;border:1px solid var(--ui-border)!important;border-radius:22px!important;box-shadow:0 7px 25px rgba(14,57,91,.045)!important}
+.portal-dashboard .top-task:hover{transform:translateY(-3px)!important;border-color:#aad7eb!important;background:#fff!important}
+.portal-dashboard .top-task i{display:grid!important;place-items:center!important;width:59px!important;height:59px!important;flex:0 0 59px!important;font-size:24px!important;background:var(--ui-glacier)!important;color:#1765a4!important;border-radius:18px!important}
+.portal-dashboard .top-task:nth-child(2) i{background:#f5f8ce!important;color:#4e642b!important}
+.portal-dashboard .top-task:nth-child(4) i{background:#fff0f0!important;color:#bd4752!important}
+.portal-dashboard .top-task strong{font-size:17px!important;color:var(--ui-navy)!important}
+.portal-dashboard .top-task small{font-size:12px!important;color:#6e8295!important}
+.portal-dashboard .dashboard-assist{display:none!important}
+.app-featured{position:relative;display:flex;align-items:center;min-height:220px;margin:38px 0 0;padding:28px 45px;border-radius:26px;overflow:hidden;background:linear-gradient(106deg,#e6f5fc 0%,#d9eef9 55%,#f7fbd4 100%);border:1px solid #d7eaf4;box-shadow:0 9px 30px rgba(10,64,95,.045)}
+.app-featured-content{position:relative;z-index:2;max-width:650px}
+.app-featured-kicker{display:inline-flex;align-items:center;gap:7px;font-size:11px;font-weight:800;color:#3a7598;letter-spacing:.08em}
+.app-featured-kicker i{color:#7a951e}
+.app-featured h2{font-size:clamp(25px,2.5vw,37px);line-height:1.15;letter-spacing:-.05em;color:var(--ui-navy);margin:11px 0}
+.app-featured p{font-size:14px;line-height:1.7;color:#56768d;margin:0 0 17px}
+.app-featured-content>a{display:inline-flex;align-items:center;gap:10px;color:#0d436e;background:var(--ui-lemon);padding:12px 18px;border-radius:12px;font-weight:800;font-size:13px;text-decoration:none;min-height:45px}
+.app-featured-art{position:absolute;right:6%;top:0;bottom:0;width:320px}
+.art-circle{position:absolute;display:grid;place-items:center;background:#fff;color:#195f93;border:1px solid #c9e6f2;box-shadow:0 16px 35px rgba(23,76,112,.1);border-radius:26px}
+.art-circle i{font-size:32px}.art-one{width:108px;height:108px;top:48px;left:33px;transform:rotate(-10deg)}.art-two{width:80px;height:80px;top:21px;right:10px;transform:rotate(13deg)}.art-three{width:87px;height:87px;bottom:19px;right:25px;transform:rotate(-7deg);background:var(--ui-lemon)}
+.services-section{padding-top:47px!important}
+.services-section .services-title{display:flex!important;align-items:end!important;justify-content:space-between!important;gap:20px!important;text-align:left!important;margin-bottom:23px!important}
+.services-title h2{font-size:32px!important}
+.app-directory-link{display:inline-flex;align-items:center;gap:8px;min-height:44px;padding:10px 16px;border-radius:13px;border:1px solid #c8e4f0;background:white;color:#175c8a;text-decoration:none;font-size:13px;font-weight:750;white-space:nowrap}
+.services-section .service-grid{display:grid!important;grid-template-columns:repeat(3,minmax(0,1fr))!important;gap:13px!important}
+.services-section .service-card{position:relative;display:grid!important;grid-template-columns:64px minmax(0,1fr) 22px!important;grid-template-rows:auto auto!important;align-items:center!important;column-gap:16px!important;row-gap:6px!important;min-height:118px!important;padding:20px!important;border-radius:18px!important;border:1px solid var(--ui-border)!important;box-shadow:0 5px 20px rgba(20,63,101,.035)!important}
+.services-section .service-card:hover{transform:translateY(-2px)!important;border-color:#b0d8e9!important}
+.services-section .service-card .service-icon{grid-column:1!important;grid-row:1/3!important;width:58px!important;height:58px!important;margin:0!important;border-radius:17px!important;background:#e4f5fc!important;color:#145e97!important;font-size:22px!important}
+.services-section .service-card strong{grid-column:2!important;grid-row:1!important;margin:0!important;font-size:15px!important;line-height:1.4!important;color:var(--ui-navy)!important}
+.services-section .service-card small{grid-column:2!important;grid-row:2!important;font-size:12px!important;line-height:1.5!important;color:#657e94!important}
+.services-section .service-card .service-open{position:static!important;grid-column:3!important;grid-row:1/3!important;color:#4386b1!important}
+.services-section .service-card em{grid-column:2/4!important;grid-row:3!important;margin-top:1px!important;font-size:11px!important}
+.services-section .service-unavailable{background:#f9fcff!important}
+.service-steps{margin-top:20px!important}
+.bottom-nav{display:none!important}
+.view-switcher{z-index:1800!important}
+/* Tablet and desktop scale gracefully instead of shrinking fixed-width tiles. */
+@media(min-width:761px) and (max-width:1100px){
+.portal-shell{width:calc(100% - 34px)!important}
+.portal-dashboard .top-task-grid{grid-template-columns:repeat(4,minmax(0,1fr))!important;gap:11px!important}
+.portal-dashboard .top-task{padding:18px!important;min-height:150px!important}
+.portal-dashboard .top-task strong{font-size:14px!important}
+.services-section .service-grid{grid-template-columns:repeat(2,minmax(0,1fr))!important}
+.app-featured-art{right:0;opacity:.75}
+}
+/* Device style. Applied either automatically on small screens or explicitly via Mobile mode. */
+@media(max-width:760px){
+body:not(.force-desktop){background:#fff!important}
+body:not(.force-desktop) .portal-header{position:sticky!important;top:0!important;z-index:1200!important;background:#fff!important;border-color:#edf2f7!important;box-shadow:none!important}
+body:not(.force-desktop) .header-inner{min-height:70px!important;padding:0 20px!important}
+body:not(.force-desktop) .brand img{width:42px!important;height:42px!important}
+body:not(.force-desktop) .brand strong{font-size:15px!important}
+body:not(.force-desktop) .brand small{font-size:11px!important}
+body:not(.force-desktop) .portal-shell{width:100%!important;max-width:100%!important;margin:0!important;padding:0 0 105px!important}
+body:not(.force-desktop) .mobile-welcome{display:flex!important;padding:21px 22px 12px!important}
+body:not(.force-desktop) .mobile-welcome .welcome-copy span{font-size:11px!important}
+body:not(.force-desktop) .mobile-welcome .welcome-copy strong{font-size:24px!important}
+body:not(.force-desktop) .home-hero{width:calc(100% - 36px)!important;min-height:0!important;margin:0 18px!important;padding:26px 24px!important;border-radius:22px!important;background:linear-gradient(120deg,#0e365a,#3788af)!important}
+body:not(.force-desktop) .home-hero .hero-content h1{font-size:35px!important;margin:12px 0!important}
+body:not(.force-desktop) .home-hero .hero-content p{font-size:14px!important}
+body:not(.force-desktop) .hero-logo,body:not(.force-desktop) .hero-side-note{display:none!important}
+body:not(.force-desktop) .hero-actions{display:grid!important;grid-template-columns:1fr 1fr!important;gap:9px!important;margin-top:19px!important}
+body:not(.force-desktop) .hero-actions a{font-size:12px!important;min-height:46px!important}
+body:not(.force-desktop) .portal-search{width:calc(100% - 40px)!important;margin:19px 20px 0!important;min-height:57px!important;box-shadow:none!important;border:1px solid #e0ecf4!important}
+body:not(.force-desktop) .portal-search input{font-size:14px!important}
+body:not(.force-desktop) .quick-search{padding:0 20px 7px!important;margin:14px 0 0!important;justify-content:flex-start!important;flex-wrap:nowrap!important;overflow-x:auto!important}
+body:not(.force-desktop) .portal-dashboard{margin:27px 0 0!important;padding:0 20px!important}
+body:not(.force-desktop) .dashboard-panel h2{font-size:23px!important}
+body:not(.force-desktop) .dashboard-panel>p{font-size:12px!important;margin-bottom:15px!important}
+body:not(.force-desktop) .portal-dashboard .top-task-grid{grid-template-columns:repeat(4,minmax(0,1fr))!important;gap:7px!important}
+body:not(.force-desktop) .portal-dashboard .top-task{min-height:106px!important;display:flex!important;flex-direction:column!important;justify-content:flex-start!important;align-items:center!important;text-align:center!important;gap:7px!important;padding:9px 3px!important;background:transparent!important;border:0!important;border-radius:13px!important;box-shadow:none!important}
+body:not(.force-desktop) .portal-dashboard .top-task i{width:62px!important;height:62px!important;flex:0 0 62px!important;font-size:25px!important;border-radius:50%!important;background:#e8f4ff!important;color:#1a63cc!important}
+body:not(.force-desktop) .portal-dashboard .top-task:nth-child(2) i{background:#eef7fa!important;color:#1a73b1!important}
+body:not(.force-desktop) .portal-dashboard .top-task:nth-child(3) i{background:#ecf3ff!important;color:#1a63bd!important}
+body:not(.force-desktop) .portal-dashboard .top-task:nth-child(4) i{background:#fff0f0!important;color:#c24449!important}
+body:not(.force-desktop) .portal-dashboard .top-task strong{font-size:11px!important;line-height:1.35!important;min-height:0!important}
+body:not(.force-desktop) .portal-dashboard .top-task small{display:none!important}
+body:not(.force-desktop) .app-featured{min-height:165px!important;margin:28px 18px 0!important;padding:23px 19px!important;border-radius:18px!important}
+body:not(.force-desktop) .app-featured-content{max-width:75%!important}
+body:not(.force-desktop) .app-featured-kicker{font-size:9px!important}
+body:not(.force-desktop) .app-featured h2{font-size:22px!important;margin:7px 0!important}
+body:not(.force-desktop) .app-featured p{font-size:11px!important;line-height:1.55!important;margin-bottom:11px!important}
+body:not(.force-desktop) .app-featured-content>a{font-size:11px!important;min-height:38px!important;padding:9px 12px!important}
+body:not(.force-desktop) .app-featured-art{right:-88px!important;transform:scale(.67);transform-origin:center right;opacity:.9}
+body:not(.force-desktop) .portal-section{padding:36px 20px 20px!important}
+body:not(.force-desktop) .services-section .services-title{align-items:flex-start!important;gap:7px!important;margin-bottom:16px!important}
+body:not(.force-desktop) .services-title h2{font-size:24px!important}
+body:not(.force-desktop) .services-section .services-title p{font-size:12px!important}
+body:not(.force-desktop) .app-directory-link{font-size:10px!important;min-height:36px!important;padding:7px 9px!important}
+body:not(.force-desktop) .services-section .service-grid{display:grid!important;grid-template-columns:1fr!important;gap:9px!important}
+body:not(.force-desktop) .services-section .service-card{display:grid!important;grid-template-columns:55px minmax(0,1fr) 20px!important;grid-template-rows:auto auto!important;min-height:84px!important;padding:13px 15px!important;column-gap:12px!important;row-gap:3px!important;border:1px solid #eff3f8!important;border-radius:14px!important;box-shadow:none!important}
+body:not(.force-desktop) .services-section .service-card .service-icon{width:48px!important;height:48px!important;font-size:21px!important;border-radius:14px!important;grid-column:1!important;grid-row:1/3!important;margin:0!important}
+body:not(.force-desktop) .services-section .service-card strong{font-size:13px!important;grid-column:2!important;grid-row:1!important;margin:0!important}
+body:not(.force-desktop) .services-section .service-card small{font-size:11px!important;grid-column:2!important;grid-row:2!important;line-height:1.45!important}
+body:not(.force-desktop) .services-section .service-card .service-open{grid-column:3!important;grid-row:1/3!important;font-size:13px!important;position:static!important}
+body:not(.force-desktop) .services-section .service-card em{grid-column:2/4!important;grid-row:3!important}
+body:not(.force-desktop) .bottom-nav{display:grid!important;position:fixed!important;bottom:0!important;left:0!important;width:100%!important;max-width:none!important;height:78px!important;transform:none!important;padding:8px 10px calc(8px + env(safe-area-inset-bottom))!important;border:0!important;border-top:1px solid #edf2f6!important;border-radius:0!important;background:#fff!important;box-shadow:0 -4px 20px rgba(25,69,97,.045)!important;grid-template-columns:repeat(5,1fr)!important;z-index:1201!important}
+body:not(.force-desktop) .bottom-nav a{min-height:56px!important;border-radius:12px!important;gap:5px!important}
+body:not(.force-desktop) .bottom-nav a i{font-size:20px!important}
+body:not(.force-desktop) .bottom-nav a span{font-size:11px!important}
+body:not(.force-desktop) .bottom-nav a.center{background:#f0f8c8!important;border-radius:15px!important}
+body:not(.force-desktop) .view-switcher{bottom:calc(89px + env(safe-area-inset-bottom))!important;right:12px!important}
+body:not(.force-desktop) .view-trigger{min-height:43px!important;font-size:11px!important;padding:0 12px!important}
+}
+/* The explicit Mobile button previews the same app arrangement on large screens, without enlarging cards unnaturally. */
+body.force-mobile{max-width:530px!important;margin-inline:auto!important;background:#fff!important}
+body.force-mobile .portal-header,body.force-mobile .portal-footer{width:100%!important}
