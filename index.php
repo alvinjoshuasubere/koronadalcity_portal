@@ -42,6 +42,7 @@ if (is_array($officialsData)) {
     <link rel="stylesheet" href="portal-refresh.css?v=20261118" />
     <link rel="stylesheet" href="portal-glacier.css?v=20261118-2" />
     <link rel="stylesheet" href="portal-view-modes.css?v=20261118-1" />
+    <link rel="stylesheet" href="portal-egov-style.css?v=20261118-3" />
 </head>
 
 <body>
