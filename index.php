@@ -43,6 +43,7 @@ if (is_array($officialsData)) {
     <link rel="stylesheet" href="portal-glacier.css?v=20261118-2" />
     <link rel="stylesheet" href="portal-view-modes.css?v=20261118-1" />
     <link rel="stylesheet" href="portal-egov-style.css?v=20261118-3" />
+    <link rel="stylesheet" href="portal-navy-editorial.css?v=20261118-1" />
 </head>
 
 <body>
@@ -217,7 +218,7 @@ $logo = $type === 'police' ? 'fa-shield-halved' : ($type === 'fire' ? 'fa-fire-f
 <nav class="bottom-nav" aria-label="Mobile navigation"><a href="#home" class="active" aria-label="Home"><i class="fas fa-house"></i><span>Home</span></a><a href="#leadership" aria-label="City leadership"><i class="fas fa-users"></i><span>Officials</span></a><a href="#services" class="center" aria-label="Browse services"><i class="fas fa-grip"></i><span>Services</span></a><a href="#information" aria-label="City information"><i class="fas fa-city"></i><span>City</span></a><a href="emergency-contacts.php" aria-label="Emergency contacts"><i class="fas fa-phone-volume"></i><span>Help</span></a></nav>
 <div class="view-switcher" id="viewSwitcher">
   <button type="button" class="view-trigger" id="viewTrigger" aria-label="Choose layout mode" aria-haspopup="true" aria-controls="viewModeMenu" aria-expanded="false">
-    <i class="fas fa-display" aria-hidden="true"></i><span id="viewLabel">Auto view</span><i class="fas fa-chevron-up" aria-hidden="true"></i>
+    <i class="fas fa-display" aria-hidden="true"></i><span id="viewLabel" class="view-label">Auto view</span><i class="fas fa-chevron-up view-chevron" aria-hidden="true"></i>
   </button>
   <div class="view-menu" id="viewModeMenu" role="group" aria-label="Layout preview mode">
     <span class="view-menu-title">Choose your view</span>
@@ -254,6 +255,7 @@ $logo = $type === 'police' ? 'fa-shield-halved' : ($type === 'fire' ? 'fa-fire-f
    menuBtn.querySelector('i').className='fas fa-bars';
    if(mode!=='auto')body.classList.add('force-'+mode);
    label.textContent=mode.charAt(0).toUpperCase()+mode.slice(1)+' view';
+   trigger.setAttribute('aria-label','Layout: '+mode+'. Open view options');
    controls.forEach(function(button){
      var chosen=button.dataset.view===mode;
      button.classList.toggle('active',chosen);
