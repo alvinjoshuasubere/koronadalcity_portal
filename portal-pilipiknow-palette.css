@@ -1,0 +1,83 @@
+/* Pilipiknow-inspired civic palette: visual approximation, not copied design tokens.
+   Near-black navy, slate, chalk-white and a vivid orange highlight. */
+:root{
+--pk-ink:#0b1220;--pk-navy:#111d32;--pk-slate:#334155;--pk-muted:#64748b;
+--pk-paper:#f8fafc;--pk-white:#ffffff;--pk-line:#e2e8f0;--pk-accent:#f97316;--pk-soft:#fff1e6;
+--navy:var(--pk-navy);--deep-navy:var(--pk-ink);--portal-ink:var(--pk-ink);--portal-blue:#334155;
+--portal-line:var(--pk-line);--ui-navy:var(--pk-navy);--ui-deep:var(--pk-ink);
+--ui-glacier:#f1f5f9;--ui-ice:#f8fafc;--ui-glacier-blue:#64748b;--ui-lemon:var(--pk-accent);
+--app-navy:var(--pk-navy);--app-lemon:var(--pk-accent);
+--civic-navy:var(--pk-navy);--civic-blue:var(--pk-slate);--civic-paper:var(--pk-paper);
+--civic-border:var(--pk-line);--civic-ink:var(--pk-ink)}
+body,body.officials-page,body.emergency-page,body.mc-page{background:var(--pk-paper)!important;color:var(--pk-ink)!important}
+.portal-header,.officials-page .nav,.emergency-page .navbar,.mc-page .nav{background:#fff!important;border-color:var(--pk-line)!important;box-shadow:0 2px 12px rgba(11,18,32,.045)!important}
+.brand-accent{height:3px!important;background:linear-gradient(90deg,var(--pk-navy) 0 83%,var(--pk-accent) 83% 100%)!important}
+.brand strong,.officials-page .nav-brand-text strong,.mc-page .nav-brand-text strong,.emergency-page .brand-text strong{color:var(--pk-ink)!important}
+.brand small{color:var(--pk-muted)!important}
+.desktop-nav a{color:#475569!important}.desktop-nav a.active,.desktop-nav a:hover{background:#f1f5f9!important;color:var(--pk-ink)!important}
+.header-service-btn,.emergency-page .card-phone-call{background:var(--pk-navy)!important;color:#fff!important}
+.official-pill{background:#f1f5f9!important;border-color:var(--pk-line)!important;color:var(--pk-slate)!important}
+.home-hero,.officials-page .hero,.emergency-page .hero,.mc-page .hero{background:linear-gradient(113deg,#0b1220 0%,#172438 68%,#334155 100%)!important;box-shadow:0 18px 44px rgba(11,18,32,.13)!important}
+.home-hero:before{background:radial-gradient(circle at 88% 26%,rgba(148,163,184,.22),transparent 35%),repeating-linear-gradient(140deg,transparent 0 75px,rgba(255,255,255,.025) 76px 77px)!important}
+.home-hero .hero-kicker,.officials-page .hero .hl,.emergency-page .hero .hl,.mc-page .hero-label{color:#fdba74!important}
+.home-hero .hero-content h1 b{color:#fb923c!important}
+.home-hero .hero-content p{color:#d8e0ec!important}
+.hero-side-note i{background:var(--pk-accent)!important;color:white!important}
+.hero-actions .primary-action,.citizen-banner a{background:var(--pk-accent)!important;color:#fff!important;border-color:var(--pk-accent)!important}
+.hero-actions .primary-action:hover,.citizen-banner a:hover{background:#ea580c!important}
+.hero-actions .secondary-action{background:rgba(255,255,255,.065)!important;color:#fff!important;border-color:rgba(255,255,255,.28)!important}
+.hero-city-art .city-art-building{background:linear-gradient(160deg,#64748b,#1e293b)!important;border-color:rgba(226,232,240,.27)!important}
+.hero-city-art .building-two{background:linear-gradient(160deg,#94a3b8,#334155)!important}
+.hero-city-art .building-two:after{background:#fb923c!important}
+.hero-city-art .city-art-platform{background:linear-gradient(90deg,transparent,#fb923c 30%,#94a3b8 78%,transparent)!important}
+.portal-search{border-color:#d9e2eb!important;box-shadow:0 12px 28px rgba(15,23,42,.075)!important}
+.portal-search>i{color:var(--pk-slate)!important}
+.quick-search a{background:#fff!important;border-color:var(--pk-line)!important;color:#475569!important}
+.quick-search a:hover{background:#f1f5f9!important;color:var(--pk-ink)!important}
+.dashboard-panel .dashboard-eyebrow,.services-title>span,.section-heading span:not(.section-count){color:#c45c1b!important}
+.dashboard-panel h2,.services-title h2,.section-heading h2,.app-featured h2{color:var(--pk-ink)!important}
+.dashboard-panel>p,.services-title p,.section-heading p{color:var(--pk-muted)!important}
+.portal-dashboard .top-task,.services-section .service-card,.info-card,.landmark-card,.mayor-card,.service-step{background:#fff!important;border-color:var(--pk-line)!important;box-shadow:0 5px 19px rgba(15,23,42,.035)!important}
+.portal-dashboard .top-task:hover,.services-section .service-card:hover{border-color:#cbd5e1!important;background:#fdfefe!important}
+.portal-dashboard .top-task i,.services-section .service-card .service-icon{background:#f1f5f9!important;color:var(--pk-slate)!important}
+.portal-dashboard .top-task:nth-child(2) i,.services-section .service-card:nth-child(3n + 2) .service-icon{background:#fff0e5!important;color:#c2410c!important}
+.portal-dashboard .top-task:nth-child(3) i{background:#e8eef3!important;color:#334155!important}
+.portal-dashboard .top-task:nth-child(4) i,.services-section .emergency-card .service-icon{background:#fff1f2!important;color:#be123c!important}
+.portal-dashboard .top-task strong,.services-section .service-card strong{color:var(--pk-ink)!important}
+.portal-dashboard .top-task small,.services-section .service-card small{color:var(--pk-muted)!important}
+.services-section .service-card .service-open{color:#64748b!important}
+.app-featured{background:linear-gradient(115deg,#edf2f7,#f8fafc 68%,#fff1e6)!important;border-color:var(--pk-line)!important}
+.app-featured-kicker{color:#c2410c!important}
+.app-featured-content>a{background:var(--pk-navy)!important;color:white!important}
+.art-circle{color:#475569!important;border-color:#cbd5e1!important;background:#fff!important}
+.art-three{background:#fed7aa!important;color:#9a3412!important}
+.app-directory-link{background:white!important;color:var(--pk-slate)!important;border-color:var(--pk-line)!important}
+.service-step .step-number{background:#ffedd5!important;color:#9a3412!important}
+.emergency-panel{border-color:var(--pk-line)!important}
+.citizen-banner{background:linear-gradient(115deg,#0f172a,#334155)!important}
+.portal-footer{background:#0b1220!important}
+.bottom-nav a.center{background:#fff1e6!important;color:#9a3412!important}
+.bottom-nav a.center i,.bottom-nav a.center span{color:#9a3412!important}
+.view-switcher .view-trigger{background:#0f172a!important;border-color:#334155!important;color:white!important}
+.view-switcher .view-trigger>i:first-child{color:#fb923c!important}
+.view-switcher .view-menu{background:white!important;border-color:var(--pk-line)!important}
+.view-switcher .view-menu-title{color:var(--pk-ink)!important}
+.view-switcher .view-menu button.active{background:#fff1e6!important;box-shadow:inset 3px 0 #f97316!important;color:#9a3412!important}
+.view-switcher .view-menu button.active i{color:#c2410c!important}
+.officials-page .nav-back,.emergency-page .nav-back,.mc-page .nav-back{background:#f1f5f9!important;border-color:var(--pk-line)!important;color:var(--pk-slate)!important}
+.officials-page .mayor-hero-card,.officials-page .vice-card,.officials-page .council-card,.emergency-page .contact-card,.mc-page .formal-card,.mc-page .epa-card,.mc-page .sector-card{background:white!important;border-color:var(--pk-line)!important}
+.mc-page .tab-btn.active{background:#fff1e6!important;color:#9a3412!important}
+@media(max-width:760px){
+body:not(.force-desktop){background:white!important}
+body:not(.force-desktop) .home-hero{background:linear-gradient(125deg,#0b1220,#334155)!important}
+body:not(.force-desktop) .home-hero .hero-content h1 b{color:#fb923c!important}
+body:not(.force-desktop) .portal-dashboard .top-task i{background:#f1f5f9!important;color:#475569!important}
+body:not(.force-desktop) .portal-dashboard .top-task:nth-child(2) i{background:#fff0e5!important;color:#c2410c!important}
+body:not(.force-desktop) .app-featured{background:linear-gradient(115deg,#edf2f7,#f8fafc 70%,#fff1e6)!important}
+body:not(.force-desktop) .bottom-nav a.center{background:#fff1e6!important;color:#9a3412!important}
+}
+body.force-mobile{background:white!important}
+body.force-mobile .home-hero{background:linear-gradient(125deg,#0b1220,#334155)!important}
+body.force-mobile .home-hero .hero-content h1 b{color:#fb923c!important}
+body.force-mobile .app-featured{background:linear-gradient(115deg,#edf2f7,#f8fafc 70%,#fff1e6)!important}
+body.force-mobile .bottom-nav a.center{background:#fff1e6!important}
