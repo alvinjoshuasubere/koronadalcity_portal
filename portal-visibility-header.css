@@ -136,3 +136,36 @@ body.force-mobile .app-featured{background:#fff!important}
 body.force-mobile .services-section,body.force-mobile .landmarks-section,body.force-mobile .leadership-section,body.force-mobile #information{background:rgba(255,255,255,.95)!important}
 body.force-mobile .bottom-nav{background:var(--v-purple)!important}
 body.force-mobile .bottom-nav a.active{background:var(--v-yellow)!important}
+
+
+/* Uploaded civic illustration integrated as the hero artwork.
+   An intentional gradient protects legibility without obscuring the artwork. */
+.home-hero,body.force-desktop .home-hero{
+ background-image:
+ linear-gradient(90deg,rgba(42,8,123,.91) 0%,rgba(58,12,163,.72) 37%,rgba(58,12,163,.28) 70%,rgba(58,12,163,.06) 100%),
+ url("header-koronadal.svg")!important;
+ background-position:center center!important;
+ background-size:cover!important;
+ background-repeat:no-repeat!important;
+}
+.portal-header{
+ background:linear-gradient(105deg,#24066f 0%,#3a0ca3 76%,#4a1db1 100%)!important;
+ border-bottom:3px solid #fff275!important;
+}
+.portal-header .brand,.portal-header .desktop-nav,.portal-header .header-actions{position:relative;z-index:2}
+.home-hero .hero-content h1,.home-hero .hero-content p{
+ text-shadow:0 3px 13px rgba(25,2,73,.65)!important;
+}
+@media(max-width:760px){
+ body:not(.force-desktop) .home-hero{
+  background-image:linear-gradient(180deg,rgba(48,9,135,.66),rgba(58,12,163,.89)),url("header-koronadal.svg")!important;
+  background-position:64% center!important;
+  background-size:cover!important;
+ }
+}
+body.force-mobile .home-hero{
+ background-image:linear-gradient(180deg,rgba(48,9,135,.66),rgba(58,12,163,.89)),url("header-koronadal.svg")!important;
+ background-position:64% center!important;
+ background-size:cover!important;
+}
+@media(prefers-reduced-motion:reduce){.home-hero{background-attachment:scroll!important}}
