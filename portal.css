@@ -17688,3 +17688,42 @@ body.emergency-page .card-phone:hover{background:#0754a9!important;color:white!i
 body.mc-page .footer,body.officials-page .footer,body.emergency-page .footer{
  background:#0e2d56!important;color:white!important;border-top:1px solid #39628d!important;
 }
+
+
+/* Homepage welcome artwork — header-koronadal.png
+   Keep native text/search/buttons above the background for accessibility. */
+body.portal-home-page .home-hero,
+body.portal-home-page.force-mobile .home-hero,
+body.portal-home-page.force-desktop .home-hero{
+  background-color:#e4f3ff!important;
+  background-image:linear-gradient(90deg,rgba(248,252,255,.98) 0%,rgba(236,247,255,.96) 36%,rgba(226,242,255,.70) 57%,rgba(225,243,255,.05) 100%),url("header-koronadal.png")!important;
+  background-position:center center,right center!important;
+  background-size:cover,cover!important;
+  background-repeat:no-repeat!important;
+  min-height:335px!important;
+}
+body.portal-home-page .home-hero::before,
+body.portal-home-page .home-hero::after,
+body.portal-home-page.force-mobile .home-hero::before,
+body.portal-home-page.force-mobile .home-hero::after,
+body.portal-home-page.force-desktop .home-hero::before,
+body.portal-home-page.force-desktop .home-hero::after{
+  content:none!important;display:none!important;
+}
+body.portal-home-page .home-hero .hero-content{
+  z-index:2!important;
+}
+body.portal-home-page .home-hero .hero-content h1,
+body.portal-home-page .home-hero .hero-content p{
+  color:#0b244a!important;
+  text-shadow:none!important;
+}
+@media(max-width:760px){
+  body.portal-home-page .home-hero,
+  body.portal-home-page.force-mobile .home-hero{
+    background-image:linear-gradient(90deg,rgba(248,252,255,.97),rgba(239,248,255,.88)),url("header-koronadal.png")!important;
+    background-position:center center,64% center!important;
+    background-size:cover,cover!important;
+    min-height:345px!important;
+  }
+}
