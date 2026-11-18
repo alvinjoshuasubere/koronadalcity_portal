@@ -26,35 +26,27 @@ function mcInitials($name) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="theme-color" content="#3a0ca3">
+    <meta name="theme-color" content="#0d2e59">
     <title>Mayor's Corner — Koronadal City</title>
     <link rel="icon" type="image/x-icon" href="favicon.ico">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700;800&family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&display=swap" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
-  <link rel="stylesheet" href="portal.css?v=20261118-13" />
+  <link rel="stylesheet" href="portal.css?v=20261118-20" />
 </head>
 <body class="mc-page">
 
-<!-- Background -->
-<div class="bg-layer">
-    <div class="bg-orb bg-orb-1"></div>
-    <div class="bg-orb bg-orb-2"></div>
-    <div class="bg-orb bg-orb-3"></div>
-    <div class="bg-grid"></div>
-</div>
-
 <!-- Navbar -->
 <nav class="nav" id="nav">
-    <a href="/" class="nav-brand">
+    <a href="index.php" class="nav-brand">
         <img src="Logo.png" alt="Koronadal City">
         <div class="nav-brand-text">
             <strong>City of Koronadal</strong>
             <small>Government Services Portal</small>
         </div>
     </a>
-    <a href="/" class="nav-back">
+    <a href="index.php" class="nav-back">
         <i class="fas fa-arrow-left"></i>
         <span>Back to Portal</span>
     </a>
@@ -62,13 +54,13 @@ function mcInitials($name) {
 
 <!-- Hero -->
 <section class="hero">
-    <div class="hero-bg"></div>
+    
     <div class="hero-inner">
         <div class="hero-photo-wrap">
             <div class="hero-photo-ring">
                 <div class="hero-photo-inner">
                     <?php if (!empty($mayorData['image'])): ?>
-                        <img src="<?= htmlspecialchars($mayorData['image']) ?>" alt="<?= htmlspecialchars($mayorData['name'] ?? '') ?>" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+                        <img src="Mayor.png" alt="<?= htmlspecialchars($mayorData['name'] ?? 'City Mayor', ENT_QUOTES, 'UTF-8') ?>" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
                         <div class="hero-photo-initials" style="display:none"><?= mcInitials($mayorData['name'] ?? 'M') ?></div>
                     <?php else: ?>
                         <div class="hero-photo-initials"><?= mcInitials($mayorData['name'] ?? 'M') ?></div>
@@ -90,14 +82,14 @@ function mcInitials($name) {
 
 <!-- Tabs -->
 <div class="tabs-section">
-    <div class="tabs-nav" id="tabsNav">
-        <button class="tab-btn active" data-tab="profile">
+    <div class="tabs-nav" id="tabsNav" role="tablist" aria-label="Mayor's Corner sections">
+        <button type="button" class="tab-btn active" data-tab="profile" id="mc-tab-profile" role="tab" aria-selected="true" aria-controls="tab-profile" tabindex="0">
             <i class="fas fa-user"></i> <span class="tab-label">Brief Profile</span>
         </button>
-        <button class="tab-btn" data-tab="governance">
+        <button type="button" class="tab-btn" data-tab="governance" id="mc-tab-governance" role="tab" aria-selected="false" aria-controls="tab-governance" tabindex="-1">
             <i class="fas fa-shield-halved"></i> <span class="tab-label">Governance Brand</span>
         </button>
-        <button class="tab-btn" data-tab="agenda">
+        <button type="button" class="tab-btn" data-tab="agenda" id="mc-tab-agenda" role="tab" aria-selected="false" aria-controls="tab-agenda" tabindex="-1">
             <i class="fas fa-chart-line"></i> <span class="tab-label">Development Agenda</span>
         </button>
     </div>
@@ -105,7 +97,7 @@ function mcInitials($name) {
     <div class="tab-panels">
 
         <!-- ═══ TAB: PROFILE ═══ -->
-        <div class="tab-panel active" id="tab-profile">
+        <div class="tab-panel active" id="tab-profile" role="tabpanel" aria-labelledby="mc-tab-profile">
 
             <div class="formal-section">
                 <div class="formal-heading">
@@ -167,7 +159,7 @@ function mcInitials($name) {
         </div>
 
         <!-- ═══ TAB: GOVERNANCE ═══ -->
-        <div class="tab-panel" id="tab-governance">
+        <div class="tab-panel" id="tab-governance" role="tabpanel" aria-labelledby="mc-tab-governance" hidden>
 
             <div class="formal-section">
                 <div class="formal-heading">
@@ -217,7 +209,7 @@ function mcInitials($name) {
         </div>
 
         <!-- ═══ TAB: AGENDA ═══ -->
-        <div class="tab-panel" id="tab-agenda">
+        <div class="tab-panel" id="tab-agenda" role="tabpanel" aria-labelledby="mc-tab-agenda" hidden>
 
             <div class="formal-section">
                 <div class="formal-heading">
@@ -287,7 +279,7 @@ function mcInitials($name) {
             </div>
             <p class="mc-footer-desc">Serving Koronadal with faith, integrity, and genuine public service.</p>
             <div class="mc-footer-actions">
-                <a href="/" class="mc-footer-action"><i class="fas fa-house"></i><span>Portal Home</span></a>
+                <a href="index.php" class="mc-footer-action"><i class="fas fa-house"></i><span>Portal Home</span></a>
                 <a href="city-officials.php" class="mc-footer-action"><i class="fas fa-users"></i><span>Officials</span></a>
                 <a href="mailto:info.koronadalcity@gmail.com" class="mc-footer-action"><i class="fas fa-envelope"></i><span>Contact</span></a>
             </div>
@@ -300,47 +292,44 @@ function mcInitials($name) {
 </footer>
 
 <script>
-document.addEventListener('DOMContentLoaded', function() {
-    // Navbar scroll
-    var nav = document.getElementById('nav');
-    window.addEventListener('scroll', function() {
-        nav.classList.toggle('scrolled', window.scrollY > 40);
-    });
-
-    // Tab switching
-    var tabBtns = document.querySelectorAll('.tab-btn');
-    var tabPanels = document.querySelectorAll('.tab-panel');
-    tabBtns.forEach(function(btn) {
-        btn.addEventListener('click', function() {
-            var target = this.getAttribute('data-tab');
-            tabBtns.forEach(function(b) { b.classList.remove('active'); });
-            tabPanels.forEach(function(p) { p.classList.remove('active'); });
-            btn.classList.add('active');
-            document.getElementById('tab-' + target).classList.add('active');
-        });
-    });
-
-    // Scroll reveal
-    var reveals = document.querySelectorAll('.formal-card, .formal-letter, .formal-quote, .epa-card, .sector-card, .outcome-block, .formal-section');
-    if ('IntersectionObserver' in window) {
-        var obs = new IntersectionObserver(function(entries) {
-            entries.forEach(function(e) {
-                if (e.isIntersecting) {
-                    e.target.style.opacity = '1';
-                    e.target.style.transform = 'translateY(0)';
-                    obs.unobserve(e.target);
-                }
-            });
-        }, { threshold: 0.1, rootMargin: '0px 0px -20px 0px' });
-        reveals.forEach(function(el) {
-            el.style.opacity = '0';
-            el.style.transform = 'translateY(16px)';
-            el.style.transition = 'opacity .5s ease, transform .5s ease';
-            obs.observe(el);
-        });
-    } else {
-        reveals.forEach(function(el) { el.style.opacity = '1'; });
+document.addEventListener('DOMContentLoaded', function () {
+    const nav = document.getElementById('nav');
+    const tabs = Array.from(document.querySelectorAll('#tabsNav [role="tab"]'));
+    const panels = Array.from(document.querySelectorAll('.tab-panels [role="tabpanel"]'));
+    if (nav) {
+        window.addEventListener('scroll', function () {
+            nav.classList.toggle('scrolled', window.scrollY > 30);
+        }, {passive: true});
     }
+    function activateTab(tab, focus) {
+        if (!tab) return;
+        tabs.forEach(function(button) {
+            const active = button === tab;
+            button.classList.toggle('active', active);
+            button.setAttribute('aria-selected', String(active));
+            button.tabIndex = active ? 0 : -1;
+        });
+        panels.forEach(function(panel) {
+            const active = panel.id === 'tab-' + tab.dataset.tab;
+            panel.classList.toggle('active', active);
+            panel.hidden = !active;
+        });
+        if (focus) tab.focus();
+    }
+    tabs.forEach(function(tab, index) {
+        tab.addEventListener('click', function() { activateTab(tab, false); });
+        tab.addEventListener('keydown', function(event) {
+            let next = index;
+            if (event.key === 'ArrowRight') next = (index + 1) % tabs.length;
+            else if (event.key === 'ArrowLeft') next = (index + tabs.length - 1) % tabs.length;
+            else if (event.key === 'Home') next = 0;
+            else if (event.key === 'End') next = tabs.length - 1;
+            else return;
+            event.preventDefault();
+            activateTab(tabs[next], true);
+        });
+    });
+    activateTab(document.querySelector('#tabsNav .tab-btn.active') || tabs[0], false);
 });
 </script>
 </body>
