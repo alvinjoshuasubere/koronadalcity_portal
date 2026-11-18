@@ -17883,3 +17883,106 @@ body.portal-home-page .kd-mayor-avatar img{
   }
   body.portal-home-page .kd-emergency-cta{font-size:12px!important;padding:13px 15px!important}
 }
+
+
+/* Red emergency treatment with enlarged agency seals and response actions */
+body.portal-home-page .kd-emergency-banner{
+  display:grid!important;
+  grid-template-columns:auto minmax(0,1fr) auto!important;
+  align-items:center!important;
+  gap:28px!important;
+  min-height:184px!important;
+  width:min(1165px,calc(100% - 48px))!important;
+  margin:36px auto 0!important;
+  padding:24px 31px!important;
+  color:#fff!important;
+  background:#ae1723!important;
+  background-image:linear-gradient(115deg,#8e111d 0%,#bd1c2b 60%,#db3340 100%)!important;
+  border:2px solid #aa1421!important;
+  border-left:8px solid #ffe16c!important;
+  border-radius:19px!important;
+  box-shadow:0 16px 33px rgba(149,20,34,.25)!important;
+}
+body.portal-home-page .kd-emergency-agencies{
+  display:flex!important;align-items:center!important;gap:16px!important;
+}
+body.portal-home-page .kd-emergency-banner .kd-agency{
+  display:flex!important;flex-direction:column!important;align-items:center!important;justify-content:center!important;gap:7px!important;
+  min-width:86px!important;padding:10px!important;
+  background:rgba(255,255,255,.97)!important;
+  border:1px solid rgba(255,255,255,.82)!important;
+  border-radius:14px!important;
+  box-shadow:0 5px 14px rgba(77,3,12,.17)!important;
+}
+body.portal-home-page .kd-emergency-banner .kd-agency img{
+  display:block!important;visibility:visible!important;
+  width:75px!important;height:75px!important;max-width:none!important;
+  object-fit:contain!important;background:transparent!important;
+}
+body.portal-home-page .kd-emergency-banner .kd-agency strong{
+  color:#7f1721!important;font-size:11px!important;font-weight:850!important;letter-spacing:.06em!important;
+}
+body.portal-home-page .kd-emergency-title{min-width:0!important;flex:none!important}
+body.portal-home-page .kd-emergency-label{
+  display:inline-flex!important;align-items:center!important;gap:7px!important;
+  font-size:11px!important;font-weight:800!important;letter-spacing:.095em!important;
+  color:#ffe8a6!important;
+}
+body.portal-home-page .kd-emergency-title h2{
+  font-size:clamp(23px,2.5vw,33px)!important;
+  font-weight:850!important;color:#fff!important;
+  margin:8px 0!important;line-height:1.18!important;
+}
+body.portal-home-page .kd-emergency-title p{
+  color:#fff3f3!important;font-size:clamp(12px,1.16vw,15px)!important;
+  font-weight:550!important;line-height:1.55!important;margin:0!important;
+}
+body.portal-home-page .kd-emergency-actions{
+  display:flex!important;align-items:center!important;justify-content:center!important;
+  flex-direction:column!important;gap:11px!important;
+}
+body.portal-home-page .kd-emergency-actions .kd-911{
+  display:inline-flex!important;align-items:center!important;justify-content:center!important;gap:13px!important;
+  min-width:0!important;padding:0!important;border:0!important;
+  font-size:clamp(34px,4vw,49px)!important;font-weight:900!important;
+  line-height:1.1!important;color:#fff275!important;text-decoration:none!important;
+}
+body.portal-home-page .kd-emergency-actions .kd-911 i{font-size:28px!important;color:#fff275!important}
+body.portal-home-page .kd-emergency-actions .kd-emergency-cta{
+  display:inline-flex!important;justify-content:center!important;align-items:center!important;gap:10px!important;
+  width:100%!important;min-height:45px!important;padding:13px 15px!important;
+  border-radius:10px!important;border:0!important;
+  background:#fff!important;color:#a71724!important;font-size:12px!important;
+  font-weight:850!important;text-decoration:none!important;
+  white-space:nowrap!important;
+}
+body.portal-home-page .kd-emergency-actions .kd-emergency-cta:hover,
+body.portal-home-page .kd-emergency-actions .kd-emergency-cta:focus-visible{
+  background:#fff275!important;color:#80111a!important;
+}
+@media(max-width:1100px){
+ body.portal-home-page .kd-emergency-banner{
+   grid-template-columns:auto 1fr!important;gap:17px!important;
+ }
+ body.portal-home-page .kd-emergency-actions{
+   grid-column:1/-1!important;flex-direction:row!important;justify-content:space-between!important;
+ }
+ body.portal-home-page .kd-emergency-actions .kd-emergency-cta{width:auto!important}
+}
+@media(max-width:760px){
+ body.portal-home-page .kd-emergency-banner{
+   display:grid!important;grid-template-columns:1fr!important;
+   width:calc(100% - 30px)!important;
+   min-height:0!important;padding:23px 20px!important;
+   gap:19px!important;border-radius:16px!important;
+ }
+ body.portal-home-page .kd-emergency-agencies{justify-content:center!important;gap:15px!important}
+ body.portal-home-page .kd-emergency-banner .kd-agency{min-width:97px!important}
+ body.portal-home-page .kd-emergency-banner .kd-agency img{width:75px!important;height:75px!important}
+ body.portal-home-page .kd-emergency-title{text-align:center!important}
+ body.portal-home-page .kd-emergency-title h2{font-size:27px!important}
+ body.portal-home-page .kd-emergency-actions{
+   grid-column:auto!important;flex-direction:column!important;
+ }
+ body.portal-home-page .kd-emergency-actions .kd-emergency-cta{width:100%!important}
+}
