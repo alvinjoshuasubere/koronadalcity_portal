@@ -94,3 +94,22 @@ body.force-mobile .portal-dashboard .top-task:nth-child(2) i{background:#fff3dc!
 body.force-mobile .app-featured{background:linear-gradient(115deg,#e8eef9,#f8f9ff 70%,#fff3de)!important}
 body.force-mobile .bottom-nav a.center{background:#e8effb!important}
 @media(prefers-reduced-motion:reduce){.home-hero *,.service-card,.top-task{animation:none!important;transition:none!important}}
+
+/* Quiet decorative city illustration instead of the former text note. */
+.home-hero .hero-side-note{display:none!important}
+.home-hero .hero-city-art{position:absolute;right:4%;bottom:0;width:min(38%,430px);height:83%;pointer-events:none;z-index:0;opacity:.97}
+.home-hero .hero-content{position:relative;z-index:2}
+.hero-city-art .city-art-glow{position:absolute;inset:15% 2% -25%;background:radial-gradient(ellipse at center,rgba(94,161,233,.26),transparent 70%);filter:blur(10px)}
+.hero-city-art .city-art-orbit{position:absolute;left:10%;top:3%;width:82%;aspect-ratio:1;border:1px solid rgba(197,222,255,.25);border-radius:50%;transform:rotate(-18deg)}
+.hero-city-art .orbit-two{left:22%;top:14%;width:56%;border:2px dashed rgba(240,188,100,.22)}
+.hero-city-art .city-art-building{position:absolute;bottom:17%;background:linear-gradient(160deg,rgba(107,153,219,.63),rgba(29,65,123,.9));border:1px solid rgba(198,226,253,.35);box-shadow:inset 6px 0 18px rgba(255,255,255,.12),0 14px 34px rgba(4,19,45,.2);border-radius:9px 9px 3px 3px}
+.hero-city-art .city-art-building:before{content:"";position:absolute;inset:16% 16% 12%;background:repeating-linear-gradient(90deg,transparent 0 17%,rgba(237,247,255,.6) 18% 24%,transparent 25% 50%),repeating-linear-gradient(0deg,transparent 0 21%,rgba(12,35,75,.9) 22% 27%,transparent 28% 48%);opacity:.6}
+.hero-city-art .building-one{left:12%;width:25%;height:41%;transform:skewY(-3deg)}
+.hero-city-art .building-two{left:36%;width:30%;height:68%;background:linear-gradient(160deg,#88b7e4,#244f8b)}
+.hero-city-art .building-three{left:66%;width:23%;height:47%;transform:skewY(3deg)}
+.hero-city-art .building-two:after{content:"";position:absolute;bottom:100%;left:42%;width:16%;height:15%;background:#eac078;border-radius:5px 5px 0 0}
+.hero-city-art .city-art-platform{position:absolute;left:0;right:0;bottom:10%;height:8%;background:linear-gradient(90deg,transparent,#f0bc64 28%,#86b6e2 76%,transparent);border-radius:50%;filter:blur(5px);opacity:.8}
+@media(max-width:1100px){.home-hero .hero-city-art{opacity:.35;width:43%}}
+@media(max-width:760px){body:not(.force-desktop) .home-hero .hero-city-art{width:40%;height:76%;right:-10%;opacity:.16}}
+body.force-mobile .home-hero .hero-city-art{width:40%;height:76%;right:-10%;opacity:.16}
+@media(prefers-reduced-motion:reduce){.hero-city-art *{animation:none!important}}
