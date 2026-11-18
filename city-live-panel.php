@@ -20,9 +20,9 @@
         <div><i class="fas fa-droplet" aria-hidden="true"></i><span>Humidity</span><strong data-weather-humidity>--%</strong></div>
         <div><i class="fas fa-wind" aria-hidden="true"></i><span>Wind</span><strong data-weather-wind>-- km/h</strong></div>
       </div>
-      <div class="kd-forecast-heading">Next five days</div>
+      <div class="kd-forecast-heading">5-Day Forecast</div>
       <div class="kd-forecast" data-weather-forecast aria-label="Five-day weather forecast"><span class="kd-weather-loading">Loading forecast...</span></div>
-      <p class="kd-weather-source">Weather data: <a href="https://open-meteo.com/" target="_blank" rel="noopener noreferrer">Open-Meteo</a>. Updates when the page loads.</p>
+      <p class="kd-weather-source">Forecast by <a href="https://open-meteo.com/" target="_blank" rel="noopener noreferrer">Open-Meteo</a>. Local forecast, refreshed automatically. <a href="https://www.accuweather.com/en/ph/koronadal-city/266053/daily-weather-forecast/266053" target="_blank" rel="noopener noreferrer">Alternative forecast</a>.</p>
     </article>
     <article class="kd-live-card kd-map-card" aria-label="Koronadal City Hall map">
       <div class="kd-live-card-head"><div><span class="kd-card-overline">INTERACTIVE MAP</span><h3>Koronadal City Hall</h3></div><i class="fas fa-map-location-dot" aria-hidden="true"></i></div>
@@ -47,7 +47,7 @@
   const descriptions = {0:'Clear sky',1:'Mainly clear',2:'Partly cloudy',3:'Overcast',45:'Fog',48:'Depositing fog',51:'Light drizzle',53:'Drizzle',55:'Heavy drizzle',61:'Light rain',63:'Rain',65:'Heavy rain',71:'Light snow',73:'Snow',75:'Heavy snow',80:'Rain showers',81:'Rain showers',82:'Heavy showers',95:'Thunderstorm',96:'Thunderstorm with hail',99:'Thunderstorm with hail'};
   const condition = code => descriptions[code] || 'Weather conditions';
   const labelDay = iso => new Intl.DateTimeFormat('en-PH',{weekday:'short',timeZone:'Asia/Manila'}).format(new Date(iso+'T12:00:00+08:00'));
-  const url = 'https://api.open-meteo.com/v1/forecast?latitude=6.47965&longitude=124.86566&current=temperature_2m,relative_humidity_2m,weather_code,wind_speed_10m&daily=weather_code,temperature_2m_max,temperature_2m_min&timezone=Asia%2FManila&forecast_days=6';
+  const url = 'https://api.open-meteo.com/v1/forecast?latitude=6.47965&longitude=124.86566&current=temperature_2m,relative_humidity_2m,weather_code,wind_speed_10m&daily=weather_code,temperature_2m_max,temperature_2m_min,precipitation_probability_max&timezone=Asia%2FManila&forecast_days=5';
   const abort = new AbortController();
   const timeout = setTimeout(() => abort.abort(), 9000);
   fetch(url,{signal:abort.signal}).then(response => {
@@ -61,22 +61,28 @@
     set('status',condition(current.weather_code));
     set('humidity',Math.round(current.relative_humidity_2m)+'%');
     set('wind',Math.round(current.wind_speed_10m)+' km/h');
-    set('updated',new Intl.DateTimeFormat('en-PH',{hour:'numeric',minute:'2-digit',timeZone:'Asia/Manila'}).format(new Date())+' PHT');
+    set('updated','Updated '+new Intl.DateTimeFormat('en-PH',{hour:'numeric',minute:'2-digit',timeZone:'Asia/Manila'}).format(new Date())+' PHT');
     const container = root.querySelector('[data-weather-forecast]');
     if (container) {
       container.replaceChildren();
-      (daily.time || []).slice(1,6).forEach((date,i) => {
+      (daily.time || []).slice(0,5).forEach((date,i) => {
         const tile=document.createElement('div');
         tile.className='kd-forecast-day';
+        tile.title=condition((daily.weather_code || [])[i]);
         const day=document.createElement('strong');
-        day.textContent=labelDay(date);
+        day.textContent=i === 0 ? 'Today' : labelDay(date);
         const icon=document.createElement('i');
-        const code=(daily.weather_code || [])[i+1];
-        icon.className='fas '+(code >= 61 ? 'fa-cloud-rain' : code >= 2 ? 'fa-cloud-sun' : 'fa-sun');
+        const code=(daily.weather_code || [])[i];
+        icon.className='fas '+(code >= 95 ? 'fa-cloud-bolt' : code >= 61 ? 'fa-cloud-rain' : code >= 2 ? 'fa-cloud-sun' : 'fa-sun');
         icon.setAttribute('aria-hidden','true');
         const temps=document.createElement('span');
-        temps.textContent=Math.round(daily.temperature_2m_max[i+1])+'° / '+Math.round(daily.temperature_2m_min[i+1])+'°';
-        tile.append(day,icon,temps);
+        const max=(daily.temperature_2m_max || [])[i];
+        const min=(daily.temperature_2m_min || [])[i];
+        temps.textContent=Number.isFinite(max) && Number.isFinite(min) ? Math.round(max)+'° / '+Math.round(min)+'°' : '--';
+        const rain=document.createElement('small');
+        const chance=(daily.precipitation_probability_max || [])[i];
+        rain.textContent=Number.isFinite(chance) ? Math.round(chance)+'% rain' : condition(code);
+        tile.append(day,icon,temps,rain);
         container.appendChild(tile);
       });
     }
