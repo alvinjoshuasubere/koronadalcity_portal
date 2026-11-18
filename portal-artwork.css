@@ -1,5 +1,5 @@
 /**
- * Illustrated responsive portal artwork: provide desktop.png and mobile.png in the repository root.
+ * Illustrated responsive portal artwork: provide desktop.png and desktop.png in the repository root.
  *    These are artwork-only crops, not screenshots of buttons or navigation.
  *    Keep all links, text, search, and mode controls as real HTML.
  *
@@ -103,7 +103,7 @@ body:not(.force-mobile) .home-hero .hero-city-art {
     z-index: auto !important;
     height: clamp(145px, 43vw, 215px) !important;
     margin: 0 -19px 20px !important;
-    background: #42b7e9 url("mobile.png") center center / cover no-repeat !important;
+    background: #42b7e9 url("desktop.png") center center / cover no-repeat !important;
     border-radius: 18px 18px 0 0 !important;
   }
   body:not(.force-desktop) .home-hero .hero-content h1 {
@@ -140,7 +140,7 @@ body:not(.force-mobile) .home-hero .hero-city-art {
         rgba(236, 247, 255, 0.98),
         rgba(255, 255, 255, 0.93)
       ),
-      url("mobile.png") right center / auto 100% no-repeat !important;
+      url("desktop.png") right center / auto 100% no-repeat !important;
   }
 }
 body.force-mobile .home-hero {
@@ -162,7 +162,7 @@ body.force-mobile .home-hero:before {
   z-index: auto !important;
   height: clamp(145px, 43vw, 215px) !important;
   margin: 0 -19px 20px !important;
-  background: #42b7e9 url("mobile.png") center center / cover no-repeat !important;
+  background: #42b7e9 url("desktop.png") center center / cover no-repeat !important;
   border-radius: 18px 18px 0 0 !important;
 }
 body.force-mobile .home-hero .hero-content h1 {
@@ -194,7 +194,7 @@ body.force-mobile .app-featured {
       rgba(236, 247, 255, 0.98),
       rgba(255, 255, 255, 0.93)
     ),
-    url("mobile.png") right center / auto 100% no-repeat !important;
+    url("desktop.png") right center / auto 100% no-repeat !important;
 }
 @media (prefers-reduced-motion: reduce) {
   .home-hero,
@@ -204,7 +204,7 @@ body.force-mobile .app-featured {
 }
 
 /* Layout correction: desktop.png is the DESKTOP PAGE BACKGROUND.
-   mobile.png is the WELCOME HEADER ART across desktop and mobile views. */
+   desktop.png is the WELCOME HEADER ART across desktop and mobile views. */
 @media (min-width: 761px) {
   body:not(.force-mobile) {
     background-image:
@@ -222,7 +222,7 @@ body.force-mobile .app-featured {
         rgba(10, 34, 62, 0.88) 44%,
         rgba(11, 38, 70, 0.16) 100%
       ),
-      url("mobile.png") !important;
+      url("desktop.png") !important;
     background-repeat: no-repeat !important;
     background-position: center center !important;
     background-size: cover !important;
@@ -247,7 +247,7 @@ body.force-desktop .home-hero {
       rgba(10, 34, 62, 0.88) 44%,
       rgba(11, 38, 70, 0.16) 100%
     ),
-    url("mobile.png") !important;
+    url("desktop.png") !important;
   background-position: center center !important;
   background-size: cover !important;
 }
