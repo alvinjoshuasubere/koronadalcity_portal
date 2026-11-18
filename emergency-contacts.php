@@ -40,6 +40,7 @@ $typeConfig = [
     <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
   <link rel="stylesheet" href="portal.css?v=20261118-17" />
+  <link rel="stylesheet" href="civic-responsive.css?v=20261118-27" />
 </head>
 
 <body class="emergency-page">
@@ -148,7 +149,8 @@ $typeConfig = [
     </section>
 
     <!-- Footer -->
-    <footer class="footer">
+    <?php include __DIR__ . '/city-live-panel.php'; ?>
+<footer class="footer">
         <div class="footer-in">
             <div class="footer-brand">
                 <img src="Logo.png" alt="Koronadal City" class="footer-brand-img">
