@@ -18412,3 +18412,128 @@ body.emergency-page .emergency-primary-call:hover{transform:translateY(-2px)!imp
     transition:none!important;
   }
 }
+
+
+/* Mayor's Corner repaired layout and two-column portal footer */
+body.portal-home-page .kd-footer-top{
+ grid-template-columns:minmax(0,1fr) minmax(0,1.1fr)!important;
+ justify-content:space-between!important;
+ align-items:center!important;
+}
+body.portal-home-page .footer-links{
+ border-right:0!important;
+ padding-right:0!important;
+}
+body.mc-page .hero-photo-wrap{
+ display:flex!important;
+ position:relative!important;
+ width:220px!important;
+ flex:0 0 220px!important;
+ justify-content:center!important;align-items:center!important;
+}
+body.mc-page .hero-photo-ring,
+body.mc-page .hero-photo-inner{
+ display:flex!important;align-items:center!important;justify-content:center!important;
+ width:208px!important;height:208px!important;
+ border-radius:25px!important;
+ overflow:hidden!important;
+ background:#fff!important;
+ border:4px solid rgba(255,255,255,.75)!important;
+ box-shadow:0 12px 25px rgba(21,74,129,.12)!important;
+}
+body.mc-page .hero-photo-inner{width:100%!important;height:100%!important;border:0!important;box-shadow:none!important}
+body.mc-page .hero-photo-inner img{
+ display:block!important;width:100%!important;height:100%!important;
+ object-fit:cover!important;object-position:center top!important;
+}
+body.mc-page .hero-photo-initials{align-items:center!important;justify-content:center!important;color:#0b4b91!important}
+body.mc-page .hero-photo-badge{display:none!important}
+body.mc-page .hero-inner{
+ display:flex!important;align-items:center!important;justify-content:center!important;
+ gap:36px!important;max-width:1110px!important;margin:0 auto!important;
+ text-align:left!important;flex-direction:row!important;
+}
+body.mc-page .hero-text{max-width:690px!important;margin:0!important;text-align:left!important}
+body.mc-page .hero-label{display:inline-flex!important;align-items:center!important;gap:8px!important}
+body.mc-page .hero-name{
+ font-family:'Sora',sans-serif!important;
+ color:#0b2c53!important;font-size:clamp(29px,4vw,43px)!important;
+ line-height:1.17!important;letter-spacing:-.04em!important;
+ margin:17px 0 9px!important;
+}
+body.mc-page .hero-title{font-size:16px!important;font-weight:750!important;color:#4c617b!important}
+body.mc-page .hero-motto-line{justify-content:flex-start!important;margin-top:17px!important}
+body.mc-page .hero-motto-text{color:#0a54a0!important;font-size:13px!important;font-weight:800!important}
+body.mc-page .tabs-section{
+ width:min(1130px,calc(100% - 36px))!important;
+ max-width:1130px!important;
+ margin:25px auto 58px!important;
+}
+body.mc-page .tabs-nav{
+ display:flex!important;gap:8px!important;align-items:center!important;
+ width:100%!important;padding:9px!important;border-radius:15px!important;
+ background:#fff!important;box-shadow:0 5px 17px rgba(16,67,120,.06)!important;
+}
+body.mc-page .tab-btn{
+ flex:1 1 0!important;
+ min-height:52px!important;padding:11px 12px!important;
+ border-radius:10px!important;
+ color:#284a6e!important;
+ background:transparent!important;
+ font-size:13px!important;font-weight:800!important;
+}
+body.mc-page .tab-btn.active,body.mc-page .tab-btn:hover,body.mc-page .tab-btn:focus-visible{
+ background:#dceeff!important;color:#083e7c!important;
+ border-color:#b2d6f4!important;
+}
+body.mc-page .tab-btn.active i,body.mc-page .tab-btn:hover i{color:#0b5aab!important}
+body.mc-page .tab-panel[hidden]{display:none!important}
+body.mc-page .tab-panel.active{display:block!important;visibility:visible!important;opacity:1!important}
+body.mc-page .formal-section,
+body.mc-page .formal-card,
+body.mc-page .formal-letter,
+body.mc-page .formal-quote,
+body.mc-page .epa-card,
+body.mc-page .sector-card,
+body.mc-page .outcome-block{
+ visibility:visible!important;opacity:1!important;
+ transform:none!important;
+}
+body.mc-page .tab-panels{min-height:240px!important}
+body.mc-page .formal-section{margin-bottom:24px!important}
+body.mc-page .formal-card,body.mc-page .formal-letter,body.mc-page .epa-card,
+body.mc-page .sector-card,body.mc-page .outcome-block{
+ border-radius:15px!important;
+ border:1px solid #dce8f4!important;
+ background:#fff!important;
+ color:#152f54!important;
+ box-shadow:0 5px 19px rgba(15,64,119,.055)!important;
+}
+body.mc-page .formal-heading-text,
+body.mc-page .formal-heading-text .hl{
+ color:#0c3766!important;
+}
+body.mc-page .formal-card p,body.mc-page .formal-letter p,
+body.mc-page .epa-card p,body.mc-page .sector-card p,body.mc-page .outcome-block p{
+ color:#435772!important;line-height:1.8!important;
+}
+body.mc-page .formal-quote{background:#103e74!important;color:#fff!important}
+body.mc-page .formal-quote-text{color:#fff!important}
+body.mc-page .formal-quote-attr{color:#e0edff!important}
+body.mc-page .mc-footer-actions a:hover{background:#dcebfd!important;color:#0b3b70!important}
+@media(max-width:760px){
+ body.portal-home-page .kd-footer-top{grid-template-columns:1fr!important;gap:20px!important}
+ body.mc-page .hero-inner{flex-direction:column!important;text-align:center!important;gap:17px!important}
+ body.mc-page .hero-photo-wrap{width:154px!important;flex:0 0 154px!important}
+ body.mc-page .hero-photo-ring{width:148px!important;height:148px!important}
+ body.mc-page .hero-text{max-width:100%!important;text-align:center!important}
+ body.mc-page .hero-motto-line{justify-content:center!important}
+ body.mc-page .tabs-section{width:calc(100% - 24px)!important;margin:17px auto 37px!important}
+ body.mc-page .tabs-nav{gap:5px!important;padding:5px!important}
+ body.mc-page .tab-btn{font-size:10px!important;min-height:48px!important;padding:8px 5px!important;gap:5px!important}
+ body.mc-page .tab-btn i{font-size:13px!important}
+ body.mc-page .hero-name{font-size:clamp(24px,7vw,33px)!important}
+}
+@media(prefers-reduced-motion:reduce){
+ body.mc-page .tab-btn,body.mc-page .formal-card{transition:none!important}
+}
