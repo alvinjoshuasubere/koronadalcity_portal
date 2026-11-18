@@ -17986,3 +17986,151 @@ body.portal-home-page .kd-emergency-actions .kd-emergency-cta:focus-visible{
  }
  body.portal-home-page .kd-emergency-actions .kd-emergency-cta{width:100%!important}
 }
+
+
+/* 2026-11-18 | Additional LGU service guides and emergency page repair */
+body.portal-home-page .services-section .service-card.service-guide{
+ position:relative!important;
+ padding-bottom:29px!important;
+}
+body.portal-home-page .service-guide .service-guide-label{
+ grid-column:2!important;
+ grid-row:3!important;
+ justify-self:start!important;
+ color:#185da0!important;
+ background:#eaf4ff!important;
+ padding:4px 8px!important;
+ border-radius:6px!important;
+ font-size:10px!important;
+ line-height:1.2!important;
+ font-weight:800!important;
+ letter-spacing:.01em!important;
+}
+body.portal-home-page .service-guide .service-open{grid-row:1/4!important}
+body.emergency-page{
+ background:#f7f9fd!important;
+ color:#152d4e!important;
+}
+body.emergency-page .navbar{
+ position:sticky!important;
+ top:0!important;
+ z-index:1300!important;
+ background:#fff!important;
+ border-bottom:1px solid #dce6f1!important;
+ box-shadow:0 5px 16px rgba(33,62,103,.09)!important;
+}
+body.emergency-page .navbar-in{width:min(1240px,100%)!important;min-height:78px!important;display:flex!important;align-items:center!important;gap:12px!important}
+body.emergency-page .navbar .brand{margin-right:auto!important}
+body.emergency-page .nav-back{color:#0d3d73!important;background:#eff6ff!important;border:1px solid #dbe8fa!important;border-radius:10px!important;min-height:42px!important}
+body.emergency-page .nav-back:hover{background:#dcecff!important;color:#072a54!important}
+body.emergency-page .hero{
+ position:relative!important;
+ padding:48px 20px 42px!important;
+ min-height:0!important;
+ background:#a1192b!important;
+ background-image:linear-gradient(120deg,#8c1526,#bc2534)!important;
+ color:#fff!important;
+ border-bottom:4px solid #ffe082!important;
+}
+body.emergency-page .hero::before,body.emergency-page .hero::after{display:none!important}
+body.emergency-page .hero .hero-content{margin:auto!important;text-align:center!important;max-width:1030px!important;width:100%!important}
+body.emergency-page .hero h1,body.emergency-page .hero .hl{
+ color:#fff!important;text-shadow:none!important;
+ font-size:clamp(30px,5vw,49px)!important;
+ line-height:1.2!important;
+}
+body.emergency-page .hero-sub{color:#fff3f4!important;opacity:1!important;font-size:14px!important;max-width:700px!important;margin:12px auto 18px!important}
+body.emergency-page .hero-icon-wrap,body.emergency-page .hero-icon{margin-left:auto!important;margin-right:auto!important}
+body.emergency-page .hero-icon{background:rgba(255,255,255,.15)!important;color:#fff!important;border:1px solid rgba(255,255,255,.32)!important}
+body.emergency-page .emergency-primary-call{
+ display:inline-flex!important;align-items:center!important;justify-content:center!important;gap:11px!important;
+ min-height:53px!important;
+ padding:14px 27px!important;
+ margin:0 auto 22px!important;
+ border-radius:11px!important;
+ background:#fff!important;color:#951a29!important;
+ font-weight:850!important;
+ font-size:18px!important;
+ text-decoration:none!important;
+ box-shadow:0 5px 17px rgba(67,10,25,.15)!important;
+}
+body.emergency-page .emergency-primary-call:hover,body.emergency-page .emergency-primary-call:focus-visible{background:#fff3ae!important;color:#741420!important}
+body.emergency-page .stats-bar{
+ display:flex!important;align-items:center!important;justify-content:center!important;flex-wrap:wrap!important;
+ max-width:900px!important;
+ margin:0 auto!important;
+ gap:10px!important;
+ padding:14px!important;
+ border:1px solid rgba(255,255,255,.34)!important;
+ border-radius:14px!important;
+ background:rgba(255,255,255,.14)!important;
+}
+body.emergency-page .stats-bar .stat-item{padding:5px 11px!important;min-width:76px!important}
+body.emergency-page .stats-bar .stat-num{color:#fff275!important;font-size:19px!important;text-shadow:none!important}
+body.emergency-page .stats-bar .stat-label{color:#fff!important;font-size:11px!important}
+body.emergency-page .stats-bar .stat-divider{height:25px!important;border-color:rgba(255,255,255,.28)!important}
+body.emergency-page .contacts-section{
+ padding:35px 0 54px!important;
+ width:min(1170px,calc(100% - 38px))!important;
+ max-width:1170px!important;
+ margin:0 auto!important;
+}
+body.emergency-page .section-label{color:#142d52!important;font-size:22px!important;font-weight:800!important;margin-bottom:19px!important}
+body.emergency-page .cards-grid{
+ display:grid!important;
+ grid-template-columns:repeat(3,minmax(0,1fr))!important;
+ gap:17px!important;
+}
+body.emergency-page .contact-card{
+ display:flex!important;flex-direction:column!important;
+ position:relative!important;
+ min-width:0!important;
+ min-height:227px!important;
+ padding:22px!important;
+ border:1px solid #dce5f1!important;
+ border-radius:17px!important;
+ background:#fff!important;
+ opacity:1!important;
+ transform:none!important;
+ visibility:visible!important;
+ box-shadow:0 7px 20px rgba(20,56,100,.06)!important;
+}
+body.emergency-page .contact-card:hover{transform:translateY(-3px)!important;border-color:#bb9aa7!important;box-shadow:0 12px 24px rgba(86,31,54,.1)!important}
+body.emergency-page .card-top{display:flex!important;justify-content:space-between!important;align-items:center!important}
+body.emergency-page .type-icon{background:#fff0f0!important;color:#ab2130!important}
+body.emergency-page .type-badge{background:#f5f7fa!important;color:#56637b!important}
+body.emergency-page .card-name{color:#102a4f!important;font-weight:850!important;font-size:16px!important}
+body.emergency-page .card-desc{color:#647084!important;font-size:12px!important;line-height:1.6!important}
+body.emergency-page .card-phone{
+ display:flex!important;align-items:center!important;gap:9px!important;flex-wrap:wrap!important;
+ width:100%!important;margin-top:auto!important;padding:13px 14px!important;
+ border-radius:11px!important;
+ color:#a21c2b!important;
+ background:#fff0f1!important;
+ border:1px solid #f1d1d6!important;
+ text-decoration:none!important;
+}
+body.emergency-page .card-phone:hover,body.emergency-page .card-phone:focus-visible{background:#a41b2a!important;color:#fff!important;border-color:#a41b2a!important}
+body.emergency-page .card-phone-num{color:inherit!important;font-size:15px!important;overflow-wrap:anywhere!important}
+body.emergency-page .card-phone-call{margin-left:auto!important;color:inherit!important;font-size:11px!important;font-weight:750!important}
+body.emergency-page .empty-state{grid-column:1/-1!important}
+body.emergency-page .footer{background:#102e55!important;color:#fff!important}
+@media(max-width:980px){
+ body.emergency-page .cards-grid{grid-template-columns:repeat(2,minmax(0,1fr))!important}
+}
+@media(max-width:650px){
+ body.emergency-page .navbar-in{min-height:72px!important;padding:0 12px!important}
+ body.emergency-page .navbar .brand-img{width:42px!important;height:42px!important}
+ body.emergency-page .nav-back{padding:9px!important;font-size:11px!important}
+ body.emergency-page .nav-back span{display:none!important}
+ body.emergency-page .hero{padding:35px 18px 37px!important}
+ body.emergency-page .hero .hero-sub{font-size:12px!important}
+ body.emergency-page .stats-bar{gap:5px!important}
+ body.emergency-page .stats-bar .stat-item{min-width:65px!important}
+ body.emergency-page .stats-bar .stat-divider{display:none!important}
+ body.emergency-page .contacts-section{padding-top:26px!important;width:calc(100% - 28px)!important}
+ body.emergency-page .cards-grid{grid-template-columns:1fr!important;gap:13px!important}
+ body.emergency-page .contact-card{min-height:205px!important}
+ body.emergency-page .section-label{font-size:18px!important}
+}
+@media(prefers-reduced-motion:reduce){body.emergency-page .contact-card{transition:none!important}}
