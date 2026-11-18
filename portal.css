@@ -17635,3 +17635,56 @@ body.portal-home-page.force-mobile .home-hero{padding:35px 21px 40px!important}
 body.portal-home-page.force-mobile .services-section .service-grid{grid-template-columns:1fr!important}
 body.portal-home-page.force-mobile .bottom-nav{display:none!important}
 @media(prefers-reduced-motion:reduce){body.portal-home-page .service-card,body.portal-home-page .kd-quick-links a{transition:none!important}}
+
+
+/* Blue civic design shared by the Mayor, Officials, and Emergency pages */
+body.mc-page,body.officials-page,body.emergency-page{
+ --rose:#0b58a7;--rose-light:#3184d2;--cyan:#0861b6;--text-bright:#0b244b;
+ background:#f7fbff!important;background-image:none!important;color:#12284b!important;
+}
+body.mc-page .nav,body.officials-page .nav,body.emergency-page .navbar{
+ background:#fff!important;border:0!important;border-bottom:1px solid #dbe8f4!important;
+ -webkit-backdrop-filter:none!important;backdrop-filter:none!important;
+ box-shadow:0 4px 17px rgba(18,64,119,.08)!important;
+}
+body.mc-page .nav:before,body.officials-page .nav:before,body.emergency-page .navbar:before{display:none!important}
+body.mc-page .nav-brand-text strong,body.officials-page .nav-brand-text strong,body.emergency-page .brand-text strong{color:#0a284f!important}
+body.mc-page .nav-brand-text small,body.officials-page .nav-brand-text small,body.emergency-page .brand-text small{color:#53647b!important}
+body.mc-page .nav-back,body.officials-page .nav-back,body.emergency-page .nav-back{
+ background:#edf5fe!important;color:#0a4b91!important;border:1px solid #d9e7f6!important;
+}
+body.mc-page .nav-back:hover,body.officials-page .nav-back:hover,body.emergency-page .nav-back:hover{
+ background:#0755a8!important;color:#fff!important;border-color:#0755a8!important;
+}
+body.mc-page .hero,body.officials-page .hero,body.emergency-page .hero{
+ background:#eaf5ff!important;border:0!important;border-bottom:1px solid #d6e8fa!important;
+ color:#0a244b!important;
+}
+body.mc-page .hero .hero-name,body.officials-page .hero h1,body.emergency-page .hero h1,
+body.officials-page .hero .glow,body.emergency-page .hero .hl{
+ color:#09264d!important;text-shadow:none!important;
+}
+body.mc-page .hero .hero-title,body.officials-page .hero .hero-sub,body.emergency-page .hero .hero-sub{color:#4f6177!important}
+body.mc-page .hero .hero-motto-text{color:#0756a8!important}
+body.mc-page .hero .hero-label{color:#0753a4!important;background:#fff!important;border:1px solid #d8e7f5!important}
+body.officials-page .hero-stats,body.emergency-page .stats-bar{background:#fff!important;border:1px solid #dbe8f4!important;color:#0e2e55!important}
+body.officials-page .hero-stats .stat-num,body.emergency-page .stats-bar .stat-num{color:#0756a8!important}
+body.officials-page .hero-stats .stat-label,body.emergency-page .stats-bar .stat-label{color:#526077!important}
+body.mc-page .formal-card,body.mc-page .epa-card,body.mc-page .sector-card,
+body.officials-page .mayor-hero-card,body.officials-page .vice-card,body.officials-page .council-card,
+body.emergency-page .contact-card{
+ background:#fff!important;color:#092445!important;border:1px solid #dbe8f5!important;
+ border-radius:13px!important;box-shadow:0 5px 16px rgba(16,68,122,.045)!important;
+}
+body.mc-page .formal-heading-text,body.officials-page .mayor-name,body.officials-page .vice-name,
+body.officials-page .council-name,body.emergency-page .card-name{color:#092e62!important}
+body.mc-page .tabs-nav{background:#fff!important;border-color:#dbe8f5!important}
+body.mc-page .tab-btn{color:#31567b!important}
+body.mc-page .tab-btn.active,body.mc-page .tab-btn:hover{background:#deedfc!important;color:#083c79!important}
+body.mc-page .tab-btn.active i,body.mc-page .tab-btn:hover i{color:#083c79!important}
+body.mc-page .formal-quote{background:#0e386c!important}
+body.emergency-page .card-phone{background:#e7f3ff!important;color:#0753a5!important;border-color:#d0e6fa!important}
+body.emergency-page .card-phone:hover{background:#0754a9!important;color:white!important}
+body.mc-page .footer,body.officials-page .footer,body.emergency-page .footer{
+ background:#0e2d56!important;color:white!important;border-top:1px solid #39628d!important;
+}
