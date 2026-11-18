@@ -39,7 +39,7 @@ if (is_array($officialsData)) {
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet" />
-  <link rel="stylesheet" href="portal.css?v=20261118-23" />
+  <link rel="stylesheet" href="portal.css?v=20261118-24" />
 </head>
 
 <body class="portal-home-page">
@@ -61,8 +61,9 @@ if (is_array($officialsData)) {
   <main class="portal-shell" id="home">
     <section class="home-hero" aria-labelledby="gatewayHeading">
       <div class="hero-content">
+        <span class="kd-hero-eyebrow"><i class="fas fa-circle-check" aria-hidden="true"></i> CITY GOVERNMENT OF KORONADAL</span>
         <h1 id="gatewayHeading">Maayong Adlaw,<br>Koronadaleño!</h1>
-        <p>Your digital access to city services.</p>
+        <p>Online government services, information and assistance in one convenient place.</p>
         <div class="portal-search" role="search"><i class="fas fa-search" aria-hidden="true"></i><input
             id="serviceSearch" type="search" aria-label="Search city services"
             placeholder="Search city services..."><button id="clearSearch" type="button" aria-label="Clear search"><i
@@ -76,40 +77,38 @@ if (is_array($officialsData)) {
     <section class="portal-section services-section" id="services">
       <div class="services-title"><span class="kd-section-mark"></span>
         <h2 class="directory-heading">Online City Services</h2>
-        <p>Access online portals and official city service guides in one place.</p>
+        <p>Find the service you need and continue directly to its dedicated portal.</p>
       </div>
       <div class="service-grid" id="serviceGrid" aria-label="Available online services">
-        <a class="service-card service-tone-blue" href="https://koronadalcityportal.com/v2/login" target="_blank" rel="noopener"
-          data-search="business permits licensing"><span class="service-icon"><i
-              class="fas fa-file-signature"></i></span><strong>Business Permits & Licensing</strong><small>Apply, renew
-            and manage business permits.</small><i class="fas fa-arrow-up-right-from-square service-open"></i></a>
-        <a class="service-card service-tone-teal" href="https://citizen.koronadalcityonlineservices.com/register" target="_blank"
-          rel="noopener" data-search="citizen records transactions"><span class="service-icon"><i
-              class="fas fa-id-card"></i></span><strong>Unified Citizen Services</strong><small>Access integrated
-            citizen transactions.</small><i class="fas fa-arrow-up-right-from-square service-open"></i></a>
-        <a class="service-card service-tone-violet" href="https://jobs.koronadalcityonlineservices.com/" target="_blank" rel="noopener"
-          data-search="jobs career employment"><span class="service-icon"><i
-              class="fas fa-briefcase"></i></span><strong>Koronadal Job Portal</strong><small>Browse employment
-            opportunities.</small><i class="fas fa-arrow-up-right-from-square service-open"></i></a>
-        <a class="service-card service-tone-amber" href="https://careers.koronadalcityonlineservices.com/" target="_blank" rel="noopener"
-          data-search="lgu recruitment careers applications"><span class="service-icon"><i
-              class="fas fa-user-tie"></i></span><strong>LGU Recruitment</strong><small>View recruitment and application
-            information.</small><i class="fas fa-arrow-up-right-from-square service-open"></i></a>
-        <a class="service-card service-tone-coral" href="https://traffic.koronadalcityonlineservices.com/" target="_blank" rel="noopener"
-          data-search="mtop transport tricycle verification"><span class="service-icon"><i
-              class="fas fa-motorcycle"></i></span><strong>MTOP Verification</strong><small>Verify motorized tricycle
-            operator permits.</small><i class="fas fa-arrow-up-right-from-square service-open"></i></a>
-
-
-
-
-      
-        <a class="service-card service-tone-rose" href="https://assistance.koronadalcityonlineservices.com/" target="_blank" rel="noopener noreferrer"
-          data-search="assistance help support requests citizen assistance social services">
-          <span class="service-icon"><i class="fas fa-hand-holding-heart" aria-hidden="true"></i></span>
-          <strong>Online Assistance</strong>
-          <small>Access the City of Koronadal assistance portal.</small>
-          <i class="fas fa-arrow-up-right-from-square service-open" aria-hidden="true"></i>
+        <a class="service-card service-tone-blue" href="https://koronadalcityportal.com/v2/login" target="_blank" rel="noopener noreferrer" data-search="business permits licensing bplo renewal">
+          <span class="kd-service-top"><span class="service-icon"><i class="fas fa-file-signature" aria-hidden="true"></i></span><span class="kd-service-category">Business services</span></span>
+          <span class="kd-service-main"><strong>Business Permits & Licensing</strong><small>Apply, renew and manage your business permits.</small></span>
+          <span class="kd-service-bottom"><span>Open service</span><i class="fas fa-arrow-up-right-from-square service-open" aria-hidden="true"></i></span>
+        </a>
+        <a class="service-card service-tone-teal" href="https://citizen.koronadalcityonlineservices.com/register" target="_blank" rel="noopener noreferrer" data-search="citizen records transactions digital government">
+          <span class="kd-service-top"><span class="service-icon"><i class="fas fa-id-card" aria-hidden="true"></i></span><span class="kd-service-category">Citizen services</span></span>
+          <span class="kd-service-main"><strong>Unified Citizen Services</strong><small>Access citizen profiles and integrated transactions.</small></span>
+          <span class="kd-service-bottom"><span>Open service</span><i class="fas fa-arrow-up-right-from-square service-open" aria-hidden="true"></i></span>
+        </a>
+        <a class="service-card service-tone-violet" href="https://jobs.koronadalcityonlineservices.com/" target="_blank" rel="noopener noreferrer" data-search="jobs career employment">
+          <span class="kd-service-top"><span class="service-icon"><i class="fas fa-briefcase" aria-hidden="true"></i></span><span class="kd-service-category">Employment</span></span>
+          <span class="kd-service-main"><strong>Koronadal Job Portal</strong><small>Explore employment opportunities in the city.</small></span>
+          <span class="kd-service-bottom"><span>Open service</span><i class="fas fa-arrow-up-right-from-square service-open" aria-hidden="true"></i></span>
+        </a>
+        <a class="service-card service-tone-amber" href="https://careers.koronadalcityonlineservices.com/" target="_blank" rel="noopener noreferrer" data-search="lgu recruitment careers applications">
+          <span class="kd-service-top"><span class="service-icon"><i class="fas fa-user-tie" aria-hidden="true"></i></span><span class="kd-service-category">City careers</span></span>
+          <span class="kd-service-main"><strong>LGU Recruitment</strong><small>Check city government vacancies and applications.</small></span>
+          <span class="kd-service-bottom"><span>Open service</span><i class="fas fa-arrow-up-right-from-square service-open" aria-hidden="true"></i></span>
+        </a>
+        <a class="service-card service-tone-coral" href="https://traffic.koronadalcityonlineservices.com/" target="_blank" rel="noopener noreferrer" data-search="mtop transport tricycle verification">
+          <span class="kd-service-top"><span class="service-icon"><i class="fas fa-motorcycle" aria-hidden="true"></i></span><span class="kd-service-category">Transportation</span></span>
+          <span class="kd-service-main"><strong>MTOP Verification</strong><small>Verify motorized tricycle operator permits.</small></span>
+          <span class="kd-service-bottom"><span>Open service</span><i class="fas fa-arrow-up-right-from-square service-open" aria-hidden="true"></i></span>
+        </a>
+        <a class="service-card service-tone-rose" href="https://assistance.koronadalcityonlineservices.com/" target="_blank" rel="noopener noreferrer" data-search="assistance help support social services">
+          <span class="kd-service-top"><span class="service-icon"><i class="fas fa-hand-holding-heart" aria-hidden="true"></i></span><span class="kd-service-category">Public assistance</span></span>
+          <span class="kd-service-main"><strong>Online Assistance</strong><small>Visit the city's online assistance service portal.</small></span>
+          <span class="kd-service-bottom"><span>Open service</span><i class="fas fa-arrow-up-right-from-square service-open" aria-hidden="true"></i></span>
         </a>
       </div>
       <div class="search-empty" id="searchEmpty" role="status" aria-live="polite">No service found. Try another search.
