@@ -778,3 +778,20 @@ body.portal-home-page .services-section .service-grid.kd-aborlan-grid a.service-
 @media(prefers-reduced-motion:reduce){
  body.portal-home-page .bottom-nav *{transition:none!important}
 }
+
+/* Barangay hover names: crisp boundary labels and touch-ready map. */
+.kd-barangay-tooltip .maplibregl-popup-content{
+ background:#173b73;color:white;border-radius:10px;
+ padding:9px 13px;font:700 12px/1.4 Sora,system-ui,sans-serif;
+ box-shadow:0 7px 22px rgba(12,37,74,.22);
+}
+.kd-barangay-tooltip.maplibregl-popup-anchor-bottom .maplibregl-popup-tip{border-top-color:#173b73}
+.kd-barangay-tooltip.maplibregl-popup-anchor-top .maplibregl-popup-tip{border-bottom-color:#173b73}
+.kd-barangay-tooltip.maplibregl-popup-anchor-left .maplibregl-popup-tip{border-right-color:#173b73}
+.kd-barangay-tooltip.maplibregl-popup-anchor-right .maplibregl-popup-tip{border-left-color:#173b73}
+@media(max-width:760px){
+ body.portal-home-page .kd-barangay-all-layout .kd-barangay-map{
+  height:min(59dvh,480px)!important;min-height:315px!important;
+ }
+ body.portal-home-page .kd-barangay-map .maplibregl-ctrl-top-right{top:6px;right:6px}
+}
