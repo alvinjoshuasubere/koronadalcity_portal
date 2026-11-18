@@ -474,3 +474,68 @@ body.portal-home-page .services-section .services-title{align-items:flex-start!i
   animation:none!important;transition:none!important;
  }
 }
+
+
+/* November 2026: polished BetterAborlan-style directory, restrained color accents. */
+body.portal-home-page .services-section .service-grid.kd-aborlan-grid a.service-card.kd-aborlan-card{
+  position:relative!important;isolation:isolate;overflow:hidden!important;
+  min-height:256px!important;border:1px solid #e0e7ef!important;
+  box-shadow:0 5px 20px rgba(15,23,42,.045)!important;
+  background:linear-gradient(180deg,#fff 0%,#fff 76%,#fafcff 100%)!important;
+}
+body.portal-home-page .services-section .service-grid.kd-aborlan-grid a.service-card.kd-aborlan-card:hover,
+body.portal-home-page .services-section .service-grid.kd-aborlan-grid a.service-card.kd-aborlan-card:focus-visible{
+  border-color:#aac5e7!important;transform:translateY(-4px)!important;
+  box-shadow:0 18px 35px rgba(15,23,42,.095)!important;
+}
+body.portal-home-page .services-section .service-grid.kd-aborlan-grid .kd-aborlan-icon{
+  background:var(--service-tint,#eff6ff)!important;
+  border-color:var(--service-stroke,#dbeafe)!important;
+  color:var(--service-color,#2563eb)!important;
+  border-radius:13px!important;
+}
+body.portal-home-page .services-section .service-grid.kd-aborlan-grid .kd-aborlan-benefits li::before{
+  background:var(--service-color,#2563eb)!important;
+}
+body.portal-home-page .services-section .service-grid.kd-aborlan-grid .kd-aborlan-footer{
+  color:var(--service-color,#2563eb)!important;
+}
+body.portal-home-page .services-section .service-grid.kd-aborlan-grid a:nth-child(1){--service-tint:#eff6ff;--service-stroke:#bfdbfe;--service-color:#2563eb}
+body.portal-home-page .services-section .service-grid.kd-aborlan-grid a:nth-child(2){--service-tint:#effdf7;--service-stroke:#a7f3d0;--service-color:#047857}
+body.portal-home-page .services-section .service-grid.kd-aborlan-grid a:nth-child(3){--service-tint:#fff7ed;--service-stroke:#fed7aa;--service-color:#c2410c}
+body.portal-home-page .services-section .service-grid.kd-aborlan-grid a:nth-child(4){--service-tint:#f5f3ff;--service-stroke:#ddd6fe;--service-color:#6d28d9}
+body.portal-home-page .services-section .service-grid.kd-aborlan-grid a:nth-child(5){--service-tint:#ecfeff;--service-stroke:#a5f3fc;--service-color:#0e7490}
+body.portal-home-page .services-section .service-grid.kd-aborlan-grid a:nth-child(6){--service-tint:#fff1f2;--service-stroke:#fecdd3;--service-color:#be123c}
+body.portal-home-page .services-section .service-grid.kd-aborlan-grid a.service-card.kd-aborlan-card:focus-visible{
+ outline:3px solid #60a5fa!important;outline-offset:3px!important;
+}
+
+/* Independent OpenFreeMap navigation for all 27 barangays. */
+.kd-barangay-quick-heading{
+  display:flex;align-items:center;justify-content:space-between;gap:8px;
+  color:#334155;font-size:11px;font-weight:800;margin-top:3px;
+}
+.kd-barangay-quick-heading span{font-size:10px;font-weight:600;color:#64748b}
+.kd-barangay-choices{
+ display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:6px;
+ max-height:225px;overflow-y:auto;overscroll-behavior:contain;
+ padding:3px 4px 3px 1px;scrollbar-width:thin;
+}
+.kd-barangay-chip{
+ display:block;min-width:0;min-height:37px;border:1px solid #e2e8f0;
+ border-radius:8px;background:#f8fafc;color:#334155;text-align:left;
+ padding:7px 9px;font:600 10px/1.45 Sora,system-ui,sans-serif;
+ overflow-wrap:anywhere;cursor:pointer;transition:background .18s,border-color .18s,color .18s;
+}
+.kd-barangay-chip:hover{background:#eff6ff;border-color:#93c5fd;color:#1d4ed8}
+.kd-barangay-chip.active,.kd-barangay-chip[aria-pressed="true"]{
+ background:#1d4ed8;color:#fff;border-color:#1d4ed8;
+}
+.kd-barangay-chip:focus-visible{outline:3px solid #93c5fd;outline-offset:1px}
+.kd-barangay-map{min-width:0}
+@media(max-width:740px){
+ .kd-barangay-choices{grid-template-columns:repeat(3,minmax(0,1fr));max-height:190px}
+ .kd-barangay-sidebar{min-width:0}
+}
+@media(max-width:420px){.kd-barangay-choices{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(prefers-reduced-motion:reduce){.kd-barangay-chip{transition:none}}
