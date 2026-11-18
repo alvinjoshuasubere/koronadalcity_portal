@@ -16,11 +16,15 @@
       'zone '+({i:1,ii:2,iii:3,iv:4}[roman]))
     .replace(/\s+/g,' ');
   const allowed = new Set(names.map(normalized));
-  const cacheKey = 'kd-koronadal-zoning-v1';
+  const cacheKey = 'kd-koronadal-zoning-v2';
   const empty = {type:'FeatureCollection',features:[]};
   const areaQuery = '[out:json][timeout:25];relation["boundary"="administrative"]["admin_level"="6"]["name"~"Koronadal",i](6.35,124.72,6.58,125.04)->.city;.city map_to_area->.cityArea;(.city;relation["boundary"="administrative"]["admin_level"="10"](area.cityArea););out body;>;out skel qt;';
   let map, pending, hoveredId = null, tooltip, cityGeometry = null, latest = null;
   const setStatus = message => { status.textContent = message; };
+  function tags(feature) {
+    const p = feature && feature.properties || {};
+    return {...(p.tags || {}),...p};
+  }
   function isPolygon(feature) {
     return feature && feature.geometry &&
       ['Polygon','MultiPolygon'].includes(feature.geometry.type);
@@ -77,7 +81,7 @@
       map.addLayer({id:'kd-city-fill',type:'fill',source:'kd-city-zone',
         paint:{'fill-color':'#0b7cb8','fill-opacity':0.12}});
       map.addLayer({id:'kd-brgy-fill',type:'fill',source:'kd-barangay-zone',
-        paint:{'fill-color':['match',['%', ['get','zoneIndex'], 4],0,'#68c7eb',1,'#91bff6',2,'#b3d7ed','#78c2cf'],'fill-opacity':0.28}});
+        paint:{'fill-color':['match',['get','shade'],0,'#68c7eb',1,'#91bff6',2,'#b3d7ed','#78c2cf'],'fill-opacity':0.28}});
       map.addLayer({id:'kd-brgy-hover',type:'fill',source:'kd-barangay-zone',
         paint:{'fill-color':'#1d4ed8','fill-opacity':['case',['boolean',['feature-state','hover'],false],0.33,0]}});
       map.addLayer({id:'kd-brgy-line',type:'line',source:'kd-barangay-zone',
@@ -99,15 +103,16 @@
   function decode(data) {
     const geo = window.osmtogeojson(data);
     const relations = (geo.features || []).filter(feature =>
-      isPolygon(feature) && String(feature.id || '').startsWith('relation/'));
+      isPolygon(feature) && (String(feature.id || '').startsWith('relation/') ||
+      String(tags(feature).type) === 'boundary'));
     const cityFeature = relations.find(feature => {
-      const p = feature.properties || {};
-      return String(p.admin_level) === '6' && normalized(p.name).includes('koronadal') && withinKoronadal(feature);
+      const p = tags(feature);
+      return String(p.admin_level) === '6' && normalized(p.name || p.official_name).includes('koronadal') && withinKoronadal(feature);
     });
-    if (!cityFeature) throw Error('Koronadal city boundary unavailable');
+    if (!cityFeature) throw Error('Koronadal city polygon not found in boundary response (' + relations.length + ' polygon relations)');
     const seen = new Set();
     const barangays = relations.filter(feature => {
-      const p = feature.properties || {};
+      const p = tags(feature);
       const name = normalized(p.name);
       if (String(p.admin_level) !== '10' || !allowed.has(name) || seen.has(name) ||
           !withinKoronadal(feature)) return false;
@@ -115,7 +120,7 @@
       return true;
     }).map((feature,i)=>({
       type:'Feature',id:i+1,geometry:feature.geometry,
-      properties:{name:feature.properties.name,zoneIndex:i}
+      properties:{name:tags(feature).name,zoneIndex:i,shade:i%4}
     }));
     return {
       city:{type:'FeatureCollection',features:[{
@@ -151,8 +156,10 @@
       draw(parsed);
       try {sessionStorage.setItem(cacheKey,JSON.stringify({at:Date.now(),data:parsed}));} catch (_) {}
     } catch(error) {
-      if (!signal.aborted) setStatus('Koronadal boundary data is unavailable right now. Refresh to try again. The OpenFreeMap base map remains visible.');
-      else setStatus('The boundary request timed out. Refresh boundaries to try again.');
+      if (!signal.aborted) {
+        console.warn('Koronadal map boundary error:',error);
+        setStatus('Boundary lines could not load: ' + (error && error.message || 'unknown error') + '. Use Refresh boundaries to retry.');
+      } else setStatus('The boundary request timed out. Refresh boundaries to try again.');
     } finally { clearTimeout(timer); }
   }
   function init(attempt=0) {
