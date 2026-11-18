@@ -47,6 +47,7 @@ if (is_array($officialsData)) {
     <link rel="stylesheet" href="portal-pilipiknow-palette.css?v=20261118-1" />
     <link rel="stylesheet" href="portal-artwork.css?v=20261118-1" />
     <link rel="stylesheet" href="portal-cartoon-reference.css?v=20261118-1" />
+    <link rel="stylesheet" href="portal-full-illustration.css?v=20261118-1" />
 </head>
 
 <body>
@@ -95,7 +96,7 @@ if (is_array($officialsData)) {
     });
   })();
   </script>
-  <div class="portal-search"><i class="fas fa-search"></i><input id="serviceSearch" type="search" aria-label="Search city services" placeholder="Search services, permits, jobs and more..."><button id="clearSearch" type="button" aria-label="Clear search"><i class="fas fa-xmark"></i></button></div>
+  <div class="portal-search" role="search"><i class="fas fa-search" aria-hidden="true"></i><input id="serviceSearch" type="search" aria-label="Search city services" placeholder="Search services, requirements, information..."><button id="clearSearch" type="button" aria-label="Clear search"><i class="fas fa-xmark"></i></button><button id="submitSearch" type="button" class="portal-search-submit"><span>Search</span><i class="fas fa-arrow-right" aria-hidden="true"></i></button></div>
   <div class="quick-search" aria-label="Quick search">
     <span class="quick-search-label">Quick Search</span>
     <a href="#services" data-quick-search="services"><i class="fas fa-grid-2"></i> Services</a>
@@ -107,8 +108,8 @@ if (is_array($officialsData)) {
   <section class="portal-dashboard" aria-label="Quick access and citizen assistance">
     <div class="dashboard-panel">
       <span class="dashboard-eyebrow"><i class="fas fa-bolt" aria-hidden="true"></i> QUICK ACCESS</span>
-      <h2>Your quick services</h2>
-      <p>Tap a service to get started.</p>
+      <h2>Explore city services</h2>
+      <p>Choose from the most-used services and information resources below.</p>
       <div class="top-task-grid">
         <a class="top-task" href="https://koronadalcityportal.com/v2/login" target="_blank" rel="noopener noreferrer"><i class="fas fa-file-signature" aria-hidden="true"></i><span><strong>Business Permit</strong><small>Application and renewal</small></span></a>
         <a class="top-task" href="https://citizen.koronadalcityonlineservices.com/register" target="_blank" rel="noopener noreferrer"><i class="fas fa-id-card" aria-hidden="true"></i><span><strong>Citizen Portal</strong><small>Online transactions</small></span></a>
@@ -131,7 +132,7 @@ if (is_array($officialsData)) {
     </aside>
   </section>
 <section class="app-featured" aria-label="Featured city services">
- <div class="app-featured-content"><span class="app-featured-kicker"><i class="fas fa-star" aria-hidden="true"></i> FEATURED SERVICE</span><h2>One city. Easier access.</h2><p>Connect to the Unified Citizen Portal for available city transactions and services.</p><a href="https://citizen.koronadalcityonlineservices.com/register" target="_blank" rel="noopener noreferrer">Open Citizen Portal <i class="fas fa-arrow-right" aria-hidden="true"></i></a></div>
+ <div class="app-featured-content"><span class="app-featured-kicker"><i class="fas fa-star" aria-hidden="true"></i> FEATURED SERVICE</span><h2>Explore, transact, and connect with Koronadal!</h2><p>Access city services, local information, job opportunities, and public resources from one portal.</p><a href="#services">Browse Services <i class="fas fa-arrow-right" aria-hidden="true"></i></a></div>
  <div class="app-featured-art" aria-hidden="true"><span class="art-circle art-one"><i class="fas fa-id-card"></i></span><span class="art-circle art-two"><i class="fas fa-file-circle-check"></i></span><span class="art-circle art-three"><i class="fas fa-building-columns"></i></span></div>
  </section>
   <section class="portal-section services-section" id="services">
@@ -220,7 +221,7 @@ $logo = $type === 'police' ? 'fa-shield-halved' : ($type === 'fire' ? 'fa-fire-f
   </section>
   <section class="citizen-banner"><div class="citizen-badge"><i class="fas fa-id-card"></i></div><div><span>CITIZEN ACCESS</span><h2>Continue your city transaction</h2><p>Use the Citizen Portal for online services and digital transactions.</p></div><a href="https://citizen.koronadalcityonlineservices.com/register" target="_blank">Open Citizen Portal <i class="fas fa-arrow-right"></i></a></section>
 </main>
-<footer class="portal-footer"><div class="footer-inner"><div class="footer-brand"><img src="Logo.png" alt="Koronadal City"><div><strong>City of Koronadal</strong><span>Digital Gateway</span></div></div><div class="footer-copy">Official digital access to city services, information, assistance and citizen resources.</div><div class="footer-links"><a href="#services">Services</a><a href="#services">Digital Portals</a><a href="#information">City Info</a><a href="city-officials.php">Officials</a><a href="emergency-contacts.php">Emergency</a><a href="https://koronadal.gov.ph/" target="_blank">LGU Website</a></div><div class="footer-bottom"><span>© <?= date('Y') ?> City Government of Koronadal</span><span>Official City Portal</span></div></div></footer>
+<footer class="portal-footer"><div class="footer-inner"><div class="footer-brand"><img src="Logo.png" alt="Koronadal City"><div><strong>City of Koronadal</strong><span>Government Services Portal</span></div></div><div class="footer-copy">Official digital access to city services, information, assistance and citizen resources.</div><div class="footer-links"><a href="#services">Services</a><a href="#services">Digital Portals</a><a href="#information">City Info</a><a href="city-officials.php">Officials</a><a href="emergency-contacts.php">Emergency</a><a href="https://koronadal.gov.ph/" target="_blank">LGU Website</a></div><div class="footer-bottom"><span>© <?= date('Y') ?> City Government of Koronadal</span><span>Official City Portal</span></div></div></footer>
 <nav class="bottom-nav" aria-label="Portal navigation"><a href="#home" class="active" aria-label="Home"><i class="fas fa-house"></i><span>Home</span></a><a href="#leadership" aria-label="City leadership"><i class="fas fa-users"></i><span>Officials</span></a><a href="#services" class="center" aria-label="Browse services"><i class="fas fa-grip"></i><span>Services</span></a><a href="#information" aria-label="City information"><i class="fas fa-city"></i><span>City</span></a><a href="emergency-contacts.php" aria-label="Emergency contacts"><i class="fas fa-phone-volume"></i><span>Help</span></a></nav>
 <div class="view-switcher" id="viewSwitcher">
   <button type="button" class="view-trigger" id="viewTrigger" aria-label="Choose layout mode" aria-haspopup="true" aria-controls="viewModeMenu" aria-expanded="false">
@@ -241,6 +242,8 @@ $logo = $type === 'police' ? 'fa-shield-halved' : ($type === 'fire' ? 'fa-fire-f
  var search=document.getElementById('serviceSearch'), empty=document.getElementById('searchEmpty'),count=document.querySelector('.section-count');
  search.oninput=function(){var q=search.value.toLowerCase().trim(),n=0;document.querySelectorAll('.service-card,.portal-row,.info-card').forEach(function(c){var ok=!q||(c.innerText+' '+(c.dataset.search||'')).toLowerCase().includes(q);c.hidden=!ok;if(ok)n++});empty.classList.toggle('show',!!q&&!n);if(count)count.textContent=q?n+' RESULTS':'CITY GUIDE'};
  document.getElementById('clearSearch').onclick=function(){search.value='';search.oninput();search.focus()};
+ document.getElementById('submitSearch').onclick=function(){search.oninput();document.getElementById('services').scrollIntoView({behavior:window.matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth',block:'start'})};
+ search.addEventListener('keydown',function(event){if(event.key==='Enter'){event.preventDefault();document.getElementById('submitSearch').click()}});
  document.querySelectorAll('a[href^="#"]').forEach(function(a){a.onclick=function(e){var hash=a.getAttribute('href');if(!hash||hash==='#')return;var t=document.getElementById(hash.slice(1));if(t){e.preventDefault();t.scrollIntoView({behavior:window.matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth',block:'start'});if(body.classList.contains('header-collapsed'))menuBtn.click()}}});
  var ids=['home','services','information','emergency','leadership'], obs=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){document.querySelectorAll('.bottom-nav a').forEach(function(a){a.classList.toggle('active',a.getAttribute('href')==='#'+e.target.id)});document.querySelectorAll('.desktop-nav a').forEach(function(a){a.classList.toggle('active',a.getAttribute('href')==='#'+e.target.id)})}})},{rootMargin:'-45% 0px -45% 0px'});
  ids.forEach(function(id){var el=document.getElementById(id);if(el)obs.observe(el)});
