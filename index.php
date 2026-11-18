@@ -39,7 +39,7 @@ if (is_array($officialsData)) {
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet" />
-  <link rel="stylesheet" href="portal.css?v=20261118-11" />
+  <link rel="stylesheet" href="portal.css?v=20261118-12" />
 </head>
 
 <body class="portal-home-page">
@@ -152,6 +152,22 @@ if (is_array($officialsData)) {
       var savedMode = 'auto';
       try { savedMode = localStorage.getItem('kdc-view') || 'auto' } catch (e) { }
       setView(savedMode);
+      // Accessible utility controls: selected size and high contrast are applied on demand.
+      var contrastBtn = document.getElementById('kdContrast');
+      if (contrastBtn) contrastBtn.addEventListener('click', function () {
+        var isActive = body.classList.toggle('kd-high-contrast');
+        contrastBtn.setAttribute('aria-pressed', String(isActive));
+      });
+      document.querySelectorAll('[data-font]').forEach(function (button) {
+        button.addEventListener('click', function () {
+          body.classList.remove('kd-font-small', 'kd-font-large');
+          if (button.dataset.font === 'small') body.classList.add('kd-font-small');
+          if (button.dataset.font === 'large') body.classList.add('kd-font-large');
+          document.querySelectorAll('[data-font]').forEach(function (item) {
+            item.setAttribute('aria-pressed', String(item === button));
+          });
+        });
+      });
 
     })();
   </script>
