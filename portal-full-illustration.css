@@ -1,4 +1,4 @@
-/* Full-page illustrated Koronadal portal — desktop.png + mobile.png.
+/* Full-page illustrated Koronadal portal — desktop.png + desktop.png.
    Final styling layer. All service tiles, information and controls remain native HTML. */
 :root{--scene-navy:#092550;--scene-orange:#ff871d;--scene-blue:#2694cf;--scene-ink:#102c5c;--scene-card:#fff}
 html{scroll-padding-top:102px!important}
@@ -6,7 +6,7 @@ body:not(.force-mobile){background:linear-gradient(180deg,rgba(183,226,250,.22),
 body:not(.force-mobile):before{content:"";position:fixed;inset:0;pointer-events:none;z-index:-1;background:linear-gradient(180deg,transparent 0,rgba(255,255,255,.07) 40%,rgba(244,250,255,.28) 100%)}
 .portal-header{box-shadow:0 5px 18px rgba(8,33,72,.17)!important}
 .portal-shell{background:transparent!important;padding-bottom:28px!important}
-.home-hero{min-height:400px!important;background:linear-gradient(90deg,rgba(8,45,110,.92),rgba(17,75,142,.72) 47%,rgba(28,101,161,.04) 77%),url("mobile.png") center 52% / cover no-repeat!important}
+.home-hero{min-height:400px!important;background:linear-gradient(90deg,rgba(8,45,110,.92),rgba(17,75,142,.72) 47%,rgba(28,101,161,.04) 77%),url("desktop.png") center 52% / cover no-repeat!important}
 .home-hero .hero-content{max-width:750px!important}
 .home-hero .hero-content h1{font-size:clamp(45px,5vw,75px)!important;line-height:1.045!important;text-shadow:0 3px 10px rgba(4,36,87,.12)!important}
 .home-hero .hero-content h1 b{color:#ff9838!important}
@@ -49,7 +49,7 @@ body:not(.force-mobile):before{content:"";position:fixed;inset:0;pointer-events:
 body:not(.force-desktop){background:linear-gradient(#edf8ff,#f7fcff)!important}
 body:not(.force-desktop) .portal-shell{padding-bottom:116px!important}
 body:not(.force-desktop) .home-hero{background:linear-gradient(180deg,#c4eaff,#e9f7ff)!important}
-body:not(.force-desktop) .home-hero:before{background:url("mobile.png") center center / cover no-repeat!important;height:clamp(180px,53vw,270px)!important}
+body:not(.force-desktop) .home-hero:before{background:url("desktop.png") center center / cover no-repeat!important;height:clamp(180px,53vw,270px)!important}
 body:not(.force-desktop) .home-hero .hero-content h1{font-size:clamp(30px,8vw,42px)!important;text-shadow:none!important}
 body:not(.force-desktop) .home-hero .hero-content p{font-size:13px!important}
 body:not(.force-desktop) .portal-search{gap:6px!important;padding:6px 7px 6px 11px!important}
@@ -73,7 +73,7 @@ body:not(.force-desktop) .bottom-nav{margin:0!important}
 }
 body.force-mobile{background:linear-gradient(#edffff,#f7fcff)!important}
 body.force-mobile .home-hero{background:linear-gradient(180deg,#c4eaff,#e9f7ff)!important}
-body.force-mobile .home-hero:before{background:url("mobile.png") center center / cover no-repeat!important}
+body.force-mobile .home-hero:before{background:url("desktop.png") center center / cover no-repeat!important}
 body.force-mobile .portal-search{gap:6px!important;padding:6px 7px 6px 11px!important}
 body.force-mobile .portal-search input{font-size:13px!important}
 body.force-mobile .portal-search-submit{min-width:77px;min-height:43px;padding:10px 12px;border-radius:12px;font-size:11px}
@@ -85,7 +85,7 @@ body.force-mobile .portal-dashboard .top-task strong{font-size:12px!important}
 body.force-mobile .services-section,body.force-mobile .landmarks-section,body.force-mobile .leadership-section,body.force-mobile #information{background:rgba(255,255,255,.96)!important;border-radius:19px!important;margin:19px 10px 0!important;padding:23px 14px!important}
 body.force-mobile .services-section .service-grid{grid-template-columns:1fr!important}
 body.force-mobile .app-featured{margin:20px 12px 0!important;background:linear-gradient(95deg,rgba(227,245,255,.98),rgba(243,251,255,.90)),url("desktop.png") center / cover no-repeat!important}
-body.force-desktop .home-hero{background:linear-gradient(90deg,rgba(8,45,110,.92),rgba(17,75,142,.72) 47%,rgba(28,101,161,.04) 77%),url("mobile.png") center 52% / cover no-repeat!important}
+body.force-desktop .home-hero{background:linear-gradient(90deg,rgba(8,45,110,.92),rgba(17,75,142,.72) 47%,rgba(28,101,161,.04) 77%),url("desktop.png") center 52% / cover no-repeat!important}
 body.force-desktop .portal-dashboard .top-task-grid{grid-template-columns:repeat(6,minmax(0,1fr))!important}
 body.force-desktop .services-section .service-grid{grid-template-columns:repeat(3,minmax(0,1fr))!important}
 body.force-desktop .bottom-nav{display:grid!important;position:relative!important;left:auto!important;bottom:auto!important;transform:none!important;max-width:900px!important;width:min(900px,calc(100% - 50px))!important;height:88px!important;margin:24px auto 32px!important}
