@@ -7,7 +7,7 @@
   const city = [124.86566, 6.47965];
   const styleUrl = 'https://tiles.openfreemap.org/styles/positron';
   const names = ['Assumption','Avanceña','Cacub','Caloocan','Carpenter Hill','Concepcion','Esperanza','General Paulino Santos','Mabini','Magsaysay','Mambucal','Morales','Namnama','New Pangasinan','Paraiso','Rotonda','San Isidro','San Jose','San Roque','Santa Cruz','Santo Niño','Saravia','Topland','Zone 1','Zone 2','Zone 3','Zone 4'];
-  const cacheKey = 'koronadal-osm-boundaries-v2';
+  const cacheKey = 'koronadal-osm-boundaries-city-only-v3';
   let map, abortController, hoverPopup;
   const setStatus = message => {status.textContent = message;};
   const normalized = name => String(name || '').trim().toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '')
@@ -49,7 +49,7 @@
     collection.features.forEach(feature => visit(feature.geometry.coordinates));
     if (!bounds.isEmpty()) map.fitBounds(bounds,{padding:40,maxZoom:12.7,duration:650});
     const found = new Set(collection.features.map(feature => normalized(feature.properties.name))).size;
-    setStatus(found + ' of 27 barangay outlines available from OpenStreetMap. All available boundary lines are visible together.' + (found < 27 ? ' Unmapped boundaries are not drawn.' : ''));
+    setStatus(found + ' of 27 Koronadal barangay boundaries mapped. Hover to see a name or tap on mobile.' + (found < 27 ? ' Unmapped boundaries are not drawn.' : ''));
   }
   async function load(force) {
     if (!map || !map.isStyleLoaded()) return;
@@ -64,7 +64,7 @@
     abortController = new AbortController();
     const timeout = setTimeout(() => abortController.abort(), 24000);
     // A single area-based request; never perform 27 independent geocoding requests.
-    const query = '[out:json][timeout:20];relation["boundary"="administrative"]["admin_level"="10"](6.25,124.65,6.70,125.05);out body;>;out skel qt;';
+    const query = '[out:json][timeout:20];area["boundary"="administrative"]["name"~"^(City of )?Koronadal$",i]->.koronadal;(relation(area.koronadal)["boundary"="administrative"]["admin_level"="10"];);out body;>;out skel qt;';
     try {
       if (typeof window.osmtogeojson !== 'function') throw new Error('Boundary conversion library unavailable');
       const response = await fetch('https://overpass.kumi.systems/api/interpreter', {
@@ -81,7 +81,7 @@
       }).map((f,i) => ({
         type:'Feature',id:i+1,properties:{name:f.properties.name},geometry:f.geometry
       }));
-      if (!features.length) throw new Error('No mapped barangay boundaries available');
+      if (!features.length) throw new Error('No mapped barangay boundaries available within Koronadal');
       const collection = {type:'FeatureCollection',features};
       try {sessionStorage.setItem(cacheKey,JSON.stringify({time:Date.now(),data:collection}));} catch(e) {}
       paint(collection);
