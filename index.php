@@ -81,8 +81,8 @@ if (is_array($officialsData)) {
     </section>
     <section class="kd-emergency-banner" id="emergency" aria-labelledby="kdEmergencyTitle">
       <div class="kd-emergency-agencies" aria-label="Emergency response agencies">
-        <div class="kd-agency"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Philippine_National_Police_seal.svg" alt="Philippine National Police seal" loading="lazy" referrerpolicy="no-referrer"><strong>PNP</strong></div>
-        <div class="kd-agency"><img src="https://bfp.gov.ph/wp-content/uploads/2023/04/BFP-OFFICIAL-LOGO.png" alt="Bureau of Fire Protection official seal" loading="lazy" referrerpolicy="no-referrer"><strong>BFP</strong></div>
+        <div class="kd-agency"><img src="https://upload.wikimedia.org/wikipedia/commons/9/98/Philippine_National_Police_seal.svg" alt="Philippine National Police seal" loading="lazy" referrerpolicy="no-referrer"><strong>PNP</strong></div>
+        <div class="kd-agency"><img src="https://upload.wikimedia.org/wikipedia/commons/4/42/Bureau_of_Fire_Protection.png" alt="Bureau of Fire Protection official seal" loading="lazy" referrerpolicy="no-referrer"><strong>BFP</strong></div>
       </div>
       <div class="kd-emergency-title"><span class="kd-emergency-label"><i class="fas fa-triangle-exclamation" aria-hidden="true"></i> EMERGENCY HOTLINES</span><h2 id="kdEmergencyTitle">Emergency Assistance</h2><p>For urgent situations and immediate help in Koronadal City.</p></div>
       <div class="kd-emergency-actions"><a class="kd-911" href="tel:911" aria-label="Call emergency hotline 911"><i class="fas fa-phone" aria-hidden="true"></i> 911</a><a class="kd-emergency-cta" href="emergency-contacts.php">View emergency hotlines <i class="fas fa-arrow-right" aria-hidden="true"></i></a></div>
