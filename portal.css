@@ -18134,3 +18134,91 @@ body.emergency-page .footer{background:#102e55!important;color:#fff!important}
  body.emergency-page .section-label{font-size:18px!important}
 }
 @media(prefers-reduced-motion:reduce){body.emergency-page .contact-card{transition:none!important}}
+
+
+/* Separate click-to-call 911, PNP, BFP and CDRRMO emergency cards. */
+body.portal-home-page .kd-utility-inner{justify-content:flex-start!important}
+body.portal-home-page .kd-emergency-banner{
+ display:flex!important;flex-direction:column!important;align-items:stretch!important;
+ gap:19px!important;grid-template-columns:none!important;
+ padding:29px 31px!important;
+ min-height:0!important;
+}
+body.portal-home-page .kd-emergency-heading{display:flex!important;flex-direction:column!important;align-items:flex-start!important;gap:6px!important}
+body.portal-home-page .kd-emergency-heading h2{margin:4px 0!important;color:#fff!important;font-size:clamp(25px,2.9vw,35px)!important;line-height:1.2!important}
+body.portal-home-page .kd-emergency-heading p{margin:0!important;color:#ffe9ec!important;font-size:13px!important}
+body.portal-home-page .kd-emergency-direct-grid{
+ display:grid!important;grid-template-columns:repeat(4,minmax(0,1fr))!important;
+ gap:15px!important;width:100%!important;
+}
+body.portal-home-page .kd-direct-hotline{
+ display:flex!important;flex-direction:column!important;align-items:center!important;
+ justify-content:flex-start!important;gap:8px!important;
+ min-width:0!important;min-height:225px!important;
+ padding:19px 12px 15px!important;
+ border:1px solid rgba(255,255,255,.5)!important;
+ border-radius:14px!important;
+ background:#fff!important;color:#7e1423!important;
+ text-align:center!important;
+ box-shadow:0 5px 14px rgba(90,5,20,.13)!important;
+}
+body.portal-home-page .kd-direct-icon{
+ display:grid!important;place-items:center!important;
+ width:55px!important;height:55px!important;
+ border-radius:15px!important;
+ background:#ffeff1!important;color:#af1b2a!important;font-size:25px!important;
+}
+body.portal-home-page .kd-direct-hotline strong{
+ color:#8c1724!important;font-weight:900!important;font-size:22px!important;line-height:1.15!important;
+}
+body.portal-home-page .kd-direct-hotline small{
+ color:#5b5a66!important;font-size:11px!important;line-height:1.5!important;
+ flex-grow:1!important;
+}
+body.portal-home-page .kd-direct-call{
+ display:inline-flex!important;align-items:center!important;justify-content:center!important;gap:7px!important;
+ width:100%!important;max-width:100%!important;min-height:45px!important;
+ padding:10px 8px!important;
+ background:#ad1c2b!important;color:#fff!important;
+ border:1px solid #ad1c2b!important;
+ border-radius:9px!important;
+ text-decoration:none!important;font-weight:850!important;font-size:clamp(11px,1.1vw,14px)!important;
+ overflow-wrap:anywhere!important;
+ transition:background-color .18s ease,transform .18s ease!important;
+}
+body.portal-home-page .kd-direct-call:hover,
+body.portal-home-page .kd-direct-call:focus-visible{
+ background:#76121e!important;color:white!important;
+ transform:translateY(-2px)!important;outline:2px solid #ffe47d!important;outline-offset:2px!important;
+}
+body.portal-home-page .kd-direct-unavailable{
+ display:block!important;width:100%!important;padding:12px 7px!important;
+ background:#f6f6f7!important;color:#63636e!important;
+ border-radius:9px!important;font-size:12px!important;
+}
+body.portal-home-page .kd-emergency-all{
+ display:inline-flex!important;align-items:center!important;justify-content:center!important;gap:10px!important;
+ align-self:flex-end!important;
+ color:#9a1828!important;background:#fff!important;
+ min-height:44px!important;padding:12px 17px!important;
+ border-radius:10px!important;font-weight:800!important;font-size:12px!important;text-decoration:none!important;
+}
+body.portal-home-page .kd-emergency-all:hover,body.portal-home-page .kd-emergency-all:focus-visible{
+ background:#fff275!important;color:#74131e!important;
+}
+@media(max-width:900px){
+ body.portal-home-page .kd-emergency-direct-grid{grid-template-columns:repeat(2,minmax(0,1fr))!important}
+}
+@media(max-width:760px){
+ body.portal-home-page .kd-emergency-banner{padding:24px 17px!important;gap:17px!important}
+ body.portal-home-page .kd-emergency-heading{text-align:center!important;align-items:center!important}
+ body.portal-home-page .kd-emergency-direct-grid{grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:10px!important}
+ body.portal-home-page .kd-direct-hotline{min-height:220px!important;padding:16px 9px!important}
+ body.portal-home-page .kd-direct-hotline strong{font-size:20px!important}
+ body.portal-home-page .kd-direct-call{font-size:11px!important;line-height:1.3!important}
+ body.portal-home-page .kd-emergency-all{width:100%!important;align-self:stretch!important}
+}
+@media(max-width:370px){
+ body.portal-home-page .kd-emergency-direct-grid{grid-template-columns:1fr!important}
+ body.portal-home-page .kd-direct-hotline{min-height:195px!important}
+}
