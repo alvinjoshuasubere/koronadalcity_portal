@@ -61,8 +61,13 @@
     const id=++requestId;
     if (controller) controller.abort();
     controller=new AbortController();
-    if (!map || !map.loaded()) {
-      setStatus('Loading map, please try selecting the barangay again.');
+    if (!map) {
+      setStatus('OpenFreeMap is loading. Please select the barangay again shortly.');
+      return;
+    }
+    if (!map.isStyleLoaded()) {
+      setStatus('Loading map style before locating Barangay '+name+'...');
+      map.once('load', () => { if (select.value === name) choose(); });
       return;
     }
     setStatus('Finding Barangay '+name+' in OpenStreetMap...');
