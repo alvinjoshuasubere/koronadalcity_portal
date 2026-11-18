@@ -40,18 +40,7 @@ if (is_array($officialsData)) {
   <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet" />
   <link rel="stylesheet" href="koronadal-app.css?v=20261004-05" />
-  <link rel="stylesheet" href="portal-refresh.css?v=20261118" />
-  <link rel="stylesheet" href="portal-glacier.css?v=20261118-2" />
-  <link rel="stylesheet" href="portal-view-modes.css?v=20261118-1" />
-  <link rel="stylesheet" href="portal-egov-style.css?v=20261118-3" />
-  <link rel="stylesheet" href="portal-navy-editorial.css?v=20261118-1" />
-  <link rel="stylesheet" href="portal-pilipiknow-palette.css?v=20261118-1" />
-  <link rel="stylesheet" href="portal-artwork.css?v=20261118-1" />
-  <link rel="stylesheet" href="portal-cartoon-reference.css?v=20261118-1" />
-  <link rel="stylesheet" href="portal-full-illustration.css?v=20261118-1" />
-  <link rel="stylesheet" href="portal-purple-yellow.css?v=20261118-1" />
-  <link rel="stylesheet" href="portal-visibility-header.css?v=20261118-2" />
-  <link rel="stylesheet" href="portal-header-centered.css?v=20261118-3" />
+  <link rel="stylesheet" href="portal-home.css?v=20261118-2" />
 </head>
 
 <body>
