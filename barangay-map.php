@@ -18,11 +18,11 @@
         <div class="kd-barangay-map-loading">Loading OpenFreeMap...</div>
       </div>
       <div class="kd-zone-legend" aria-label="Map legend"><span><i class="kd-legend-city"></i> City boundary</span><span><i class="kd-legend-barangay"></i> Barangay zones</span><span><i class="kd-legend-selected"></i> Hover or tap highlight</span></div>
-      <div class="kd-barangay-attribution">Map tiles by <a href="https://openfreemap.org/" target="_blank" rel="noopener noreferrer">OpenFreeMap</a>. Boundary data © <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener noreferrer">OpenStreetMap contributors</a>. Boundaries are indicative and not official cadastral surveys. Missing mapped boundaries are not estimated.</div>
+      <div class="kd-barangay-attribution">Map tiles by <a href="https://openfreemap.org/" target="_blank" rel="noopener noreferrer">OpenFreeMap</a>. Boundary data: <a href="https://portal.georisk.gov.ph/arcgis/rest/services/PSA/Barangay/MapServer/4" target="_blank" rel="noopener noreferrer">Philippine Statistics Authority (GeoRisk)</a>, with OpenStreetMap fallback. PSA polygons are indicative 2016 boundaries, not official cadastral surveys. Missing mapped boundaries are not estimated.</div>
     </div>
   </div>
 </section>
 <link href="https://unpkg.com/maplibre-gl@5.8.0/dist/maplibre-gl.css" rel="stylesheet">
 <script src="https://unpkg.com/maplibre-gl@5.8.0/dist/maplibre-gl.js" defer></script>
 <script src="https://unpkg.com/osmtogeojson@3.0.0-beta.5/osmtogeojson.js" defer></script>
-<script defer src="barangay-map.js?v=20261118-8"></script>
+<script defer src="barangay-map.js?v=20261119-9"></script>
