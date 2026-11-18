@@ -795,3 +795,22 @@ body.portal-home-page .services-section .service-grid.kd-aborlan-grid a.service-
  }
  body.portal-home-page .kd-barangay-map .maplibregl-ctrl-top-right{top:6px;right:6px}
 }
+
+/* Circular emergency seals. Keep the full official artwork inside the frame. */
+body.portal-home-page .kd-direct-hotline .kd-direct-icon.kd-direct-logo{
+ display:flex!important;align-items:center!important;justify-content:center!important;
+ overflow:hidden!important;aspect-ratio:1/1!important;flex-shrink:0!important;
+ padding:6px!important;border-radius:50%!important;background:#fff!important;
+}
+body.portal-home-page .kd-direct-hotline .kd-direct-icon.kd-direct-logo img{
+ display:block!important;width:100%!important;height:100%!important;
+ max-width:100%!important;max-height:100%!important;object-fit:contain!important;
+ object-position:center!important;flex:0 0 auto!important;
+ border-radius:50%!important;margin:auto!important;
+}
+body.portal-home-page .kd-direct-hotline .kd-direct-icon.kd-direct-logo img[hidden]{
+ display:none!important;
+}
+body.portal-home-page .kd-direct-hotline .kd-direct-icon.kd-direct-logo i[hidden]{
+ display:none!important;
+}
