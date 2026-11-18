@@ -64,7 +64,7 @@ if (is_array($officialsData)) {
     <p>Your city services, information and assistance in one place.</p>
     <div class="hero-actions"><a href="#services" class="primary-action"><i class="fas fa-arrow-down"></i> Explore Services</a><a href="emergency-contacts.php" class="secondary-action"><i class="fas fa-phone-volume"></i> Emergency Help</a></div>
   </div>
-  <div class="hero-side-note"><i class="fas fa-shield-halved" aria-hidden="true"></i><span><strong>City services, in one place</strong><small>Access information and official service links.</small></span></div>
+  <div class="hero-city-art" aria-hidden="true"><div class="city-art-orbit orbit-one"></div><div class="city-art-orbit orbit-two"></div><div class="city-art-building building-one"></div><div class="city-art-building building-two"></div><div class="city-art-building building-three"></div><div class="city-art-platform"></div><div class="city-art-glow"></div></div>
 </section>
   <script>
   (function(){
