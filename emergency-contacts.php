@@ -94,7 +94,7 @@ $typeConfig = [
                 <div class="stat-divider"></div>
                 <div class="stat-item">
                     <div class="stat-num"
-                        style="color: <?= $cfg['color'] ?>; text-shadow: 0 0 15px <?= $cfg['color'] ?>40;"><?= $count ?>
+                        ><?= $count ?>
                     </div>
                     <div class="stat-label"><?= htmlspecialchars($cfg['label']) ?></div>
                 </div>
@@ -122,7 +122,7 @@ $typeConfig = [
                 $type = isset($contact['type']) ? strtolower($contact['type']) : 'general';
                 $cfg = isset($typeConfig[$type]) ? $typeConfig[$type] : $typeConfig['general'];
                 $phone = isset($contact['phone']) ? $contact['phone'] : '';
-                $phoneBase = preg_split('/\\s+ext\\.?\\s*/i', trim($phone))[0];
+                $phoneBase = preg_replace('/\s+ext\.?\s*\d+$/i', '', trim($phone));
                 $phoneClean = preg_replace('/[^0-9+]/', '', $phoneBase);
             ?>
             <div class="contact-card revealed type-<?= htmlspecialchars($type, ENT_QUOTES, 'UTF-8') ?>">
