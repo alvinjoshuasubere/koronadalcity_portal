@@ -26,104 +26,29 @@ if (is_array($officialsData)) {
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0" />
-  <meta name="theme-color" content="#3a0ca3" />
+  <meta name="theme-color" content="#123c78" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="default" />
   <meta name="apple-mobile-web-app-title" content="Koronadal City" />
   <meta name="description"
     content="Koronadal City digital gateway for online government services, emergency contacts, city information and citizen resources." />
   <link rel="manifest" href="manifest.webmanifest" />
-  <title>Koronadal City — Digital Gateway</title>
+  <title>Koronadal Digital Gateway</title>
   <link rel="icon" type="image/x-icon" href="favicon.ico" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet" />
-  <link rel="stylesheet" href="portal.css?v=20261118-10" />
+  <link rel="stylesheet" href="portal.css?v=20261118-11" />
 </head>
 
 <body class="portal-home-page">
-  <header class="portal-header" id="portalHeader">
-    <div class="header-inner">
-      <a class="brand" href="#home"><img src="Logo.png" alt="City of Koronadal"><span><strong>City of
-            Koronadal</strong><small>Government Services Portal</small></span></a>
-      <nav class="desktop-nav" id="desktopNav" aria-label="Main navigation"><a href="#home" class="active"><i
-            class="fas fa-house" aria-hidden="true"></i> Home</a><a href="#services"><i class="fas fa-grip"
-            aria-hidden="true"></i> Services</a><a href="city-officials.php"><i class="fas fa-users" aria-hidden="true"></i>
-          Officials</a><a href="https://koronadal.gov.ph/" target="_blank" rel="noopener noreferrer"><i class="fas fa-circle-info" aria-hidden="true"></i> About the City</a><a
-          href="emergency-contacts.php"><i class="fas fa-phone-volume" aria-hidden="true"></i> Emergency</a></nav>
-      <div class="header-actions"><span class="official-pill"><i class="fas fa-circle"></i> Official Portal</span><a
-          class="header-service-btn" href="#services"><i class="fas fa-grid-2"></i> Services</a><button class="menu-btn"
-          id="menuBtn" type="button" aria-label="Toggle navigation" aria-controls="desktopNav" aria-expanded="false"><i
-            class="fas fa-bars"></i></button></div>
-    </div>
-    <div class="brand-accent"><i></i><i></i><i></i></div>
-  </header>
+  <div class="kd-utility"><div class="kd-utility-inner"><span><i class="fas fa-landmark"></i> CITY GOVERNMENT OF KORONADAL</span><div class="kd-accessibility"><span class="kd-font-controls" aria-label="Text size"><button type="button" data-font="small" aria-label="Decrease text size">A</button><button type="button" data-font="normal" aria-label="Default text size">A</button><button type="button" data-font="large" aria-label="Increase text size">A</button></span><span class="kd-utility-separator"></span><button type="button" class="kd-access-button" id="kdContrast" aria-pressed="false"><i class="fas fa-universal-access"></i> Accessibility</button><span class="kd-utility-separator"></span><span class="kd-language"><i class="fas fa-globe"></i> English</span></div></div></div>
+<header class="portal-header" id="portalHeader"><div class="header-inner"><a class="brand" href="#home"><img src="Logo.png" alt="City of Koronadal official seal"><span><strong>Koronadal Digital Gateway</strong><small>City of Koronadal Online Services</small></span></a><nav class="desktop-nav" id="desktopNav" aria-label="Main navigation"><a href="#home" class="active">Home</a><a href="#services">Services <i class="fas fa-chevron-down"></i></a><a href="#city-info">City Info <i class="fas fa-chevron-down"></i></a><a href="#leadership">Leadership</a><a class="kd-nav-emergency" href="emergency-contacts.php"><i class="fas fa-phone-volume"></i> Emergency</a></nav><div class="header-actions"><button class="menu-btn" id="menuBtn" type="button" aria-label="Toggle navigation" aria-controls="desktopNav" aria-expanded="false"><i class="fas fa-bars"></i></button></div></div></header>
   <main class="portal-shell" id="home">
-    <div class="mobile-welcome">
-      <div class="welcome-copy"><span>CITY OF KORONADAL</span><strong>Maayong Aga! Koronadaleño</strong></div>
-      <div class="welcome-icon" aria-hidden="true"><i class="fas fa-sun"></i></div>
-    </div>
-    <section class="home-hero">
-      <div class="hero-content">
-        <div class="hero-logo"><img src="Logo.png" alt="Koronadal City"></div>
-        <div class="hero-kicker"><span class="live-dot"></span> CITY SERVICES, MADE SIMPLE</div>
-        <div class="hero-greeting">Maayong Aga! Koronadaleño</div>
-        <h1>Koronadal City<br><b>Services Portal</b></h1>
-        <p>Welcome to the City of Koronadal Government Services Portal. Access online services, city information, and assistance in one place.</p>
-        <div class="hero-actions"><a href="#services" class="primary-action"><i class="fas fa-arrow-down"></i> Explore
-            Services</a><a href="emergency-contacts.php" class="secondary-action"><i class="fas fa-phone-volume"></i>
-            Emergency Help</a></div>
-      </div>
-      <div class="hero-city-art" aria-hidden="true">
-        <div class="city-art-orbit orbit-one"></div>
-        <div class="city-art-orbit orbit-two"></div>
-        <div class="city-art-building building-one"></div>
-        <div class="city-art-building building-two"></div>
-        <div class="city-art-building building-three"></div>
-        <div class="city-art-platform"></div>
-        <div class="city-art-glow"></div>
-      </div>
-    </section>
-    <script>
-      (function () {
-        var hero = document.querySelector('.home-hero');
-        if (!hero || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
-        var raf = 0, px = 0, py = 0;
-        hero.addEventListener('pointermove', function (e) {
-          var r = hero.getBoundingClientRect();
-          px = ((e.clientX - r.left) / r.width - .5) * 10;
-          py = ((e.clientY - r.top) / r.height - .5) * 7;
-          hero.style.setProperty('--mx', ((e.clientX - r.left) / r.width * 100) + '%');
-          hero.style.setProperty('--my', ((e.clientY - r.top) / r.height * 100) + '%');
-          if (!raf) raf = requestAnimationFrame(function () {
-            hero.style.setProperty('--hero-x', px.toFixed(2) + 'px');
-            hero.style.setProperty('--hero-y', py.toFixed(2) + 'px');
-            raf = 0;
-          });
-        });
-        hero.addEventListener('pointerleave', function () {
-          hero.style.setProperty('--hero-x', '0px');
-          hero.style.setProperty('--hero-y', '0px');
-          hero.style.setProperty('--mx', '50%');
-          hero.style.setProperty('--my', '50%');
-        });
-      })();
-    </script>
-    <div class="portal-search" role="search"><i class="fas fa-search" aria-hidden="true"></i><input id="serviceSearch"
-        type="search" aria-label="Search city services"
-        placeholder="Search services, requirements, information..."><button id="clearSearch" type="button"
-        aria-label="Clear search"><i class="fas fa-xmark"></i></button><button id="submitSearch" type="button"
-        class="portal-search-submit"><span>Search</span><i class="fas fa-arrow-right" aria-hidden="true"></i></button>
-    </div>
+    <section class="home-hero" aria-labelledby="gatewayHeading"><div class="hero-content"><h1 id="gatewayHeading">Maayong Adlaw,<br>Koronadaleño!</h1><p>Your digital access to city services.</p><div class="portal-search" role="search"><i class="fas fa-search" aria-hidden="true"></i><input id="serviceSearch" type="search" aria-label="Search city services" placeholder="Search city services..."><button id="clearSearch" type="button" aria-label="Clear search"><i class="fas fa-xmark"></i></button><button id="submitSearch" type="button" class="portal-search-submit">Search</button></div><div class="hero-actions"><a href="#services" class="primary-action"><i class="fas fa-grip"></i> Explore Services <i class="fas fa-arrow-right"></i></a><a href="emergency-contacts.php" class="secondary-action"><i class="fas fa-phone-volume"></i> Emergency Contacts</a></div></div></section>
     <section class="portal-section services-section" id="services">
-      <div class="services-title">
-        <div><span>ONLINE SERVICES</span>
-          <h2 class="directory-heading">Online Service Directory</h2>
-          <p>Choose a service to view information or continue to its online portal.</p>
-        </div><a class="app-directory-link" href="https://koronadal.gov.ph/citizens-charter/" target="_blank"
-          rel="noopener noreferrer">Service guide <i class="fas fa-arrow-right"></i></a>
-      </div>
+      <div class="services-title"><span class="kd-section-mark"></span><h2 class="directory-heading">Online City Services</h2><p>Access key local government services anytime, anywhere.</p></div>
       <div class="service-grid" id="serviceGrid" aria-label="Available online services">
         <a class="service-card" href="https://koronadalcityportal.com/v2/login" target="_blank" rel="noopener"
           data-search="business permits licensing"><span class="service-icon"><i
@@ -149,62 +74,16 @@ if (is_array($officialsData)) {
           data-search="transparency full disclosure reports open data"><span class="service-icon"><i
               class="fas fa-chart-column"></i></span><strong>Transparency & Full Disclosure</strong><small>View public
             reports and disclosure documents.</small><i class="fas fa-arrow-up-right-from-square service-open"></i></a>
-        <a class="service-card emergency-card" href="emergency-contacts.php"
-          data-search="emergency police fire hospital 911"><span class="service-icon red"><i
-              class="fas fa-phone-volume"></i></span><strong>Emergency</strong><small>911 and local emergency
-            hotlines.</small><i class="fas fa-arrow-up-right-from-square service-open"></i></a>
+
       </div>
       <div class="search-empty" id="searchEmpty" role="status" aria-live="polite">No service found. Try another search.
       </div>
     </section>
-    <section class="home-emergency-section" id="emergency" aria-labelledby="homeEmergencyHeading">
-      <div class="home-emergency-intro">
-        <div>
-          <span class="home-emergency-eyebrow"><i class="fas fa-headset" aria-hidden="true"></i> PUBLIC SAFETY</span>
-          <h2 id="homeEmergencyHeading">Emergency Contacts</h2>
-          <p>For emergencies, contact the appropriate hotline immediately. Tap a number to call.</p>
-        </div>
-        <a class="home-emergency-all" href="emergency-contacts.php">All emergency contacts <i class="fas fa-arrow-right" aria-hidden="true"></i></a>
-      </div>
-      <div class="home-emergency-grid">
-        <?php if (is_array($emergencyData) && count($emergencyData) > 0): ?>
-          <?php foreach ($emergencyData as $hotline):
-            $kind = strtolower((string)($hotline['type'] ?? 'general'));
-            $symbols = ['general'=>'fa-phone-volume', 'police'=>'fa-shield-halved', 'fire'=>'fa-fire-flame-curved', 'hospital'=>'fa-hospital', 'disaster'=>'fa-house-flood-water', 'medical'=>'fa-kit-medical'];
-            $symbol = $symbols[$kind] ?? 'fa-phone';
-            $number = trim((string)($hotline['phone'] ?? ''));
-            $dial = preg_replace('/[^0-9+]/', '', preg_split('/\\s+ext\\.?\\s*/i', $number)[0]);
-          ?>
-          <article class="home-emergency-card">
-            <span class="home-emergency-icon" aria-hidden="true"><i class="fas <?= htmlspecialchars($symbol, ENT_QUOTES, 'UTF-8') ?>"></i></span>
-            <h3><?= htmlspecialchars((string)($hotline['name'] ?? 'Emergency Hotline'), ENT_QUOTES, 'UTF-8') ?></h3>
-            <p><?= htmlspecialchars((string)($hotline['description'] ?? ''), ENT_QUOTES, 'UTF-8') ?></p>
-            <?php if ($dial !== ''): ?>
-              <a class="home-emergency-call" href="tel:<?= htmlspecialchars($dial, ENT_QUOTES, 'UTF-8') ?>" aria-label="Call <?= htmlspecialchars((string)($hotline['name'] ?? 'Emergency Hotline'), ENT_QUOTES, 'UTF-8') ?> at <?= htmlspecialchars($number, ENT_QUOTES, 'UTF-8') ?>"><i class="fas fa-phone" aria-hidden="true"></i> <?= htmlspecialchars($number, ENT_QUOTES, 'UTF-8') ?></a>
-            <?php endif; ?>
-          </article>
-          <?php endforeach; ?>
-        <?php else: ?>
-          <p class="home-emergency-empty">Emergency contact information is currently unavailable. For urgent emergencies, call <a href="tel:911">911</a>.</p>
-        <?php endif; ?>
-      </div>
-    </section>
+    <section class="kd-emergency-banner" id="emergency"><span class="kd-siren"><i class="fas fa-bell"></i></span><div class="kd-emergency-title"><h2>Emergency Assistance</h2><p>For urgent situations and immediate help in Koronadal City.</p></div><a class="kd-911" href="tel:911"><i class="fas fa-phone"></i> 911</a><a class="kd-emergency-cta" href="emergency-contacts.php">View emergency hotlines <i class="fas fa-arrow-right"></i></a></section>
+    <section class="kd-info-panels"><article class="kd-info-panel kd-mayor-panel" id="leadership"><span class="kd-section-mark"></span><h2>Mayor's Corner</h2><div class="kd-mayor-body"><div class="kd-mayor-avatar" aria-hidden="true"><i class="fas fa-user-tie"></i></div><div><span class="kd-caption">A message from the City Mayor</span><h3><?= htmlspecialchars($mayor['name'] ?? 'City Mayor', ENT_QUOTES, 'UTF-8') ?></h3><p>We are committed to a more accessible, transparent, and people-centered local government through digital innovation.</p><a href="mayor-corner.php">Read Mayor's Corner <i class="fas fa-arrow-right"></i></a></div></div></article><article class="kd-info-panel" id="city-info"><span class="kd-section-mark"></span><h2>Koronadal at a Glance</h2><div class="kd-facts"><div><i class="fas fa-users"></i><strong>27 Barangays</strong></div><div><i class="fas fa-location-dot"></i><strong>SOCCSKSARGEN Regional Center</strong></div><div><i class="fas fa-map"></i><strong>South Cotabato</strong></div></div></article></section>
+    <section class="kd-quick-links" aria-label="Quick links"><div><span class="kd-section-mark"></span><h2>Quick Links</h2></div><a href="https://koronadal.gov.ph/citizens-charter/" target="_blank" rel="noopener noreferrer"><i class="fas fa-file-lines"></i> Citizen's Charter <i class="fas fa-chevron-right"></i></a><a href="city-officials.php"><i class="fas fa-users"></i> City Officials <i class="fas fa-chevron-right"></i></a><a href="https://koronadal.gov.ph/city-history/" target="_blank" rel="noopener noreferrer"><i class="fas fa-book-open"></i> City History <i class="fas fa-chevron-right"></i></a><a href="https://koronadal.gov.ph/" target="_blank" rel="noopener noreferrer"><i class="fas fa-envelope"></i> Contact Us <i class="fas fa-chevron-right"></i></a></section>
   </main>
-  <footer class="portal-footer">
-    <div class="footer-inner">
-      <div class="footer-brand"><img src="Logo.png" alt="Koronadal City">
-        <div><strong>City of Koronadal</strong><span>Government Services Portal</span></div>
-      </div>
-      <div class="footer-copy">Official digital access to city services, information, assistance and citizen resources.
-      </div>
-      <div class="footer-links"><a href="#services">Services</a><a href="#services">Digital Portals</a><a
-          href="https://koronadal.gov.ph/" target="_blank" rel="noopener noreferrer">City Info</a><a href="city-officials.php">Officials</a><a
-          href="emergency-contacts.php">Emergency</a><a href="https://koronadal.gov.ph/" target="_blank">LGU Website</a>
-      </div>
-      <div class="footer-bottom"><span>© <?= date('Y') ?> City Government of Koronadal</span><span>Official City
-          Portal</span></div>
-    </div>
-  </footer>
+  <footer class="portal-footer"><div class="footer-inner"><div class="kd-footer-top"><div class="footer-brand"><span class="kd-footer-seal"><i class="fas fa-landmark"></i></span><div><strong>City Government of Koronadal</strong><span>Koronadal, South Cotabato, Philippines</span></div></div><nav class="footer-links" aria-label="Footer navigation"><a href="#home">Home</a><a href="#services">Services</a><a href="#city-info">City Info</a><a href="city-officials.php">Leadership</a><a href="emergency-contacts.php">Emergency</a><a href="https://koronadal.gov.ph/" target="_blank" rel="noopener noreferrer">Contact Us</a></nav><div class="kd-footer-gateway"><strong>Koronadal Digital Gateway</strong><span>Your digital access to city services.</span></div></div><div class="footer-bottom"><span>© <?= date('Y') ?> City Government of Koronadal. All Rights Reserved.</span><span>Official City Portal</span></div></div></footer>
   <nav class="bottom-nav" aria-label="Portal navigation"><a href="#home" class="active" aria-label="Home"><i
         class="fas fa-house"></i><span>Home</span></a><a href="city-officials.php" aria-label="City leadership"><i
         class="fas fa-users"></i><span>Officials</span></a><a href="#services" class="center"
@@ -238,7 +117,7 @@ if (is_array($officialsData)) {
       document.getElementById('submitSearch').onclick = function () { search.oninput(); document.getElementById('services').scrollIntoView({ behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth', block: 'start' }) };
       search.addEventListener('keydown', function (event) { if (event.key === 'Enter') { event.preventDefault(); document.getElementById('submitSearch').click() } });
       document.querySelectorAll('a[href^="#"]').forEach(function (a) { a.onclick = function (e) { var hash = a.getAttribute('href'); if (!hash || hash === '#') return; var t = document.getElementById(hash.slice(1)); if (t) { e.preventDefault(); t.scrollIntoView({ behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth', block: 'start' }); if (body.classList.contains('header-collapsed')) menuBtn.click() } } });
-      var ids = ['home', 'services'], obs = new IntersectionObserver(function (es) { es.forEach(function (e) { if (e.isIntersecting) { document.querySelectorAll('.bottom-nav a').forEach(function (a) { a.classList.toggle('active', a.getAttribute('href') === '#' + e.target.id) }); document.querySelectorAll('.desktop-nav a').forEach(function (a) { a.classList.toggle('active', a.getAttribute('href') === '#' + e.target.id) }) } }) }, { rootMargin: '-45% 0px -45% 0px' });
+      var ids = ['home', 'services', 'emergency', 'leadership', 'city-info'], obs = new IntersectionObserver(function (es) { es.forEach(function (e) { if (e.isIntersecting) { document.querySelectorAll('.bottom-nav a').forEach(function (a) { a.classList.toggle('active', a.getAttribute('href') === '#' + e.target.id) }); document.querySelectorAll('.desktop-nav a').forEach(function (a) { a.classList.toggle('active', a.getAttribute('href') === '#' + e.target.id) }) } }) }, { rootMargin: '-45% 0px -45% 0px' });
       ids.forEach(function (id) { var el = document.getElementById(id); if (el) obs.observe(el) });
 
       // Auto follows screen size. Manual modes persist across reloads and device widths.
