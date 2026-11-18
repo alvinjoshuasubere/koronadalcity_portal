@@ -45,6 +45,7 @@ if (is_array($officialsData)) {
     <link rel="stylesheet" href="portal-egov-style.css?v=20261118-3" />
     <link rel="stylesheet" href="portal-navy-editorial.css?v=20261118-1" />
     <link rel="stylesheet" href="portal-pilipiknow-palette.css?v=20261118-1" />
+    <link rel="stylesheet" href="portal-artwork.css?v=20261118-1" />
 </head>
 
 <body>
