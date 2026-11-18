@@ -4,12 +4,12 @@
 <section class="kd-live-section" id="live-city-data" aria-labelledby="kdLiveTitle">
   <div class="kd-live-intro">
     <div><span class="kd-live-eyebrow"><i class="fas fa-satellite-dish" aria-hidden="true"></i> KORONADAL CITY INFORMATION</span>
-      <h2 id="kdLiveTitle">Weather & City Map</h2>
-      <p>Check local weather conditions and locate the City Government of Koronadal.</p>
+      <h2 id="kdLiveTitle">Koronadal Weather</h2>
+      <p>See current conditions and the five-day forecast for Koronadal City.</p>
     </div>
     <span class="kd-live-locality"><i class="fas fa-location-dot" aria-hidden="true"></i> Koronadal, South Cotabato</span>
   </div>
-  <div class="kd-live-grid">
+  <div class="kd-live-grid kd-live-weather-only">
     <article class="kd-live-card kd-weather-card" aria-label="Koronadal weather forecast">
       <div class="kd-live-card-head"><div><span class="kd-card-overline">LIVE WEATHER</span><h3>Koronadal Forecast</h3></div><i class="fas fa-cloud-sun" aria-hidden="true"></i></div>
       <div class="kd-current-weather">
@@ -24,16 +24,7 @@
       <div class="kd-forecast" data-weather-forecast aria-label="Five-day weather forecast"><span class="kd-weather-loading">Loading forecast...</span></div>
       <p class="kd-weather-source">Forecast by <a href="https://open-meteo.com/" target="_blank" rel="noopener noreferrer">Open-Meteo</a>. Local forecast, refreshed automatically. <a href="https://www.accuweather.com/en/ph/koronadal-city/266053/daily-weather-forecast/266053" target="_blank" rel="noopener noreferrer">Alternative forecast</a>.</p>
     </article>
-    <article class="kd-live-card kd-map-card" aria-label="Koronadal City Hall map">
-      <div class="kd-live-card-head"><div><span class="kd-card-overline">INTERACTIVE MAP</span><h3>Koronadal City Hall</h3></div><i class="fas fa-map-location-dot" aria-hidden="true"></i></div>
-      <div class="kd-map-frame">
-        <iframe title="OpenStreetMap showing Koronadal City Hall" loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen
-          src="https://www.openstreetmap.org/export/embed.html?bbox=124.853%2C6.470%2C124.878%2C6.490&amp;layer=mapnik&amp;marker=6.47965%2C124.86566"></iframe>
-      </div>
-      <div class="kd-map-foot"><span><i class="fas fa-location-dot" aria-hidden="true"></i> General Santos Drive, Koronadal City, Philippines</span>
-        <a href="https://www.openstreetmap.org/?mlat=6.47965&amp;mlon=124.86566#map=16/6.47965/124.86566" target="_blank" rel="noopener noreferrer">Open full map <i class="fas fa-arrow-up-right-from-square" aria-hidden="true"></i></a>
-      </div>
-    </article>
+
   </div>
 </section>
 <script>
@@ -95,3 +86,5 @@
   }).finally(() => clearTimeout(timeout));
 })();
 </script>
+
+<?php include __DIR__ . '/barangay-map.php'; ?>
