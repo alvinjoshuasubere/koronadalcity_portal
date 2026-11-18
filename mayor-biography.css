@@ -1,0 +1,134 @@
+
+/* Mayor's Corner biography and development priorities: balanced inner spacing. */
+body.mc-page{
+ --mc-reading-width:1050px;
+ --mc-blue:#155fa6;
+ --mc-text:#243850;
+}
+body.mc-page .tabs-section{
+ width:min(var(--mc-reading-width),calc(100% - 40px))!important;
+ margin-left:auto!important;margin-right:auto!important;
+}
+body.mc-page .tab-panels,
+body.mc-page .tab-panel{
+ min-width:0!important;width:100%!important;
+}
+body.mc-page .mc-bio-intro{
+ background:linear-gradient(135deg,#eef6ff,#fff 82%);
+ border:1px solid #d8e7f7;border-radius:18px;
+ padding:clamp(24px,4vw,42px)!important;
+ margin:0 0 28px!important;
+ box-shadow:0 6px 22px rgba(23,68,119,.045);
+}
+body.mc-page .mc-bio-eyebrow{
+ color:#155fa6;font:800 11px/1.4 Sora,system-ui,sans-serif;
+ letter-spacing:.11em;
+}
+body.mc-page .mc-bio-intro h2{
+ font:800 clamp(21px,3vw,31px)/1.25 Sora,system-ui,sans-serif;
+ color:#173d67;margin:11px 0 14px!important;letter-spacing:-.03em;
+}
+body.mc-page .mc-bio-intro p{
+ font-size:clamp(13px,1.35vw,15px)!important;
+ color:#415772!important;line-height:1.85!important;
+ margin:0!important;max-width:76ch!important;
+}
+body.mc-page .tab-panel .formal-card,
+body.mc-page .tab-panel .formal-letter,
+body.mc-page .tab-panel .formal-quote,
+body.mc-page .tab-panel .outcome-block{
+ padding:clamp(22px,3.8vw,40px)!important;
+ margin-left:0!important;margin-right:0!important;
+ box-sizing:border-box!important;max-width:100%!important;
+}
+body.mc-page .tab-panel .formal-card p,
+body.mc-page .tab-panel .formal-letter p,
+body.mc-page .tab-panel .outcome-block p{
+ line-height:1.85!important;
+ margin:0 0 15px!important;
+ overflow-wrap:break-word!important;
+}
+body.mc-page .tab-panel .formal-card p:last-child,
+body.mc-page .tab-panel .formal-letter p:last-child,
+body.mc-page .tab-panel .outcome-block p:last-child{
+ margin-bottom:0!important;
+}
+body.mc-page .tab-panel .epa-card .epa-body,
+body.mc-page .tab-panel .sector-card{
+ padding:clamp(20px,2.8vw,30px)!important;
+}
+body.mc-page .tab-panel .epa-card p,
+body.mc-page .tab-panel .sector-card p{
+ line-height:1.75!important;
+}
+body.portal-home-page .kd-info-panel.kd-mayor-panel{
+ padding:clamp(22px,3vw,35px)!important;
+}
+body.portal-home-page .kd-mayor-panel .kd-mayor-body{
+ gap:clamp(15px,2.5vw,26px)!important;
+ align-items:flex-start!important;
+}
+body.portal-home-page .kd-mayor-panel .kd-mayor-copy{
+ min-width:0!important;flex:1!important;
+ padding-inline:clamp(3px,1vw,12px)!important;
+}
+body.portal-home-page .kd-mayor-panel .kd-mayor-copy p{
+ margin:9px 0 12px!important;line-height:1.76!important;
+ overflow-wrap:break-word!important;
+}
+body.portal-home-page .kd-mayor-panel .kd-mayor-vision{
+ border-left:3px solid #3b82f6;
+ padding:8px 0 8px 14px!important;
+ color:#395574!important;background:transparent!important;
+}
+body.portal-home-page .kd-mayor-panel .kd-mayor-vision strong{
+ color:#184d83!important;
+}
+body.portal-home-page .kd-mayor-panel .kd-mayor-copy a{
+ display:inline-flex;align-items:center;gap:8px;
+ margin-top:6px!important;
+}
+@media(max-width:760px){
+ body.mc-page .tabs-section{
+  width:calc(100% - 28px)!important;
+  margin:18px auto 35px!important;
+ }
+ body.mc-page .mc-bio-intro{
+  padding:22px 19px!important;border-radius:15px!important;
+ }
+ body.mc-page .tab-panel .formal-card,
+ body.mc-page .tab-panel .formal-letter,
+ body.mc-page .tab-panel .formal-quote,
+ body.mc-page .tab-panel .outcome-block{
+  padding:22px 19px!important;
+ }
+ body.mc-page .tabs-nav{
+  display:grid!important;grid-template-columns:repeat(3,minmax(0,1fr))!important;
+  gap:5px!important;
+ }
+ body.mc-page .tabs-nav .tab-btn{
+  min-width:0!important;font-size:10px!important;
+  padding:10px 4px!important;white-space:normal!important;
+ }
+ body.portal-home-page .kd-info-panel.kd-mayor-panel{
+  padding:22px 18px!important;
+ }
+ body.portal-home-page .kd-mayor-panel .kd-mayor-copy{
+  padding-inline:0!important;
+ }
+}
+@media(max-width:430px){
+ body.portal-home-page .kd-mayor-panel .kd-mayor-body{
+  flex-direction:column!important;gap:15px!important;
+ }
+ body.portal-home-page .kd-mayor-panel .kd-mayor-avatar{
+  width:100px!important;flex:0 0 auto!important;height:120px!important;
+ }
+ body.mc-page .tabs-section{width:calc(100% - 24px)!important}
+ body.mc-page .tab-panel .formal-card,
+ body.mc-page .tab-panel .formal-letter,
+ body.mc-page .tab-panel .formal-quote,
+ body.mc-page .tab-panel .outcome-block{
+  padding:20px 17px!important;
+ }
+}
