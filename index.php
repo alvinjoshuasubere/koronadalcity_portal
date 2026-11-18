@@ -39,7 +39,7 @@ if (is_array($officialsData)) {
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet" />
-  <link rel="stylesheet" href="portal.css?v=20261118-18" />
+  <link rel="stylesheet" href="portal.css?v=20261118-19" />
 </head>
 
 <body class="portal-home-page">
@@ -89,9 +89,16 @@ if (is_array($officialsData)) {
     </section>
     <section class="kd-emergency-banner" id="emergency" aria-labelledby="kdEmergencyTitle">
       <div class="kd-emergency-heading">
-        <span class="kd-emergency-label"><i class="fas fa-triangle-exclamation" aria-hidden="true"></i> EMERGENCY HOTLINES</span>
-        <h2 id="kdEmergencyTitle">Emergency Assistance</h2>
-        <p>Call the appropriate emergency response office directly.</p>
+        <div class="kd-emergency-emblem" aria-hidden="true">
+          <span class="kd-emergency-emblem-ring"></span>
+          <i class="fas fa-shield-halved kd-emergency-shield"></i>
+          <i class="fas fa-phone kd-emergency-emblem-phone"></i>
+        </div>
+        <div class="kd-emergency-heading-copy">
+          <span class="kd-emergency-label"><i class="fas fa-triangle-exclamation" aria-hidden="true"></i> EMERGENCY HOTLINES</span>
+          <h2 id="kdEmergencyTitle">Emergency Assistance</h2>
+          <p>Call the appropriate emergency response office directly.</p>
+        </div>
       </div>
       <div class="kd-emergency-direct-grid">
         <?php
@@ -127,7 +134,7 @@ if (is_array($officialsData)) {
         </div>
         <?php endforeach; ?>
       </div>
-      <a class="kd-emergency-all" href="emergency-contacts.php">View all emergency contacts <i class="fas fa-arrow-right" aria-hidden="true"></i></a>
+      <a class="kd-emergency-all" href="emergency-contacts.php"><i class="fas fa-address-book" aria-hidden="true"></i><span>View all emergency contacts</span><i class="fas fa-arrow-right" aria-hidden="true"></i></a>
     </section>
     <section class="kd-info-panels"><article class="kd-info-panel kd-mayor-panel" id="leadership"><span class="kd-section-mark"></span><h2>Mayor's Corner</h2><div class="kd-mayor-body"><div class="kd-mayor-avatar"><img src="Mayor.png" alt="City Mayor of Koronadal" loading="lazy" width="145" height="160"></div><div><span class="kd-caption">A message from the City Mayor</span><h3><?= htmlspecialchars($mayor['name'] ?? 'City Mayor', ENT_QUOTES, 'UTF-8') ?></h3><p>We are committed to a more accessible, transparent, and people-centered local government through digital innovation.</p><a href="mayor-corner.php">Read Mayor's Corner <i class="fas fa-arrow-right"></i></a></div></div></article><article class="kd-info-panel" id="city-info"><span class="kd-section-mark"></span><h2>Koronadal at a Glance</h2><div class="kd-facts"><div><i class="fas fa-users"></i><strong>27 Barangays</strong></div><div><i class="fas fa-location-dot"></i><strong>SOCCSKSARGEN Regional Center</strong></div><div><i class="fas fa-map"></i><strong>South Cotabato</strong></div></div></article></section>
     <section class="kd-quick-links" aria-label="Quick links"><div><span class="kd-section-mark"></span><h2>Quick Links</h2></div><a href="https://koronadal.gov.ph/citizens-charter/" target="_blank" rel="noopener noreferrer"><i class="fas fa-file-lines"></i> Citizen's Charter <i class="fas fa-chevron-right"></i></a><a href="city-officials.php"><i class="fas fa-users"></i> City Officials <i class="fas fa-chevron-right"></i></a><a href="https://koronadal.gov.ph/city-history/" target="_blank" rel="noopener noreferrer"><i class="fas fa-book-open"></i> City History <i class="fas fa-chevron-right"></i></a><a href="https://koronadal.gov.ph/" target="_blank" rel="noopener noreferrer"><i class="fas fa-envelope"></i> Contact Us <i class="fas fa-chevron-right"></i></a></section>
