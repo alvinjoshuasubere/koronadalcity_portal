@@ -312,3 +312,55 @@ body.portal-home-page .home-hero .hero-actions .primary-action{
 body.portal-home-page .home-hero .hero-actions .secondary-action{
  background:#fff!important;border-color:#bfd9f3!important;color:var(--kd-app-deep)!important;
 }
+
+/* Koronadal administrative zoning overlay */
+body.portal-home-page .kd-barangay-all-toolbar{justify-content:flex-start!important}
+body.portal-home-page .kd-barangay-all-toolbar>div{flex:1 1 280px!important}
+body.portal-home-page .kd-barangay-all-toolbar .kd-barangay-reset{
+ flex:0 0 auto!important;min-height:43px!important
+}
+body.portal-home-page .kd-zone-count{
+ display:inline-flex;align-items:center;width:fit-content;
+ color:#145da2!important;background:#e8f3ff!important;
+ border:1px solid #bddbf6;border-radius:20px;padding:5px 10px;
+ font-size:10px!important;font-weight:800
+}
+body.portal-home-page .kd-zone-legend{
+ display:flex;flex-wrap:wrap;gap:9px 18px;align-items:center;
+ padding:13px 7px 3px;color:#405a75;font-size:11px;font-weight:650
+}
+body.portal-home-page .kd-zone-legend span{
+ display:inline-flex;align-items:center;gap:7px;white-space:nowrap
+}
+body.portal-home-page .kd-zone-legend i{
+ display:inline-block;width:19px;height:12px;border-radius:3px;flex:0 0 19px
+}
+body.portal-home-page .kd-zone-legend .kd-legend-city{
+ background:rgba(11,124,184,.12);border:3px solid #073d80
+}
+body.portal-home-page .kd-zone-legend .kd-legend-barangay{
+ background:rgba(104,199,235,.35);border:2px solid #236ab8
+}
+body.portal-home-page .kd-zone-legend .kd-legend-selected{
+ background:rgba(29,78,216,.4);border:1px solid #1d4ed8
+}
+body.portal-home-page .kd-barangay-map .maplibregl-popup-content{
+ font-family:Sora,system-ui,sans-serif
+}
+@media(max-width:760px){
+ body.portal-home-page .kd-barangay-all-toolbar{
+  display:grid!important;grid-template-columns:repeat(2,minmax(0,1fr))!important
+ }
+ body.portal-home-page .kd-barangay-all-toolbar>div{
+  grid-column:1/-1!important;min-width:0!important
+ }
+ body.portal-home-page .kd-barangay-all-toolbar .kd-barangay-reset{
+  width:100%!important;min-width:0!important;white-space:normal!important;
+  padding:10px 7px!important;font-size:10px!important
+ }
+ body.portal-home-page .kd-zone-legend{gap:9px 12px;font-size:10px}
+ body.portal-home-page .kd-barangay-all-layout .kd-barangay-map{height:clamp(330px,55dvh,500px)!important}
+}
+@media(max-width:350px){
+ body.portal-home-page .kd-barangay-all-toolbar{grid-template-columns:1fr!important}
+}
