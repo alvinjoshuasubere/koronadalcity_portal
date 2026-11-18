@@ -1,0 +1,288 @@
+/* Koronadal Digital Gateway: unified mobile-first finishing layer.
+   Loaded after legacy portal styles to resolve older responsive conflicts. */
+:root{
+  --kd-app-blue:#1766b1;
+  --kd-app-deep:#123c70;
+  --kd-app-sky:#eaf4ff;
+  --kd-app-surface:#fff;
+  --kd-app-bg:#f5f8fc;
+  --kd-app-text:#182b43;
+  --kd-app-muted:#60758d;
+  --kd-app-stroke:#dce7f2;
+}
+html{max-width:100%;overflow-x:clip}
+body.portal-home-page{color:var(--kd-app-text)!important}
+body.portal-home-page .kd-utility{background:var(--kd-app-deep)!important}
+body.portal-home-page .portal-header{background:#fff!important;border-bottom-color:var(--kd-app-stroke)!important}
+body.portal-home-page .services-section .services-title h2,
+body.portal-home-page .kd-live-intro h2,
+body.portal-home-page .kd-barangay-heading h2,
+body.portal-home-page .kd-info-panel h2{color:var(--kd-app-text)!important}
+body.portal-home-page .services-section .services-title p,
+body.portal-home-page .kd-live-intro p,
+body.portal-home-page .kd-barangay-heading p{color:var(--kd-app-muted)!important}
+body.portal-home-page .services-section .service-grid.kd-aborlan-grid a.service-card.kd-aborlan-card{
+ --service-tint:#eaf4ff;--service-stroke:#d0e4fa;--service-color:#1766b1;
+ border:1px solid var(--kd-app-stroke)!important;background:#fff!important;
+}
+body.portal-home-page .services-section .service-grid.kd-aborlan-grid a.service-card.kd-aborlan-card:hover{
+ border-color:#93bfeb!important;
+}
+body.portal-home-page .kd-emergency-banner{background:#edf5ff!important;border:1px solid #cfe2fa!important}
+body.portal-home-page .kd-emergency-heading-copy h2{color:var(--kd-app-deep)!important}
+body.portal-home-page .kd-direct-hotline{background:#fff!important;border:1px solid var(--kd-app-stroke)!important}
+body.portal-home-page .kd-live-card,
+body.portal-home-page .kd-barangay-canvas-wrap,
+body.portal-home-page .kd-barangay-all-toolbar,
+body.portal-home-page .kd-info-panel{border-color:var(--kd-app-stroke)!important}
+body.portal-home-page .kd-barangay-tooltip .maplibregl-popup-content{background:var(--kd-app-deep)}
+@media(max-width:760px){
+ html{scroll-padding-top:78px!important}
+ body.portal-home-page{
+  width:100%!important;max-width:100%!important;min-width:0!important;
+  margin:0!important;overflow-x:clip!important;
+  background:var(--kd-app-bg)!important;
+  padding-bottom:calc(78px + env(safe-area-inset-bottom,0px))!important;
+ }
+ body.portal-home-page :is(.portal-shell,.footer-inner,.header-inner,.kd-utility-inner){
+  min-width:0!important;max-width:100%!important;
+  width:calc(100% - 28px)!important;margin-inline:auto!important;
+ }
+ body.portal-home-page .portal-header{
+  position:sticky!important;top:0!important;z-index:900!important;
+  background:rgba(255,255,255,.97)!important;
+  backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);
+  box-shadow:0 2px 12px rgba(16,55,96,.06)!important;
+ }
+ body.portal-home-page .portal-header .header-inner{
+  min-height:66px!important;padding:8px 0!important;gap:8px!important;
+ }
+ body.portal-home-page .portal-header .brand{
+  min-width:0!important;flex:1 1 auto!important;gap:9px!important;
+ }
+ body.portal-home-page .portal-header .brand img{
+  width:40px!important;height:40px!important;flex:0 0 40px!important;
+  object-fit:contain!important;
+ }
+ body.portal-home-page .portal-header .brand span{min-width:0!important;max-width:100%!important}
+ body.portal-home-page .portal-header .brand strong{
+  font-size:clamp(11px,3.3vw,14px)!important;line-height:1.3!important;
+  overflow-wrap:anywhere!important;white-space:normal!important;
+ }
+ body.portal-home-page .portal-header .brand small{
+  font-size:clamp(9px,2.6vw,11px)!important;line-height:1.35!important;
+ }
+ body.portal-home-page .portal-header .menu-btn{
+  flex:0 0 44px!important;width:44px!important;height:44px!important;
+  border-radius:12px!important;color:var(--kd-app-blue)!important;
+  background:var(--kd-app-sky)!important;border:1px solid var(--kd-app-stroke)!important;
+ }
+ body.portal-home-page .portal-shell{padding-top:12px!important}
+ body.portal-home-page .home-hero{
+  min-width:0!important;width:100%!important;height:auto!important;min-height:0!important;
+  padding:clamp(19px,5vw,29px)!important;margin:0 0 25px!important;
+  border-radius:20px!important;overflow:hidden!important;
+ }
+ body.portal-home-page .home-hero .hero-content{width:100%!important;min-width:0!important;max-width:100%!important}
+ body.portal-home-page .home-hero h1{
+  font-size:clamp(27px,7.6vw,39px)!important;line-height:1.15!important;
+  letter-spacing:-.04em!important;overflow-wrap:break-word!important;
+ }
+ body.portal-home-page .home-hero .hero-content>p{
+  font-size:clamp(12px,3.3vw,14px)!important;line-height:1.65!important;
+ }
+ body.portal-home-page .home-hero .portal-search{
+  width:100%!important;max-width:100%!important;min-width:0!important;
+  display:flex!important;align-items:center!important;gap:7px!important;
+  padding:6px!important;min-height:52px!important;border-radius:13px!important;
+ }
+ body.portal-home-page .home-hero .portal-search input{
+  width:0!important;min-width:0!important;flex:1 1 auto!important;
+  font-size:16px!important;
+ }
+ body.portal-home-page .home-hero .portal-search .portal-search-submit{
+  flex:0 0 auto!important;min-height:39px!important;padding:8px 11px!important;
+  border-radius:9px!important;font-size:12px!important;
+ }
+ body.portal-home-page .home-hero .hero-actions{
+  display:grid!important;grid-template-columns:repeat(2,minmax(0,1fr))!important;
+  align-items:stretch!important;width:100%!important;gap:9px!important;
+ }
+ body.portal-home-page .home-hero .hero-actions a{
+  width:100%!important;min-width:0!important;min-height:48px!important;
+  display:flex!important;align-items:center!important;justify-content:center!important;
+  padding:10px 7px!important;text-align:center!important;
+  font-size:clamp(10px,2.7vw,12px)!important;line-height:1.4!important;
+  white-space:normal!important;overflow-wrap:anywhere!important;border-radius:12px!important;
+ }
+ body.portal-home-page .services-section{width:100%!important;padding:10px 0 26px!important}
+ body.portal-home-page .services-section .services-title{margin-bottom:16px!important}
+ body.portal-home-page .services-section .service-grid.kd-aborlan-grid{
+  display:grid!important;grid-template-columns:repeat(2,minmax(0,1fr))!important;
+  gap:clamp(8px,2.5vw,12px)!important;align-items:stretch!important;
+ }
+ body.portal-home-page .services-section .service-grid.kd-aborlan-grid a.service-card.kd-aborlan-card{
+  min-width:0!important;max-width:100%!important;min-height:216px!important;
+  width:100%!important;height:100%!important;padding:clamp(12px,3.4vw,16px)!important;
+  border-radius:16px!important;overflow:hidden!important;
+  display:flex!important;flex-direction:column!important;
+ }
+ body.portal-home-page .services-section .kd-aborlan-card-heading{
+  display:flex!important;flex-direction:column!important;align-items:flex-start!important;
+  gap:9px!important;margin:0 0 10px!important;
+ }
+ body.portal-home-page .services-section .kd-aborlan-icon{
+  width:43px!important;height:43px!important;flex:0 0 43px!important;
+  border-radius:12px!important;font-size:18px!important;
+ }
+ body.portal-home-page .services-section .kd-aborlan-card-heading strong{
+  font-size:clamp(11px,3vw,13px)!important;line-height:1.35!important;
+  overflow-wrap:anywhere!important;
+ }
+ body.portal-home-page .services-section .kd-aborlan-benefits{
+  gap:5px!important;margin:0 0 10px!important;padding:0!important;
+  min-width:0!important;
+ }
+ body.portal-home-page .services-section .kd-aborlan-benefits li{
+  font-size:clamp(9px,2.65vw,11px)!important;line-height:1.42!important;
+  padding-left:12px!important;overflow-wrap:break-word!important;
+ }
+ body.portal-home-page .services-section .kd-aborlan-footer{
+  margin-top:auto!important;padding-top:9px!important;
+  font-size:clamp(9px,2.55vw,11px)!important;
+  min-width:0!important;overflow-wrap:anywhere!important;
+ }
+ body.portal-home-page .kd-emergency-banner{
+  margin:4px 0 24px!important;padding:18px 13px!important;border-radius:18px!important;
+  width:100%!important;max-width:100%!important;
+ }
+ body.portal-home-page .kd-emergency-heading-copy{
+  align-items:flex-start!important;text-align:left!important;
+ }
+ body.portal-home-page .kd-emergency-direct-grid{
+  display:grid!important;grid-template-columns:repeat(2,minmax(0,1fr))!important;
+  gap:9px!important;
+ }
+ body.portal-home-page .kd-emergency-direct-grid .kd-direct-hotline{
+  min-width:0!important;min-height:188px!important;
+  padding:13px 8px!important;border-radius:15px!important;
+ }
+ body.portal-home-page .kd-direct-hotline .kd-direct-icon.kd-direct-logo{
+  width:clamp(56px,17vw,70px)!important;height:clamp(56px,17vw,70px)!important;
+ }
+ body.portal-home-page .kd-direct-hotline strong{font-size:clamp(15px,4vw,18px)!important}
+ body.portal-home-page .kd-direct-hotline small{
+  overflow-wrap:anywhere!important;font-size:10px!important;line-height:1.4!important;
+ }
+ body.portal-home-page .kd-direct-call{
+  width:100%!important;min-width:0!important;min-height:42px!important;
+  font-size:clamp(9px,2.65vw,11px)!important;line-height:1.35!important;
+  overflow-wrap:anywhere!important;white-space:normal!important;
+  display:flex!important;justify-content:center!important;align-items:center!important;
+ }
+ body.portal-home-page .kd-info-panels{
+  display:grid!important;grid-template-columns:minmax(0,1fr)!important;gap:13px!important;
+ }
+ body.portal-home-page .kd-info-panel{
+  min-width:0!important;padding:18px 15px!important;border-radius:17px!important;
+ }
+ body.portal-home-page .kd-mayor-body{
+  flex-direction:row!important;align-items:flex-start!important;gap:12px!important;
+ }
+ body.portal-home-page .kd-mayor-avatar{
+  width:clamp(78px,23vw,96px)!important;min-width:0!important;
+  flex:0 0 clamp(78px,23vw,96px)!important;height:108px!important;
+ }
+ body.portal-home-page .kd-mayor-body>div:last-child{min-width:0!important;flex:1!important}
+ body.portal-home-page .kd-mayor-body h3,
+ body.portal-home-page .kd-mayor-body p{overflow-wrap:anywhere!important}
+ body.portal-home-page .kd-live-section,
+ body.portal-home-page .kd-barangay-section{
+  min-width:0!important;width:100%!important;margin:27px auto 35px!important;
+ }
+ body.portal-home-page .kd-live-grid{grid-template-columns:minmax(0,1fr)!important}
+ body.portal-home-page .kd-live-card{min-width:0!important;padding:16px 12px!important;border-radius:17px!important}
+ body.portal-home-page .kd-forecast{width:100%!important;min-width:0!important;gap:5px!important}
+ body.portal-home-page .kd-forecast-day{min-width:0!important;padding:9px 2px!important}
+ body.portal-home-page .kd-barangay-all-toolbar{
+  gap:10px!important;padding:13px!important;border-radius:15px!important;
+ }
+ body.portal-home-page .kd-barangay-all-toolbar>div{min-width:0!important}
+ body.portal-home-page .kd-barangay-canvas-wrap{min-width:0!important;padding:7px!important;border-radius:16px!important}
+ body.portal-home-page .kd-barangay-all-layout .kd-barangay-map{
+  height:clamp(310px,55dvh,460px)!important;min-width:0!important;min-height:310px!important;
+  border-radius:12px!important;
+ }
+ body.portal-home-page .kd-barangay-attribution{overflow-wrap:anywhere!important}
+ body.portal-home-page .portal-footer{padding-bottom:18px!important}
+ body.portal-home-page .bottom-nav{
+  position:fixed!important;inset:auto 0 0!important;
+  display:grid!important;grid-template-columns:repeat(5,minmax(0,1fr))!important;
+  width:100%!important;max-width:100%!important;min-width:0!important;
+  min-height:calc(66px + env(safe-area-inset-bottom,0px))!important;
+  padding:6px 7px calc(6px + env(safe-area-inset-bottom,0px))!important;
+  gap:2px!important;border-radius:0!important;
+  background:rgba(255,255,255,.97)!important;
+  border-top:1px solid var(--kd-app-stroke)!important;
+  box-shadow:0 -4px 20px rgba(16,55,96,.09)!important;
+  backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);z-index:920!important;
+ }
+ body.portal-home-page .bottom-nav a,
+ body.portal-home-page .bottom-nav a.center{
+  position:relative!important;inset:auto!important;transform:none!important;
+  display:flex!important;flex-direction:column!important;align-items:center!important;
+  justify-content:center!important;gap:5px!important;
+  width:100%!important;min-width:0!important;min-height:50px!important;
+  padding:5px 1px!important;margin:0!important;border:0!important;
+  border-radius:11px!important;background:transparent!important;box-shadow:none!important;
+  color:var(--kd-app-muted)!important;
+ }
+ body.portal-home-page .bottom-nav a i,
+ body.portal-home-page .bottom-nav a.center i{
+  font-size:18px!important;line-height:1!important;color:inherit!important;
+ }
+ body.portal-home-page .bottom-nav a span{
+  display:block!important;font-size:clamp(9px,2.5vw,11px)!important;
+  line-height:1.15!important;white-space:nowrap!important;
+ }
+ body.portal-home-page .bottom-nav a.active{
+  color:var(--kd-app-blue)!important;background:var(--kd-app-sky)!important;
+ }
+ body.portal-home-page .view-switcher{
+  bottom:calc(79px + env(safe-area-inset-bottom,0px))!important;right:10px!important;
+  max-width:calc(100vw - 20px)!important;
+ }
+ body.portal-home-page .view-menu{max-width:calc(100vw - 20px)!important}
+}
+@media(max-width:370px){
+ body.portal-home-page .portal-shell,
+ body.portal-home-page .portal-header .header-inner,
+ body.portal-home-page .portal-footer .footer-inner{width:calc(100% - 20px)!important}
+ body.portal-home-page .services-section .service-grid.kd-aborlan-grid{
+  grid-template-columns:1fr!important;gap:10px!important;
+ }
+ body.portal-home-page .services-section .service-grid.kd-aborlan-grid a.service-card.kd-aborlan-card{
+  min-height:0!important;padding:17px!important;
+ }
+ body.portal-home-page .services-section .kd-aborlan-card-heading{
+  flex-direction:row!important;align-items:center!important;gap:12px!important;
+ }
+ body.portal-home-page .services-section .kd-aborlan-benefits li{font-size:11px!important}
+ body.portal-home-page .services-section .kd-aborlan-footer{font-size:11px!important}
+ body.portal-home-page .home-hero .hero-actions{grid-template-columns:1fr!important}
+ body.portal-home-page .kd-mayor-body{flex-direction:column!important}
+ body.portal-home-page .kd-forecast-day{padding:9px 1px!important}
+ body.portal-home-page .kd-forecast-day strong,
+ body.portal-home-page .kd-forecast-day span,
+ body.portal-home-page .kd-forecast-day small{font-size:8px!important}
+}
+@media(min-width:761px) and (max-width:1024px){
+ body.portal-home-page .services-section .service-grid.kd-aborlan-grid{
+  grid-template-columns:repeat(2,minmax(0,1fr))!important;
+ }
+ body.portal-home-page .portal-shell{width:calc(100% - 40px)!important}
+ body.portal-home-page .kd-barangay-all-layout{min-width:0!important}
+}
+@media(prefers-reduced-motion:reduce){
+ body.portal-home-page :is(.service-card,.bottom-nav a,.hero-actions a){transition:none!important;animation:none!important}
+}
