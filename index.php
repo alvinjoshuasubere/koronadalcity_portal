@@ -51,6 +51,7 @@ if (is_array($officialsData)) {
   <link rel="stylesheet" href="portal-full-illustration.css?v=20261118-1" />
   <link rel="stylesheet" href="portal-purple-yellow.css?v=20261118-1" />
   <link rel="stylesheet" href="portal-visibility-header.css?v=20261118-2" />
+  <link rel="stylesheet" href="portal-header-centered.css?v=20261118-3" />
 </head>
 
 <body>
@@ -375,20 +376,7 @@ if (is_array($officialsData)) {
           <p>Useful information for residents, visitors and partners.</p>
         </div>
       </div>
-      <div class="info-grid">
-        <a href="city-officials.php" class="info-card"><span><i class="fas fa-building-columns"></i></span><strong>City
-            Offices & Officials</strong><small>Find offices, leaders and responsibilities.</small><i
-            class="fas fa-arrow-right"></i></a>
-        <a href="https://koronadal.gov.ph/citizens-charter/" target="_blank" class="info-card"><span><i
-              class="fas fa-book-open"></i></span><strong>Citizen's Charter</strong><small>Requirements, steps and
-            processing information.</small><i class="fas fa-arrow-right"></i></a>
-        <a href="https://koronadal.gov.ph/city-history/" target="_blank" class="info-card"><span><i
-              class="fas fa-landmark"></i></span><strong>City History</strong><small>Discover Koronadal's history and
-            identity.</small><i class="fas fa-arrow-right"></i></a>
-        <a href="https://koronadal.gov.ph/27-barangay/" target="_blank" class="info-card"><span><i
-              class="fas fa-map-location-dot"></i></span><strong>27 Barangays</strong><small>Explore the city's
-            communities and local resources.</small><i class="fas fa-arrow-right"></i></a>
-      </div>
+
     </section>
     <section class="citizen-banner">
       <div class="citizen-badge"><i class="fas fa-id-card"></i></div>
