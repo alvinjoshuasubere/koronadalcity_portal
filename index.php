@@ -110,7 +110,7 @@ if (is_array($officialsData)) {
               }
             }
             $displayPhone = trim((string)($record['phone'] ?? ''));
-            $phoneWithoutExtension = preg_replace('/\\s+ext\\.?\\s*\\d+$/i', '', $displayPhone);
+            $phoneWithoutExtension = preg_replace('/\s+ext\.?\s*\d+$/i', '', $displayPhone);
             $callNumber = preg_replace('/[^0-9+]/', '', $phoneWithoutExtension);
         ?>
         <div class="kd-direct-hotline">
