@@ -16927,3 +16927,23 @@ body{font-family:'Sora',system-ui,sans-serif}
  .portal-header .menu-btn{color:#fff!important;background:rgba(255,255,255,.14)!important;border:1px solid rgba(255,255,255,.32)!important}
 }
 @media(prefers-reduced-motion:reduce){.portal-header,.nav,.navbar{transition:none!important}}
+
+
+/* Page body defaults previously supplied by inline styles.
+   The per-page rules above remain confined to their own page. */
+body.officials-page{
+ --bg:#f8fafc;--surface:#fff;--surface-2:#fff;--glass:rgba(255,255,255,.85);
+ --border:#e2e8f0;--border-glow:rgba(23,105,170,.25);
+ --rose:#1769aa;--rose-light:#3d8fd1;--rose-glow:rgba(23,105,170,.25);
+ --cyan:#3d8fd1;--cyan-glow:rgba(61,143,209,.2);
+ --text:#1e293b;--text-dim:#64748b;--text-bright:#163a5f;
+ font-family:'Sora',sans-serif;min-height:100vh;overflow-x:hidden;
+ -webkit-font-smoothing:antialiased;
+}
+body.emergency-page{
+ font-family:'Sora',ui-sans-serif,system-ui,sans-serif;
+ min-height:100dvh;display:flex;flex-direction:column;
+ overflow-x:hidden;line-height:1.6;font-size:14px;
+ -webkit-font-smoothing:antialiased;
+}
+body.portal-home-page .home-hero{position:relative!important}
