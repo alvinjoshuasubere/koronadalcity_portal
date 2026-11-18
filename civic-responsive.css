@@ -156,3 +156,155 @@ body.emergency-page .card-phone{min-width:0!important;white-space:normal!importa
 body.emergency-page .footer-brand img{display:block!important}
 @media(max-width:760px){body.mc-page .hero-inner{flex-direction:column!important}body.mc-page .tabs-nav{max-width:100%!important}body.emergency-page .cards-grid{grid-template-columns:1fr!important}body.emergency-page .navbar-in{min-width:0!important}}
 @media(prefers-reduced-motion:reduce){*,*::before,*::after{scroll-behavior:auto!important;animation-duration:.01ms!important;transition-duration:.01ms!important}}
+
+
+/* BetterAborlan-inspired civic palette: quiet white, charcoal, cool gray and royal blue.
+   Keeps original Koronadal insignia and a red safety section for urgent hotlines. */
+:root{
+  --civic-primary:#2563eb;
+  --civic-primary-dark:#1d4ed8;
+  --civic-text:#111827;
+  --civic-muted:#64748b;
+  --civic-border:#e2e8f0;
+  --civic-background:#f8fafc;
+  --civic-surface:#fff;
+  --civic-soft:#eff6ff;
+}
+body.portal-home-page,body.mc-page,body.emergency-page,body.civic-government-page{
+  background:var(--civic-background)!important;color:var(--civic-text)!important;
+}
+body.portal-home-page{
+  --kd-ink:var(--civic-text)!important;
+  --kd-muted:var(--civic-muted)!important;
+  --kd-blue:var(--civic-primary)!important;
+  --kd-bright:var(--civic-primary)!important;
+  --kd-surface:#fff!important;
+  --kd-canvas:var(--civic-background)!important;
+}
+body.portal-home-page .kd-utility{background:#172a45!important}
+body.portal-home-page .portal-header,body.civic-government-page .cg-header{
+  background:#fff!important;border-bottom-color:var(--civic-border)!important;
+  box-shadow:0 3px 15px rgba(15,23,42,.045)!important;
+}
+body.portal-home-page .portal-header .brand strong,
+body.portal-home-page .services-section .directory-heading,
+body.portal-home-page .kd-info-panel>h2,
+body.civic-government-page .cg-hero h1,
+body.civic-government-page .cg-heading h2{
+  color:var(--civic-text)!important;
+}
+body.portal-home-page .portal-header .desktop-nav a{color:#334155!important}
+body.portal-home-page .portal-header .desktop-nav a.active,
+body.portal-home-page .portal-header .desktop-nav a:hover{
+  color:var(--civic-primary-dark)!important;background:var(--civic-soft)!important;
+}
+body.portal-home-page .home-hero{
+  border:1px solid var(--civic-border)!important;
+  background-color:#fff!important;
+  background-image:linear-gradient(105deg,rgba(255,255,255,.995),rgba(248,250,252,.97) 40%,rgba(239,246,255,.82) 70%,rgba(239,246,255,.31)),url("header-koronadal.png")!important;
+  box-shadow:0 8px 28px rgba(15,23,42,.045)!important;
+}
+body.portal-home-page .home-hero h1{color:#0f172a!important}
+body.portal-home-page .kd-hero-eyebrow{
+  color:var(--civic-primary-dark)!important;
+  border-color:#bfdbfe!important;background:#eff6ff!important;
+}
+body.portal-home-page .home-hero .hero-content>p{color:#475569!important}
+body.portal-home-page .home-hero .portal-search{
+  border-color:#cbd5e1!important;box-shadow:0 4px 16px rgba(15,23,42,.065)!important;
+}
+body.portal-home-page .home-hero .portal-search .portal-search-submit,
+body.portal-home-page .home-hero .hero-actions .primary-action{
+  background:var(--civic-primary)!important;border-color:var(--civic-primary)!important;color:#fff!important;
+}
+body.portal-home-page .home-hero .portal-search .portal-search-submit:hover,
+body.portal-home-page .home-hero .hero-actions .primary-action:hover{
+  background:var(--civic-primary-dark)!important;
+}
+body.portal-home-page .kd-section-eyebrow,.kd-live-eyebrow,.kd-card-overline,
+body.civic-government-page .cg-kicker,body.civic-government-page .cg-heading>span{
+  color:var(--civic-primary)!important;
+}
+body.portal-home-page .services-section .service-grid a.service-card{
+  --service-accent:var(--civic-primary)!important;
+  --service-tint:#eff6ff!important;
+  --service-edge:#bfdbfe!important;
+  --service-glow:rgba(37,99,235,.10)!important;
+  background:#fff!important;border-color:var(--civic-border)!important;
+  box-shadow:0 4px 18px rgba(15,23,42,.04)!important;
+}
+body.portal-home-page .services-section .kd-service-category{
+  background:var(--civic-soft)!important;color:var(--civic-primary-dark)!important;
+  border-color:#dbeafe!important;
+}
+body.portal-home-page .services-section .kd-service-main strong{color:var(--civic-text)!important}
+body.portal-home-page .services-section .kd-service-main small{color:var(--civic-muted)!important}
+body.portal-home-page .services-section .service-grid a.service-card:hover{
+  border-color:#93c5fd!important;box-shadow:0 10px 26px rgba(37,99,235,.10)!important;
+}
+body.portal-home-page .kd-info-panel,
+body.portal-home-page .kd-facts>div{
+  border-color:var(--civic-border)!important;background:#fff!important;
+  box-shadow:0 4px 18px rgba(15,23,42,.035)!important;
+}
+body.portal-home-page .kd-info-panel::before{background:var(--civic-primary)!important}
+body.portal-home-page .kd-mayor-body h3,
+body.portal-home-page .kd-mayor-body .kd-caption,
+body.portal-home-page .kd-mayor-body a{color:var(--civic-primary-dark)!important}
+body.portal-home-page .portal-footer,body.civic-government-page .cg-footer{background:#172a45!important;border-top:3px solid var(--civic-primary)!important}
+body.civic-government-page .cg-hero{
+  background:#fff!important;border:1px solid var(--civic-border)!important;
+  box-shadow:0 4px 18px rgba(15,23,42,.035)!important;
+}
+body.civic-government-page .cg-structure article,
+body.civic-government-page .cg-official,
+body.civic-government-page .cg-barangay-note{
+  border-color:var(--civic-border)!important;box-shadow:0 4px 15px rgba(15,23,42,.04)!important;
+}
+body.civic-government-page .cg-structure-icon,
+body.civic-government-page .cg-official-role{
+  color:var(--civic-primary-dark)!important;background:var(--civic-soft)!important;
+}
+body.civic-government-page .cg-structure a,
+body.civic-government-page .cg-official a,
+body.civic-government-page .cg-barangay-note a{
+  color:var(--civic-primary-dark)!important;
+}
+/* Weather matches the site's five-day forecast and neutral data card system */
+.kd-live-section,.kd-live-card,.kd-weather-card,.kd-map-card{color:var(--civic-text)!important}
+.kd-live-intro h2{color:var(--civic-text)!important}
+.kd-live-intro p,.kd-weather-source,.kd-map-foot span{color:var(--civic-muted)!important}
+.kd-live-locality,.kd-live-card,.kd-forecast-day,
+.kd-weather-details>div,.kd-map-frame{
+  border-color:var(--civic-border)!important;
+}
+.kd-live-card{background:#fff!important;box-shadow:0 4px 18px rgba(15,23,42,.045)!important}
+.kd-live-card-head h3{color:var(--civic-text)!important}
+.kd-live-card-head>i,.kd-weather-details i,.kd-map-foot a,.kd-forecast-day i{
+  color:var(--civic-primary)!important;
+}
+.kd-current-weather{
+  background:#eff6ff!important;
+  border:1px solid #dbeafe!important;
+}
+.kd-temp{color:var(--civic-primary-dark)!important}
+.kd-weather-details>div{background:#fff!important}
+.kd-forecast-day{background:#f8fafc!important;gap:8px!important}
+.kd-forecast-day:first-child{
+  border-color:#93c5fd!important;background:#eff6ff!important;
+}
+.kd-forecast-day strong{color:#334155!important}
+.kd-forecast-day span{color:#0f172a!important}
+.kd-forecast-day small{color:#64748b!important;font-size:9px!important;white-space:nowrap!important}
+.kd-weather-source a{color:var(--civic-primary-dark)!important}
+.kd-map-card{min-width:0!important}
+@media(max-width:760px){
+  body.portal-home-page .services-section .service-grid a.service-card{min-width:0!important}
+  .kd-forecast{grid-template-columns:repeat(5,minmax(0,1fr))!important}
+  .kd-forecast-day{gap:7px!important}
+  .kd-forecast-day small{font-size:8px!important}
+}
+@media(max-width:390px){
+  .kd-forecast-day{padding:10px 1px!important}
+  .kd-forecast-day span,.kd-forecast-day small{font-size:8px!important}
+}
