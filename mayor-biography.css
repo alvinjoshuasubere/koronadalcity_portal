@@ -132,3 +132,33 @@ body.portal-home-page .kd-mayor-panel .kd-mayor-copy a{
   padding:20px 17px!important;
  }
 }
+
+/* Right-aligned Back to Portal and emphasized EPA governance letters */
+body.mc-page #nav.nav{
+ display:flex!important;align-items:center!important;justify-content:space-between!important;
+ gap:14px!important;
+}
+body.mc-page #nav .nav-brand{min-width:0!important;flex:0 1 auto!important}
+body.mc-page #nav .nav-back{
+ margin-left:auto!important;margin-right:0!important;flex:0 0 auto!important;
+ display:inline-flex!important;align-items:center!important;justify-content:center!important;
+ gap:8px!important;white-space:nowrap!important;min-height:42px!important;
+}
+body.mc-page .mc-epa-highlight{
+ display:inline-flex;align-items:center;gap:5px;vertical-align:middle;
+ margin-inline:3px;font-weight:800;color:#124c8b;
+}
+body.mc-page .mc-epa-highlight span{
+ display:inline-flex;align-items:center;justify-content:center;
+ width:25px;height:29px;border-radius:6px;
+ background:#e7f2ff;border:1px solid #b7d6f4;
+ color:#125a9f;font-weight:800;line-height:1;
+}
+body.mc-page .mc-epa-initial{color:#1264b3!important;font-weight:900}
+body.mc-page .epa-letter-box{font-weight:900!important}
+@media(max-width:480px){
+ body.mc-page #nav.nav{flex-wrap:nowrap!important;gap:8px!important}
+ body.mc-page #nav .nav-brand{max-width:65%!important}
+ body.mc-page #nav .nav-brand-text{min-width:0!important}
+ body.mc-page #nav .nav-back{padding:9px 10px!important;font-size:11px!important}
+}
