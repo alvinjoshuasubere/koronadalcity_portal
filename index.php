@@ -39,7 +39,7 @@ if (is_array($officialsData)) {
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet" />
-  <link rel="stylesheet" href="portal.css?v=20261118-15" />
+  <link rel="stylesheet" href="portal.css?v=20261118-16" />
 </head>
 
 <body class="portal-home-page">
@@ -79,7 +79,14 @@ if (is_array($officialsData)) {
       <div class="search-empty" id="searchEmpty" role="status" aria-live="polite">No service found. Try another search.
       </div>
     </section>
-    <section class="kd-emergency-banner" id="emergency"><span class="kd-siren"><i class="fas fa-bell"></i></span><div class="kd-emergency-title"><h2>Emergency Assistance</h2><p>For urgent situations and immediate help in Koronadal City.</p></div><a class="kd-911" href="tel:911"><i class="fas fa-phone"></i> 911</a><a class="kd-emergency-cta" href="emergency-contacts.php">View emergency hotlines <i class="fas fa-arrow-right"></i></a></section>
+    <section class="kd-emergency-banner" id="emergency" aria-labelledby="kdEmergencyTitle">
+      <div class="kd-emergency-agencies" aria-label="Emergency response agencies">
+        <div class="kd-agency"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Philippine_National_Police_seal.svg" alt="Philippine National Police seal" loading="lazy" referrerpolicy="no-referrer"><strong>PNP</strong></div>
+        <div class="kd-agency"><img src="https://bfp.gov.ph/wp-content/uploads/2023/04/BFP-OFFICIAL-LOGO.png" alt="Bureau of Fire Protection official seal" loading="lazy" referrerpolicy="no-referrer"><strong>BFP</strong></div>
+      </div>
+      <div class="kd-emergency-title"><span class="kd-emergency-label"><i class="fas fa-triangle-exclamation" aria-hidden="true"></i> EMERGENCY HOTLINES</span><h2 id="kdEmergencyTitle">Emergency Assistance</h2><p>For urgent situations and immediate help in Koronadal City.</p></div>
+      <div class="kd-emergency-actions"><a class="kd-911" href="tel:911" aria-label="Call emergency hotline 911"><i class="fas fa-phone" aria-hidden="true"></i> 911</a><a class="kd-emergency-cta" href="emergency-contacts.php">View emergency hotlines <i class="fas fa-arrow-right" aria-hidden="true"></i></a></div>
+    </section>
     <section class="kd-info-panels"><article class="kd-info-panel kd-mayor-panel" id="leadership"><span class="kd-section-mark"></span><h2>Mayor's Corner</h2><div class="kd-mayor-body"><div class="kd-mayor-avatar"><img src="Mayor.png" alt="City Mayor of Koronadal" loading="lazy" width="145" height="160"></div><div><span class="kd-caption">A message from the City Mayor</span><h3><?= htmlspecialchars($mayor['name'] ?? 'City Mayor', ENT_QUOTES, 'UTF-8') ?></h3><p>We are committed to a more accessible, transparent, and people-centered local government through digital innovation.</p><a href="mayor-corner.php">Read Mayor's Corner <i class="fas fa-arrow-right"></i></a></div></div></article><article class="kd-info-panel" id="city-info"><span class="kd-section-mark"></span><h2>Koronadal at a Glance</h2><div class="kd-facts"><div><i class="fas fa-users"></i><strong>27 Barangays</strong></div><div><i class="fas fa-location-dot"></i><strong>SOCCSKSARGEN Regional Center</strong></div><div><i class="fas fa-map"></i><strong>South Cotabato</strong></div></div></article></section>
     <section class="kd-quick-links" aria-label="Quick links"><div><span class="kd-section-mark"></span><h2>Quick Links</h2></div><a href="https://koronadal.gov.ph/citizens-charter/" target="_blank" rel="noopener noreferrer"><i class="fas fa-file-lines"></i> Citizen's Charter <i class="fas fa-chevron-right"></i></a><a href="city-officials.php"><i class="fas fa-users"></i> City Officials <i class="fas fa-chevron-right"></i></a><a href="https://koronadal.gov.ph/city-history/" target="_blank" rel="noopener noreferrer"><i class="fas fa-book-open"></i> City History <i class="fas fa-chevron-right"></i></a><a href="https://koronadal.gov.ph/" target="_blank" rel="noopener noreferrer"><i class="fas fa-envelope"></i> Contact Us <i class="fas fa-chevron-right"></i></a></section>
   </main>
