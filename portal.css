@@ -17176,3 +17176,13 @@ body.force-mobile .home-hero .hero-greeting{display:inline-flex!important;visibi
 }
 @media(max-width:400px){.portal-home-page .service-grid{grid-template-columns:1fr!important}}
 @media(prefers-reduced-motion:reduce){.portal-home-page .service-card{transition:none!important}}
+
+
+/* Keep HTML hidden state authoritative over explicit display:flex on service cards. */
+.portal-home-page .service-card[hidden]{display:none!important}
+@media(max-width:760px){
+ body.force-mobile .portal-home-page .service-grid,
+ body.force-mobile .services-section .service-grid{grid-template-columns:repeat(2,minmax(0,1fr))!important}
+ body.force-mobile .services-section .service-card{min-height:164px!important;padding:17px 10px!important}
+}
+@media(max-width:400px){body.force-mobile .services-section .service-grid{grid-template-columns:1fr!important}}
