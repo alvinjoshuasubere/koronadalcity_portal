@@ -4,6 +4,7 @@
   const target = document.getElementById('kdBarangayMap');
   const status = document.getElementById('kdBarangayStatus');
   const reset = document.getElementById('kdBarangayReset');
+  const choices = document.getElementById('kdBarangayChoices');
   if (!select || !target || !status || !reset) return;
   const city = [124.86566, 6.47965];
   const cityZoom = 11.5;
@@ -11,11 +12,36 @@
   let map, marker, requestId = 0, controller = null;
   const cache = new Map();
   function setStatus(message) { status.textContent = message; }
+  function syncChoices() {
+    if (!choices) return;
+    choices.querySelectorAll('button[data-barangay]').forEach(button => {
+      const active = button.dataset.barangay === select.value;
+      button.classList.toggle('active', active);
+      button.setAttribute('aria-pressed', String(active));
+    });
+  }
+  if (choices) {
+    Array.from(select.options).slice(1).forEach(option => {
+      const button = document.createElement('button');
+      button.type = 'button';
+      button.className = 'kd-barangay-chip';
+      button.dataset.barangay = option.value;
+      button.textContent = option.textContent;
+      button.setAttribute('aria-pressed', 'false');
+      button.addEventListener('click', () => {
+        select.value = option.value;
+        syncChoices();
+        choose();
+      });
+      choices.appendChild(button);
+    });
+  }
   function resetView() {
     requestId++;
     if (controller) controller.abort();
     controller = null;
     select.value = '';
+    syncChoices();
     if (marker) { marker.remove(); marker = null; }
     if (map && map.getLayer('barangay-outline')) map.removeLayer('barangay-outline');
     if (map && map.getLayer('barangay-area')) map.removeLayer('barangay-area');
@@ -57,6 +83,7 @@
   }
   async function choose() {
     const name=select.value;
+    syncChoices();
     if (!name) {resetView(); return;}
     const id=++requestId;
     if (controller) controller.abort();
