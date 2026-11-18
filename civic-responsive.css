@@ -308,3 +308,35 @@ body.civic-government-page .cg-barangay-note a{
   .kd-forecast-day{padding:10px 1px!important}
   .kd-forecast-day span,.kd-forecast-day small{font-size:8px!important}
 }
+
+
+/* Keep the entire welcome content aligned to the left on every screen. */
+body.portal-home-page .home-hero,
+body.portal-home-page .home-hero .hero-content{
+ text-align:left!important;
+ justify-content:center!important;
+ align-items:flex-start!important;
+}
+body.portal-home-page .home-hero .hero-content{
+ margin-left:0!important;
+ margin-right:auto!important;
+ width:min(100%,695px)!important;
+}
+body.portal-home-page .home-hero :is(h1,p,.kd-hero-eyebrow,.portal-search,.hero-actions){
+ text-align:left!important;
+ margin-left:0!important;
+ margin-right:auto!important;
+}
+body.portal-home-page .home-hero .hero-actions{
+ justify-content:flex-start!important;
+ align-items:center!important;
+}
+@media(max-width:760px){
+ body.portal-home-page .home-hero,
+ body.portal-home-page .home-hero .hero-content{
+   text-align:left!important;align-items:flex-start!important;
+ }
+ body.portal-home-page .home-hero .hero-actions{
+   justify-content:flex-start!important;align-items:flex-start!important;
+ }
+}
