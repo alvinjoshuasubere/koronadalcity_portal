@@ -42,6 +42,7 @@ if (is_array($officialsData)) {
   <link rel="stylesheet" href="portal.css?v=20261118-26" />
   <link rel="stylesheet" href="civic-responsive.css?v=20261118-34" />
   <link rel="stylesheet" href="mobile-app.css?v=20261118-3" />
+  <link rel="stylesheet" href="mayor-biography.css?v=20261119-1" />
 </head>
 
 <body class="portal-home-page">
@@ -182,10 +183,11 @@ if (is_array($officialsData)) {
         <div class="kd-mayor-body">
           <div class="kd-mayor-avatar"><img src="Mayor.png" alt="City Mayor of Koronadal" loading="lazy" width="145"
               height="160"></div>
-          <div><span class="kd-caption">A message from the City Mayor</span>
+          <div class="kd-mayor-copy"><span class="kd-caption">Biography and Future Plans</span>
             <h3><?= htmlspecialchars($mayor['name'] ?? 'City Mayor', ENT_QUOTES, 'UTF-8') ?></h3>
-            <p>We are committed to a more accessible, transparent, and people-centered local government through digital
-              innovation.</p><a href="mayor-corner.php">Read Mayor's Corner <i class="fas fa-arrow-right"></i></a>
+            <p>From broadcast journalism to service as a city councilor and vice mayor, Mayor Araquil brings years of experience to the Office of the City Mayor.</p>
+            <p class="kd-mayor-vision"><strong>Looking ahead:</strong> Priorities include accessible public services, livelihood and economic growth, resilient infrastructure, environmental protection, and accountable governance.</p>
+            <a href="mayor-corner.php">Read Biography &amp; Future Plans <i class="fas fa-arrow-right"></i></a>
           </div>
         </div>
       </article>
