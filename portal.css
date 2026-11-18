@@ -18736,3 +18736,108 @@ body.portal-home-page .portal-footer .footer-bottom{
  body.portal-home-page .services-section .service-grid .service-card .service-open,
  body.portal-home-page .portal-footer .footer-links a{transition:none!important}
 }
+
+
+/* Service directory: six individually colored, premium motion cards */
+body.portal-home-page .services-section .service-grid .service-card{
+ --service-accent:#0b67c5;
+ --service-tint:#e9f3ff;
+ --service-edge:#c8dffc;
+ --service-glow:rgba(12,93,189,.14);
+ background:linear-gradient(140deg,#fff 55%,var(--service-tint) 145%)!important;
+ border-color:#dfe6f0!important;
+ box-shadow:0 6px 20px rgba(15,48,88,.06),0 1px 3px rgba(15,48,88,.04)!important;
+ min-height:184px!important;
+ transition:transform .28s cubic-bezier(.2,.75,.25,1),box-shadow .28s ease,border-color .25s ease,background .25s ease!important;
+ animation:kdServiceEntrance .6s both!important;
+}
+body.portal-home-page .services-section .service-grid .service-tone-blue{
+ --service-accent:#1265cf;--service-tint:#e9f3ff;--service-edge:#afcfff;--service-glow:rgba(18,101,207,.18);
+}
+body.portal-home-page .services-section .service-grid .service-tone-teal{
+ --service-accent:#078878;--service-tint:#e2faf5;--service-edge:#a5e5d8;--service-glow:rgba(7,136,120,.17);
+}
+body.portal-home-page .services-section .service-grid .service-tone-violet{
+ --service-accent:#7950cb;--service-tint:#f1eafe;--service-edge:#cfc0f4;--service-glow:rgba(121,80,203,.17);
+}
+body.portal-home-page .services-section .service-grid .service-tone-amber{
+ --service-accent:#b77813;--service-tint:#fff5dc;--service-edge:#f6d58b;--service-glow:rgba(183,120,19,.17);
+}
+body.portal-home-page .services-section .service-grid .service-tone-coral{
+ --service-accent:#d55c46;--service-tint:#fff0e9;--service-edge:#f7c5b6;--service-glow:rgba(213,92,70,.17);
+}
+body.portal-home-page .services-section .service-grid .service-tone-rose{
+ --service-accent:#c53667;--service-tint:#fff0f6;--service-edge:#f5bfd3;--service-glow:rgba(197,54,103,.18);
+}
+body.portal-home-page .services-section .service-grid .service-card::before{
+ content:""!important;display:block!important;
+ background:var(--service-accent)!important;
+ opacity:1!important;height:5px!important;
+}
+body.portal-home-page .services-section .service-grid .service-card::after{
+ content:""!important;display:block!important;position:absolute!important;
+ inset:0!important;width:100%!important;height:100%!important;
+ background:radial-gradient(circle at 95% 0%,var(--service-tint),transparent 58%)!important;
+ z-index:-1!important;pointer-events:none!important;
+ opacity:.8!important;transition:opacity .25s ease!important;
+}
+body.portal-home-page .services-section .service-grid .service-card .service-icon{
+ background:var(--service-tint)!important;color:var(--service-accent)!important;
+ border:1px solid var(--service-edge)!important;
+ border-radius:18px!important;box-shadow:0 5px 15px var(--service-glow)!important;
+}
+body.portal-home-page .services-section .service-grid .service-card .service-open{
+ color:var(--service-accent)!important;
+ background:var(--service-tint)!important;
+ border-radius:8px!important;
+ width:27px!important;height:27px!important;
+ display:grid!important;place-items:center!important;
+}
+body.portal-home-page .services-section .service-grid .service-card:hover,
+body.portal-home-page .services-section .service-grid .service-card:focus-visible{
+ background:linear-gradient(140deg,#fff 30%,var(--service-tint) 140%)!important;
+ transform:translateY(-7px)!important;
+ border-color:var(--service-edge)!important;
+ box-shadow:0 18px 35px var(--service-glow),0 5px 10px rgba(12,48,85,.055)!important;
+}
+body.portal-home-page .services-section .service-grid .service-card:hover::after,
+body.portal-home-page .services-section .service-grid .service-card:focus-visible::after{
+ opacity:1!important;
+}
+body.portal-home-page .services-section .service-grid .service-card:hover .service-icon,
+body.portal-home-page .services-section .service-grid .service-card:focus-visible .service-icon{
+ background:var(--service-accent)!important;color:white!important;
+ transform:translateY(-3px) rotate(-4deg) scale(1.06)!important;
+}
+body.portal-home-page .services-section .service-grid .service-card:hover strong{
+ color:var(--service-accent)!important;
+}
+body.portal-home-page .services-section .service-grid .service-card:hover .service-open{
+ color:#fff!important;background:var(--service-accent)!important;
+ transform:translate(3px,-3px) rotate(7deg)!important;
+}
+body.portal-home-page .services-section .service-grid .service-card:nth-child(1){animation-delay:.04s!important}
+body.portal-home-page .services-section .service-grid .service-card:nth-child(2){animation-delay:.11s!important}
+body.portal-home-page .services-section .service-grid .service-card:nth-child(3){animation-delay:.18s!important}
+body.portal-home-page .services-section .service-grid .service-card:nth-child(4){animation-delay:.25s!important}
+body.portal-home-page .services-section .service-grid .service-card:nth-child(5){animation-delay:.32s!important}
+body.portal-home-page .services-section .service-grid .service-card:nth-child(6){animation-delay:.39s!important}
+@keyframes kdServiceEntrance{
+ from{opacity:0;transform:translateY(22px) scale(.975)}
+ to{opacity:1;transform:translateY(0) scale(1)}
+}
+body.portal-home-page .services-section .service-grid .service-card[hidden]{display:none!important;animation:none!important}
+@media(max-width:760px){
+ body.portal-home-page .services-section .service-grid .service-card{min-height:149px!important}
+}
+@media(prefers-reduced-motion:reduce){
+ body.portal-home-page .services-section .service-grid .service-card,
+ body.portal-home-page .services-section .service-grid .service-card .service-icon,
+ body.portal-home-page .services-section .service-grid .service-card .service-open{
+  animation:none!important;transition:none!important;
+ }
+ body.portal-home-page .services-section .service-grid .service-card:hover,
+ body.portal-home-page .services-section .service-grid .service-card:focus-visible{
+  transform:none!important;
+ }
+}
