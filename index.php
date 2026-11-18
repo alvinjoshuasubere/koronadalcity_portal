@@ -39,7 +39,7 @@ if (is_array($officialsData)) {
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet" />
-  <link rel="stylesheet" href="portal.css?v=20261118-21" />
+  <link rel="stylesheet" href="portal.css?v=20261118-22" />
 </head>
 
 <body class="portal-home-page">
@@ -125,8 +125,8 @@ if (is_array($officialsData)) {
         <?php
         $priorityHotlines = [
           ['label' => '911', 'type' => 'general', 'icon' => 'fa-phone-volume', 'subtitle' => 'National Emergency Hotline'],
-          ['label' => 'PNP', 'type' => 'police', 'icon' => 'fa-shield-halved', 'subtitle' => 'Koronadal City Police Station'],
-          ['label' => 'BFP', 'type' => 'fire', 'icon' => 'fa-fire-extinguisher', 'subtitle' => 'Koronadal City Fire Station'],
+          ['label' => 'PNP', 'type' => 'police', 'icon' => 'fa-shield-halved', 'logo' => 'https://commons.wikimedia.org/wiki/Special:FilePath/Philippine_National_Police_seal.svg', 'subtitle' => 'Koronadal City Police Station'],
+          ['label' => 'BFP', 'type' => 'fire', 'icon' => 'fa-fire-extinguisher', 'logo' => 'https://commons.wikimedia.org/wiki/Special:FilePath/Bureau_of_Fire_Protection.png', 'subtitle' => 'Koronadal City Fire Station'],
           ['label' => 'CDRRMO', 'type' => 'disaster', 'icon' => 'fa-house-flood-water', 'subtitle' => 'City Disaster Risk Reduction']
         ];
         foreach ($priorityHotlines as $priority):
@@ -142,8 +142,17 @@ if (is_array($officialsData)) {
           $callNumber = preg_replace('/[^0-9+]/', '', $phoneWithoutExtension);
           ?>
           <div class="kd-direct-hotline">
-            <span class="kd-direct-icon"><i class="fas <?= htmlspecialchars($priority['icon'], ENT_QUOTES, 'UTF-8') ?>"
-                aria-hidden="true"></i></span>
+            <span class="kd-direct-icon <?= !empty($priority['logo']) ? 'kd-direct-logo' : '' ?>">
+              <?php if (!empty($priority['logo'])): ?>
+                <img src="<?= htmlspecialchars($priority['logo'], ENT_QUOTES, 'UTF-8') ?>"
+                     alt="<?= htmlspecialchars($priority['label'], ENT_QUOTES, 'UTF-8') ?> official seal"
+                     loading="lazy" decoding="async"
+                     onerror="this.hidden=true;this.nextElementSibling.hidden=false">
+                <i class="fas <?= htmlspecialchars($priority['icon'], ENT_QUOTES, 'UTF-8') ?>" aria-hidden="true" hidden></i>
+              <?php else: ?>
+                <i class="fas <?= htmlspecialchars($priority['icon'], ENT_QUOTES, 'UTF-8') ?>" aria-hidden="true"></i>
+              <?php endif; ?>
+            </span>
             <strong><?= htmlspecialchars($priority['label'], ENT_QUOTES, 'UTF-8') ?></strong>
             <small><?= htmlspecialchars($priority['subtitle'], ENT_QUOTES, 'UTF-8') ?></small>
             <?php if ($callNumber !== ''): ?>
@@ -187,7 +196,7 @@ if (is_array($officialsData)) {
   <footer class="portal-footer">
     <div class="footer-inner">
       <div class="kd-footer-top">
-        <div class="footer-brand"><span class="kd-footer-seal"><i class="fas fa-landmark"></i></span>
+        <div class="footer-brand"><span class="kd-footer-seal"><img src="Logo.png" alt="Official City of Koronadal seal" loading="lazy" decoding="async"></span>
           <div><strong>City Government of Koronadal</strong><span>Koronadal, South Cotabato, Philippines</span></div>
         </div>
         <nav class="footer-links" aria-label="Footer navigation"><a href="#home">Home</a><a
