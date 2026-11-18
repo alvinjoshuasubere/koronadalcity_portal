@@ -1,155 +1,98 @@
 (function () {
   'use strict';
-  const select = document.getElementById('kdBarangaySelect');
   const target = document.getElementById('kdBarangayMap');
   const status = document.getElementById('kdBarangayStatus');
-  const reset = document.getElementById('kdBarangayReset');
-  const choices = document.getElementById('kdBarangayChoices');
-  if (!select || !target || !status || !reset) return;
+  const reload = document.getElementById('kdBarangayReload');
+  if (!target || !status) return;
   const city = [124.86566, 6.47965];
-  const cityZoom = 11.5;
   const styleUrl = 'https://tiles.openfreemap.org/styles/positron';
-  let map, marker, requestId = 0, controller = null;
-  const cache = new Map();
-  function setStatus(message) { status.textContent = message; }
-  function syncChoices() {
-    if (!choices) return;
-    choices.querySelectorAll('button[data-barangay]').forEach(button => {
-      const active = button.dataset.barangay === select.value;
-      button.classList.toggle('active', active);
-      button.setAttribute('aria-pressed', String(active));
-    });
+  const names = ['Assumption','Avanceña','Cacub','Caloocan','Carpenter Hill','Concepcion','Esperanza','General Paulino Santos','Mabini','Magsaysay','Mambucal','Morales','Namnama','New Pangasinan','Paraiso','Rotonda','San Isidro','San Jose','San Roque','Santa Cruz','Santo Niño','Saravia','Topland','Zone 1','Zone 2','Zone 3','Zone 4'];
+  const known = new Set(names.map(name => name.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '')));
+  const cacheKey = 'koronadal-osm-boundaries-v1';
+  let map, abortController;
+  const setStatus = message => {status.textContent = message;};
+  const normalized = name => String(name || '').trim().toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '');
+  function validFeature(feature) {
+    if (!feature || !feature.geometry || !['Polygon','MultiPolygon'].includes(feature.geometry.type)) return false;
+    const p = feature.properties || {};
+    const name = p.name || p['name:en'] || '';
+    if (!known.has(normalized(name))) return false;
+    return true;
   }
-  if (choices) {
-    Array.from(select.options).slice(1).forEach(option => {
-      const button = document.createElement('button');
-      button.type = 'button';
-      button.className = 'kd-barangay-chip';
-      button.dataset.barangay = option.value;
-      button.textContent = option.textContent;
-      button.setAttribute('aria-pressed', 'false');
-      button.addEventListener('click', () => {
-        select.value = option.value;
-        syncChoices();
-        choose();
-      });
-      choices.appendChild(button);
-    });
+  function paint(collection) {
+    if (!map || !map.isStyleLoaded()) return;
+    const source = map.getSource('koronadal-barangays');
+    if (source) source.setData(collection);
+    else {
+      map.addSource('koronadal-barangays', {type:'geojson',data:collection});
+      map.addLayer({id:'koronadal-barangay-fill',type:'fill',source:'koronadal-barangays',paint:{'fill-color':'#3b82f6','fill-opacity':0.07}});
+      map.addLayer({id:'koronadal-barangay-lines',type:'line',source:'koronadal-barangays',paint:{'line-color':'#1d4ed8','line-width':['interpolate',['linear'],['zoom'],10,1.6,14,3],'line-opacity':0.95}});
+      map.addLayer({id:'koronadal-barangay-names',type:'symbol',source:'koronadal-barangays',layout:{'text-field':['get','name'],'text-size':11,'text-font':['Noto Sans Regular'],'text-max-width':10},paint:{'text-color':'#153e75','text-halo-color':'#fff','text-halo-width':1.7}});
+    }
+    const bounds = new maplibregl.LngLatBounds();
+    function visit(coords) {
+      if (!Array.isArray(coords)) return;
+      if (typeof coords[0] === 'number' && typeof coords[1] === 'number') {
+        if (coords[0] > 124.6 && coords[0] < 125.1 && coords[1] > 6.2 && coords[1] < 6.75) bounds.extend(coords);
+      } else coords.forEach(visit);
+    }
+    collection.features.forEach(feature => visit(feature.geometry.coordinates));
+    if (!bounds.isEmpty()) map.fitBounds(bounds,{padding:40,maxZoom:12.7,duration:650});
+    const found = new Set(collection.features.map(feature => normalized(feature.properties.name))).size;
+    setStatus(found + ' of 27 barangay outlines available from OpenStreetMap. All available boundary lines are visible together.' + (found < 27 ? ' Unmapped boundaries are not drawn.' : ''));
   }
-  function resetView() {
-    requestId++;
-    if (controller) controller.abort();
-    controller = null;
-    select.value = '';
-    syncChoices();
-    if (marker) { marker.remove(); marker = null; }
-    if (map && map.getLayer('barangay-outline')) map.removeLayer('barangay-outline');
-    if (map && map.getLayer('barangay-area')) map.removeLayer('barangay-area');
-    if (map && map.getSource('barangay-boundary')) map.removeSource('barangay-boundary');
-    if (map) map.flyTo({ center: city, zoom: cityZoom, essential: true });
-    setStatus('Showing the City of Koronadal. Select a barangay to explore its map.');
-  }
-  function removeGeometry() {
-    if (marker) { marker.remove(); marker = null; }
-    for (const id of ['barangay-outline','barangay-area']) if (map.getLayer(id)) map.removeLayer(id);
-    if (map.getSource('barangay-boundary')) map.removeSource('barangay-boundary');
-  }
-  function showResult(name, data) {
-    removeGeometry();
-    const lon = parseFloat(data.lon), lat = parseFloat(data.lat);
-    if (!Number.isFinite(lon) || !Number.isFinite(lat) || lon < 124.65 || lon > 125.05 || lat < 6.25 || lat > 6.70) {
-      throw new Error('The location could not be verified inside Koronadal.');
+  async function load(force) {
+    if (!map || !map.isStyleLoaded()) return;
+    if (abortController) abortController.abort();
+    if (!force) {
+      try {
+        const item = JSON.parse(sessionStorage.getItem(cacheKey));
+        if (item && Date.now() - item.time < 12 * 60 * 60 * 1000 && item.data && item.data.features.length) {paint(item.data);return;}
+      } catch(e) {}
     }
-    marker = new maplibregl.Marker({color:'#2563eb'}).setLngLat([lon,lat])
-      .setPopup(new maplibregl.Popup({offset:22}).setText('Barangay '+name+', Koronadal City'))
-      .addTo(map);
-    const boundary = data.geojson;
-    if (boundary && ['Polygon','MultiPolygon'].includes(boundary.type)) {
-      map.addSource('barangay-boundary',{type:'geojson',data:{type:'Feature',properties:{name:name},geometry:boundary}});
-      map.addLayer({id:'barangay-area',type:'fill',source:'barangay-boundary',paint:{'fill-color':'#2563eb','fill-opacity':0.10}});
-      map.addLayer({id:'barangay-outline',type:'line',source:'barangay-boundary',paint:{'line-color':'#2563eb','line-width':2.5}});
-      const bbox = data.boundingbox;
-      if (Array.isArray(bbox) && bbox.length === 4) {
-        const south=Number(bbox[0]), north=Number(bbox[1]), west=Number(bbox[2]), east=Number(bbox[3]);
-        if ([south,north,west,east].every(Number.isFinite) && north > south && east > west) {
-          map.fitBounds([[west,south],[east,north]],{padding:55,maxZoom:15,duration:700});
-        } else { map.flyTo({center:[lon,lat],zoom:14}); }
-      } else { map.flyTo({center:[lon,lat],zoom:14}); }
-      setStatus('Barangay '+name+' selected. The shaded outline is from OpenStreetMap, not an official surveyed boundary.');
-    } else {
-      map.flyTo({center:[lon,lat],zoom:14});
-      setStatus('Barangay '+name+' selected. A reference location is shown because a mapped boundary is unavailable.');
-    }
-  }
-  async function choose() {
-    const name=select.value;
-    syncChoices();
-    if (!name) {resetView(); return;}
-    const id=++requestId;
-    if (controller) controller.abort();
-    controller=new AbortController();
-    if (!map) {
-      setStatus('OpenFreeMap is loading. Please select the barangay again shortly.');
-      return;
-    }
-    if (!map.isStyleLoaded()) {
-      setStatus('Loading map style before locating Barangay '+name+'...');
-      map.once('load', () => { if (select.value === name) choose(); });
-      return;
-    }
-    setStatus('Finding Barangay '+name+' in OpenStreetMap...');
-    if (cache.has(name)) {
-      try { showResult(name,cache.get(name)); } catch(e) {setStatus(e.message);}
-      return;
-    }
-    // User-initiated searches only, one at a time. Do not bulk-geocode the full list.
-    const query=name.replace(/^Zone ([1-4])$/,(_,n)=>'Zone '+n)+', Koronadal, South Cotabato, Philippines';
-    const params=new URLSearchParams({
-      q:query,format:'jsonv2',limit:'3',countrycodes:'ph',
-      polygon_geojson:'1',addressdetails:'1',
-      viewbox:'124.65,6.70,125.05,6.25',bounded:'1'
-    });
+    setStatus('Loading available barangay boundary lines from OpenStreetMap...');
+    abortController = new AbortController();
+    const timeout = setTimeout(() => abortController.abort(), 24000);
+    // A single area-based request; never perform 27 independent geocoding requests.
+    const query = '[out:json][timeout:20];area["name"="Koronadal"]["boundary"="administrative"]->.city;(relation["boundary"="administrative"]["admin_level"="10"](area.city););out body;>;out skel qt;';
     try {
-      const response=await fetch('https://nominatim.openstreetmap.org/search?'+params,{signal:controller.signal,headers:{'Accept':'application/json'}});
-      if (!response.ok) throw Error('Map search is temporarily unavailable.');
-      const list=await response.json();
-      if (id!==requestId) return;
-      const match=list.find(item=> {
-        const text=String(item.display_name||'').toLowerCase();
-        return text.includes('koronadal') && Number(item.lon)>124.65 && Number(item.lon)<125.05 &&
-          Number(item.lat)>6.25 && Number(item.lat)<6.70;
+      if (typeof window.osmtogeojson !== 'function') throw new Error('Boundary conversion library unavailable');
+      const response = await fetch('https://overpass.kumi.systems/api/interpreter', {
+        method:'POST',body:new URLSearchParams({data:query}),signal:abortController.signal
       });
-      if (!match) {
-        removeGeometry();
-        map.flyTo({center:city,zoom:cityZoom});
-        setStatus('No verified map location for Barangay '+name+' was found. The city view remains visible.');
-        return;
-      }
-      cache.set(name,match);
-      showResult(name,match);
-    } catch(error) {
-      if (error.name==='AbortError') return;
-      if (id!==requestId) return;
-      removeGeometry();
-      setStatus('Barangay map location unavailable. Please try another barangay or use the official directory.');
-    }
+      if (!response.ok) throw new Error('Boundary service unavailable');
+      const data = await response.json();
+      const converted = window.osmtogeojson(data);
+      const features = (converted.features || []).filter(validFeature).map(f => ({
+        type:'Feature',id:f.id,properties:{name:f.properties.name},geometry:f.geometry
+      }));
+      if (!features.length) throw new Error('No mapped barangay boundaries available');
+      const collection = {type:'FeatureCollection',features};
+      try {sessionStorage.setItem(cacheKey,JSON.stringify({time:Date.now(),data:collection}));} catch(e) {}
+      paint(collection);
+    } catch(e) {
+      if (e.name === 'AbortError') setStatus('Boundary request timed out. Select Refresh boundaries to try again.');
+      else setStatus('Barangay boundary lines are currently unavailable from OpenStreetMap. The base map remains available. Select Refresh boundaries to retry.');
+    } finally {clearTimeout(timeout);}
   }
   function init(attempt=0) {
-    if (!window.maplibregl) {
-      if (attempt<35) {setTimeout(()=>init(attempt+1),200);return;}
-      setStatus('The interactive map could not load. Check your connection and refresh.');
-      return;
+    if (!window.maplibregl || !window.osmtogeojson) {
+      if (attempt < 40) {setTimeout(() => init(attempt+1),200);return;}
+      setStatus('Map resources did not load. Check your connection and reload the page.');return;
     }
     try {
       target.replaceChildren();
-      map=new maplibregl.Map({container:target,style:styleUrl,center:city,zoom:cityZoom,attributionControl:false});
+      map = new maplibregl.Map({container:target,style:styleUrl,center:city,zoom:11.3,attributionControl:false});
       map.addControl(new maplibregl.NavigationControl({showCompass:false}),'top-right');
       map.addControl(new maplibregl.AttributionControl({compact:true}),'bottom-right');
-      map.on('error',()=> {if(!map.loaded()) setStatus('The map tiles could not load. Please check your connection.');});
-      select.addEventListener('change',choose);
-      reset.addEventListener('click',resetView);
-    } catch(e) {setStatus('Unable to initialize OpenFreeMap. Please refresh the page.');}
+      map.on('load',()=>load(false));
+      map.on('click','koronadal-barangay-fill',event => {
+        const feature=event.features && event.features[0];
+        if (feature) new maplibregl.Popup().setLngLat(event.lngLat).setText('Barangay '+feature.properties.name).addTo(map);
+      });
+      if (reload) reload.addEventListener('click',()=>load(true));
+    } catch(e) {setStatus('Unable to initialize the map. Please refresh the page.');}
   }
-  if (document.readyState==='loading') document.addEventListener('DOMContentLoaded',()=>init());
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded',()=>init());
   else init();
 })();
