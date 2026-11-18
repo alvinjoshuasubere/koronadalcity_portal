@@ -50,6 +50,7 @@ if (is_array($officialsData)) {
   <link rel="stylesheet" href="portal-cartoon-reference.css?v=20261118-1" />
   <link rel="stylesheet" href="portal-full-illustration.css?v=20261118-1" />
   <link rel="stylesheet" href="portal-purple-yellow.css?v=20261118-1" />
+  <link rel="stylesheet" href="portal-visibility-header.css?v=20261118-2" />
 </head>
 
 <body>
@@ -136,9 +137,7 @@ if (is_array($officialsData)) {
     </div>
     <section class="portal-dashboard" aria-label="Quick access and citizen assistance">
       <div class="dashboard-panel">
-        <span class="dashboard-eyebrow"><i class="fas fa-bolt" aria-hidden="true"></i> QUICK ACCESS</span>
-        <h2>Explore city services</h2>
-        <p>Choose from the most-used services and information resources below.</p>
+        
         <div class="top-task-grid">
           <a class="top-task" href="https://koronadalcityportal.com/v2/login" target="_blank"
             rel="noopener noreferrer"><i class="fas fa-file-signature" aria-hidden="true"></i><span><strong>Business
@@ -177,8 +176,7 @@ if (is_array($officialsData)) {
       </aside>
     </section>
     <section class="app-featured" aria-label="Featured city services">
-      <div class="app-featured-content"><span class="app-featured-kicker"><i class="fas fa-star" aria-hidden="true"></i>
-          FEATURED SERVICE</span>
+      <div class="app-featured-content">
         <h2>Explore, transact, and connect with Koronadal!</h2>
         <p>Access city services, local information, job opportunities, and public resources from one portal.</p><a
           href="#services">Browse Services <i class="fas fa-arrow-right" aria-hidden="true"></i></a>
@@ -191,7 +189,7 @@ if (is_array($officialsData)) {
     <section class="portal-section services-section" id="services">
       <div class="services-title">
         <div><span>ONLINE SERVICES</span>
-          <h2>Explore city services</h2>
+          <h2>Online Service Directory</h2>
           <p>Choose a service to view information or continue to its online portal.</p>
         </div><a class="app-directory-link" href="https://koronadal.gov.ph/citizens-charter/" target="_blank"
           rel="noopener noreferrer">Service guide <i class="fas fa-arrow-right"></i></a>
