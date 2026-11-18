@@ -64,7 +64,7 @@
     abortController = new AbortController();
     const timeout = setTimeout(() => abortController.abort(), 24000);
     // A single area-based request; never perform 27 independent geocoding requests.
-    const query = '[out:json][timeout:20];area["boundary"="administrative"]["name"~"^(City of )?Koronadal$",i]->.koronadal;(relation(area.koronadal)["boundary"="administrative"]["admin_level"="10"];);out body;>;out skel qt;';
+    const query = '[out:json][timeout:20];area["boundary"="administrative"]["name"~"^(City of Koronadal|Koronadal City|Koronadal)$",i]->.koronadal;(relation(area.koronadal)["boundary"="administrative"]["admin_level"="10"];);out body;>;out skel qt;';
     try {
       if (typeof window.osmtogeojson !== 'function') throw new Error('Boundary conversion library unavailable');
       const response = await fetch('https://overpass.kumi.systems/api/interpreter', {
