@@ -18222,3 +18222,193 @@ body.portal-home-page .kd-emergency-all:hover,body.portal-home-page .kd-emergenc
  body.portal-home-page .kd-emergency-direct-grid{grid-template-columns:1fr!important}
  body.portal-home-page .kd-direct-hotline{min-height:195px!important}
 }
+
+
+/* Emergency action, emblem and accessible motion design */
+body.portal-home-page .kd-emergency-heading{
+  flex-direction:row!important;justify-content:flex-start!important;
+  align-items:center!important;gap:19px!important;
+}
+body.portal-home-page .kd-emergency-heading-copy{
+  display:flex!important;flex-direction:column!important;
+  align-items:flex-start!important;justify-content:center!important;gap:6px!important;
+}
+body.portal-home-page .kd-emergency-emblem{
+  position:relative!important;isolation:isolate!important;overflow:visible!important;
+  width:92px!important;height:92px!important;flex:0 0 92px!important;
+  display:grid!important;place-items:center!important;
+  border:2px solid rgba(255,255,255,.8)!important;
+  border-radius:23px!important;
+  color:#fff!important;
+  background:rgba(255,255,255,.14)!important;
+  box-shadow:0 9px 24px rgba(81,7,20,.22)!important;
+  animation:kdEmblemFloat 4s ease-in-out infinite!important;
+}
+body.portal-home-page .kd-emergency-emblem-ring{
+  position:absolute!important;inset:8px!important;
+  border:1px solid rgba(255,255,255,.4)!important;
+  border-radius:17px!important;pointer-events:none!important;
+}
+body.portal-home-page .kd-emergency-shield{
+  font-size:49px!important;line-height:1!important;color:#fff!important;
+}
+body.portal-home-page .kd-emergency-emblem-phone{
+  position:absolute!important;left:50%!important;top:50%!important;
+  transform:translate(-50%,-50%)!important;
+  color:#a11b2c!important;background:#fff!important;
+  width:30px!important;height:30px!important;
+  display:grid!important;place-items:center!important;
+  border-radius:50%!important;font-size:13px!important;
+  box-shadow:0 1px 8px rgba(0,0,0,.12)!important;
+}
+body.portal-home-page .kd-emergency-all{
+  display:flex!important;flex-direction:row!important;
+  width:100%!important;min-width:0!important;
+  min-height:62px!important;padding:16px 22px!important;
+  align-self:stretch!important;justify-content:center!important;align-items:center!important;
+  gap:15px!important;text-align:center!important;
+  border:2px solid rgba(255,255,255,.9)!important;
+  border-radius:12px!important;
+  background:#fff!important;color:#981825!important;
+  box-shadow:0 7px 17px rgba(85,0,14,.12)!important;
+  font-size:16px!important;font-weight:850!important;letter-spacing:.01em!important;
+  text-decoration:none!important;
+  transition:background-color .2s ease,box-shadow .2s ease,transform .2s ease,color .2s ease!important;
+}
+body.portal-home-page .kd-emergency-all i:first-child{
+  color:inherit!important;font-size:20px!important;
+}
+body.portal-home-page .kd-emergency-all i:last-child{
+  color:inherit!important;font-size:18px!important;
+  transition:transform .2s ease!important;
+}
+body.portal-home-page .kd-emergency-all:hover,
+body.portal-home-page .kd-emergency-all:focus-visible{
+  background:#fff275!important;color:#68101b!important;
+  transform:translateY(-2px)!important;
+  box-shadow:0 11px 23px rgba(85,0,14,.19)!important;
+  outline:3px solid #fff275!important;outline-offset:3px!important;
+}
+body.portal-home-page .kd-emergency-all:hover i:last-child{
+  transform:translateX(6px)!important;
+}
+/* Motion: gentle page reveals and purposeful interactive feedback. */
+@keyframes kdEmblemFloat{
+  0%,100%{transform:translateY(0);box-shadow:0 8px 20px rgba(81,7,20,.18)}
+  50%{transform:translateY(-5px);box-shadow:0 12px 28px rgba(81,7,20,.30)}
+}
+@keyframes kdRevealUp{
+  from{opacity:0;transform:translateY(17px)}
+  to{opacity:1;transform:translateY(0)}
+}
+@keyframes kdCardArrival{
+  from{opacity:0;transform:translateY(15px) scale(.985)}
+  to{opacity:1;transform:translateY(0) scale(1)}
+}
+@keyframes kdIconNudge{
+  0%,100%{transform:scale(1)}
+  50%{transform:scale(1.06)}
+}
+body.portal-home-page .home-hero .hero-content{
+  animation:kdRevealUp .65s ease-out both!important;
+}
+body.portal-home-page .services-section .services-title{
+  animation:kdRevealUp .6s ease-out .06s both!important;
+}
+body.portal-home-page .services-section .service-card{
+  animation:kdCardArrival .5s ease-out both!important;
+}
+body.portal-home-page .services-section .service-card:nth-child(3n+1){animation-delay:.08s!important}
+body.portal-home-page .services-section .service-card:nth-child(3n+2){animation-delay:.15s!important}
+body.portal-home-page .services-section .service-card:nth-child(3n){animation-delay:.22s!important}
+body.portal-home-page .kd-emergency-heading{
+  animation:kdRevealUp .65s ease-out both!important;
+}
+body.portal-home-page .kd-direct-hotline{
+  animation:kdCardArrival .55s ease-out both!important;
+  transition:transform .22s ease,box-shadow .22s ease,border-color .22s ease!important;
+}
+body.portal-home-page .kd-direct-hotline:nth-child(1){animation-delay:.08s!important}
+body.portal-home-page .kd-direct-hotline:nth-child(2){animation-delay:.16s!important}
+body.portal-home-page .kd-direct-hotline:nth-child(3){animation-delay:.24s!important}
+body.portal-home-page .kd-direct-hotline:nth-child(4){animation-delay:.32s!important}
+body.portal-home-page .kd-direct-hotline:hover,
+body.portal-home-page .kd-direct-hotline:focus-within{
+  transform:translateY(-5px)!important;
+  box-shadow:0 13px 25px rgba(88,2,18,.22)!important;
+  border-color:#ffcece!important;
+}
+body.portal-home-page .kd-direct-hotline:hover .kd-direct-icon{
+  animation:kdIconNudge .45s ease-in-out!important;
+}
+body.portal-home-page .kd-direct-call i{
+  transition:transform .2s ease!important;
+}
+body.portal-home-page .kd-direct-call:hover i{
+  transform:rotate(-12deg) scale(1.13)!important;
+}
+body.portal-home-page .kd-emergency-all{
+  animation:kdRevealUp .55s ease-out .28s both!important;
+}
+body.portal-home-page .kd-info-panel,
+body.portal-home-page .kd-quick-links{
+  animation:kdRevealUp .65s ease-out .18s both!important;
+}
+body.portal-home-page .kd-quick-links a{
+  transition:transform .2s ease,background-color .2s ease,box-shadow .2s ease!important;
+}
+body.portal-home-page .kd-quick-links a:hover{
+  transform:translateY(-3px)!important;
+  box-shadow:0 7px 18px rgba(11,68,125,.12)!important;
+}
+body.emergency-page .contact-card{
+  transition:transform .2s ease,box-shadow .2s ease,border-color .2s ease!important;
+}
+body.emergency-page .emergency-primary-call{
+  transition:transform .2s ease,background-color .2s ease!important;
+}
+body.emergency-page .emergency-primary-call:hover{transform:translateY(-2px)!important}
+@media(max-width:760px){
+  body.portal-home-page .kd-emergency-heading{
+    flex-direction:column!important;
+    align-items:center!important;gap:12px!important;text-align:center!important;
+  }
+  body.portal-home-page .kd-emergency-heading-copy{
+    align-items:center!important;text-align:center!important;
+  }
+  body.portal-home-page .kd-emergency-emblem{
+    width:78px!important;height:78px!important;flex-basis:78px!important;
+    border-radius:19px!important;
+  }
+  body.portal-home-page .kd-emergency-shield{font-size:41px!important}
+  body.portal-home-page .kd-emergency-emblem-phone{width:25px!important;height:25px!important;font-size:11px!important}
+  body.portal-home-page .kd-emergency-all{
+    min-height:57px!important;padding:15px 12px!important;
+    font-size:13px!important;gap:10px!important;
+  }
+  body.portal-home-page .kd-emergency-all i:first-child{font-size:17px!important}
+}
+@media(prefers-reduced-motion:reduce){
+  body.portal-home-page .kd-emergency-emblem,
+  body.portal-home-page .home-hero .hero-content,
+  body.portal-home-page .services-section .services-title,
+  body.portal-home-page .services-section .service-card,
+  body.portal-home-page .kd-emergency-heading,
+  body.portal-home-page .kd-direct-hotline,
+  body.portal-home-page .kd-emergency-all,
+  body.portal-home-page .kd-info-panel,
+  body.portal-home-page .kd-quick-links,
+  body.portal-home-page .kd-direct-hotline:hover .kd-direct-icon{
+    animation:none!important;
+  }
+  body.portal-home-page .kd-emergency-all,
+  body.portal-home-page .kd-emergency-all i,
+  body.portal-home-page .kd-direct-hotline,
+  body.portal-home-page .kd-direct-call,
+  body.portal-home-page .kd-direct-call i,
+  body.portal-home-page .kd-quick-links a,
+  body.emergency-page .contact-card,
+  body.emergency-page .emergency-primary-call{
+    transition:none!important;
+  }
+}
