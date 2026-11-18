@@ -17038,3 +17038,141 @@ body.force-mobile .services-section .services-title .directory-heading{
  font-size:clamp(17px,5.4vw,28px)!important;white-space:nowrap!important;
 }
 body.force-mobile .home-hero .hero-greeting{display:inline-flex!important;visibility:visible!important;color:#fff!important}
+
+
+/* -------------------------------------------------------------------------
+   PAGE CONSISTENCY PATCH: focused service home + matching city subpages
+   Purple #3a0ca3, yellow #fff275. Applied last to override legacy layers.
+   ------------------------------------------------------------------------- */
+:root{--k-purple:#3a0ca3;--k-deep:#270770;--k-yellow:#fff275;--k-ink:#28134d;--k-surface:rgba(255,255,255,.94);--k-line:#e6dcfb}
+.portal-home-page{background:url("desktop.png") center top / cover fixed no-repeat!important}
+.portal-home-page .portal-shell{max-width:1280px!important}
+.portal-home-page .services-section{margin:36px auto 45px!important;max-width:1240px!important;width:100%!important;background:var(--k-surface)!important;border:1px solid rgba(255,255,255,.82)!important;box-shadow:0 16px 44px rgba(38,14,94,.13)!important;backdrop-filter:blur(12px)!important;border-radius:28px!important}
+.portal-home-page .services-section .services-title{display:flex!important;align-items:center!important;justify-content:center!important;flex-direction:column!important;text-align:center!important;gap:13px!important}
+.portal-home-page .services-section .services-title>div{display:flex!important;align-items:center!important;flex-direction:column!important;text-align:center!important;gap:9px!important}
+.portal-home-page .services-section .directory-heading{color:var(--k-purple)!important;font-size:clamp(22px,3vw,39px)!important;white-space:nowrap!important;text-align:center!important;letter-spacing:-.035em!important}
+.portal-home-page .services-section .services-title p{color:#53446e!important;text-align:center!important}
+.portal-home-page .service-grid{display:grid!important;grid-template-columns:repeat(3,minmax(0,1fr))!important;gap:18px!important;width:100%!important}
+.portal-home-page .service-card{display:flex!important;flex-direction:column!important;align-items:center!important;justify-content:center!important;text-align:center!important;gap:12px!important;padding:26px 18px!important;min-height:194px!important;background:white!important;border:1px solid var(--k-line)!important;border-radius:20px!important;box-shadow:0 6px 16px rgba(42,10,102,.07)!important;transition:transform .18s ease,border-color .18s ease,box-shadow .18s ease,background-color .18s ease!important}
+.portal-home-page .service-card .service-icon{display:grid!important;place-items:center!important;width:65px!important;height:65px!important;border-radius:19px!important;flex:0 0 65px!important;background:#f1eafe!important;color:var(--k-purple)!important}
+.portal-home-page .service-card strong{font-size:16px!important;color:var(--k-ink)!important;font-weight:800!important;line-height:1.4!important;text-align:center!important}
+.portal-home-page .service-card small{font-size:12px!important;color:#605477!important;text-align:center!important;line-height:1.55!important}
+.portal-home-page .service-card .service-open{color:var(--k-purple)!important;margin:0!important;opacity:.75!important}
+.portal-home-page .service-card:hover,.portal-home-page .service-card:focus-visible{transform:translateY(-5px)!important;background:#fffde8!important;border-color:var(--k-yellow)!important;box-shadow:0 17px 28px rgba(49,16,109,.15)!important}
+.portal-home-page .service-card:hover strong,.portal-home-page .service-card:focus-visible strong{color:var(--k-purple)!important}
+.portal-home-page .service-card:hover small,.portal-home-page .service-card:focus-visible small{color:#46335f!important}
+.portal-home-page .service-card:focus-visible{outline:3px solid var(--k-purple)!important;outline-offset:3px!important}
+.portal-home-page .portal-search{margin-top:21px!important}
+.portal-home-page .search-empty{color:var(--k-purple)!important;font-weight:700!important}
+.portal-home-page .footer-links a:hover{color:var(--k-yellow)!important}
+.officials-page,.mc-page,.emergency-page{
+ --bg:#faf8ff;--surface:#fff;--surface-2:#fff;--border:#e3d9f7;
+ --rose:#3a0ca3;--rose-light:#6a42cb;--rose-glow:rgba(58,12,163,.18);
+ --cyan:#7b5cdb;--text:#2d1b4d;--text-dim:#665780;--text-bright:#2a096d;
+ background:linear-gradient(rgba(252,250,255,.92),rgba(248,246,255,.96)),url("desktop.png") center top / cover fixed no-repeat!important;
+ color:var(--k-ink)!important;
+}
+.officials-page .bg-layer,.mc-page .bg-layer,.emergency-page .orbs{opacity:.15!important;pointer-events:none!important}
+.officials-page .nav,.mc-page .nav,.emergency-page .navbar{
+ width:100%!important;min-height:78px!important;
+ background:rgba(46,15,112,.83)!important;
+ backdrop-filter:blur(18px) saturate(145%)!important;
+ -webkit-backdrop-filter:blur(18px) saturate(145%)!important;
+ border:0!important;border-bottom:1px solid rgba(255,255,255,.25)!important;
+ box-shadow:0 10px 30px rgba(35,10,78,.17)!important;
+}
+.officials-page .nav,.mc-page .nav{padding-left:max(23px,calc((100vw - 1240px)/2))!important;padding-right:max(23px,calc((100vw - 1240px)/2))!important;gap:16px!important}
+.emergency-page .navbar-in{max-width:1280px!important;width:100%!important;margin:0 auto!important;padding:0 23px!important}
+.officials-page .nav-brand,.mc-page .nav-brand,.emergency-page .navbar .brand{display:flex!important;align-items:center!important;gap:11px!important;color:#fff!important}
+.officials-page .nav-brand img,.mc-page .nav-brand img,.emergency-page .brand-img{
+ width:51px!important;height:51px!important;object-fit:contain!important;border-radius:50%!important;background:white!important;padding:3px!important;
+}
+.officials-page .nav-brand-text strong,.mc-page .nav-brand-text strong,.emergency-page .brand-text strong{color:white!important;font-size:15px!important;line-height:1.25!important}
+.officials-page .nav-brand-text small,.mc-page .nav-brand-text small,.emergency-page .brand-text small{color:#fff8d4!important;font-size:10px!important}
+.officials-page .nav-back,.mc-page .nav-back,.emergency-page .nav-back{
+ color:white!important;background:rgba(255,255,255,.12)!important;border:1px solid rgba(255,255,255,.3)!important;
+ border-radius:14px!important;padding:12px 16px!important;font-weight:700!important;min-height:43px!important;
+}
+.officials-page .nav-back:hover,.mc-page .nav-back:hover,.emergency-page .nav-back:hover,
+.officials-page .nav-back:focus-visible,.mc-page .nav-back:focus-visible,.emergency-page .nav-back:focus-visible{
+ background:var(--k-yellow)!important;color:var(--k-deep)!important;
+}
+.officials-page .hero,.mc-page .hero,.emergency-page .hero{
+ position:relative!important;isolation:isolate!important;
+ background:linear-gradient(130deg,rgba(42,8,123,.94),rgba(58,12,163,.87)),url("desktop.png") center center / cover no-repeat!important;
+ border-bottom:3px solid var(--k-yellow)!important;
+ color:#fff!important;
+ padding-top:55px!important;
+}
+.officials-page .hero:before,.mc-page .hero:before,.emergency-page .hero:before{pointer-events:none!important}
+.officials-page .hero h1,.officials-page .hero .glow,
+.mc-page .hero .hero-name,.mc-page .hero h1,
+.emergency-page .hero h1,.emergency-page .hero .hl{color:white!important;text-shadow:none!important}
+.officials-page .hero .glow,.emergency-page .hero .hl{color:var(--k-yellow)!important}
+.officials-page .hero .hero-sub,.mc-page .hero .hero-title,.emergency-page .hero .hero-sub{color:#f5eaff!important;opacity:1!important}
+.officials-page .hero-stats,.emergency-page .stats-bar,.mc-page .hero-label{
+ background:rgba(255,255,255,.15)!important;border:1px solid rgba(255,255,255,.23)!important;color:white!important;
+}
+.officials-page .hero-stats .stat-num,.emergency-page .stats-bar .stat-num{color:var(--k-yellow)!important;text-shadow:none!important}
+.officials-page .hero-stats .stat-label,.emergency-page .stats-bar .stat-label{color:white!important}
+.mc-page .hero-motto-line,.mc-page .hero-motto-text{color:#fff8c4!important}
+.officials-page .content,.mc-page .tabs-section,.emergency-page .contacts-section{
+ width:min(1240px,calc(100% - 36px))!important;max-width:1240px!important;margin-left:auto!important;margin-right:auto!important;
+}
+.officials-page .mayor-hero-card,.officials-page .vice-card,.officials-page .council-card,
+.mc-page .formal-card,.mc-page .epa-card,.mc-page .sector-card,
+.emergency-page .contact-card{
+ background:rgba(255,255,255,.96)!important;border:1px solid var(--k-line)!important;
+ border-radius:20px!important;box-shadow:0 8px 23px rgba(37,9,84,.09)!important;color:var(--k-ink)!important;
+}
+.officials-page .mayor-hero-card:hover,.officials-page .vice-card:hover,.officials-page .council-card:hover,
+.mc-page .formal-card:hover,.mc-page .epa-card:hover,.mc-page .sector-card:hover,
+.emergency-page .contact-card:hover{
+ border-color:#bbabeb!important;box-shadow:0 15px 30px rgba(37,9,84,.13)!important;
+}
+.officials-page .mayor-name,.officials-page .vice-name,.officials-page .council-name,
+.mc-page .formal-heading-text,.emergency-page .card-name{color:var(--k-purple)!important}
+.officials-page .mayor-desc,.officials-page .council-ordinance,.mc-page .formal-card p,
+.emergency-page .card-desc{color:#56496b!important}
+.mc-page .tabs-nav{background:rgba(255,255,255,.91)!important;border:1px solid var(--k-line)!important;border-radius:17px!important;box-shadow:0 6px 20px rgba(39,14,87,.08)!important}
+.mc-page .tab-btn{color:#513b7e!important;border-radius:13px!important}
+.mc-page .tab-btn.active,.mc-page .tab-btn:hover{background:var(--k-yellow)!important;color:var(--k-purple)!important;border-color:transparent!important}
+.mc-page .tab-btn.active i,.mc-page .tab-btn:hover i{color:var(--k-purple)!important}
+.mc-page .tab-panel{color:var(--k-ink)!important}
+.mc-page .formal-quote{background:linear-gradient(120deg,#331084,#3a0ca3)!important;color:#fff!important;border-radius:20px!important}
+.mc-page .formal-quote-text{color:#fff!important}
+.mc-page .formal-quote-attr{color:var(--k-yellow)!important}
+.emergency-page .section-label{color:var(--k-purple)!important}
+.emergency-page .card-phone{background:#f4eeff!important;color:var(--k-purple)!important;border-color:#e6dafb!important;border-radius:13px!important}
+.emergency-page .card-phone:hover,.emergency-page .card-phone:focus-visible{background:var(--k-yellow)!important;color:var(--k-deep)!important}
+.emergency-page .card-phone-num,.emergency-page .card-phone-call{color:inherit!important}
+.officials-page .footer,.mc-page .footer,.emergency-page .footer{
+ background:linear-gradient(105deg,#250764,#3a0ca3)!important;color:#fff!important;border-top:3px solid var(--k-yellow)!important;
+}
+.officials-page .footer *, .mc-page .footer *, .emergency-page .footer *{color:inherit}
+.mc-page .mc-footer-action{background:rgba(255,255,255,.13)!important;border:1px solid rgba(255,255,255,.22)!important}
+.mc-page .mc-footer-action:hover{background:var(--k-yellow)!important;color:var(--k-purple)!important}
+@media(max-width:1000px){
+ .portal-home-page .service-grid{grid-template-columns:repeat(2,minmax(0,1fr))!important}
+ .officials-page .nav,.mc-page .nav{padding-left:18px!important;padding-right:18px!important}
+}
+@media(max-width:760px){
+ .portal-home-page{background:#faf8ff!important}
+ .portal-home-page .services-section{width:calc(100% - 24px)!important;margin:22px 12px 40px!important;padding:24px 14px!important;border-radius:20px!important}
+ .portal-home-page .service-grid{grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:11px!important}
+ .portal-home-page .service-card{min-height:164px!important;padding:17px 10px!important;border-radius:16px!important}
+ .portal-home-page .service-card .service-icon{width:53px!important;height:53px!important;flex:0 0 53px!important}
+ .portal-home-page .service-card strong{font-size:12px!important}
+ .portal-home-page .service-card small{font-size:11px!important}
+ .officials-page,.mc-page,.emergency-page{background:#faf8ff!important}
+ .officials-page .nav,.mc-page .nav,.emergency-page .navbar{min-height:70px!important}
+ .officials-page .nav-brand img,.mc-page .nav-brand img,.emergency-page .brand-img{width:44px!important;height:44px!important}
+ .officials-page .nav-brand-text strong,.mc-page .nav-brand-text strong,.emergency-page .brand-text strong{font-size:12px!important}
+ .officials-page .nav-brand-text small,.mc-page .nav-brand-text small,.emergency-page .brand-text small{font-size:9px!important}
+ .officials-page .nav-back,.mc-page .nav-back,.emergency-page .nav-back{padding:9px 11px!important;min-height:40px!important;font-size:11px!important}
+ .officials-page .hero,.mc-page .hero,.emergency-page .hero{padding-top:42px!important}
+ .officials-page .content,.mc-page .tabs-section,.emergency-page .contacts-section{width:calc(100% - 24px)!important}
+ .emergency-page .cards-grid{grid-template-columns:1fr!important}
+}
+@media(max-width:400px){.portal-home-page .service-grid{grid-template-columns:1fr!important}}
+@media(prefers-reduced-motion:reduce){.portal-home-page .service-card{transition:none!important}}
