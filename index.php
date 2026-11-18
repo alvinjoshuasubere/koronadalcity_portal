@@ -61,7 +61,8 @@ if (is_array($officialsData)) {
   <main class="portal-shell" id="home">
     <section class="home-hero" aria-labelledby="gatewayHeading">
       <div class="hero-content">
-        <span class="kd-hero-eyebrow"><i class="fas fa-circle-check" aria-hidden="true"></i> CITY GOVERNMENT OF KORONADAL</span>
+        <span class="kd-hero-eyebrow"><i class="fas fa-circle-check" aria-hidden="true"></i> CITY GOVERNMENT OF
+          KORONADAL</span>
         <h1 id="gatewayHeading">Maayong Adlaw,<br>Koronadaleño!</h1>
         <p>Online government services, information and assistance in one convenient place.</p>
         <div class="portal-search" role="search"><i class="fas fa-search" aria-hidden="true"></i><input
@@ -81,35 +82,59 @@ if (is_array($officialsData)) {
         <p>Find the service you need and continue directly to its dedicated portal.</p>
       </div>
       <div class="service-grid" id="serviceGrid" aria-label="Available online services">
-        <a class="service-card service-tone-blue" href="https://koronadalcityportal.com/v2/login" target="_blank" rel="noopener noreferrer" data-search="business permits licensing bplo renewal">
-          <span class="kd-service-top"><span class="service-icon"><i class="fas fa-file-signature" aria-hidden="true"></i></span><span class="kd-service-category">Business services</span></span>
-          <span class="kd-service-main"><strong>Business Permits & Licensing</strong><small>Apply, renew and manage your business permits.</small></span>
-          <span class="kd-service-bottom"><span>Open service</span><i class="fas fa-arrow-up-right-from-square service-open" aria-hidden="true"></i></span>
+        <a class="service-card service-tone-blue" href="https://koronadalcityportal.com/v2/login" target="_blank"
+          rel="noopener noreferrer" data-search="business permits licensing bplo renewal">
+          <span class="kd-service-top"><span class="service-icon"><i class="fas fa-file-signature"
+                aria-hidden="true"></i></span><span class="kd-service-category">Business services</span></span>
+          <span class="kd-service-main"><strong>Business Permits & Licensing</strong><small>Apply, renew and manage your
+              business permits.</small></span>
+          <span class="kd-service-bottom"><span>Open service</span><i
+              class="fas fa-arrow-up-right-from-square service-open" aria-hidden="true"></i></span>
         </a>
-        <a class="service-card service-tone-teal" href="https://citizen.koronadalcityonlineservices.com/register" target="_blank" rel="noopener noreferrer" data-search="citizen records transactions digital government">
-          <span class="kd-service-top"><span class="service-icon"><i class="fas fa-id-card" aria-hidden="true"></i></span><span class="kd-service-category">Citizen services</span></span>
-          <span class="kd-service-main"><strong>Unified Citizen Services</strong><small>Access citizen profiles and integrated transactions.</small></span>
-          <span class="kd-service-bottom"><span>Open service</span><i class="fas fa-arrow-up-right-from-square service-open" aria-hidden="true"></i></span>
+        <a class="service-card service-tone-teal" href="https://citizen.koronadalcityonlineservices.com/register"
+          target="_blank" rel="noopener noreferrer" data-search="citizen records transactions digital government">
+          <span class="kd-service-top"><span class="service-icon"><i class="fas fa-id-card"
+                aria-hidden="true"></i></span><span class="kd-service-category">Citizen services</span></span>
+          <span class="kd-service-main"><strong>Unified Citizen Services</strong><small>Access citizen profiles and
+              integrated transactions.</small></span>
+          <span class="kd-service-bottom"><span>Open service</span><i
+              class="fas fa-arrow-up-right-from-square service-open" aria-hidden="true"></i></span>
         </a>
-        <a class="service-card service-tone-violet" href="https://jobs.koronadalcityonlineservices.com/" target="_blank" rel="noopener noreferrer" data-search="jobs career employment">
-          <span class="kd-service-top"><span class="service-icon"><i class="fas fa-briefcase" aria-hidden="true"></i></span><span class="kd-service-category">Employment</span></span>
-          <span class="kd-service-main"><strong>Koronadal Job Portal</strong><small>Explore employment opportunities in the city.</small></span>
-          <span class="kd-service-bottom"><span>Open service</span><i class="fas fa-arrow-up-right-from-square service-open" aria-hidden="true"></i></span>
+        <a class="service-card service-tone-violet" href="https://jobs.koronadalcityonlineservices.com/" target="_blank"
+          rel="noopener noreferrer" data-search="jobs career employment">
+          <span class="kd-service-top"><span class="service-icon"><i class="fas fa-briefcase"
+                aria-hidden="true"></i></span><span class="kd-service-category">Employment</span></span>
+          <span class="kd-service-main"><strong>Koronadal Job Portal</strong><small>Explore employment opportunities in
+              the city.</small></span>
+          <span class="kd-service-bottom"><span>Open service</span><i
+              class="fas fa-arrow-up-right-from-square service-open" aria-hidden="true"></i></span>
         </a>
-        <a class="service-card service-tone-amber" href="https://careers.koronadalcityonlineservices.com/" target="_blank" rel="noopener noreferrer" data-search="lgu recruitment careers applications">
-          <span class="kd-service-top"><span class="service-icon"><i class="fas fa-user-tie" aria-hidden="true"></i></span><span class="kd-service-category">City careers</span></span>
-          <span class="kd-service-main"><strong>LGU Recruitment</strong><small>Check city government vacancies and applications.</small></span>
-          <span class="kd-service-bottom"><span>Open service</span><i class="fas fa-arrow-up-right-from-square service-open" aria-hidden="true"></i></span>
+        <a class="service-card service-tone-amber" href="https://careers.koronadalcityonlineservices.com/"
+          target="_blank" rel="noopener noreferrer" data-search="lgu recruitment careers applications">
+          <span class="kd-service-top"><span class="service-icon"><i class="fas fa-user-tie"
+                aria-hidden="true"></i></span><span class="kd-service-category">City careers</span></span>
+          <span class="kd-service-main"><strong>LGU Recruitment</strong><small>Check city government vacancies and
+              applications.</small></span>
+          <span class="kd-service-bottom"><span>Open service</span><i
+              class="fas fa-arrow-up-right-from-square service-open" aria-hidden="true"></i></span>
         </a>
-        <a class="service-card service-tone-coral" href="https://traffic.koronadalcityonlineservices.com/" target="_blank" rel="noopener noreferrer" data-search="mtop transport tricycle verification">
-          <span class="kd-service-top"><span class="service-icon"><i class="fas fa-motorcycle" aria-hidden="true"></i></span><span class="kd-service-category">Transportation</span></span>
-          <span class="kd-service-main"><strong>MTOP Verification</strong><small>Verify motorized tricycle operator permits.</small></span>
-          <span class="kd-service-bottom"><span>Open service</span><i class="fas fa-arrow-up-right-from-square service-open" aria-hidden="true"></i></span>
+        <a class="service-card service-tone-coral" href="https://traffic.koronadalcityonlineservices.com/"
+          target="_blank" rel="noopener noreferrer" data-search="mtop transport tricycle verification">
+          <span class="kd-service-top"><span class="service-icon"><i class="fas fa-motorcycle"
+                aria-hidden="true"></i></span><span class="kd-service-category">Transportation</span></span>
+          <span class="kd-service-main"><strong>MTOP Verification</strong><small>Verify motorized tricycle operator
+              permits.</small></span>
+          <span class="kd-service-bottom"><span>Open service</span><i
+              class="fas fa-arrow-up-right-from-square service-open" aria-hidden="true"></i></span>
         </a>
-        <a class="service-card service-tone-rose" href="https://assistance.koronadalcityonlineservices.com/" target="_blank" rel="noopener noreferrer" data-search="assistance help support social services">
-          <span class="kd-service-top"><span class="service-icon"><i class="fas fa-hand-holding-heart" aria-hidden="true"></i></span><span class="kd-service-category">Public assistance</span></span>
-          <span class="kd-service-main"><strong>Online Assistance</strong><small>Visit the city's online assistance service portal.</small></span>
-          <span class="kd-service-bottom"><span>Open service</span><i class="fas fa-arrow-up-right-from-square service-open" aria-hidden="true"></i></span>
+        <a class="service-card service-tone-rose" href="https://assistance.koronadalcityonlineservices.com/"
+          target="_blank" rel="noopener noreferrer" data-search="assistance help support social services">
+          <span class="kd-service-top"><span class="service-icon"><i class="fas fa-hand-holding-heart"
+                aria-hidden="true"></i></span><span class="kd-service-category">Public assistance</span></span>
+          <span class="kd-service-main"><strong>Online Assistance</strong><small>Visit the city's online assistance
+              service portal.</small></span>
+          <span class="kd-service-bottom"><span>Open service</span><i
+              class="fas fa-arrow-up-right-from-square service-open" aria-hidden="true"></i></span>
         </a>
       </div>
       <div class="search-empty" id="searchEmpty" role="status" aria-live="polite">No service found. Try another search.
@@ -148,10 +173,10 @@ if (is_array($officialsData)) {
             <span class="kd-direct-icon <?= !empty($priority['logo']) ? 'kd-direct-logo' : '' ?>">
               <?php if (!empty($priority['logo'])): ?>
                 <img src="<?= htmlspecialchars($priority['logo'], ENT_QUOTES, 'UTF-8') ?>"
-                     alt="<?= htmlspecialchars($priority['label'], ENT_QUOTES, 'UTF-8') ?> official seal"
-                     loading="lazy" decoding="async"
-                     onerror="this.hidden=true;this.nextElementSibling.hidden=false">
-                <i class="fas <?= htmlspecialchars($priority['icon'], ENT_QUOTES, 'UTF-8') ?>" aria-hidden="true" hidden></i>
+                  alt="<?= htmlspecialchars($priority['label'], ENT_QUOTES, 'UTF-8') ?> official seal" loading="lazy"
+                  decoding="async" onerror="this.hidden=true;this.nextElementSibling.hidden=false">
+                <i class="fas <?= htmlspecialchars($priority['icon'], ENT_QUOTES, 'UTF-8') ?>" aria-hidden="true"
+                  hidden></i>
               <?php else: ?>
                 <i class="fas <?= htmlspecialchars($priority['icon'], ENT_QUOTES, 'UTF-8') ?>" aria-hidden="true"></i>
               <?php endif; ?>
@@ -199,7 +224,8 @@ if (is_array($officialsData)) {
   <footer class="portal-footer">
     <div class="footer-inner">
       <div class="kd-footer-top">
-        <div class="footer-brand"><span class="kd-footer-seal"><img src="Logo.png" alt="Official City of Koronadal seal" loading="lazy" decoding="async"></span>
+        <div class="footer-brand"><span class="kd-footer-seal"><img src="Logo.png" alt="Official City of Koronadal seal"
+              loading="lazy" decoding="async"></span>
           <div><strong>City Government of Koronadal</strong><span>Koronadal, South Cotabato, Philippines</span></div>
         </div>
         <nav class="footer-links" aria-label="Footer navigation"><a href="#home">Home</a><a
