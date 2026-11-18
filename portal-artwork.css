@@ -39,3 +39,22 @@ body.force-mobile .home-hero .hero-actions .secondary-action{background:#eef4fc!
 body.force-mobile .home-hero .hero-city-art{display:none!important}
 body.force-mobile .app-featured{background:linear-gradient(110deg,rgba(236,247,255,.98),rgba(255,255,255,.93)),url("mobile.png") right center / auto 100% no-repeat!important}
 @media(prefers-reduced-motion:reduce){.home-hero,.app-featured{background-attachment:scroll!important}}
+
+/* Layout correction: desktop.png is the DESKTOP PAGE BACKGROUND.
+   mobile.png is the WELCOME HEADER ART across desktop and mobile views. */
+@media(min-width:761px){
+ body:not(.force-mobile){background-image:linear-gradient(rgba(248,250,252,.88),rgba(248,250,252,.91)),url("desktop.png")!important;background-size:cover!important;background-position:center top!important;background-attachment:fixed!important}
+ body:not(.force-mobile) .home-hero{background-image:linear-gradient(90deg,rgba(9,28,52,.94) 0%,rgba(10,34,62,.88) 44%,rgba(11,38,70,.16) 100%),url("mobile.png")!important;background-repeat:no-repeat!important;background-position:center center!important;background-size:cover!important}
+ body:not(.force-mobile) .home-hero .hero-content{max-width:670px!important}
+}
+body.force-desktop{background-image:linear-gradient(rgba(248,250,252,.88),rgba(248,250,252,.91)),url("desktop.png")!important;background-size:cover!important;background-position:center top!important;background-attachment:fixed!important}
+body.force-desktop .home-hero{background-image:linear-gradient(90deg,rgba(9,28,52,.94) 0%,rgba(10,34,62,.88) 44%,rgba(11,38,70,.16) 100%),url("mobile.png")!important;background-position:center center!important;background-size:cover!important}
+.home-hero .hero-greeting{display:inline-flex;align-items:center;gap:9px;margin:14px 0 0;padding:8px 13px;border:1px solid rgba(255,255,255,.25);border-radius:100px;background:rgba(255,255,255,.1);font-size:13px;font-weight:750;letter-spacing:.01em;color:#fff}
+.home-hero .hero-greeting:before{content:"";width:8px;height:8px;flex:0 0 8px;background:#ffa34e;border-radius:50%}
+@media(max-width:760px){
+ body:not(.force-desktop) .home-hero .hero-greeting{color:#183656;background:#e7f3ff;border-color:#cfe4f6;font-size:12px;padding:8px 11px;margin-top:9px}
+ body:not(.force-desktop) .mobile-welcome .welcome-copy strong{font-size:clamp(19px,5vw,24px)!important}
+}
+body.force-mobile .home-hero .hero-greeting{color:#183656;background:#e7f3ff;border-color:#cfe4f6;font-size:12px;padding:8px 11px;margin-top:9px}
+body.force-mobile .mobile-welcome .welcome-copy strong{font-size:clamp(19px,5vw,24px)!important}
+@media(prefers-reduced-motion:reduce){body.force-desktop,body:not(.force-mobile){background-attachment:scroll!important}}
