@@ -41,7 +41,7 @@ if (is_array($officialsData)) {
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet" />
   <link rel="stylesheet" href="portal.css?v=20261118-26" />
   <link rel="stylesheet" href="civic-responsive.css?v=20261118-34" />
-  <link rel="stylesheet" href="mobile-app.css?v=20261118-3" />
+  <link rel="stylesheet" href="mobile-app.css?v=20261119-4" />
   <link rel="stylesheet" href="mayor-biography.css?v=20261119-1" />
 </head>
 
@@ -89,6 +89,11 @@ if (is_array($officialsData)) {
           <span class="kd-aborlan-card-heading"><span class="kd-aborlan-icon"><i class="fas fa-file-signature" aria-hidden="true"></i></span><strong>Business Permits & Licensing</strong></span>
           <ul class="kd-aborlan-benefits"><li>New business permits</li><li>Business permit renewal</li><li>Licensing transactions</li></ul>
           <span class="kd-aborlan-footer">Open Business Permits & Licensing <i class="fas fa-arrow-right" aria-hidden="true"></i></span>
+        </a>
+        <a class="service-card kd-aborlan-card" href="https://bplo.koronadalcityonlineservices.com/" target="_blank" rel="noopener noreferrer" data-search="verify business permit bplo business permit validation status authenticity lookup verification">
+          <span class="kd-aborlan-card-heading"><span class="kd-aborlan-icon"><i class="fas fa-file-circle-check" aria-hidden="true"></i></span><strong>Verify Business Permit</strong></span>
+          <ul class="kd-aborlan-benefits"><li>Business permit verification</li><li>Check permit information</li><li>View available permit records</li></ul>
+          <span class="kd-aborlan-footer">Open Permit Verification <i class="fas fa-arrow-right" aria-hidden="true"></i></span>
         </a>
         <a class="service-card kd-aborlan-card" href="https://citizen.koronadalcityonlineservices.com/register" target="_blank" rel="noopener noreferrer" data-search="citizen records transactions digital government">
           <span class="kd-aborlan-card-heading"><span class="kd-aborlan-icon"><i class="fas fa-id-card" aria-hidden="true"></i></span><strong>Unified Citizen Services</strong></span>
@@ -218,7 +223,7 @@ if (is_array($officialsData)) {
           Reserved.</span><span>Official City Portal</span></div>
     </div>
   </footer>
-  <nav class="bottom-nav" aria-label="Portal navigation"><a href="#home" class="active" aria-label="Home"><i
+  <nav class="bottom-nav" aria-label="Portal navigation"><a href="#home" class="active" aria-current="location" aria-label="Home"><i
         class="fas fa-house"></i><span>Home</span></a><a href="city-officials.php" aria-label="City leadership"><i
         class="fas fa-users"></i><span>Officials</span></a><a href="#services" class="center"
       aria-label="Browse services"><i class="fas fa-grip"></i><span>Services</span></a><a
@@ -252,7 +257,22 @@ if (is_array($officialsData)) {
       document.getElementById('submitSearch').onclick = function () { search.oninput(); document.getElementById('services').scrollIntoView({ behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth', block: 'start' }) };
       search.addEventListener('keydown', function (event) { if (event.key === 'Enter') { event.preventDefault(); document.getElementById('submitSearch').click() } });
       document.querySelectorAll('a[href^="#"]').forEach(function (a) { a.onclick = function (e) { var hash = a.getAttribute('href'); if (!hash || hash === '#') return; var t = document.getElementById(hash.slice(1)); if (t) { e.preventDefault(); t.scrollIntoView({ behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth', block: 'start' }); if (body.classList.contains('header-collapsed')) menuBtn.click() } } });
-      var ids = ['home', 'services', 'emergency', 'leadership', 'city-info'], obs = new IntersectionObserver(function (es) { es.forEach(function (e) { if (e.isIntersecting) { document.querySelectorAll('.bottom-nav a').forEach(function (a) { a.classList.toggle('active', a.getAttribute('href') === '#' + e.target.id) }); document.querySelectorAll('.desktop-nav a').forEach(function (a) { a.classList.toggle('active', a.getAttribute('href') === '#' + e.target.id) }) } }) }, { rootMargin: '-45% 0px -45% 0px' });
+      var ids = ['home', 'services', 'emergency', 'leadership', 'city-info'], navTargets = {home:'#home',services:'#services',emergency:'emergency-contacts.php',leadership:'city-officials.php','city-info':'https://koronadal.gov.ph/'};
+      var obs = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          if (!entry.isIntersecting) return;
+          var activeHref = navTargets[entry.target.id];
+          document.querySelectorAll('.bottom-nav a').forEach(function (link) {
+            var active = link.getAttribute('href') === activeHref;
+            link.classList.toggle('active', active);
+            if (active) link.setAttribute('aria-current', 'location');
+            else link.removeAttribute('aria-current');
+          });
+          document.querySelectorAll('.desktop-nav a').forEach(function (link) {
+            link.classList.toggle('active', link.getAttribute('href') === '#' + entry.target.id);
+          });
+        });
+      }, { rootMargin: '-40% 0px -40% 0px' });
       ids.forEach(function (id) { var el = document.getElementById(id); if (el) obs.observe(el) });
 
       // Auto follows screen size. Manual modes persist across reloads and device widths.
