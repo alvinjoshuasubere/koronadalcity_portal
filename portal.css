@@ -17269,3 +17269,149 @@ body.force-mobile .home-hero .hero-greeting{display:inline-flex!important;visibi
 }
 @media(max-width:470px){.home-emergency-grid{grid-template-columns:1fr}.home-emergency-card{min-height:0;padding:18px}.home-emergency-call{font-size:12px}}
 @media(prefers-reduced-motion:reduce){.home-emergency-card{transition:none}}
+
+
+/* === IMAGE-FREE DESIGN SYSTEM : all four Koronadal Portal pages ===
+   Solid colors, accessible text and icon typography only.
+   Kept in the single existing portal.css file. */
+:root{
+ --clean-primary:#3a0ca3;--clean-primary-dark:#280776;
+ --clean-yellow:#fff275;--clean-ink:#251647;
+ --clean-muted:#675d7b;--clean-paper:#faf9fe;
+ --clean-line:#e5def3;--clean-card:#ffffff;
+}
+html{scroll-behavior:smooth}
+body.portal-home-page,body.portal-home-page.force-desktop,
+body.portal-home-page.force-mobile,body.officials-page,body.mc-page,
+body.emergency-page{
+ background:#f7f5fc!important;background-image:none!important;
+ background-attachment:scroll!important;color:var(--clean-ink)!important;
+}
+/* Entire design has no image-based visual surfaces or photo components. */
+body.portal-home-page *,body.officials-page *,body.mc-page *,body.emergency-page *,
+body.portal-home-page *::before,body.portal-home-page *::after,
+body.officials-page *::before,body.officials-page *::after,
+body.mc-page *::before,body.mc-page *::after,
+body.emergency-page *::before,body.emergency-page *::after{
+ background-image:none!important;mask-image:none!important;-webkit-mask-image:none!important;
+}
+body.portal-home-page img,body.officials-page img,body.mc-page img,body.emergency-page img,
+body.portal-home-page picture,body.officials-page picture,body.mc-page picture,
+body.emergency-page picture{display:none!important}
+.portal-home-page .hero-city-art,.portal-home-page .hero-logo,
+.officials-page .bg-layer,.officials-page .hero-particles,.officials-page .mayor-photo-section,
+.officials-page .vice-avatar,.officials-page .council-avatar,
+.mc-page .bg-layer,.mc-page .hero-bg,.mc-page .hero-photo-wrap,.mc-page .mc-footer-logo,
+.emergency-page .orbs,.emergency-page .pulse-ring{display:none!important}
+/* Simple navy-purple header, no hero artwork. */
+.portal-home-page .portal-header,.officials-page .nav,.mc-page .nav,
+.emergency-page .navbar{
+ background:rgba(48,13,119,.94)!important;
+ backdrop-filter:blur(12px)!important;-webkit-backdrop-filter:blur(12px)!important;
+ border:0!important;border-bottom:2px solid var(--clean-yellow)!important;
+ box-shadow:0 5px 22px rgba(40,7,118,.10)!important;
+}
+.portal-home-page .portal-header::before,.officials-page .nav::before,
+.mc-page .nav::before,.emergency-page .navbar::before{display:none!important}
+.portal-home-page .header-inner{min-height:76px!important}
+.portal-home-page .brand,.officials-page .nav-brand,.mc-page .nav-brand,
+.emergency-page .navbar .brand{gap:0!important}
+.portal-home-page .brand strong,.officials-page .nav-brand-text strong,
+.mc-page .nav-brand-text strong,.emergency-page .brand-text strong{color:white!important}
+.portal-home-page .brand small,.officials-page .nav-brand-text small,
+.mc-page .nav-brand-text small,.emergency-page .brand-text small{color:#efe6ff!important}
+.portal-home-page .desktop-nav a,.portal-home-page .desktop-nav a i{color:white!important}
+.portal-home-page .desktop-nav a:hover,.portal-home-page .desktop-nav a.active,
+.portal-home-page .header-service-btn,
+.officials-page .nav-back:hover,.mc-page .nav-back:hover,.emergency-page .nav-back:hover{
+ background:var(--clean-yellow)!important;color:var(--clean-primary-dark)!important;
+}
+/* User-facing welcome, simple solid purple panel with strong contrast. */
+.portal-home-page .home-hero,
+.portal-home-page.force-desktop .home-hero,
+.portal-home-page.force-mobile .home-hero{
+ display:flex!important;justify-content:center!important;align-items:center!important;
+ position:relative!important;min-height:290px!important;height:auto!important;
+ aspect-ratio:auto!important;padding:55px 25px!important;
+ background:var(--clean-primary)!important;border:0!important;border-radius:0 0 22px 22px!important;
+ box-shadow:none!important;
+}
+.portal-home-page .home-hero::before,.portal-home-page .home-hero::after{display:none!important;content:none!important}
+.portal-home-page .home-hero .hero-content,
+.portal-home-page.force-desktop .home-hero .hero-content{
+ display:flex!important;flex-direction:column!important;align-items:center!important;
+ max-width:830px!important;width:100%!important;margin:auto!important;
+ padding:0!important;text-align:center!important;
+}
+.portal-home-page .home-hero .hero-kicker{color:#eee3ff!important}
+.portal-home-page .home-hero .hero-greeting{color:#fff!important;border-color:rgba(255,242,117,.6)!important;background:rgba(255,255,255,.12)!important}
+.portal-home-page .home-hero .hero-content h1,
+.portal-home-page.force-desktop .home-hero .hero-content h1{color:#fff!important;text-shadow:none!important;font-size:clamp(31px,4.2vw,55px)!important}
+.portal-home-page .home-hero .hero-content h1 b{color:var(--clean-yellow)!important}
+.portal-home-page .home-hero .hero-content p{color:#f0eaff!important;text-shadow:none!important;font-size:clamp(13px,1.4vw,16px)!important;max-width:680px!important}
+.portal-home-page .hero-actions .primary-action{background:var(--clean-yellow)!important;color:var(--clean-primary)!important}
+.portal-home-page .hero-actions .secondary-action{background:#fff!important;color:var(--clean-primary)!important;border-color:#fff!important}
+/* White service and hotline panels, reduced visual clutter. */
+.portal-home-page .services-section,.portal-home-page .home-emergency-section{
+ background:white!important;border:1px solid var(--clean-line)!important;border-radius:20px!important;
+ box-shadow:0 5px 24px rgba(48,16,110,.05)!important;backdrop-filter:none!important;
+}
+.portal-home-page .service-card,.portal-home-page .home-emergency-card{
+ background:#fff!important;border:1px solid var(--clean-line)!important;
+ box-shadow:none!important;border-radius:16px!important;
+ color:var(--clean-ink)!important;
+}
+.portal-home-page .service-card strong,.portal-home-page .home-emergency-card h3{color:var(--clean-ink)!important}
+.portal-home-page .service-card small,.portal-home-page .home-emergency-card p{color:var(--clean-muted)!important}
+.portal-home-page .service-card:hover,.portal-home-page .service-card:focus-visible,
+.portal-home-page .home-emergency-card:hover{
+ background:#fffdf0!important;border-color:#f0e27a!important;
+ box-shadow:0 7px 18px rgba(48,16,110,.08)!important;
+}
+.portal-home-page .service-card:hover strong{color:var(--clean-primary)!important}
+.portal-home-page .portal-search{background:#fff!important;border:1px solid var(--clean-line)!important;box-shadow:0 5px 18px rgba(48,16,110,.07)!important}
+.portal-home-page .service-icon,.portal-home-page .home-emergency-icon{background:#efeafd!important;color:var(--clean-primary)!important}
+.portal-home-page .home-emergency-call,.portal-home-page .portal-search-submit{background:var(--clean-yellow)!important;color:var(--clean-primary)!important}
+.portal-home-page .footer-inner,.portal-home-page .portal-footer{background:#250767!important;color:#fff!important}
+.portal-home-page .bottom-nav{background:#2a0b75!important}
+.portal-home-page .bottom-nav a.active{background:var(--clean-yellow)!important}
+.portal-home-page .bottom-nav a.active i,.portal-home-page .bottom-nav a.active span{color:var(--clean-primary)!important}
+/* Same layout language on all dedicated information pages. */
+.officials-page .hero,.mc-page .hero,.emergency-page .hero{
+ min-height:0!important;background:#3a0ca3!important;
+ border:0!important;border-bottom:3px solid var(--clean-yellow)!important;
+ color:#fff!important;padding:56px 22px!important;
+}
+.officials-page .hero h1,.mc-page .hero h1,.mc-page .hero-name,.emergency-page .hero h1{color:white!important}
+.officials-page .hero .glow,.emergency-page .hero .hl{color:var(--clean-yellow)!important}
+.officials-page .hero-sub,.mc-page .hero-title,.emergency-page .hero-sub{color:#f3ebff!important}
+.officials-page .content,.mc-page .tabs-section,.emergency-page .contacts-section{max-width:1180px!important}
+.officials-page .mayor-hero-card,.officials-page .vice-card,.officials-page .council-card,
+.mc-page .formal-card,.mc-page .epa-card,.mc-page .sector-card,.emergency-page .contact-card{
+ background:#fff!important;color:var(--clean-ink)!important;
+ border:1px solid var(--clean-line)!important;border-radius:16px!important;box-shadow:none!important;
+}
+.officials-page .mayor-hero-card:hover,.officials-page .vice-card:hover,.officials-page .council-card:hover,
+.mc-page .formal-card:hover,.mc-page .epa-card:hover,.mc-page .sector-card:hover,
+.emergency-page .contact-card:hover{border-color:#cbb9f5!important;box-shadow:0 8px 20px rgba(48,16,110,.07)!important}
+.officials-page .mayor-info,.officials-page .vice-info,.officials-page .council-card{text-align:center!important}
+.officials-page .mayor-tags{justify-content:center!important}
+.officials-page .mayor-name,.officials-page .vice-name,.officials-page .council-name,
+.mc-page .formal-heading-text,.emergency-page .card-name{color:var(--clean-primary)!important}
+.mc-page .hero-inner{display:flex!important;justify-content:center!important;text-align:center!important}
+.mc-page .hero-text{max-width:900px!important;margin:auto!important;text-align:center!important}
+.mc-page .hero-motto-line{justify-content:center!important}
+.mc-page .tabs-nav{background:white!important;box-shadow:none!important;border:1px solid var(--clean-line)!important}
+.mc-page .tab-btn.active,.mc-page .tab-btn:hover{background:var(--clean-yellow)!important;color:var(--clean-primary)!important}
+.mc-page .formal-quote{background:var(--clean-primary)!important}
+.emergency-page .hero-content{text-align:center!important;margin:0 auto!important}
+.emergency-page .hero-icon-wrap,.emergency-page .hero-icon{background:#fff275!important;color:var(--clean-primary)!important}
+.emergency-page .contact-card .card-phone{background:#f1ebff!important;color:var(--clean-primary)!important}
+.emergency-page .contact-card .card-phone:hover{background:var(--clean-yellow)!important;color:var(--clean-primary)!important}
+.officials-page .footer,.mc-page .footer,.emergency-page .footer{background:#250767!important;color:white!important}
+@media(max-width:760px){
+ .portal-home-page .home-hero,.portal-home-page.force-mobile .home-hero{padding:38px 17px!important;min-height:275px!important;background:var(--clean-primary)!important}
+ .portal-home-page .home-hero .hero-content h1{font-size:clamp(29px,7vw,40px)!important}
+ .portal-home-page .services-section,.portal-home-page .home-emergency-section{border-radius:17px!important}
+ .officials-page .hero,.mc-page .hero,.emergency-page .hero{padding:40px 17px!important}
+}
