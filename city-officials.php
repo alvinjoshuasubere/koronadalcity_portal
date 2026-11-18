@@ -64,7 +64,7 @@ function getCommitteeColor($tag, $committeeColors, $defaultColor) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="theme-color" content="#102d50">
+    <meta name="theme-color" content="#0b1220">
     <title>City Officials Directory - Koronadal City</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -1354,6 +1354,7 @@ function getCommitteeColor($tag, $committeeColors, $defaultColor) {
     <link rel="stylesheet" href="portal-unified.css?v=20261118" />
     <link rel="stylesheet" href="portal-glacier.css?v=20261118-2" />
     <link rel="stylesheet" href="portal-navy-editorial.css?v=20261118-1" />
+    <link rel="stylesheet" href="portal-pilipiknow-palette.css?v=20261118-1" />
 </head>
 
 <body class="officials-page">
