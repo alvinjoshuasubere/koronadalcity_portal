@@ -46,13 +46,14 @@ if (is_array($officialsData)) {
     <link rel="stylesheet" href="portal-navy-editorial.css?v=20261118-1" />
     <link rel="stylesheet" href="portal-pilipiknow-palette.css?v=20261118-1" />
     <link rel="stylesheet" href="portal-artwork.css?v=20261118-1" />
+    <link rel="stylesheet" href="portal-cartoon-reference.css?v=20261118-1" />
 </head>
 
 <body>
 <header class="portal-header" id="portalHeader">
   <div class="header-inner">
-    <a class="brand" href="#home"><img src="Logo.png" alt="City of Koronadal"><span><strong>City of Koronadal</strong><small>Digital Gateway</small></span></a>
-    <nav class="desktop-nav" id="desktopNav" aria-label="Main navigation"><a href="#home" class="active">Home</a><a href="#services">Services</a><a href="#information">City Info</a><a href="#leadership">Leadership</a><a href="emergency-contacts.php">Emergency</a></nav>
+    <a class="brand" href="#home"><img src="Logo.png" alt="City of Koronadal"><span><strong>City of Koronadal</strong><small>Government Services Portal</small></span></a>
+    <nav class="desktop-nav" id="desktopNav" aria-label="Main navigation"><a href="#home" class="active"><i class="fas fa-house" aria-hidden="true"></i> Home</a><a href="#services"><i class="fas fa-grip" aria-hidden="true"></i> Services</a><a href="#leadership"><i class="fas fa-users" aria-hidden="true"></i> Officials</a><a href="#information"><i class="fas fa-circle-info" aria-hidden="true"></i> About the City</a><a href="emergency-contacts.php"><i class="fas fa-phone-volume" aria-hidden="true"></i> Emergency</a></nav>
     <div class="header-actions"><span class="official-pill"><i class="fas fa-circle"></i> Official Portal</span><a class="header-service-btn" href="#services"><i class="fas fa-grid-2"></i> Services</a><button class="menu-btn" id="menuBtn" type="button" aria-label="Toggle navigation" aria-controls="desktopNav" aria-expanded="false"><i class="fas fa-bars"></i></button></div>
   </div><div class="brand-accent"><i></i><i></i><i></i></div>
 </header>
@@ -63,8 +64,8 @@ if (is_array($officialsData)) {
     <div class="hero-logo"><img src="Logo.png" alt="Koronadal City"></div>
     <div class="hero-kicker"><span class="live-dot"></span> CITY SERVICES, MADE SIMPLE</div>
     <div class="hero-greeting">Maayong Aga, Koronadaleño!</div>
-    <h1>Welcome to<br><b>Koronadal City</b></h1>
-    <p>Your city services, information and assistance in one place.</p>
+    <h1>Koronadal City<br><b>Services Portal</b></h1>
+    <p>Your city services in one place.</p>
     <div class="hero-actions"><a href="#services" class="primary-action"><i class="fas fa-arrow-down"></i> Explore Services</a><a href="emergency-contacts.php" class="secondary-action"><i class="fas fa-phone-volume"></i> Emergency Help</a></div>
   </div>
   <div class="hero-city-art" aria-hidden="true"><div class="city-art-orbit orbit-one"></div><div class="city-art-orbit orbit-two"></div><div class="city-art-building building-one"></div><div class="city-art-building building-two"></div><div class="city-art-building building-three"></div><div class="city-art-platform"></div><div class="city-art-glow"></div></div>
@@ -113,6 +114,8 @@ if (is_array($officialsData)) {
         <a class="top-task" href="https://citizen.koronadalcityonlineservices.com/register" target="_blank" rel="noopener noreferrer"><i class="fas fa-id-card" aria-hidden="true"></i><span><strong>Citizen Portal</strong><small>Online transactions</small></span></a>
         <a class="top-task" href="https://jobs.koronadalcityonlineservices.com/" target="_blank" rel="noopener noreferrer"><i class="fas fa-briefcase" aria-hidden="true"></i><span><strong>Find a Job</strong><small>Employment opportunities</small></span></a>
         <a class="top-task" href="emergency-contacts.php"><i class="fas fa-phone-volume" aria-hidden="true"></i><span><strong>Emergency</strong><small>Important hotlines</small></span></a>
+        <a class="top-task" href="https://koronadal.gov.ph/27-barangay/" target="_blank" rel="noopener noreferrer"><i class="fas fa-house-flag" aria-hidden="true"></i><span><strong>Barangays</strong><small>Explore our communities</small></span></a>
+        <a class="top-task" href="#landmarks"><i class="fas fa-mountain-sun" aria-hidden="true"></i><span><strong>Tourism</strong><small>Explore Koronadal</small></span></a>
       </div>
     </div>
     <aside class="dashboard-panel dashboard-assist" aria-label="Helpful city information">
@@ -218,7 +221,7 @@ $logo = $type === 'police' ? 'fa-shield-halved' : ($type === 'fire' ? 'fa-fire-f
   <section class="citizen-banner"><div class="citizen-badge"><i class="fas fa-id-card"></i></div><div><span>CITIZEN ACCESS</span><h2>Continue your city transaction</h2><p>Use the Citizen Portal for online services and digital transactions.</p></div><a href="https://citizen.koronadalcityonlineservices.com/register" target="_blank">Open Citizen Portal <i class="fas fa-arrow-right"></i></a></section>
 </main>
 <footer class="portal-footer"><div class="footer-inner"><div class="footer-brand"><img src="Logo.png" alt="Koronadal City"><div><strong>City of Koronadal</strong><span>Digital Gateway</span></div></div><div class="footer-copy">Official digital access to city services, information, assistance and citizen resources.</div><div class="footer-links"><a href="#services">Services</a><a href="#services">Digital Portals</a><a href="#information">City Info</a><a href="city-officials.php">Officials</a><a href="emergency-contacts.php">Emergency</a><a href="https://koronadal.gov.ph/" target="_blank">LGU Website</a></div><div class="footer-bottom"><span>© <?= date('Y') ?> City Government of Koronadal</span><span>Official City Portal</span></div></div></footer>
-<nav class="bottom-nav" aria-label="Mobile navigation"><a href="#home" class="active" aria-label="Home"><i class="fas fa-house"></i><span>Home</span></a><a href="#leadership" aria-label="City leadership"><i class="fas fa-users"></i><span>Officials</span></a><a href="#services" class="center" aria-label="Browse services"><i class="fas fa-grip"></i><span>Services</span></a><a href="#information" aria-label="City information"><i class="fas fa-city"></i><span>City</span></a><a href="emergency-contacts.php" aria-label="Emergency contacts"><i class="fas fa-phone-volume"></i><span>Help</span></a></nav>
+<nav class="bottom-nav" aria-label="Portal navigation"><a href="#home" class="active" aria-label="Home"><i class="fas fa-house"></i><span>Home</span></a><a href="#leadership" aria-label="City leadership"><i class="fas fa-users"></i><span>Officials</span></a><a href="#services" class="center" aria-label="Browse services"><i class="fas fa-grip"></i><span>Services</span></a><a href="#information" aria-label="City information"><i class="fas fa-city"></i><span>City</span></a><a href="emergency-contacts.php" aria-label="Emergency contacts"><i class="fas fa-phone-volume"></i><span>Help</span></a></nav>
 <div class="view-switcher" id="viewSwitcher">
   <button type="button" class="view-trigger" id="viewTrigger" aria-label="Choose layout mode" aria-haspopup="true" aria-controls="viewModeMenu" aria-expanded="false">
     <i class="fas fa-display" aria-hidden="true"></i><span id="viewLabel" class="view-label">Auto view</span><i class="fas fa-chevron-up view-chevron" aria-hidden="true"></i>
