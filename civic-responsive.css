@@ -1,0 +1,158 @@
+
+/* City of Koronadal shared civic layout, all widths */
+*,*::before,*::after{box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:100px}
+body{overflow-x:hidden!important}img,iframe,video,svg{max-width:100%}a,button{touch-action:manipulation}
+:where(.portal-home-page,.mc-page,.officials-page,.emergency-page) :is(a,button,input):focus-visible{outline:3px solid #258bd4!important;outline-offset:3px!important}
+body.portal-home-page .portal-shell,body.portal-home-page .portal-header .header-inner,body.portal-home-page .kd-utility-inner,body.portal-home-page .portal-footer .footer-inner{max-width:1240px!important}
+body.portal-home-page .services-section .service-grid,body.portal-home-page .kd-emergency-direct-grid,body.portal-home-page .kd-info-panels{min-width:0!important}
+body.portal-home-page .services-section .service-grid>*,body.portal-home-page .kd-emergency-direct-grid>*,body.portal-home-page .kd-info-panels>*{min-width:0!important;max-width:100%!important}
+body.portal-home-page .services-section .service-grid .service-card{overflow-wrap:break-word!important}
+body.portal-home-page .kd-service-category{max-width:60%!important;white-space:normal!important}
+body.portal-home-page .kd-direct-hotline .kd-direct-call{white-space:normal!important;min-width:0!important}
+body.portal-home-page .home-hero .portal-search{max-width:100%!important}
+body.portal-home-page .kd-info-panel .kd-mayor-body>div{min-width:0!important}
+body.portal-home-page .kd-mayor-avatar img{width:100%!important;height:100%!important;display:block!important}
+body.portal-home-page .portal-footer .footer-links a{min-width:0!important;overflow-wrap:break-word!important}
+body.portal-home-page .kd-emergency-banner,body.portal-home-page .kd-emergency-heading-copy{max-width:100%!important}
+body.portal-home-page .kd-emergency-all{white-space:normal!important;max-width:100%!important}
+@media(min-width:761px) and (max-width:1140px){
+body.portal-home-page .portal-header .header-inner{gap:12px!important}
+body.portal-home-page .portal-header .desktop-nav{gap:2px!important}
+body.portal-home-page .portal-header .desktop-nav a{padding:10px 8px!important;font-size:11px!important}
+body.portal-home-page .portal-header .brand strong{font-size:14px!important}
+body.portal-home-page .home-hero{padding:40px!important}
+}
+@media(max-width:760px){
+body.portal-home-page .portal-shell,body.portal-home-page .portal-header .header-inner,body.portal-home-page .kd-utility-inner,body.portal-home-page .portal-footer .footer-inner{width:calc(100% - 28px)!important;min-width:0!important}
+body.portal-home-page .portal-header .header-inner{gap:8px!important}
+body.portal-home-page .portal-header .brand{min-width:0!important;flex:1 1 auto!important}
+body.portal-home-page .portal-header .brand span{min-width:0!important}
+body.portal-home-page .portal-header .brand strong{font-size:12px!important}
+body.portal-home-page .portal-header .brand img{width:44px!important;height:44px!important}
+body.portal-home-page .home-hero{padding:28px 18px!important}
+body.portal-home-page .home-hero .hero-content{min-width:0!important;width:100%!important}
+body.portal-home-page .home-hero h1{font-size:clamp(28px,7vw,42px)!important;overflow-wrap:break-word!important}
+body.portal-home-page .home-hero .portal-search{gap:5px!important;padding:6px!important;min-width:0!important}
+body.portal-home-page .home-hero .portal-search input{width:100%!important;min-width:0!important;font-size:12px!important}
+body.portal-home-page .home-hero .portal-search .portal-search-submit{flex:0 0 auto!important;padding:10px 12px!important}
+body.portal-home-page .services-section .service-grid{grid-template-columns:1fr!important}
+body.portal-home-page .kd-emergency-direct-grid{grid-template-columns:repeat(2,minmax(0,1fr))!important}
+body.portal-home-page .kd-direct-hotline{padding:13px 7px!important}
+body.portal-home-page .kd-direct-hotline strong{font-size:18px!important}
+body.portal-home-page .kd-direct-call{font-size:10px!important;overflow-wrap:anywhere!important}
+body.portal-home-page .kd-info-panels{grid-template-columns:minmax(0,1fr)!important}
+body.portal-home-page .kd-info-panel{overflow-wrap:anywhere!important}
+body.portal-home-page .portal-footer .kd-footer-top{grid-template-columns:1fr!important}
+body.portal-home-page .portal-footer .footer-links{grid-template-columns:repeat(2,minmax(0,1fr))!important}
+body.portal-home-page .view-switcher{bottom:78px!important;right:10px!important;z-index:890!important}
+}
+@media(max-width:420px){
+body.portal-home-page .kd-emergency-direct-grid{grid-template-columns:1fr!important}
+body.portal-home-page .kd-emergency-direct-grid .kd-direct-hotline{min-height:180px!important}
+body.portal-home-page .kd-mayor-body{flex-direction:column!important;align-items:flex-start!important}
+body.portal-home-page .home-hero .hero-actions{flex-direction:column!important;align-items:stretch!important}
+body.portal-home-page .home-hero .hero-actions a{width:100%!important}
+}
+/* Shared map and weather widget */
+.kd-live-section{width:min(1240px,100%);margin:48px auto 60px;color:#173756;font-family:Sora,system-ui,sans-serif;min-width:0}
+.kd-live-intro{display:flex;align-items:flex-end;justify-content:space-between;gap:16px;flex-wrap:wrap;margin-bottom:22px}
+.kd-live-eyebrow,.kd-card-overline{color:#1764a3;font-size:10px;font-weight:800;letter-spacing:.13em}
+.kd-live-intro h2{font-size:clamp(23px,3vw,33px);font-weight:800;letter-spacing:-.04em;margin:7px 0 8px}
+.kd-live-intro p{margin:0;color:#61758d;font-size:12px;line-height:1.65}
+.kd-live-locality{font-size:11px;font-weight:700;color:#27669f;padding:11px 14px;border:1px solid #dbe9f8;border-radius:10px;background:#fff}
+.kd-live-grid{display:grid;grid-template-columns:1fr 1.25fr;gap:19px;align-items:stretch;min-width:0}
+.kd-live-card{min-width:0;background:#fff;border:1px solid #dce8f5;box-shadow:0 7px 22px rgba(14,57,105,.06);border-radius:18px;padding:23px;display:flex;flex-direction:column}
+.kd-live-card-head{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:19px}
+.kd-live-card-head h3{font-size:17px;font-weight:800;letter-spacing:-.025em;margin:6px 0 0}
+.kd-live-card-head>i{font-size:23px;color:#1b6caf}
+.kd-current-weather{display:flex;align-items:center;gap:20px;border-radius:13px;padding:21px;background:linear-gradient(120deg,#e8f4ff,#f5fbff)}
+.kd-temp{font-size:clamp(39px,4vw,57px);font-weight:800;color:#0d4e93;letter-spacing:-.07em;white-space:nowrap}
+.kd-weather-description{display:flex;flex-direction:column;gap:8px;min-width:0}
+.kd-weather-description strong{font-size:13px;line-height:1.5}
+.kd-weather-description span{font-size:10px;color:#59748f}
+.kd-weather-details{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:15px 0}
+.kd-weather-details>div{display:flex;gap:7px;align-items:center;flex-wrap:wrap;border:1px solid #e5edf6;border-radius:10px;padding:11px;font-size:10px;color:#62758b}
+.kd-weather-details i{color:#1b72b9}.kd-weather-details strong{font-size:11px;color:#14395e;margin-left:auto}
+.kd-forecast-heading{font-size:11px;font-weight:800;color:#1c3e60;margin:3px 0 10px}
+.kd-forecast{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:7px}
+.kd-forecast-day{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;padding:11px 4px;min-width:0;border:1px solid #e2ebf5;border-radius:10px;background:#f8fbff;text-align:center}
+.kd-forecast-day strong{font-size:10px;color:#416180}.kd-forecast-day i{font-size:16px;color:#2c83c3}.kd-forecast-day span{font-size:10px;font-weight:750;color:#173d66;white-space:nowrap}
+.kd-weather-loading{font-size:11px;color:#667b91}
+.kd-weather-source{margin:15px 0 0;color:#778aa0;font-size:9px;line-height:1.6}
+.kd-weather-source a{color:#176eae}
+.kd-map-frame{height:320px;min-height:275px;border-radius:13px;overflow:hidden;border:1px solid #dbe7f4;flex:1}
+.kd-map-frame iframe{width:100%;height:100%;min-height:275px;border:0;display:block}
+.kd-map-foot{display:flex;justify-content:space-between;align-items:center;gap:14px;flex-wrap:wrap;margin-top:16px}
+.kd-map-foot span{font-size:10px;color:#61768b;line-height:1.6}
+.kd-map-foot a{font-size:11px;font-weight:750;color:#1263ad;text-decoration:none}
+@media(max-width:900px){.kd-live-grid{grid-template-columns:minmax(0,1fr)}.kd-map-frame{height:290px}.kd-live-section{margin:34px auto 45px}}
+@media(max-width:540px){.kd-live-section{width:100%;padding:0 2px}.kd-live-card{padding:15px;border-radius:14px}.kd-current-weather{padding:15px;gap:12px}.kd-temp{font-size:42px}.kd-forecast-day{padding:10px 2px}.kd-forecast-day span{font-size:9px}.kd-map-frame{height:260px}.kd-weather-details>div{padding:9px}.kd-live-locality{font-size:10px}}
+/* Koronadal Government directory inspired by civic information sections */
+body.civic-government-page{margin:0;background:#f5f8fc!important;color:#193554!important;font-family:Sora,system-ui,sans-serif}
+.civic-government-page .cg-header{background:#fff;border-bottom:1px solid #dfe9f4;position:sticky;top:0;z-index:100;box-shadow:0 5px 20px rgba(13,56,105,.055)}
+.cg-header-in,.cg-main,.cg-footer-inner{width:min(1180px,calc(100% - 40px));margin:0 auto}
+.cg-header-in{min-height:80px;display:flex;justify-content:space-between;align-items:center;gap:24px}
+.cg-brand{display:flex;align-items:center;gap:12px;color:#11345a;text-decoration:none;min-width:0}
+.cg-brand img{display:block!important;width:53px;height:53px;object-fit:contain}
+.cg-brand strong,.cg-footer-brand strong{display:block;font-size:14px;line-height:1.4;font-weight:800}
+.cg-brand small,.cg-footer-brand small{display:block;font-size:10px;color:#63809b;line-height:1.5}
+.cg-nav{display:flex;gap:8px;align-items:center}
+.cg-nav a{font-size:11px;color:#224d77;text-decoration:none;white-space:nowrap;padding:10px;border-radius:9px}
+.cg-nav a:hover{background:#eaf3fd;color:#0756a5}
+.cg-hero{text-align:left;padding:56px 52px;border:1px solid #d2e5f6;background:linear-gradient(110deg,#e6f4ff,#f9fcff);border-radius:18px;margin:28px 0 47px}
+.cg-kicker{font-size:10px;color:#176eac;font-weight:800;letter-spacing:.12em}
+.cg-hero h1{font-size:clamp(29px,4vw,46px);letter-spacing:-.055em;line-height:1.18;color:#0e315b;margin:13px 0}
+.cg-hero p{max-width:760px;font-size:13px;line-height:1.8;color:#617a92;margin:0}
+.cg-section{margin:0 0 48px;scroll-margin-top:110px}
+.cg-heading{margin:0 0 22px}.cg-heading>span,.cg-barangay-note span{display:block;font-size:10px;font-weight:850;letter-spacing:.11em;color:#2377b2}
+.cg-heading h2,.cg-barangay-note h2{font-size:clamp(22px,2.7vw,31px);font-weight:850;letter-spacing:-.04em;color:#15385e;margin:8px 0}
+.cg-heading p,.cg-barangay-note p{font-size:12px;line-height:1.7;color:#657990;margin:0}
+.cg-structure{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:17px}
+.cg-structure article,.cg-official,.cg-barangay-note{background:white;border:1px solid #dde8f4;border-radius:16px;box-shadow:0 5px 21px rgba(15,59,107,.05)}
+.cg-structure article{padding:24px;min-width:0}
+.cg-structure-icon{display:grid;place-items:center;width:51px;height:51px;border-radius:12px;background:#e5f2ff;color:#1367ad;font-size:22px}
+.cg-structure h3{font-size:17px;color:#103960;margin:18px 0 10px}
+.cg-structure p{font-size:11px;color:#627890;line-height:1.8;min-height:65px}
+.cg-structure a,.cg-official a,.cg-barangay-note a{font-size:11px;color:#1467a8;font-weight:800;text-decoration:none}
+.cg-featured-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px}
+.cg-official{min-width:0;overflow:hidden}
+.cg-featured{display:flex;align-items:center;gap:20px;padding:18px}
+.cg-photo{background:#eaf3fb;overflow:hidden;display:grid;place-items:center;flex:0 0 auto}
+.cg-featured .cg-photo{width:150px;height:170px;border-radius:12px}
+.cg-photo img{display:block!important;width:100%;height:100%;object-fit:cover;object-position:top center}
+.cg-photo img[hidden],.cg-photo-fallback[hidden]{display:none!important}
+.cg-photo-fallback{font-size:30px;color:#2a70a7}
+.cg-official-info{min-width:0}
+.cg-official-role{display:inline-block;background:#e8f4ff;color:#1a65a4;font-size:9px;font-weight:800;padding:7px 10px;border-radius:25px}
+.cg-official-info h3{font-size:clamp(13px,1.25vw,17px);line-height:1.5;letter-spacing:-.02em;margin:11px 0;color:#123359;overflow-wrap:break-word}
+.cg-official-info p{font-size:11px;color:#687d93;line-height:1.6}
+.cg-council-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px}
+.cg-council-member{padding:13px}
+.cg-council-member .cg-photo{width:100%;height:195px;border-radius:11px;margin-bottom:14px}
+.cg-council-member h3{font-size:12px;margin:10px 0 5px}
+.cg-council-member .cg-official-role{font-size:8px;line-height:1.5}
+.cg-barangay-note{padding:29px;display:flex;justify-content:space-between;align-items:center;gap:22px}
+.cg-barangay-note a{white-space:nowrap}
+.cg-empty{font-size:12px;color:#667e96}
+.cg-footer{margin-top:35px;background:#0a2b54;color:white;padding:27px 0}
+.cg-footer-inner{display:flex;align-items:center;justify-content:space-between;gap:25px;flex-wrap:wrap}
+.cg-footer-brand{display:flex;align-items:center;gap:12px;text-decoration:none;color:white}
+.cg-footer-brand img{width:52px;height:52px;object-fit:contain;display:block!important;background:white;border-radius:50%;padding:4px}
+.cg-footer-brand small{color:#ccdeef}
+.cg-footer nav{display:flex;flex-wrap:wrap;gap:17px}.cg-footer nav a{font-size:11px;color:#e0eeff;text-decoration:none}.cg-footer p{font-size:10px;color:#c6daec}
+.civic-government-page .kd-live-section{max-width:1180px}
+@media(max-width:960px){.cg-council-grid{grid-template-columns:repeat(3,minmax(0,1fr))}.cg-featured-grid{grid-template-columns:1fr}.cg-header-in{gap:13px}}
+@media(max-width:670px){.cg-header-in,.cg-main,.cg-footer-inner{width:calc(100% - 28px)}.cg-header-in{flex-wrap:wrap;padding:10px 0;gap:8px}.cg-brand img{width:43px;height:43px}.cg-brand strong{font-size:12px}.cg-nav{width:100%;overflow-x:auto;gap:2px}.cg-nav a{font-size:10px;padding:8px}.cg-hero{margin:15px 0 35px;padding:29px 20px}.cg-structure{grid-template-columns:1fr}.cg-structure p{min-height:0}.cg-featured-grid{grid-template-columns:1fr}.cg-featured .cg-photo{width:107px;height:130px}.cg-featured{padding:12px;gap:13px}.cg-council-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:11px}.cg-council-member{padding:10px}.cg-council-member .cg-photo{height:155px}.cg-barangay-note{flex-direction:column;align-items:flex-start;padding:22px}.cg-footer-inner{flex-direction:column;align-items:flex-start}}
+@media(max-width:360px){.cg-council-grid{grid-template-columns:1fr}.cg-featured{flex-direction:column;align-items:flex-start}.cg-featured .cg-photo{width:100%;height:190px}}
+/* Legacy secondary pages: containment and tab/contacts visibility */
+body.mc-page .tabs-section,body.mc-page .tab-panels,body.mc-page .formal-card,body.mc-page .formal-letter,body.mc-page .formal-quote{max-width:100%!important;min-width:0!important}
+body.mc-page .tab-panel[hidden]{display:none!important}
+body.mc-page .tab-btn{min-width:0!important;white-space:normal!important}
+body.mc-page .hero-photo-inner img{display:block!important}
+body.mc-page .nav img,body.emergency-page .navbar .brand img{display:block!important}
+body.emergency-page .cards-grid{min-width:0!important}
+body.emergency-page .contact-card{min-width:0!important;overflow-wrap:anywhere!important}
+body.emergency-page .card-phone{min-width:0!important;white-space:normal!important}
+body.emergency-page .footer-brand img{display:block!important}
+@media(max-width:760px){body.mc-page .hero-inner{flex-direction:column!important}body.mc-page .tabs-nav{max-width:100%!important}body.emergency-page .cards-grid{grid-template-columns:1fr!important}body.emergency-page .navbar-in{min-width:0!important}}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{scroll-behavior:auto!important;animation-duration:.01ms!important;transition-duration:.01ms!important}}
