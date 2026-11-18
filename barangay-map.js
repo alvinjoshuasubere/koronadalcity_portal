@@ -7,15 +7,15 @@
   const city = [124.86566, 6.47965];
   const styleUrl = 'https://tiles.openfreemap.org/styles/positron';
   const names = ['Assumption','Avanceña','Cacub','Caloocan','Carpenter Hill','Concepcion','Esperanza','General Paulino Santos','Mabini','Magsaysay','Mambucal','Morales','Namnama','New Pangasinan','Paraiso','Rotonda','San Isidro','San Jose','San Roque','Santa Cruz','Santo Niño','Saravia','Topland','Zone 1','Zone 2','Zone 3','Zone 4'];
-  const known = new Set(names.map(normalized));
   const cacheKey = 'koronadal-osm-boundaries-v2';
   let map, abortController, hoverPopup;
   const setStatus = message => {status.textContent = message;};
-  const normalized = name => String(name || '').trim().toLowerCase().normalize('NFD').replace(/[\\u0300-\\u036f]/g, '')
-    .replace(/^barangay\\s+/,'').replace(/\\bzone\\s+(?:i{1,3}|iv)\\b/g, match => {
-      const roman = match.split(/\\s+/)[1];
+  const normalized = name => String(name || '').trim().toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '')
+    .replace(/^barangay\s+/,'').replace(/\bzone\s+(?:i{1,3}|iv)\b/g, match => {
+      const roman = match.split(/\s+/)[1];
       return 'zone ' + ({i:1,ii:2,iii:3,iv:4}[roman] || roman);
-    }).replace(/\\s+/g,' ');
+    }).replace(/\s+/g,' ');
+  const known = new Set(names.map(normalized));
   function validFeature(feature) {
     if (!feature || !feature.geometry || !['Polygon','MultiPolygon'].includes(feature.geometry.type)) return false;
     const p = feature.properties || {};
