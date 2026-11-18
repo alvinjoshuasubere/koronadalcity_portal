@@ -16,7 +16,7 @@ body:not(.force-mobile){background:linear-gradient(180deg,rgba(218,239,253,.74),
 .brand-accent{height:4px!important;background:linear-gradient(90deg,#1c71c6,#74cfff 65%,#ff931e)!important}
 .portal-shell{width:min(1450px,calc(100% - 58px))!important;max-width:1450px!important;padding-top:0!important}
 .mobile-welcome{display:none!important}
-.home-hero{position:relative!important;width:100%!important;margin:0!important;min-height:385px!important;padding:50px 60px 75px!important;border-radius:0 0 27px 27px!important;background:linear-gradient(90deg,rgba(13,56,119,.94) 0%,rgba(15,74,142,.77) 38%,rgba(14,93,160,.12) 76%),url("mobile.png") center 52% / cover no-repeat!important;box-shadow:0 18px 36px rgba(9,52,99,.14)!important;overflow:hidden!important}
+.home-hero{position:relative!important;width:100%!important;margin:0!important;min-height:385px!important;padding:50px 60px 75px!important;border-radius:0 0 27px 27px!important;background:linear-gradient(90deg,rgba(13,56,119,.94) 0%,rgba(15,74,142,.77) 38%,rgba(14,93,160,.12) 76%),url("desktop.png") center 52% / cover no-repeat!important;box-shadow:0 18px 36px rgba(9,52,99,.14)!important;overflow:hidden!important}
 .home-hero:before,.home-hero:after{display:none!important}
 .home-hero .hero-city-art,.hero-side-note{display:none!important}
 .home-hero .hero-content{position:relative!important;z-index:3!important;max-width:730px!important}
@@ -100,7 +100,7 @@ body:not(.force-desktop) .menu-btn{display:grid!important;color:white!important;
 body:not(.force-desktop) .portal-shell{width:100%!important;max-width:none!important;padding:0 0 110px!important}
 body:not(.force-desktop) .mobile-welcome{display:none!important}
 body:not(.force-desktop) .home-hero{width:100%!important;margin:0!important;min-height:0!important;padding:0 19px 22px!important;border-radius:0 0 22px 22px!important;border:0!important;background:linear-gradient(180deg,#abddf8,#e9f7ff)!important;box-shadow:0 8px 20px rgba(11,55,100,.09)!important}
-body:not(.force-desktop) .home-hero:before{content:""!important;display:block!important;position:relative!important;inset:auto!important;height:clamp(175px,52vw,250px)!important;margin:0 -19px 18px!important;border-radius:0!important;background:url("mobile.png") center 51% / cover no-repeat!important}
+body:not(.force-desktop) .home-hero:before{content:""!important;display:block!important;position:relative!important;inset:auto!important;height:clamp(175px,52vw,250px)!important;margin:0 -19px 18px!important;border-radius:0!important;background:url("desktop.png") center 51% / cover no-repeat!important}
 body:not(.force-desktop) .home-hero .hero-content{padding:0!important}
 body:not(.force-desktop) .home-hero .hero-greeting{color:#205b8a!important;background:rgba(255,255,255,.78)!important;border-color:#d1eafd!important;font-size:12px!important;margin:0!important}
 body:not(.force-desktop) .home-hero .hero-kicker{display:none!important}
@@ -139,7 +139,7 @@ body.force-mobile .brand strong{color:#fff!important}
 body.force-mobile .brand small{color:#d6ebff!important}
 body.force-mobile .mobile-welcome{display:none!important}
 body.force-mobile .home-hero{width:100%!important;margin:0!important;min-height:0!important;padding:0 19px 22px!important;border:0!important;border-radius:0 0 22px 22px!important;background:linear-gradient(180deg,#abddf8,#e9f7ff)!important}
-body.force-mobile .home-hero:before{content:""!important;display:block!important;position:relative!important;inset:auto!important;height:220px!important;margin:0 -19px 18px!important;border-radius:0!important;background:url("mobile.png") center / cover no-repeat!important}
+body.force-mobile .home-hero:before{content:""!important;display:block!important;position:relative!important;inset:auto!important;height:220px!important;margin:0 -19px 18px!important;border-radius:0!important;background:url("desktop.png") center / cover no-repeat!important}
 body.force-mobile .home-hero .hero-greeting{color:#205b8a!important;background:#fff!important;border-color:#d1eafd!important}
 body.force-mobile .home-hero .hero-kicker{display:none!important}
 body.force-mobile .home-hero .hero-content h1{font-size:35px!important;color:#0e3368!important;text-shadow:none!important}
