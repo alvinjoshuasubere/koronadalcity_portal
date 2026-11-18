@@ -26,14 +26,14 @@ function mcInitials($name) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="theme-color" content="#0b1220">
+    <meta name="theme-color" content="#3a0ca3">
     <title>Mayor's Corner — Koronadal City</title>
     <link rel="icon" type="image/x-icon" href="favicon.ico">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700;800&family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&display=swap" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
-  <link rel="stylesheet" href="portal.css?v=20261118-4" />
+  <link rel="stylesheet" href="portal.css?v=20261118-8" />
 </head>
 <body class="mc-page">
 
@@ -51,7 +51,7 @@ function mcInitials($name) {
         <img src="Logo.png" alt="Koronadal City">
         <div class="nav-brand-text">
             <strong>City of Koronadal</strong>
-            <small>Online Services</small>
+            <small>Government Services Portal</small>
         </div>
     </a>
     <a href="/" class="nav-back">
