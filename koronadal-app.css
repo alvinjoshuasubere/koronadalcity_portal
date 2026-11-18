@@ -3384,7 +3384,7 @@ input:focus-visible {
 .development-notice[hidden] {
   display: none !important;
 }
-\n@media(max-width:620px) {
+@media (max-width: 620px) {
   .development-notice {
     grid-template-columns: 44px minmax(0, 1fr);
     gap: 12px;

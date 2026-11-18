@@ -1,60 +1,305 @@
-/* Illustrated responsive portal artwork: provide desktop.png and mobile.png in the repository root.
-   These are artwork-only crops, not screenshots of buttons or navigation.
-   Keep all links, text, search, and mode controls as real HTML. */
-:root{--illustration-orange:#f97316;--illustration-navy:#0b2345}
-body:not(.force-mobile) .home-hero .hero-city-art{display:none!important}
-.home-hero{isolation:isolate!important;overflow:hidden!important;background:linear-gradient(110deg,#0b2345 0%,#103861 46%,rgba(16,65,112,.84) 68%,rgba(27,99,151,.28) 100%),url("desktop.png") right center / auto 100% no-repeat,#0b2345!important}
-.home-hero:after{display:none!important}
-.home-hero .hero-content{position:relative!important;z-index:3!important;max-width:665px!important}
-.home-hero .hero-content h1 b{color:#ff9a3d!important}
-.home-hero .hero-actions .primary-action{background:#f97316!important;color:#fff!important}
-.home-hero .hero-actions .primary-action:hover{background:#ea580c!important}
-.portal-shell{position:relative}
-.app-featured{background:linear-gradient(110deg,rgba(235,246,253,.98),rgba(251,253,255,.92)),url("desktop.png") right center / auto 100% no-repeat!important}
-.app-featured-art{opacity:.4}
-.services-section .service-card{box-shadow:0 6px 19px rgba(9,42,72,.05)!important}
-.services-section .service-card:hover{box-shadow:0 14px 28px rgba(9,42,72,.09)!important}
-@media(min-width:1100px){.home-hero{min-height:465px!important;padding:64px 70px!important}.home-hero .hero-content h1{font-size:clamp(48px,4.8vw,72px)!important}.home-hero .hero-content p{max-width:520px!important}}
-/* App header uses only the illustration crop; no duplicated mockup labels. */
-@media(max-width:760px){
- body:not(.force-desktop) .mobile-welcome{background:#fff!important}
- body:not(.force-desktop) .home-hero{position:relative!important;width:calc(100% - 30px)!important;margin:0 15px!important;min-height:0!important;padding:0 19px 24px!important;background:#fff!important;border:1px solid #e4eaf2!important;box-shadow:0 8px 26px rgba(11,38,69,.09)!important;border-radius:19px!important;overflow:hidden!important}
- body:not(.force-desktop) .home-hero:before{position:relative!important;display:block!important;content:""!important;inset:auto!important;z-index:auto!important;height:clamp(145px,43vw,215px)!important;margin:0 -19px 20px!important;background:#42b7e9 url("mobile.png") center center / cover no-repeat!important;border-radius:18px 18px 0 0!important}
- body:not(.force-desktop) .home-hero .hero-content h1{font-size:clamp(28px,7vw,38px)!important;color:#132948!important;margin:11px 0!important;letter-spacing:-.04em!important}
- body:not(.force-desktop) .home-hero .hero-content h1 b{color:#f97316!important}
- body:not(.force-desktop) .home-hero .hero-kicker{color:#42688a!important}
- body:not(.force-desktop) .home-hero .hero-content p{color:#566d86!important;font-size:14px!important}
- body:not(.force-desktop) .home-hero .hero-actions{margin-top:17px!important}
- body:not(.force-desktop) .home-hero .hero-actions .secondary-action{background:#eef4fc!important;color:#12365b!important;border:1px solid #dce8f4!important}
- body:not(.force-desktop) .home-hero .hero-city-art{display:none!important}
- body:not(.force-desktop) .app-featured{background:linear-gradient(110deg,rgba(236,247,255,.98),rgba(255,255,255,.93)),url("mobile.png") right center / auto 100% no-repeat!important}
+/**
+ * Illustrated responsive portal artwork: provide desktop.png and mobile.png in the repository root.
+ *    These are artwork-only crops, not screenshots of buttons or navigation.
+ *    Keep all links, text, search, and mode controls as real HTML.
+ *
+ * @format
+ */
+
+:root {
+  --illustration-orange: #f97316;
+  --illustration-navy: #0b2345;
 }
-body.force-mobile .home-hero{position:relative!important;width:calc(100% - 30px)!important;margin:0 15px!important;min-height:0!important;padding:0 19px 24px!important;background:#fff!important;border:1px solid #e4eaf2!important;border-radius:19px!important;box-shadow:0 8px 26px rgba(11,38,69,.09)!important}
-body.force-mobile .home-hero:before{position:relative!important;display:block!important;content:""!important;inset:auto!important;z-index:auto!important;height:clamp(145px,43vw,215px)!important;margin:0 -19px 20px!important;background:#42b7e9 url("mobile.png") center center / cover no-repeat!important;border-radius:18px 18px 0 0!important}
-body.force-mobile .home-hero .hero-content h1{font-size:34px!important;color:#132948!important}
-body.force-mobile .home-hero .hero-content h1 b{color:#f97316!important}
-body.force-mobile .home-hero .hero-kicker{color:#42688a!important}
-body.force-mobile .home-hero .hero-content p{color:#566d86!important;font-size:14px!important}
-body.force-mobile .home-hero .hero-actions .secondary-action{background:#eef4fc!important;color:#12365b!important;border-color:#dce8f4!important}
-body.force-mobile .home-hero .hero-city-art{display:none!important}
-body.force-mobile .app-featured{background:linear-gradient(110deg,rgba(236,247,255,.98),rgba(255,255,255,.93)),url("mobile.png") right center / auto 100% no-repeat!important}
-@media(prefers-reduced-motion:reduce){.home-hero,.app-featured{background-attachment:scroll!important}}
+body:not(.force-mobile) .home-hero .hero-city-art {
+  display: none !important;
+}
+.home-hero {
+  isolation: isolate !important;
+  overflow: hidden !important;
+  background:
+    linear-gradient(
+      110deg,
+      #0b2345 0%,
+      #103861 46%,
+      rgba(16, 65, 112, 0.84) 68%,
+      rgba(27, 99, 151, 0.28) 100%
+    ),
+    url("desktop.png") right center / auto 100% no-repeat,
+    #0b2345 !important;
+}
+.home-hero:after {
+  display: none !important;
+}
+.home-hero .hero-content {
+  position: relative !important;
+  z-index: 3 !important;
+  max-width: 665px !important;
+}
+.home-hero .hero-content h1 b {
+  color: #ff9a3d !important;
+}
+.home-hero .hero-actions .primary-action {
+  background: #f97316 !important;
+  color: #fff !important;
+}
+.home-hero .hero-actions .primary-action:hover {
+  background: #ea580c !important;
+}
+.portal-shell {
+  position: relative;
+}
+.app-featured {
+  background:
+    linear-gradient(
+      110deg,
+      rgba(235, 246, 253, 0.98),
+      rgba(251, 253, 255, 0.92)
+    ),
+    url("desktop.png") right center / auto 100% no-repeat !important;
+}
+.app-featured-art {
+  opacity: 0.4;
+}
+.services-section .service-card {
+  box-shadow: 0 6px 19px rgba(9, 42, 72, 0.05) !important;
+}
+.services-section .service-card:hover {
+  box-shadow: 0 14px 28px rgba(9, 42, 72, 0.09) !important;
+}
+@media (min-width: 1100px) {
+  .home-hero {
+    min-height: 465px !important;
+    padding: 64px 70px !important;
+  }
+  .home-hero .hero-content h1 {
+    font-size: clamp(48px, 4.8vw, 72px) !important;
+  }
+  .home-hero .hero-content p {
+    max-width: 520px !important;
+  }
+}
+/* App header uses only the illustration crop; no duplicated mockup labels. */
+@media (max-width: 760px) {
+  body:not(.force-desktop) .mobile-welcome {
+    background: #fff !important;
+  }
+  body:not(.force-desktop) .home-hero {
+    position: relative !important;
+    width: calc(100% - 30px) !important;
+    margin: 0 15px !important;
+    min-height: 0 !important;
+    padding: 0 19px 24px !important;
+    background: #fff !important;
+    border: 1px solid #e4eaf2 !important;
+    box-shadow: 0 8px 26px rgba(11, 38, 69, 0.09) !important;
+    border-radius: 19px !important;
+    overflow: hidden !important;
+  }
+  body:not(.force-desktop) .home-hero:before {
+    position: relative !important;
+    display: block !important;
+    content: "" !important;
+    inset: auto !important;
+    z-index: auto !important;
+    height: clamp(145px, 43vw, 215px) !important;
+    margin: 0 -19px 20px !important;
+    background: #42b7e9 url("mobile.png") center center / cover no-repeat !important;
+    border-radius: 18px 18px 0 0 !important;
+  }
+  body:not(.force-desktop) .home-hero .hero-content h1 {
+    font-size: clamp(28px, 7vw, 38px) !important;
+    color: #132948 !important;
+    margin: 11px 0 !important;
+    letter-spacing: -0.04em !important;
+  }
+  body:not(.force-desktop) .home-hero .hero-content h1 b {
+    color: #f97316 !important;
+  }
+  body:not(.force-desktop) .home-hero .hero-kicker {
+    color: #42688a !important;
+  }
+  body:not(.force-desktop) .home-hero .hero-content p {
+    color: #566d86 !important;
+    font-size: 14px !important;
+  }
+  body:not(.force-desktop) .home-hero .hero-actions {
+    margin-top: 17px !important;
+  }
+  body:not(.force-desktop) .home-hero .hero-actions .secondary-action {
+    background: #eef4fc !important;
+    color: #12365b !important;
+    border: 1px solid #dce8f4 !important;
+  }
+  body:not(.force-desktop) .home-hero .hero-city-art {
+    display: none !important;
+  }
+  body:not(.force-desktop) .app-featured {
+    background:
+      linear-gradient(
+        110deg,
+        rgba(236, 247, 255, 0.98),
+        rgba(255, 255, 255, 0.93)
+      ),
+      url("mobile.png") right center / auto 100% no-repeat !important;
+  }
+}
+body.force-mobile .home-hero {
+  position: relative !important;
+  width: calc(100% - 30px) !important;
+  margin: 0 15px !important;
+  min-height: 0 !important;
+  padding: 0 19px 24px !important;
+  background: #fff !important;
+  border: 1px solid #e4eaf2 !important;
+  border-radius: 19px !important;
+  box-shadow: 0 8px 26px rgba(11, 38, 69, 0.09) !important;
+}
+body.force-mobile .home-hero:before {
+  position: relative !important;
+  display: block !important;
+  content: "" !important;
+  inset: auto !important;
+  z-index: auto !important;
+  height: clamp(145px, 43vw, 215px) !important;
+  margin: 0 -19px 20px !important;
+  background: #42b7e9 url("mobile.png") center center / cover no-repeat !important;
+  border-radius: 18px 18px 0 0 !important;
+}
+body.force-mobile .home-hero .hero-content h1 {
+  font-size: 34px !important;
+  color: #132948 !important;
+}
+body.force-mobile .home-hero .hero-content h1 b {
+  color: #f97316 !important;
+}
+body.force-mobile .home-hero .hero-kicker {
+  color: #42688a !important;
+}
+body.force-mobile .home-hero .hero-content p {
+  color: #566d86 !important;
+  font-size: 14px !important;
+}
+body.force-mobile .home-hero .hero-actions .secondary-action {
+  background: #eef4fc !important;
+  color: #12365b !important;
+  border-color: #dce8f4 !important;
+}
+body.force-mobile .home-hero .hero-city-art {
+  display: none !important;
+}
+body.force-mobile .app-featured {
+  background:
+    linear-gradient(
+      110deg,
+      rgba(236, 247, 255, 0.98),
+      rgba(255, 255, 255, 0.93)
+    ),
+    url("mobile.png") right center / auto 100% no-repeat !important;
+}
+@media (prefers-reduced-motion: reduce) {
+  .home-hero,
+  .app-featured {
+    background-attachment: scroll !important;
+  }
+}
 
 /* Layout correction: desktop.png is the DESKTOP PAGE BACKGROUND.
    mobile.png is the WELCOME HEADER ART across desktop and mobile views. */
-@media(min-width:761px){
- body:not(.force-mobile){background-image:linear-gradient(rgba(248,250,252,.88),rgba(248,250,252,.91)),url("desktop.png")!important;background-size:cover!important;background-position:center top!important;background-attachment:fixed!important}
- body:not(.force-mobile) .home-hero{background-image:linear-gradient(90deg,rgba(9,28,52,.94) 0%,rgba(10,34,62,.88) 44%,rgba(11,38,70,.16) 100%),url("mobile.png")!important;background-repeat:no-repeat!important;background-position:center center!important;background-size:cover!important}
- body:not(.force-mobile) .home-hero .hero-content{max-width:670px!important}
+@media (min-width: 761px) {
+  body:not(.force-mobile) {
+    background-image:
+      linear-gradient(rgba(248, 250, 252, 0.88), rgba(248, 250, 252, 0.91)),
+      url("desktop.png") !important;
+    background-size: cover !important;
+    background-position: center top !important;
+    background-attachment: fixed !important;
+  }
+  body:not(.force-mobile) .home-hero {
+    background-image:
+      linear-gradient(
+        90deg,
+        rgba(9, 28, 52, 0.94) 0%,
+        rgba(10, 34, 62, 0.88) 44%,
+        rgba(11, 38, 70, 0.16) 100%
+      ),
+      url("mobile.png") !important;
+    background-repeat: no-repeat !important;
+    background-position: center center !important;
+    background-size: cover !important;
+  }
+  body:not(.force-mobile) .home-hero .hero-content {
+    max-width: 670px !important;
+  }
 }
-body.force-desktop{background-image:linear-gradient(rgba(248,250,252,.88),rgba(248,250,252,.91)),url("desktop.png")!important;background-size:cover!important;background-position:center top!important;background-attachment:fixed!important}
-body.force-desktop .home-hero{background-image:linear-gradient(90deg,rgba(9,28,52,.94) 0%,rgba(10,34,62,.88) 44%,rgba(11,38,70,.16) 100%),url("mobile.png")!important;background-position:center center!important;background-size:cover!important}
-.home-hero .hero-greeting{display:inline-flex;align-items:center;gap:9px;margin:14px 0 0;padding:8px 13px;border:1px solid rgba(255,255,255,.25);border-radius:100px;background:rgba(255,255,255,.1);font-size:13px;font-weight:750;letter-spacing:.01em;color:#fff}
-.home-hero .hero-greeting:before{content:"";width:8px;height:8px;flex:0 0 8px;background:#ffa34e;border-radius:50%}
-@media(max-width:760px){
- body:not(.force-desktop) .home-hero .hero-greeting{color:#183656;background:#e7f3ff;border-color:#cfe4f6;font-size:12px;padding:8px 11px;margin-top:9px}
- body:not(.force-desktop) .mobile-welcome .welcome-copy strong{font-size:clamp(19px,5vw,24px)!important}
+body.force-desktop {
+  background-image:
+    linear-gradient(rgba(248, 250, 252, 0.88), rgba(248, 250, 252, 0.91)),
+    url("desktop.png") !important;
+  background-size: cover !important;
+  background-position: center top !important;
+  background-attachment: fixed !important;
 }
-body.force-mobile .home-hero .hero-greeting{color:#183656;background:#e7f3ff;border-color:#cfe4f6;font-size:12px;padding:8px 11px;margin-top:9px}
-body.force-mobile .mobile-welcome .welcome-copy strong{font-size:clamp(19px,5vw,24px)!important}
-@media(prefers-reduced-motion:reduce){body.force-desktop,body:not(.force-mobile){background-attachment:scroll!important}}
+body.force-desktop .home-hero {
+  background-image:
+    linear-gradient(
+      90deg,
+      rgba(9, 28, 52, 0.94) 0%,
+      rgba(10, 34, 62, 0.88) 44%,
+      rgba(11, 38, 70, 0.16) 100%
+    ),
+    url("mobile.png") !important;
+  background-position: center center !important;
+  background-size: cover !important;
+}
+.home-hero .hero-greeting {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  margin: 14px 0 0;
+  padding: 8px 13px;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  border-radius: 100px;
+  background: rgba(255, 255, 255, 0.1);
+  font-size: 13px;
+  font-weight: 750;
+  letter-spacing: 0.01em;
+  color: #fff;
+}
+.home-hero .hero-greeting:before {
+  content: "";
+  width: 8px;
+  height: 8px;
+  flex: 0 0 8px;
+  background: #ffa34e;
+  border-radius: 50%;
+}
+@media (max-width: 760px) {
+  body:not(.force-desktop) .home-hero .hero-greeting {
+    color: #183656;
+    background: #e7f3ff;
+    border-color: #cfe4f6;
+    font-size: 12px;
+    padding: 8px 11px;
+    margin-top: 9px;
+  }
+  body:not(.force-desktop) .mobile-welcome .welcome-copy strong {
+    font-size: clamp(19px, 5vw, 24px) !important;
+  }
+}
+body.force-mobile .home-hero .hero-greeting {
+  color: #183656;
+  background: #e7f3ff;
+  border-color: #cfe4f6;
+  font-size: 12px;
+  padding: 8px 11px;
+  margin-top: 9px;
+}
+body.force-mobile .mobile-welcome .welcome-copy strong {
+  font-size: clamp(19px, 5vw, 24px) !important;
+}
+@media (prefers-reduced-motion: reduce) {
+  body.force-desktop,
+  body:not(.force-mobile) {
+    background-attachment: scroll !important;
+  }
+}

@@ -1,37 +1,555 @@
-/* Koronadal City Portal | responsive civic design refresh */
-:root{--portal-ink:#102b46;--portal-blue:#1264ad;--portal-line:#dce7f2;--portal-muted:#586d82;--portal-surface:#fff}
-html{scroll-behavior:smooth;scroll-padding-top:96px}
-body{background:#f4f8fc!important;color:var(--portal-ink)!important;font-size:15px!important}
-a,button,input{touch-action:manipulation}
-a:focus-visible,button:focus-visible,input:focus-visible{outline:3px solid #f3bd49!important;outline-offset:3px!important}
-.portal-header{position:sticky!important;top:0!important;z-index:1000!important;background:rgba(255,255,255,.97)!important;border-bottom:1px solid var(--portal-line)!important;box-shadow:0 6px 26px rgba(16,43,70,.07)!important}
-.header-inner{max-width:1260px!important;min-height:82px!important;gap:24px!important}
-.brand{gap:12px!important}.brand img{width:49px!important;height:49px!important;object-fit:contain!important}.brand strong{font-size:16px!important;color:#102b46!important}.brand small{font-size:11px!important;color:#64788c!important;letter-spacing:0!important}
-.desktop-nav{gap:8px!important}.desktop-nav a{padding:11px 13px!important;border-radius:10px!important;font-size:13px!important;color:#354d66!important}.desktop-nav a:hover,.desktop-nav a.active{background:#eaf3fc!important;color:#105b9d!important}
-.official-pill{background:#edf6fd!important;color:#185c92!important;border:1px solid #d5e8f7!important;padding:10px 12px!important}
-.header-service-btn{border-radius:12px!important;min-height:43px!important}
-.portal-shell{max-width:1240px!important;margin-inline:auto!important;overflow:visible!important}
-.home-hero{position:relative!important;isolation:isolate!important;overflow:hidden!important;border-radius:30px!important;min-height:440px!important;padding:clamp(35px,6vw,76px)!important;background:linear-gradient(115deg,#092b4f 0%,#0e5796 62%,#2a8bc7 100%)!important;box-shadow:0 25px 65px rgba(11,66,114,.17)!important}
-.home-hero:before{content:"";position:absolute;inset:0;z-index:-1;background:radial-gradient(circle at 86% 27%,rgba(255,255,255,.21),transparent 23%),radial-gradient(circle at 72% 88%,rgba(111,202,245,.24),transparent 34%),repeating-linear-gradient(135deg,transparent 0 55px,rgba(255,255,255,.025) 56px 57px)}
-.home-hero:after{content:"";position:absolute;width:380px;height:380px;right:-94px;top:30px;border:1px solid rgba(255,255,255,.23);border-radius:50%;box-shadow:0 0 0 46px rgba(255,255,255,.035),0 0 0 100px rgba(255,255,255,.025);z-index:-1}
-.home-hero .hero-content{position:relative;z-index:1;max-width:710px!important}.home-hero .hero-content h1{font-size:clamp(40px,5vw,72px)!important;line-height:1.07!important;letter-spacing:-.055em!important;color:#fff!important;margin:16px 0!important}.home-hero .hero-content h1 b{color:#d8efff!important}.home-hero .hero-content p{font-size:clamp(15px,1.5vw,19px)!important;line-height:1.7!important;color:#e8f4ff!important;max-width:560px!important}
-.hero-kicker{color:#fff!important;font-weight:700!important;letter-spacing:.13em!important}.hero-logo{background:#fff!important;border-radius:18px!important;padding:7px!important;box-shadow:0 10px 26px rgba(0,0,0,.13)!important}
-.hero-actions{display:flex!important;flex-wrap:wrap!important;gap:12px!important;margin-top:28px!important}.hero-actions a{border-radius:12px!important;min-height:50px!important;display:inline-flex!important;align-items:center!important;justify-content:center!important;font-size:14px!important;font-weight:700!important;padding:14px 22px!important}
-.primary-action{background:white!important;color:#135a96!important;box-shadow:0 10px 25px rgba(0,0,0,.1)!important}.secondary-action{background:rgba(255,255,255,.12)!important;border:1px solid rgba(255,255,255,.48)!important;color:white!important}
-.portal-search{position:relative!important;z-index:2!important;max-width:960px!important;margin:-33px auto 0!important;min-height:70px!important;padding:8px 16px!important;border:1px solid #dae7f2!important;border-radius:18px!important;background:white!important;box-shadow:0 16px 40px rgba(16,57,94,.13)!important}
-.portal-search input{font-size:15px!important;min-height:48px!important;color:#183b5a!important}.portal-search input::placeholder{color:#7b8ea3!important}.portal-search>i{font-size:18px!important;color:#1769aa!important}#clearSearch{min-width:40px!important;min-height:40px!important}
-.quick-search{display:flex!important;flex-wrap:wrap!important;justify-content:center!important;gap:10px!important;margin:23px auto 4px!important}.quick-search a{font-size:12px!important;min-height:37px!important;border-radius:100px!important;background:white!important;border:1px solid #deebf6!important;padding:9px 14px!important;color:#365a77!important;transition:transform .2s ease,background .2s ease!important}.quick-search a:hover{transform:translateY(-2px);background:#eaf4fe!important}.quick-search-label{font-size:12px!important;color:#63768a!important}
-.portal-section{padding-top:75px!important;padding-bottom:40px!important}.services-section{padding-top:62px!important}.services-title,.section-heading{margin-bottom:27px!important}.services-title>span,.section-heading span:not(.section-count){font-size:11px!important;font-weight:800!important;letter-spacing:.13em!important;color:#1264ad!important}.services-title h2,.section-heading h2{font-size:clamp(28px,3vw,40px)!important;line-height:1.2!important;letter-spacing:-.045em!important;color:#142f4a!important;margin:8px 0!important}.services-title p,.section-heading p{font-size:14px!important;line-height:1.7!important;color:#61748a!important}
-.service-grid{display:grid!important;grid-template-columns:repeat(3,minmax(0,1fr))!important;gap:17px!important}
-.services-section .service-card{position:relative!important;display:flex!important;flex-direction:column!important;align-items:flex-start!important;text-align:left!important;min-width:0!important;min-height:202px!important;padding:26px!important;border:1px solid #dfebf5!important;border-radius:20px!important;background:#fff!important;box-shadow:0 5px 20px rgba(20,67,108,.035)!important;transition:transform .22s ease,box-shadow .22s ease,border-color .22s ease!important}
-.services-section .service-card:hover{transform:translateY(-5px)!important;box-shadow:0 20px 40px rgba(20,67,108,.12)!important;border-color:#9bc9ec!important}
-.services-section .service-card .service-icon{width:54px!important;height:54px!important;display:grid!important;place-items:center!important;border-radius:15px!important;background:#eaf4fc!important;color:#156aa9!important;font-size:22px!important;margin:0 0 19px!important}
-.services-section .service-card strong{font-size:16px!important;line-height:1.4!important;color:#163754!important;margin:0 0 7px!important}.services-section .service-card small{font-size:12px!important;line-height:1.65!important;color:#667b8f!important}.services-section .service-card .service-open{position:absolute!important;right:25px!important;top:29px!important;color:#6c9bbf!important}
-.services-section .emergency-card .service-icon{background:#fff0f0!important;color:#bf3035!important}.services-section .service-unavailable{background:#f9fbfe!important}.services-section .service-unavailable em{font-size:11px!important;margin-top:12px!important;color:#6e7f90!important}
-.emergency-panel,.citizen-banner{border-radius:24px!important;overflow:hidden!important}.landmark-card,.info-card,.mayor-card{border-radius:20px!important}.info-card{transition:transform .2s ease,box-shadow .2s ease!important}.info-card:hover{transform:translateY(-3px);box-shadow:0 14px 30px rgba(20,67,108,.1)!important}
-.portal-footer{margin-top:70px!important}.footer-inner{max-width:1240px!important}
-[hidden],.service-card[hidden],.info-card[hidden]{display:none!important}
-@media(max-width:1000px){.service-grid{grid-template-columns:repeat(2,minmax(0,1fr))!important}.desktop-nav{gap:0!important}.desktop-nav a{padding:10px!important}.official-pill{display:none!important}}
-@media(max-width:760px){html{scroll-padding-top:75px}.header-inner{min-height:70px!important;padding-inline:16px!important}.brand img{width:43px!important;height:43px!important}.brand strong{font-size:13px!important}.brand small{font-size:10px!important}.portal-shell{width:calc(100% - 24px)!important}.home-hero{min-height:360px!important;border-radius:22px!important;padding:32px 24px 44px!important}.home-hero:after{width:230px;height:230px;right:-120px;top:100px}.home-hero .hero-content h1{font-size:clamp(36px,9vw,49px)!important}.home-hero .hero-content p{font-size:14px!important}.hero-actions{display:grid!important;grid-template-columns:repeat(2,minmax(0,1fr))!important}.hero-actions a{min-height:48px!important;padding:12px 8px!important;font-size:12px!important}.portal-search{margin:-24px 9px 0!important;min-height:60px!important;padding:5px 12px!important;border-radius:14px!important}.portal-search input{font-size:13px!important}.quick-search{justify-content:flex-start!important;gap:7px!important;padding-inline:8px!important}.quick-search a{font-size:11px!important;padding:8px 11px!important}.portal-section{padding-top:55px!important;padding-bottom:22px!important}.services-section{padding-top:55px!important}.services-title h2,.section-heading h2{font-size:28px!important}.services-title p,.section-heading p{font-size:13px!important}.service-grid{gap:12px!important}.services-section .service-card{padding:18px 15px!important;min-height:182px!important;border-radius:16px!important}.services-section .service-card .service-icon{width:44px!important;height:44px!important;font-size:18px!important;border-radius:12px!important;margin-bottom:13px!important}.services-section .service-card strong{font-size:13px!important}.services-section .service-card small{font-size:11px!important}.services-section .service-card .service-open{top:20px!important;right:14px!important;font-size:11px!important}.bottom-nav{z-index:1001!important}.bottom-nav a span{font-size:10px!important}.portal-footer{margin-top:40px!important}}
-@media(max-width:390px){.portal-shell{width:calc(100% - 18px)!important}.home-hero{padding:28px 18px 36px!important}.hero-actions{gap:8px!important}.service-grid{gap:9px!important}.services-section .service-card{padding:15px 12px!important;min-height:185px!important}.services-section .service-card strong{font-size:12px!important}.services-section .service-card small{font-size:10.5px!important}}
-@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto!important}.services-section .service-card,.quick-search a,.info-card{transition:none!important}.services-section .service-card:hover,.quick-search a:hover,.info-card:hover{transform:none!important}}
+/**
+ * Koronadal City Portal | responsive civic design refresh
+ *
+ * @format
+ */
+
+:root {
+  --portal-ink: #102b46;
+  --portal-blue: #1264ad;
+  --portal-line: #dce7f2;
+  --portal-muted: #586d82;
+  --portal-surface: #fff;
+}
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 96px;
+}
+body {
+  background: #f4f8fc !important;
+  color: var(--portal-ink) !important;
+  font-size: 15px !important;
+}
+a,
+button,
+input {
+  touch-action: manipulation;
+}
+a:focus-visible,
+button:focus-visible,
+input:focus-visible {
+  outline: 3px solid #f3bd49 !important;
+  outline-offset: 3px !important;
+}
+.portal-header {
+  position: sticky !important;
+  top: 0 !important;
+  z-index: 1000 !important;
+  background: rgba(255, 255, 255, 0.97) !important;
+  border-bottom: 1px solid var(--portal-line) !important;
+  box-shadow: 0 6px 26px rgba(16, 43, 70, 0.07) !important;
+}
+.header-inner {
+  max-width: 1260px !important;
+  min-height: 82px !important;
+  gap: 24px !important;
+}
+.brand {
+  gap: 12px !important;
+}
+.brand img {
+  width: 49px !important;
+  height: 49px !important;
+  object-fit: contain !important;
+}
+.brand strong {
+  font-size: 16px !important;
+  color: #102b46 !important;
+}
+.brand small {
+  font-size: 11px !important;
+  color: #64788c !important;
+  letter-spacing: 0 !important;
+}
+.desktop-nav {
+  gap: 8px !important;
+}
+.desktop-nav a {
+  padding: 11px 13px !important;
+  border-radius: 10px !important;
+  font-size: 13px !important;
+  color: #354d66 !important;
+}
+.desktop-nav a:hover,
+.desktop-nav a.active {
+  background: #eaf3fc !important;
+  color: #105b9d !important;
+}
+.official-pill {
+  background: #edf6fd !important;
+  color: #185c92 !important;
+  border: 1px solid #d5e8f7 !important;
+  padding: 10px 12px !important;
+}
+.header-service-btn {
+  border-radius: 12px !important;
+  min-height: 43px !important;
+}
+.portal-shell {
+  max-width: 1240px !important;
+  margin-inline: auto !important;
+  overflow: visible !important;
+}
+.home-hero {
+  position: relative !important;
+  isolation: isolate !important;
+  overflow: hidden !important;
+  border-radius: 30px !important;
+  min-height: 440px !important;
+  padding: clamp(35px, 6vw, 76px) !important;
+  background: linear-gradient(
+    115deg,
+    #092b4f 0%,
+    #0e5796 62%,
+    #2a8bc7 100%
+  ) !important;
+  box-shadow: 0 25px 65px rgba(11, 66, 114, 0.17) !important;
+}
+.home-hero:before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background:
+    radial-gradient(
+      circle at 86% 27%,
+      rgba(255, 255, 255, 0.21),
+      transparent 23%
+    ),
+    radial-gradient(
+      circle at 72% 88%,
+      rgba(111, 202, 245, 0.24),
+      transparent 34%
+    ),
+    repeating-linear-gradient(
+      135deg,
+      transparent 0 55px,
+      rgba(255, 255, 255, 0.025) 56px 57px
+    );
+}
+.home-hero:after {
+  content: "";
+  position: absolute;
+  width: 380px;
+  height: 380px;
+  right: -94px;
+  top: 30px;
+  border: 1px solid rgba(255, 255, 255, 0.23);
+  border-radius: 50%;
+  box-shadow:
+    0 0 0 46px rgba(255, 255, 255, 0.035),
+    0 0 0 100px rgba(255, 255, 255, 0.025);
+  z-index: -1;
+}
+.home-hero .hero-content {
+  position: relative;
+  z-index: 1;
+  max-width: 710px !important;
+}
+.home-hero .hero-content h1 {
+  font-size: clamp(40px, 5vw, 72px) !important;
+  line-height: 1.07 !important;
+  letter-spacing: -0.055em !important;
+  color: #fff !important;
+  margin: 16px 0 !important;
+}
+.home-hero .hero-content h1 b {
+  color: #d8efff !important;
+}
+.home-hero .hero-content p {
+  font-size: clamp(15px, 1.5vw, 19px) !important;
+  line-height: 1.7 !important;
+  color: #e8f4ff !important;
+  max-width: 560px !important;
+}
+.hero-kicker {
+  color: #fff !important;
+  font-weight: 700 !important;
+  letter-spacing: 0.13em !important;
+}
+.hero-logo {
+  background: #fff !important;
+  border-radius: 18px !important;
+  padding: 7px !important;
+  box-shadow: 0 10px 26px rgba(0, 0, 0, 0.13) !important;
+}
+.hero-actions {
+  display: flex !important;
+  flex-wrap: wrap !important;
+  gap: 12px !important;
+  margin-top: 28px !important;
+}
+.hero-actions a {
+  border-radius: 12px !important;
+  min-height: 50px !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  font-size: 14px !important;
+  font-weight: 700 !important;
+  padding: 14px 22px !important;
+}
+.primary-action {
+  background: white !important;
+  color: #135a96 !important;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1) !important;
+}
+.secondary-action {
+  background: rgba(255, 255, 255, 0.12) !important;
+  border: 1px solid rgba(255, 255, 255, 0.48) !important;
+  color: white !important;
+}
+.portal-search {
+  position: relative !important;
+  z-index: 2 !important;
+  max-width: 960px !important;
+  margin: -33px auto 0 !important;
+  min-height: 70px !important;
+  padding: 8px 16px !important;
+  border: 1px solid #dae7f2 !important;
+  border-radius: 18px !important;
+  background: white !important;
+  box-shadow: 0 16px 40px rgba(16, 57, 94, 0.13) !important;
+}
+.portal-search input {
+  font-size: 15px !important;
+  min-height: 48px !important;
+  color: #183b5a !important;
+}
+.portal-search input::placeholder {
+  color: #7b8ea3 !important;
+}
+.portal-search > i {
+  font-size: 18px !important;
+  color: #1769aa !important;
+}
+#clearSearch {
+  min-width: 40px !important;
+  min-height: 40px !important;
+}
+.quick-search {
+  display: flex !important;
+  flex-wrap: wrap !important;
+  justify-content: center !important;
+  gap: 10px !important;
+  margin: 23px auto 4px !important;
+}
+.quick-search a {
+  font-size: 12px !important;
+  min-height: 37px !important;
+  border-radius: 100px !important;
+  background: white !important;
+  border: 1px solid #deebf6 !important;
+  padding: 9px 14px !important;
+  color: #365a77 !important;
+  transition:
+    transform 0.2s ease,
+    background 0.2s ease !important;
+}
+.quick-search a:hover {
+  transform: translateY(-2px);
+  background: #eaf4fe !important;
+}
+.quick-search-label {
+  font-size: 12px !important;
+  color: #63768a !important;
+}
+.portal-section {
+  padding-top: 75px !important;
+  padding-bottom: 40px !important;
+}
+.services-section {
+  padding-top: 62px !important;
+}
+.services-title,
+.section-heading {
+  margin-bottom: 27px !important;
+}
+.services-title > span,
+.section-heading span:not(.section-count) {
+  font-size: 11px !important;
+  font-weight: 800 !important;
+  letter-spacing: 0.13em !important;
+  color: #1264ad !important;
+}
+.services-title h2,
+.section-heading h2 {
+  font-size: clamp(28px, 3vw, 40px) !important;
+  line-height: 1.2 !important;
+  letter-spacing: -0.045em !important;
+  color: #142f4a !important;
+  margin: 8px 0 !important;
+}
+.services-title p,
+.section-heading p {
+  font-size: 14px !important;
+  line-height: 1.7 !important;
+  color: #61748a !important;
+}
+.service-grid {
+  display: grid !important;
+  grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+  gap: 17px !important;
+}
+.services-section .service-card {
+  position: relative !important;
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: flex-start !important;
+  text-align: left !important;
+  min-width: 0 !important;
+  min-height: 202px !important;
+  padding: 26px !important;
+  border: 1px solid #dfebf5 !important;
+  border-radius: 20px !important;
+  background: #fff !important;
+  box-shadow: 0 5px 20px rgba(20, 67, 108, 0.035) !important;
+  transition:
+    transform 0.22s ease,
+    box-shadow 0.22s ease,
+    border-color 0.22s ease !important;
+}
+.services-section .service-card:hover {
+  transform: translateY(-5px) !important;
+  box-shadow: 0 20px 40px rgba(20, 67, 108, 0.12) !important;
+  border-color: #9bc9ec !important;
+}
+.services-section .service-card .service-icon {
+  width: 54px !important;
+  height: 54px !important;
+  display: grid !important;
+  place-items: center !important;
+  border-radius: 15px !important;
+  background: #eaf4fc !important;
+  color: #156aa9 !important;
+  font-size: 22px !important;
+  margin: 0 0 19px !important;
+}
+.services-section .service-card strong {
+  font-size: 16px !important;
+  line-height: 1.4 !important;
+  color: #163754 !important;
+  margin: 0 0 7px !important;
+}
+.services-section .service-card small {
+  font-size: 12px !important;
+  line-height: 1.65 !important;
+  color: #667b8f !important;
+}
+.services-section .service-card .service-open {
+  position: absolute !important;
+  right: 25px !important;
+  top: 29px !important;
+  color: #6c9bbf !important;
+}
+.services-section .emergency-card .service-icon {
+  background: #fff0f0 !important;
+  color: #bf3035 !important;
+}
+.services-section .service-unavailable {
+  background: #f9fbfe !important;
+}
+.services-section .service-unavailable em {
+  font-size: 11px !important;
+  margin-top: 12px !important;
+  color: #6e7f90 !important;
+}
+.emergency-panel,
+.citizen-banner {
+  border-radius: 24px !important;
+  overflow: hidden !important;
+}
+.landmark-card,
+.info-card,
+.mayor-card {
+  border-radius: 20px !important;
+}
+.info-card {
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease !important;
+}
+.info-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 14px 30px rgba(20, 67, 108, 0.1) !important;
+}
+.portal-footer {
+  margin-top: 70px !important;
+}
+.footer-inner {
+  max-width: 1240px !important;
+}
+[hidden],
+.service-card[hidden],
+.info-card[hidden] {
+  display: none !important;
+}
+@media (max-width: 1000px) {
+  .service-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  }
+  .desktop-nav {
+    gap: 0 !important;
+  }
+  .desktop-nav a {
+    padding: 10px !important;
+  }
+  .official-pill {
+    display: none !important;
+  }
+}
+@media (max-width: 760px) {
+  html {
+    scroll-padding-top: 75px;
+  }
+  .header-inner {
+    min-height: 70px !important;
+    padding-inline: 16px !important;
+  }
+  .brand img {
+    width: 43px !important;
+    height: 43px !important;
+  }
+  .brand strong {
+    font-size: 13px !important;
+  }
+  .brand small {
+    font-size: 10px !important;
+  }
+  .portal-shell {
+    width: calc(100% - 24px) !important;
+  }
+  .home-hero {
+    min-height: 360px !important;
+    border-radius: 22px !important;
+    padding: 32px 24px 44px !important;
+  }
+  .home-hero:after {
+    width: 230px;
+    height: 230px;
+    right: -120px;
+    top: 100px;
+  }
+  .home-hero .hero-content h1 {
+    font-size: clamp(36px, 9vw, 49px) !important;
+  }
+  .home-hero .hero-content p {
+    font-size: 14px !important;
+  }
+  .hero-actions {
+    display: grid !important;
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  }
+  .hero-actions a {
+    min-height: 48px !important;
+    padding: 12px 8px !important;
+    font-size: 12px !important;
+  }
+  .portal-search {
+    margin: -24px 9px 0 !important;
+    min-height: 60px !important;
+    padding: 5px 12px !important;
+    border-radius: 14px !important;
+  }
+  .portal-search input {
+    font-size: 13px !important;
+  }
+  .quick-search {
+    justify-content: flex-start !important;
+    gap: 7px !important;
+    padding-inline: 8px !important;
+  }
+  .quick-search a {
+    font-size: 11px !important;
+    padding: 8px 11px !important;
+  }
+  .portal-section {
+    padding-top: 55px !important;
+    padding-bottom: 22px !important;
+  }
+  .services-section {
+    padding-top: 55px !important;
+  }
+  .services-title h2,
+  .section-heading h2 {
+    font-size: 28px !important;
+  }
+  .services-title p,
+  .section-heading p {
+    font-size: 13px !important;
+  }
+  .service-grid {
+    gap: 12px !important;
+  }
+  .services-section .service-card {
+    padding: 18px 15px !important;
+    min-height: 182px !important;
+    border-radius: 16px !important;
+  }
+  .services-section .service-card .service-icon {
+    width: 44px !important;
+    height: 44px !important;
+    font-size: 18px !important;
+    border-radius: 12px !important;
+    margin-bottom: 13px !important;
+  }
+  .services-section .service-card strong {
+    font-size: 13px !important;
+  }
+  .services-section .service-card small {
+    font-size: 11px !important;
+  }
+  .services-section .service-card .service-open {
+    top: 20px !important;
+    right: 14px !important;
+    font-size: 11px !important;
+  }
+  .bottom-nav {
+    z-index: 1001 !important;
+  }
+  .bottom-nav a span {
+    font-size: 10px !important;
+  }
+  .portal-footer {
+    margin-top: 40px !important;
+  }
+}
+@media (max-width: 390px) {
+  .portal-shell {
+    width: calc(100% - 18px) !important;
+  }
+  .home-hero {
+    padding: 28px 18px 36px !important;
+  }
+  .hero-actions {
+    gap: 8px !important;
+  }
+  .service-grid {
+    gap: 9px !important;
+  }
+  .services-section .service-card {
+    padding: 15px 12px !important;
+    min-height: 185px !important;
+  }
+  .services-section .service-card strong {
+    font-size: 12px !important;
+  }
+  .services-section .service-card small {
+    font-size: 10.5px !important;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto !important;
+  }
+  .services-section .service-card,
+  .quick-search a,
+  .info-card {
+    transition: none !important;
+  }
+  .services-section .service-card:hover,
+  .quick-search a:hover,
+  .info-card:hover {
+    transform: none !important;
+  }
+}
