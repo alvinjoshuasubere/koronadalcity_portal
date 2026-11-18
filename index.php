@@ -39,7 +39,7 @@ if (is_array($officialsData)) {
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet" />
-  <link rel="stylesheet" href="portal.css?v=20261118-8" />
+  <link rel="stylesheet" href="portal.css?v=20261118-9" />
 </head>
 
 <body class="portal-home-page">
@@ -155,6 +155,38 @@ if (is_array($officialsData)) {
             hotlines.</small><i class="fas fa-arrow-up-right-from-square service-open"></i></a>
       </div>
       <div class="search-empty" id="searchEmpty" role="status" aria-live="polite">No service found. Try another search.
+      </div>
+    </section>
+    <section class="home-emergency-section" id="emergency" aria-labelledby="homeEmergencyHeading">
+      <div class="home-emergency-intro">
+        <div>
+          <span class="home-emergency-eyebrow"><i class="fas fa-headset" aria-hidden="true"></i> PUBLIC SAFETY</span>
+          <h2 id="homeEmergencyHeading">Emergency Contacts</h2>
+          <p>For emergencies, contact the appropriate hotline immediately. Tap a number to call.</p>
+        </div>
+        <a class="home-emergency-all" href="emergency-contacts.php">All emergency contacts <i class="fas fa-arrow-right" aria-hidden="true"></i></a>
+      </div>
+      <div class="home-emergency-grid">
+        <?php if (is_array($emergencyData) && count($emergencyData) > 0): ?>
+          <?php foreach ($emergencyData as $hotline):
+            $kind = strtolower((string)($hotline['type'] ?? 'general'));
+            $symbols = ['general'=>'fa-phone-volume', 'police'=>'fa-shield-halved', 'fire'=>'fa-fire-flame-curved', 'hospital'=>'fa-hospital', 'disaster'=>'fa-house-flood-water', 'medical'=>'fa-kit-medical'];
+            $symbol = $symbols[$kind] ?? 'fa-phone';
+            $number = trim((string)($hotline['phone'] ?? ''));
+            $dial = preg_replace('/[^0-9+]/', '', preg_split('/\\s+ext\\.?\\s*/i', $number)[0]);
+          ?>
+          <article class="home-emergency-card">
+            <span class="home-emergency-icon" aria-hidden="true"><i class="fas <?= htmlspecialchars($symbol, ENT_QUOTES, 'UTF-8') ?>"></i></span>
+            <h3><?= htmlspecialchars((string)($hotline['name'] ?? 'Emergency Hotline'), ENT_QUOTES, 'UTF-8') ?></h3>
+            <p><?= htmlspecialchars((string)($hotline['description'] ?? ''), ENT_QUOTES, 'UTF-8') ?></p>
+            <?php if ($dial !== ''): ?>
+              <a class="home-emergency-call" href="tel:<?= htmlspecialchars($dial, ENT_QUOTES, 'UTF-8') ?>" aria-label="Call <?= htmlspecialchars((string)($hotline['name'] ?? 'Emergency Hotline'), ENT_QUOTES, 'UTF-8') ?> at <?= htmlspecialchars($number, ENT_QUOTES, 'UTF-8') ?>"><i class="fas fa-phone" aria-hidden="true"></i> <?= htmlspecialchars($number, ENT_QUOTES, 'UTF-8') ?></a>
+            <?php endif; ?>
+          </article>
+          <?php endforeach; ?>
+        <?php else: ?>
+          <p class="home-emergency-empty">Emergency contact information is currently unavailable. For urgent emergencies, call <a href="tel:911">911</a>.</p>
+        <?php endif; ?>
       </div>
     </section>
   </main>
