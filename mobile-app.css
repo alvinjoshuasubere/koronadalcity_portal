@@ -286,3 +286,29 @@ body.portal-home-page .kd-barangay-tooltip .maplibregl-popup-content{background:
 @media(prefers-reduced-motion:reduce){
  body.portal-home-page :is(.service-card,.bottom-nav a,.hero-actions a){transition:none!important;animation:none!important}
 }
+
+/* Emergency section stays high contrast while matching the blue civic palette. */
+body.portal-home-page .kd-emergency-banner{
+ background:linear-gradient(130deg,#123c70,#1766b1)!important;
+ border:1px solid #164f8d!important;border-left:4px solid #6bb7f5!important;
+ box-shadow:0 12px 30px rgba(18,60,112,.11)!important;
+}
+body.portal-home-page .kd-emergency-heading-copy h2,
+body.portal-home-page .kd-emergency-heading-copy p,
+body.portal-home-page .kd-emergency-label{color:#fff!important}
+body.portal-home-page .kd-emergency-all{
+ background:#fff!important;color:#124b88!important;
+ border:1px solid #bfd9f3!important;
+}
+body.portal-home-page .kd-direct-hotline strong{color:#183553!important}
+body.portal-home-page .kd-direct-hotline small{color:#60758d!important}
+body.portal-home-page .kd-direct-hotline .kd-direct-call{
+ background:#eaf4ff!important;border-color:#bbd8f3!important;color:#124b88!important;
+}
+body.portal-home-page .services-section .kd-aborlan-footer{color:var(--kd-app-blue)!important}
+body.portal-home-page .home-hero .hero-actions .primary-action{
+ background:var(--kd-app-blue)!important;border-color:var(--kd-app-blue)!important;color:#fff!important;
+}
+body.portal-home-page .home-hero .hero-actions .secondary-action{
+ background:#fff!important;border-color:#bfd9f3!important;color:var(--kd-app-deep)!important;
+}
