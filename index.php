@@ -40,6 +40,7 @@ if (is_array($officialsData)) {
   <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet" />
   <link rel="stylesheet" href="portal.css?v=20261118-26" />
+  <link rel="stylesheet" href="civic-responsive.css?v=20261118-27" />
 </head>
 
 <body class="portal-home-page">
@@ -220,6 +221,7 @@ if (is_array($officialsData)) {
         </div>
       </article>
     </section>
+    <?php include __DIR__ . '/city-live-panel.php'; ?>
   </main>
   <footer class="portal-footer">
     <div class="footer-inner">
