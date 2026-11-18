@@ -39,7 +39,7 @@ if (is_array($officialsData)) {
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet" />
-  <link rel="stylesheet" href="portal.css?v=20261118-24" />
+  <link rel="stylesheet" href="portal.css?v=20261118-25" />
 </head>
 
 <body class="portal-home-page">
@@ -116,11 +116,6 @@ if (is_array($officialsData)) {
     </section>
     <section class="kd-emergency-banner" id="emergency" aria-labelledby="kdEmergencyTitle">
       <div class="kd-emergency-heading">
-        <div class="kd-emergency-emblem" aria-hidden="true">
-          <span class="kd-emergency-emblem-ring"></span>
-          <i class="fas fa-shield-halved kd-emergency-shield"></i>
-          <i class="fas fa-phone kd-emergency-emblem-phone"></i>
-        </div>
         <div class="kd-emergency-heading-copy">
           <span class="kd-emergency-label"><i class="fas fa-triangle-exclamation" aria-hidden="true"></i> EMERGENCY
             HOTLINES</span>
