@@ -1,0 +1,91 @@
+/* Full-page illustrated Koronadal portal — desktop.png + mobile.png.
+   Final styling layer. All service tiles, information and controls remain native HTML. */
+:root{--scene-navy:#092550;--scene-orange:#ff871d;--scene-blue:#2694cf;--scene-ink:#102c5c;--scene-card:#fff}
+html{scroll-padding-top:102px!important}
+body:not(.force-mobile){background:linear-gradient(180deg,rgba(183,226,250,.22),rgba(238,247,255,.56) 37%,rgba(241,249,255,.74) 100%),url("desktop.png") center top / cover fixed no-repeat!important}
+body:not(.force-mobile):before{content:"";position:fixed;inset:0;pointer-events:none;z-index:-1;background:linear-gradient(180deg,transparent 0,rgba(255,255,255,.07) 40%,rgba(244,250,255,.28) 100%)}
+.portal-header{box-shadow:0 5px 18px rgba(8,33,72,.17)!important}
+.portal-shell{background:transparent!important;padding-bottom:28px!important}
+.home-hero{min-height:400px!important;background:linear-gradient(90deg,rgba(8,45,110,.92),rgba(17,75,142,.72) 47%,rgba(28,101,161,.04) 77%),url("mobile.png") center 52% / cover no-repeat!important}
+.home-hero .hero-content{max-width:750px!important}
+.home-hero .hero-content h1{font-size:clamp(45px,5vw,75px)!important;line-height:1.045!important;text-shadow:0 3px 10px rgba(4,36,87,.12)!important}
+.home-hero .hero-content h1 b{color:#ff9838!important}
+.home-hero .hero-content p{font-size:18px!important}
+.home-hero .hero-greeting{background:rgba(4,31,82,.25)!important}
+.portal-search{display:flex!important;align-items:center!important;gap:12px!important;padding:8px 10px 8px 20px!important;overflow:hidden!important}
+.portal-search input{flex:1 1 auto!important;min-width:0!important;border:0!important;outline:none!important;font-size:17px!important;background:transparent!important}
+.portal-search-submit{border:0;flex:0 0 auto;display:inline-flex;align-items:center;justify-content:center;gap:9px;min-height:54px;min-width:145px;padding:12px 21px;border-radius:16px;background:var(--scene-orange);color:#fff;font:800 15px Sora,system-ui,sans-serif;cursor:pointer}
+.portal-search-submit:hover{background:#f5750d}.portal-search-submit i{font-size:14px}
+#clearSearch{flex:0 0 43px!important}
+.quick-search{padding-bottom:6px!important}
+.portal-dashboard{padding:12px 20px 0!important;margin-top:19px!important;border-radius:29px;background:linear-gradient(180deg,rgba(237,249,255,.51),rgba(229,244,255,.22))!important;backdrop-filter:blur(5px)}
+.dashboard-panel h2{font-size:30px!important;color:#0c3166!important}
+.dashboard-panel>p{color:#2c5b86!important}
+.portal-dashboard .top-task-grid{gap:15px!important}
+.portal-dashboard .top-task{min-height:190px!important;border:2px solid rgba(255,255,255,.98)!important;background:linear-gradient(165deg,#fff,#f4f9ff)!important;box-shadow:0 9px 22px rgba(10,65,121,.14)!important}
+.portal-dashboard .top-task strong{font-size:17px!important}
+.portal-dashboard .top-task i{font-size:31px!important}
+.app-featured{position:relative!important;min-height:250px!important;background:linear-gradient(90deg,rgba(225,243,255,.94) 0%,rgba(241,248,255,.90) 58%,rgba(251,254,255,.65) 100%),url("desktop.png") right 45% / cover no-repeat!important}
+.app-featured-content{max-width:760px!important}
+.app-featured-art{opacity:.22!important}
+.app-featured-content h2{max-width:680px!important;font-size:clamp(26px,3vw,43px)!important}
+.services-section,.landmarks-section,.leadership-section,#information{background:linear-gradient(180deg,rgba(252,254,255,.89),rgba(246,252,255,.84))!important;box-shadow:0 9px 28px rgba(20,77,124,.075)!important;border:1px solid rgba(255,255,255,.93)!important;border-radius:26px!important;margin-top:34px!important;padding:36px!important;backdrop-filter:blur(8px)}
+.services-section .service-grid{grid-template-columns:repeat(3,minmax(0,1fr))!important}
+.services-section .service-card{min-height:120px!important;background:rgba(255,255,255,.95)!important;box-shadow:0 5px 13px rgba(12,70,117,.055)!important}
+.services-section .service-card:hover{transform:translateY(-3px)!important}
+.service-steps{margin-top:28px!important}
+.emergency-panel{margin-top:34px!important;background:rgba(253,254,255,.94)!important;box-shadow:0 9px 28px rgba(12,57,108,.1)!important}
+.landmark-card,.mayor-card,.info-card{background:#fff!important;box-shadow:0 8px 20px rgba(15,70,123,.075)!important}
+.citizen-banner{margin:30px 0!important}
+.portal-footer{position:relative;z-index:1}
+.bottom-nav{margin-top:25px!important}
+.view-switcher .view-trigger{width:51px!important;height:51px!important;min-width:51px!important;border-radius:16px!important}
+@media(max-width:1180px) and (min-width:761px){
+.portal-dashboard .top-task-grid{grid-template-columns:repeat(3,minmax(0,1fr))!important}
+.services-section .service-grid{grid-template-columns:repeat(2,minmax(0,1fr))!important}
+.services-section,.landmarks-section,.leadership-section,#information{padding:27px!important}
+}
+@media(max-width:760px){
+body:not(.force-desktop){background:linear-gradient(#edf8ff,#f7fcff)!important}
+body:not(.force-desktop) .portal-shell{padding-bottom:116px!important}
+body:not(.force-desktop) .home-hero{background:linear-gradient(180deg,#c4eaff,#e9f7ff)!important}
+body:not(.force-desktop) .home-hero:before{background:url("mobile.png") center center / cover no-repeat!important;height:clamp(180px,53vw,270px)!important}
+body:not(.force-desktop) .home-hero .hero-content h1{font-size:clamp(30px,8vw,42px)!important;text-shadow:none!important}
+body:not(.force-desktop) .home-hero .hero-content p{font-size:13px!important}
+body:not(.force-desktop) .portal-search{gap:6px!important;padding:6px 7px 6px 11px!important}
+body:not(.force-desktop) .portal-search input{font-size:13px!important}
+body:not(.force-desktop) .portal-search-submit{min-width:77px;min-height:43px;padding:10px 12px;border-radius:12px;font-size:11px}
+body:not(.force-desktop) .portal-search-submit i{display:none}
+body:not(.force-desktop) #clearSearch{flex:0 0 28px!important;min-width:28px!important}
+body:not(.force-desktop) .portal-dashboard{padding:17px 14px 0!important;margin:18px 10px 0!important;backdrop-filter:none!important}
+body:not(.force-desktop) .dashboard-panel h2{font-size:23px!important}
+body:not(.force-desktop) .portal-dashboard .top-task-grid{grid-template-columns:repeat(3,minmax(0,1fr))!important;gap:10px!important}
+body:not(.force-desktop) .portal-dashboard .top-task{min-height:144px!important;padding:13px 6px!important}
+body:not(.force-desktop) .portal-dashboard .top-task strong{font-size:12px!important}
+body:not(.force-desktop) .app-featured{margin:20px 12px 0!important;padding:19px!important;background:linear-gradient(95deg,rgba(227,245,255,.98),rgba(243,251,255,.90)),url("desktop.png") center / cover no-repeat!important}
+body:not(.force-desktop) .app-featured-content{max-width:90%!important}
+body:not(.force-desktop) .app-featured h2{font-size:23px!important}
+body:not(.force-desktop) .services-section,body:not(.force-desktop) .landmarks-section,body:not(.force-desktop) .leadership-section,body:not(.force-desktop) #information{margin:19px 10px 0!important;padding:23px 14px!important;border-radius:19px!important}
+body:not(.force-desktop) .services-section .service-grid{grid-template-columns:1fr!important}
+body:not(.force-desktop) .services-section .service-card{min-height:90px!important}
+body:not(.force-desktop) .emergency-panel{margin:19px 10px!important}
+body:not(.force-desktop) .bottom-nav{margin:0!important}
+}
+body.force-mobile{background:linear-gradient(#edffff,#f7fcff)!important}
+body.force-mobile .home-hero{background:linear-gradient(180deg,#c4eaff,#e9f7ff)!important}
+body.force-mobile .home-hero:before{background:url("mobile.png") center center / cover no-repeat!important}
+body.force-mobile .portal-search{gap:6px!important;padding:6px 7px 6px 11px!important}
+body.force-mobile .portal-search input{font-size:13px!important}
+body.force-mobile .portal-search-submit{min-width:77px;min-height:43px;padding:10px 12px;border-radius:12px;font-size:11px}
+body.force-mobile .portal-search-submit i{display:none}
+body.force-mobile .portal-dashboard{margin:18px 10px 0!important;padding:17px 14px 0!important;backdrop-filter:none!important}
+body.force-mobile .portal-dashboard .top-task-grid{grid-template-columns:repeat(3,minmax(0,1fr))!important}
+body.force-mobile .portal-dashboard .top-task{min-height:144px!important}
+body.force-mobile .portal-dashboard .top-task strong{font-size:12px!important}
+body.force-mobile .services-section,body.force-mobile .landmarks-section,body.force-mobile .leadership-section,body.force-mobile #information{background:rgba(255,255,255,.96)!important;border-radius:19px!important;margin:19px 10px 0!important;padding:23px 14px!important}
+body.force-mobile .services-section .service-grid{grid-template-columns:1fr!important}
+body.force-mobile .app-featured{margin:20px 12px 0!important;background:linear-gradient(95deg,rgba(227,245,255,.98),rgba(243,251,255,.90)),url("desktop.png") center / cover no-repeat!important}
+body.force-desktop .home-hero{background:linear-gradient(90deg,rgba(8,45,110,.92),rgba(17,75,142,.72) 47%,rgba(28,101,161,.04) 77%),url("mobile.png") center 52% / cover no-repeat!important}
+body.force-desktop .portal-dashboard .top-task-grid{grid-template-columns:repeat(6,minmax(0,1fr))!important}
+body.force-desktop .services-section .service-grid{grid-template-columns:repeat(3,minmax(0,1fr))!important}
+body.force-desktop .bottom-nav{display:grid!important;position:relative!important;left:auto!important;bottom:auto!important;transform:none!important;max-width:900px!important;width:min(900px,calc(100% - 50px))!important;height:88px!important;margin:24px auto 32px!important}
