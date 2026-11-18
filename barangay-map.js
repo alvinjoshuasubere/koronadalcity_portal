@@ -102,7 +102,7 @@
       isPolygon(feature) && String(feature.id || '').startsWith('relation/'));
     const cityFeature = relations.find(feature => {
       const p = feature.properties || {};
-      return p.admin_level === '6' && normalized(p.name).includes('koronadal') && withinKoronadal(feature);
+      return String(p.admin_level) === '6' && normalized(p.name).includes('koronadal') && withinKoronadal(feature);
     });
     if (!cityFeature) throw Error('Koronadal city boundary unavailable');
     const seen = new Set();
