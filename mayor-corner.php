@@ -26,7 +26,7 @@ function mcInitials($name) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="theme-color" content="#102d50">
+    <meta name="theme-color" content="#0b1220">
     <title>Mayor's Corner — Koronadal City</title>
     <link rel="icon" type="image/x-icon" href="favicon.ico">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -38,6 +38,7 @@ function mcInitials($name) {
     <link rel="stylesheet" href="portal-unified.css?v=20261118" />
     <link rel="stylesheet" href="portal-glacier.css?v=20261118-2" />
     <link rel="stylesheet" href="portal-navy-editorial.css?v=20261118-1" />
+    <link rel="stylesheet" href="portal-pilipiknow-palette.css?v=20261118-1" />
 </head>
 <body class="mc-page">
 
