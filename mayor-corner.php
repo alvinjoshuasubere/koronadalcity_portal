@@ -35,6 +35,7 @@ function mcInitials($name) {
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
   <link rel="stylesheet" href="portal.css?v=20261118-21" />
   <link rel="stylesheet" href="civic-responsive.css?v=20261118-30" />
+  <link rel="stylesheet" href="mayor-biography.css?v=20261119-1" />
 </head>
 <body class="mc-page">
 
@@ -85,13 +86,13 @@ function mcInitials($name) {
 <div class="tabs-section">
     <div class="tabs-nav" id="tabsNav" role="tablist" aria-label="Mayor's Corner sections">
         <button type="button" class="tab-btn active" data-tab="profile" id="mc-tab-profile" role="tab" aria-selected="true" aria-controls="tab-profile" tabindex="0">
-            <i class="fas fa-user"></i> <span class="tab-label">Brief Profile</span>
+            <i class="fas fa-user"></i> <span class="tab-label">Biography</span>
         </button>
         <button type="button" class="tab-btn" data-tab="governance" id="mc-tab-governance" role="tab" aria-selected="false" aria-controls="tab-governance" tabindex="-1">
-            <i class="fas fa-shield-halved"></i> <span class="tab-label">Governance Brand</span>
+            <i class="fas fa-shield-halved"></i> <span class="tab-label">Leadership</span>
         </button>
         <button type="button" class="tab-btn" data-tab="agenda" id="mc-tab-agenda" role="tab" aria-selected="false" aria-controls="tab-agenda" tabindex="-1">
-            <i class="fas fa-chart-line"></i> <span class="tab-label">Development Agenda</span>
+            <i class="fas fa-chart-line"></i> <span class="tab-label">Future Plans</span>
         </button>
     </div>
 
@@ -99,6 +100,11 @@ function mcInitials($name) {
 
         <!-- ═══ TAB: PROFILE ═══ -->
         <div class="tab-panel active" id="tab-profile" role="tabpanel" aria-labelledby="mc-tab-profile">
+            <div class="mc-bio-intro">
+                <span class="mc-bio-eyebrow">MEET YOUR CITY MAYOR</span>
+                <h2>Biography and Public Service Journey</h2>
+                <p>Mayor Erlinda “Bing” Pabi-Araquil brings together experience in broadcast journalism and local government. From her broadcasting career beginning in 1993 to her service as a three-term city councilor and later City Vice Mayor, her work has centered on connecting with communities and addressing the concerns of Koronadaleños.</p>
+            </div>
 
             <div class="formal-section">
                 <div class="formal-heading">
@@ -161,6 +167,11 @@ function mcInitials($name) {
 
         <!-- ═══ TAB: GOVERNANCE ═══ -->
         <div class="tab-panel" id="tab-governance" role="tabpanel" aria-labelledby="mc-tab-governance" hidden>
+            <div class="mc-bio-intro">
+                <span class="mc-bio-eyebrow">LEADERSHIP PRINCIPLES</span>
+                <h2>A People-Centered Approach to Governance</h2>
+                <p>The administration describes its leadership through the EPA framework: Empowered by Faith, People-Centered Governance, and Accountable Governance.</p>
+            </div>
 
             <div class="formal-section">
                 <div class="formal-heading">
@@ -211,6 +222,11 @@ function mcInitials($name) {
 
         <!-- ═══ TAB: AGENDA ═══ -->
         <div class="tab-panel" id="tab-agenda" role="tabpanel" aria-labelledby="mc-tab-agenda" hidden>
+            <div class="mc-bio-intro">
+                <span class="mc-bio-eyebrow">MOVING KORONADAL FORWARD</span>
+                <h2>Vision and Future Development Priorities</h2>
+                <p>The administration's development agenda focuses on five connected sectors: social development, economic opportunities, environmental protection, infrastructure, and accountable governance. These are stated priorities, not announcements of newly approved projects or funding.</p>
+            </div>
 
             <div class="formal-section">
                 <div class="formal-heading">
