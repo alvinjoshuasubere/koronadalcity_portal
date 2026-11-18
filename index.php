@@ -132,7 +132,7 @@ if (is_array($officialsData)) {
           ['label' => '911', 'type' => 'general', 'icon' => 'fa-phone-volume', 'subtitle' => 'National Emergency Hotline'],
           ['label' => 'PNP', 'type' => 'police', 'icon' => 'fa-shield-halved', 'logo' => 'https://commons.wikimedia.org/wiki/Special:FilePath/Philippine_National_Police_seal.svg', 'subtitle' => 'Koronadal City Police Station'],
           ['label' => 'BFP', 'type' => 'fire', 'icon' => 'fa-fire-extinguisher', 'logo' => 'https://commons.wikimedia.org/wiki/Special:FilePath/Bureau_of_Fire_Protection.png', 'subtitle' => 'Koronadal City Fire Station'],
-          ['label' => 'CDRRMO', 'type' => 'disaster', 'icon' => 'fa-house-flood-water', 'subtitle' => 'City Disaster Risk Reduction']
+          ['label' => 'CDRRMO', 'type' => 'disaster', 'icon' => 'fa-house-flood-water', 'logo' => 'Logo.png', 'subtitle' => 'City Disaster Risk Reduction']
         ];
         foreach ($priorityHotlines as $priority):
           $record = null;
