@@ -57,11 +57,12 @@ if (is_array($officialsData)) {
   </div><div class="brand-accent"><i></i><i></i><i></i></div>
 </header>
 <main class="portal-shell" id="home">
-  <div class="mobile-welcome"><div class="welcome-copy"><span>CITY OF KORONADAL</span><strong>Maayong Adlaw!</strong></div><div class="welcome-icon" aria-hidden="true"><i class="fas fa-sun"></i></div></div>
+  <div class="mobile-welcome"><div class="welcome-copy"><span>CITY OF KORONADAL</span><strong>Maayong Aga, Koronadaleño!</strong></div><div class="welcome-icon" aria-hidden="true"><i class="fas fa-sun"></i></div></div>
   <section class="home-hero">
   <div class="hero-content">
     <div class="hero-logo"><img src="Logo.png" alt="Koronadal City"></div>
     <div class="hero-kicker"><span class="live-dot"></span> CITY SERVICES, MADE SIMPLE</div>
+    <div class="hero-greeting">Maayong Aga, Koronadaleño!</div>
     <h1>Welcome to<br><b>Koronadal City</b></h1>
     <p>Your city services, information and assistance in one place.</p>
     <div class="hero-actions"><a href="#services" class="primary-action"><i class="fas fa-arrow-down"></i> Explore Services</a><a href="emergency-contacts.php" class="secondary-action"><i class="fas fa-phone-volume"></i> Emergency Help</a></div>
