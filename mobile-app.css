@@ -364,3 +364,78 @@ body.portal-home-page .kd-barangay-map .maplibregl-popup-content{
 @media(max-width:350px){
  body.portal-home-page .kd-barangay-all-toolbar{grid-template-columns:1fr!important}
 }
+
+/* Business permit verification card joins the shared civic card style. */
+body.portal-home-page .services-section .service-grid.kd-aborlan-grid a.service-card.kd-aborlan-card[href*="bplo.koronadalcityonlineservices.com"]{
+ --service-tint:#eaf4ff!important;--service-stroke:#bfdbfe!important;
+ --service-color:#1766b1!important;--service-accent:#1766b1!important;
+}
+body.portal-home-page .services-section .service-grid.kd-aborlan-grid a.service-card.kd-aborlan-card[href*="bplo.koronadalcityonlineservices.com"] .kd-aborlan-icon{
+ background:#eaf4ff!important;color:#1766b1!important;border-color:#bfdbfe!important;
+}
+/* App-style bottom bar: muted default, soft-blue hover, solid-blue selected. */
+body.portal-home-page .bottom-nav{
+ --kd-nav-active:#1766b1;
+ --kd-nav-hover-bg:#eaf4ff;
+ --kd-nav-active-bg:#1766b1;
+}
+body.portal-home-page .bottom-nav a,
+body.portal-home-page .bottom-nav a.center{
+ color:#64748b!important;background:transparent!important;
+ border:1px solid transparent!important;
+ transition:background-color .18s ease,color .18s ease,border-color .18s ease,transform .18s ease!important;
+}
+body.portal-home-page .bottom-nav a:hover,
+body.portal-home-page .bottom-nav a.center:hover{
+ color:#155fa6!important;background:#eaf4ff!important;
+ border-color:#d0e4fa!important;
+}
+body.portal-home-page .bottom-nav a.active,
+body.portal-home-page .bottom-nav a.center.active,
+body.portal-home-page .bottom-nav a[aria-current="location"]{
+ color:#fff!important;background:#1766b1!important;border-color:#1766b1!important;
+ box-shadow:0 4px 12px rgba(23,102,177,.19)!important;
+}
+body.portal-home-page .bottom-nav a.active i,
+body.portal-home-page .bottom-nav a.active span,
+body.portal-home-page .bottom-nav a[aria-current="location"] i,
+body.portal-home-page .bottom-nav a[aria-current="location"] span{
+ color:#fff!important;
+}
+body.portal-home-page .bottom-nav a.active:hover,
+body.portal-home-page .bottom-nav a[aria-current="location"]:hover{
+ background:#124f90!important;border-color:#124f90!important;color:#fff!important;
+}
+body.portal-home-page .bottom-nav a:focus-visible{
+ outline:3px solid #60a5fa!important;outline-offset:2px!important;
+}
+@media(hover:none){
+ body.portal-home-page .bottom-nav a:not(.active):active{
+  color:#155fa6!important;background:#dbeafe!important;
+  transform:scale(.97)!important;
+ }
+}
+@media(max-width:760px){
+ body.portal-home-page .bottom-nav{
+  gap:4px!important;padding-inline:8px!important;
+ }
+ body.portal-home-page .bottom-nav a,
+ body.portal-home-page .bottom-nav a.center{
+  min-height:50px!important;border-radius:12px!important;
+ }
+}
+@media(max-width:360px){
+ body.portal-home-page .bottom-nav{
+  gap:2px!important;padding-inline:5px!important;
+ }
+ body.portal-home-page .bottom-nav a,
+ body.portal-home-page .bottom-nav a.center{
+  padding-inline:1px!important;min-width:0!important;
+ }
+}
+@media(prefers-reduced-motion:reduce){
+ body.portal-home-page .bottom-nav a,
+ body.portal-home-page .bottom-nav a.center{
+  transition:none!important;
+ }
+}
