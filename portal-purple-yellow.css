@@ -1,0 +1,178 @@
+/* Koronadal Portal · Purple + Yellow · responsive artwork update
+   Primary #3a0ca3, accent #fff275. desktop.png is the only illustration asset. */
+:root{
+  --portal-purple:#3a0ca3;--portal-purple-dark:#2a087b;
+  --portal-purple-deep:#1c064f;--portal-lilac:#f2edff;
+  --portal-yellow:#fff275;--portal-yellow-hover:#f4e65f;
+  --portal-white:#ffffff;--portal-ink:#261449;--portal-muted:#685c7d;
+  --portal-border:#e4daf9;--app-navy:#3a0ca3;--app-lemon:#fff275;
+  --ui-navy:#3a0ca3;--ui-deep:#1c064f;--ui-glacier:#f1ecff;
+  --ui-ice:#faf8ff;--ui-glacier-blue:#6749c3;--ui-lemon:#fff275;
+  --scene-navy:#3a0ca3;--scene-orange:#fff275;--scene-blue:#6b4cdb;
+  --scene-ink:#261449;--scene-card:#fff;--cartoon-navy:#3a0ca3;
+  --cartoon-blue:#6844c9;--cartoon-sky:#f3efff;--cartoon-orange:#fff275;
+  --cartoon-ink:#261449;--cartoon-line:#e4daf9;
+}
+html{scroll-padding-top:100px!important}
+body,body:not(.force-mobile),body.force-mobile,body.force-desktop{
+  color:var(--portal-ink)!important;
+  background:linear-gradient(180deg,rgba(255,255,255,.73),rgba(249,247,255,.9)),url("desktop.png") center top / cover fixed no-repeat!important;
+}
+body:before{background:none!important}
+.portal-header{
+  background:linear-gradient(100deg,#24066b,#3a0ca3 72%,#5528bd)!important;
+  border:0!important;box-shadow:0 8px 24px rgba(38,6,102,.19)!important;
+}
+.brand strong,.brand small,.desktop-nav a{color:#fff!important}
+.brand-accent{background:linear-gradient(90deg,#fff275,#fff275 62%,#9b81e8)!important}
+.desktop-nav a.active,.desktop-nav a:hover,
+.bottom-nav a.active{
+  background:var(--portal-yellow)!important;color:var(--portal-purple)!important;
+}
+.desktop-nav a.active i,.desktop-nav a:hover i,
+.bottom-nav a.active i,.bottom-nav a.active span{color:var(--portal-purple)!important}
+.header-service-btn{
+  background:var(--portal-yellow)!important;color:var(--portal-purple)!important;
+}
+.header-service-btn:hover{background:var(--portal-yellow-hover)!important}
+.portal-shell{background:transparent!important}
+.home-hero,body.force-desktop .home-hero{
+  background:linear-gradient(100deg,rgba(42,8,123,.97) 0%,rgba(58,12,163,.9) 50%,rgba(58,12,163,.44) 100%),url("desktop.png") center 44% / cover no-repeat!important;
+  color:#fff!important;
+}
+.home-hero:before,.home-hero:after,
+body.force-mobile .home-hero:before{display:none!important;content:none!important}
+.home-hero .hero-content h1,.home-hero .hero-content p,
+.home-hero .hero-kicker{color:#fff!important}
+.home-hero .hero-content h1 b{color:var(--portal-yellow)!important}
+.home-hero .hero-greeting{
+  background:rgba(255,242,117,.18)!important;color:#fff!important;
+  border:1px solid rgba(255,242,117,.56)!important;
+}
+.home-hero .hero-greeting:before{background:var(--portal-yellow)!important}
+.home-hero .hero-actions .primary-action,
+.portal-search-submit,.app-featured-content>a,.citizen-banner a{
+  background:var(--portal-yellow)!important;color:var(--portal-purple)!important;
+  border-color:var(--portal-yellow)!important;
+}
+.home-hero .hero-actions .primary-action:hover,
+.portal-search-submit:hover,.app-featured-content>a:hover{
+  background:var(--portal-yellow-hover)!important;
+}
+.home-hero .hero-actions .secondary-action{
+  background:rgba(255,255,255,.15)!important;color:#fff!important;
+  border:1px solid rgba(255,255,255,.55)!important;
+}
+.portal-search{border:2px solid #fff!important;box-shadow:0 12px 33px rgba(58,12,163,.17)!important}
+.portal-search>i{color:var(--portal-purple)!important}
+.portal-search input{color:var(--portal-ink)!important}
+.quick-search a{background:#fff!important;border-color:var(--portal-border)!important;color:var(--portal-purple)!important}
+.quick-search a:hover{background:var(--portal-lilac)!important}
+.portal-dashboard{background:rgba(245,240,255,.51)!important}
+.dashboard-panel h2,.services-title h2,.section-heading h2,
+.app-featured h2{color:var(--portal-purple)!important}
+.dashboard-panel .dashboard-eyebrow,.services-title>span,
+.section-heading span:not(.section-count),.app-featured-kicker{color:#5d30b8!important}
+.dashboard-panel>p,.services-title p,.section-heading p{color:var(--portal-muted)!important}
+.portal-dashboard .top-task,.services-section .service-card,.info-card,
+.landmark-card,.mayor-card,.service-step{
+  background:rgba(255,255,255,.97)!important;border-color:var(--portal-border)!important;
+  box-shadow:0 8px 22px rgba(58,12,163,.09)!important;
+}
+.portal-dashboard .top-task:hover,.services-section .service-card:hover{
+  border-color:#aa96e7!important;box-shadow:0 14px 29px rgba(58,12,163,.16)!important;
+}
+.portal-dashboard .top-task i,.services-section .service-card .service-icon{
+  background:#ede7ff!important;color:var(--portal-purple)!important;
+}
+.portal-dashboard .top-task:nth-child(2) i,
+.services-section .service-card:nth-child(3n + 2) .service-icon{
+  background:#fffbd0!important;color:#5b4190!important;
+}
+.portal-dashboard .top-task:nth-child(3) i{background:#ede7ff!important;color:#5a2bb1!important}
+.portal-dashboard .top-task:nth-child(4) i{background:#f7eafb!important;color:#8625ac!important}
+.portal-dashboard .top-task:nth-child(5) i{background:#fffbd0!important;color:#6d509e!important}
+.portal-dashboard .top-task:nth-child(6) i{background:#e9e2ff!important;color:#6244ae!important}
+.portal-dashboard .top-task strong,.services-section .service-card strong{
+  color:var(--portal-ink)!important;
+}
+.services-section .service-card .service-open{color:#7857c2!important}
+.app-featured,body.force-mobile .app-featured{
+  background:linear-gradient(100deg,rgba(242,237,255,.98),rgba(255,255,255,.88)),url("desktop.png") right center / cover no-repeat!important;
+  border-color:white!important;
+}
+.app-featured p{color:#5c5276!important}
+.app-directory-link{background:#fff!important;border-color:var(--portal-border)!important;color:var(--portal-purple)!important}
+.services-section,.landmarks-section,.leadership-section,#information{
+  background:rgba(252,250,255,.92)!important;border-color:rgba(255,255,255,.9)!important;
+}
+.service-step .step-number{background:var(--portal-yellow)!important;color:var(--portal-purple)!important}
+.emergency-panel{border-color:var(--portal-border)!important}
+.citizen-banner{background:linear-gradient(110deg,#25066b,#3a0ca3)!important}
+.portal-footer{background:var(--portal-purple-deep)!important}
+.bottom-nav,body.force-desktop .bottom-nav,body.force-mobile .bottom-nav{
+  background:linear-gradient(110deg,#230664,#3a0ca3)!important;
+}
+.bottom-nav a i,.bottom-nav a span{color:#fff!important}
+.bottom-nav a.center{background:transparent!important}
+.bottom-nav a.center i,.bottom-nav a.center span{color:#fff!important}
+.bottom-nav a.active{background:var(--portal-yellow)!important}
+.bottom-nav a.active i,.bottom-nav a.active span{color:var(--portal-purple)!important}
+.view-switcher .view-trigger{
+  background:var(--portal-purple)!important;border-color:#754bd4!important;color:#fff!important;
+}
+.view-switcher .view-trigger>i:first-child{color:var(--portal-yellow)!important}
+.view-switcher .view-menu button.active{
+  background:#f0eaff!important;color:var(--portal-purple)!important;
+  box-shadow:inset 3px 0 var(--portal-purple)!important;
+}
+.view-switcher .view-menu button.active i{color:var(--portal-purple)!important}
+@media(max-width:760px){
+  body:not(.force-desktop){background:#faf8ff!important}
+  body:not(.force-desktop) .portal-header{background:var(--portal-purple)!important}
+  body:not(.force-desktop) .menu-btn{
+    background:rgba(255,255,255,.14)!important;color:#fff!important;
+    border-color:rgba(255,255,255,.28)!important;
+  }
+  body:not(.force-desktop) .home-hero{
+    background:linear-gradient(100deg,rgba(58,12,163,.91),rgba(58,12,163,.62)),url("desktop.png") center 32% / cover no-repeat!important;
+    border-radius:0 0 22px 22px!important;
+    padding:30px 20px 26px!important;
+    min-height:300px!important;
+  }
+  body:not(.force-desktop) .home-hero:before{display:none!important;content:none!important}
+  body:not(.force-desktop) .home-hero .hero-content h1,
+  body:not(.force-desktop) .home-hero .hero-content p,
+  body:not(.force-desktop) .home-hero .hero-greeting{color:#fff!important}
+  body:not(.force-desktop) .home-hero .hero-content h1 b{color:var(--portal-yellow)!important}
+  body:not(.force-desktop) .home-hero .hero-actions .secondary-action{
+    background:rgba(255,255,255,.15)!important;color:#fff!important;
+    border-color:rgba(255,255,255,.5)!important;
+  }
+  body:not(.force-desktop) .portal-dashboard{background:rgba(243,238,255,.8)!important}
+  body:not(.force-desktop) .portal-dashboard .top-task{border-color:var(--portal-border)!important}
+  body:not(.force-desktop) .app-featured{
+    background:linear-gradient(100deg,rgba(243,238,255,.98),rgba(255,255,255,.9)),url("desktop.png") center / cover no-repeat!important;
+  }
+  body:not(.force-desktop) .bottom-nav{background:var(--portal-purple)!important}
+  body:not(.force-desktop) .bottom-nav a.active{background:var(--portal-yellow)!important}
+}
+body.force-mobile{background:#faf8ff!important}
+body.force-mobile .portal-header{background:var(--portal-purple)!important}
+body.force-mobile .home-hero{
+  background:linear-gradient(100deg,rgba(58,12,163,.91),rgba(58,12,163,.62)),url("desktop.png") center 32% / cover no-repeat!important;
+  padding:30px 20px 26px!important;min-height:300px!important;
+}
+body.force-mobile .home-hero:before{display:none!important;content:none!important}
+body.force-mobile .home-hero .hero-content h1,body.force-mobile .home-hero .hero-content p,
+body.force-mobile .home-hero .hero-greeting{color:white!important}
+body.force-mobile .home-hero .hero-content h1 b{color:var(--portal-yellow)!important}
+body.force-mobile .home-hero .hero-actions .secondary-action{
+  background:rgba(255,255,255,.15)!important;color:white!important;border-color:rgba(255,255,255,.5)!important;
+}
+body.force-mobile .portal-dashboard{background:rgba(243,238,255,.8)!important}
+body.force-mobile .bottom-nav{background:var(--portal-purple)!important}
+body.force-mobile .bottom-nav a.active{background:var(--portal-yellow)!important}
+body.force-mobile .bottom-nav a.active i,body.force-mobile .bottom-nav a.active span{
+  color:var(--portal-purple)!important;
+}
