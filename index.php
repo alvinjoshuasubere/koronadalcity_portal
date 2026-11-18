@@ -39,7 +39,7 @@ if (is_array($officialsData)) {
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet" />
-  <link rel="stylesheet" href="portal.css?v=20261118-6" />
+  <link rel="stylesheet" href="portal.css?v=20261118-7" />
 </head>
 
 <body class="portal-home-page">
@@ -153,10 +153,6 @@ if (is_array($officialsData)) {
           data-search="emergency police fire hospital 911"><span class="service-icon red"><i
               class="fas fa-phone-volume"></i></span><strong>Emergency</strong><small>911 and local emergency
             hotlines.</small><i class="fas fa-arrow-up-right-from-square service-open"></i></a>
-<a class="service-card service-unavailable" href="#developmentNotice"
-          data-search="tourism culture history places"><span class="service-icon"><i
-              class="fas fa-compass"></i></span><strong>Tourism</strong><small>Places, culture and city
-            attractions.</small><em><i class="fas fa-clock"></i> Coming Soon</em></a>
       </div>
       <div class="search-empty" id="searchEmpty" role="status" aria-live="polite">No service found. Try another search.
       </div>
