@@ -61,16 +61,16 @@ if (is_array($officialsData)) {
   </header>
   <main class="portal-shell" id="home">
     <div class="mobile-welcome">
-      <div class="welcome-copy"><span>CITY OF KORONADAL</span><strong>Maayong Aga, Koronadaleño!</strong></div>
+      <div class="welcome-copy"><span>CITY OF KORONADAL</span><strong>Maayong Aga! Koronadaleño</strong></div>
       <div class="welcome-icon" aria-hidden="true"><i class="fas fa-sun"></i></div>
     </div>
     <section class="home-hero">
       <div class="hero-content">
         <div class="hero-logo"><img src="Logo.png" alt="Koronadal City"></div>
         <div class="hero-kicker"><span class="live-dot"></span> CITY SERVICES, MADE SIMPLE</div>
-        <div class="hero-greeting">Maayong Aga, Koronadaleño!</div>
+        <div class="hero-greeting">Maayong Aga! Koronadaleño</div>
         <h1>Koronadal City<br><b>Services Portal</b></h1>
-        <p>Your city services in one place.</p>
+        <p>Welcome to the City of Koronadal Government Services Portal. Access online services, city information, and assistance in one place.</p>
         <div class="hero-actions"><a href="#services" class="primary-action"><i class="fas fa-arrow-down"></i> Explore
             Services</a><a href="emergency-contacts.php" class="secondary-action"><i class="fas fa-phone-volume"></i>
             Emergency Help</a></div>
@@ -178,7 +178,7 @@ if (is_array($officialsData)) {
     <section class="portal-section services-section" id="services">
       <div class="services-title">
         <div><span>ONLINE SERVICES</span>
-          <h2>Online Service Directory</h2>
+          <h2 class="directory-heading">Online Service Directory</h2>
           <p>Choose a service to view information or continue to its online portal.</p>
         </div><a class="app-directory-link" href="https://koronadal.gov.ph/citizens-charter/" target="_blank"
           rel="noopener noreferrer">Service guide <i class="fas fa-arrow-right"></i></a>
