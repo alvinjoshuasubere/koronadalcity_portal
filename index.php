@@ -39,7 +39,7 @@ if (is_array($officialsData)) {
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet" />
-  <link rel="stylesheet" href="portal.css?v=20261118-25" />
+  <link rel="stylesheet" href="portal.css?v=20261118-26" />
 </head>
 
 <body class="portal-home-page">
@@ -76,6 +76,7 @@ if (is_array($officialsData)) {
     </section>
     <section class="portal-section services-section" id="services">
       <div class="services-title"><span class="kd-section-mark"></span>
+        <span class="kd-section-eyebrow">DIGITAL SERVICE DIRECTORY</span>
         <h2 class="directory-heading">Online City Services</h2>
         <p>Find the service you need and continue directly to its dedicated portal.</p>
       </div>
