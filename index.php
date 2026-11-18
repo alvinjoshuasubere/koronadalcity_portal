@@ -39,11 +39,11 @@ if (is_array($officialsData)) {
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet" />
-  <link rel="stylesheet" href="portal.css?v=20261118-17" />
+  <link rel="stylesheet" href="portal.css?v=20261118-18" />
 </head>
 
 <body class="portal-home-page">
-  <div class="kd-utility"><div class="kd-utility-inner"><span><i class="fas fa-landmark"></i> CITY GOVERNMENT OF KORONADAL</span><div class="kd-accessibility"><span class="kd-font-controls" aria-label="Text size"><button type="button" data-font="small" aria-label="Decrease text size">A</button><button type="button" data-font="normal" aria-label="Default text size">A</button><button type="button" data-font="large" aria-label="Increase text size">A</button></span><span class="kd-utility-separator"></span><button type="button" class="kd-access-button" id="kdContrast" aria-pressed="false"><i class="fas fa-universal-access"></i> Accessibility</button><span class="kd-utility-separator"></span><span class="kd-language"><i class="fas fa-globe"></i> English</span></div></div></div>
+  <div class="kd-utility"><div class="kd-utility-inner"><span><i class="fas fa-landmark"></i> CITY GOVERNMENT OF KORONADAL</span></div></div>
 <header class="portal-header" id="portalHeader"><div class="header-inner"><a class="brand" href="#home"><img src="Logo.png" alt="City of Koronadal official seal"><span><strong>Koronadal Digital Gateway</strong><small>City of Koronadal Online Services</small></span></a><nav class="desktop-nav" id="desktopNav" aria-label="Main navigation"><a href="#home" class="active">Home</a><a href="#services">Services <i class="fas fa-chevron-down"></i></a><a href="#city-info">City Info <i class="fas fa-chevron-down"></i></a><a href="#leadership">Leadership</a><a class="kd-nav-emergency" href="emergency-contacts.php"><i class="fas fa-phone-volume"></i> Emergency</a></nav><div class="header-actions"><button class="menu-btn" id="menuBtn" type="button" aria-label="Toggle navigation" aria-controls="desktopNav" aria-expanded="false"><i class="fas fa-bars"></i></button></div></div></header>
   <main class="portal-shell" id="home">
     <section class="home-hero" aria-labelledby="gatewayHeading"><div class="hero-content"><h1 id="gatewayHeading">Maayong Adlaw,<br>Koronadaleño!</h1><p>Your digital access to city services.</p><div class="portal-search" role="search"><i class="fas fa-search" aria-hidden="true"></i><input id="serviceSearch" type="search" aria-label="Search city services" placeholder="Search city services..."><button id="clearSearch" type="button" aria-label="Clear search"><i class="fas fa-xmark"></i></button><button id="submitSearch" type="button" class="portal-search-submit">Search</button></div><div class="hero-actions"><a href="#services" class="primary-action"><i class="fas fa-grip"></i> Explore Services <i class="fas fa-arrow-right"></i></a><a href="emergency-contacts.php" class="secondary-action"><i class="fas fa-phone-volume"></i> Emergency Contacts</a></div></div></section>
@@ -88,12 +88,46 @@ if (is_array($officialsData)) {
       </div>
     </section>
     <section class="kd-emergency-banner" id="emergency" aria-labelledby="kdEmergencyTitle">
-      <div class="kd-emergency-agencies" aria-label="Emergency response agencies">
-        <div class="kd-agency"><img src="https://upload.wikimedia.org/wikipedia/commons/9/98/Philippine_National_Police_seal.svg" alt="Philippine National Police seal" loading="lazy" referrerpolicy="no-referrer"><strong>PNP</strong></div>
-        <div class="kd-agency"><img src="https://upload.wikimedia.org/wikipedia/commons/4/42/Bureau_of_Fire_Protection.png" alt="Bureau of Fire Protection official seal" loading="lazy" referrerpolicy="no-referrer"><strong>BFP</strong></div>
+      <div class="kd-emergency-heading">
+        <span class="kd-emergency-label"><i class="fas fa-triangle-exclamation" aria-hidden="true"></i> EMERGENCY HOTLINES</span>
+        <h2 id="kdEmergencyTitle">Emergency Assistance</h2>
+        <p>Call the appropriate emergency response office directly.</p>
       </div>
-      <div class="kd-emergency-title"><span class="kd-emergency-label"><i class="fas fa-triangle-exclamation" aria-hidden="true"></i> EMERGENCY HOTLINES</span><h2 id="kdEmergencyTitle">Emergency Assistance</h2><p>For urgent situations and immediate help in Koronadal City.</p></div>
-      <div class="kd-emergency-actions"><a class="kd-911" href="tel:911" aria-label="Call emergency hotline 911"><i class="fas fa-phone" aria-hidden="true"></i> 911</a><a class="kd-emergency-cta" href="emergency-contacts.php">View emergency hotlines <i class="fas fa-arrow-right" aria-hidden="true"></i></a></div>
+      <div class="kd-emergency-direct-grid">
+        <?php
+          $priorityHotlines = [
+            ['label' => '911', 'type' => 'general', 'icon' => 'fa-phone-volume', 'subtitle' => 'National Emergency Hotline'],
+            ['label' => 'PNP', 'type' => 'police', 'icon' => 'fa-shield-halved', 'subtitle' => 'Koronadal City Police Station'],
+            ['label' => 'BFP', 'type' => 'fire', 'icon' => 'fa-fire-extinguisher', 'subtitle' => 'Koronadal City Fire Station'],
+            ['label' => 'CDRRMO', 'type' => 'disaster', 'icon' => 'fa-house-flood-water', 'subtitle' => 'City Disaster Risk Reduction']
+          ];
+          foreach ($priorityHotlines as $priority):
+            $record = null;
+            foreach ($emergencyData as $candidate) {
+              if (is_array($candidate) && strtolower((string)($candidate['type'] ?? '')) === $priority['type']) {
+                $record = $candidate;
+                break;
+              }
+            }
+            $displayPhone = trim((string)($record['phone'] ?? ''));
+            $phoneWithoutExtension = preg_replace('/\\s+ext\\.?\\s*\\d+$/i', '', $displayPhone);
+            $callNumber = preg_replace('/[^0-9+]/', '', $phoneWithoutExtension);
+        ?>
+        <div class="kd-direct-hotline">
+          <span class="kd-direct-icon"><i class="fas <?= htmlspecialchars($priority['icon'], ENT_QUOTES, 'UTF-8') ?>" aria-hidden="true"></i></span>
+          <strong><?= htmlspecialchars($priority['label'], ENT_QUOTES, 'UTF-8') ?></strong>
+          <small><?= htmlspecialchars($priority['subtitle'], ENT_QUOTES, 'UTF-8') ?></small>
+          <?php if ($callNumber !== ''): ?>
+            <a class="kd-direct-call" href="tel:<?= htmlspecialchars($callNumber, ENT_QUOTES, 'UTF-8') ?>" aria-label="Call <?= htmlspecialchars($priority['label'], ENT_QUOTES, 'UTF-8') ?> at <?= htmlspecialchars($displayPhone, ENT_QUOTES, 'UTF-8') ?>">
+              <i class="fas fa-phone" aria-hidden="true"></i> <?= htmlspecialchars($displayPhone, ENT_QUOTES, 'UTF-8') ?>
+            </a>
+          <?php else: ?>
+            <span class="kd-direct-unavailable">Number unavailable</span>
+          <?php endif; ?>
+        </div>
+        <?php endforeach; ?>
+      </div>
+      <a class="kd-emergency-all" href="emergency-contacts.php">View all emergency contacts <i class="fas fa-arrow-right" aria-hidden="true"></i></a>
     </section>
     <section class="kd-info-panels"><article class="kd-info-panel kd-mayor-panel" id="leadership"><span class="kd-section-mark"></span><h2>Mayor's Corner</h2><div class="kd-mayor-body"><div class="kd-mayor-avatar"><img src="Mayor.png" alt="City Mayor of Koronadal" loading="lazy" width="145" height="160"></div><div><span class="kd-caption">A message from the City Mayor</span><h3><?= htmlspecialchars($mayor['name'] ?? 'City Mayor', ENT_QUOTES, 'UTF-8') ?></h3><p>We are committed to a more accessible, transparent, and people-centered local government through digital innovation.</p><a href="mayor-corner.php">Read Mayor's Corner <i class="fas fa-arrow-right"></i></a></div></div></article><article class="kd-info-panel" id="city-info"><span class="kd-section-mark"></span><h2>Koronadal at a Glance</h2><div class="kd-facts"><div><i class="fas fa-users"></i><strong>27 Barangays</strong></div><div><i class="fas fa-location-dot"></i><strong>SOCCSKSARGEN Regional Center</strong></div><div><i class="fas fa-map"></i><strong>South Cotabato</strong></div></div></article></section>
     <section class="kd-quick-links" aria-label="Quick links"><div><span class="kd-section-mark"></span><h2>Quick Links</h2></div><a href="https://koronadal.gov.ph/citizens-charter/" target="_blank" rel="noopener noreferrer"><i class="fas fa-file-lines"></i> Citizen's Charter <i class="fas fa-chevron-right"></i></a><a href="city-officials.php"><i class="fas fa-users"></i> City Officials <i class="fas fa-chevron-right"></i></a><a href="https://koronadal.gov.ph/city-history/" target="_blank" rel="noopener noreferrer"><i class="fas fa-book-open"></i> City History <i class="fas fa-chevron-right"></i></a><a href="https://koronadal.gov.ph/" target="_blank" rel="noopener noreferrer"><i class="fas fa-envelope"></i> Contact Us <i class="fas fa-chevron-right"></i></a></section>
@@ -167,22 +201,6 @@ if (is_array($officialsData)) {
       var savedMode = 'auto';
       try { savedMode = localStorage.getItem('kdc-view') || 'auto' } catch (e) { }
       setView(savedMode);
-      // Accessible utility controls: selected size and high contrast are applied on demand.
-      var contrastBtn = document.getElementById('kdContrast');
-      if (contrastBtn) contrastBtn.addEventListener('click', function () {
-        var isActive = body.classList.toggle('kd-high-contrast');
-        contrastBtn.setAttribute('aria-pressed', String(isActive));
-      });
-      document.querySelectorAll('[data-font]').forEach(function (button) {
-        button.addEventListener('click', function () {
-          body.classList.remove('kd-font-small', 'kd-font-large');
-          if (button.dataset.font === 'small') body.classList.add('kd-font-small');
-          if (button.dataset.font === 'large') body.classList.add('kd-font-large');
-          document.querySelectorAll('[data-font]').forEach(function (item) {
-            item.setAttribute('aria-pressed', String(item === button));
-          });
-        });
-      });
 
     })();
   </script>
