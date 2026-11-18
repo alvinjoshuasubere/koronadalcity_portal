@@ -21,7 +21,11 @@
     const p = feature.properties || {};
     const name = p.name || p['name:en'] || '';
     if (!known.has(normalized(name))) return false;
-    return true;
+    const coords = feature.geometry.coordinates;
+    let vertex = null;
+    const walk = points => {if (vertex || !Array.isArray(points)) return; if (typeof points[0] === 'number') vertex=points; else points.forEach(walk);};
+    walk(coords);
+    return !!vertex && vertex[0]>124.65 && vertex[0]<125.05 && vertex[1]>6.25 && vertex[1]<6.70;
   }
   function paint(collection) {
     if (!map || !map.isStyleLoaded()) return;
@@ -60,7 +64,7 @@
     abortController = new AbortController();
     const timeout = setTimeout(() => abortController.abort(), 24000);
     // A single area-based request; never perform 27 independent geocoding requests.
-    const query = '[out:json][timeout:20];area["name"="Koronadal"]["boundary"="administrative"]->.city;(relation["boundary"="administrative"]["admin_level"="10"](area.city););out body;>;out skel qt;';
+    const query = '[out:json][timeout:20];relation["boundary"="administrative"]["admin_level"="10"](6.25,124.65,6.70,125.05);out body;>;out skel qt;';
     try {
       if (typeof window.osmtogeojson !== 'function') throw new Error('Boundary conversion library unavailable');
       const response = await fetch('https://overpass.kumi.systems/api/interpreter', {
