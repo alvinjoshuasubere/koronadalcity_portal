@@ -40,6 +40,8 @@
             <option value="Zone 3">Zone 3</option>
             <option value="Zone 4">Zone 4</option>
       </select>
+      <div class="kd-barangay-quick-heading">Browse barangays <span>27 areas</span></div>
+      <div id="kdBarangayChoices" class="kd-barangay-choices" role="group" aria-label="Choose a barangay map"></div>
       <div id="kdBarangayStatus" class="kd-barangay-status" role="status" aria-live="polite">Showing the City of Koronadal. Select a barangay to explore its map.</div>
       <button id="kdBarangayReset" class="kd-barangay-reset" type="button"><i class="fas fa-rotate-left" aria-hidden="true"></i> Reset city view</button>
       <p class="kd-barangay-disclaimer">Locations and boundaries depend on OpenStreetMap coverage and are for reference only, not official cadastral or administrative surveys.</p>
@@ -54,4 +56,4 @@
 </section>
 <link href="https://unpkg.com/maplibre-gl@5.8.0/dist/maplibre-gl.css" rel="stylesheet">
 <script src="https://unpkg.com/maplibre-gl@5.8.0/dist/maplibre-gl.js" defer></script>
-<script defer src="barangay-map.js?v=20261118-2"></script>
+<script defer src="barangay-map.js?v=20261118-3"></script>
