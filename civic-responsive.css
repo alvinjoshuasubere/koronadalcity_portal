@@ -539,3 +539,17 @@ body.portal-home-page .services-section .service-grid.kd-aborlan-grid a.service-
 }
 @media(max-width:420px){.kd-barangay-choices{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media(prefers-reduced-motion:reduce){.kd-barangay-chip{transition:none}}
+
+/* All barangay boundaries shown together: map-first, no required selection. */
+.kd-barangay-all-layout{display:grid;grid-template-columns:minmax(0,1fr);gap:12px;width:100%;min-width:0}
+.kd-barangay-all-toolbar{display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;padding:13px 17px;border:1px solid #e2e8f0;border-radius:13px;background:#fff}
+.kd-barangay-all-toolbar>div{display:flex;flex-direction:column;gap:5px;min-width:0;flex:1}
+.kd-barangay-all-toolbar strong{font-size:13px;color:#0f172a}
+.kd-barangay-all-toolbar span{font-size:11px;color:#475569;line-height:1.6}
+.kd-barangay-all-toolbar .kd-barangay-reset{padding:10px 14px;white-space:nowrap}
+.kd-barangay-all-layout .kd-barangay-map{height:clamp(360px,57vw,620px);min-height:320px}
+@media(max-width:600px){
+ .kd-barangay-all-toolbar{align-items:stretch;padding:13px}
+ .kd-barangay-all-toolbar .kd-barangay-reset{width:100%}
+ .kd-barangay-all-layout .kd-barangay-map{height:400px}
+}
