@@ -190,7 +190,7 @@
     if (reload) reload.disabled=false;
   }
   function initialize(tries=0) {
-    if (!window.maplibregl || !window.osmtogeojson) {
+    if (!window.maplibregl) {
       if (tries<40) {setTimeout(()=>initialize(tries+1),200);return;}
       setStatus('Map scripts could not load. Refresh the page to try again.');return;
     }
