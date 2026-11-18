@@ -35,7 +35,7 @@ function mcInitials($name) {
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
   <link rel="stylesheet" href="portal.css?v=20261118-21" />
   <link rel="stylesheet" href="civic-responsive.css?v=20261118-30" />
-  <link rel="stylesheet" href="mayor-biography.css?v=20261119-1" />
+  <link rel="stylesheet" href="mayor-biography.css?v=20261119-2" />
 </head>
 <body class="mc-page">
 
@@ -179,7 +179,7 @@ function mcInitials($name) {
                     <div class="formal-heading-line"></div>
                 </div>
                 <div class="formal-card">
-                    <p>&ldquo;Serbisyong Totoo. EPAdayon&rdquo; embodies a leadership brand rooted in integrity, faith, and unwavering commitment to the people. Guided by the principles of <strong>EPA&mdash;Empowered by Faith, People-Centered, Accountable Governance</strong>, it reflects an administration that draws strength from moral conviction, listens and responds to the needs of every sector, and upholds transparency and responsibility in public service.</p>
+                    <p>&ldquo;Serbisyong Totoo. EPAdayon&rdquo; embodies a leadership brand rooted in integrity, faith, and unwavering commitment to the people. Guided by the principles of <strong><span class="mc-epa-highlight"><span>E</span> <span>P</span> <span>A</span></span>&mdash;Empowered by Faith, People-Centered, Accountable Governance</strong>, it reflects an administration that draws strength from moral conviction, listens and responds to the needs of every sector, and upholds transparency and responsibility in public service.</p>
                     <p>More than a slogan, it is a continuing promise to sustain progress, deepen trust, and ensure that every program, decision, and action genuinely serves the common good&mdash;moving Koronadal forward with purpose and unity.</p>
                 </div>
             </div>
@@ -193,21 +193,21 @@ function mcInitials($name) {
                     <div class="epa-card epa-e">
                         <div class="epa-letter-box">E</div>
                         <div class="epa-body">
-                            <h3>Empowered by Faith</h3>
+                            <h3><span class="mc-epa-initial">E</span>mpowered by Faith</h3>
                             <p>Every action and decision is anchored on a strong and unwavering faith in God. This serves as the source of strength, guidance, and purpose in all government undertakings. Public service is regarded as a sacred duty, where integrity, moral values, and respect for all creation are always upheld. Faith stands as the firm foundation in facing challenges and ensuring that all endeavors are carried out for the common good and for the greater glory of God.</p>
                         </div>
                     </div>
                     <div class="epa-card epa-p">
                         <div class="epa-letter-box">P</div>
                         <div class="epa-body">
-                            <h3>People-Centered Governance</h3>
+                            <h3><span class="mc-epa-initial">P</span>eople-Centered Governance</h3>
                             <p>The utmost priority is the welfare and well-being of every constituent. All programs, projects, and services are designed and implemented based on the genuine needs and aspirations of the people. Every individual&mdash;regardless of status or standing in society&mdash;is accorded equal opportunity, respect, and attention. The administration constantly listens to the voice of the public and strives to address their concerns, necessities, and dreams. The progress of the city is measured by the tangible improvement in the quality of life of each and every resident.</p>
                         </div>
                     </div>
                     <div class="epa-card epa-a">
                         <div class="epa-letter-box">A</div>
                         <div class="epa-body">
-                            <h3>Accountable Governance</h3>
+                            <h3><span class="mc-epa-initial">A</span>ccountable Governance</h3>
                             <p>Leadership is exercised with transparency, honesty, and full responsibility for all actions and decisions. Public resources are utilized wisely, efficiently, and solely for purposes that benefit the greater majority. All processes are clear and accessible, allowing the people to monitor and inquire about government transactions at any time. Officials and public servants are always ready to explain their actions and answer inquiries, while errors are promptly corrected to prevent recurrence. The trust given by the people is deeply valued and continuously nurtured through consistent truthfulness, accuracy, and uprightness in all official dealings.</p>
                         </div>
                     </div>
