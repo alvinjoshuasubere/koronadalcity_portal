@@ -54,4 +54,4 @@
 </section>
 <link href="https://unpkg.com/maplibre-gl@5.8.0/dist/maplibre-gl.css" rel="stylesheet">
 <script src="https://unpkg.com/maplibre-gl@5.8.0/dist/maplibre-gl.js" defer></script>
-<script defer src="barangay-map.js?v=20261118-1"></script>
+<script defer src="barangay-map.js?v=20261118-2"></script>
