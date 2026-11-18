@@ -39,11 +39,10 @@ if (is_array($officialsData)) {
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet" />
-  <link rel="stylesheet" href="koronadal-app.css?v=20261004-05" />
-  <link rel="stylesheet" href="portal-home.css?v=20261118-2" />
+  <link rel="stylesheet" href="portal.css?v=20261118-4" />
 </head>
 
-<body>
+<body class="portal-home-page">
   <header class="portal-header" id="portalHeader">
     <div class="header-inner">
       <a class="brand" href="#home"><img src="Logo.png" alt="City of Koronadal"><span><strong>City of
