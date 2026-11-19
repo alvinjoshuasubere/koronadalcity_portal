@@ -126,9 +126,7 @@
       upsert('kd-koronadal-barangays',featureCollection(shown));
       if (fit) {
         const bounds = boundsFor(shown);
-        if (!bounds.isEmpty()) map.fitBounds(bounds,{
-          padding:innerWidth<600?28:65,maxZoom:14.5,duration:500
-        });
+        if (!bounds.isEmpty()) map.panTo(bounds.getCenter(),{duration:450});
         else frameCity();
       }
     }
@@ -167,10 +165,8 @@
   }
   function frameCity() {
     if (!map) return;
-    const b = boundsFor(cachedFeatures);
-    map.fitBounds(b.isEmpty() ? FALLBACK_BOUNDS : b,{
-      padding:innerWidth<600?22:55,maxZoom:12.6,duration:500
-    });
+    // Recenter without changing the fixed map zoom.
+    map.panTo(CITY_CENTER,{duration:450});
   }
   function upsert(id,data) {
     if (map.getSource(id)) map.getSource(id).setData(data);
@@ -183,15 +179,15 @@
     upsert('kd-koronadal-barangays',featureCollection(selectedFeatures()));
     if (!map.getLayer('kd-zones-fill')) {
       map.addLayer({id:'kd-zones-fill',type:'fill',source:'kd-koronadal-barangays',
-        paint:{'fill-color':'#2b7fd5','fill-opacity':0.16}});
+        paint:{'fill-color':'#5d9a8b','fill-opacity':0.21}});
       map.addLayer({id:'kd-zones-hover',type:'fill',source:'kd-koronadal-barangays',
-        paint:{'fill-color':'#2563eb','fill-opacity':['case',['boolean',['feature-state','hover'],false],0.30,0]}});
+        paint:{'fill-color':'#1c786e','fill-opacity':['case',['boolean',['feature-state','hover'],false],0.38,0]}});
       map.addLayer({id:'kd-zones-outline',type:'line',source:'kd-koronadal-barangays',
-        paint:{'line-color':'#1453a3','line-width':['interpolate',['linear'],['zoom'],10,2.5,14,4.2],'line-opacity':1}});
+        paint:{'line-color':'#287d70','line-width':2.7,'line-opacity':0.95}});
       map.addLayer({id:'kd-zones-labels',type:'symbol',source:'kd-koronadal-barangays',
-        layout:{'text-field':['get','name'],'text-size':['interpolate',['linear'],['zoom'],10,10,14,13],
+        layout:{'text-field':['get','name'],'text-size':12,
           'text-font':['Noto Sans Regular'],'text-max-width':11},
-        paint:{'text-color':'#153e75','text-halo-color':'#ffffff','text-halo-width':2}});
+        paint:{'text-color':'#225e59','text-halo-color':'#ffffff','text-halo-width':2.2}});
     }
     updateFilters(false);
     frameCity();
@@ -260,9 +256,17 @@
     }
     try {
       map=new maplibregl.Map({container:mapEl,style:'https://tiles.openfreemap.org/styles/positron',
-        center:CITY_CENTER,zoom:11.2,attributionControl:false,maxBounds:[[124.56,6.18],[125.18,6.78]]});
-      map.addControl(new maplibregl.NavigationControl({showCompass:false}),'top-right');
+        center:CITY_CENTER,zoom:11.2,minZoom:11.2,maxZoom:11.2,
+        dragPan:true,scrollZoom:false,boxZoom:false,doubleClickZoom:false,
+        touchZoomRotate:false,keyboard:false,dragRotate:false,pitchWithRotate:false,
+        attributionControl:false,maxBounds:[[124.56,6.18],[125.18,6.78]]});
       map.addControl(new maplibregl.AttributionControl({compact:true}),'bottom-right');
+      map.touchZoomRotate.disable();
+      map.scrollZoom.disable();
+      map.doubleClickZoom.disable();
+      map.boxZoom.disable();
+      map.dragRotate.disable();
+      map.keyboard.disable();
       popup=new maplibregl.Popup({closeButton:false,closeOnClick:false,offset:12,className:'kd-barangay-tooltip'});
       setupFilters();
       map.once('load',()=>load(false));
