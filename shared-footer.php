@@ -28,6 +28,7 @@
     <div class="kd-shared-footer-bottom">
       <span>&copy; <?= date('Y') ?> City Government of Koronadal. All rights reserved.</span>
       <span class="kd-shared-footer-official"><i class="fas fa-shield-halved" aria-hidden="true"></i> City Online Services Portal</span>
+      <small class="kd-shared-footer-developer">Developed by: Alvin Joshua Subere</small>
     </div>
   </div>
 </footer>
