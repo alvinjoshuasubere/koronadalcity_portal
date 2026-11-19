@@ -295,7 +295,7 @@
     return null;
   }
   async function load(force) {
-    if (!map || !map.isStyleLoaded()) return;
+    if (!map || !map.getStyle()) return;
     if (request) request.abort();
     request=new AbortController();
     const current=request;
@@ -371,7 +371,7 @@
       map.keyboard.disable();
       popup=new maplibregl.Popup({closeButton:false,closeOnClick:false,offset:12,className:'kd-barangay-tooltip'});
       setupFilters();
-      map.once('load',()=>{ hideUnrelatedMapLabels();load(false); });
+      map.once('idle',()=>load(false));
       map.on('styledata',hideUnrelatedMapLabels);
       map.on('mousemove','kd-zones-fill',event=>{
         if (!event.features || !event.features.length) return;
