@@ -23770,3 +23770,14 @@ body.portal-home-page .kd-chat-launcher:focus-visible{
   display:inline!important;font-size:12px!important;
  }
 }
+
+
+/* The Koronadal map is map-only: hide obsolete selector UI if cached markup remains. */
+.kd-barangay-section .kd-barangay-filter,
+.kd-barangay-section .kd-barangay-summary,
+.kd-barangay-section .kd-barangay-all-toolbar,
+.kd-barangay-section .kd-zone-legend{display:none!important}
+.kd-barangay-section .kd-barangay-all-layout{display:block!important}
+.kd-barangay-section .kd-barangay-canvas-wrap{width:100%!important;max-width:100%!important;box-sizing:border-box!important}
+.kd-barangay-section .kd-barangay-map .maplibregl-ctrl-zoom-in,
+.kd-barangay-section .kd-barangay-map .maplibregl-ctrl-zoom-out{cursor:pointer}
