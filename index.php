@@ -54,7 +54,7 @@ if (is_array($officialsData)) {
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet" />
 
 
-  <link rel="stylesheet" href="city-portal.css?v=20261119-14" />
+  <link rel="stylesheet" href="city-portal.css?v=20261119-15" />
 </head>
 
 <body class="portal-home-page">
@@ -310,8 +310,7 @@ if (is_array($officialsData)) {
   <nav class="bottom-nav" aria-label="Portal navigation"><a href="#home" class="active" aria-current="location"
       aria-label="Home"><i class="fas fa-house"></i><span>Home</span></a><a href="city-officials"
       aria-label="City leadership"><i class="fas fa-users"></i><span>Officials</span></a><a href="#services"
-      class="center" aria-label="Services"><i class="fas fa-qrcode"
-        aria-hidden="true"></i><span>Services</span></a><a href="https://koronadal.gov.ph/" target="_blank"
+      class="center" aria-label="Services"><svg class="kd-services-scan-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#1766b1" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M4 9V5a1 1 0 0 1 1-1h4M15 4h4a1 1 0 0 1 1 1v4M20 15v4a1 1 0 0 1-1 1h-4M9 20H5a1 1 0 0 1-1-1v-4"/><path d="M7 12h10M9 9h6M9 15h6"/></svg><span>Services</span></a><a href="https://koronadal.gov.ph/" target="_blank"
       rel="noopener noreferrer" aria-label="City information"><i class="fas fa-city"></i><span>City</span></a><a
       href="emergency-contacts" aria-label="Emergency contacts"><i class="fas fa-phone-volume"></i><span>Help</span></a>
   </nav>
