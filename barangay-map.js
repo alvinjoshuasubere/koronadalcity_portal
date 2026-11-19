@@ -10,6 +10,7 @@
   const filterList = document.getElementById('kdBarangayFilterList');
   const filterSearch = document.getElementById('kdBarangayFilterSearch');
   const filterCount = document.getElementById('kdFilterCount');
+  const filterSearchResult = document.getElementById('kdFilterSearchResult');
   const selectAll = document.getElementById('kdSelectAllBarangays');
   const clearAll = document.getElementById('kdClearBarangays');
   const CITY_CENTER = [124.86566, 6.47965];
@@ -219,25 +220,16 @@
     });
     if (filterSearch && filterList) filterSearch.addEventListener('input',()=>{
       const term=normalize(filterSearch.value);
-      const matches=officialNames.filter(name=>normalize(name).includes(term));
+      let found=0;
       filterList.querySelectorAll('.kd-barangay-filter-item').forEach(item=>{
         const input=item.querySelector('input');
-        item.hidden = !!term && !normalize(input.value).includes(term);
+        const match=!term || normalize(input.value).includes(term);
+        item.hidden=!match;
+        if(match) found++;
       });
-      if (term && matches.length) {
-        selectedNames.clear();
-        matches.forEach(name=>selectedNames.add(name));
-        showDetails(matches.length===1?matches[0]:null);
-        updateFilters(true);
-      } else if (!term) {
-        officialNames.forEach(name=>selectedNames.add(name));
-        showDetails(null);
-        updateFilters(true);
-      } else {
-        showMapMessage('No barangay found. Try another name.');
-        return;
-      }
-      showMapMessage('');
+      if(filterSearchResult)filterSearchResult.textContent=term
+        ? found+(found===1?' result':' results')
+        : officialNames.length+' barangays';
     });
     showDetails(null);
     updateFilters(false);
@@ -417,6 +409,7 @@
       if (showAll) showAll.addEventListener('click',()=>{
         officialNames.forEach(name=>selectedNames.add(name));
         if (filterSearch) filterSearch.value='';
+      if (filterSearchResult) filterSearchResult.textContent=officialNames.length+' barangays';
         if (filterList) filterList.querySelectorAll('.kd-barangay-filter-item').forEach(item=>item.hidden=false);
         showDetails(null);
         updateFilters(false);
