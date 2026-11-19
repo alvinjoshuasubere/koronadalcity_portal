@@ -261,22 +261,33 @@
         return {data:cleanOSM(json),source:'OpenStreetMap'};
       }
     ];
-    let best=null;
+    const merged = new Map();
+    const sourceNames = new Set();
     for (const run of candidates) {
       if (current.signal.aborted) break;
       try {
-        const result=await run();
+        const result = await run();
         if (!result.data.features.length) throw Error('No matching Koronadal barangays returned');
-        if (!best || result.data.features.length>best.data.features.length) best=result;
-        if (result.data.features.length===27) break;
+        sourceNames.add(result.source);
+        // Retain the first (PSA-preferred) verified polygon for each barangay.
+        for (const feature of result.data.features) {
+          if (!merged.has(feature.properties.name)) merged.set(feature.properties.name,feature);
+        }
+        if (merged.size === officialNames.length) break;
       } catch(error) {
         if (!current.signal.aborted) console.warn('Koronadal barangay boundary source:',error.message);
       }
     }
     if (current.signal.aborted) return;
-    if (best) {
-      render(best.data,best.source);
-      saveCache(best.data,best.source);
+    if (merged.size) {
+      const sorted = officialNames.filter(name=>merged.has(name)).map((name,i)=>{
+        const feature = merged.get(name);
+        return {...feature,id:i+1,properties:{...feature.properties,name,shade:i%4}};
+      });
+      const combined = featureCollection(sorted);
+      const sourceLabel = Array.from(sourceNames).join(' + ');
+      render(combined,sourceLabel);
+      saveCache(combined,sourceLabel);
     } else {
       const cached=fromCache();
       if (cached) {render(cached.data,cached.source+' (saved copy)');}
