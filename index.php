@@ -41,7 +41,7 @@ if (is_array($officialsData)) {
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet" />
   <link rel="stylesheet" href="portal.css?v=20261118-26" />
   <link rel="stylesheet" href="civic-responsive.css?v=20261118-34" />
-  <link rel="stylesheet" href="mobile-app.css?v=20261119-20" />
+  <link rel="stylesheet" href="mobile-app.css?v=20261119-22" />
   <link rel="stylesheet" href="mayor-biography.css?v=20261119-1" />
 </head>
 
@@ -373,7 +373,7 @@ if (is_array($officialsData)) {
     })();
   </script>
 
-  <script defer src="portal-chat.js?v=20261119-3"></script>
+  <script defer src="portal-chat.js?v=20261119-4"></script>
 </body>
 
 </html>
