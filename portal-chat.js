@@ -7,7 +7,6 @@
   const input=document.getElementById('kdChatInput');
   const form=document.getElementById('kdChatForm');
   const clear=document.getElementById('kdChatClear');
-  const history=[];
   if (!launcher||!panel||!log||!input||!form) return;
   const conversation=[];
   const links=[
@@ -124,8 +123,6 @@
       if(!response.ok||!data.reply)throw new Error(data.error||'AI is unavailable');
       loading.classList.remove('kd-chat-thinking');
       loading.textContent=data.reply;
-      history.push({role:'user',content:question},{role:'assistant',content:data.reply});
-      if(history.length>10)history.splice(0,history.length-10);
       conversation.push({role:'user',content:question},{role:'assistant',content:data.reply});
       if(conversation.length>8)conversation.splice(0,conversation.length-8);
     }catch(_){
