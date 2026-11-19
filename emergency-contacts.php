@@ -168,18 +168,7 @@ $typeConfig = [
 
     <!-- Footer -->
     <?php include __DIR__ . '/city-live-panel.php'; ?>
-<footer class="footer">
-        <div class="footer-in">
-            <div class="footer-brand">
-                <img src="Logo.png" alt="Koronadal City" class="footer-brand-img">
-                <div>
-                    <strong>Koronadal City</strong>
-                    <small>Online Services Portal</small>
-                </div>
-            </div>
-            <div class="footer-copy">&copy; <?= date('Y') ?> Koronadal City. All rights reserved.</div>
-        </div>
-    </footer>
+<?php include __DIR__ . '/shared-footer.php'; ?>
 
 
 </body>
