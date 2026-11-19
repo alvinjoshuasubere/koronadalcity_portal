@@ -8,6 +8,7 @@
   const form=document.getElementById('kdChatForm');
   const clear=document.getElementById('kdChatClear');
   if (!launcher||!panel||!log||!input||!form) return;
+  const conversation=[];
   const links=[
     ['Business permit application','https://koronadalcityportal.com/v2/login'],
     ['Verify business permit','https://bplo.koronadalcityonlineservices.com/'],
@@ -70,6 +71,7 @@
   if(clear)clear.addEventListener('click',()=>{
     if(busy)return;
     log.replaceChildren();
+    conversation.length=0;
     append(greeting,'bot');
     input.focus();
   });
@@ -100,6 +102,7 @@
     const local=findHelp(question);
     if(local){append(local.text,'bot',local.url);input.focus();return;}
     busy=true;
+    const prior=conversation.slice(-6);
     const loading=append('Checking available information…','bot');
     loading.classList.add('kd-chat-thinking');
     const submit=form.querySelector('button[type="submit"]');
@@ -107,12 +110,14 @@
     try{
       const response=await fetch('portal-chat.php',{
         method:'POST',headers:{'Content-Type':'application/json'},
-        body:JSON.stringify({message:question})
+        body:JSON.stringify({message:question,history:prior})
       });
       const data=await response.json();
       if(!response.ok||!data.reply)throw new Error(data.error||'AI is unavailable');
       loading.classList.remove('kd-chat-thinking');
       loading.textContent=data.reply;
+      conversation.push({role:'user',content:question},{role:'assistant',content:data.reply});
+      if(conversation.length>8)conversation.splice(0,conversation.length-8);
     }catch(_){
       loading.classList.remove('kd-chat-thinking');
       loading.textContent='I can help you find Koronadal online services, but I cannot answer that question right now. Select a topic below or visit the City Government website.';
