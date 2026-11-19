@@ -23665,3 +23665,41 @@ body .kd-shared-footer-bottom .kd-shared-footer-developer{
  color:#b6cde4!important;font:400 9px/1.5 Sora,system-ui,sans-serif!important;
  letter-spacing:0!important;text-align:left!important;
 }
+
+/* Online City Services: explicitly unavailable portals are non-interactive. */
+body.portal-home-page #serviceGrid .kd-aborlan-card.kd-service-disabled{
+ position:relative!important;
+ cursor:not-allowed!important;
+ pointer-events:none!important;
+ opacity:.69!important;
+ filter:grayscale(.45)!important;
+ background:#f2f5f9!important;
+ border-color:#d4dde8!important;
+ box-shadow:none!important;
+ transform:none!important;
+}
+body.portal-home-page #serviceGrid .kd-aborlan-card.kd-service-disabled:hover{
+ transform:none!important;
+ box-shadow:none!important;
+ background:#f2f5f9!important;
+}
+body.portal-home-page #serviceGrid .kd-service-unavailable{
+ display:inline-flex!important;
+ align-items:center!important;
+ align-self:flex-start!important;
+ gap:6px!important;
+ width:max-content!important;max-width:100%!important;
+ margin:7px 0 11px!important;
+ padding:7px 10px!important;
+ border:1px solid #f3c4c4!important;
+ border-radius:999px!important;
+ background:#fff0f0!important;
+ color:#ad3030!important;
+ font-size:11px!important;
+ font-weight:800!important;
+ line-height:1.35!important;
+}
+body.portal-home-page #serviceGrid .kd-service-disabled .kd-aborlan-footer{
+ color:#8b4750!important;
+ font-weight:750!important;
+}
