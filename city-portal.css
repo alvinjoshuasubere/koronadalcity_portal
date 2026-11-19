@@ -23805,3 +23805,14 @@ body.portal-home-page .kd-chat-launcher:hover,
 body.portal-home-page .kd-floating-controls .kd-chat-widget .kd-chat-launcher:hover{
  background:#15803d!important;border-color:#166534!important;color:#ffffff!important;
 }
+
+
+/* Contextual suggestions for unanswered chatbot questions. */
+body.portal-home-page .kd-chat-followups{display:flex;flex-wrap:wrap;gap:7px;margin-top:10px}
+body.portal-home-page .kd-chat-followup{
+ border:1px solid #b9dbbc;border-radius:20px;background:#effaf0;
+ color:#166534;padding:8px 11px;font:700 11px/1.35 Sora,system-ui,sans-serif;
+ cursor:pointer;max-width:100%;white-space:normal;text-align:left;
+}
+body.portal-home-page .kd-chat-followup:hover{background:#dcfce7;border-color:#86c98e}
+body.portal-home-page .kd-chat-followup:focus-visible{outline:3px solid #86efac;outline-offset:2px}
