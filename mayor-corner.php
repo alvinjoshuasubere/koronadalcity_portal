@@ -33,7 +33,7 @@ function mcInitials($name) {
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700;800&family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&display=swap" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
-<link rel="stylesheet" href="civic-responsive.css?v=20261118-30" />
+
   <link rel="stylesheet" href="city-portal.css?v=20261119-1" />
 </head>
 <body class="mc-page">
