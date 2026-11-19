@@ -23626,3 +23626,34 @@ body .kd-shared-footer a:focus-visible{
  body.portal-home-page .bottom-nav > a > span,
  body.portal-home-page .bottom-nav > a.center > span{font-size:9px!important}
 }
+
+/* Mobile Services stays neutral until the Services section is active. */
+@media(max-width:760px){
+ body.portal-home-page .bottom-nav > a.center:not(.active):not([aria-current="location"]),
+ body.portal-home-page .bottom-nav > a.center:not(.active):not([aria-current="location"]):link,
+ body.portal-home-page .bottom-nav > a.center:not(.active):not([aria-current="location"]):visited{
+  background:transparent!important;
+  border-color:transparent!important;
+  color:#1766b1!important;
+  box-shadow:none!important;
+ }
+ body.portal-home-page .bottom-nav > a.center:not(.active):not([aria-current="location"]) > i,
+ body.portal-home-page .bottom-nav > a.center:not(.active):not([aria-current="location"]) > span{
+  color:#1766b1!important;
+ }
+ body.portal-home-page .bottom-nav > a.center:not(.active):not([aria-current="location"]):hover,
+ body.portal-home-page .bottom-nav > a.center:not(.active):not([aria-current="location"]):focus-visible{
+  background:#eaf4ff!important;border-color:#cfe3f7!important;
+ }
+ body.portal-home-page .bottom-nav > a.center.active,
+ body.portal-home-page .bottom-nav > a.center[aria-current="location"]{
+  background:#1766b1!important;border-color:#1766b1!important;
+  color:#fff!important;box-shadow:none!important;
+ }
+ body.portal-home-page .bottom-nav > a.center.active > i,
+ body.portal-home-page .bottom-nav > a.center.active > span,
+ body.portal-home-page .bottom-nav > a.center[aria-current="location"] > i,
+ body.portal-home-page .bottom-nav > a.center[aria-current="location"] > span{
+  color:#fff!important;
+ }
+}
