@@ -848,3 +848,77 @@ body.portal-home-page .kd-chat-messages{min-width:0!important}
  }
  body.portal-home-page .kd-chat-quick button{font-size:9px!important}
 }
+
+/* Dock layout switcher and Ask Koronadal together on all viewports. */
+body.portal-home-page .kd-floating-controls{
+ position:fixed!important;right:16px!important;bottom:18px!important;left:auto!important;
+ z-index:1850!important;display:flex!important;flex-direction:row!important;
+ align-items:flex-end!important;justify-content:flex-end!important;
+ gap:10px!important;max-width:calc(100vw - 24px)!important;
+ pointer-events:none;
+}
+body.portal-home-page .kd-floating-controls .view-switcher,
+body.portal-home-page .kd-floating-controls .kd-chat-widget{
+ position:relative!important;inset:auto!important;bottom:auto!important;right:auto!important;
+ left:auto!important;top:auto!important;transform:none!important;margin:0!important;
+ flex:0 0 auto!important;z-index:auto!important;pointer-events:auto!important;
+}
+body.portal-home-page .kd-floating-controls .view-switcher .view-trigger{
+ width:auto!important;min-width:51px!important;height:50px!important;
+ min-height:50px!important;padding:0 13px!important;display:flex!important;gap:7px!important;
+ border-radius:13px!important;
+}
+body.portal-home-page .kd-floating-controls .view-switcher .view-label{
+ display:inline!important;font-size:11px!important;
+}
+body.portal-home-page .kd-floating-controls .kd-chat-launcher{
+ height:50px!important;min-height:50px!important;
+ padding:0 16px!important;border-radius:13px!important;
+ font-size:11px!important;white-space:nowrap!important;
+}
+body.portal-home-page .kd-floating-controls .kd-chat-launcher span{
+ display:inline!important;
+}
+body.portal-home-page .kd-floating-controls .kd-chat-panel{
+ position:absolute!important;bottom:calc(100% + 12px)!important;right:0!important;
+ left:auto!important;z-index:20!important;pointer-events:auto;
+}
+body.portal-home-page .kd-barangay-population{
+ padding:16px 18px;border-radius:14px;background:#e9f4f0;
+ border:1px solid #b7d9cc;color:#15594f;font:750 14px/1.55 Sora,system-ui,sans-serif;
+}
+body.portal-home-page .kd-barangay-pop-source{
+ color:#5c7180;font-size:11px;line-height:1.6;margin:8px 0 0;
+}
+body.portal-home-page .kd-barangay-pop-source a{color:#1766b1;text-decoration:underline}
+@media(max-width:760px){
+ body.portal-home-page .kd-floating-controls{
+  right:10px!important;bottom:calc(84px + env(safe-area-inset-bottom,0px))!important;
+  gap:7px!important;
+ }
+ body.portal-home-page .kd-floating-controls .view-switcher .view-trigger{
+  height:45px!important;min-height:45px!important;
+  padding:0 9px!important;gap:5px!important;
+ }
+ body.portal-home-page .kd-floating-controls .kd-chat-launcher{
+  height:45px!important;min-height:45px!important;padding:0 11px!important;
+ }
+ body.portal-home-page .kd-floating-controls .view-switcher .view-label{
+  font-size:10px!important;
+ }
+ body.portal-home-page .kd-floating-controls .kd-chat-launcher span{
+  font-size:10px!important;
+ }
+ body.portal-home-page .kd-barangay-population{font-size:12px;padding:13px}
+}
+@media(max-width:380px){
+ body.portal-home-page .kd-floating-controls{gap:5px!important;right:8px!important}
+ body.portal-home-page .kd-floating-controls .view-switcher .view-label{display:none!important}
+ body.portal-home-page .kd-floating-controls .view-switcher .view-trigger{
+  width:45px!important;min-width:45px!important;padding:0!important;
+ }
+ body.portal-home-page .kd-floating-controls .kd-chat-launcher span{
+  display:inline!important;
+ }
+ body.portal-home-page .kd-floating-controls .kd-chat-launcher{padding:0 9px!important}
+}
