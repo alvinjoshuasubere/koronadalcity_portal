@@ -523,3 +523,52 @@ body.portal-home-page .kd-barangay-filter-help{
  }
  body.portal-home-page .kd-barangay-filter-head{align-items:flex-start}
 }
+
+/* Live Philippine time and date in the upper navigation */
+body.portal-home-page .portal-header .header-actions{
+ display:flex!important;align-items:center!important;gap:10px!important;
+ min-width:0!important;
+}
+body.portal-home-page .kd-header-clock{
+ display:flex;align-items:center;justify-content:center;gap:9px;
+ min-width:0;flex:0 1 auto;padding:8px 12px;
+ border:1px solid #d8e9fa;border-radius:12px;background:#f0f7ff;
+ color:#144d85;font-family:Sora,system-ui,sans-serif;
+}
+body.portal-home-page .kd-header-clock>i{font-size:17px;color:#1766b1;flex-shrink:0}
+body.portal-home-page .kd-header-clock-content{
+ display:flex;flex-direction:column;gap:3px;min-width:0;
+}
+body.portal-home-page .kd-header-date{
+ color:#526b88;font-weight:650;font-size:10px;line-height:1.25;white-space:nowrap;
+}
+body.portal-home-page .kd-header-time{
+ color:#103e72;font-weight:850;font-size:13px;line-height:1.2;
+ white-space:nowrap;font-variant-numeric:tabular-nums;
+}
+body.portal-home-page .kd-clock-zone{
+ font-size:9px;font-weight:800;color:#1766b1;
+ align-self:center;white-space:nowrap;
+}
+@media(max-width:760px){
+ body.portal-home-page .portal-header .header-actions{
+  margin-left:auto!important;gap:7px!important;flex:0 0 auto!important;
+ }
+ body.portal-home-page .kd-header-clock{
+  padding:7px 9px;gap:5px;border-radius:10px;
+ }
+ body.portal-home-page .kd-header-clock>i,
+ body.portal-home-page .kd-clock-zone{display:none}
+ body.portal-home-page .kd-header-date{font-size:9px}
+ body.portal-home-page .kd-header-time{font-size:11px}
+}
+@media(max-width:390px){
+ body.portal-home-page .kd-header-clock{padding:5px 7px}
+ body.portal-home-page .kd-header-date{font-size:8px}
+ body.portal-home-page .kd-header-time{font-size:10px}
+ body.portal-home-page .portal-header .brand img{
+  width:34px!important;height:34px!important;flex-basis:34px!important;
+ }
+ body.portal-home-page .portal-header .brand strong{font-size:10px!important}
+ body.portal-home-page .portal-header .brand small{font-size:8px!important}
+}
