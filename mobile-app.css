@@ -685,3 +685,48 @@ body.mc-page .kd-weather-card .kd-forecast-animated{
   animation:none!important;transition:none!important;
  }
 }
+
+/* BetterAborlan-style restrained cartography: cool neutrals and muted greens. */
+body.portal-home-page .kd-barangay-canvas-wrap{
+ background:#fff!important;border:1px solid #dce8e4!important;
+ box-shadow:0 8px 24px rgba(33,83,73,.06)!important;
+}
+body.portal-home-page .kd-barangay-map{
+ background:#f0f4f0!important;border-radius:14px!important;
+}
+body.portal-home-page .kd-barangay-map .maplibregl-canvas{
+ cursor:grab;
+}
+body.portal-home-page .kd-barangay-map .maplibregl-canvas:active{
+ cursor:grabbing;
+}
+body.portal-home-page .kd-zone-legend .kd-legend-city{
+ background:rgba(93,154,139,.20)!important;border-color:#287d70!important;
+}
+body.portal-home-page .kd-zone-legend .kd-legend-barangay{
+ background:rgba(93,154,139,.30)!important;border-color:#287d70!important;
+}
+body.portal-home-page .kd-zone-legend .kd-legend-selected{
+ background:rgba(28,120,110,.48)!important;border-color:#1c786e!important;
+}
+body.portal-home-page .kd-zone-count,
+body.portal-home-page .kd-barangay-filter-head span{
+ color:#225e59!important;background:#e9f4f0!important;border-color:#cbe1d9!important;
+}
+body.portal-home-page .kd-barangay-filter-item:has(input:checked){
+ background:#e9f4f0!important;border-color:#9bcbba!important;color:#225e59!important;
+}
+body.portal-home-page .kd-barangay-filter-item input{accent-color:#287d70!important}
+body.portal-home-page .kd-barangay-filter .kd-filter-action{
+ background:#f0f7f3!important;border-color:#c7e0d4!important;color:#22695d!important;
+}
+body.portal-home-page .kd-barangay-filter .kd-filter-action:hover:not(:disabled){
+ background:#deefe6!important;border-color:#8fc6ab!important;
+}
+body.portal-home-page .kd-barangay-tooltip .maplibregl-popup-content{
+ background:#225e59!important;color:#fff!important;
+}
+body.portal-home-page .kd-barangay-map .maplibregl-ctrl-zoom-in,
+body.portal-home-page .kd-barangay-map .maplibregl-ctrl-zoom-out{
+ display:none!important;
+}
