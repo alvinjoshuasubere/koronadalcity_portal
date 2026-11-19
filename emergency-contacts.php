@@ -22,7 +22,7 @@ $typeConfig = [
     'fire'     => ['icon' => 'fa-fire',           'color' => '#bd2432', 'label' => 'Fire'],
     'hospital' => ['icon' => 'fa-hospital',       'color' => '#22c55e', 'label' => 'Hospital'],
     'medical'  => ['icon' => 'fa-heart-pulse',    'color' => '#ef4444', 'label' => 'Medical'],
-    'disaster' => ['icon' => 'fa-triangle-exclamation', 'color' => '#f59e0b', 'label' => 'Disaster'],
+    'disaster' => ['icon' => 'fa-triangle-exclamation', 'color' => '#1766b1', 'label' => 'Disaster'],
     'general'  => ['icon' => 'fa-phone',           'color' => '#0D9488', 'label' => 'General'],
 ];
 ?>
@@ -41,7 +41,7 @@ $typeConfig = [
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
   <link rel="stylesheet" href="portal.css?v=20261118-17" />
   <link rel="stylesheet" href="civic-responsive.css?v=20261118-30" />
-  <link rel="stylesheet" href="emergency-refresh.css?v=20261119-1" />
+  <link rel="stylesheet" href="emergency-refresh.css?v=20261119-2" />
 </head>
 
 <body class="emergency-page">
