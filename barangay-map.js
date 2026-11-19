@@ -287,7 +287,11 @@
           .setText('Barangay '+feature.properties.name+', Koronadal City').addTo(map);
       });
       if (reload) reload.addEventListener('click',()=>load(true));
-      if (showAll) showAll.addEventListener('click',frameCity);
+      if (showAll) showAll.addEventListener('click',()=>{
+        officialNames.forEach(name=>selectedNames.add(name));
+        updateFilters(false);
+        frameCity();
+      });
       window.addEventListener('resize',()=>map.resize(),{passive:true});
     } catch(error) {
       setStatus('Map initialization failed: '+error.message);
