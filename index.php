@@ -41,7 +41,7 @@ if (is_array($officialsData)) {
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet" />
   <link rel="stylesheet" href="portal.css?v=20261118-26" />
   <link rel="stylesheet" href="civic-responsive.css?v=20261118-34" />
-  <link rel="stylesheet" href="mobile-app.css?v=20261119-15" />
+  <link rel="stylesheet" href="mobile-app.css?v=20261119-16" />
   <link rel="stylesheet" href="mayor-biography.css?v=20261119-1" />
 </head>
 
@@ -269,7 +269,20 @@ if (is_array($officialsData)) {
       var menuBtn = document.getElementById('menuBtn');
       menuBtn.onclick = function () { body.classList.toggle('header-collapsed'); var expanded = body.classList.contains('header-collapsed'); menuBtn.setAttribute('aria-expanded', String(expanded)); menuBtn.querySelector('i').className = expanded ? 'fas fa-xmark' : 'fas fa-bars' };
       var search = document.getElementById('serviceSearch'), empty = document.getElementById('searchEmpty');
-      search.oninput = function () { var q = search.value.toLowerCase().trim(), n = 0; document.querySelectorAll('.service-card').forEach(function (c) { var ok = !q || (c.innerText + ' ' + (c.dataset.search || '')).toLowerCase().includes(q); c.hidden = !ok; if (ok) n++ }); empty.classList.toggle('show', !!q && !n); };
+      search.oninput = function () {
+        var q = search.value.toLowerCase().trim().replace(/\\s+/g, ' ');
+        var terms = q ? q.split(' ').filter(Boolean) : [];
+        var n = 0;
+        document.querySelectorAll('#serviceGrid .service-card').forEach(function (card) {
+          var haystack = (card.textContent + ' ' + (card.dataset.search || '')).toLowerCase();
+          var matched = !terms.length || terms.every(function (term) { return haystack.includes(term); });
+          card.hidden = !matched;
+          card.classList.toggle('kd-service-search-match', !!terms.length && matched);
+          if (matched) n++;
+        });
+        document.getElementById('serviceGrid').classList.toggle('kd-search-active', !!terms.length);
+        empty.classList.toggle('show', !!terms.length && n === 0);
+      };
       document.getElementById('clearSearch').onclick = function () { search.value = ''; search.oninput(); search.focus() };
       document.getElementById('submitSearch').onclick = function () { search.oninput(); document.getElementById('services').scrollIntoView({ behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth', block: 'start' }) };
       search.addEventListener('keydown', function (event) { if (event.key === 'Enter') { event.preventDefault(); document.getElementById('submitSearch').click() } });
