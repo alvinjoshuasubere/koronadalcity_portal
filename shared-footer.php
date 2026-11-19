@@ -5,7 +5,7 @@
   <div class="kd-shared-footer-inner">
     <div class="kd-shared-footer-top">
       <div class="kd-shared-footer-identity">
-        <a href="index.php" class="kd-shared-footer-brand" aria-label="City of Koronadal portal home">
+        <a href="./" class="kd-shared-footer-brand" aria-label="City of Koronadal portal home">
           <span class="kd-shared-footer-logo"><img src="Logo.png" alt="City of Koronadal official seal" loading="lazy"></span>
           <span class="kd-shared-footer-brand-copy">
             <strong>City Government of Koronadal</strong>
@@ -17,10 +17,10 @@
       <nav class="kd-shared-footer-nav" aria-label="Footer navigation">
         <span class="kd-shared-footer-nav-title">Quick links</span>
         <div class="kd-shared-footer-links">
-          <a href="index.php"><i class="fas fa-house" aria-hidden="true"></i> Portal Home</a>
-          <a href="city-officials.php"><i class="fas fa-users" aria-hidden="true"></i> City Officials</a>
-          <a href="mayor-corner.php"><i class="fas fa-landmark" aria-hidden="true"></i> Mayor's Corner</a>
-          <a href="emergency-contacts.php"><i class="fas fa-phone-volume" aria-hidden="true"></i> Emergency Contacts</a>
+          <a href="./"><i class="fas fa-house" aria-hidden="true"></i> Portal Home</a>
+          <a href="city-officials"><i class="fas fa-users" aria-hidden="true"></i> City Officials</a>
+          <a href="mayor-corner"><i class="fas fa-landmark" aria-hidden="true"></i> Mayor's Corner</a>
+          <a href="emergency-contacts"><i class="fas fa-phone-volume" aria-hidden="true"></i> Emergency Contacts</a>
           <a href="mailto:info.koronadalcity@gmail.com"><i class="fas fa-envelope" aria-hidden="true"></i> Contact Us</a>
         </div>
       </nav>
