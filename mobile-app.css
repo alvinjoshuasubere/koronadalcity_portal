@@ -1065,3 +1065,66 @@ body.portal-home-page .kd-barangay-tooltip .maplibregl-popup-content{
 body.portal-home-page .kd-barangay-population{
  background:#eaf4ff!important;border-color:#bbd7fa!important;color:#124f90!important;
 }
+
+/* Mobile bottom navigation: blue-on-white default, white-on-blue selected. */
+@media(max-width:760px){
+ body.portal-home-page .bottom-nav{
+  background:#fff!important;border-top:1px solid #d6e7fa!important;
+  box-shadow:0 -5px 22px rgba(15,75,135,.10)!important;
+  display:grid!important;grid-template-columns:repeat(5,minmax(0,1fr))!important;
+  align-items:center!important;gap:5px!important;
+  padding:7px 9px calc(7px + env(safe-area-inset-bottom,0px))!important;
+ }
+ body.portal-home-page .bottom-nav a,
+ body.portal-home-page .bottom-nav a.center,
+ body.portal-home-page .bottom-nav a:not(.active):not([aria-current="location"]){
+  display:flex!important;flex-direction:column!important;align-items:center!important;
+  justify-content:center!important;gap:5px!important;
+  min-width:0!important;min-height:52px!important;
+  padding:6px 2px!important;border-radius:12px!important;
+  background:#fff!important;border:1px solid transparent!important;
+  color:#1766b1!important;box-shadow:none!important;text-decoration:none!important;
+ }
+ body.portal-home-page .bottom-nav a i,
+ body.portal-home-page .bottom-nav a.center i,
+ body.portal-home-page .bottom-nav a span,
+ body.portal-home-page .bottom-nav a.center span{
+  color:inherit!important;
+ }
+ body.portal-home-page .bottom-nav a i,
+ body.portal-home-page .bottom-nav a.center i{
+  font-size:19px!important;line-height:1!important;
+ }
+ body.portal-home-page .bottom-nav a span,
+ body.portal-home-page .bottom-nav a.center span{
+  font-size:clamp(9px,2.5vw,11px)!important;font-weight:700!important;
+  line-height:1.2!important;text-align:center!important;white-space:nowrap!important;
+ }
+ body.portal-home-page .bottom-nav a.active,
+ body.portal-home-page .bottom-nav a.center.active,
+ body.portal-home-page .bottom-nav a[aria-current="location"],
+ body.portal-home-page .bottom-nav a.center[aria-current="location"]{
+  background:#1766b1!important;border-color:#1766b1!important;
+  color:#fff!important;box-shadow:0 4px 12px rgba(23,102,177,.18)!important;
+ }
+ body.portal-home-page .bottom-nav a.active i,
+ body.portal-home-page .bottom-nav a.active span,
+ body.portal-home-page .bottom-nav a[aria-current="location"] i,
+ body.portal-home-page .bottom-nav a[aria-current="location"] span{
+  color:#fff!important;
+ }
+ body.portal-home-page .bottom-nav a:not(.active):not([aria-current="location"]):hover{
+  background:#edf6ff!important;color:#12579c!important;
+ }
+ body.portal-home-page .bottom-nav a.active:hover,
+ body.portal-home-page .bottom-nav a[aria-current="location"]:hover{
+  background:#124f90!important;border-color:#124f90!important;color:#fff!important;
+ }
+}
+@media(max-width:370px){
+ body.portal-home-page .bottom-nav{gap:3px!important;padding-inline:5px!important}
+ body.portal-home-page .bottom-nav a,
+ body.portal-home-page .bottom-nav a.center{padding-inline:1px!important}
+ body.portal-home-page .bottom-nav a span,
+ body.portal-home-page .bottom-nav a.center span{font-size:9px!important}
+}
