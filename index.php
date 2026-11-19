@@ -1,4 +1,15 @@
 <?php
+$serviceStatus = [];
+$serviceStatusFile = __DIR__ . '/data/service_status.json';
+if (is_file($serviceStatusFile)) {
+  $decodedStatuses = json_decode(file_get_contents($serviceStatusFile), true);
+  if (is_array($decodedStatuses)) $serviceStatus = $decodedStatuses;
+}
+/* Treat only explicitly marked services as unavailable. Connectivity probes
+   may fail from browser/network restrictions even when the portal is working. */
+function cityServiceUnavailable(string $key, array $statuses): bool {
+  return strtolower(trim((string)($statuses[$key] ?? 'available'))) === 'unavailable';
+}
 $emergencyData = [];
 $officialsData = [];
 $emergencyFile = __DIR__ . '/data/emergency_contacts.json';
@@ -84,40 +95,47 @@ if (is_array($officialsData)) {
         <p>Find the service you need and continue directly to its dedicated portal.</p>
       </div>
       <div class="service-grid kd-aborlan-grid" id="serviceGrid" aria-label="Available online services">
-        <a class="service-card kd-aborlan-card" href="https://koronadalcityportal.com/v2/login" target="_blank" rel="noopener noreferrer" data-search="business permits licensing bplo renewal">
+        <a class="service-card kd-aborlan-card<?= cityServiceUnavailable('business-permits', $serviceStatus) ? ' kd-service-disabled' : '' ?>"<?= cityServiceUnavailable('business-permits', $serviceStatus) ? ' aria-disabled="true" tabindex="-1"' : ' href="https://koronadalcityportal.com/v2/login" target="_blank" rel="noopener noreferrer"' ?> data-service="business-permits" data-search="business permits licensing bplo renewal">
           <span class="kd-aborlan-card-heading"><span class="kd-aborlan-icon"><i class="fas fa-file-signature" aria-hidden="true"></i></span><strong>Business Permits & Licensing</strong></span>
+          <?php if (cityServiceUnavailable('business-permits', $serviceStatus)): ?><span class="kd-service-unavailable" role="status"><i class="fas fa-circle-exclamation" aria-hidden="true"></i> Unavailable</span><?php endif; ?>
           <ul class="kd-aborlan-benefits"><li>New business permits</li><li>Business permit renewal</li><li>Licensing transactions</li></ul>
-          <span class="kd-aborlan-footer">Open Business Permits & Licensing <i class="fas fa-arrow-right" aria-hidden="true"></i></span>
+          <span class="kd-aborlan-footer"><?= cityServiceUnavailable('business-permits', $serviceStatus) ? 'Service currently unavailable' : 'Open Business Permits & Licensing' ?><?php if (!cityServiceUnavailable('business-permits', $serviceStatus)): ?> <i class="fas fa-arrow-right" aria-hidden="true"></i><?php endif; ?></span>
         </a>
-        <a class="service-card kd-aborlan-card" href="https://bplo.koronadalcityonlineservices.com/" target="_blank" rel="noopener noreferrer" data-search="verify business permit bplo business permit validation status authenticity lookup verification">
+        <a class="service-card kd-aborlan-card<?= cityServiceUnavailable('permit-verification', $serviceStatus) ? ' kd-service-disabled' : '' ?>"<?= cityServiceUnavailable('permit-verification', $serviceStatus) ? ' aria-disabled="true" tabindex="-1"' : ' href="https://bplo.koronadalcityonlineservices.com/" target="_blank" rel="noopener noreferrer"' ?> data-service="permit-verification" data-search="verify business permit bplo business permit validation status authenticity lookup verification">
           <span class="kd-aborlan-card-heading"><span class="kd-aborlan-icon"><i class="fas fa-file-circle-check" aria-hidden="true"></i></span><strong>Verify Business Permit</strong></span>
+          <?php if (cityServiceUnavailable('permit-verification', $serviceStatus)): ?><span class="kd-service-unavailable" role="status"><i class="fas fa-circle-exclamation" aria-hidden="true"></i> Unavailable</span><?php endif; ?>
           <ul class="kd-aborlan-benefits"><li>Business permit verification</li><li>Check permit information</li><li>View available permit records</li></ul>
-          <span class="kd-aborlan-footer">Open Permit Verification <i class="fas fa-arrow-right" aria-hidden="true"></i></span>
+          <span class="kd-aborlan-footer"><?= cityServiceUnavailable('permit-verification', $serviceStatus) ? 'Service currently unavailable' : 'Open Permit Verification' ?><?php if (!cityServiceUnavailable('permit-verification', $serviceStatus)): ?> <i class="fas fa-arrow-right" aria-hidden="true"></i><?php endif; ?></span>
         </a>
-        <a class="service-card kd-aborlan-card" href="https://citizen.koronadalcityonlineservices.com/register" target="_blank" rel="noopener noreferrer" data-search="citizen records transactions digital government">
+        <a class="service-card kd-aborlan-card<?= cityServiceUnavailable('citizen-services', $serviceStatus) ? ' kd-service-disabled' : '' ?>"<?= cityServiceUnavailable('citizen-services', $serviceStatus) ? ' aria-disabled="true" tabindex="-1"' : ' href="https://citizen.koronadalcityonlineservices.com/register" target="_blank" rel="noopener noreferrer"' ?> data-service="citizen-services" data-search="citizen records transactions digital government">
           <span class="kd-aborlan-card-heading"><span class="kd-aborlan-icon"><i class="fas fa-id-card" aria-hidden="true"></i></span><strong>Unified Citizen Services</strong></span>
+          <?php if (cityServiceUnavailable('citizen-services', $serviceStatus)): ?><span class="kd-service-unavailable" role="status"><i class="fas fa-circle-exclamation" aria-hidden="true"></i> Unavailable</span><?php endif; ?>
           <ul class="kd-aborlan-benefits"><li>Citizen registration</li><li>Digital citizen profile</li><li>Online city transactions</li></ul>
-          <span class="kd-aborlan-footer">Open Unified Citizen Services <i class="fas fa-arrow-right" aria-hidden="true"></i></span>
+          <span class="kd-aborlan-footer"><?= cityServiceUnavailable('citizen-services', $serviceStatus) ? 'Service currently unavailable' : 'Open Unified Citizen Services' ?><?php if (!cityServiceUnavailable('citizen-services', $serviceStatus)): ?> <i class="fas fa-arrow-right" aria-hidden="true"></i><?php endif; ?></span>
         </a>
-        <a class="service-card kd-aborlan-card" href="https://jobs.koronadalcityonlineservices.com/" target="_blank" rel="noopener noreferrer" data-search="jobs career employment">
+        <a class="service-card kd-aborlan-card<?= cityServiceUnavailable('job-portal', $serviceStatus) ? ' kd-service-disabled' : '' ?>"<?= cityServiceUnavailable('job-portal', $serviceStatus) ? ' aria-disabled="true" tabindex="-1"' : ' href="https://jobs.koronadalcityonlineservices.com/" target="_blank" rel="noopener noreferrer"' ?> data-service="job-portal" data-search="jobs career employment">
           <span class="kd-aborlan-card-heading"><span class="kd-aborlan-icon"><i class="fas fa-briefcase" aria-hidden="true"></i></span><strong>Koronadal Job Portal</strong></span>
+          <?php if (cityServiceUnavailable('job-portal', $serviceStatus)): ?><span class="kd-service-unavailable" role="status"><i class="fas fa-circle-exclamation" aria-hidden="true"></i> Unavailable</span><?php endif; ?>
           <ul class="kd-aborlan-benefits"><li>Available job postings</li><li>Employment opportunities</li><li>Job search and listings</li></ul>
-          <span class="kd-aborlan-footer">Open Koronadal Job Portal <i class="fas fa-arrow-right" aria-hidden="true"></i></span>
+          <span class="kd-aborlan-footer"><?= cityServiceUnavailable('job-portal', $serviceStatus) ? 'Service currently unavailable' : 'Open Koronadal Job Portal' ?><?php if (!cityServiceUnavailable('job-portal', $serviceStatus)): ?> <i class="fas fa-arrow-right" aria-hidden="true"></i><?php endif; ?></span>
         </a>
-        <a class="service-card kd-aborlan-card" href="https://careers.koronadalcityonlineservices.com/" target="_blank" rel="noopener noreferrer" data-search="lgu recruitment careers applications">
+        <a class="service-card kd-aborlan-card<?= cityServiceUnavailable('lgu-recruitment', $serviceStatus) ? ' kd-service-disabled' : '' ?>"<?= cityServiceUnavailable('lgu-recruitment', $serviceStatus) ? ' aria-disabled="true" tabindex="-1"' : ' href="https://careers.koronadalcityonlineservices.com/" target="_blank" rel="noopener noreferrer"' ?> data-service="lgu-recruitment" data-search="lgu recruitment careers applications">
           <span class="kd-aborlan-card-heading"><span class="kd-aborlan-icon"><i class="fas fa-user-tie" aria-hidden="true"></i></span><strong>LGU Recruitment</strong></span>
+          <?php if (cityServiceUnavailable('lgu-recruitment', $serviceStatus)): ?><span class="kd-service-unavailable" role="status"><i class="fas fa-circle-exclamation" aria-hidden="true"></i> Unavailable</span><?php endif; ?>
           <ul class="kd-aborlan-benefits"><li>LGU job openings</li><li>Recruitment announcements</li><li>Application information</li></ul>
-          <span class="kd-aborlan-footer">Open LGU Recruitment <i class="fas fa-arrow-right" aria-hidden="true"></i></span>
+          <span class="kd-aborlan-footer"><?= cityServiceUnavailable('lgu-recruitment', $serviceStatus) ? 'Service currently unavailable' : 'Open LGU Recruitment' ?><?php if (!cityServiceUnavailable('lgu-recruitment', $serviceStatus)): ?> <i class="fas fa-arrow-right" aria-hidden="true"></i><?php endif; ?></span>
         </a>
-        <a class="service-card kd-aborlan-card" href="https://traffic.koronadalcityonlineservices.com/" target="_blank" rel="noopener noreferrer" data-search="mtop transport tricycle verification">
+        <a class="service-card kd-aborlan-card<?= cityServiceUnavailable('mtop-verification', $serviceStatus) ? ' kd-service-disabled' : '' ?>"<?= cityServiceUnavailable('mtop-verification', $serviceStatus) ? ' aria-disabled="true" tabindex="-1"' : ' href="https://traffic.koronadalcityonlineservices.com/" target="_blank" rel="noopener noreferrer"' ?> data-service="mtop-verification" data-search="mtop transport tricycle verification">
           <span class="kd-aborlan-card-heading"><span class="kd-aborlan-icon"><i class="fas fa-motorcycle" aria-hidden="true"></i></span><strong>MTOP Verification</strong></span>
+          <?php if (cityServiceUnavailable('mtop-verification', $serviceStatus)): ?><span class="kd-service-unavailable" role="status"><i class="fas fa-circle-exclamation" aria-hidden="true"></i> Unavailable</span><?php endif; ?>
           <ul class="kd-aborlan-benefits"><li>Operator permit lookup</li><li>Tricycle permit verification</li><li>Permit record reference</li></ul>
-          <span class="kd-aborlan-footer">Open MTOP Verification <i class="fas fa-arrow-right" aria-hidden="true"></i></span>
+          <span class="kd-aborlan-footer"><?= cityServiceUnavailable('mtop-verification', $serviceStatus) ? 'Service currently unavailable' : 'Open MTOP Verification' ?><?php if (!cityServiceUnavailable('mtop-verification', $serviceStatus)): ?> <i class="fas fa-arrow-right" aria-hidden="true"></i><?php endif; ?></span>
         </a>
-        <a class="service-card kd-aborlan-card" href="https://assistance.koronadalcityonlineservices.com/" target="_blank" rel="noopener noreferrer" data-search="assistance help support social services">
+        <a class="service-card kd-aborlan-card<?= cityServiceUnavailable('online-assistance', $serviceStatus) ? ' kd-service-disabled' : '' ?>"<?= cityServiceUnavailable('online-assistance', $serviceStatus) ? ' aria-disabled="true" tabindex="-1"' : ' href="https://assistance.koronadalcityonlineservices.com/" target="_blank" rel="noopener noreferrer"' ?> data-service="online-assistance" data-search="assistance help support social services">
           <span class="kd-aborlan-card-heading"><span class="kd-aborlan-icon"><i class="fas fa-hand-holding-heart" aria-hidden="true"></i></span><strong>Online Assistance</strong></span>
+          <?php if (cityServiceUnavailable('online-assistance', $serviceStatus)): ?><span class="kd-service-unavailable" role="status"><i class="fas fa-circle-exclamation" aria-hidden="true"></i> Unavailable</span><?php endif; ?>
           <ul class="kd-aborlan-benefits"><li>Assistance portal access</li><li>Public assistance inquiries</li><li>Citizen support resources</li></ul>
-          <span class="kd-aborlan-footer">Open Online Assistance <i class="fas fa-arrow-right" aria-hidden="true"></i></span>
+          <span class="kd-aborlan-footer"><?= cityServiceUnavailable('online-assistance', $serviceStatus) ? 'Service currently unavailable' : 'Open Online Assistance' ?><?php if (!cityServiceUnavailable('online-assistance', $serviceStatus)): ?> <i class="fas fa-arrow-right" aria-hidden="true"></i><?php endif; ?></span>
         </a>
       </div>
       <div class="search-empty" id="searchEmpty" role="status" aria-live="polite">No service found. Try another search.
