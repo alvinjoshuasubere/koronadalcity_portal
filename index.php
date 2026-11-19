@@ -373,7 +373,7 @@ if (is_array($officialsData)) {
     })();
   </script>
 
-  <script defer src="portal-chat.js?v=20261119-2"></script>
+  <script defer src="portal-chat.js?v=20261119-3"></script>
 </body>
 
 </html>
