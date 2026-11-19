@@ -37,7 +37,7 @@
     returnGeometry:'true',outSR:'4326',geometryPrecision:'5',f:'geojson'
   });
   const OVERPASS = 'https://overpass.kumi.systems/api/interpreter';
-  let map = null, request = null, hoverId = null, popup = null, cachedFeatures = [], currentSourceLabel = '';
+  let map = null, request = null, hoverId = null, pickedId = null, popup = null, cachedFeatures = [], currentSourceLabel = '';
   const selectedNames = new Set(officialNames);
   const setStatus = value => { statusEl.textContent = value; };
   function nestedCoordinates(geometry, fn) {
@@ -143,6 +143,7 @@
         map.setFeatureState({source:'kd-koronadal-barangays',id:hoverId},{hover:false});
         hoverId=null;
       }
+      if (pickedId!==null) {pickedId=null;}
       if (popup) popup.remove();
       upsert('kd-koronadal-barangays',featureCollection(shown));
       if (fit) {
@@ -210,7 +211,15 @@
       map.addLayer({id:'kd-zones-hover',type:'fill',source:'kd-koronadal-barangays',
         paint:{'fill-color':'#1c786e','fill-opacity':['case',['boolean',['feature-state','hover'],false],0.38,0]}});
       map.addLayer({id:'kd-zones-outline',type:'line',source:'kd-koronadal-barangays',
-        paint:{'line-color':'#146b60','line-width':3.5,'line-opacity':1}});
+        paint:{'line-color':['match',['get','shade'],0,'#146b60',1,'#237c6d',2,'#2b8c75','#117360'],
+          'line-width':3.5,'line-opacity':1}});
+      map.addLayer({id:'kd-zones-picked-fill',type:'fill',source:'kd-koronadal-barangays',
+        paint:{'fill-color':'#10a78d',
+          'fill-opacity':['case',['boolean',['feature-state','picked'],false],0.45,0]}});
+      map.addLayer({id:'kd-zones-picked-line',type:'line',source:'kd-koronadal-barangays',
+        paint:{'line-color':'#063f39',
+          'line-width':['case',['boolean',['feature-state','picked'],false],5.5,0],
+          'line-opacity':['case',['boolean',['feature-state','picked'],false],1,0]}});
       map.addLayer({id:'kd-zones-labels',type:'symbol',source:'kd-koronadal-barangays',
         layout:{'text-field':['get','name'],'text-size':12,
           'text-allow-overlap':true,'text-ignore-placement':true,
@@ -326,7 +335,12 @@
       });
       map.on('click','kd-zones-fill',event=>{
         const feature=event.features && event.features[0];
-        if (feature) new maplibregl.Popup({offset:12}).setLngLat(event.lngLat)
+        if (!feature) return;
+        if (pickedId!==null && map.getSource('kd-koronadal-barangays'))
+          map.setFeatureState({source:'kd-koronadal-barangays',id:pickedId},{picked:false});
+        pickedId=feature.id;
+        map.setFeatureState({source:'kd-koronadal-barangays',id:pickedId},{picked:true});
+        new maplibregl.Popup({offset:12}).setLngLat(event.lngLat)
           .setText('Barangay '+feature.properties.name+', Koronadal City').addTo(map);
       });
       if (reload) reload.addEventListener('click',()=>load(true));
