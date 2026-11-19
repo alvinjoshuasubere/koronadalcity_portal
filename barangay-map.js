@@ -25,20 +25,11 @@
    ['gen. paulino santos','General Paulino Santos'],['general p. santos','General Paulino Santos'],
    ['sto. nino','Santo Niño'],['sta. cruz','Santa Cruz']]
     .forEach(([alias,name])=>lookup.set(normalize(alias),name));
-  // Official PSGC suffix order is NOT the display-alphabetical order.
-  const namesByCode = [null,'Assumption','Avanceña','Cacub','Caloocan','Carpenter Hill',
-    'Concepcion','Esperanza','General Paulino Santos','Mabini','Magsaysay','Mambucal',
-    'Morales','Namnama','New Pangasinan','Paraiso','Zone 1','Zone 2','Zone 3','Zone 4',
-    'Rotonda','San Isidro','San Jose','San Roque','Santa Cruz','Santo Niño','Saravia','Topland'];
-  function nameFromCode(props) {
-    const full = String(props.psgc_10d || props.PSGC_10D || '').replace(/\D/g,'');
-    const old = String(props.brgy_code || props.BRGY_CODE || '').replace(/\D/g,'');
-    const suffix = full.startsWith('1206306') && full.length === 10 ? Number(full.slice(7)) :
-      old.startsWith('126306') && old.length === 9 ? Number(old.slice(6)) : 0;
-    return namesByCode[suffix] || null;
-  }
+  // Match by actual barangay names only; historical PSGC suffixes may not follow name order.
+  lookup.set('sarabia','Saravia');
+  const nameFromPSA = props => lookup.get(normalize(props.brgy_name || props.BRGY_NAME || props.name));
   const featureCollection = features => ({type:'FeatureCollection',features});
-  const CACHE_KEY = 'koronadal-psgc-mapped-v4';
+  const CACHE_KEY = 'koronadal-verified-polygons-v5';
   const PSA_BASE = 'https://portal.georisk.gov.ph/arcgis/rest/services/PSA/Barangay/MapServer/4/query';
   const PSA_QUERY = new URLSearchParams({
     where:"city_name LIKE '%Koronadal%' AND prov_name LIKE '%South Cotabato%'",
@@ -87,11 +78,10 @@
     for (const feature of data.features) {
       if (!isPolygon(feature)) continue;
       const props = feature.properties || {};
-      const rawName = props.brgy_name || props.BRGY_NAME || props.name;
-      const name = nameFromCode(props) || lookup.get(normalize(rawName));
+      const name = nameFromPSA(props);
       const city = String(props.city_name || props.CITY_NAME || '');
       const province = String(props.prov_name || props.PROV_NAME || '');
-      if (!name || seen.has(name) || !/koronadal/i.test(city) || !/south cotabato/i.test(province)) continue;
+      if (!name || seen.has(name) || !/koronadal/i.test(city) || !/south cotabato/i.test(province) || !isLocal(feature.geometry)) continue;
       seen.add(name);
       result.push({type:'Feature',id:result.length+1,properties:{name,shade:result.length%4},geometry:feature.geometry});
     }
@@ -209,18 +199,18 @@
     else map.addSource(id,{type:'geojson',data});
   }
   function render(collection,sourceLabel) {
-    if (!map || !map.isStyleLoaded()) return;
+    if (!map || !map.getStyle()) return;
     hideUnrelatedMapLabels();
     cachedFeatures = collection.features;
     currentSourceLabel=sourceLabel;
     upsert('kd-koronadal-barangays',featureCollection(selectedFeatures()));
     if (!map.getLayer('kd-zones-fill')) {
       map.addLayer({id:'kd-zones-fill',type:'fill',source:'kd-koronadal-barangays',
-        paint:{'fill-color':['match',['get','shade'],0,'#9bcfbc',1,'#a5d6c7',2,'#b3ddcf','#87c6b6'],'fill-opacity':0.44}});
+        paint:{'fill-color':['match',['get','shade'],0,'#9bcfbc',1,'#a5d6c7',2,'#b3ddcf','#87c6b6'],'fill-opacity':0.52}});
       map.addLayer({id:'kd-zones-hover',type:'fill',source:'kd-koronadal-barangays',
         paint:{'fill-color':'#1c786e','fill-opacity':['case',['boolean',['feature-state','hover'],false],0.38,0]}});
       map.addLayer({id:'kd-zones-outline',type:'line',source:'kd-koronadal-barangays',
-        paint:{'line-color':'#146b60','line-width':3,'line-opacity':1}});
+        paint:{'line-color':'#146b60','line-width':3.5,'line-opacity':1}});
       map.addLayer({id:'kd-zones-labels',type:'symbol',source:'kd-koronadal-barangays',
         layout:{'text-field':['get','name'],'text-size':12,
           'text-allow-overlap':true,'text-ignore-placement':true,
@@ -253,7 +243,7 @@
     setStatus('Loading Koronadal City barangay boundaries...');
     if (reload) reload.disabled=true;
     const candidates = [
-      async ()=>({data:cleanPSA(await getJson('barangay-boundaries.php?v=3',{},16000)),source:'PSA'}),
+      async ()=>({data:cleanPSA(await getJson('barangay-boundaries.php?v=4',{},16000)),source:'PSA'}),
       async ()=>({data:cleanPSA(await getJson(PSA_BASE+'?'+PSA_QUERY,{},18000)),source:'PSA'}),
       async ()=>{
         const query='[out:json][timeout:18];relation["boundary"="administrative"]["admin_level"~"^(6|8)$"]["name"~"Koronadal",i](6.34,124.70,6.60,125.04)->.city;.city map_to_area->.a;relation["boundary"="administrative"]["admin_level"="10"](area.a);out body;>;out skel qt;';
@@ -263,37 +253,36 @@
     ];
     const merged = new Map();
     const sourceNames = new Set();
+    let lastSuccess = false;
     for (const run of candidates) {
       if (current.signal.aborted) break;
       try {
         const result = await run();
         if (!result.data.features.length) throw Error('No matching Koronadal barangays returned');
         sourceNames.add(result.source);
-        // Retain the first (PSA-preferred) verified polygon for each barangay.
         for (const feature of result.data.features) {
           if (!merged.has(feature.properties.name)) merged.set(feature.properties.name,feature);
         }
-        if (merged.size === officialNames.length) break;
+        const sorted = officialNames.filter(name=>merged.has(name)).map((name,i)=>({
+          ...merged.get(name),id:i+1,properties:{...merged.get(name).properties,name,shade:i%4}
+        }));
+        const combined = featureCollection(sorted);
+        // Show boundaries as soon as the first source responds.
+        render(combined,Array.from(sourceNames).join(' + '));
+        saveCache(combined,Array.from(sourceNames).join(' + '));
+        lastSuccess = true;
+        if (merged.size===27) break;
       } catch(error) {
-        if (!current.signal.aborted) console.warn('Koronadal barangay boundary source:',error.message);
+        if (!current.signal.aborted) console.warn('Koronadal map source:',error);
       }
     }
     if (current.signal.aborted) return;
-    if (merged.size) {
-      const sorted = officialNames.filter(name=>merged.has(name)).map((name,i)=>{
-        const feature = merged.get(name);
-        return {...feature,id:i+1,properties:{...feature.properties,name,shade:i%4}};
-      });
-      const combined = featureCollection(sorted);
-      const sourceLabel = Array.from(sourceNames).join(' + ');
-      render(combined,sourceLabel);
-      saveCache(combined,sourceLabel);
-    } else {
+    if (!lastSuccess) {
       const cached=fromCache();
-      if (cached) {render(cached.data,cached.source+' (saved copy)');}
+      if (cached) render(cached.data,cached.source+' (saved copy)');
       else {
         if (counter) counter.textContent='Boundaries unavailable';
-        setStatus('Boundary services are temporarily unavailable. The map remains available. Select Refresh boundaries to retry.');
+        setStatus('Unable to load verified Koronadal barangay polygons. Please select Refresh boundaries.');
       }
     }
     if (reload) reload.disabled=false;
