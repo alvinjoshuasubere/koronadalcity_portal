@@ -54,7 +54,7 @@ if (is_array($officialsData)) {
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet" />
 
 
-  <link rel="stylesheet" href="city-portal.css?v=20261119-8" />
+  <link rel="stylesheet" href="city-portal.css?v=20261119-9" />
 </head>
 
 <body class="portal-home-page">
@@ -336,7 +336,7 @@ if (is_array($officialsData)) {
     <div class="kd-chat-widget">
       <button type="button" id="kdChatLauncher" title="Ask AI" class="kd-chat-launcher" aria-expanded="false"
         aria-controls="kdChatPanel" aria-label="Ask AI assistant"><i class="fas fa-robot"
-          aria-hidden="true"></i><span>Ask Koronadal</span></button>
+          aria-hidden="true"></i><span>Ask</span></button>
       <section id="kdChatPanel" class="kd-chat-panel" aria-label="Koronadal Portal Assistant" hidden>
         <header class="kd-chat-head">
           <div class="kd-chat-head-identity"><span class="kd-chat-avatar"><i class="fas fa-robot"
