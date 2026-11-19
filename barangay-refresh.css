@@ -253,3 +253,206 @@ body.portal-home-page .kd-barangay-filter-item:focus-within{
 @media(prefers-reduced-motion:reduce){
  body.portal-home-page .kd-barangay-section *{scroll-behavior:auto!important;transition:none!important}
 }
+
+/* Barangay filter redesign: clear title, search and selection grouping */
+body.portal-home-page .kd-barangay-filter{
+ padding:clamp(16px,2.5vw,24px)!important;
+ border:1px solid #d6e5f5!important;
+ background:#fff!important;
+ border-radius:19px!important;
+ box-shadow:0 9px 28px rgba(18,69,120,.055)!important;
+}
+body.portal-home-page .kd-barangay-filter-head{
+ display:flex!important;flex-flow:row wrap!important;align-items:center!important;
+ justify-content:space-between!important;gap:12px!important;margin:0 0 19px!important;
+}
+body.portal-home-page .kd-barangay-filter-head > .kd-filter-heading-copy{
+ display:flex!important;align-items:center!important;flex-wrap:nowrap!important;
+ gap:12px!important;flex:1 1 280px!important;min-width:0!important;
+}
+body.portal-home-page .kd-filter-heading-icon{
+ display:grid!important;place-items:center!important;flex:0 0 47px!important;
+ width:47px!important;height:47px!important;border-radius:14px!important;
+ background:#e8f3ff!important;border:1px solid #cce3fa!important;
+ color:#1766b1!important;
+}
+body.portal-home-page .kd-filter-heading-icon i{font-size:19px!important;color:#1766b1!important}
+body.portal-home-page .kd-filter-heading-text{
+ display:flex!important;flex-direction:column!important;align-items:flex-start!important;
+ gap:5px!important;min-width:0!important;
+}
+body.portal-home-page .kd-filter-heading-text strong{
+ display:block!important;color:#173d67!important;font-size:clamp(14px,1.6vw,17px)!important;
+ font-weight:800!important;line-height:1.35!important;
+}
+body.portal-home-page .kd-filter-heading-text small{
+ color:#506f8b!important;font-size:11px!important;line-height:1.45!important;
+ font-weight:500!important;
+}
+body.portal-home-page .kd-barangay-filter-head > #kdFilterCount{
+ flex:0 0 auto!important;display:inline-flex!important;align-items:center!important;
+ min-height:34px!important;padding:8px 12px!important;border-radius:999px!important;
+ color:#165c9d!important;background:#eaf4ff!important;border:1px solid #c8dff8!important;
+ font-size:11px!important;font-weight:800!important;white-space:nowrap!important;
+}
+body.portal-home-page .kd-filter-controls{
+ display:grid!important;grid-template-columns:minmax(0,1fr) auto!important;
+ gap:15px!important;align-items:end!important;margin:0 0 19px!important;
+ padding:15px!important;border:1px solid #dce9f7!important;
+ border-radius:14px!important;background:#f8fbff!important;
+}
+body.portal-home-page .kd-filter-search-area{min-width:0!important}
+body.portal-home-page .kd-filter-controls .kd-barangay-search-label{
+ display:block!important;margin:0 0 8px!important;color:#254b72!important;
+ font-size:12px!important;font-weight:750!important;line-height:1.4!important;
+}
+body.portal-home-page .kd-filter-search-wrap{
+ position:relative!important;display:flex!important;align-items:center!important;
+ min-width:0!important;width:100%!important;
+}
+body.portal-home-page .kd-filter-search-wrap > i{
+ position:absolute!important;left:15px!important;top:50%!important;
+ transform:translateY(-50%)!important;color:#1766b1!important;
+ font-size:15px!important;pointer-events:none!important;z-index:1!important;
+}
+body.portal-home-page .kd-filter-search-wrap .kd-barangay-filter-search{
+ width:100%!important;min-width:0!important;height:47px!important;
+ min-height:47px!important;margin:0!important;padding:11px 15px 11px 43px!important;
+ border:1px solid #c5daf0!important;border-radius:11px!important;
+ background:#fff!important;color:#173b62!important;
+ font:600 13px/1.4 Sora,system-ui,sans-serif!important;
+ box-shadow:none!important;
+}
+body.portal-home-page .kd-filter-search-wrap .kd-barangay-filter-search::placeholder{
+ color:#657d94!important;opacity:1!important;font-weight:450!important;
+}
+body.portal-home-page .kd-filter-controls .kd-barangay-filter-actions{
+ display:flex!important;flex-wrap:wrap!important;justify-content:flex-end!important;
+ align-items:center!important;gap:8px!important;min-width:0!important;
+}
+body.portal-home-page .kd-filter-controls .kd-filter-action{
+ display:inline-flex!important;flex:0 0 auto!important;align-items:center!important;
+ gap:8px!important;min-height:46px!important;width:auto!important;
+ padding:10px 13px!important;border-radius:11px!important;
+ font:750 11px/1.3 Sora,system-ui,sans-serif!important;white-space:nowrap!important;
+}
+body.portal-home-page .kd-filter-controls #kdSelectAllBarangays:not(:disabled){
+ background:#1766b1!important;color:#fff!important;border-color:#1766b1!important;
+}
+body.portal-home-page .kd-filter-controls #kdSelectAllBarangays:not(:disabled) i{color:#fff!important}
+body.portal-home-page .kd-filter-controls #kdSelectAllBarangays:hover:not(:disabled){
+ background:#115292!important;border-color:#115292!important;
+}
+body.portal-home-page .kd-filter-controls #kdClearBarangays:not(:disabled){
+ background:#fff!important;color:#165e9e!important;border-color:#bcd6ee!important;
+}
+body.portal-home-page .kd-filter-controls .kd-filter-action:disabled{
+ opacity:.48!important;cursor:not-allowed!important;
+}
+body.portal-home-page .kd-filter-list-heading{
+ display:flex!important;justify-content:space-between!important;
+ align-items:center!important;flex-wrap:wrap!important;gap:8px!important;
+ margin-bottom:11px!important;padding:0 2px!important;
+ color:#244b72!important;font-size:12px!important;font-weight:800!important;
+}
+body.portal-home-page #kdFilterSearchResult{
+ color:#52718f!important;font-size:11px!important;font-weight:650!important;
+}
+body.portal-home-page .kd-barangay-filter-list{
+ display:grid!important;grid-template-columns:repeat(4,minmax(0,1fr))!important;
+ gap:9px!important;max-height:245px!important;
+ overflow-y:auto!important;padding:3px 6px 3px 2px!important;
+}
+body.portal-home-page .kd-barangay-filter-list .kd-barangay-filter-item{
+ display:flex!important;align-items:center!important;gap:9px!important;
+ min-width:0!important;min-height:46px!important;padding:11px 12px!important;
+ color:#294b6a!important;font-size:12px!important;font-weight:650!important;
+ background:#fff!important;border:1px solid #d8e5f2!important;
+ border-radius:10px!important;line-height:1.45!important;
+}
+body.portal-home-page .kd-barangay-filter-list .kd-barangay-filter-item:hover{
+ background:#f0f7ff!important;border-color:#8cbde9!important;
+}
+body.portal-home-page .kd-barangay-filter-list .kd-barangay-filter-item:has(input:checked){
+ background:#eaf4ff!important;color:#155a99!important;
+ border-color:#a4caf0!important;
+}
+body.portal-home-page .kd-barangay-filter-list .kd-barangay-filter-item[hidden]{
+ display:none!important;
+}
+body.portal-home-page .kd-barangay-filter-list .kd-barangay-filter-item input{
+ width:17px!important;height:17px!important;flex:0 0 17px!important;
+ accent-color:#1766b1!important;
+}
+body.portal-home-page .kd-barangay-filter-help{
+ display:flex!important;align-items:flex-start!important;gap:8px!important;
+ padding:12px 13px!important;margin:16px 0 0!important;
+ background:#f3f8ff!important;border:1px solid #e0ebf7!important;
+ border-radius:11px!important;color:#4d6680!important;
+ font-size:11px!important;line-height:1.65!important;
+}
+body.portal-home-page .kd-barangay-filter-help i{
+ flex:0 0 auto!important;color:#1766b1!important;margin-top:3px!important;
+}
+body.portal-home-page .kd-barangay-summary{
+ order:2!important;display:flex!important;align-items:center!important;gap:14px!important;
+ width:100%!important;min-width:0!important;padding:17px 19px!important;
+ background:#eaf4ff!important;border:1px solid #c7dff8!important;
+ border-radius:15px!important;
+}
+body.portal-home-page .kd-summary-icon{
+ flex:0 0 45px!important;width:45px!important;height:45px!important;
+ display:grid!important;place-items:center!important;border-radius:12px!important;
+ background:#fff!important;border:1px solid #d0e3f7!important;
+ color:#1766b1!important;
+}
+body.portal-home-page .kd-summary-icon i{color:#1766b1!important;font-size:19px!important}
+body.portal-home-page .kd-barangay-summary > div{min-width:0!important;flex:1 1 auto!important}
+body.portal-home-page .kd-summary-label{
+ display:block!important;margin:0 0 4px!important;color:#4c6e8d!important;
+ font-size:10px!important;font-weight:800!important;letter-spacing:.035em!important;
+ text-transform:uppercase!important;
+}
+body.portal-home-page .kd-barangay-summary #kdBarangayDetails{
+ display:block!important;width:auto!important;min-width:0!important;
+ background:transparent!important;border:0!important;border-radius:0!important;
+ margin:0!important;padding:0!important;
+ box-shadow:none!important;color:#174a7e!important;
+ font:800 clamp(12px,1.5vw,15px)/1.6 Sora,system-ui,sans-serif!important;
+ overflow-wrap:anywhere!important;
+}
+@media(max-width:980px){
+ body.portal-home-page .kd-barangay-filter-list{
+  grid-template-columns:repeat(3,minmax(0,1fr))!important;
+ }
+}
+@media(max-width:760px){
+ body.portal-home-page .kd-filter-controls{
+  grid-template-columns:minmax(0,1fr)!important;
+  align-items:stretch!important;padding:12px!important;gap:10px!important;
+ }
+ body.portal-home-page .kd-filter-controls .kd-barangay-filter-actions{
+  display:grid!important;grid-template-columns:repeat(2,minmax(0,1fr))!important;
+  justify-content:stretch!important;width:100%!important;
+ }
+ body.portal-home-page .kd-filter-controls .kd-filter-action{
+  justify-content:center!important;width:100%!important;min-height:44px!important;
+ }
+ body.portal-home-page .kd-barangay-filter-list{
+  grid-template-columns:repeat(2,minmax(0,1fr))!important;
+  gap:8px!important;max-height:260px!important;
+ }
+ body.portal-home-page .kd-barangay-filter-list .kd-barangay-filter-item{
+  min-height:46px!important;padding:10px 8px!important;font-size:11px!important;
+ }
+ body.portal-home-page .kd-barangay-summary{padding:14px!important;gap:10px!important}
+ body.portal-home-page .kd-summary-icon{flex-basis:40px!important;width:40px!important;height:40px!important}
+}
+@media(max-width:400px){
+ body.portal-home-page .kd-barangay-filter-head > #kdFilterCount{
+  margin-left:59px!important;
+ }
+ body.portal-home-page .kd-barangay-filter-list .kd-barangay-filter-item{
+  font-size:10.5px!important;gap:7px!important;
+ }
+}
