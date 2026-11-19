@@ -54,6 +54,7 @@
       </div>
       <p class="kd-barangay-filter-help">Choose one, several, or all barangays to display their available boundaries. Click a mapped barangay to see its name.</p>
     </div>
+    <div id="kdBarangayDetails" class="kd-barangay-population" role="status" aria-live="polite">City of Koronadal · 27 barangays · Total population 201,844 (2024 PSA Census)</div>
     <div class="kd-barangay-canvas-wrap">
       <div id="kdBarangayMap" class="kd-barangay-map" role="region" aria-label="Interactive map showing available Koronadal barangay boundary lines">
         <div class="kd-barangay-map-loading">Loading OpenFreeMap...</div>
@@ -61,9 +62,10 @@
       <div class="kd-zone-legend" aria-label="Map legend"><span><i class="kd-legend-city"></i> Barangay boundary</span><span><i class="kd-legend-barangay"></i> Selected barangays</span><span><i class="kd-legend-selected"></i> Hover or tap highlight</span></div>
       <div class="kd-barangay-attribution">Map tiles by <a href="https://openfreemap.org/" target="_blank" rel="noopener noreferrer">OpenFreeMap</a>. Boundary data: <a href="https://portal.georisk.gov.ph/arcgis/rest/services/PSA/Barangay/MapServer/4" target="_blank" rel="noopener noreferrer">Philippine Statistics Authority (GeoRisk)</a>, with OpenStreetMap fallback. PSA polygons are indicative 2016 boundaries, not official cadastral surveys. Missing mapped boundaries are not estimated.</div>
     </div>
+    <p class="kd-barangay-pop-source">Population data: <a href="https://psa.gov.ph/classification/psgc/barangays/1206306000" target="_blank" rel="noopener noreferrer">Philippine Statistics Authority, 2024 Census of Population</a>. Boundary polygons are indicative and may not cover every barangay.</p>
   </div>
 </section>
 <link href="https://unpkg.com/maplibre-gl@5.8.0/dist/maplibre-gl.css" rel="stylesheet">
 <script src="https://unpkg.com/maplibre-gl@5.8.0/dist/maplibre-gl.js" defer></script>
 <script src="https://unpkg.com/osmtogeojson@3.0.0-beta.5/osmtogeojson.js" defer></script>
-<script defer src="barangay-map.js?v=20261119-17"></script>
+<script defer src="barangay-map.js?v=20261119-18"></script>
