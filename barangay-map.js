@@ -42,7 +42,7 @@
     }
   }
   const featureCollection = features => ({type:'FeatureCollection',features});
-  const CACHE_KEY = 'koronadal-polygons-population-2024-v6';
+  const CACHE_KEY = 'koronadal-verified-local-27-v7';
   const PSA_BASE = 'https://portal.georisk.gov.ph/arcgis/rest/services/PSA/Barangay/MapServer/4/query';
   const PSA_QUERY = new URLSearchParams({
     where:"city_name LIKE '%Koronadal%' AND prov_name LIKE '%South Cotabato%'",
@@ -83,6 +83,22 @@
         catch (error) { console.warn('Could not hide map label:', layer.id, error); }
       }
     });
+  }
+  function cleanLocal(data) {
+    if (!data || data.type!=='FeatureCollection' || !Array.isArray(data.features))
+      throw new Error('Local boundary file is not GeoJSON');
+    const seen=new Set(), features=[];
+    for (const f of data.features) {
+      const p=f.properties || {};
+      const name=lookup.get(normalize(p.name || p.source_name));
+      if (!isPolygon(f) || !name || seen.has(name) || !String(p.psgc || '').startsWith('1206306') || !isLocal(f.geometry)) continue;
+      seen.add(name);
+      features.push({type:'Feature',id:features.length+1,
+        properties:{name,shade:features.length%4,population:population2024.get(name)},
+        geometry:f.geometry});
+    }
+    if (features.length<1) throw new Error('No verified Koronadal polygons found in local data');
+    return featureCollection(features);
   }
   function cleanPSA(data) {
     if (!data || !Array.isArray(data.features)) throw new Error('Boundary response has no features');
@@ -290,6 +306,7 @@
     setStatus('Loading Koronadal City barangay boundaries...');
     if (reload) reload.disabled=true;
     const candidates = [
+      async ()=>({data:cleanLocal(await getJson('data/koronadal-barangays.geojson?v=20261119-1',{},10000)),source:'Bundled PSGC map'}),
       async ()=>({data:cleanPSA(await getJson('barangay-boundaries.php?v=4',{},16000)),source:'PSA'}),
       async ()=>({data:cleanPSA(await getJson(PSA_BASE+'?'+PSA_QUERY,{},18000)),source:'PSA'}),
       async ()=>{
