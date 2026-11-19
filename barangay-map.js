@@ -28,8 +28,21 @@
   // Match by actual barangay names only; historical PSGC suffixes may not follow name order.
   lookup.set('sarabia','Saravia');
   const nameFromPSA = props => lookup.get(normalize(props.brgy_name || props.BRGY_NAME || props.name));
+  const population2024 = new Map(officialNames.map((name,i)=>[name,[2458,4781,2818,5468,7962,6366,2015,22025,4147,3391,1434,9539,4705,5059,6796,4841,9088,9302,4537,20544,17064,9722,10441,4025,3419,12614,7283][i]]));
+  const details = document.getElementById('kdBarangayDetails');
+  let activeName = null;
+  function showDetails(name) {
+    activeName=name;
+    if (!details) return;
+    if (name) {
+      const pop=population2024.get(name);
+      details.textContent='Barangay '+name+' · Population '+(pop===undefined?'unavailable':pop.toLocaleString('en-PH'))+' (2024 PSA Census)';
+    } else {
+      details.textContent='City of Koronadal · 27 barangays · Total population 201,844 (2024 PSA Census)';
+    }
+  }
   const featureCollection = features => ({type:'FeatureCollection',features});
-  const CACHE_KEY = 'koronadal-verified-polygons-v5';
+  const CACHE_KEY = 'koronadal-polygons-population-2024-v6';
   const PSA_BASE = 'https://portal.georisk.gov.ph/arcgis/rest/services/PSA/Barangay/MapServer/4/query';
   const PSA_QUERY = new URLSearchParams({
     where:"city_name LIKE '%Koronadal%' AND prov_name LIKE '%South Cotabato%'",
@@ -83,7 +96,7 @@
       const province = String(props.prov_name || props.PROV_NAME || '');
       if (!name || seen.has(name) || !/koronadal/i.test(city) || !/south cotabato/i.test(province) || !isLocal(feature.geometry)) continue;
       seen.add(name);
-      result.push({type:'Feature',id:result.length+1,properties:{name,shade:result.length%4},geometry:feature.geometry});
+      result.push({type:'Feature',id:result.length+1,properties:{name,shade:result.length%4,population:population2024.get(name)},geometry:feature.geometry});
     }
     return featureCollection(result);
   }
@@ -99,7 +112,7 @@
       const name = lookup.get(normalize(t.name));
       if (!name || seen.has(name) || String(t.admin_level)!=='10') continue;
       seen.add(name);
-      features.push({type:'Feature',id:features.length+1,properties:{name,shade:features.length%4},geometry:feature.geometry});
+      features.push({type:'Feature',id:features.length+1,properties:{name,shade:features.length%4,population:population2024.get(name)},geometry:feature.geometry});
     }
     return featureCollection(features);
   }
@@ -155,6 +168,9 @@
       }
     }
     if (cachedFeatures.length) {
+      if (map && map.getLayer('kd-zones-labels')) {
+        map.setLayoutProperty('kd-zones-labels','visibility',activeName?'visible':'none');
+      }
       const available = shown.length;
       if (counter) counter.textContent = available+' of '+cachedFeatures.length+' mapped barangays visible';
       setStatus(selectedNames.size+' barangays selected. '+available+
@@ -167,24 +183,46 @@
       const input=event.target;
       if (!input.matches('input[type="checkbox"]')) return;
       if (input.checked) selectedNames.add(input.value);
-      else selectedNames.delete(input.value);
+      else {
+        // A first click in the default city view focuses just that barangay.
+        if (selectedNames.size===officialNames.length) {
+          selectedNames.clear();
+          selectedNames.add(input.value);
+        } else selectedNames.delete(input.value);
+      }
+      const focused=selectedNames.size===1 ? Array.from(selectedNames)[0] : null;
+      showDetails(focused);
       updateFilters(true);
     });
     if (selectAll) selectAll.addEventListener('click',()=>{
       officialNames.forEach(name=>selectedNames.add(name));
+      showDetails(null);
       updateFilters(true);
     });
     if (clearAll) clearAll.addEventListener('click',()=>{
       selectedNames.clear();
+      showDetails(null);
       updateFilters(false);
     });
     if (filterSearch && filterList) filterSearch.addEventListener('input',()=>{
       const term=normalize(filterSearch.value);
+      const matches=officialNames.filter(name=>normalize(name).includes(term));
       filterList.querySelectorAll('.kd-barangay-filter-item').forEach(item=>{
         const input=item.querySelector('input');
-        item.hidden = !normalize(input.value).includes(term);
+        item.hidden = !!term && !normalize(input.value).includes(term);
       });
+      if (term && matches.length) {
+        selectedNames.clear();
+        matches.forEach(name=>selectedNames.add(name));
+        showDetails(matches.length===1?matches[0]:null);
+        updateFilters(true);
+      } else if (!term) {
+        officialNames.forEach(name=>selectedNames.add(name));
+        showDetails(null);
+        updateFilters(true);
+      }
     });
+    showDetails(null);
     updateFilters(false);
   }
   function frameCity() {
@@ -221,7 +259,7 @@
           'line-width':['case',['boolean',['feature-state','picked'],false],5.5,0],
           'line-opacity':['case',['boolean',['feature-state','picked'],false],1,0]}});
       map.addLayer({id:'kd-zones-labels',type:'symbol',source:'kd-koronadal-barangays',
-        layout:{'text-field':['get','name'],'text-size':12,
+        layout:{'visibility':'none','text-field':['get','name'],'text-size':12,
           'text-allow-overlap':true,'text-ignore-placement':true,
           'text-font':['Noto Sans Regular'],'text-max-width':11},
         paint:{'text-color':'#225e59','text-halo-color':'#ffffff','text-halo-width':2.2}});
@@ -336,16 +374,21 @@
       map.on('click','kd-zones-fill',event=>{
         const feature=event.features && event.features[0];
         if (!feature) return;
+        showDetails(feature.properties.name);
+        map.setLayoutProperty('kd-zones-labels','visibility','visible');
         if (pickedId!==null && map.getSource('kd-koronadal-barangays'))
           map.setFeatureState({source:'kd-koronadal-barangays',id:pickedId},{picked:false});
         pickedId=feature.id;
         map.setFeatureState({source:'kd-koronadal-barangays',id:pickedId},{picked:true});
         new maplibregl.Popup({offset:12}).setLngLat(event.lngLat)
-          .setText('Barangay '+feature.properties.name+', Koronadal City').addTo(map);
+          .setText('Barangay '+feature.properties.name+' · Population '+Number(population2024.get(feature.properties.name)||0).toLocaleString('en-PH')+' (2024 PSA Census)').addTo(map);
       });
       if (reload) reload.addEventListener('click',()=>load(true));
       if (showAll) showAll.addEventListener('click',()=>{
         officialNames.forEach(name=>selectedNames.add(name));
+        if (filterSearch) filterSearch.value='';
+        if (filterList) filterList.querySelectorAll('.kd-barangay-filter-item').forEach(item=>item.hidden=false);
+        showDetails(null);
         updateFilters(false);
         frameCity();
       });
