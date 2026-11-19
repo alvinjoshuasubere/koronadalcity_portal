@@ -253,7 +253,7 @@
     setStatus('Loading Koronadal City barangay boundaries...');
     if (reload) reload.disabled=true;
     const candidates = [
-      async ()=>({data:cleanPSA(await getJson('barangay-boundaries.php?v=2',{},16000)),source:'PSA'}),
+      async ()=>({data:cleanPSA(await getJson('barangay-boundaries.php?v=3',{},16000)),source:'PSA'}),
       async ()=>({data:cleanPSA(await getJson(PSA_BASE+'?'+PSA_QUERY,{},18000)),source:'PSA'}),
       async ()=>{
         const query='[out:json][timeout:18];relation["boundary"="administrative"]["admin_level"~"^(6|8)$"]["name"~"Koronadal",i](6.34,124.70,6.60,125.04)->.city;.city map_to_area->.a;relation["boundary"="administrative"]["admin_level"="10"](area.a);out body;>;out skel qt;';
