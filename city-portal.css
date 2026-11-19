@@ -23816,3 +23816,31 @@ body.portal-home-page .kd-chat-followup{
 }
 body.portal-home-page .kd-chat-followup:hover{background:#dcfce7;border-color:#86c98e}
 body.portal-home-page .kd-chat-followup:focus-visible{outline:3px solid #86efac;outline-offset:2px}
+
+
+/* Mobile Services: flat scan icon and text, no raised circle or badge. */
+@media(max-width:760px){
+ body.portal-home-page .bottom-nav > a.center,
+ body.portal-home-page .bottom-nav > a.center.active,
+ body.portal-home-page .bottom-nav > a.center[aria-current="location"],
+ body.portal-home-page .bottom-nav > a.center:hover{
+  background:transparent!important;border:0!important;box-shadow:none!important;
+  border-radius:0!important;transform:none!important;
+  color:#1766b1!important;align-items:center!important;justify-content:center!important;
+ }
+ body.portal-home-page .bottom-nav > a.center > i,
+ body.portal-home-page .bottom-nav > a.center.active > i,
+ body.portal-home-page .bottom-nav > a.center[aria-current="location"] > i{
+  display:block!important;background:transparent!important;border:0!important;
+  box-shadow:none!important;border-radius:0!important;
+  width:auto!important;height:auto!important;min-width:0!important;min-height:0!important;
+  margin:0!important;padding:0!important;transform:none!important;
+  font-size:21px!important;line-height:1.2!important;color:#1766b1!important;
+ }
+ body.portal-home-page .bottom-nav > a.center > span,
+ body.portal-home-page .bottom-nav > a.center.active > span,
+ body.portal-home-page .bottom-nav > a.center[aria-current="location"] > span{
+  display:block!important;color:#1766b1!important;font-size:9px!important;
+  line-height:1.4!important;margin:0!important;
+ }
+}
