@@ -42,7 +42,7 @@ if (is_array($officialsData)) {
   <link rel="stylesheet" href="portal.css?v=20261118-26" />
   <link rel="stylesheet" href="civic-responsive.css?v=20261118-34" />
   <link rel="stylesheet" href="mobile-app.css?v=20261119-23" />
-  <link rel="stylesheet" href="barangay-refresh.css?v=20261119-1" />
+  <link rel="stylesheet" href="barangay-refresh.css?v=20261119-2" />
   <link rel="stylesheet" href="mayor-biography.css?v=20261119-1" />
 </head>
 
@@ -250,7 +250,7 @@ if (is_array($officialsData)) {
     </div>
   </div>
   <div class="kd-chat-widget">
-    <button type="button" id="kdChatLauncher" title="Ask AI" class="kd-chat-launcher" aria-expanded="false" aria-controls="kdChatPanel" aria-label="Ask AI assistant"><i class="fas fa-comments" aria-hidden="true"></i><span>Ask Koronadal</span></button>
+    <button type="button" id="kdChatLauncher" title="Ask AI" class="kd-chat-launcher" aria-expanded="false" aria-controls="kdChatPanel" aria-label="Ask AI assistant"><i class="fas fa-robot" aria-hidden="true"></i><span>Ask Koronadal</span></button>
     <section id="kdChatPanel" class="kd-chat-panel" aria-label="Koronadal Portal Assistant" hidden>
       <header class="kd-chat-head"><div class="kd-chat-head-identity"><span class="kd-chat-avatar"><i class="fas fa-robot" aria-hidden="true"></i></span><span><strong>Ask Koronadal</strong><small>Digital service assistant</small></span></div><div class="kd-chat-head-actions"><button id="kdChatClear" type="button" title="Clear conversation" aria-label="Clear conversation"><i class="fas fa-rotate-left" aria-hidden="true"></i></button><button id="kdChatClose" type="button" aria-label="Close chatbot"><i class="fas fa-xmark" aria-hidden="true"></i></button></div></header>
       <div id="kdChatMessages" class="kd-chat-messages" role="log" aria-live="polite" aria-relevant="additions text"></div>
