@@ -374,7 +374,10 @@
       map.on('click','kd-zones-fill',event=>{
         const feature=event.features && event.features[0];
         if (!feature) return;
+        selectedNames.clear();
+        selectedNames.add(feature.properties.name);
         showDetails(feature.properties.name);
+        updateFilters(true);
         map.setLayoutProperty('kd-zones-labels','visibility','visible');
         if (pickedId!==null && map.getSource('kd-koronadal-barangays'))
           map.setFeatureState({source:'kd-koronadal-barangays',id:pickedId},{picked:false});
