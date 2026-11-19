@@ -355,16 +355,18 @@
     try {
       map=new maplibregl.Map({container:mapEl,style:'https://tiles.openfreemap.org/styles/positron',
         center:CITY_CENTER,zoom:10.7,
-        dragPan:true,scrollZoom:false,boxZoom:false,doubleClickZoom:false,
-        touchZoomRotate:false,keyboard:false,dragRotate:false,pitchWithRotate:false,
+        dragPan:true,scrollZoom:true,boxZoom:false,doubleClickZoom:true,
+        touchZoomRotate:true,keyboard:true,dragRotate:false,pitchWithRotate:false,
         attributionControl:false,maxBounds:[[124.56,6.18],[125.18,6.78]]});
       map.addControl(new maplibregl.AttributionControl({compact:true}),'bottom-right');
-      map.touchZoomRotate.disable();
-      map.scrollZoom.disable();
-      map.doubleClickZoom.disable();
+      map.touchZoomRotate.enable();
+      map.touchZoomRotate.disableRotation();
+      map.scrollZoom.enable();
+      map.doubleClickZoom.enable();
       map.boxZoom.disable();
       map.dragRotate.disable();
-      map.keyboard.disable();
+      map.keyboard.enable();
+      map.addControl(new maplibregl.NavigationControl({showCompass:false,visualizePitch:false}),'top-right');
       popup=new maplibregl.Popup({closeButton:false,closeOnClick:false,offset:12,className:'kd-barangay-tooltip'});
       setupFilters();
       map.once('load',()=>{
