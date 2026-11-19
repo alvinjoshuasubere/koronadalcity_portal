@@ -922,3 +922,51 @@ body.portal-home-page .kd-barangay-pop-source a{color:#1766b1;text-decoration:un
  }
  body.portal-home-page .kd-floating-controls .kd-chat-launcher{padding:0 9px!important}
 }
+
+/* Date · Time: single-line right aligned in top utility strip */
+body.portal-home-page .kd-utility .kd-utility-inner{
+ display:flex!important;align-items:center!important;justify-content:space-between!important;
+ flex-wrap:nowrap!important;gap:12px!important;min-width:0!important;
+}
+body.portal-home-page .kd-utility .kd-utility-name{
+ min-width:0!important;flex:1 1 auto!important;
+ font-size:clamp(9px,1vw,12px)!important;line-height:1.3!important;
+}
+body.portal-home-page .kd-utility .kd-header-clock{
+ display:inline-flex!important;flex-direction:row!important;
+ align-items:center!important;justify-content:flex-end!important;
+ gap:7px!important;flex:0 0 auto!important;min-width:0!important;
+ margin-left:auto!important;padding:0!important;border:0!important;
+ border-radius:0!important;box-shadow:none!important;background:transparent!important;
+ white-space:nowrap!important;
+}
+body.portal-home-page .kd-utility .kd-header-date,
+body.portal-home-page .kd-utility .kd-header-time,
+body.portal-home-page .kd-utility .kd-clock-separator{
+ display:inline!important;color:#fff!important;font-family:Sora,system-ui,sans-serif!important;
+ font-size:clamp(10px,1vw,12px)!important;font-weight:700!important;
+ line-height:1.4!important;white-space:nowrap!important;
+}
+body.portal-home-page .kd-utility .kd-clock-separator{opacity:.7!important}
+@media(max-width:760px){
+ body.portal-home-page .kd-utility .kd-utility-inner{
+  gap:6px!important;padding-block:6px!important;
+ }
+ body.portal-home-page .kd-utility .kd-utility-name{
+  font-size:8px!important;overflow:hidden!important;text-overflow:ellipsis!important;
+  white-space:nowrap!important;
+ }
+ body.portal-home-page .kd-utility .kd-header-clock{gap:4px!important}
+ body.portal-home-page .kd-utility .kd-header-date,
+ body.portal-home-page .kd-utility .kd-header-time,
+ body.portal-home-page .kd-utility .kd-clock-separator{
+  font-size:9px!important;
+ }
+}
+@media(max-width:390px){
+ body.portal-home-page .kd-utility .kd-utility-name{font-size:0!important}
+ body.portal-home-page .kd-utility .kd-utility-name i{font-size:12px!important}
+ body.portal-home-page .kd-utility .kd-header-date,
+ body.portal-home-page .kd-utility .kd-header-time,
+ body.portal-home-page .kd-utility .kd-clock-separator{font-size:10px!important}
+}
