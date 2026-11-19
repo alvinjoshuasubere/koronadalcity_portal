@@ -40,14 +40,14 @@ function mcInitials($name) {
 
 <!-- Navbar -->
 <nav class="nav" id="nav">
-    <a href="index.php" class="nav-brand">
+    <a href="./" class="nav-brand">
         <img src="Logo.png" alt="Koronadal City">
         <div class="nav-brand-text">
             <strong>City of Koronadal</strong>
             <small>Government Services Portal</small>
         </div>
     </a>
-    <a href="index.php" class="nav-back">
+    <a href="./" class="nav-back">
         <i class="fas fa-arrow-left"></i>
         <span>Back to Portal</span>
     </a>
