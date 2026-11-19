@@ -23419,3 +23419,15 @@ body.emergency-page .contacts-section .emergency-directory-head{justify-content:
   grid-template-columns:repeat(2,minmax(0,1fr))!important;
  }
 }
+
+/* Emergency heading accent: "Emergency" is solid red, not the legacy gradient. */
+body.emergency-page #emergencyHeroTitle .hl{
+ color:#dc2626!important;
+ -webkit-text-fill-color:#dc2626!important;
+ background:none!important;
+ background-image:none!important;
+ -webkit-background-clip:initial!important;
+ background-clip:initial!important;
+ filter:none!important;
+ text-shadow:none!important;
+}
