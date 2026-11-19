@@ -1516,3 +1516,78 @@ body.portal-home-page .kd-chat-disclaimer{
 @media(prefers-reduced-motion:reduce){
  body.portal-home-page .kd-chat-thinking{animation:none!important}
 }
+
+/* Resolution/view adjuster is deliberately disabled; do not override hidden with display:block. */
+body.portal-home-page .kd-floating-controls > .view-switcher[hidden],
+body.portal-home-page #viewSwitcher[aria-hidden="true"]{
+ display:none!important;
+ visibility:hidden!important;
+ pointer-events:none!important;
+}
+/* One compact AI action. Keep the chatbot accessible above mobile navigation. */
+body.portal-home-page .kd-floating-controls:has(> .view-switcher[hidden]){
+ gap:0!important;
+}
+body.portal-home-page .kd-floating-controls .kd-chat-launcher{
+ background:#1766b1!important;
+ border:1px solid #3983c9!important;
+ box-shadow:0 8px 24px rgba(18,83,147,.27)!important;
+}
+body.portal-home-page .kd-floating-controls .kd-chat-launcher:hover{
+ background:#104e91!important;
+}
+body.portal-home-page .kd-chat-panel[hidden]{
+ display:none!important;
+}
+body.portal-home-page .kd-chat-panel{
+ display:flex!important;
+ flex-direction:column!important;
+ overscroll-behavior:contain!important;
+}
+body.portal-home-page .kd-chat-messages{
+ flex:1 1 auto!important;
+ min-height:0!important;
+ overflow-y:auto!important;
+ overscroll-behavior:contain!important;
+}
+body.portal-home-page .kd-chat-bubble a{
+ display:inline-flex!important;align-items:center!important;
+ margin-top:10px!important;padding:7px 10px!important;
+ border:1px solid #abcff0!important;border-radius:9px!important;
+ color:#145e9f!important;background:#fff!important;
+ font-size:11px!important;font-weight:750!important;text-decoration:none!important;
+}
+body.portal-home-page .kd-chat-bubble a:hover{
+ background:#dcecff!important;
+}
+body.portal-home-page .kd-chat-quick{
+ display:grid!important;
+ grid-template-columns:repeat(2,minmax(0,1fr))!important;
+ flex:0 0 auto!important;
+ gap:7px!important;
+ overflow-x:hidden!important;
+}
+body.portal-home-page .kd-chat-quick button{
+ min-width:0!important;
+ width:100%!important;
+ white-space:normal!important;
+ line-height:1.4!important;
+}
+body.portal-home-page .kd-chat-form button[type="submit"]:not(:disabled):hover{
+ background:#104d8d!important;
+}
+@media(max-width:760px){
+ body.portal-home-page .kd-floating-controls{
+  right:12px!important;
+  bottom:calc(84px + env(safe-area-inset-bottom,0px))!important;
+ }
+ body.portal-home-page .kd-chat-panel{
+  width:min(380px,calc(100vw - 24px))!important;
+  height:min(530px,calc(100dvh - 205px))!important;
+  max-height:calc(100dvh - 205px)!important;
+ }
+ body.portal-home-page .kd-chat-launcher{
+  width:48px!important;min-width:48px!important;
+  height:48px!important;min-height:48px!important;
+ }
+}
