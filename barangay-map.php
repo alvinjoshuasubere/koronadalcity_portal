@@ -3,12 +3,12 @@
   <div class="kd-barangay-heading">
     <div><span class="kd-live-eyebrow">27 BARANGAYS OF KORONADAL</span>
       <h2 id="kdBarangayMapTitle">Explore the Barangays</h2>
-      <p>The map opens with all available Koronadal barangays in view. Select one or more barangays to focus on their boundaries.</p>
+      <p>Explore Koronadal's 27 barangays. Search, select a barangay, or view the whole city on the interactive map.</p>
     </div>
     <a href="https://koronadal.gov.ph/27-barangay/" target="_blank" rel="noopener noreferrer">Official barangay directory <i class="fas fa-arrow-up-right-from-square" aria-hidden="true"></i></a>
   </div>
   <div class="kd-barangay-all-layout">
-    <div class="kd-barangay-all-toolbar">
+    <div class="kd-barangay-all-toolbar" aria-label="Map actions">
       <span id="kdBarangayStatus" class="kd-map-screenreader-status" role="status" aria-live="polite">Loading barangay boundaries.</span>
       <button id="kdBarangayShowAll" class="kd-barangay-reset" type="button"><i class="fas fa-expand" aria-hidden="true"></i> View all Koronadal</button>
       <button id="kdBarangayReload" class="kd-barangay-reset" type="button"><i class="fas fa-rotate" aria-hidden="true"></i> Refresh boundaries</button>
@@ -52,14 +52,15 @@
         <label class="kd-barangay-filter-item"><input type="checkbox" value="Zone 3" checked><span>Zone 3</span></label>
         <label class="kd-barangay-filter-item"><input type="checkbox" value="Zone 4" checked><span>Zone 4</span></label>
       </div>
-      <p class="kd-barangay-filter-help">Choose one, several, or all barangays to display their available boundaries. Click a mapped barangay to see its name.</p>
+      <p class="kd-barangay-filter-help">Search or select barangays to highlight their boundaries. Tap a boundary to see population information.</p>
     </div>
     <div id="kdBarangayDetails" class="kd-barangay-population" role="status" aria-live="polite">City of Koronadal · 27 barangays · Total population 201,844 (2024 PSA Census)</div>
     <div class="kd-barangay-canvas-wrap">
+      <div class="kd-map-message" id="kdMapMessage" role="status" hidden></div>
       <div id="kdBarangayMap" class="kd-barangay-map" role="region" aria-label="Interactive map showing available Koronadal barangay boundary lines">
         <div class="kd-barangay-map-loading">Loading OpenFreeMap...</div>
       </div>
-      <div class="kd-zone-legend" aria-label="Map legend"><span><i class="kd-legend-city"></i> Barangay boundary</span><span><i class="kd-legend-barangay"></i> Selected barangays</span><span><i class="kd-legend-selected"></i> Hover or tap highlight</span></div>
+      <div class="kd-zone-legend" aria-label="Map legend"><span><i class="kd-legend-city"></i> Barangay boundary</span><span><i class="kd-legend-barangay"></i> Selected barangays</span><span><i class="kd-legend-selected"></i> Focused barangay</span></div>
       <div class="kd-barangay-attribution">Map tiles by <a href="https://openfreemap.org/" target="_blank" rel="noopener noreferrer">OpenFreeMap</a>. Boundaries: locally hosted <a href="https://github.com/faeldon/philippines-json-maps" target="_blank" rel="noopener noreferrer">Philippine administrative GeoJSON</a> (NAMRIA and PSA via OCHA, CC BY-IGO); GeoRisk PSA and OpenStreetMap fallback. Boundaries are indicative, not legal cadastral surveys.</div>
     </div>
     <p class="kd-barangay-pop-source">Population data: <a href="https://psa.gov.ph/classification/psgc/barangays/1206306000" target="_blank" rel="noopener noreferrer">Philippine Statistics Authority, 2024 Census of Population</a>. Boundary polygons are indicative and may not cover every barangay.</p>
@@ -68,4 +69,4 @@
 <link href="https://unpkg.com/maplibre-gl@5.8.0/dist/maplibre-gl.css" rel="stylesheet">
 <script src="https://unpkg.com/maplibre-gl@5.8.0/dist/maplibre-gl.js" defer></script>
 <script src="https://unpkg.com/osmtogeojson@3.0.0-beta.5/osmtogeojson.js" defer></script>
-<script defer src="barangay-map.js?v=20261119-22"></script>
+<script defer src="barangay-map.js?v=20261119-23"></script>
