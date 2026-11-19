@@ -39,11 +39,9 @@ if (is_array($officialsData)) {
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet" />
-  <link rel="stylesheet" href="portal.css?v=20261118-26" />
-  <link rel="stylesheet" href="civic-responsive.css?v=20261118-34" />
-  <link rel="stylesheet" href="mobile-app.css?v=20261119-23" />
-  <link rel="stylesheet" href="barangay-refresh.css?v=20261119-2" />
-  <link rel="stylesheet" href="mayor-biography.css?v=20261119-1" />
+<link rel="stylesheet" href="civic-responsive.css?v=20261118-34" />
+<link rel="stylesheet" href="barangay-refresh.css?v=20261119-2" />
+  <link rel="stylesheet" href="city-portal.css?v=20261119-1" />
 </head>
 
 <body class="portal-home-page">
