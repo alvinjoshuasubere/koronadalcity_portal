@@ -1128,3 +1128,46 @@ body.portal-home-page .kd-barangay-population{
  body.portal-home-page .bottom-nav a span,
  body.portal-home-page .bottom-nav a.center span{font-size:9px!important}
 }
+
+/* Service directory search: make matches visible and unmistakable. */
+body.portal-home-page #serviceGrid .service-card[hidden]{
+ display:none!important;visibility:hidden!important;
+}
+body.portal-home-page #serviceGrid .service-card.kd-service-search-match{
+ background:#f0f7ff!important;
+ border:2px solid #1766b1!important;
+ box-shadow:0 0 0 3px rgba(23,102,177,.11),0 10px 28px rgba(23,102,177,.12)!important;
+ transform:none!important;
+}
+body.portal-home-page #serviceGrid .service-card.kd-service-search-match .kd-aborlan-icon{
+ background:#1766b1!important;color:#fff!important;border-color:#1766b1!important;
+}
+body.portal-home-page #serviceGrid .service-card.kd-service-search-match .kd-aborlan-icon i{
+ color:#fff!important;
+}
+body.portal-home-page #serviceGrid .service-card.kd-service-search-match .kd-aborlan-card-heading strong{
+ color:#124f90!important;
+}
+body.portal-home-page #serviceGrid .service-card.kd-service-search-match .kd-aborlan-footer{
+ color:#124f90!important;font-weight:800!important;
+}
+/* Keep loading/error announcements available to assistive technology only. */
+body.portal-home-page .kd-map-screenreader-status{
+ position:absolute!important;width:1px!important;height:1px!important;padding:0!important;
+ margin:-1px!important;overflow:hidden!important;clip:rect(0,0,0,0)!important;
+ white-space:nowrap!important;border:0!important;
+}
+body.portal-home-page .kd-barangay-all-toolbar{
+ display:flex!important;flex-wrap:wrap!important;justify-content:flex-end!important;
+ align-items:center!important;gap:10px!important;
+}
+@media(max-width:600px){
+ body.portal-home-page .kd-barangay-all-toolbar{
+  display:grid!important;grid-template-columns:repeat(2,minmax(0,1fr))!important;
+  gap:8px!important;
+ }
+ body.portal-home-page .kd-barangay-all-toolbar button{
+  width:100%!important;min-width:0!important;
+  white-space:normal!important;line-height:1.35!important;
+ }
+}
