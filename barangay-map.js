@@ -375,7 +375,16 @@
       map.keyboard.disable();
       popup=new maplibregl.Popup({closeButton:false,closeOnClick:false,offset:12,className:'kd-barangay-tooltip'});
       setupFilters();
-      map.once('load',()=>load(false));
+      map.once('load',()=>{
+        const loading=mapEl.querySelector('.kd-barangay-map-loading');
+        if(loading)loading.remove();
+        map.resize();
+        load(false);
+      });
+      map.on('error',event=>{
+        console.warn('Koronadal map:',event.error || event);
+        if(!cachedFeatures.length)showMapMessage('Map tiles could not load. Check your connection or refresh this page.');
+      });
       map.on('styledata',hideUnrelatedMapLabels);
       map.on('mousemove','kd-zones-fill',event=>{
         if (!event.features || !event.features.length) return;
@@ -414,6 +423,7 @@
         frameCity();
       });
       window.addEventListener('resize',()=>{map.resize();},{passive:true});
+      document.querySelectorAll('a[href="#live-city-data"]').forEach(a=>a.addEventListener('click',()=>setTimeout(()=>map.resize(),400)));
       if (typeof ResizeObserver!=='undefined') new ResizeObserver(()=>map.resize()).observe(mapEl);
     } catch(error) {
       setStatus('Map initialization failed: '+error.message);
