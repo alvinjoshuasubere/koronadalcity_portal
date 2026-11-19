@@ -1030,3 +1030,38 @@ body.portal-home-page .kd-floating-controls .kd-chat-panel{
   max-height:calc(100dvh - 200px)!important;
  }
 }
+
+/* Blue-only barangay map palette */
+body.portal-home-page .kd-barangay-canvas-wrap{
+ border-color:#cfe1f7!important;box-shadow:0 8px 24px rgba(23,102,177,.07)!important;
+}
+body.portal-home-page .kd-barangay-map{background:#eff6ff!important}
+body.portal-home-page .kd-zone-legend .kd-legend-city{
+ background:#cce7ff!important;border-color:#1766b1!important;
+}
+body.portal-home-page .kd-zone-legend .kd-legend-barangay{
+ background:#a9d3ff!important;border-color:#2474c9!important;
+}
+body.portal-home-page .kd-zone-legend .kd-legend-selected{
+ background:#267ce8!important;border-color:#104b99!important;
+}
+body.portal-home-page .kd-zone-count,
+body.portal-home-page .kd-barangay-filter-head span{
+ color:#14599e!important;background:#eaf4ff!important;border-color:#c5ddfa!important;
+}
+body.portal-home-page .kd-barangay-filter-item:has(input:checked){
+ color:#124f90!important;background:#eaf4ff!important;border-color:#9bc6ec!important;
+}
+body.portal-home-page .kd-barangay-filter-item input{accent-color:#1766b1!important}
+body.portal-home-page .kd-barangay-filter .kd-filter-action{
+ color:#155fa6!important;background:#eaf4ff!important;border-color:#c5ddf5!important;
+}
+body.portal-home-page .kd-barangay-filter .kd-filter-action:hover:not(:disabled){
+ background:#dbeafe!important;border-color:#93bfeb!important;
+}
+body.portal-home-page .kd-barangay-tooltip .maplibregl-popup-content{
+ background:#124f90!important;color:#fff!important;
+}
+body.portal-home-page .kd-barangay-population{
+ background:#eaf4ff!important;border-color:#bbd7fa!important;color:#124f90!important;
+}
