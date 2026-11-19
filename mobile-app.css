@@ -1380,3 +1380,139 @@ html body.portal-home-page .home-hero > .hero-content > .hero-actions > a{
   max-width:100%!important;
  }
 }
+
+/* Ask Koronadal refresh: resolution adjuster intentionally disabled in the UI. */
+body.portal-home-page .kd-floating-controls > .view-switcher{
+ display:none!important;
+}
+body.portal-home-page .kd-floating-controls{
+ right:16px!important;bottom:20px!important;
+ gap:0!important;align-items:center!important;
+}
+body.portal-home-page .kd-floating-controls .kd-chat-launcher{
+ border-radius:16px!important;background:#1766b1!important;
+ box-shadow:0 10px 26px rgba(23,102,177,.28)!important;
+}
+body.portal-home-page .kd-chat-panel{
+ width:min(410px,calc(100vw - 28px))!important;
+ height:min(610px,calc(100dvh - 112px))!important;
+ border:1px solid #cbdff3!important;border-radius:20px!important;
+ box-shadow:0 22px 65px rgba(18,60,112,.22)!important;
+ overflow:hidden!important;
+}
+body.portal-home-page .kd-chat-head{
+ background:linear-gradient(110deg,#103b70,#1766b1)!important;
+ padding:15px 16px!important;gap:10px!important;
+}
+body.portal-home-page .kd-chat-head-identity{
+ display:flex!important;gap:11px!important;align-items:center!important;
+ min-width:0!important;
+}
+body.portal-home-page .kd-chat-head-identity>span:last-child{
+ display:flex!important;flex-direction:column!important;gap:4px!important;
+}
+body.portal-home-page .kd-chat-avatar{
+ width:40px;height:40px;border-radius:13px;flex:0 0 40px;
+ display:grid;place-items:center;background:rgba(255,255,255,.16);
+ border:1px solid rgba(255,255,255,.28);color:#fff;font-size:18px;
+}
+body.portal-home-page .kd-chat-head-actions{
+ display:flex!important;gap:5px!important;align-items:center!important;
+}
+body.portal-home-page .kd-chat-head-actions button{
+ display:grid!important;place-items:center!important;
+ width:35px!important;height:35px!important;
+ border:1px solid rgba(255,255,255,.18)!important;
+ border-radius:10px!important;flex:0 0 35px!important;
+ background:rgba(255,255,255,.1)!important;color:#fff!important;
+ cursor:pointer!important;
+}
+body.portal-home-page .kd-chat-head-actions button:hover{
+ background:rgba(255,255,255,.24)!important;
+}
+body.portal-home-page .kd-chat-messages{
+ background:linear-gradient(180deg,#f6faff,#fff)!important;
+ gap:12px!important;padding:17px 14px!important;
+}
+body.portal-home-page .kd-chat-bubble{
+ max-width:90%!important;padding:12px 14px!important;
+ border-radius:15px!important;font-size:12px!important;
+ line-height:1.7!important;white-space:pre-wrap!important;
+}
+body.portal-home-page .kd-chat-user{
+ border-bottom-right-radius:5px!important;
+ background:#1766b1!important;color:#fff!important;
+}
+body.portal-home-page .kd-chat-assistant{
+ border-bottom-left-radius:5px!important;
+ background:#eaf4ff!important;border-color:#d1e5fc!important;
+ color:#193c68!important;
+}
+body.portal-home-page .kd-chat-thinking{
+ animation:kdChatPulse 1.15s ease-in-out infinite;
+}
+@keyframes kdChatPulse{50%{opacity:.57}}
+body.portal-home-page .kd-chat-suggestions-title{
+ color:#476581!important;font-size:10px!important;
+ font-weight:800!important;padding:10px 13px 0!important;
+ letter-spacing:.025em!important;
+}
+body.portal-home-page .kd-chat-quick{
+ display:grid!important;grid-template-columns:repeat(2,minmax(0,1fr))!important;
+ gap:7px!important;padding:9px 12px 11px!important;
+ overflow-x:hidden!important;
+}
+body.portal-home-page .kd-chat-quick button{
+ display:flex!important;flex-direction:row!important;
+ align-items:center!important;justify-content:flex-start!important;
+ gap:8px!important;text-align:left!important;
+ min-height:41px!important;padding:9px 10px!important;
+ background:#f2f7ff!important;color:#135a9f!important;
+ border:1px solid #d2e5fa!important;border-radius:10px!important;
+ font-size:10px!important;font-weight:750!important;
+ line-height:1.25!important;overflow-wrap:anywhere!important;
+ white-space:normal!important;
+}
+body.portal-home-page .kd-chat-quick button i{
+ color:#1766b1!important;font-size:13px!important;flex:0 0 15px!important;
+}
+body.portal-home-page .kd-chat-quick button:hover{
+ background:#e3f0ff!important;border-color:#9fc6ee!important;
+}
+body.portal-home-page .kd-chat-form{
+ border-top:1px solid #e3edf8!important;padding:10px 12px!important;
+ background:#fff!important;
+}
+body.portal-home-page .kd-chat-form input{
+ border-radius:12px!important;background:#f8fbff!important;
+ border-color:#c8ddf2!important;
+}
+body.portal-home-page .kd-chat-disclaimer{
+ padding:0 13px 10px!important;color:#6d8094!important;
+ font-size:9px!important;
+}
+@media(max-width:760px){
+ body.portal-home-page .kd-floating-controls{
+  right:12px!important;bottom:calc(86px + env(safe-area-inset-bottom,0px))!important;
+ }
+ body.portal-home-page .kd-floating-controls .kd-chat-panel{
+  width:min(380px,calc(100vw - 24px))!important;
+  height:min(550px,calc(100dvh - 190px))!important;
+  max-height:calc(100dvh - 190px)!important;
+ }
+ body.portal-home-page .kd-chat-suggestions-title{padding-top:8px!important}
+ body.portal-home-page .kd-chat-quick{gap:6px!important;padding:7px 10px 9px!important}
+ body.portal-home-page .kd-chat-quick button{
+  min-height:38px!important;padding:7px!important;font-size:10px!important;
+ }
+}
+@media(max-width:360px){
+ body.portal-home-page .kd-floating-controls .kd-chat-panel{
+  height:min(500px,calc(100dvh - 175px))!important;
+  max-height:calc(100dvh - 175px)!important;
+ }
+ body.portal-home-page .kd-chat-quick button{font-size:9px!important;gap:5px!important}
+}
+@media(prefers-reduced-motion:reduce){
+ body.portal-home-page .kd-chat-thinking{animation:none!important}
+}
