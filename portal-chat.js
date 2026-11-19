@@ -113,7 +113,7 @@
   });
   function openPanel(){
     panel.hidden=false;launcher.setAttribute('aria-expanded','true');
-    input.focus();
+    if (window.matchMedia('(min-width: 761px)').matches) input.focus();
   }
   function closePanel(){
     panel.hidden=true;launcher.setAttribute('aria-expanded','false');launcher.focus();
@@ -136,7 +136,7 @@
     input.value='';
     append(question,'you');
     const local=findHelp(question);
-    if(local){append(local.text,'bot',local.url);input.focus();return;}
+    if(local){append(local.text,'bot',local.url);if(window.matchMedia('(min-width: 761px)').matches)input.focus();return;}
     busy=true;
     const prior=conversation.slice(-6);
     const loading=append('Checking available information…','bot');
@@ -166,7 +166,7 @@
         loading.appendChild(a);
       }
       appendChoices(loading,guidance.choices);
-    }finally{busy=false;if(submit)submit.disabled=false;input.focus();log.scrollTop=log.scrollHeight;}
+    }finally{busy=false;if(submit)submit.disabled=false;if(window.matchMedia('(min-width: 761px)').matches)input.focus();log.scrollTop=log.scrollHeight;}
   });
   append(greeting,'bot');
 })();
