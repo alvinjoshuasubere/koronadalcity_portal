@@ -275,7 +275,7 @@ if (is_array($officialsData)) {
       document.getElementById('submitSearch').onclick = function () { search.oninput(); document.getElementById('services').scrollIntoView({ behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth', block: 'start' }) };
       search.addEventListener('keydown', function (event) { if (event.key === 'Enter') { event.preventDefault(); document.getElementById('submitSearch').click() } });
       document.querySelectorAll('a[href^="#"]').forEach(function (a) { a.onclick = function (e) { var hash = a.getAttribute('href'); if (!hash || hash === '#') return; var t = document.getElementById(hash.slice(1)); if (t) { e.preventDefault(); t.scrollIntoView({ behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth', block: 'start' }); if (body.classList.contains('header-collapsed')) menuBtn.click() } } });
-      var ids = ['home', 'services', 'emergency', 'leadership', 'city-info'], navTargets = {home:'#home',services:'#services',emergency:'emergency-contacts.php',leadership:'city-officials.php','city-info':'https://koronadal.gov.ph/'};
+      var ids = ['home', 'services', 'emergency', 'leadership', 'city-info'], navTargets = {home:'#home',services:'#services',emergency:'emergency-contacts',leadership:'city-officials','city-info':'https://koronadal.gov.ph/'};
       var obs = new IntersectionObserver(function (entries) {
         entries.forEach(function (entry) {
           if (!entry.isIntersecting) return;
