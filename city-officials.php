@@ -67,8 +67,8 @@ function officialPhoto(array $official): string {
 <body class="officials-page civic-government-page">
 <header class="cg-header">
   <div class="cg-header-in">
-    <a href="index.php" class="cg-brand"><img src="Logo.png" alt="City of Koronadal seal"><span><strong>City Government of Koronadal</strong><small>Government and elected officials</small></span></a>
-    <nav class="cg-nav" aria-label="Page navigation"><a href="index.php"><i class="fas fa-house" aria-hidden="true"></i> Home</a><a href="mayor-corner.php">Mayor’s Corner</a><a href="emergency-contacts.php">Emergency Contacts</a></nav>
+    <a href="./" class="cg-brand"><img src="Logo.png" alt="City of Koronadal seal"><span><strong>City Government of Koronadal</strong><small>Government and elected officials</small></span></a>
+    <nav class="cg-nav" aria-label="Page navigation"><a href="./"><i class="fas fa-house" aria-hidden="true"></i> Home</a><a href="mayor-corner">Mayor’s Corner</a><a href="emergency-contacts">Emergency Contacts</a></nav>
   </div>
 </header>
 <main class="cg-main">
@@ -97,7 +97,7 @@ function officialPhoto(array $official): string {
         </div>
         <div class="cg-official-info"><span class="cg-official-role"><?= officialEsc($leader['position'] ?? '') ?></span><h3><?= officialEsc($leader['name'] ?? '') ?></h3>
           <p>City Government of Koronadal</p>
-          <?php if (stripos($leader['position'] ?? '', 'vice') === false): ?><a href="mayor-corner.php">Visit Mayor’s Corner <i class="fas fa-arrow-right" aria-hidden="true"></i></a><?php endif; ?>
+          <?php if (stripos($leader['position'] ?? '', 'vice') === false): ?><a href="mayor-corner">Visit Mayor’s Corner <i class="fas fa-arrow-right" aria-hidden="true"></i></a><?php endif; ?>
         </div>
       </article>
       <?php endforeach; ?>
