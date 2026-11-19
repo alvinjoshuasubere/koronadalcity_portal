@@ -26,6 +26,7 @@ function officialEsc($value) { return htmlspecialchars((string)$value, ENT_QUOTE
 <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
 <link rel="stylesheet" href="portal.css?v=20261118-27">
 <link rel="stylesheet" href="civic-responsive.css?v=20261118-30">
+<link rel="stylesheet" href="officials-refresh.css?v=20261119-1">
 </head>
 <body class="officials-page civic-government-page">
 <header class="cg-header">
