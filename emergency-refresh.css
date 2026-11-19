@@ -411,3 +411,165 @@ body.emergency-page .hero .emergency-primary-call:hover,
 body.emergency-page .hero .emergency-primary-call:focus-visible{
  background:#b91c1c!important;border-color:#b91c1c!important;color:#fff!important;
 }
+
+/* Redesigned emergency header: readable split layout, focused 911 CTA, compact category summary */
+body.emergency-page .hero.emergency-hero-v2{
+ padding:clamp(24px,4vw,43px)!important;
+ background:linear-gradient(115deg,#fff 0%,#f2f8ff 62%,#e5f1ff 100%)!important;
+ border:1px solid #d5e5f6!important;
+ text-align:left!important;
+}
+body.emergency-page .hero.emergency-hero-v2::before{
+ width:300px!important;height:300px!important;right:-105px!important;bottom:-145px!important;
+ opacity:.35!important;
+}
+body.emergency-page .emergency-hero-layout{
+ position:relative!important;z-index:2!important;
+ display:grid!important;grid-template-columns:minmax(0,1.45fr) minmax(270px,.85fr)!important;
+ align-items:center!important;gap:clamp(22px,4vw,54px)!important;
+ width:100%!important;min-width:0!important;
+}
+body.emergency-page .emergency-hero-main{
+ min-width:0!important;display:flex!important;flex-direction:column!important;
+ align-items:flex-start!important;text-align:left!important;
+}
+body.emergency-page .emergency-hero-main .emergency-eyebrow{
+ display:inline-flex!important;align-items:center!important;gap:8px!important;
+ width:auto!important;margin:0 0 17px!important;padding:8px 11px!important;
+ color:#145e9d!important;background:#e8f3ff!important;border:1px solid #cbdff6!important;
+ border-radius:999px!important;font-size:10px!important;line-height:1.25!important;
+ font-weight:800!important;letter-spacing:.07em!important;
+}
+body.emergency-page .emergency-hero-main h1{
+ margin:0 0 16px!important;font-size:clamp(32px,4.15vw,52px)!important;
+ line-height:1.13!important;letter-spacing:-.045em!important;
+ color:#133658!important;font-weight:850!important;text-align:left!important;
+}
+body.emergency-page .emergency-hero-main h1 .hl{color:#1766b1!important}
+body.emergency-page .emergency-hero-main .hero-sub{
+ max-width:550px!important;margin:0 0 23px!important;
+ color:#3b5874!important;font-size:clamp(13px,1.35vw,15px)!important;
+ font-weight:500!important;line-height:1.8!important;text-align:left!important;
+}
+body.emergency-page .emergency-hero-main .emergency-hero-actions{
+ display:flex!important;flex-direction:row!important;justify-content:flex-start!important;
+ align-items:center!important;flex-wrap:wrap!important;gap:10px!important;
+ width:100%!important;margin:0!important;
+}
+body.emergency-page .emergency-hero-main .emergency-hero-actions>a{
+ display:inline-flex!important;flex:0 1 auto!important;align-items:center!important;justify-content:center!important;
+ min-width:0!important;min-height:51px!important;width:auto!important;
+ padding:13px 20px!important;margin:0!important;gap:10px!important;
+ border-radius:12px!important;font-size:13px!important;font-weight:800!important;
+ line-height:1.2!important;text-decoration:none!important;
+}
+body.emergency-page .emergency-hero-main .emergency-hero-actions .emergency-primary-call{
+ background:#dc2626!important;border:1px solid #dc2626!important;color:#fff!important;
+ box-shadow:0 6px 15px rgba(220,38,38,.15)!important;
+}
+body.emergency-page .emergency-hero-main .emergency-hero-actions .emergency-primary-call i,
+body.emergency-page .emergency-hero-main .emergency-hero-actions .emergency-primary-call span{
+ color:#fff!important;
+}
+body.emergency-page .emergency-hero-main .emergency-hero-actions .emergency-primary-call:hover{
+ background:#b91c1c!important;border-color:#b91c1c!important;
+}
+body.emergency-page .emergency-hero-main .emergency-hero-actions .emergency-secondary-link{
+ background:#fff!important;border:1px solid #b6d3f0!important;color:#185c9c!important;
+ box-shadow:none!important;
+}
+body.emergency-page .emergency-hero-main .emergency-hero-actions .emergency-secondary-link i,
+body.emergency-page .emergency-hero-main .emergency-hero-actions .emergency-secondary-link span{
+ color:#185c9c!important;
+}
+body.emergency-page .emergency-hero-main .emergency-hero-actions .emergency-secondary-link:hover{
+ background:#e8f3ff!important;border-color:#8dbce7!important;
+}
+body.emergency-page .emergency-hero-main .emergency-call-note{
+ display:flex!important;align-items:flex-start!important;gap:8px!important;
+ margin:15px 0 0!important;max-width:580px!important;
+ font-size:11px!important;font-weight:550!important;color:#526b84!important;line-height:1.6!important;
+ text-align:left!important;
+}
+body.emergency-page .emergency-hero-main .emergency-call-note i{
+ color:#1766b1!important;flex:0 0 auto!important;margin-top:2px!important;
+}
+body.emergency-page .emergency-hero-summary{
+ display:flex!important;flex-direction:column!important;align-items:flex-start!important;
+ min-width:0!important;width:100%!important;padding:25px!important;
+ background:#fff!important;border:1px solid #d2e5f7!important;border-radius:18px!important;
+ box-shadow:0 12px 30px rgba(24,78,135,.07)!important;
+ color:#153b62!important;text-align:left!important;
+}
+body.emergency-page .emergency-summary-icon{
+ display:grid!important;place-items:center!important;width:46px!important;height:46px!important;
+ border-radius:13px!important;background:#e9f4ff!important;color:#1766b1!important;
+ border:1px solid #d1e5fa!important;margin-bottom:15px!important;
+}
+body.emergency-page .emergency-summary-icon i{color:#1766b1!important;font-size:20px!important}
+body.emergency-page .emergency-summary-info{display:flex!important;flex-direction:column!important;align-items:flex-start!important}
+body.emergency-page .emergency-summary-count{
+ color:#145a9b!important;font-size:clamp(33px,4vw,45px)!important;font-weight:850!important;
+ line-height:1!important;letter-spacing:-.04em!important;
+}
+body.emergency-page .emergency-summary-title{
+ margin-top:6px!important;color:#163b61!important;font-size:14px!important;font-weight:800!important;
+}
+body.emergency-page .emergency-summary-info p{
+ margin:9px 0 17px!important;color:#58708a!important;font-size:11px!important;
+ line-height:1.65!important;
+}
+body.emergency-page .emergency-summary-types{
+ display:flex!important;flex-wrap:wrap!important;gap:7px!important;
+ width:100%!important;padding-top:15px!important;border-top:1px solid #e4edf8!important;
+}
+body.emergency-page .emergency-type-chip{
+ display:inline-flex!important;align-items:center!important;justify-content:flex-start!important;
+ gap:6px!important;max-width:100%!important;
+ padding:7px 9px!important;border-radius:8px!important;
+ border:1px solid #d7e8f7!important;background:#f2f8ff!important;
+ color:#245c91!important;font-size:10px!important;line-height:1.3!important;font-weight:750!important;
+ white-space:nowrap!important;
+}
+body.emergency-page .emergency-type-chip i{color:#1766b1!important;font-size:10px!important}
+@media(max-width:900px){
+ body.emergency-page .emergency-hero-layout{
+  grid-template-columns:minmax(0,1fr)!important;gap:21px!important;
+ }
+ body.emergency-page .emergency-hero-summary{
+  padding:19px!important;display:grid!important;
+  grid-template-columns:44px minmax(0,1fr)!important;
+  column-gap:13px!important;align-items:center!important;
+ }
+ body.emergency-page .emergency-summary-icon{
+  margin:0!important;width:44px!important;height:44px!important;
+ }
+ body.emergency-page .emergency-summary-types{
+  grid-column:1/-1!important;margin-top:14px!important;
+ }
+ body.emergency-page .emergency-summary-info p{margin-bottom:0!important}
+}
+@media(max-width:650px){
+ body.emergency-page .hero.emergency-hero-v2{padding:24px 18px!important}
+ body.emergency-page .emergency-hero-main h1{
+  font-size:clamp(29px,8vw,39px)!important;line-height:1.16!important;
+ }
+ body.emergency-page .emergency-hero-main .hero-sub{
+  font-size:12px!important;line-height:1.75!important;margin-bottom:19px!important;
+ }
+ body.emergency-page .emergency-hero-main .emergency-hero-actions{
+  gap:9px!important;
+ }
+ body.emergency-page .emergency-hero-main .emergency-hero-actions>a{
+  flex:1 1 auto!important;min-height:49px!important;padding:11px 12px!important;
+  font-size:11px!important;gap:7px!important;
+ }
+ body.emergency-page .emergency-summary-count{font-size:30px!important}
+ body.emergency-page .emergency-summary-title{font-size:12px!important}
+ body.emergency-page .emergency-summary-info p{font-size:10px!important}
+}
+@media(max-width:370px){
+ body.emergency-page .emergency-hero-main .emergency-hero-actions>a{
+  flex-basis:100%!important;
+ }
+}
