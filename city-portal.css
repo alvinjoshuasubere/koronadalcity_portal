@@ -23781,3 +23781,15 @@ body.portal-home-page .kd-chat-launcher:focus-visible{
 .kd-barangay-section .kd-barangay-canvas-wrap{width:100%!important;max-width:100%!important;box-sizing:border-box!important}
 .kd-barangay-section .kd-barangay-map .maplibregl-ctrl-zoom-in,
 .kd-barangay-section .kd-barangay-map .maplibregl-ctrl-zoom-out{cursor:pointer}
+
+
+/* Bright yellow chatbot launcher */
+body.portal-home-page .kd-chat-launcher,
+body.portal-home-page .kd-floating-controls .kd-chat-widget .kd-chat-launcher{
+ background:#facc15!important;border-color:#eab308!important;color:#292524!important;
+ box-shadow:0 9px 24px rgba(161,117,0,.22)!important;
+}
+body.portal-home-page .kd-chat-launcher:hover,
+body.portal-home-page .kd-floating-controls .kd-chat-widget .kd-chat-launcher:hover{
+ background:#eab308!important;border-color:#ca8a04!important;color:#292524!important;
+}
