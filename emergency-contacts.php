@@ -41,7 +41,7 @@ $typeConfig = [
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
   <link rel="stylesheet" href="portal.css?v=20261118-17" />
   <link rel="stylesheet" href="civic-responsive.css?v=20261118-30" />
-  <link rel="stylesheet" href="emergency-refresh.css?v=20261119-2" />
+  <link rel="stylesheet" href="emergency-refresh.css?v=20261119-3" />
 </head>
 
 <body class="emergency-page">
