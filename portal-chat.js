@@ -7,6 +7,7 @@
   const input=document.getElementById('kdChatInput');
   const form=document.getElementById('kdChatForm');
   const clear=document.getElementById('kdChatClear');
+  const history=[];
   if (!launcher||!panel||!log||!input||!form) return;
   const conversation=[];
   const links=[
@@ -23,10 +24,11 @@
     const bubble=document.createElement('div');
     bubble.className='kd-chat-bubble '+(who==='you'?'kd-chat-user':'kd-chat-assistant');
     bubble.textContent=text;
+    bubble.setAttribute('data-message-role',who==='you'?'question':'answer');
     if(url){
       const anchor=document.createElement('a');
-      anchor.href=url;anchor.textContent='Open service';
-      anchor.target='_blank';anchor.rel='noopener noreferrer';
+      anchor.href=url;anchor.textContent=url.startsWith('#')?'View section':'Open service';
+      if(!url.startsWith('#')){anchor.target='_blank';anchor.rel='noopener noreferrer';}
       bubble.appendChild(anchor);
     }
     log.appendChild(bubble);
@@ -61,6 +63,12 @@
     }
     if(/barangay|map|boundar|zone|population/.test(q)){
       return {text:'Scroll to Explore the Barangays to see the Koronadal map. Select one, several, or all barangays to show available boundary outlines.',url:'#live-city-data'};
+    }
+    if(/contact|phone number|hotline|telephone|tawag|emergency number/.test(q)){
+      return {text:'You can check the City of Koronadal emergency contacts directory. I cannot verify numbers that are not listed there.',url:'/emergency-contacts'};
+    }
+    if(/^(?:services|online services|available services|what services)/.test(q)){
+      return {text:'The portal offers business permits, permit verification, citizen registration, jobs, recruitment, transport permits and assistance. Open the services section to choose one.',url:'#services'};
     }
     if(/hello|hi|maayong|good morning|good afternoon|kumusta|help me|what can you do/.test(q)){
       return {text:'Maayong adlaw! I can help you find business permits, citizen registration, job listings, online assistance, barangay map information and emergency contacts. Choose a suggested topic or ask your question.'};
@@ -116,13 +124,15 @@
       if(!response.ok||!data.reply)throw new Error(data.error||'AI is unavailable');
       loading.classList.remove('kd-chat-thinking');
       loading.textContent=data.reply;
+      history.push({role:'user',content:question},{role:'assistant',content:data.reply});
+      if(history.length>10)history.splice(0,history.length-10);
       conversation.push({role:'user',content:question},{role:'assistant',content:data.reply});
       if(conversation.length>8)conversation.splice(0,conversation.length-8);
     }catch(_){
       loading.classList.remove('kd-chat-thinking');
       loading.textContent='I can help you find Koronadal online services, but I cannot answer that question right now. Select a topic below or visit the City Government website.';
       const a=document.createElement('a');a.href='https://koronadal.gov.ph/';a.target='_blank';a.rel='noopener noreferrer';a.textContent='City Government website';loading.appendChild(a);
-    }finally{busy=false;if(submit)submit.disabled=false;log.scrollTop=log.scrollHeight;}
+    }finally{busy=false;if(submit)submit.disabled=false;input.focus();log.scrollTop=log.scrollHeight;}
   });
   append(greeting,'bot');
 })();
