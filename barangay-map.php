@@ -15,14 +15,29 @@
     </div>
     <div class="kd-barangay-filter" aria-label="Choose barangay boundaries">
       <div class="kd-barangay-filter-head">
-        <div><strong>Filter Barangay Boundaries</strong><span id="kdFilterCount">All 27 selected</span></div>
+        <div class="kd-filter-heading-copy">
+          <span class="kd-filter-heading-icon" aria-hidden="true"><i class="fas fa-layer-group"></i></span>
+          <div class="kd-filter-heading-text">
+            <strong>Choose Your Barangays</strong>
+            <small>Find and highlight locations on the map</small>
+          </div>
+        </div>
+        <span id="kdFilterCount" class="kd-filter-selected-count" role="status" aria-live="polite">All 27 selected</span>
+      </div>
+      <div class="kd-filter-controls">
+        <div class="kd-filter-search-area">
+          <label class="kd-barangay-search-label" for="kdBarangayFilterSearch">Search barangays</label>
+          <div class="kd-filter-search-wrap">
+            <i class="fas fa-magnifying-glass" aria-hidden="true"></i>
+            <input type="search" id="kdBarangayFilterSearch" class="kd-barangay-filter-search" placeholder="Type a barangay name..." autocomplete="off">
+          </div>
+        </div>
         <div class="kd-barangay-filter-actions">
-          <button type="button" id="kdSelectAllBarangays" class="kd-filter-action">Select All 27</button>
-          <button type="button" id="kdClearBarangays" class="kd-filter-action">Clear Selection</button>
+          <button type="button" id="kdSelectAllBarangays" class="kd-filter-action"><i class="fas fa-check-double" aria-hidden="true"></i> Select All</button>
+          <button type="button" id="kdClearBarangays" class="kd-filter-action"><i class="fas fa-xmark" aria-hidden="true"></i> Clear</button>
         </div>
       </div>
-      <label class="kd-barangay-search-label" for="kdBarangayFilterSearch">Find a barangay</label>
-      <input type="search" id="kdBarangayFilterSearch" class="kd-barangay-filter-search" placeholder="Search Koronadal barangays" autocomplete="off">
+      <div class="kd-filter-list-heading"><span>Barangay list</span><span id="kdFilterSearchResult" aria-live="polite">27 barangays</span></div>
       <div id="kdBarangayFilterList" class="kd-barangay-filter-list" role="group" aria-label="Select one or more Koronadal barangays">
         <label class="kd-barangay-filter-item"><input type="checkbox" value="Assumption" checked><span>Assumption</span></label>
         <label class="kd-barangay-filter-item"><input type="checkbox" value="Avanceña" checked><span>Avanceña</span></label>
@@ -52,9 +67,9 @@
         <label class="kd-barangay-filter-item"><input type="checkbox" value="Zone 3" checked><span>Zone 3</span></label>
         <label class="kd-barangay-filter-item"><input type="checkbox" value="Zone 4" checked><span>Zone 4</span></label>
       </div>
-      <p class="kd-barangay-filter-help">Search or select barangays to highlight their boundaries. Tap a boundary to see population information.</p>
+      <p class="kd-barangay-filter-help"><i class="fas fa-circle-info" aria-hidden="true"></i> Check the barangays you want to show. Tap a location on the map to view its population.</p>
     </div>
-    <div id="kdBarangayDetails" class="kd-barangay-population" role="status" aria-live="polite">City of Koronadal · 27 barangays · Total population 201,844 (2024 PSA Census)</div>
+    <div class="kd-barangay-summary"><span class="kd-summary-icon" aria-hidden="true"><i class="fas fa-people-group"></i></span><div><span class="kd-summary-label">Barangay population</span><div id="kdBarangayDetails" class="kd-barangay-population" role="status" aria-live="polite">City of Koronadal · 27 barangays · Total population 201,844 (2024 PSA Census)</div></div></div>
     <div class="kd-barangay-canvas-wrap">
       <div class="kd-map-message" id="kdMapMessage" role="status" hidden></div>
       <div id="kdBarangayMap" class="kd-barangay-map" role="region" aria-label="Interactive map showing available Koronadal barangay boundary lines">
