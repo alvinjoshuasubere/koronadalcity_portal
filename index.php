@@ -41,7 +41,7 @@ if (is_array($officialsData)) {
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet" />
   <link rel="stylesheet" href="portal.css?v=20261118-26" />
   <link rel="stylesheet" href="civic-responsive.css?v=20261118-34" />
-  <link rel="stylesheet" href="mobile-app.css?v=20261119-17" />
+  <link rel="stylesheet" href="mobile-app.css?v=20261119-18" />
   <link rel="stylesheet" href="mayor-biography.css?v=20261119-1" />
 </head>
 
@@ -232,7 +232,7 @@ if (is_array($officialsData)) {
         class="fas fa-phone-volume"></i><span>Help</span></a></nav>
   <div class="kd-floating-controls" aria-label="Display and assistant controls">
   <div class="view-switcher" id="viewSwitcher">
-    <button type="button" class="view-trigger" id="viewTrigger" title="Change display mode" aria-label="Choose layout mode" aria-haspopup="true"
+    <button type="button" class="view-trigger" id="viewTrigger" title="Viewing options" aria-label="Viewing options" aria-haspopup="true"
       aria-controls="viewModeMenu" aria-expanded="false">
       <i class="fas fa-display" aria-hidden="true"></i><span id="viewLabel" class="view-label">Auto view</span><i
         class="fas fa-chevron-up view-chevron" aria-hidden="true"></i>
@@ -248,7 +248,7 @@ if (is_array($officialsData)) {
     </div>
   </div>
   <div class="kd-chat-widget">
-    <button type="button" id="kdChatLauncher" title="Ask Koronadal" class="kd-chat-launcher" aria-expanded="false" aria-controls="kdChatPanel" aria-label="Open Koronadal portal assistant"><i class="fas fa-comments" aria-hidden="true"></i><span>Ask Koronadal</span></button>
+    <button type="button" id="kdChatLauncher" title="Ask AI" class="kd-chat-launcher" aria-expanded="false" aria-controls="kdChatPanel" aria-label="Ask AI assistant"><i class="fas fa-comments" aria-hidden="true"></i><span>Ask Koronadal</span></button>
     <section id="kdChatPanel" class="kd-chat-panel" aria-label="Koronadal Portal Assistant" hidden>
       <header class="kd-chat-head"><div><strong><i class="fas fa-robot" aria-hidden="true"></i> Portal Assistant</strong><small>Automated service information</small></div><button id="kdChatClose" type="button" aria-label="Close chatbot"><i class="fas fa-xmark" aria-hidden="true"></i></button></header>
       <div id="kdChatMessages" class="kd-chat-messages" role="log" aria-live="polite" aria-relevant="additions text"></div>
