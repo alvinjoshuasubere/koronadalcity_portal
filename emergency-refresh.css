@@ -332,3 +332,82 @@ body.emergency-page .contact-card.type-disaster .type-badge{
 body.emergency-page .contact-card.type-disaster .type-icon i{
  color:#1766b1!important;
 }
+
+/* Readable text across all emergency contact cards and page sections. */
+body.emergency-page .hero h1,
+body.emergency-page .hero h1:not(.hl),
+body.emergency-page .emergency-directory-copy h2,
+body.emergency-page .card-name,
+body.emergency-page .brand-text strong,
+body.emergency-page .empty-state h3{
+ color:#153756!important;
+ text-shadow:none!important;
+}
+body.emergency-page .hero h1 .hl{color:#1766b1!important}
+body.emergency-page .hero-sub,
+body.emergency-page .emergency-directory-copy p,
+body.emergency-page .card-desc,
+body.emergency-page .emergency-call-note,
+body.emergency-page .kd-barangay-filter-help,
+body.emergency-page .empty-state p{
+ color:#38536f!important;
+ text-shadow:none!important;
+ font-size:clamp(12px,1.2vw,14px)!important;
+ line-height:1.7!important;
+}
+body.emergency-page .card-name{
+ font-size:clamp(15px,1.5vw,17px)!important;
+ line-height:1.5!important;font-weight:800!important;
+}
+body.emergency-page .type-badge,
+body.emergency-page .stat-num,
+body.emergency-page .stat-label{
+ color:#184e82!important;
+ text-shadow:none!important;
+}
+body.emergency-page .stat-label,
+body.emergency-page .type-badge{
+ font-size:11px!important;
+ font-weight:700!important;
+}
+body.emergency-page .section-label,
+body.emergency-page .emergency-eyebrow{color:#145997!important}
+body.emergency-page .emergency-search input{
+ color:#153756!important;font-size:13px!important;
+}
+body.emergency-page .emergency-search input::placeholder{color:#60758b!important;opacity:1!important}
+/* Every directory Call Now action is blue with high-contrast white text. */
+body.emergency-page #emergencyContactGrid .contact-card .card-phone,
+body.emergency-page #emergencyContactGrid .contact-card a.card-phone,
+body.emergency-page #emergencyContactGrid .contact-card .card-phone:hover{
+ background:#1766b1!important;
+ border:1px solid #1766b1!important;
+ color:#fff!important;
+ box-shadow:0 4px 12px rgba(23,102,177,.15)!important;
+}
+body.emergency-page #emergencyContactGrid .contact-card .card-phone:hover,
+body.emergency-page #emergencyContactGrid .contact-card .card-phone:focus-visible{
+ background:#104e90!important;border-color:#104e90!important;color:#fff!important;
+}
+body.emergency-page #emergencyContactGrid .contact-card .card-phone .card-phone-icon,
+body.emergency-page #emergencyContactGrid .contact-card .card-phone .card-phone-num,
+body.emergency-page #emergencyContactGrid .contact-card .card-phone .card-phone-call,
+body.emergency-page #emergencyContactGrid .contact-card .card-phone i,
+body.emergency-page #emergencyContactGrid .contact-card .card-phone span{
+ color:#fff!important;-webkit-text-fill-color:#fff!important;opacity:1!important;
+ text-shadow:none!important;
+}
+body.emergency-page #emergencyContactGrid .contact-card .card-phone .card-phone-num{
+ font-size:clamp(12px,1.25vw,14px)!important;font-weight:800!important;
+}
+body.emergency-page #emergencyContactGrid .contact-card .card-phone .card-phone-call{
+ font-size:11px!important;font-weight:800!important;
+}
+/* Keep the nationwide 911 button red, distinct from directory call actions. */
+body.emergency-page .hero .emergency-primary-call{
+ background:#dc2626!important;border-color:#dc2626!important;color:#fff!important;
+}
+body.emergency-page .hero .emergency-primary-call:hover,
+body.emergency-page .hero .emergency-primary-call:focus-visible{
+ background:#b91c1c!important;border-color:#b91c1c!important;color:#fff!important;
+}
