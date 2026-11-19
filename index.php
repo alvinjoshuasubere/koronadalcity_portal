@@ -41,7 +41,7 @@ if (is_array($officialsData)) {
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet" />
 
 
-  <link rel="stylesheet" href="city-portal.css?v=20261119-2" />
+  <link rel="stylesheet" href="city-portal.css?v=20261119-3" />
 </head>
 
 <body class="portal-home-page">
