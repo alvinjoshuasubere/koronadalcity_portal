@@ -6,6 +6,7 @@
   const log=document.getElementById('kdChatMessages');
   const input=document.getElementById('kdChatInput');
   const form=document.getElementById('kdChatForm');
+  const clear=document.getElementById('kdChatClear');
   if (!launcher||!panel||!log||!input||!form) return;
   const links=[
     ['Business permit application','https://koronadalcityportal.com/v2/login'],
@@ -42,7 +43,7 @@
     if(/business|bplo|renewal|licen[cs]e|permit/.test(q)){
       return {text:'For new business permit applications and renewals, open Business Permits & Licensing.',url:links[0][1]};
     }
-    if(/citizen|registration|profile|e.governance|epa|digital id/.test(q)){
+    if(/citizen|registr|profile|e.governance|epa|digital id/.test(q)){
       return {text:'Use Unified Citizen Services for citizen registration and digital citizen profiles.',url:links[2][1]};
     }
     if(/recruit|government job|lgu job|city hall job/.test(q)){
@@ -57,11 +58,21 @@
     if(/assistance|help|social|financial|support|aid/.test(q)){
       return {text:'You can access citizen support services and assistance information through Online Assistance.',url:links[6][1]};
     }
-    if(/barangay|map|boundar|zone/.test(q)){
+    if(/barangay|map|boundar|zone|population/.test(q)){
       return {text:'Scroll to Explore the Barangays to see the Koronadal map. Select one, several, or all barangays to show available boundary outlines.',url:'#live-city-data'};
+    }
+    if(/hello|hi|maayong|good morning|good afternoon|kumusta|help me|what can you do/.test(q)){
+      return {text:'Maayong adlaw! I can help you find business permits, citizen registration, job listings, online assistance, barangay map information and emergency contacts. Choose a suggested topic or ask your question.'};
     }
     return null;
   }
+  const greeting='Maayong adlaw! I am Ask Koronadal, your automated guide to online city services. Choose a topic below or type your question. Please do not share passwords or personal records.';
+  if(clear)clear.addEventListener('click',()=>{
+    if(busy)return;
+    log.replaceChildren();
+    append(greeting,'bot');
+    input.focus();
+  });
   function openPanel(){
     panel.hidden=false;launcher.setAttribute('aria-expanded','true');
     input.focus();
@@ -87,9 +98,10 @@
     input.value='';
     append(question,'you');
     const local=findHelp(question);
-    if(local){append(local.text,'bot',local.url);return;}
+    if(local){append(local.text,'bot',local.url);input.focus();return;}
     busy=true;
     const loading=append('Checking available information…','bot');
+    loading.classList.add('kd-chat-thinking');
     const submit=form.querySelector('button[type="submit"]');
     if(submit)submit.disabled=true;
     try{
@@ -99,11 +111,13 @@
       });
       const data=await response.json();
       if(!response.ok||!data.reply)throw new Error(data.error||'AI is unavailable');
+      loading.classList.remove('kd-chat-thinking');
       loading.textContent=data.reply;
     }catch(_){
+      loading.classList.remove('kd-chat-thinking');
       loading.textContent='I can help you find Koronadal online services, but I cannot answer that question right now. Select a topic below or visit the City Government website.';
       const a=document.createElement('a');a.href='https://koronadal.gov.ph/';a.target='_blank';a.rel='noopener noreferrer';a.textContent='City Government website';loading.appendChild(a);
     }finally{busy=false;if(submit)submit.disabled=false;log.scrollTop=log.scrollHeight;}
   });
-  append('Maayong adlaw! I am the automated Koronadal Portal Assistant. Ask me about city services, business permits, jobs or barangay maps. Please do not share passwords or personal records.','bot');
+  append(greeting,'bot');
 })();
