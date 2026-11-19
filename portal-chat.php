@@ -6,13 +6,13 @@ header('X-Content-Type-Options: nosniff');
 if ($_SERVER['REQUEST_METHOD'] !== 'POST') { http_response_code(405); echo json_encode(['error'=>'Method not allowed']); exit; }
 $origin = $_SERVER['HTTP_ORIGIN'] ?? '';
 $host = $_SERVER['HTTP_HOST'] ?? '';
-if ($origin !== '' && parse_url($origin, PHP_URL_HOST) !== preg_replace('/:\\d+$/','',$host)) {
+if ($origin !== '' && parse_url($origin, PHP_URL_HOST) !== parse_url('http://' . $host, PHP_URL_HOST)) {
     http_response_code(403); echo json_encode(['error'=>'Origin not allowed']); exit;
 }
 $body = file_get_contents('php://input', false, null, 0, 6000);
 $data = json_decode($body ?: '', true);
 $message = trim((string)($data['message'] ?? ''));
-if (!$message || mb_strlen($message)>500) { http_response_code(400); echo json_encode(['error'=>'Please enter a question under 500 characters.']); exit; }
+if (!$message || strlen($message)>2000) { http_response_code(400); echo json_encode(['error'=>'Please enter a question under 500 characters.']); exit; }
 $key = getenv('OPENAI_API_KEY') ?: '';
 if ($key === '' || !function_exists('curl_init')) {
     http_response_code(503);
@@ -55,4 +55,4 @@ foreach (($decoded['output'] ?? []) as $item) {
 if ($code<200 || $code>=300 || trim($reply)==='') {
     http_response_code(502); echo json_encode(['error'=>'AI answers are temporarily unavailable. Please use the service links below.']); exit;
 }
-echo json_encode(['reply'=>mb_substr(trim($reply),0,1700)],JSON_UNESCAPED_UNICODE);
+echo json_encode(['reply'=>substr(trim($reply),0,2500)],JSON_UNESCAPED_UNICODE);
