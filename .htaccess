@@ -1,0 +1,21 @@
+# Koronadal City Portal: clean public URLs (Apache mod_rewrite).
+Options -MultiViews
+DirectoryIndex index.php
+RewriteEngine On
+
+# Redirect browser GET requests from /page.php to /page.
+# Keep non-GET methods untouched so forms and API submissions keep working.
+RewriteCond %{REQUEST_METHOD} =GET
+RewriteCond %{THE_REQUEST} \s/+(.+?)\.php(?:[?\s]) [NC]
+RewriteRule ^ %1 [R=302,L,NE]
+
+# Resolve clean URLs internally to their PHP scripts without redirect loops.
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME}.php -f
+RewriteRule ^(.+?)/?$ $1.php [L,QSA]
+
+# Protect non-public data/configuration paths.
+<FilesMatch "^(?:\.env|composer\.(?:json|lock))$">
+    Require all denied
+</FilesMatch>
