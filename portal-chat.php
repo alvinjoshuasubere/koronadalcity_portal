@@ -29,10 +29,20 @@ if (count($hits)>=8) { http_response_code(429); echo json_encode(['error'=>'Too 
 $hits[]=$now;
 @file_put_contents($rateFile,json_encode($hits),LOCK_EX);
 $system = 'You are the Koronadal City online services portal assistant. Answer concisely in English or Hiligaynon depending on the question. Only provide reliable general navigation help. Do not invent government rules, eligibility, documents, prices, processing times, officials, or emergency numbers. You cannot see private permit records, applications, or live transaction status. Known portal links: Business Permits & Licensing https://koronadalcityportal.com/v2/login ; Verify Business Permit https://bplo.koronadalcityonlineservices.com/ ; Unified Citizen Services https://citizen.koronadalcityonlineservices.com/register ; Jobs https://jobs.koronadalcityonlineservices.com/ ; LGU Recruitment https://careers.koronadalcityonlineservices.com/ ; MTOP Verification https://traffic.koronadalcityonlineservices.com/ ; Online Assistance https://assistance.koronadalcityonlineservices.com/ . Official city website https://koronadal.gov.ph/ . For emergencies call 911 in the Philippines. Do not ask for passwords, IDs, or personal account details. Say you are an automated assistant, not a government staff member.';
+// Keep only short, valid recent messages supplied by the current chat session.
+$history = [];
+foreach (array_slice(is_array($data['history'] ?? null) ? $data['history'] : [], -6) as $item) {
+    if (!is_array($item)) continue;
+    $role = $item['role'] ?? '';
+    $content = trim((string)($item['content'] ?? ''));
+    if (!in_array($role, ['user','assistant'], true) || $content === '' || strlen($content) > 1200) continue;
+    $history[] = ['role'=>$role,'content'=>$content];
+}
+$history[] = ['role'=>'user','content'=>$message];
 $payload = json_encode([
     'model'=>getenv('KORONADAL_CHAT_MODEL') ?: 'gpt-4.1-mini',
     'instructions'=>$system,
-    'input'=>$message,
+    'input'=>$history,
     'max_output_tokens'=>350,
     'store'=>false
 ],JSON_UNESCAPED_SLASHES);
