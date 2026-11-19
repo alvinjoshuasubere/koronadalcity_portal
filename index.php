@@ -42,6 +42,7 @@ if (is_array($officialsData)) {
   <link rel="stylesheet" href="portal.css?v=20261118-26" />
   <link rel="stylesheet" href="civic-responsive.css?v=20261118-34" />
   <link rel="stylesheet" href="mobile-app.css?v=20261119-23" />
+  <link rel="stylesheet" href="barangay-refresh.css?v=20261119-1" />
   <link rel="stylesheet" href="mayor-biography.css?v=20261119-1" />
 </head>
 
