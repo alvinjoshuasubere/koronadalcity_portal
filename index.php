@@ -270,7 +270,7 @@ if (is_array($officialsData)) {
       menuBtn.onclick = function () { body.classList.toggle('header-collapsed'); var expanded = body.classList.contains('header-collapsed'); menuBtn.setAttribute('aria-expanded', String(expanded)); menuBtn.querySelector('i').className = expanded ? 'fas fa-xmark' : 'fas fa-bars' };
       var search = document.getElementById('serviceSearch'), empty = document.getElementById('searchEmpty');
       search.oninput = function () {
-        var q = search.value.toLowerCase().trim().replace(/\\s+/g, ' ');
+        var q = search.value.toLowerCase().trim().replace(/\s+/g, ' ');
         var terms = q ? q.split(' ').filter(Boolean) : [];
         var n = 0;
         document.querySelectorAll('#serviceGrid .service-card').forEach(function (card) {
