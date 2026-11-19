@@ -34,43 +34,72 @@
     log.scrollTop=log.scrollHeight;
     return bubble;
   }
+  const topics=[
+    {name:'Business permits',words:/business|negosyo|bplo|renewal|licen[cs]e|permit|mayor.s permit|patente|tindahan|store|establish|trade/i,
+     text:'For business applications and renewals, start with Business Permits & Licensing. For exact requirements and fees, confirm with BPLO.',url:links[0][1]},
+    {name:'Citizen registration',words:/citizen|registr|profile|e.governance|epa|digital id|residen|profiling|account|sign.?up/i,
+     text:'For city citizen registration and profiling, use Unified Citizen Services. The portal shows the current registration process.',url:links[2][1]},
+    {name:'Job opportunities',words:/job|work|employment|vacanc|career|hiring|trabaho|pangabuhian|recruit|apply.*position/i,
+     text:'For job listings, open the Koronadal Job Portal. For City Government positions, see the LGU Recruitment portal.',url:links[3][1]},
+    {name:'Transport permits',words:/mtop|tricycle|operator|transport|traffic|prangkisa|franchise/i,
+     text:'For available tricycle or transport operator permit information, open MTOP Verification.',url:links[5][1]},
+    {name:'Online assistance',words:/assistance|financial|support|aid|ayuda|tabang|bulig|medical assistance|cash assistance|social welfare|cswdo|dswd/i,
+     text:'For information about assistance programs, visit Online Assistance. The responsible office can confirm qualifications and documents.',url:links[6][1]},
+    {name:'Barangay map',words:/barangay|map|boundar|zone|population|poblacion|census|residents/i,
+     text:'Explore all 27 barangays on the interactive map. Zoom in or out, then hover or tap a barangay to see its displayed population.',url:'#live-city-data'},
+    {name:'Emergency contacts',words:/emergency|ambulance|police|fire|911|sunog|aksidente|hotline|telephone|contact|phone number|tawag/i,
+     text:'For an immediate emergency in the Philippines, call 911. For local agency numbers, use the City emergency contacts directory.',url:'emergency-contacts'}
+  ];
+  function normalizeQuestion(q){
+    return String(q||'').toLowerCase().normalize('NFD').replace(/[\\u0300-\\u036f]/g,'').trim();
+  }
+  function relatedTopics(q){
+    const normalized=normalizeQuestion(q);
+    return topics.filter(topic=>topic.words.test(normalized));
+  }
+  function appendChoices(bubble,items){
+    if(!items||!items.length)return;
+    const wrap=document.createElement('div');
+    wrap.className='kd-chat-followups';
+    items.slice(0,3).forEach(item=>{
+      const button=document.createElement('button');
+      button.type='button';button.className='kd-chat-followup';
+      button.textContent=item.name;
+      button.addEventListener('click',()=>{input.value=item.question||item.name;form.requestSubmit();});
+      wrap.appendChild(button);
+    });
+    bubble.appendChild(wrap);
+  }
+  function fallbackAnswer(question,error){
+    const matched=relatedTopics(question);
+    const lower=normalizeQuestion(question);
+    if(matched.length){
+      const first=matched[0];
+      return {text:'I can guide you to the right service, but I cannot confirm every detail of your question. '+first.text,
+        url:first.url,choices:matched.slice(1).map(t=>({name:t.name}))};
+    }
+    if(/where|location|address|office|hours|schedule|requirement|document|fee|price|how much|pila|diin|paano|paagi|ano|what|how|why|when|saan/i.test(lower)){
+      return {text:'I do not have verified details for that specific question. Is your concern about a permit, citizen registration, assistance, employment, or another city service? Choose a topic so I can point you to the correct page.',
+        choices:[{name:'Business permits'},{name:'Citizen registration'},{name:'Online assistance'}]};
+    }
+    return {text:'I am not sure which city service you need. You can ask about permits, registration, assistance, jobs, barangays or emergency contacts. Choose a topic below and I will help you find the right page.',
+      choices:[{name:'Business permits'},{name:'Online assistance'},{name:'Emergency contacts'}]};
+  }
   function findHelp(question){
-    const q=question.toLowerCase();
-    if(/emergency|ambulance|police|fire|911|sunog|aksidente/.test(q)){
-      return {text:'For immediate emergencies in the Philippines, call 911. You can also open the city emergency contacts directory.',url:'emergency-contacts'};
-    }
-    if(/verify|verification|check.*permit|permit.*check|permit.*status|business record|business.*valid/.test(q)){
-      return {text:'You can view available business permit records through the BPLO Verify Business Permit portal. I cannot access your private permit information.',url:links[1][1]};
-    }
-    if(/business|bplo|renewal|licen[cs]e|permit/.test(q)){
-      return {text:'For new business permit applications and renewals, open Business Permits & Licensing.',url:links[0][1]};
-    }
-    if(/citizen|registr|profile|e.governance|epa|digital id/.test(q)){
-      return {text:'Use Unified Citizen Services for citizen registration and digital citizen profiles.',url:links[2][1]};
-    }
-    if(/recruit|government job|lgu job|city hall job/.test(q)){
-      return {text:'For City Government recruitment announcements and application information, visit LGU Recruitment.',url:links[4][1]};
-    }
-    if(/job|work|employment|vacanc|career/.test(q)){
-      return {text:'You can browse current listings on the Koronadal Job Portal.',url:links[3][1]};
-    }
-    if(/mtop|tricycle|operator|transport|traffic/.test(q)){
-      return {text:'Use MTOP Verification to check available transport operator permit information.',url:links[5][1]};
-    }
-    if(/assistance|help|social|financial|support|aid/.test(q)){
-      return {text:'You can access citizen support services and assistance information through Online Assistance.',url:links[6][1]};
-    }
-    if(/barangay|map|boundar|zone|population/.test(q)){
-      return {text:'Scroll to Explore the Barangays to see the Koronadal map. Select one, several, or all barangays to show available boundary outlines.',url:'#live-city-data'};
-    }
-    if(/contact|phone number|hotline|telephone|tawag|emergency number/.test(q)){
-      return {text:'You can check the City of Koronadal emergency contacts directory. I cannot verify numbers that are not listed there.',url:'emergency-contacts'};
-    }
-    if(/^(?:services|online services|available services|what services)/.test(q)){
-      return {text:'The portal offers business permits, permit verification, citizen registration, jobs, recruitment, transport permits and assistance. Open the services section to choose one.',url:'#services'};
-    }
-    if(/hello|hi|maayong|good morning|good afternoon|kumusta|help me|what can you do/.test(q)){
-      return {text:'Maayong adlaw! I can help you find business permits, citizen registration, job listings, online assistance, barangay map information and emergency contacts. Choose a suggested topic or ask your question.'};
+    const q=normalizeQuestion(question);
+    if(/verify|verification|check.*permit|permit.*check|permit.*status|business record|business.*valid|validate/.test(q))
+      return {text:'To check an available business permit record, open Verify Business Permit. I cannot access personal records or verify live application status here.',url:links[1][1]};
+    if(/lgu recruit|city hall job|government job|government hiring|city government position/.test(q))
+      return {text:'For City Government vacancies and recruitment announcements, open LGU Recruitment.',url:links[4][1]};
+    if(/^(?:services|online services|available services|what services|ano.*services)/.test(q))
+      return {text:'You can access business permits, permit verification, citizen registration, jobs, recruitment, MTOP verification and online assistance from the City portal.',url:'#services'};
+    if(/^(hi|hello|hey|good morning|good afternoon|good evening|maayong|kumusta|what can you do|help me)[!?. ]*$/.test(q))
+      return {text:'Maayong adlaw! Ask me about City of Koronadal services such as permits, registration, jobs, assistance, emergency contacts or the barangay map.'};
+    const matches=relatedTopics(q);
+    // Only route simple, recognizable service requests automatically. Complex or
+    // multi-topic questions are handled by AI, or a helpful clarification fallback.
+    if(matches.length===1 && q.split(/\\s+/).length<=12 && !/why|how long|require|how much|cost|fee|pila|qualified|eligible|when|schedule/.test(q)){
+      return {text:matches[0].text,url:matches[0].url};
     }
     return null;
   }
@@ -123,12 +152,20 @@
       if(!response.ok||!data.reply)throw new Error(data.error||'AI is unavailable');
       loading.classList.remove('kd-chat-thinking');
       loading.textContent=data.reply;
+      if(data.suggestions && Array.isArray(data.suggestions))appendChoices(loading,data.suggestions);
       conversation.push({role:'user',content:question},{role:'assistant',content:data.reply});
       if(conversation.length>8)conversation.splice(0,conversation.length-8);
     }catch(_){
       loading.classList.remove('kd-chat-thinking');
-      loading.textContent='I can help you find Koronadal online services, but I cannot answer that question right now. Select a topic below or visit the City Government website.';
-      const a=document.createElement('a');a.href='https://koronadal.gov.ph/';a.target='_blank';a.rel='noopener noreferrer';a.textContent='City Government website';loading.appendChild(a);
+      const guidance=fallbackAnswer(question);
+      loading.textContent=guidance.text;
+      if(guidance.url){
+        const a=document.createElement('a');a.href=guidance.url;
+        a.textContent=guidance.url.startsWith('#')?'View map or services':'Open recommended service';
+        if(!guidance.url.startsWith('#')){a.target='_blank';a.rel='noopener noreferrer';}
+        loading.appendChild(a);
+      }
+      appendChoices(loading,guidance.choices);
     }finally{busy=false;if(submit)submit.disabled=false;input.focus();log.scrollTop=log.scrollHeight;}
   });
   append(greeting,'bot');
