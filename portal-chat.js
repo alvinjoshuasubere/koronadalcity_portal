@@ -17,7 +17,7 @@
     ['LGU recruitment','https://careers.koronadalcityonlineservices.com/'],
     ['MTOP verification','https://traffic.koronadalcityonlineservices.com/'],
     ['Online assistance','https://assistance.koronadalcityonlineservices.com/'],
-    ['Emergency contacts','/emergency-contacts']
+    ['Emergency contacts','emergency-contacts']
   ];
   function append(text,who,url){
     const bubble=document.createElement('div');
@@ -37,7 +37,7 @@
   function findHelp(question){
     const q=question.toLowerCase();
     if(/emergency|ambulance|police|fire|911|sunog|aksidente/.test(q)){
-      return {text:'For immediate emergencies in the Philippines, call 911. You can also open the city emergency contacts directory.',url:'/emergency-contacts'};
+      return {text:'For immediate emergencies in the Philippines, call 911. You can also open the city emergency contacts directory.',url:'emergency-contacts'};
     }
     if(/verify|verification|check.*permit|permit.*check|permit.*status|business record|business.*valid/.test(q)){
       return {text:'You can view available business permit records through the BPLO Verify Business Permit portal. I cannot access your private permit information.',url:links[1][1]};
@@ -64,7 +64,7 @@
       return {text:'Scroll to Explore the Barangays to see the Koronadal map. Select one, several, or all barangays to show available boundary outlines.',url:'#live-city-data'};
     }
     if(/contact|phone number|hotline|telephone|tawag|emergency number/.test(q)){
-      return {text:'You can check the City of Koronadal emergency contacts directory. I cannot verify numbers that are not listed there.',url:'/emergency-contacts'};
+      return {text:'You can check the City of Koronadal emergency contacts directory. I cannot verify numbers that are not listed there.',url:'emergency-contacts'};
     }
     if(/^(?:services|online services|available services|what services)/.test(q)){
       return {text:'The portal offers business permits, permit verification, citizen registration, jobs, recruitment, transport permits and assistance. Open the services section to choose one.',url:'#services'};
