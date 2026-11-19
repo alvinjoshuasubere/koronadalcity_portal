@@ -32,7 +32,7 @@ $typeConfig = [
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="theme-color" content="#9d1727">
+    <meta name="theme-color" content="#123c70">
     <title>Emergency Contacts — Koronadal City</title>
     <link rel="icon" type="image/x-icon" href="favicon.ico">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -41,14 +41,12 @@ $typeConfig = [
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
   <link rel="stylesheet" href="portal.css?v=20261118-17" />
   <link rel="stylesheet" href="civic-responsive.css?v=20261118-30" />
+  <link rel="stylesheet" href="emergency-refresh.css?v=20261119-1" />
 </head>
 
 <body class="emergency-page">
 
-    <!-- Floating Orbs -->
-    
-
-    <!-- Navbar -->
+    <!-- Portal navigation -->
     <nav class="navbar">
         <div class="navbar-in">
             <a href="index.php" class="brand">
@@ -58,7 +56,8 @@ $typeConfig = [
                     <small>Government Services Portal</small>
                 </div>
             </a>
-            <a href="mayor-corner.php" class="nav-back" style="margin-right:8px">
+            <div class="emergency-nav-actions">
+            <a href="mayor-corner.php" class="nav-back">
                 <i class="fa-solid fa-landmark"></i>
                 <span>Mayor's Corner</span>
             </a>
@@ -66,6 +65,7 @@ $typeConfig = [
                 <i class="fa-solid fa-arrow-left"></i>
                 <span>Back to Portal</span>
             </a>
+            </div>
         </div>
     </nav>
 
@@ -80,9 +80,11 @@ $typeConfig = [
                 <div class="pulse-ring pulse-ring-2"></div>
             </div>
 
+            <span class="emergency-eyebrow"><i class="fa-solid fa-circle-info" aria-hidden="true"></i> CITY OF KORONADAL</span>
             <h1><span class="hl">Emergency</span> Contacts</h1>
             <p class="hero-sub">Find Koronadal City emergency hotlines and call the appropriate response service directly.</p>
-            <a class="emergency-primary-call" href="tel:911"><i class="fa-solid fa-phone" aria-hidden="true"></i> Call 911</a>
+            <div class="emergency-hero-actions"><a class="emergency-primary-call" href="tel:911"><i class="fa-solid fa-phone" aria-hidden="true"></i> Call 911</a><a class="emergency-secondary-link" href="#contactDirectory"><i class="fa-solid fa-address-book" aria-hidden="true"></i> Browse Contacts</a></div>
+            <p class="emergency-call-note">For immediate emergencies in the Philippines, dial 911.</p>
 
             <div class="stats-bar">
                 <div class="stat-item">
@@ -105,13 +107,18 @@ $typeConfig = [
     </section>
 
     <!-- Contacts Grid -->
-    <section class="contacts-section">
+    <section class="contacts-section" id="contactDirectory">
         <div class="section-label">
             <i class="fa-solid fa-address-book"></i>
             All Emergency Contacts
         </div>
 
-        <div class="cards-grid">
+        <div class="emergency-directory-head">
+          <div class="emergency-directory-copy"><h2>Emergency Hotlines</h2><p>Choose the appropriate office and tap the phone number to call.</p></div>
+          <label class="emergency-search"><i class="fa-solid fa-magnifying-glass" aria-hidden="true"></i><span class="emergency-sr-only">Search emergency contacts</span><input id="emergencySearch" type="search" placeholder="Search contacts..." autocomplete="off" aria-label="Search emergency contacts"></label>
+        </div>
+        <div id="emergencySearchEmpty" class="emergency-search-empty" hidden>No matching contacts found. Try another keyword.</div>
+        <div class="cards-grid" id="emergencyContactGrid">
             <?php if (empty($contacts)): ?>
             <div class="empty-state">
                 <i class="fa-solid fa-phone-slash"></i>
@@ -126,7 +133,7 @@ $typeConfig = [
                 $phoneBase = preg_replace('/\s+ext\.?\s*\d+$/i', '', trim($phone));
                 $phoneClean = preg_replace('/[^0-9+]/', '', $phoneBase);
             ?>
-            <div class="contact-card revealed type-<?= htmlspecialchars($type, ENT_QUOTES, 'UTF-8') ?>">
+            <article class="contact-card revealed type-<?= htmlspecialchars($type, ENT_QUOTES, 'UTF-8') ?>" data-contact-search="<?= htmlspecialchars(strtolower(($contact['name'] ?? '') . ' ' . ($contact['description'] ?? '') . ' ' . $cfg['label']), ENT_QUOTES, 'UTF-8') ?>">
                 <div class="card-top">
                     <div class="type-icon">
                         <i class="fa-solid <?= htmlspecialchars($cfg['icon']) ?>"></i>
@@ -142,11 +149,30 @@ $typeConfig = [
                     <span class="card-phone-call">Call now</span>
                 </a>
                 <?php endif; ?>
-            </div>
+            </article>
             <?php endforeach; ?>
             <?php endif; ?>
         </div>
     </section>
+
+    <script>
+      (function () {
+        const field = document.getElementById('emergencySearch');
+        const cards = Array.from(document.querySelectorAll('#emergencyContactGrid .contact-card'));
+        const empty = document.getElementById('emergencySearchEmpty');
+        if (!field || !empty) return;
+        field.addEventListener('input', function () {
+          const term = field.value.toLocaleLowerCase().trim();
+          let count = 0;
+          cards.forEach(function (card) {
+            const match = !term || (card.dataset.contactSearch || '').includes(term);
+            card.hidden = !match;
+            if (match) count++;
+          });
+          empty.hidden = !term || count > 0;
+        });
+      })();
+    </script>
 
     <!-- Footer -->
     <?php include __DIR__ . '/city-live-panel.php'; ?>
