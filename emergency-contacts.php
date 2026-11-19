@@ -41,7 +41,7 @@ $typeConfig = [
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
   <link rel="stylesheet" href="portal.css?v=20261118-17" />
   <link rel="stylesheet" href="civic-responsive.css?v=20261118-30" />
-  <link rel="stylesheet" href="emergency-refresh.css?v=20261119-3" />
+  <link rel="stylesheet" href="emergency-refresh.css?v=20261119-4" />
 </head>
 
 <body class="emergency-page">
@@ -69,44 +69,37 @@ $typeConfig = [
         </div>
     </nav>
 
-    <!-- Hero Section -->
-    <section class="hero">
-        <div class="hero-content">
-            <div class="hero-icon-wrap">
-                <div class="hero-icon">
-                    <i class="fa-solid fa-phone-volume"></i>
-                </div>
-                <div class="pulse-ring"></div>
-                <div class="pulse-ring pulse-ring-2"></div>
-            </div>
-
-            <span class="emergency-eyebrow"><i class="fa-solid fa-circle-info" aria-hidden="true"></i> CITY OF KORONADAL</span>
-            <h1><span class="hl">Emergency</span> Contacts</h1>
-            <p class="hero-sub">Find Koronadal City emergency hotlines and call the appropriate response service directly.</p>
-            <div class="emergency-hero-actions"><a class="emergency-primary-call" href="tel:911"><i class="fa-solid fa-phone" aria-hidden="true"></i> Call 911</a><a class="emergency-secondary-link" href="#contactDirectory"><i class="fa-solid fa-address-book" aria-hidden="true"></i> Browse Contacts</a></div>
-            <p class="emergency-call-note">For immediate emergencies in the Philippines, dial 911.</p>
-
-            <div class="stats-bar">
-                <div class="stat-item">
-                    <div class="stat-num"><?= $totalCount ?></div>
-                    <div class="stat-label">Total</div>
-                </div>
-                <?php foreach ($typeCounts as $type => $count):
-                $cfg = isset($typeConfig[$type]) ? $typeConfig[$type] : $typeConfig['general'];
-            ?>
-                <div class="stat-divider"></div>
-                <div class="stat-item">
-                    <div class="stat-num"
-                        ><?= $count ?>
-                    </div>
-                    <div class="stat-label"><?= htmlspecialchars($cfg['label']) ?></div>
-                </div>
-                <?php endforeach; ?>
-            </div>
+    <!-- Emergency header: simple left-aligned information and clear emergency action -->
+    <section class="hero emergency-hero-v2" aria-labelledby="emergencyHeroTitle">
+      <div class="emergency-hero-layout">
+        <div class="emergency-hero-main">
+          <span class="emergency-eyebrow"><i class="fa-solid fa-location-dot" aria-hidden="true"></i> CITY OF KORONADAL</span>
+          <h1 id="emergencyHeroTitle"><span class="hl">Emergency</span> Contacts</h1>
+          <p class="hero-sub">Find the emergency hotline you need. Call the appropriate office directly for assistance in Koronadal City.</p>
+          <div class="emergency-hero-actions">
+            <a class="emergency-primary-call" href="tel:911" aria-label="Call national emergency hotline 911"><i class="fa-solid fa-phone-volume" aria-hidden="true"></i><span>Call 911</span></a>
+            <a class="emergency-secondary-link" href="#contactDirectory"><i class="fa-solid fa-address-book" aria-hidden="true"></i><span>Browse Contacts</span></a>
+          </div>
+          <p class="emergency-call-note"><i class="fa-solid fa-circle-info" aria-hidden="true"></i> For immediate emergencies in the Philippines, dial 911.</p>
         </div>
+        <aside class="emergency-hero-summary" aria-label="Available emergency hotlines">
+          <div class="emergency-summary-icon"><i class="fa-solid fa-headset" aria-hidden="true"></i></div>
+          <div class="emergency-summary-info">
+            <span class="emergency-summary-count"><?= (int) $totalCount ?></span>
+            <span class="emergency-summary-title">Emergency contacts</span>
+            <p>Quick access to local response and assistance hotlines</p>
+          </div>
+          <div class="emergency-summary-types" aria-label="Types of response services">
+            <?php foreach ($typeCounts as $type => $count):
+              $cfg = isset($typeConfig[$type]) ? $typeConfig[$type] : $typeConfig['general']; ?>
+              <span class="emergency-type-chip"><i class="fa-solid <?= htmlspecialchars($cfg['icon'], ENT_QUOTES, 'UTF-8') ?>" aria-hidden="true"></i><?= htmlspecialchars($cfg['label'], ENT_QUOTES, 'UTF-8') ?></span>
+            <?php endforeach; ?>
+          </div>
+        </aside>
+      </div>
     </section>
 
-    <!-- Contacts Grid -->
+        <!-- Contacts Grid -->
     <section class="contacts-section" id="contactDirectory">
         <div class="section-label">
             <i class="fa-solid fa-address-book"></i>
