@@ -3,7 +3,7 @@
   <div class="kd-barangay-heading">
     <div><span class="kd-live-eyebrow">27 BARANGAYS OF KORONADAL</span>
       <h2 id="kdBarangayMapTitle">Explore the Barangays</h2>
-      <p>Explore Koronadal's 27 barangays. Hover over or tap a barangay on the map to see its 2024 population.</p>
+      <p>Explore Koronadal's 27 barangays. Zoom in or out to explore all barangays. Hover or tap any barangay to view its population.</p>
     </div>
     <a href="https://koronadal.gov.ph/27-barangay/" target="_blank" rel="noopener noreferrer">Official barangay directory <i class="fas fa-arrow-up-right-from-square" aria-hidden="true"></i></a>
   </div>
@@ -22,4 +22,4 @@
 <link href="https://unpkg.com/maplibre-gl@5.8.0/dist/maplibre-gl.css" rel="stylesheet">
 <script src="https://unpkg.com/maplibre-gl@5.8.0/dist/maplibre-gl.js" defer></script>
 <script src="https://unpkg.com/osmtogeojson@3.0.0-beta.5/osmtogeojson.js" defer></script>
-<script defer src="barangay-map.js?v=20261119-26"></script>
+<script defer src="barangay-map.js?v=20261119-27"></script>
