@@ -1171,3 +1171,40 @@ body.portal-home-page .kd-barangay-all-toolbar{
   white-space:normal!important;line-height:1.35!important;
  }
 }
+
+/* Keep the entire welcome/hero content aligned to the left. */
+body.portal-home-page .home-hero,
+body.portal-home-page .home-hero .hero-content{
+ text-align:left!important;
+ align-items:flex-start!important;
+ justify-content:flex-start!important;
+}
+body.portal-home-page .home-hero .hero-content{
+ margin-left:0!important;margin-right:auto!important;
+ padding-left:0!important;padding-right:0!important;
+}
+body.portal-home-page .home-hero .kd-hero-eyebrow,
+body.portal-home-page .home-hero #gatewayHeading,
+body.portal-home-page .home-hero .hero-content>p,
+body.portal-home-page .home-hero .portal-search,
+body.portal-home-page .home-hero .hero-actions{
+ text-align:left!important;
+ margin-left:0!important;margin-right:auto!important;
+ align-self:flex-start!important;
+}
+body.portal-home-page .home-hero .hero-actions{
+ justify-content:flex-start!important;
+}
+body.portal-home-page .home-hero .portal-search input{
+ text-align:left!important;
+}
+@media(max-width:760px){
+ body.portal-home-page .home-hero .hero-content{
+  align-items:flex-start!important;text-align:left!important;
+ }
+ body.portal-home-page .home-hero #gatewayHeading,
+ body.portal-home-page .home-hero .hero-content>p,
+ body.portal-home-page .home-hero .kd-hero-eyebrow{
+  width:100%!important;text-align:left!important;
+ }
+}
