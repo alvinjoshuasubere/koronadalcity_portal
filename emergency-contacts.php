@@ -48,7 +48,7 @@ $typeConfig = [
     <!-- Portal navigation -->
     <nav class="navbar">
         <div class="navbar-in">
-            <a href="index.php" class="brand">
+            <a href="./" class="brand">
                 <img src="Logo.png" alt="Koronadal City" class="brand-img">
                 <div class="brand-text">
                     <strong>City of Koronadal</strong>
@@ -56,11 +56,11 @@ $typeConfig = [
                 </div>
             </a>
             <div class="emergency-nav-actions">
-            <a href="mayor-corner.php" class="nav-back">
+            <a href="mayor-corner" class="nav-back">
                 <i class="fa-solid fa-landmark"></i>
                 <span>Mayor's Corner</span>
             </a>
-            <a href="index.php" class="nav-back">
+            <a href="./" class="nav-back">
                 <i class="fa-solid fa-arrow-left"></i>
                 <span>Back to Portal</span>
             </a>
