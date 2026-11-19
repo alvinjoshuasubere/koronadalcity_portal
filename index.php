@@ -395,23 +395,44 @@ if (is_array($officialsData)) {
       document.getElementById('submitSearch').onclick = function () { search.oninput(); document.getElementById('services').scrollIntoView({ behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth', block: 'start' }) };
       search.addEventListener('keydown', function (event) { if (event.key === 'Enter') { event.preventDefault(); document.getElementById('submitSearch').click() } });
       document.querySelectorAll('a[href^="#"]').forEach(function (a) { a.onclick = function (e) { var hash = a.getAttribute('href'); if (!hash || hash === '#') return; var t = document.getElementById(hash.slice(1)); if (t) { e.preventDefault(); t.scrollIntoView({ behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth', block: 'start' }); if (body.classList.contains('header-collapsed')) menuBtn.click() } } });
-      var ids = ['home', 'services', 'emergency', 'leadership', 'city-info'], navTargets = { home: '#home', services: '#services', emergency: 'emergency-contacts', leadership: 'city-officials', 'city-info': 'https://koronadal.gov.ph/' };
-      var obs = new IntersectionObserver(function (entries) {
-        entries.forEach(function (entry) {
-          if (!entry.isIntersecting) return;
-          var activeHref = navTargets[entry.target.id];
-          document.querySelectorAll('.bottom-nav a').forEach(function (link) {
-            var active = link.getAttribute('href') === activeHref;
-            link.classList.toggle('active', active);
-            if (active) link.setAttribute('aria-current', 'location');
-            else link.removeAttribute('aria-current');
-          });
-          document.querySelectorAll('.desktop-nav a').forEach(function (link) {
-            link.classList.toggle('active', link.getAttribute('href') === '#' + entry.target.id);
-          });
+      // Track the section under the viewport focus line during manual or smooth scrolling.
+      var sectionIds = ['services', 'emergency', 'leadership', 'city-info'];
+      var sectionLinks = {
+        services: '#services', emergency: 'emergency-contacts',
+        leadership: 'city-officials', 'city-info': 'https://koronadal.gov.ph/'
+      };
+      function syncActiveNavigation() {
+        var focusY = Math.min(window.innerHeight * 0.35, 220);
+        var currentId = 'home';
+        sectionIds.forEach(function (id) {
+          var section = document.getElementById(id);
+          if (!section) return;
+          var bounds = section.getBoundingClientRect();
+          if (bounds.top <= focusY && bounds.bottom > focusY) currentId = id;
         });
-      }, { rootMargin: '-40% 0px -40% 0px' });
-      ids.forEach(function (id) { var el = document.getElementById(id); if (el) obs.observe(el) });
+        var activeHref = currentId === 'home' ? '#home' : sectionLinks[currentId];
+        document.querySelectorAll('.bottom-nav a').forEach(function (link) {
+          var active = link.getAttribute('href') === activeHref;
+          link.classList.toggle('active', active);
+          if (active) link.setAttribute('aria-current', 'location');
+          else link.removeAttribute('aria-current');
+        });
+        document.querySelectorAll('.desktop-nav a').forEach(function (link) {
+          link.classList.toggle('active', link.getAttribute('href') === '#' + currentId);
+        });
+      }
+      var navScrollQueued = false;
+      function queueNavigationSync() {
+        if (navScrollQueued) return;
+        navScrollQueued = true;
+        requestAnimationFrame(function () {
+          navScrollQueued = false;
+          syncActiveNavigation();
+        });
+      }
+      window.addEventListener('scroll', queueNavigationSync, { passive: true });
+      window.addEventListener('resize', queueNavigationSync, { passive: true });
+      syncActiveNavigation();
 
       // Auto follows screen size. Manual modes persist across reloads and device widths.
       var switcher = document.getElementById('viewSwitcher');
