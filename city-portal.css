@@ -23793,3 +23793,15 @@ body.portal-home-page .kd-chat-launcher:hover,
 body.portal-home-page .kd-floating-controls .kd-chat-widget .kd-chat-launcher:hover{
  background:#eab308!important;border-color:#ca8a04!important;color:#292524!important;
 }
+
+
+/* Green chatbot Ask button */
+body.portal-home-page .kd-chat-launcher,
+body.portal-home-page .kd-floating-controls .kd-chat-widget .kd-chat-launcher{
+ background:#16a34a!important;border-color:#15803d!important;color:#ffffff!important;
+ box-shadow:0 9px 24px rgba(21,128,61,.23)!important;
+}
+body.portal-home-page .kd-chat-launcher:hover,
+body.portal-home-page .kd-floating-controls .kd-chat-widget .kd-chat-launcher:hover{
+ background:#15803d!important;border-color:#166534!important;color:#ffffff!important;
+}
