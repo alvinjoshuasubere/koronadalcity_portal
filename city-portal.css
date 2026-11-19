@@ -23657,3 +23657,11 @@ body .kd-shared-footer a:focus-visible{
   color:#fff!important;
  }
 }
+
+/* Subtle developer credit across the shared footer. */
+body .kd-shared-footer-bottom .kd-shared-footer-developer{
+ display:block!important;flex:0 0 100%!important;
+ width:100%!important;margin:0!important;padding:0!important;
+ color:#b6cde4!important;font:400 9px/1.5 Sora,system-ui,sans-serif!important;
+ letter-spacing:0!important;text-align:left!important;
+}
