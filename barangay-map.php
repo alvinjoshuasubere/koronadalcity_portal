@@ -3,79 +3,17 @@
   <div class="kd-barangay-heading">
     <div><span class="kd-live-eyebrow">27 BARANGAYS OF KORONADAL</span>
       <h2 id="kdBarangayMapTitle">Explore the Barangays</h2>
-      <p>Explore Koronadal's 27 barangays. Search, select a barangay, or view the whole city on the interactive map.</p>
+      <p>Explore Koronadal's 27 barangays. Hover over or tap a barangay on the map to see its 2024 population.</p>
     </div>
     <a href="https://koronadal.gov.ph/27-barangay/" target="_blank" rel="noopener noreferrer">Official barangay directory <i class="fas fa-arrow-up-right-from-square" aria-hidden="true"></i></a>
   </div>
   <div class="kd-barangay-all-layout">
-    <div class="kd-barangay-all-toolbar" aria-label="Map actions">
-      <span id="kdBarangayStatus" class="kd-map-screenreader-status" role="status" aria-live="polite">Loading barangay boundaries.</span>
-      <button id="kdBarangayShowAll" class="kd-barangay-reset" type="button"><i class="fas fa-expand" aria-hidden="true"></i> View all Koronadal</button>
-      <button id="kdBarangayReload" class="kd-barangay-reset" type="button"><i class="fas fa-rotate" aria-hidden="true"></i> Refresh boundaries</button>
-    </div>
-    <div class="kd-barangay-filter" aria-label="Choose barangay boundaries">
-      <div class="kd-barangay-filter-head">
-        <div class="kd-filter-heading-copy">
-          <span class="kd-filter-heading-icon" aria-hidden="true"><i class="fas fa-layer-group"></i></span>
-          <div class="kd-filter-heading-text">
-            <strong>Choose Your Barangays</strong>
-            <small>Find and highlight locations on the map</small>
-          </div>
-        </div>
-        <span id="kdFilterCount" class="kd-filter-selected-count" role="status" aria-live="polite">All 27 selected</span>
-      </div>
-      <div class="kd-filter-controls">
-        <div class="kd-filter-search-area">
-          <label class="kd-barangay-search-label" for="kdBarangayFilterSearch">Search barangays</label>
-          <div class="kd-filter-search-wrap">
-            <i class="fas fa-magnifying-glass" aria-hidden="true"></i>
-            <input type="search" id="kdBarangayFilterSearch" class="kd-barangay-filter-search" placeholder="Type a barangay name..." autocomplete="off">
-          </div>
-        </div>
-        <div class="kd-barangay-filter-actions">
-          <button type="button" id="kdSelectAllBarangays" class="kd-filter-action"><i class="fas fa-check-double" aria-hidden="true"></i> Select All</button>
-          <button type="button" id="kdClearBarangays" class="kd-filter-action"><i class="fas fa-xmark" aria-hidden="true"></i> Clear</button>
-        </div>
-      </div>
-      <div class="kd-filter-list-heading"><span>Barangay list</span><span id="kdFilterSearchResult" aria-live="polite">27 barangays</span></div>
-      <div id="kdBarangayFilterList" class="kd-barangay-filter-list" role="group" aria-label="Select one or more Koronadal barangays">
-        <label class="kd-barangay-filter-item"><input type="checkbox" value="Assumption" checked><span>Assumption</span></label>
-        <label class="kd-barangay-filter-item"><input type="checkbox" value="Avanceña" checked><span>Avanceña</span></label>
-        <label class="kd-barangay-filter-item"><input type="checkbox" value="Cacub" checked><span>Cacub</span></label>
-        <label class="kd-barangay-filter-item"><input type="checkbox" value="Caloocan" checked><span>Caloocan</span></label>
-        <label class="kd-barangay-filter-item"><input type="checkbox" value="Carpenter Hill" checked><span>Carpenter Hill</span></label>
-        <label class="kd-barangay-filter-item"><input type="checkbox" value="Concepcion" checked><span>Concepcion</span></label>
-        <label class="kd-barangay-filter-item"><input type="checkbox" value="Esperanza" checked><span>Esperanza</span></label>
-        <label class="kd-barangay-filter-item"><input type="checkbox" value="General Paulino Santos" checked><span>General Paulino Santos</span></label>
-        <label class="kd-barangay-filter-item"><input type="checkbox" value="Mabini" checked><span>Mabini</span></label>
-        <label class="kd-barangay-filter-item"><input type="checkbox" value="Magsaysay" checked><span>Magsaysay</span></label>
-        <label class="kd-barangay-filter-item"><input type="checkbox" value="Mambucal" checked><span>Mambucal</span></label>
-        <label class="kd-barangay-filter-item"><input type="checkbox" value="Morales" checked><span>Morales</span></label>
-        <label class="kd-barangay-filter-item"><input type="checkbox" value="Namnama" checked><span>Namnama</span></label>
-        <label class="kd-barangay-filter-item"><input type="checkbox" value="New Pangasinan" checked><span>New Pangasinan</span></label>
-        <label class="kd-barangay-filter-item"><input type="checkbox" value="Paraiso" checked><span>Paraiso</span></label>
-        <label class="kd-barangay-filter-item"><input type="checkbox" value="Rotonda" checked><span>Rotonda</span></label>
-        <label class="kd-barangay-filter-item"><input type="checkbox" value="San Isidro" checked><span>San Isidro</span></label>
-        <label class="kd-barangay-filter-item"><input type="checkbox" value="San Jose" checked><span>San Jose</span></label>
-        <label class="kd-barangay-filter-item"><input type="checkbox" value="San Roque" checked><span>San Roque</span></label>
-        <label class="kd-barangay-filter-item"><input type="checkbox" value="Santa Cruz" checked><span>Santa Cruz</span></label>
-        <label class="kd-barangay-filter-item"><input type="checkbox" value="Santo Niño" checked><span>Santo Niño</span></label>
-        <label class="kd-barangay-filter-item"><input type="checkbox" value="Saravia" checked><span>Saravia</span></label>
-        <label class="kd-barangay-filter-item"><input type="checkbox" value="Topland" checked><span>Topland</span></label>
-        <label class="kd-barangay-filter-item"><input type="checkbox" value="Zone 1" checked><span>Zone 1</span></label>
-        <label class="kd-barangay-filter-item"><input type="checkbox" value="Zone 2" checked><span>Zone 2</span></label>
-        <label class="kd-barangay-filter-item"><input type="checkbox" value="Zone 3" checked><span>Zone 3</span></label>
-        <label class="kd-barangay-filter-item"><input type="checkbox" value="Zone 4" checked><span>Zone 4</span></label>
-      </div>
-      <p class="kd-barangay-filter-help"><i class="fas fa-circle-info" aria-hidden="true"></i> Check the barangays you want to show. Tap a location on the map to view its population.</p>
-    </div>
-    <div class="kd-barangay-summary"><span class="kd-summary-icon" aria-hidden="true"><i class="fas fa-people-group"></i></span><div><span class="kd-summary-label">Barangay population</span><div id="kdBarangayDetails" class="kd-barangay-population" role="status" aria-live="polite">City of Koronadal · 27 barangays · Total population 201,844 (2024 PSA Census)</div></div></div>
+    <span id="kdBarangayStatus" class="kd-map-screenreader-status" role="status" aria-live="polite">Loading all Koronadal barangay boundaries.</span>
     <div class="kd-barangay-canvas-wrap">
       <div class="kd-map-message" id="kdMapMessage" role="status" hidden></div>
       <div id="kdBarangayMap" class="kd-barangay-map" role="region" aria-label="Interactive map showing available Koronadal barangay boundary lines">
         <div class="kd-barangay-map-loading">Loading OpenFreeMap...</div>
       </div>
-      <div class="kd-zone-legend" aria-label="Map legend"><span><i class="kd-legend-city"></i> Barangay boundary</span><span><i class="kd-legend-barangay"></i> Selected barangays</span><span><i class="kd-legend-selected"></i> Focused barangay</span></div>
       <div class="kd-barangay-attribution">Map tiles by <a href="https://openfreemap.org/" target="_blank" rel="noopener noreferrer">OpenFreeMap</a>. Boundaries: locally hosted <a href="https://github.com/faeldon/philippines-json-maps" target="_blank" rel="noopener noreferrer">Philippine administrative GeoJSON</a> (NAMRIA and PSA via OCHA, CC BY-IGO); GeoRisk PSA and OpenStreetMap fallback. Boundaries are indicative, not legal cadastral surveys.</div>
     </div>
     <p class="kd-barangay-pop-source">Population data: <a href="https://psa.gov.ph/classification/psgc/barangays/1206306000" target="_blank" rel="noopener noreferrer">Philippine Statistics Authority, 2024 Census of Population</a>. Boundary polygons are indicative and may not cover every barangay.</p>
@@ -84,4 +22,4 @@
 <link href="https://unpkg.com/maplibre-gl@5.8.0/dist/maplibre-gl.css" rel="stylesheet">
 <script src="https://unpkg.com/maplibre-gl@5.8.0/dist/maplibre-gl.js" defer></script>
 <script src="https://unpkg.com/osmtogeojson@3.0.0-beta.5/osmtogeojson.js" defer></script>
-<script defer src="barangay-map.js?v=20261119-25"></script>
+<script defer src="barangay-map.js?v=20261119-26"></script>
