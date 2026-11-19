@@ -41,7 +41,7 @@ if (is_array($officialsData)) {
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet" />
   <link rel="stylesheet" href="portal.css?v=20261118-26" />
   <link rel="stylesheet" href="civic-responsive.css?v=20261118-34" />
-  <link rel="stylesheet" href="mobile-app.css?v=20261119-19" />
+  <link rel="stylesheet" href="mobile-app.css?v=20261119-20" />
   <link rel="stylesheet" href="mayor-biography.css?v=20261119-1" />
 </head>
 
@@ -231,7 +231,8 @@ if (is_array($officialsData)) {
         class="fas fa-city"></i><span>City</span></a><a href="emergency-contacts" aria-label="Emergency contacts"><i
         class="fas fa-phone-volume"></i><span>Help</span></a></nav>
   <div class="kd-floating-controls" aria-label="Display and assistant controls">
-  <div class="view-switcher" id="viewSwitcher">
+  <!-- Resolution adjuster hidden from the interface; code retained for future use. -->
+  <div class="view-switcher" id="viewSwitcher" hidden aria-hidden="true">
     <button type="button" class="view-trigger" id="viewTrigger" title="Viewing options" aria-label="Viewing options" aria-haspopup="true"
       aria-controls="viewModeMenu" aria-expanded="false">
       <i class="fas fa-display" aria-hidden="true"></i><span id="viewLabel" class="view-label">Auto view</span><i
@@ -250,13 +251,16 @@ if (is_array($officialsData)) {
   <div class="kd-chat-widget">
     <button type="button" id="kdChatLauncher" title="Ask AI" class="kd-chat-launcher" aria-expanded="false" aria-controls="kdChatPanel" aria-label="Ask AI assistant"><i class="fas fa-comments" aria-hidden="true"></i><span>Ask Koronadal</span></button>
     <section id="kdChatPanel" class="kd-chat-panel" aria-label="Koronadal Portal Assistant" hidden>
-      <header class="kd-chat-head"><div><strong><i class="fas fa-robot" aria-hidden="true"></i> Portal Assistant</strong><small>Automated service information</small></div><button id="kdChatClose" type="button" aria-label="Close chatbot"><i class="fas fa-xmark" aria-hidden="true"></i></button></header>
+      <header class="kd-chat-head"><div class="kd-chat-head-identity"><span class="kd-chat-avatar"><i class="fas fa-robot" aria-hidden="true"></i></span><span><strong>Ask Koronadal</strong><small>Digital service assistant</small></span></div><div class="kd-chat-head-actions"><button id="kdChatClear" type="button" title="Clear conversation" aria-label="Clear conversation"><i class="fas fa-rotate-left" aria-hidden="true"></i></button><button id="kdChatClose" type="button" aria-label="Close chatbot"><i class="fas fa-xmark" aria-hidden="true"></i></button></div></header>
       <div id="kdChatMessages" class="kd-chat-messages" role="log" aria-live="polite" aria-relevant="additions text"></div>
-      <div class="kd-chat-quick" aria-label="Common questions">
-        <button type="button" data-kd-chat-question="Verify business permit">Verify Permit</button>
-        <button type="button" data-kd-chat-question="Apply for business permit">Business Permit</button>
-        <button type="button" data-kd-chat-question="Find government job">Job Openings</button>
-        <button type="button" data-kd-chat-question="Show barangay boundaries">Barangay Map</button>
+      <div class="kd-chat-suggestions-title">Suggested topics</div>
+      <div class="kd-chat-quick" aria-label="Suggested questions">
+        <button type="button" data-kd-chat-question="Apply for business permit"><i class="fas fa-file-signature" aria-hidden="true"></i> Business Permits</button>
+        <button type="button" data-kd-chat-question="Verify business permit"><i class="fas fa-circle-check" aria-hidden="true"></i> Verify Permit</button>
+        <button type="button" data-kd-chat-question="How can I register as a citizen?"><i class="fas fa-id-card" aria-hidden="true"></i> Citizen Services</button>
+        <button type="button" data-kd-chat-question="Find government job"><i class="fas fa-briefcase" aria-hidden="true"></i> Job Openings</button>
+        <button type="button" data-kd-chat-question="Show barangay boundaries"><i class="fas fa-map-location-dot" aria-hidden="true"></i> Barangay Map</button>
+        <button type="button" data-kd-chat-question="Online assistance"><i class="fas fa-hand-holding-heart" aria-hidden="true"></i> Assistance</button>
       </div>
       <form id="kdChatForm" class="kd-chat-form"><label class="kd-chat-sr" for="kdChatInput">Ask a question</label><input id="kdChatInput" name="question" type="text" maxlength="500" autocomplete="off" placeholder="Ask about city services..." required><button type="submit" aria-label="Send question"><i class="fas fa-paper-plane" aria-hidden="true"></i></button></form>
       <p class="kd-chat-disclaimer">Automated guidance only. Do not share private information.</p>
@@ -336,7 +340,8 @@ if (is_array($officialsData)) {
       document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && switcher.classList.contains('open')) { setMenu(false); trigger.focus() } });
       var savedMode = 'auto';
       try { savedMode = localStorage.getItem('kdc-view') || 'auto' } catch (e) { }
-      setView(savedMode);
+      // Resolution adjuster is commented out of the visual design. Always use responsive auto mode.
+      setView('auto');
 
     })();
   </script>
@@ -368,7 +373,7 @@ if (is_array($officialsData)) {
     })();
   </script>
 
-  <script defer src="portal-chat.js?v=20261119-1"></script>
+  <script defer src="portal-chat.js?v=20261119-2"></script>
 </body>
 
 </html>
