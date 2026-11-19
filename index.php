@@ -206,22 +206,7 @@ if (is_array($officialsData)) {
     </section>
     <?php include __DIR__ . '/city-live-panel.php'; ?>
   </main>
-  <footer class="portal-footer">
-    <div class="footer-inner">
-      <div class="kd-footer-top">
-        <div class="footer-brand"><span class="kd-footer-seal"><img src="Logo.png" alt="Official City of Koronadal seal"
-              loading="lazy" decoding="async"></span>
-          <div><strong>City Government of Koronadal</strong><span>Koronadal, South Cotabato, Philippines</span></div>
-        </div>
-        <nav class="footer-links" aria-label="Footer navigation"><a href="#home">Home</a><a
-            href="#services">Services</a><a href="#city-info">City Info</a><a href="city-officials">Leadership</a><a
-            href="emergency-contacts">Emergency</a><a href="https://koronadal.gov.ph/" target="_blank"
-            rel="noopener noreferrer">Contact Us</a></nav>
-      </div>
-      <div class="footer-bottom"><span>© <?= date('Y') ?> City Government of Koronadal. All Rights
-          Reserved.</span><span>Official City Portal</span></div>
-    </div>
-  </footer>
+  <?php include __DIR__ . '/shared-footer.php'; ?>
   <nav class="bottom-nav" aria-label="Portal navigation"><a href="#home" class="active" aria-current="location" aria-label="Home"><i
         class="fas fa-house"></i><span>Home</span></a><a href="city-officials" aria-label="City leadership"><i
         class="fas fa-users"></i><span>Officials</span></a><a href="#services" class="center"
