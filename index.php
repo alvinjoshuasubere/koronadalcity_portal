@@ -54,7 +54,7 @@ if (is_array($officialsData)) {
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet" />
 
 
-  <link rel="stylesheet" href="city-portal.css?v=20261119-15" />
+  <link rel="stylesheet" href="city-portal.css?v=20261119-17" />
 </head>
 
 <body class="portal-home-page">
@@ -498,7 +498,7 @@ if (is_array($officialsData)) {
     })();
   </script>
 
-  <script defer src="portal-chat.js?v=20261119-6"></script>
+  <script defer src="portal-chat.js?v=20261119-7"></script>
 </body>
 
 </html>
