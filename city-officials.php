@@ -13,8 +13,36 @@ foreach ($officials as $official) {
   else $council[] = $official;
 }
 function officialEsc($value) { return htmlspecialchars((string)$value, ENT_QUOTES, 'UTF-8'); }
-/* Use uploaded pictures first. If the file is missing, use its verified official-city-site photo. */
+/* Match portraits by the official's surname before using generic stored filenames.
+   Only consider local images in static/officials, and keep verified site backups. */
+function officialSurnameTokens(string $name): array {
+  $name = preg_replace('/^HON\\.?\\s+/i', '', trim($name));
+  $parts = preg_split('/\\b[A-Z]\\.\\s+/u', $name);
+  $surname = trim(end($parts));
+  if (count($parts) === 1) {
+    $words = preg_split('/\\s+/u', $surname);
+    $surname = end($words);
+  }
+  $tokens = preg_split('/[^a-z]+/', strtolower($surname));
+  return array_values(array_filter($tokens, static function ($word) {
+    return strlen($word) >= 4 && !in_array($word, ['guzman_de'], true);
+  }));
+}
 function officialPhoto(array $official): string {
+  $name = (string)($official['name'] ?? '');
+  $tokens = officialSurnameTokens($name);
+  $localDirectory = __DIR__ . '/static/officials';
+  if (is_dir($localDirectory)) {
+    foreach (glob($localDirectory . '/*') ?: [] as $candidate) {
+      if (!is_file($candidate) || !preg_match('/\\.(?:png|jpe?g|webp|gif)$/i', $candidate)) continue;
+      $filename = strtolower(pathinfo($candidate, PATHINFO_FILENAME));
+      foreach ($tokens as $surname) {
+        if (strpos($filename, $surname) !== false) {
+          return 'static/officials/' . rawurlencode(basename($candidate));
+        }
+      }
+    }
+  }
   $photo = trim((string)($official['image'] ?? ''));
   if ($photo !== '') {
     if (preg_match('~^https://~i', $photo)) return $photo;
