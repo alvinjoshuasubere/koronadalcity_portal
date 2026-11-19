@@ -6,6 +6,11 @@
   const counter = document.getElementById('kdZoneCount');
   const reload = document.getElementById('kdBarangayReload');
   const showAll = document.getElementById('kdBarangayShowAll');
+  const filterList = document.getElementById('kdBarangayFilterList');
+  const filterSearch = document.getElementById('kdBarangayFilterSearch');
+  const filterCount = document.getElementById('kdFilterCount');
+  const selectAll = document.getElementById('kdSelectAllBarangays');
+  const clearAll = document.getElementById('kdClearBarangays');
   const CITY_CENTER = [124.86566, 6.47965];
   const FALLBACK_BOUNDS = [[124.70,6.34],[125.04,6.60]];
   const officialNames = ['Assumption','Avanceña','Cacub','Caloocan','Carpenter Hill','Concepcion','Esperanza','General Paulino Santos','Mabini','Magsaysay','Mambucal','Morales','Namnama','New Pangasinan','Paraiso','Rotonda','San Isidro','San Jose','San Roque','Santa Cruz','Santo Niño','Saravia','Topland','Zone 1','Zone 2','Zone 3','Zone 4'];
@@ -23,7 +28,8 @@
     returnGeometry:'true',outSR:'4326',geometryPrecision:'5',f:'geojson'
   });
   const OVERPASS = 'https://overpass.kumi.systems/api/interpreter';
-  let map = null, request = null, hoverId = null, popup = null, cachedFeatures = [], cityShape = null;
+  let map = null, request = null, hoverId = null, popup = null, cachedFeatures = [], currentSourceLabel = '';
+  const selectedNames = new Set(officialNames);
   const setStatus = value => { statusEl.textContent = value; };
   function nestedCoordinates(geometry, fn) {
     const walk = item => {
@@ -99,6 +105,66 @@
     });
     return b;
   }
+  function selectedFeatures() {
+    return cachedFeatures.filter(f=>selectedNames.has(f.properties.name));
+  }
+  function updateFilters(fit) {
+    if (filterList) filterList.querySelectorAll('input[type="checkbox"]').forEach(input=>{
+      input.checked = selectedNames.has(input.value);
+    });
+    if (filterCount) filterCount.textContent = selectedNames.size === officialNames.length
+      ? 'All 27 selected' : selectedNames.size + ' of 27 selected';
+    if (selectAll) selectAll.disabled = selectedNames.size === officialNames.length;
+    if (clearAll) clearAll.disabled = selectedNames.size === 0;
+    const shown = selectedFeatures();
+    if (map && map.isStyleLoaded() && map.getSource('kd-koronadal-barangays')) {
+      if (hoverId!==null) {
+        map.setFeatureState({source:'kd-koronadal-barangays',id:hoverId},{hover:false});
+        hoverId=null;
+      }
+      if (popup) popup.remove();
+      upsert('kd-koronadal-barangays',featureCollection(shown));
+      if (fit) {
+        const bounds = boundsFor(shown);
+        if (!bounds.isEmpty()) map.fitBounds(bounds,{
+          padding:innerWidth<600?28:65,maxZoom:14.5,duration:500
+        });
+        else frameCity();
+      }
+    }
+    if (cachedFeatures.length) {
+      const available = shown.length;
+      if (counter) counter.textContent = available+' of '+cachedFeatures.length+' mapped barangays visible';
+      setStatus(selectedNames.size+' barangays selected. '+available+
+        ' mapped boundaries visible from '+currentSourceLabel+'. Hover or tap to see names.'+
+        (available<selectedNames.size?' Some selected barangays have no available polygon.':''));
+    }
+  }
+  function setupFilters() {
+    if (filterList) filterList.addEventListener('change',event=>{
+      const input=event.target;
+      if (!input.matches('input[type="checkbox"]')) return;
+      if (input.checked) selectedNames.add(input.value);
+      else selectedNames.delete(input.value);
+      updateFilters(true);
+    });
+    if (selectAll) selectAll.addEventListener('click',()=>{
+      officialNames.forEach(name=>selectedNames.add(name));
+      updateFilters(true);
+    });
+    if (clearAll) clearAll.addEventListener('click',()=>{
+      selectedNames.clear();
+      updateFilters(false);
+    });
+    if (filterSearch && filterList) filterSearch.addEventListener('input',()=>{
+      const term=normalize(filterSearch.value);
+      filterList.querySelectorAll('.kd-barangay-filter-item').forEach(item=>{
+        const input=item.querySelector('input');
+        item.hidden = !normalize(input.value).includes(term);
+      });
+    });
+    updateFilters(false);
+  }
   function frameCity() {
     if (!map) return;
     const b = boundsFor(cachedFeatures);
@@ -113,7 +179,8 @@
   function render(collection,sourceLabel) {
     if (!map || !map.isStyleLoaded()) return;
     cachedFeatures = collection.features;
-    upsert('kd-koronadal-barangays',collection);
+    currentSourceLabel=sourceLabel;
+    upsert('kd-koronadal-barangays',featureCollection(selectedFeatures()));
     if (!map.getLayer('kd-zones-fill')) {
       map.addLayer({id:'kd-zones-fill',type:'fill',source:'kd-koronadal-barangays',
         paint:{'fill-color':['match',['get','shade'],0,'#68c7eb',1,'#91bff6',2,'#b3d7ed','#78c2cf'],'fill-opacity':0.37}});
@@ -126,10 +193,7 @@
           'text-font':['Noto Sans Regular'],'text-max-width':11},
         paint:{'text-color':'#123b69','text-halo-color':'#ffffff','text-halo-width':1.8}});
     }
-    if (counter) counter.textContent = collection.features.length+' / 27 barangays mapped';
-    setStatus(collection.features.length+' of 27 Koronadal barangay boundaries loaded from '+sourceLabel+
-      '. Hover or tap a barangay to see its name.'+
-      (collection.features.length<27?' Some boundaries are unavailable in this dataset.':''));
+    updateFilters(false);
     frameCity();
   }
   function saveCache(collection,source) {
@@ -200,6 +264,7 @@
       map.addControl(new maplibregl.NavigationControl({showCompass:false}),'top-right');
       map.addControl(new maplibregl.AttributionControl({compact:true}),'bottom-right');
       popup=new maplibregl.Popup({closeButton:false,closeOnClick:false,offset:12,className:'kd-barangay-tooltip'});
+      setupFilters();
       map.once('load',()=>load(false));
       map.on('mousemove','kd-zones-fill',event=>{
         if (!event.features || !event.features.length) return;
