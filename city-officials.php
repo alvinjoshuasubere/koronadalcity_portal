@@ -13,6 +13,16 @@ foreach ($officials as $official) {
   else $council[] = $official;
 }
 function officialEsc($value) { return htmlspecialchars((string)$value, ENT_QUOTES, 'UTF-8'); }
+/* Use uploaded pictures first. If the file is missing, use its verified official-city-site photo. */
+function officialPhoto(array $official): string {
+  $photo = trim((string)($official['image'] ?? ''));
+  if ($photo !== '') {
+    if (preg_match('~^https://~i', $photo)) return $photo;
+    if (!preg_match('~^(?:/|[a-z]+:)~i', $photo) && is_file(__DIR__ . '/' . $photo)) return $photo;
+  }
+  $fallback = trim((string)($official['fallback_image'] ?? ''));
+  return preg_match('~^https://(?:i[0-3]\\.wp\\.com/koronadal\\.gov\\.ph|koronadal\\.gov\\.ph)/~i', $fallback) ? $fallback : '';
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -53,8 +63,9 @@ function officialEsc($value) { return htmlspecialchars((string)$value, ENT_QUOTE
       <?php foreach ([$mayor, $viceMayor] as $leader): if (!is_array($leader)) continue; ?>
       <article class="cg-official cg-featured">
         <div class="cg-photo">
-          <?php if (!empty($leader['image'])): ?><img src="<?= officialEsc($leader['image']) ?>" alt="Portrait of <?= officialEsc($leader['name'] ?? 'City official') ?>" loading="lazy" onerror="this.hidden=true;this.nextElementSibling.hidden=false"><?php endif; ?>
-          <span class="cg-photo-fallback" <?= !empty($leader['image']) ? 'hidden' : '' ?>><i class="fas fa-user-tie" aria-hidden="true"></i></span>
+          <?php $leaderPhoto = officialPhoto($leader); ?>
+          <?php if ($leaderPhoto !== ''): ?><img src="<?= officialEsc($leaderPhoto) ?>" alt="Portrait of <?= officialEsc($leader['name'] ?? 'City official') ?>" loading="lazy" referrerpolicy="no-referrer" onerror="this.hidden=true;this.nextElementSibling.hidden=false"><?php endif; ?>
+          <span class="cg-photo-fallback" <?= $leaderPhoto !== '' ? 'hidden' : '' ?>><i class="fas fa-user-tie" aria-hidden="true"></i></span>
         </div>
         <div class="cg-official-info"><span class="cg-official-role"><?= officialEsc($leader['position'] ?? '') ?></span><h3><?= officialEsc($leader['name'] ?? '') ?></h3>
           <p>City Government of Koronadal</p>
@@ -70,8 +81,9 @@ function officialEsc($value) { return htmlspecialchars((string)$value, ENT_QUOTE
       <?php foreach ($council as $official): ?>
       <article class="cg-official cg-council-member">
         <div class="cg-photo">
-          <?php if (!empty($official['image'])): ?><img src="<?= officialEsc($official['image']) ?>" alt="Portrait of <?= officialEsc($official['name'] ?? 'Council member') ?>" loading="lazy" onerror="this.hidden=true;this.nextElementSibling.hidden=false"><?php endif; ?>
-          <span class="cg-photo-fallback" <?= !empty($official['image']) ? 'hidden' : '' ?>><i class="fas fa-user" aria-hidden="true"></i></span>
+          <?php $memberPhoto = officialPhoto($official); ?>
+          <?php if ($memberPhoto !== ''): ?><img src="<?= officialEsc($memberPhoto) ?>" alt="Portrait of <?= officialEsc($official['name'] ?? 'Council member') ?>" loading="lazy" referrerpolicy="no-referrer" onerror="this.hidden=true;this.nextElementSibling.hidden=false"><?php endif; ?>
+          <span class="cg-photo-fallback" <?= $memberPhoto !== '' ? 'hidden' : '' ?>><i class="fas fa-user" aria-hidden="true"></i></span>
         </div>
         <div class="cg-official-info"><span class="cg-official-role"><?= officialEsc($official['position'] ?? '') ?></span><h3><?= officialEsc($official['name'] ?? '') ?></h3></div>
       </article>
