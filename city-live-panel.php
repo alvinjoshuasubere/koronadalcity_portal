@@ -58,7 +58,8 @@
       container.replaceChildren();
       (daily.time || []).slice(0,5).forEach((date,i) => {
         const tile=document.createElement('div');
-        tile.className='kd-forecast-day';
+        tile.className='kd-forecast-day kd-forecast-animated';
+        tile.style.setProperty('--kd-forecast-index',String(i));
         tile.title=condition((daily.weather_code || [])[i]);
         const day=document.createElement('strong');
         day.textContent=i === 0 ? 'Today' : labelDay(date);
@@ -71,8 +72,20 @@
         const min=(daily.temperature_2m_min || [])[i];
         temps.textContent=Number.isFinite(max) && Number.isFinite(min) ? Math.round(max)+'° / '+Math.round(min)+'°' : '--';
         const rain=document.createElement('small');
+        rain.className='kd-rain-highlight';
         const chance=(daily.precipitation_probability_max || [])[i];
-        rain.textContent=Number.isFinite(chance) ? Math.round(chance)+'% rain' : condition(code);
+        if (Number.isFinite(chance)) {
+          rain.textContent=Math.round(chance)+'% rain';
+          rain.classList.add(chance>=60?'kd-rain-high':chance>=30?'kd-rain-medium':'kd-rain-low');
+          rain.setAttribute('aria-label',Math.round(chance)+' percent chance of rain');
+        } else {
+          rain.textContent=code===0||code===1?'Sunny':condition(code);
+          rain.classList.add(code<=1?'kd-rain-sunny':'kd-rain-low');
+        }
+        if (code<=1 && Number.isFinite(chance) && chance<20) {
+          rain.textContent='Sunny · '+Math.round(chance)+'% rain';
+          rain.classList.add('kd-rain-sunny');
+        }
         tile.append(day,icon,temps,rain);
         container.appendChild(tile);
       });
