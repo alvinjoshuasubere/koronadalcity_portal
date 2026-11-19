@@ -41,7 +41,7 @@ if (is_array($officialsData)) {
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet" />
   <link rel="stylesheet" href="portal.css?v=20261118-26" />
   <link rel="stylesheet" href="civic-responsive.css?v=20261118-34" />
-  <link rel="stylesheet" href="mobile-app.css?v=20261119-8" />
+  <link rel="stylesheet" href="mobile-app.css?v=20261119-9" />
   <link rel="stylesheet" href="mayor-biography.css?v=20261119-1" />
 </head>
 
@@ -337,6 +337,23 @@ if (is_array($officialsData)) {
       window.addEventListener('pagehide', function () { clearInterval(interval); }, { once: true });
     })();
   </script>
+
+  <div class="kd-chat-widget">
+    <button type="button" id="kdChatLauncher" class="kd-chat-launcher" aria-expanded="false" aria-controls="kdChatPanel" aria-label="Open Koronadal portal assistant"><i class="fas fa-comments" aria-hidden="true"></i><span>Ask Koronadal</span></button>
+    <section id="kdChatPanel" class="kd-chat-panel" aria-label="Koronadal Portal Assistant" hidden>
+      <header class="kd-chat-head"><div><strong><i class="fas fa-robot" aria-hidden="true"></i> Portal Assistant</strong><small>Automated service information</small></div><button id="kdChatClose" type="button" aria-label="Close chatbot"><i class="fas fa-xmark" aria-hidden="true"></i></button></header>
+      <div id="kdChatMessages" class="kd-chat-messages" role="log" aria-live="polite" aria-relevant="additions text"></div>
+      <div class="kd-chat-quick" aria-label="Common questions">
+        <button type="button" data-kd-chat-question="Verify business permit">Verify Permit</button>
+        <button type="button" data-kd-chat-question="Apply for business permit">Business Permit</button>
+        <button type="button" data-kd-chat-question="Find government job">Job Openings</button>
+        <button type="button" data-kd-chat-question="Show barangay boundaries">Barangay Map</button>
+      </div>
+      <form id="kdChatForm" class="kd-chat-form"><label class="kd-chat-sr" for="kdChatInput">Ask a question</label><input id="kdChatInput" name="question" type="text" maxlength="500" autocomplete="off" placeholder="Ask about city services..." required><button type="submit" aria-label="Send question"><i class="fas fa-paper-plane" aria-hidden="true"></i></button></form>
+      <p class="kd-chat-disclaimer">Automated guidance only. Do not share private information.</p>
+    </section>
+  </div>
+  <script defer src="portal-chat.js?v=20261119-1"></script>
 </body>
 
 </html>
