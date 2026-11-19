@@ -20,11 +20,11 @@
     .replace(/\s+/g,' ');
   const lookup = new Map(officialNames.map(name=>[normalize(name),name]));
   const featureCollection = features => ({type:'FeatureCollection',features});
-  const CACHE_KEY = 'koronadal-psa-27-barangays-v1';
+  const CACHE_KEY = 'koronadal-psa-only-v3';
   const PSA_BASE = 'https://portal.georisk.gov.ph/arcgis/rest/services/PSA/Barangay/MapServer/4/query';
   const PSA_QUERY = new URLSearchParams({
     where:"city_name LIKE '%Koronadal%' AND prov_name LIKE '%South Cotabato%'",
-    outFields:'brgy_name,city_name,city_code,brgy_code,objectid',
+    outFields:'brgy_name,city_name,prov_name,city_code,brgy_code,objectid',
     returnGeometry:'true',outSR:'4326',geometryPrecision:'5',f:'geojson'
   });
   const OVERPASS = 'https://overpass.kumi.systems/api/interpreter';
@@ -49,6 +49,18 @@
   function isPolygon(f) {
     return f && f.geometry && ['Polygon','MultiPolygon'].includes(f.geometry.type);
   }
+  function hideUnrelatedMapLabels() {
+    if (!map || !map.getStyle()) return;
+    const layers = map.getStyle().layers || [];
+    layers.forEach(layer => {
+      // OpenFreeMap's base labels must not compete with Koronadal barangay names.
+      // Keep roads, terrain and water visible, but hide every base symbol label.
+      if (layer.type === 'symbol' && !layer.id.startsWith('kd-')) {
+        try { map.setLayoutProperty(layer.id, 'visibility', 'none'); }
+        catch (error) { console.warn('Could not hide map label:', layer.id, error); }
+      }
+    });
+  }
   function cleanPSA(data) {
     if (!data || !Array.isArray(data.features)) throw new Error('Boundary response has no features');
     const seen = new Set();
@@ -59,7 +71,7 @@
       const rawName = props.brgy_name || props.BRGY_NAME || props.name;
       const name = lookup.get(normalize(rawName));
       const city = String(props.city_name || props.CITY_NAME || '');
-      const province = String(props.prov_name || props.PROV_NAME || 'South Cotabato');
+      const province = String(props.prov_name || props.PROV_NAME || '');
       if (!name || seen.has(name) || !/koronadal/i.test(city) || !/south cotabato/i.test(province) || !isLocal(feature.geometry)) continue;
       seen.add(name);
       result.push({type:'Feature',id:result.length+1,properties:{name,shade:result.length%4},geometry:feature.geometry});
@@ -269,7 +281,8 @@
       map.keyboard.disable();
       popup=new maplibregl.Popup({closeButton:false,closeOnClick:false,offset:12,className:'kd-barangay-tooltip'});
       setupFilters();
-      map.once('load',()=>load(false));
+      map.once('load',()=>{ hideUnrelatedMapLabels();load(false); });
+      map.on('styledata',hideUnrelatedMapLabels);
       map.on('mousemove','kd-zones-fill',event=>{
         if (!event.features || !event.features.length) return;
         const feature=event.features[0];
