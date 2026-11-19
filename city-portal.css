@@ -23844,3 +23844,17 @@ body.portal-home-page .kd-chat-followup:focus-visible{outline:3px solid #86efac;
   line-height:1.4!important;margin:0!important;
  }
 }
+
+
+/* Render the mobile Services scan icon directly with SVG, independent of icon fonts. */
+body.portal-home-page .bottom-nav > a.center .kd-services-scan-icon{
+ display:block!important;visibility:visible!important;opacity:1!important;
+ width:24px!important;height:24px!important;min-width:24px!important;min-height:24px!important;
+ margin:0 auto!important;padding:0!important;flex:none!important;
+ fill:none!important;stroke:#1766b1!important;color:#1766b1!important;
+ background:none!important;border:0!important;border-radius:0!important;
+ box-shadow:none!important;transform:none!important;
+}
+body.portal-home-page .bottom-nav > a.center .kd-services-scan-icon path{
+ fill:none!important;stroke:#1766b1!important;stroke-width:2.2!important;
+}
