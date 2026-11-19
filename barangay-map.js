@@ -385,7 +385,7 @@
           map.setFeatureState({source:'kd-koronadal-barangays',id:hoverId},{hover:false});
         hoverId=feature.id;
         map.setFeatureState({source:'kd-koronadal-barangays',id:hoverId},{hover:true});
-        popup.setLngLat(event.lngLat).setText('Barangay '+feature.properties.name).addTo(map);
+        popup.setLngLat(event.lngLat).setText('Barangay '+feature.properties.name+' · Population '+(population2024.has(feature.properties.name) ? population2024.get(feature.properties.name).toLocaleString('en-PH') : 'unavailable')+' (2024 PSA Census)').addTo(map);
         map.getCanvas().style.cursor='pointer';
       });
       map.on('mouseleave','kd-zones-fill',()=>{
@@ -396,14 +396,9 @@
       map.on('click','kd-zones-fill',event=>{
         const feature=event.features && event.features[0];
         if (!feature) return;
-        selectedNames.clear();
-        selectedNames.add(feature.properties.name);
-        showDetails(feature.properties.name);
-        updateFilters(true);
-        map.setLayoutProperty('kd-zones-labels','visibility','visible');
         if(popup)popup.remove();
         popup=new maplibregl.Popup({offset:12,closeButton:true}).setLngLat(event.lngLat)
-          .setText('Barangay '+feature.properties.name+' · Population '+Number(population2024.get(feature.properties.name)||0).toLocaleString('en-PH')+' (2024 PSA Census)').addTo(map);
+          .setText('Barangay '+feature.properties.name+' · Population '+(population2024.has(feature.properties.name) ? population2024.get(feature.properties.name).toLocaleString('en-PH') : 'unavailable')+' (2024 PSA Census)').addTo(map);
       });
       if (reload) reload.addEventListener('click',()=>load(true));
       if (showAll) showAll.addEventListener('click',()=>{
