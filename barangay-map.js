@@ -261,24 +261,24 @@
     upsert('kd-koronadal-barangays',featureCollection(selectedFeatures()));
     if (!map.getLayer('kd-zones-fill')) {
       map.addLayer({id:'kd-zones-fill',type:'fill',source:'kd-koronadal-barangays',
-        paint:{'fill-color':['match',['get','shade'],0,'#9bcfbc',1,'#a5d6c7',2,'#b3ddcf','#87c6b6'],'fill-opacity':0.52}});
+        paint:{'fill-color':['match',['get','shade'],0,'#b8dcff',1,'#cce7ff',2,'#9bccfa','#a9d3ff'],'fill-opacity':0.52}});
       map.addLayer({id:'kd-zones-hover',type:'fill',source:'kd-koronadal-barangays',
-        paint:{'fill-color':'#1c786e','fill-opacity':['case',['boolean',['feature-state','hover'],false],0.38,0]}});
+        paint:{'fill-color':'#2275dc','fill-opacity':['case',['boolean',['feature-state','hover'],false],0.38,0]}});
       map.addLayer({id:'kd-zones-outline',type:'line',source:'kd-koronadal-barangays',
-        paint:{'line-color':['match',['get','shade'],0,'#146b60',1,'#237c6d',2,'#2b8c75','#117360'],
+        paint:{'line-color':['match',['get','shade'],0,'#1766b1',1,'#2474c9',2,'#155ea9','#347fd2'],
           'line-width':3.5,'line-opacity':1}});
       map.addLayer({id:'kd-zones-picked-fill',type:'fill',source:'kd-koronadal-barangays',
-        paint:{'fill-color':'#10a78d',
+        paint:{'fill-color':'#267ce8',
           'fill-opacity':['case',['boolean',['feature-state','picked'],false],0.45,0]}});
       map.addLayer({id:'kd-zones-picked-line',type:'line',source:'kd-koronadal-barangays',
-        paint:{'line-color':'#063f39',
+        paint:{'line-color':'#104b99',
           'line-width':['case',['boolean',['feature-state','picked'],false],5.5,0],
           'line-opacity':['case',['boolean',['feature-state','picked'],false],1,0]}});
       map.addLayer({id:'kd-zones-labels',type:'symbol',source:'kd-koronadal-barangays',
         layout:{'visibility':'none','text-field':['get','name'],'text-size':12,
           'text-allow-overlap':true,'text-ignore-placement':true,
           'text-font':['Noto Sans Regular'],'text-max-width':11},
-        paint:{'text-color':'#225e59','text-halo-color':'#ffffff','text-halo-width':2.2}});
+        paint:{'text-color':'#124f99','text-halo-color':'#ffffff','text-halo-width':2.2}});
     }
     updateFilters(false);
     frameCity();
