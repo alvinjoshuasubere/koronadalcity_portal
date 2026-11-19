@@ -3,7 +3,7 @@
   <div class="kd-barangay-heading">
     <div><span class="kd-live-eyebrow">27 BARANGAYS OF KORONADAL</span>
       <h2 id="kdBarangayMapTitle">Explore the Barangays</h2>
-      <p>Koronadal City is highlighted with separate shaded barangay zones. Hover or tap a zone to see its name.</p>
+      <p>Only Koronadal barangay names appear on this map. Select one or more barangays to display their available boundary outlines.</p>
     </div>
     <a href="https://koronadal.gov.ph/27-barangay/" target="_blank" rel="noopener noreferrer">Official barangay directory <i class="fas fa-arrow-up-right-from-square" aria-hidden="true"></i></a>
   </div>
@@ -58,7 +58,7 @@
       <div id="kdBarangayMap" class="kd-barangay-map" role="region" aria-label="Interactive map showing available Koronadal barangay boundary lines">
         <div class="kd-barangay-map-loading">Loading OpenFreeMap...</div>
       </div>
-      <div class="kd-zone-legend" aria-label="Map legend"><span><i class="kd-legend-city"></i> City boundary</span><span><i class="kd-legend-barangay"></i> Barangay zones</span><span><i class="kd-legend-selected"></i> Hover or tap highlight</span></div>
+      <div class="kd-zone-legend" aria-label="Map legend"><span><i class="kd-legend-city"></i> Barangay boundary</span><span><i class="kd-legend-barangay"></i> Selected barangays</span><span><i class="kd-legend-selected"></i> Hover or tap highlight</span></div>
       <div class="kd-barangay-attribution">Map tiles by <a href="https://openfreemap.org/" target="_blank" rel="noopener noreferrer">OpenFreeMap</a>. Boundary data: <a href="https://portal.georisk.gov.ph/arcgis/rest/services/PSA/Barangay/MapServer/4" target="_blank" rel="noopener noreferrer">Philippine Statistics Authority (GeoRisk)</a>, with OpenStreetMap fallback. PSA polygons are indicative 2016 boundaries, not official cadastral surveys. Missing mapped boundaries are not estimated.</div>
     </div>
   </div>
@@ -66,4 +66,4 @@
 <link href="https://unpkg.com/maplibre-gl@5.8.0/dist/maplibre-gl.css" rel="stylesheet">
 <script src="https://unpkg.com/maplibre-gl@5.8.0/dist/maplibre-gl.js" defer></script>
 <script src="https://unpkg.com/osmtogeojson@3.0.0-beta.5/osmtogeojson.js" defer></script>
-<script defer src="barangay-map.js?v=20261119-13"></script>
+<script defer src="barangay-map.js?v=20261119-14"></script>
