@@ -84,5 +84,5 @@ function officialEsc($value) { return htmlspecialchars((string)$value, ENT_QUOTE
   </section>
   <?php include __DIR__ . '/city-live-panel.php'; ?>
 </main>
-<footer class="cg-footer"><div class="cg-footer-inner"><a href="index.php" class="cg-footer-brand"><img src="Logo.png" alt="Koronadal city logo"><span><strong>City Government of Koronadal</strong><small>Koronadal, South Cotabato, Philippines</small></span></a><nav aria-label="Footer links"><a href="index.php">Home</a><a href="mayor-corner.php">Mayor’s Corner</a><a href="emergency-contacts.php">Emergency</a></nav><p>© <?= date('Y') ?> City Government of Koronadal</p></div></footer>
+<?php include __DIR__ . '/shared-footer.php'; ?>
 </body></html>
