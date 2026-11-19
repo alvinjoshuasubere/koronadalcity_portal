@@ -41,13 +41,13 @@ if (is_array($officialsData)) {
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet" />
   <link rel="stylesheet" href="portal.css?v=20261118-26" />
   <link rel="stylesheet" href="civic-responsive.css?v=20261118-34" />
-  <link rel="stylesheet" href="mobile-app.css?v=20261119-11" />
+  <link rel="stylesheet" href="mobile-app.css?v=20261119-12" />
   <link rel="stylesheet" href="mayor-biography.css?v=20261119-1" />
 </head>
 
 <body class="portal-home-page">
   <div class="kd-utility">
-    <div class="kd-utility-inner"><span><i class="fas fa-landmark"></i> CITY GOVERNMENT OF KORONADAL</span></div>
+    <div class="kd-utility-inner"><span class="kd-utility-name"><i class="fas fa-landmark"></i> CITY GOVERNMENT OF KORONADAL</span><div class="kd-header-clock" role="group" aria-label="Current Philippine date and time"><time id="kdLiveDate" class="kd-header-date">Loading date</time><span class="kd-clock-separator" aria-hidden="true">·</span><time id="kdLiveTime" class="kd-header-time">--:-- --</time></div></div>
   </div>
   <header class="portal-header" id="portalHeader">
     <div class="header-inner"><a class="brand" href="#home"><img src="Logo.png"
@@ -57,7 +57,7 @@ if (is_array($officialsData)) {
           href="#services">Services <i class="fas fa-chevron-down"></i></a><a href="#city-info">City Info <i
             class="fas fa-chevron-down"></i></a><a href="#leadership">Leadership</a><a class="kd-nav-emergency"
           href="emergency-contacts"><i class="fas fa-phone-volume"></i> Emergency</a></nav>
-      <div class="header-actions"><div class="kd-header-clock" role="group" aria-label="Current Philippine date and time"><i class="far fa-clock" aria-hidden="true"></i><div class="kd-header-clock-content"><time id="kdLiveDate" class="kd-header-date">Philippine Date</time><time id="kdLiveTime" class="kd-header-time">--:-- --</time></div><span class="kd-clock-zone">PHT</span></div><button class="menu-btn" id="menuBtn" type="button" aria-label="Toggle navigation"
+      <div class="header-actions"><button class="menu-btn" id="menuBtn" type="button" aria-label="Toggle navigation"
           aria-controls="desktopNav" aria-expanded="false"><i class="fas fa-bars"></i></button></div>
     </div>
   </header>
