@@ -19,12 +19,30 @@
     .replace(/\bzone\s+(iv|iii|ii|i)\b/g, (_, roman)=>'zone '+({i:1,ii:2,iii:3,iv:4}[roman]))
     .replace(/\s+/g,' ');
   const lookup = new Map(officialNames.map(name=>[normalize(name),name]));
+  // Match historical PSA names to the local names shown in the portal.
+  [['sarabia','Saravia'],['zulueta','Topland'],['zone i','Zone 1'],
+   ['zone ii','Zone 2'],['zone iii','Zone 3'],['zone iv','Zone 4'],
+   ['gen. paulino santos','General Paulino Santos'],['general p. santos','General Paulino Santos'],
+   ['sto. nino','Santo Niño'],['sta. cruz','Santa Cruz']]
+    .forEach(([alias,name])=>lookup.set(normalize(alias),name));
+  // Official PSGC suffix order is NOT the display-alphabetical order.
+  const namesByCode = [null,'Assumption','Avanceña','Cacub','Caloocan','Carpenter Hill',
+    'Concepcion','Esperanza','General Paulino Santos','Mabini','Magsaysay','Mambucal',
+    'Morales','Namnama','New Pangasinan','Paraiso','Zone 1','Zone 2','Zone 3','Zone 4',
+    'Rotonda','San Isidro','San Jose','San Roque','Santa Cruz','Santo Niño','Saravia','Topland'];
+  function nameFromCode(props) {
+    const full = String(props.psgc_10d || props.PSGC_10D || '').replace(/\D/g,'');
+    const old = String(props.brgy_code || props.BRGY_CODE || '').replace(/\D/g,'');
+    const suffix = full.startsWith('1206306') && full.length === 10 ? Number(full.slice(7)) :
+      old.startsWith('126306') && old.length === 9 ? Number(old.slice(6)) : 0;
+    return namesByCode[suffix] || null;
+  }
   const featureCollection = features => ({type:'FeatureCollection',features});
-  const CACHE_KEY = 'koronadal-psa-only-v3';
+  const CACHE_KEY = 'koronadal-psgc-mapped-v4';
   const PSA_BASE = 'https://portal.georisk.gov.ph/arcgis/rest/services/PSA/Barangay/MapServer/4/query';
   const PSA_QUERY = new URLSearchParams({
     where:"city_name LIKE '%Koronadal%' AND prov_name LIKE '%South Cotabato%'",
-    outFields:'brgy_name,city_name,prov_name,city_code,brgy_code,objectid',
+    outFields:'brgy_name,city_name,prov_name,city_code,brgy_code,psgc_10d,objectid',
     returnGeometry:'true',outSR:'4326',geometryPrecision:'5',f:'geojson'
   });
   const OVERPASS = 'https://overpass.kumi.systems/api/interpreter';
@@ -70,10 +88,10 @@
       if (!isPolygon(feature)) continue;
       const props = feature.properties || {};
       const rawName = props.brgy_name || props.BRGY_NAME || props.name;
-      const name = lookup.get(normalize(rawName));
+      const name = nameFromCode(props) || lookup.get(normalize(rawName));
       const city = String(props.city_name || props.CITY_NAME || '');
       const province = String(props.prov_name || props.PROV_NAME || '');
-      if (!name || seen.has(name) || !/koronadal/i.test(city) || !/south cotabato/i.test(province) || !isLocal(feature.geometry)) continue;
+      if (!name || seen.has(name) || !/koronadal/i.test(city) || !/south cotabato/i.test(province)) continue;
       seen.add(name);
       result.push({type:'Feature',id:result.length+1,properties:{name,shade:result.length%4},geometry:feature.geometry});
     }
@@ -139,7 +157,9 @@
       upsert('kd-koronadal-barangays',featureCollection(shown));
       if (fit) {
         const bounds = boundsFor(shown);
-        if (!bounds.isEmpty()) map.panTo(bounds.getCenter(),{duration:450});
+        if (!bounds.isEmpty()) map.fitBounds(bounds,{
+          padding:innerWidth<600?34:65,maxZoom:13.8,duration:500
+        });
         else frameCity();
       }
     }
@@ -178,8 +198,11 @@
   }
   function frameCity() {
     if (!map) return;
-    // Recenter without changing the fixed map zoom.
-    map.panTo(CITY_CENTER,{duration:450});
+    // Programmatic fit keeps all Koronadal barangays in view on any screen size.
+    const all = boundsFor(cachedFeatures);
+    map.fitBounds(all.isEmpty() ? FALLBACK_BOUNDS : all,{
+      padding:innerWidth<600?34:65,maxZoom:12.7,duration:550
+    });
   }
   function upsert(id,data) {
     if (map.getSource(id)) map.getSource(id).setData(data);
@@ -199,7 +222,8 @@
       map.addLayer({id:'kd-zones-outline',type:'line',source:'kd-koronadal-barangays',
         paint:{'line-color':'#146b60','line-width':3,'line-opacity':1}});
       map.addLayer({id:'kd-zones-labels',type:'symbol',source:'kd-koronadal-barangays',
-        layout:{'text-field':['get','name'],'text-size':13,
+        layout:{'text-field':['get','name'],'text-size':12,
+          'text-allow-overlap':true,'text-ignore-placement':true,
           'text-font':['Noto Sans Regular'],'text-max-width':11},
         paint:{'text-color':'#225e59','text-halo-color':'#ffffff','text-halo-width':2.2}});
     }
@@ -270,7 +294,7 @@
     }
     try {
       map=new maplibregl.Map({container:mapEl,style:'https://tiles.openfreemap.org/styles/positron',
-        center:CITY_CENTER,zoom:11.2,minZoom:11.2,maxZoom:11.2,
+        center:CITY_CENTER,zoom:10.7,
         dragPan:true,scrollZoom:false,boxZoom:false,doubleClickZoom:false,
         touchZoomRotate:false,keyboard:false,dragRotate:false,pitchWithRotate:false,
         attributionControl:false,maxBounds:[[124.56,6.18],[125.18,6.78]]});
@@ -311,7 +335,7 @@
         updateFilters(false);
         frameCity();
       });
-      window.addEventListener('resize',()=>map.resize(),{passive:true});
+      window.addEventListener('resize',()=>{map.resize();frameCity();},{passive:true});
     } catch(error) {
       setStatus('Map initialization failed: '+error.message);
     }
