@@ -41,7 +41,7 @@ if (is_array($officialsData)) {
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet" />
   <link rel="stylesheet" href="portal.css?v=20261118-26" />
   <link rel="stylesheet" href="civic-responsive.css?v=20261118-34" />
-  <link rel="stylesheet" href="mobile-app.css?v=20261119-5" />
+  <link rel="stylesheet" href="mobile-app.css?v=20261119-6" />
   <link rel="stylesheet" href="mayor-biography.css?v=20261119-1" />
 </head>
 
@@ -57,7 +57,7 @@ if (is_array($officialsData)) {
           href="#services">Services <i class="fas fa-chevron-down"></i></a><a href="#city-info">City Info <i
             class="fas fa-chevron-down"></i></a><a href="#leadership">Leadership</a><a class="kd-nav-emergency"
           href="emergency-contacts.php"><i class="fas fa-phone-volume"></i> Emergency</a></nav>
-      <div class="header-actions"><button class="menu-btn" id="menuBtn" type="button" aria-label="Toggle navigation"
+      <div class="header-actions"><div class="kd-header-clock" role="group" aria-label="Current Philippine date and time"><i class="far fa-clock" aria-hidden="true"></i><div class="kd-header-clock-content"><time id="kdLiveDate" class="kd-header-date">Philippine Date</time><time id="kdLiveTime" class="kd-header-time">--:-- --</time></div><span class="kd-clock-zone">PHT</span></div><button class="menu-btn" id="menuBtn" type="button" aria-label="Toggle navigation"
           aria-controls="desktopNav" aria-expanded="false"><i class="fas fa-bars"></i></button></div>
     </div>
   </header>
@@ -308,6 +308,33 @@ if (is_array($officialsData)) {
       try { savedMode = localStorage.getItem('kdc-view') || 'auto' } catch (e) { }
       setView(savedMode);
 
+    })();
+  </script>
+  <script>
+    (function () {
+      var dateEl = document.getElementById('kdLiveDate');
+      var timeEl = document.getElementById('kdLiveTime');
+      if (!dateEl || !timeEl) return;
+      var timezone = 'Asia/Manila';
+      var formatDate = new Intl.DateTimeFormat('en-PH', {
+        timeZone: timezone, weekday: 'short', month: 'short', day: 'numeric', year: 'numeric'
+      });
+      var formatTime = new Intl.DateTimeFormat('en-PH', {
+        timeZone: timezone, hour: 'numeric', minute: '2-digit', hour12: true
+      });
+      function updateClock() {
+        var now = new Date();
+        dateEl.textContent = formatDate.format(now);
+        timeEl.textContent = formatTime.format(now);
+        dateEl.setAttribute('datetime', now.toISOString());
+        timeEl.setAttribute('datetime', now.toISOString());
+      }
+      updateClock();
+      var interval = setInterval(updateClock, 15000);
+      document.addEventListener('visibilitychange', function () {
+        if (!document.hidden) updateClock();
+      });
+      window.addEventListener('pagehide', function () { clearInterval(interval); }, { once: true });
     })();
   </script>
 </body>
