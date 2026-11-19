@@ -41,7 +41,7 @@ if (is_array($officialsData)) {
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet" />
   <link rel="stylesheet" href="portal.css?v=20261118-26" />
   <link rel="stylesheet" href="civic-responsive.css?v=20261118-34" />
-  <link rel="stylesheet" href="mobile-app.css?v=20261119-6" />
+  <link rel="stylesheet" href="mobile-app.css?v=20261119-7" />
   <link rel="stylesheet" href="mayor-biography.css?v=20261119-1" />
 </head>
 
@@ -56,7 +56,7 @@ if (is_array($officialsData)) {
       <nav class="desktop-nav" id="desktopNav" aria-label="Main navigation"><a href="#home" class="active">Home</a><a
           href="#services">Services <i class="fas fa-chevron-down"></i></a><a href="#city-info">City Info <i
             class="fas fa-chevron-down"></i></a><a href="#leadership">Leadership</a><a class="kd-nav-emergency"
-          href="emergency-contacts.php"><i class="fas fa-phone-volume"></i> Emergency</a></nav>
+          href="emergency-contacts"><i class="fas fa-phone-volume"></i> Emergency</a></nav>
       <div class="header-actions"><div class="kd-header-clock" role="group" aria-label="Current Philippine date and time"><i class="far fa-clock" aria-hidden="true"></i><div class="kd-header-clock-content"><time id="kdLiveDate" class="kd-header-date">Philippine Date</time><time id="kdLiveTime" class="kd-header-time">--:-- --</time></div><span class="kd-clock-zone">PHT</span></div><button class="menu-btn" id="menuBtn" type="button" aria-label="Toggle navigation"
           aria-controls="desktopNav" aria-expanded="false"><i class="fas fa-bars"></i></button></div>
     </div>
@@ -74,7 +74,7 @@ if (is_array($officialsData)) {
               class="fas fa-xmark"></i></button><button id="submitSearch" type="button"
             class="portal-search-submit">Search</button></div>
         <div class="hero-actions"><a href="#services" class="primary-action"><i class="fas fa-grip"></i> Explore
-            Services <i class="fas fa-arrow-right"></i></a><a href="emergency-contacts.php" class="secondary-action"><i
+            Services <i class="fas fa-arrow-right"></i></a><a href="emergency-contacts" class="secondary-action"><i
               class="fas fa-phone-volume"></i> Emergency Contacts</a></div>
       </div>
     </section>
@@ -178,7 +178,7 @@ if (is_array($officialsData)) {
           </div>
         <?php endforeach; ?>
       </div>
-      <a class="kd-emergency-all" href="emergency-contacts.php"><i class="fas fa-address-book"
+      <a class="kd-emergency-all" href="emergency-contacts"><i class="fas fa-address-book"
           aria-hidden="true"></i><span>View all emergency contacts</span><i class="fas fa-arrow-right"
           aria-hidden="true"></i></a>
     </section>
@@ -192,7 +192,7 @@ if (is_array($officialsData)) {
             <h3><?= htmlspecialchars($mayor['name'] ?? 'City Mayor', ENT_QUOTES, 'UTF-8') ?></h3>
             <p>From broadcast journalism to service as a city councilor and vice mayor, Mayor Araquil brings years of experience to the Office of the City Mayor.</p>
             <p class="kd-mayor-vision"><strong>Looking ahead:</strong> Priorities include accessible public services, livelihood and economic growth, resilient infrastructure, environmental protection, and accountable governance.</p>
-            <a href="mayor-corner.php">Read Biography &amp; Future Plans <i class="fas fa-arrow-right"></i></a>
+            <a href="mayor-corner">Read Biography &amp; Future Plans <i class="fas fa-arrow-right"></i></a>
           </div>
         </div>
       </article>
@@ -215,8 +215,8 @@ if (is_array($officialsData)) {
           <div><strong>City Government of Koronadal</strong><span>Koronadal, South Cotabato, Philippines</span></div>
         </div>
         <nav class="footer-links" aria-label="Footer navigation"><a href="#home">Home</a><a
-            href="#services">Services</a><a href="#city-info">City Info</a><a href="city-officials.php">Leadership</a><a
-            href="emergency-contacts.php">Emergency</a><a href="https://koronadal.gov.ph/" target="_blank"
+            href="#services">Services</a><a href="#city-info">City Info</a><a href="city-officials">Leadership</a><a
+            href="emergency-contacts">Emergency</a><a href="https://koronadal.gov.ph/" target="_blank"
             rel="noopener noreferrer">Contact Us</a></nav>
       </div>
       <div class="footer-bottom"><span>© <?= date('Y') ?> City Government of Koronadal. All Rights
@@ -224,11 +224,11 @@ if (is_array($officialsData)) {
     </div>
   </footer>
   <nav class="bottom-nav" aria-label="Portal navigation"><a href="#home" class="active" aria-current="location" aria-label="Home"><i
-        class="fas fa-house"></i><span>Home</span></a><a href="city-officials.php" aria-label="City leadership"><i
+        class="fas fa-house"></i><span>Home</span></a><a href="city-officials" aria-label="City leadership"><i
         class="fas fa-users"></i><span>Officials</span></a><a href="#services" class="center"
       aria-label="Browse services"><i class="fas fa-grip"></i><span>Services</span></a><a
       href="https://koronadal.gov.ph/" target="_blank" rel="noopener noreferrer" aria-label="City information"><i
-        class="fas fa-city"></i><span>City</span></a><a href="emergency-contacts.php" aria-label="Emergency contacts"><i
+        class="fas fa-city"></i><span>City</span></a><a href="emergency-contacts" aria-label="Emergency contacts"><i
         class="fas fa-phone-volume"></i><span>Help</span></a></nav>
   <div class="view-switcher" id="viewSwitcher">
     <button type="button" class="view-trigger" id="viewTrigger" aria-label="Choose layout mode" aria-haspopup="true"
