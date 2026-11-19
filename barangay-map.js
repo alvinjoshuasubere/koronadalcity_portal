@@ -55,7 +55,8 @@
     layers.forEach(layer => {
       // OpenFreeMap's base labels must not compete with Koronadal barangay names.
       // Keep roads, terrain and water visible, but hide every base symbol label.
-      if (layer.type === 'symbol' && !layer.id.startsWith('kd-')) {
+      if (layer.type === 'symbol' && !layer.id.startsWith('kd-') &&
+          map.getLayoutProperty(layer.id, 'visibility') !== 'none') {
         try { map.setLayoutProperty(layer.id, 'visibility', 'none'); }
         catch (error) { console.warn('Could not hide map label:', layer.id, error); }
       }
@@ -186,18 +187,19 @@
   }
   function render(collection,sourceLabel) {
     if (!map || !map.isStyleLoaded()) return;
+    hideUnrelatedMapLabels();
     cachedFeatures = collection.features;
     currentSourceLabel=sourceLabel;
     upsert('kd-koronadal-barangays',featureCollection(selectedFeatures()));
     if (!map.getLayer('kd-zones-fill')) {
       map.addLayer({id:'kd-zones-fill',type:'fill',source:'kd-koronadal-barangays',
-        paint:{'fill-color':'#5d9a8b','fill-opacity':0.21}});
+        paint:{'fill-color':['match',['get','shade'],0,'#9bcfbc',1,'#a5d6c7',2,'#b3ddcf','#87c6b6'],'fill-opacity':0.44}});
       map.addLayer({id:'kd-zones-hover',type:'fill',source:'kd-koronadal-barangays',
         paint:{'fill-color':'#1c786e','fill-opacity':['case',['boolean',['feature-state','hover'],false],0.38,0]}});
       map.addLayer({id:'kd-zones-outline',type:'line',source:'kd-koronadal-barangays',
-        paint:{'line-color':'#287d70','line-width':2.7,'line-opacity':0.95}});
+        paint:{'line-color':'#146b60','line-width':3,'line-opacity':1}});
       map.addLayer({id:'kd-zones-labels',type:'symbol',source:'kd-koronadal-barangays',
-        layout:{'text-field':['get','name'],'text-size':12,
+        layout:{'text-field':['get','name'],'text-size':13,
           'text-font':['Noto Sans Regular'],'text-max-width':11},
         paint:{'text-color':'#225e59','text-halo-color':'#ffffff','text-halo-width':2.2}});
     }
