@@ -210,7 +210,7 @@ if (is_array($officialsData)) {
   <nav class="bottom-nav" aria-label="Portal navigation"><a href="#home" class="active" aria-current="location" aria-label="Home"><i
         class="fas fa-house"></i><span>Home</span></a><a href="city-officials" aria-label="City leadership"><i
         class="fas fa-users"></i><span>Officials</span></a><a href="#services" class="center"
-      aria-label="Browse services"><i class="fas fa-grip"></i><span>Services</span></a><a
+      aria-label="Browse services"><i class="fas fa-table-cells-large" aria-hidden="true"></i><span>Services</span></a><a
       href="https://koronadal.gov.ph/" target="_blank" rel="noopener noreferrer" aria-label="City information"><i
         class="fas fa-city"></i><span>City</span></a><a href="emergency-contacts" aria-label="Emergency contacts"><i
         class="fas fa-phone-volume"></i><span>Help</span></a></nav>
