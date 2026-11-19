@@ -23858,3 +23858,21 @@ body.portal-home-page .bottom-nav > a.center .kd-services-scan-icon{
 body.portal-home-page .bottom-nav > a.center .kd-services-scan-icon path{
  fill:none!important;stroke:#1766b1!important;stroke-width:2.2!important;
 }
+
+
+/* Services scroll-active indicator: keep scan icon blue and free of a circle. */
+@media(max-width:760px){
+ body.portal-home-page .bottom-nav > a.center.active,
+ body.portal-home-page .bottom-nav > a.center[aria-current="location"]{
+  background:#eaf4ff!important;border:0!important;border-radius:11px!important;
+  box-shadow:inset 0 -3px 0 #1766b1!important;color:#1766b1!important;
+ }
+ body.portal-home-page .bottom-nav > a.center.active .kd-services-scan-icon,
+ body.portal-home-page .bottom-nav > a.center[aria-current="location"] .kd-services-scan-icon{
+  stroke:#1766b1!important;
+ }
+ body.portal-home-page .bottom-nav > a.center.active > span,
+ body.portal-home-page .bottom-nav > a.center[aria-current="location"] > span{
+  color:#1766b1!important;font-weight:850!important;
+ }
+}
