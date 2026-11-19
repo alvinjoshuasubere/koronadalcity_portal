@@ -24,7 +24,7 @@ function officialEsc($value) { return htmlspecialchars((string)$value, ENT_QUOTE
 <link rel="icon" href="favicon.ico">
 <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
-  <link rel="stylesheet" href="city-portal.css?v=20261119-3" />
+  <link rel="stylesheet" href="city-portal.css?v=20261119-4" />
 </head>
 <body class="officials-page civic-government-page">
 <header class="cg-header">
