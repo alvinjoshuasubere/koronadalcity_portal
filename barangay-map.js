@@ -4,6 +4,7 @@
   const statusEl = document.getElementById('kdBarangayStatus');
   if (!mapEl || !statusEl) return;
   const counter = document.getElementById('kdZoneCount');
+  const mapMessage = document.getElementById('kdMapMessage');
   const reload = document.getElementById('kdBarangayReload');
   const showAll = document.getElementById('kdBarangayShowAll');
   const filterList = document.getElementById('kdBarangayFilterList');
@@ -42,7 +43,7 @@
     }
   }
   const featureCollection = features => ({type:'FeatureCollection',features});
-  const CACHE_KEY = 'koronadal-verified-local-27-v7';
+  const CACHE_KEY = 'koronadal-verified-local-27-v8';
   const PSA_BASE = 'https://portal.georisk.gov.ph/arcgis/rest/services/PSA/Barangay/MapServer/4/query';
   const PSA_QUERY = new URLSearchParams({
     where:"city_name LIKE '%Koronadal%' AND prov_name LIKE '%South Cotabato%'",
@@ -53,6 +54,7 @@
   let map = null, request = null, hoverId = null, pickedId = null, popup = null, cachedFeatures = [], currentSourceLabel = '';
   const selectedNames = new Set(officialNames);
   const setStatus = value => { statusEl.textContent = value; };
+  function showMapMessage(message) { if(mapMessage){mapMessage.textContent=message || '';mapMessage.hidden=!message;} }
   function nestedCoordinates(geometry, fn) {
     const walk = item => {
       if (!Array.isArray(item)) return;
@@ -156,7 +158,9 @@
     return b;
   }
   function selectedFeatures() {
-    return cachedFeatures.filter(f=>selectedNames.has(f.properties.name));
+    return cachedFeatures.filter(f=>selectedNames.has(f.properties.name)).map(f=>({
+      ...f,properties:{...f.properties,picked:activeName===f.properties.name}
+    }));
   }
   function updateFilters(fit) {
     if (filterList) filterList.querySelectorAll('input[type="checkbox"]').forEach(input=>{
@@ -167,12 +171,11 @@
     if (selectAll) selectAll.disabled = selectedNames.size === officialNames.length;
     if (clearAll) clearAll.disabled = selectedNames.size === 0;
     const shown = selectedFeatures();
-    if (map && map.isStyleLoaded() && map.getSource('kd-koronadal-barangays')) {
+    if (map && map.getSource('kd-koronadal-barangays')) {
       if (hoverId!==null) {
         map.setFeatureState({source:'kd-koronadal-barangays',id:hoverId},{hover:false});
         hoverId=null;
       }
-      if (pickedId!==null) {pickedId=null;}
       if (popup) popup.remove();
       upsert('kd-koronadal-barangays',featureCollection(shown));
       if (fit) {
@@ -199,13 +202,7 @@
       const input=event.target;
       if (!input.matches('input[type="checkbox"]')) return;
       if (input.checked) selectedNames.add(input.value);
-      else {
-        // A first click in the default city view focuses just that barangay.
-        if (selectedNames.size===officialNames.length) {
-          selectedNames.clear();
-          selectedNames.add(input.value);
-        } else selectedNames.delete(input.value);
-      }
+      else selectedNames.delete(input.value);
       const focused=selectedNames.size===1 ? Array.from(selectedNames)[0] : null;
       showDetails(focused);
       updateFilters(true);
@@ -236,7 +233,11 @@
         officialNames.forEach(name=>selectedNames.add(name));
         showDetails(null);
         updateFilters(true);
+      } else {
+        showMapMessage('No barangay found. Try another name.');
+        return;
       }
+      showMapMessage('');
     });
     showDetails(null);
     updateFilters(false);
@@ -256,6 +257,7 @@
   function render(collection,sourceLabel) {
     if (!map || !map.getStyle()) return;
     hideUnrelatedMapLabels();
+    showMapMessage('');
     cachedFeatures = collection.features;
     currentSourceLabel=sourceLabel;
     upsert('kd-koronadal-barangays',featureCollection(selectedFeatures()));
@@ -269,11 +271,11 @@
           'line-width':3.5,'line-opacity':1}});
       map.addLayer({id:'kd-zones-picked-fill',type:'fill',source:'kd-koronadal-barangays',
         paint:{'fill-color':'#267ce8',
-          'fill-opacity':['case',['boolean',['feature-state','picked'],false],0.45,0]}});
+          'fill-opacity':['case',['boolean',['get','picked'],false],0.45,0]}});
       map.addLayer({id:'kd-zones-picked-line',type:'line',source:'kd-koronadal-barangays',
         paint:{'line-color':'#104b99',
-          'line-width':['case',['boolean',['feature-state','picked'],false],5.5,0],
-          'line-opacity':['case',['boolean',['feature-state','picked'],false],1,0]}});
+          'line-width':['case',['boolean',['get','picked'],false],5.5,0],
+          'line-opacity':['case',['boolean',['get','picked'],false],1,0]}});
       map.addLayer({id:'kd-zones-labels',type:'symbol',source:'kd-koronadal-barangays',
         layout:{'visibility':'none','text-field':['get','name'],'text-size':12,
           'text-allow-overlap':true,'text-ignore-placement':true,
@@ -304,6 +306,7 @@
       if (cached) render(cached.data,cached.source+' (cached)');
     }
     setStatus('Loading Koronadal City barangay boundaries...');
+    if (!cachedFeatures.length) showMapMessage('Loading barangay map…');
     if (reload) reload.disabled=true;
     const candidates = [
       async ()=>({data:cleanLocal(await getJson('data/koronadal-barangays.geojson?v=20261119-1',{},10000)),source:'Bundled PSGC map'}),
@@ -346,7 +349,8 @@
       if (cached) render(cached.data,cached.source+' (saved copy)');
       else {
         if (counter) counter.textContent='Boundaries unavailable';
-        setStatus('Unable to load verified Koronadal barangay polygons. Please select Refresh boundaries.');
+        setStatus('Unable to load Koronadal barangay map. Please refresh.');
+        showMapMessage('Map boundaries are unavailable. Select Refresh boundaries to try again.');
       }
     }
     if (reload) reload.disabled=false;
@@ -354,7 +358,7 @@
   function initialize(tries=0) {
     if (!window.maplibregl) {
       if (tries<40) {setTimeout(()=>initialize(tries+1),200);return;}
-      setStatus('Map scripts could not load. Refresh the page to try again.');return;
+      setStatus('Map scripts could not load. Refresh the page to try again.');showMapMessage('Map is unavailable. Refresh this page to try again.');return;
     }
     try {
       map=new maplibregl.Map({container:mapEl,style:'https://tiles.openfreemap.org/styles/positron',
@@ -371,7 +375,7 @@
       map.keyboard.disable();
       popup=new maplibregl.Popup({closeButton:false,closeOnClick:false,offset:12,className:'kd-barangay-tooltip'});
       setupFilters();
-      map.once('idle',()=>load(false));
+      map.once('load',()=>load(false));
       map.on('styledata',hideUnrelatedMapLabels);
       map.on('mousemove','kd-zones-fill',event=>{
         if (!event.features || !event.features.length) return;
@@ -396,11 +400,8 @@
         showDetails(feature.properties.name);
         updateFilters(true);
         map.setLayoutProperty('kd-zones-labels','visibility','visible');
-        if (pickedId!==null && map.getSource('kd-koronadal-barangays'))
-          map.setFeatureState({source:'kd-koronadal-barangays',id:pickedId},{picked:false});
-        pickedId=feature.id;
-        map.setFeatureState({source:'kd-koronadal-barangays',id:pickedId},{picked:true});
-        new maplibregl.Popup({offset:12}).setLngLat(event.lngLat)
+        if(popup)popup.remove();
+        popup=new maplibregl.Popup({offset:12,closeButton:true}).setLngLat(event.lngLat)
           .setText('Barangay '+feature.properties.name+' · Population '+Number(population2024.get(feature.properties.name)||0).toLocaleString('en-PH')+' (2024 PSA Census)').addTo(map);
       });
       if (reload) reload.addEventListener('click',()=>load(true));
@@ -412,9 +413,11 @@
         updateFilters(false);
         frameCity();
       });
-      window.addEventListener('resize',()=>{map.resize();frameCity();},{passive:true});
+      window.addEventListener('resize',()=>{map.resize();},{passive:true});
+      if (typeof ResizeObserver!=='undefined') new ResizeObserver(()=>map.resize()).observe(mapEl);
     } catch(error) {
       setStatus('Map initialization failed: '+error.message);
+      showMapMessage('Map could not start. Refresh this page to try again.');
     }
   }
   if (document.readyState==='loading') document.addEventListener('DOMContentLoaded',()=>initialize());
