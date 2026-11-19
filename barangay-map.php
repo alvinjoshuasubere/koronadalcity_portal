@@ -9,7 +9,7 @@
   </div>
   <div class="kd-barangay-all-layout">
     <div class="kd-barangay-all-toolbar">
-      <div><strong>Koronadal Zoning Map</strong><span id="kdZoneCount" class="kd-zone-count">Loading 27 Koronadal barangays...</span><span id="kdBarangayStatus" role="status" aria-live="polite">Loading available barangay boundaries...</span></div>
+      <span id="kdBarangayStatus" class="kd-map-screenreader-status" role="status" aria-live="polite">Loading barangay boundaries.</span>
       <button id="kdBarangayShowAll" class="kd-barangay-reset" type="button"><i class="fas fa-expand" aria-hidden="true"></i> View all Koronadal</button>
       <button id="kdBarangayReload" class="kd-barangay-reset" type="button"><i class="fas fa-rotate" aria-hidden="true"></i> Refresh boundaries</button>
     </div>
