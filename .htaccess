@@ -1,21 +1,25 @@
-# Koronadal City Portal: clean public URLs (Apache mod_rewrite).
+# City of Koronadal public page routing (supports root and localhost subfolders).
 Options -MultiViews
 DirectoryIndex index.php
 RewriteEngine On
 
-# Redirect browser GET requests from /page.php to /page.
-# Keep non-GET methods untouched so forms and API submissions keep working.
+# Redirect direct browser GET requests to clean public page URLs only.
+# Do not redirect API endpoints, AJAX requests, PHP includes, or form submissions.
 RewriteCond %{REQUEST_METHOD} =GET
-RewriteCond %{THE_REQUEST} \s/+(.+?)\.php(?:[?\s]) [NC]
-RewriteRule ^ %1 [R=302,L,NE]
+RewriteCond %{THE_REQUEST} \s/+[^?\s]*?/index\.php[?\s] [NC]
+RewriteRule ^index\.php$ ./ [R=302,L,NE]
 
-# Resolve clean URLs internally to their PHP scripts without redirect loops.
-RewriteCond %{REQUEST_FILENAME} !-f
-RewriteCond %{REQUEST_FILENAME} !-d
-RewriteCond %{REQUEST_FILENAME}.php -f
-RewriteRule ^(.+?)/?$ $1.php [L,QSA]
+RewriteCond %{REQUEST_METHOD} =GET
+RewriteCond %{THE_REQUEST} \s/+[^?\s]*?/(city-officials|mayor-corner|emergency-contacts)\.php[?\s] [NC]
+RewriteRule ^(city-officials|mayor-corner|emergency-contacts)\.php$ $1 [R=302,L,NE]
 
-# Protect non-public data/configuration paths.
+# Resolve only the site's three clean public information pages.
+RewriteRule ^(city-officials|mayor-corner|emergency-contacts)/?$ $1.php [L,QSA,NC]
+
+# Non-page PHP scripts should not be accessed as public pages.
+<FilesMatch "^(?:city-live-panel|barangay-map|shared-footer)\.php$">
+    Require all denied
+</FilesMatch>
 <FilesMatch "^(?:\.env|composer\.(?:json|lock))$">
     Require all denied
 </FilesMatch>
