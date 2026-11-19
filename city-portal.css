@@ -23733,3 +23733,40 @@ body:is(.portal-home-page,.mc-page,.officials-page,.emergency-page) .kd-weather-
   scroll-snap-align:start!important;
  }
 }
+
+
+/* Dark mustard-yellow Ask launcher; retain the text on small mobile screens. */
+body.portal-home-page .kd-chat-launcher,
+body.portal-home-page .kd-floating-controls .kd-chat-widget .kd-chat-launcher{
+ background:#b8860b!important;border:1px solid #936a08!important;
+ color:#fff!important;box-shadow:0 9px 24px rgba(115,81,6,.24)!important;
+ width:auto!important;min-width:78px!important;max-width:none!important;
+ padding:0 14px!important;gap:7px!important;
+}
+body.portal-home-page .kd-chat-launcher:hover,
+body.portal-home-page .kd-floating-controls .kd-chat-widget .kd-chat-launcher:hover{
+ background:#956b07!important;
+}
+body.portal-home-page .kd-floating-controls .kd-chat-widget .kd-chat-launcher span,
+body.portal-home-page .kd-chat-launcher span{
+ display:inline!important;visibility:visible!important;
+ font-size:12px!important;font-weight:800!important;line-height:1!important;
+}
+body.portal-home-page .kd-chat-launcher:focus-visible{
+ outline:3px solid #f4d36e!important;outline-offset:3px!important;
+}
+/* iOS Safari zooms into form fields whose computed font size is below 16px. */
+@media(max-width:760px){
+ body input,body textarea,body select,
+ body.portal-home-page .kd-chat-form input{
+  font-size:16px!important;
+ }
+ body.portal-home-page .kd-floating-controls .kd-chat-widget .kd-chat-launcher{
+  width:auto!important;min-width:76px!important;max-width:none!important;
+  padding:0 11px!important;
+ }
+ body.portal-home-page .kd-chat-launcher span,
+ body.portal-home-page .kd-floating-controls .kd-chat-widget .kd-chat-launcher span{
+  display:inline!important;font-size:12px!important;
+ }
+}
