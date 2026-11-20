@@ -62,13 +62,14 @@ function officialPhoto(array $official): string {
 <link rel="icon" href="favicon.ico">
 <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
-  <link rel="stylesheet" href="city-portal.css?v=20261119-17" />
+  <link rel="stylesheet" href="city-portal.css?v=20261120-9" />
 </head>
 <body class="officials-page civic-government-page">
 <header class="cg-header">
   <div class="cg-header-in">
     <a href="./" class="cg-brand"><img src="Logo.png" alt="City of Koronadal seal"><span><strong>City Government of Koronadal</strong><small>Government and elected officials</small></span></a>
-    <nav class="cg-nav" aria-label="Page navigation"><a href="./"><i class="fas fa-house" aria-hidden="true"></i> Home</a><a href="mayor-corner">Mayor’s Corner</a><a href="emergency-contacts">Emergency Contacts</a></nav>
+    <nav class="cg-nav" aria-label="Main navigation"><a href="./"><i class="fas fa-house" aria-hidden="true"></i><span>Home</span></a><a href="./#services"><i class="fas fa-grip" aria-hidden="true"></i><span>Services</span></a><a href="mayor-corner"><i class="fas fa-landmark" aria-hidden="true"></i><span>Mayor's Corner</span></a><a href="city-officials" class="active" aria-current="page"><i class="fas fa-users" aria-hidden="true"></i><span>Leadership</span></a><a href="emergency-contacts" class="kd-nav-emergency"><i class="fas fa-phone-volume" aria-hidden="true"></i><span>Emergency</span></a></nav>
+    <label class="kd-page-select"><i class="fas fa-compass" aria-hidden="true"></i><span class="kd-sr-only">Go to page</span><select aria-label="Go to page" onchange="if(this.value) window.location.href=this.value"><option value="">Go to page</option><option value="./">Home</option><option value="./#services">Online Services</option><option value="mayor-corner">Mayor's Corner</option><option value="city-officials" selected>City Leadership</option><option value="emergency-contacts">Emergency Contacts</option><option value="./#city-info">City &amp; Barangay Info</option></select></label>
   </div>
 </header>
 <main class="cg-main">

@@ -54,7 +54,7 @@ if (is_array($officialsData)) {
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet" />
 
 
-  <link rel="stylesheet" href="city-portal.css?v=20261119-17" />
+  <link rel="stylesheet" href="city-portal.css?v=20261120-9" />
 </head>
 
 <body class="portal-home-page">
@@ -70,10 +70,11 @@ if (is_array($officialsData)) {
     <div class="header-inner"><a class="brand" href="#home"><img src="Logo.png"
           alt="City of Koronadal official seal"><span><strong>Koronadal Digital Gateway</strong><small>City of Koronadal
             Online Services</small></span></a>
-      <nav class="desktop-nav" id="desktopNav" aria-label="Main navigation"><a href="#home" class="active">Home</a><a
-          href="#services">Services <i class="fas fa-chevron-down"></i></a><a href="#city-info">City Info <i
-            class="fas fa-chevron-down"></i></a><a href="#leadership">Leadership</a><a class="kd-nav-emergency"
-          href="emergency-contacts"><i class="fas fa-phone-volume"></i> Emergency</a></nav>
+      <nav class="desktop-nav" id="desktopNav" aria-label="Main navigation"><a href="#home" class="active"
+          aria-current="page"><i class="fas fa-house" aria-hidden="true"></i><span>Home</span></a><a href="#services"><i class="fas fa-grip" aria-hidden="true"></i><span>Services</span></a><a href="mayor-corner"><i class="fas fa-landmark" aria-hidden="true"></i><span>Mayor's Corner</span></a><a
+          href="city-officials"><i class="fas fa-users" aria-hidden="true"></i><span>Leadership</span></a><a class="kd-nav-emergency" href="emergency-contacts"><i
+            class="fas fa-phone-volume" aria-hidden="true"></i><span>Emergency</span></a></nav>
+      <label class="kd-page-select"><i class="fas fa-compass" aria-hidden="true"></i><span class="kd-sr-only">Go to page</span><select aria-label="Go to page" onchange="if(this.value) window.location.href=this.value"><option value="" selected>Go to page</option><option value="./">Home</option><option value="./#services">Online Services</option><option value="mayor-corner">Mayor's Corner</option><option value="city-officials">City Leadership</option><option value="emergency-contacts">Emergency Contacts</option><option value="./#city-info">City &amp; Barangay Info</option></select></label>
       <div class="header-actions"><button class="menu-btn" id="menuBtn" type="button" aria-label="Toggle navigation"
           aria-controls="desktopNav" aria-expanded="false"><i class="fas fa-bars"></i></button></div>
     </div>
@@ -310,9 +311,14 @@ if (is_array($officialsData)) {
   <nav class="bottom-nav" aria-label="Portal navigation"><a href="#home" class="active" aria-current="location"
       aria-label="Home"><i class="fas fa-house"></i><span>Home</span></a><a href="city-officials"
       aria-label="City leadership"><i class="fas fa-users"></i><span>Officials</span></a><a href="#services"
-      class="center" aria-label="Services"><svg class="kd-services-scan-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#1766b1" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M4 9V5a1 1 0 0 1 1-1h4M15 4h4a1 1 0 0 1 1 1v4M20 15v4a1 1 0 0 1-1 1h-4M9 20H5a1 1 0 0 1-1-1v-4"/><path d="M7 12h10M9 9h6M9 15h6"/></svg><span>Services</span></a><a href="https://koronadal.gov.ph/" target="_blank"
-      rel="noopener noreferrer" aria-label="City information"><i class="fas fa-city"></i><span>City</span></a><a
-      href="emergency-contacts" aria-label="Emergency contacts"><i class="fas fa-phone-volume"></i><span>Help</span></a>
+      class="center" aria-label="Services"><svg class="kd-services-scan-icon" xmlns="http://www.w3.org/2000/svg"
+        width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#1766b1" stroke-width="2.2"
+        stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
+        <path d="M4 9V5a1 1 0 0 1 1-1h4M15 4h4a1 1 0 0 1 1 1v4M20 15v4a1 1 0 0 1-1 1h-4M9 20H5a1 1 0 0 1-1-1v-4" />
+        <path d="M7 12h10M9 9h6M9 15h6" />
+      </svg><span>Services</span></a><a href="https://koronadal.gov.ph/" target="_blank" rel="noopener noreferrer"
+      aria-label="City information"><i class="fas fa-city"></i><span>City</span></a><a href="emergency-contacts"
+      aria-label="Emergency contacts"><i class="fas fa-phone-volume"></i><span>Help</span></a>
   </nav>
   <div class="kd-floating-controls" aria-label="Display and assistant controls">
     <!-- Resolution adjuster hidden from the interface; code retained for future use. -->

@@ -34,7 +34,7 @@ function mcInitials($name) {
     <link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700;800&family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&display=swap" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
 
-  <link rel="stylesheet" href="city-portal.css?v=20261119-8" />
+  <link rel="stylesheet" href="city-portal.css?v=20261120-9" />
 </head>
 <body class="mc-page">
 
@@ -47,10 +47,10 @@ function mcInitials($name) {
             <small>Government Services Portal</small>
         </div>
     </a>
-    <a href="./" class="nav-back">
-        <i class="fas fa-arrow-left"></i>
-        <span>Back to Portal</span>
-    </a>
+    <div class="mc-nav-links" role="navigation" aria-label="Main navigation">
+      <a href="./"><i class="fas fa-house" aria-hidden="true"></i><span>Home</span></a><a href="./#services"><i class="fas fa-grip" aria-hidden="true"></i><span>Services</span></a><a href="mayor-corner" class="active" aria-current="page"><i class="fas fa-landmark" aria-hidden="true"></i><span>Mayor's Corner</span></a><a href="city-officials"><i class="fas fa-users" aria-hidden="true"></i><span>Leadership</span></a><a href="emergency-contacts" class="kd-nav-emergency"><i class="fas fa-phone-volume" aria-hidden="true"></i><span>Emergency</span></a>
+    </div>
+    <label class="kd-page-select"><i class="fas fa-compass" aria-hidden="true"></i><span class="kd-sr-only">Go to page</span><select aria-label="Go to page" onchange="if(this.value) window.location.href=this.value"><option value="">Go to page</option><option value="./">Home</option><option value="./#services">Online Services</option><option value="mayor-corner" selected>Mayor's Corner</option><option value="city-officials">City Leadership</option><option value="emergency-contacts">Emergency Contacts</option><option value="./#city-info">City &amp; Barangay Info</option></select></label>
 </nav>
 
 <!-- Hero -->
