@@ -52,7 +52,7 @@
     returnGeometry:'true',outSR:'4326',geometryPrecision:'7',f:'geojson'
   });
   const OVERPASS = 'https://overpass.kumi.systems/api/interpreter';
-  let map = null, request = null, hoverId = null, pickedId = null, popup = null, cachedFeatures = [], currentSourceLabel = '';
+  let map = null, request = null, hoverId = null, pickedId = null, popup = null, popupPinned = false, cachedFeatures = [], currentSourceLabel = '';
   const selectedNames = new Set(officialNames);
   const setStatus = value => { statusEl.textContent = value; };
   function showMapMessage(message) { if(mapMessage){mapMessage.textContent=message || '';mapMessage.hidden=!message;} }
@@ -177,6 +177,7 @@
         hoverId=null;
       }
       if (popup) popup.remove();
+      popupPinned=false;
       upsert('kd-koronadal-barangays',featureCollection(shown));
       if (fit) {
         const bounds = boundsFor(shown);
@@ -391,14 +392,14 @@
           map.setFeatureState({source:'kd-koronadal-barangays',id:hoverId},{hover:false});
         hoverId=feature.id;
         map.setFeatureState({source:'kd-koronadal-barangays',id:hoverId},{hover:true});
-        if (popup && popup.options.closeButton) return;
+        if (popupPinned) return;
         popup.setLngLat(event.lngLat).setText('Barangay '+feature.properties.name+' · Population '+(population2024.has(feature.properties.name) ? population2024.get(feature.properties.name).toLocaleString('en-PH') : 'unavailable')+' (2024 PSA Census) · Boundary: '+(feature.properties.boundarySource || 'indicative reference')).addTo(map);
         map.getCanvas().style.cursor='pointer';
       });
       map.on('mouseleave','kd-zones-fill',()=>{
         if (hoverId!==null && map.getSource('kd-koronadal-barangays'))
           map.setFeatureState({source:'kd-koronadal-barangays',id:hoverId},{hover:false});
-        hoverId=null;if(popup && !popup.options.closeButton) popup.remove();map.getCanvas().style.cursor='';
+        hoverId=null;if(popup && !popupPinned) popup.remove();map.getCanvas().style.cursor='';
       });
       map.on('click','kd-zones-fill',event=>{
         const feature=event.features && event.features[0];
@@ -423,8 +424,10 @@
         compare.setAttribute('aria-label','Find Barangay '+name+' on Google Maps for comparison');
         content.append(heading,stats,boundary,compare);
         if(popup)popup.remove();
+        popupPinned=true;
         popup=new maplibregl.Popup({offset:12,closeButton:true,closeOnClick:true})
           .setLngLat(event.lngLat).setDOMContent(content).addTo(map);
+        popup.on('close',()=>{popupPinned=false;});
       });
       if (reload) reload.addEventListener('click',()=>load(true));
       if (showAll) showAll.addEventListener('click',()=>{
