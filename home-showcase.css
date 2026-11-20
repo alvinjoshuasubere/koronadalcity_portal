@@ -397,3 +397,17 @@ html body.portal-home-page .kd-showcase-search .portal-search-submit:hover{
   width:24px!important;min-width:24px!important;
  }
 }
+
+/* Center the homepage service description at all viewport widths. */
+html body.portal-home-page .home-hero.kd-showcase-hero
+ .kd-showcase-intro > p{
+ display:block!important;width:100%!important;max-width:780px!important;
+ margin:0 auto!important;padding:0!important;text-align:center!important;
+ align-self:center!important;line-height:1.6!important;
+}
+@media(max-width:760px){
+ html body.portal-home-page .home-hero.kd-showcase-hero
+ .kd-showcase-intro > p{
+  max-width:100%!important;text-align:center!important;
+ }
+}
