@@ -364,9 +364,9 @@ html body.portal-home-page .kd-showcase-search .portal-search-submit:hover{
 }
 @media(max-width:760px){
  html body.portal-home-page .portal-shell > .home-hero.kd-showcase-hero{
-  background:#c5e4f8 url("mobile.png") center top / cover no-repeat!important;
-  background-image:url("mobile.png")!important;
-  background-position:center top!important;background-size:cover!important;
+  background:#c5e4f8 url("desktop.png") center top / contain no-repeat!important;
+  background-image:url("desktop.png")!important;
+  background-position:center top!important;background-size:contain!important;
  }
  html body.portal-home-page .kd-showcase-intro{
   background:rgba(255,255,255,.89)!important;
