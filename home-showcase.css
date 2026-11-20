@@ -484,3 +484,25 @@ html body.portal-home-page .kd-mobile-hero-sides{display:none!important}
   height:clamp(170px,57vw,245px)!important;
  }
 }
+
+/* Mobile-only clean hero: no desktop.png or split image behind content. */
+@media(max-width:760px){
+ html body.portal-home-page .portal-shell > .home-hero.kd-showcase-hero{
+  background:#eaf4ff!important;background-image:none!important;
+  min-height:0!important;padding:20px 14px!important;
+  display:flex!important;flex-direction:column!important;
+  align-items:stretch!important;
+ }
+ html body.portal-home-page .kd-mobile-hero-sides,
+ html body.portal-home-page .kd-mobile-hero-photo{
+  display:none!important;
+ }
+ html body.portal-home-page .home-hero.kd-showcase-hero > .hero-content.kd-showcase-content{
+  margin:0!important;padding:0!important;width:100%!important;
+  max-width:100%!important;align-items:stretch!important;
+ }
+ html body.portal-home-page .kd-showcase-intro{
+  background:rgba(255,255,255,.8)!important;
+  margin:0 auto!important;width:100%!important;box-sizing:border-box!important;
+ }
+}
