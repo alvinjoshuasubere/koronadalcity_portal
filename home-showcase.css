@@ -560,3 +560,26 @@ html body.portal-home-page .kd-showcase-tiles > .kd-showcase-tile:focus-visible{
  html body.portal-home-page .kd-quick-services-heading span{font-size:10px;padding:6px 9px}
  html body.portal-home-page .kd-showcase-tiles > .kd-showcase-tile{border-width:1px!important}
 }
+
+/* Distinct, accessible icon colors for all six Quick Search cards. */
+html body.portal-home-page .kd-showcase-tiles > .kd-showcase-tile:nth-child(1) .kd-showcase-tile-icon,
+html body.portal-home-page .kd-showcase-tiles > .kd-showcase-tile:nth-child(1) .kd-showcase-tile-icon i{color:#1766b1!important}
+html body.portal-home-page .kd-showcase-tiles > .kd-showcase-tile:nth-child(2) .kd-showcase-tile-icon,
+html body.portal-home-page .kd-showcase-tiles > .kd-showcase-tile:nth-child(2) .kd-showcase-tile-icon i{color:#117d72!important}
+html body.portal-home-page .kd-showcase-tiles > .kd-showcase-tile:nth-child(3) .kd-showcase-tile-icon,
+html body.portal-home-page .kd-showcase-tiles > .kd-showcase-tile:nth-child(3) .kd-showcase-tile-icon i{color:#5056b5!important}
+html body.portal-home-page .kd-showcase-tiles > .kd-showcase-tile:nth-child(4) .kd-showcase-tile-icon,
+html body.portal-home-page .kd-showcase-tiles > .kd-showcase-tile:nth-child(4) .kd-showcase-tile-icon i{color:#cc523f!important}
+html body.portal-home-page .kd-showcase-tiles > .kd-showcase-tile:nth-child(5) .kd-showcase-tile-icon,
+html body.portal-home-page .kd-showcase-tiles > .kd-showcase-tile:nth-child(5) .kd-showcase-tile-icon i{color:#1682ba!important}
+html body.portal-home-page .kd-showcase-tiles > .kd-showcase-tile:nth-child(6) .kd-showcase-tile-icon,
+html body.portal-home-page .kd-showcase-tiles > .kd-showcase-tile:nth-child(6) .kd-showcase-tile-icon i{color:#27834e!important}
+html body.portal-home-page .kd-showcase-tiles .kd-showcase-tile-icon i{
+ transition:transform .2s ease!important;
+}
+html body.portal-home-page .kd-showcase-tiles .kd-showcase-tile:hover .kd-showcase-tile-icon i{
+ transform:scale(1.07);
+}
+@media(prefers-reduced-motion:reduce){
+ html body.portal-home-page .kd-showcase-tiles .kd-showcase-tile-icon i{transition:none!important}
+}
