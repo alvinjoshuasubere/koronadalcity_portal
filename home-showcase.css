@@ -100,7 +100,7 @@ html body.portal-home-page .kd-showcase-barangays i:first-child{color:#204582}
 html body.portal-home-page .kd-showcase-barangays i:last-child{
  position:absolute;font-size:29px;color:#ff8411;top:0;right:3px;
 }
-html body.portal-home-page .kd-showcase-tourism i{color:#188b8c}
+html body.portal-home-page .kd-showcase-transport i{color:#188b8c}
 html body.portal-home-page .kd-showcase-tile.kd-showcase-unavailable{
  opacity:.58!important;pointer-events:none;cursor:not-allowed;
  filter:grayscale(.4);
@@ -251,7 +251,7 @@ html body.portal-home-page .kd-showcase-tile-icon,
 html body.portal-home-page .kd-showcase-tile-icon i,
 html body.portal-home-page .kd-showcase-emergency i:last-child,
 html body.portal-home-page .kd-showcase-barangays i:last-child,
-html body.portal-home-page .kd-showcase-tourism i{
+html body.portal-home-page .kd-showcase-transport i{
  color:var(--kd-home-primary)!important;
 }
 html body.portal-home-page .kd-showcase-featured-tag{
