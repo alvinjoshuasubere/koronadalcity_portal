@@ -55,6 +55,7 @@ if (is_array($officialsData)) {
 
 
   <link rel="stylesheet" href="city-portal.css?v=20261119-17" />
+  <link rel="stylesheet" href="home-showcase.css?v=20261120-1" />
 </head>
 
 <body class="portal-home-page">
@@ -79,20 +80,66 @@ if (is_array($officialsData)) {
     </div>
   </header>
   <main class="portal-shell" id="home">
-    <section class="home-hero" aria-labelledby="gatewayHeading">
-      <div class="hero-content">
-        <span class="kd-hero-eyebrow"><i class="fas fa-circle-check" aria-hidden="true"></i> CITY GOVERNMENT OF
-          KORONADAL</span>
-        <h1 id="gatewayHeading">Maayong Adlaw,<br>Koronadaleño!</h1>
-        <p>Online government services, information and assistance in one convenient place.</p>
-        <div class="portal-search" role="search"><i class="fas fa-search" aria-hidden="true"></i><input
-            id="serviceSearch" type="search" aria-label="Search city services"
-            placeholder="Search city services..."><button id="clearSearch" type="button" aria-label="Clear search"><i
-              class="fas fa-xmark"></i></button><button id="submitSearch" type="button"
-            class="portal-search-submit">Search</button></div>
-        <div class="hero-actions"><a href="#services" class="primary-action"><i class="fas fa-grip"></i> Explore
-            Services <i class="fas fa-arrow-right"></i></a><a href="emergency-contacts" class="secondary-action"><i
-              class="fas fa-phone-volume"></i> Emergency Contacts</a></div>
+    <section class="home-hero kd-showcase-hero" aria-labelledby="gatewayHeading">
+      <div class="kd-showcase-decor kd-showcase-decor-left" aria-hidden="true">
+        <i class="fas fa-mobile-screen-button"></i><i class="fas fa-leaf"></i>
+      </div>
+      <div class="kd-showcase-decor kd-showcase-decor-right" aria-hidden="true">
+        <i class="fas fa-tree"></i><i class="fas fa-camera"></i>
+      </div>
+      <div class="hero-content kd-showcase-content">
+        <div class="kd-showcase-intro">
+          <span class="kd-hero-eyebrow"><i class="fas fa-circle-check" aria-hidden="true"></i> CITY GOVERNMENT OF KORONADAL</span>
+          <h1 id="gatewayHeading">Explore, Transact, and Connect with <span>Koronadal!</span></h1>
+          <p>Your city services, opportunities, and information in one convenient place.</p>
+        </div>
+        <div class="portal-search kd-showcase-search" role="search">
+          <i class="fas fa-magnifying-glass" aria-hidden="true"></i>
+          <input id="serviceSearch" type="search" aria-label="Search city services"
+            placeholder="Search for a service, requirement, or information..." autocomplete="off">
+          <button id="clearSearch" type="button" aria-label="Clear search"><i class="fas fa-xmark" aria-hidden="true"></i></button>
+          <button id="submitSearch" type="button" class="portal-search-submit">Search</button>
+        </div>
+        <nav class="kd-showcase-tiles" aria-label="Popular city services">
+          <a class="kd-showcase-tile<?= cityServiceUnavailable('business-permits', $serviceStatus) ? ' kd-showcase-unavailable' : '' ?>" <?= cityServiceUnavailable('business-permits', $serviceStatus) ? 'aria-disabled="true" tabindex="-1"' : 'href="https://koronadalcityportal.com/login" target="_blank" rel="noopener noreferrer"' ?>>
+            <span class="kd-showcase-tile-icon kd-showcase-permits"><i class="fas fa-file-circle-check" aria-hidden="true"></i></span>
+            <span>Business<br>Permits</span><?php if (cityServiceUnavailable('business-permits', $serviceStatus)): ?><small>Unavailable</small><?php endif; ?>
+          </a>
+          <a class="kd-showcase-tile<?= cityServiceUnavailable('citizen-services', $serviceStatus) ? ' kd-showcase-unavailable' : '' ?>" <?= cityServiceUnavailable('citizen-services', $serviceStatus) ? 'aria-disabled="true" tabindex="-1"' : 'href="https://citizen.koronadalcityonlineservices.com/register" target="_blank" rel="noopener noreferrer"' ?>>
+            <span class="kd-showcase-tile-icon kd-showcase-citizen"><i class="fas fa-users" aria-hidden="true"></i></span>
+            <span>Citizen<br>Services</span><?php if (cityServiceUnavailable('citizen-services', $serviceStatus)): ?><small>Unavailable</small><?php endif; ?>
+          </a>
+          <a class="kd-showcase-tile<?= cityServiceUnavailable('job-portal', $serviceStatus) ? ' kd-showcase-unavailable' : '' ?>" <?= cityServiceUnavailable('job-portal', $serviceStatus) ? 'aria-disabled="true" tabindex="-1"' : 'href="https://jobs.koronadalcityonlineservices.com/" target="_blank" rel="noopener noreferrer"' ?>>
+            <span class="kd-showcase-tile-icon kd-showcase-jobs"><i class="fas fa-briefcase" aria-hidden="true"></i></span>
+            <span>Jobs</span><?php if (cityServiceUnavailable('job-portal', $serviceStatus)): ?><small>Unavailable</small><?php endif; ?>
+          </a>
+          <a class="kd-showcase-tile" href="emergency-contacts">
+            <span class="kd-showcase-tile-icon kd-showcase-emergency"><i class="fas fa-siren-on" aria-hidden="true"></i><i class="fas fa-bell" aria-hidden="true"></i></span>
+            <span>Emergency</span>
+          </a>
+          <a class="kd-showcase-tile" href="#live-city-data">
+            <span class="kd-showcase-tile-icon kd-showcase-barangays"><i class="fas fa-house-chimney" aria-hidden="true"></i><i class="fas fa-location-dot" aria-hidden="true"></i></span>
+            <span>Barangays</span>
+          </a>
+          <a class="kd-showcase-tile" href="https://koronadal.gov.ph/" target="_blank" rel="noopener noreferrer">
+            <span class="kd-showcase-tile-icon kd-showcase-tourism"><i class="fas fa-mountain-sun" aria-hidden="true"></i></span>
+            <span>Tourism</span>
+          </a>
+        </nav>
+        <article class="kd-showcase-featured">
+          <div class="kd-showcase-featured-art" aria-hidden="true">
+            <span class="kd-showcase-sun"></span>
+            <i class="fas fa-tree kd-showcase-art-tree"></i>
+            <i class="fas fa-monument kd-showcase-art-landmark"></i>
+            <i class="fas fa-people-group kd-showcase-art-people"></i>
+          </div>
+          <div class="kd-showcase-featured-content">
+            <span class="kd-showcase-featured-tag">FEATURED</span>
+            <h2>Discover More of Koronadal!</h2>
+            <p>Access city services, local information, job opportunities, and community highlights from one portal.</p>
+          </div>
+          <a class="kd-showcase-more" href="#services">Explore Services <i class="fas fa-arrow-right" aria-hidden="true"></i></a>
+        </article>
       </div>
     </section>
     <section class="portal-section services-section" id="services">
