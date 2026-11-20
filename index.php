@@ -55,7 +55,7 @@ if (is_array($officialsData)) {
 
 
   <link rel="stylesheet" href="city-portal.css?v=20261119-17" />
-  <link rel="stylesheet" href="home-showcase.css?v=20261120-11" />
+  <link rel="stylesheet" href="home-showcase.css?v=20261120-12" />
 </head>
 
 <body class="portal-home-page">
@@ -139,10 +139,11 @@ if (is_array($officialsData)) {
                 aria-hidden="true"></i><i class="fas fa-location-dot" aria-hidden="true"></i></span>
             <span>Barangays</span>
           </a>
-          <a class="kd-showcase-tile" href="https://koronadal.gov.ph/" target="_blank" rel="noopener noreferrer">
-            <span class="kd-showcase-tile-icon kd-showcase-tourism"><i class="fas fa-mountain-sun"
+          <a class="kd-showcase-tile<?= cityServiceUnavailable('mtop-verification', $serviceStatus) ? ' kd-showcase-unavailable' : '' ?>"
+            <?= cityServiceUnavailable('mtop-verification', $serviceStatus) ? 'aria-disabled="true" tabindex="-1"' : 'href="https://traffic.koronadalcityonlineservices.com/" target="_blank" rel="noopener noreferrer"' ?>>
+            <span class="kd-showcase-tile-icon kd-showcase-transport"><i class="fas fa-motorcycle"
                 aria-hidden="true"></i></span>
-            <span>Tourism</span>
+            <span>Transport</span><?php if (cityServiceUnavailable('mtop-verification', $serviceStatus)): ?><small>Unavailable</small><?php endif; ?>
           </a>
         </nav>
         <article class="kd-showcase-featured">
