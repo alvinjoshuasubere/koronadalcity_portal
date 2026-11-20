@@ -391,20 +391,40 @@
           map.setFeatureState({source:'kd-koronadal-barangays',id:hoverId},{hover:false});
         hoverId=feature.id;
         map.setFeatureState({source:'kd-koronadal-barangays',id:hoverId},{hover:true});
+        if (popup && popup.options.closeButton) return;
         popup.setLngLat(event.lngLat).setText('Barangay '+feature.properties.name+' · Population '+(population2024.has(feature.properties.name) ? population2024.get(feature.properties.name).toLocaleString('en-PH') : 'unavailable')+' (2024 PSA Census) · Boundary: '+(feature.properties.boundarySource || 'indicative reference')).addTo(map);
         map.getCanvas().style.cursor='pointer';
       });
       map.on('mouseleave','kd-zones-fill',()=>{
         if (hoverId!==null && map.getSource('kd-koronadal-barangays'))
           map.setFeatureState({source:'kd-koronadal-barangays',id:hoverId},{hover:false});
-        hoverId=null;popup.remove();map.getCanvas().style.cursor='';
+        hoverId=null;if(popup && !popup.options.closeButton) popup.remove();map.getCanvas().style.cursor='';
       });
       map.on('click','kd-zones-fill',event=>{
         const feature=event.features && event.features[0];
         if (!feature) return;
+        const name=String(feature.properties.name || '');
+        const population=population2024.has(name)
+          ? population2024.get(name).toLocaleString('en-PH') : 'unavailable';
+        const source=String(feature.properties.boundarySource || 'indicative reference');
+        const content=document.createElement('div');
+        content.className='kd-map-barangay-popup';
+        const heading=document.createElement('strong');
+        heading.textContent='Barangay '+name;
+        const stats=document.createElement('p');
+        stats.textContent='Population: '+population+' (2024 PSA Census)';
+        const boundary=document.createElement('small');
+        boundary.textContent='Boundary: '+source+' · Indicative, not a cadastral survey';
+        const compare=document.createElement('a');
+        compare.href='https://www.google.com/maps/search/?api=1&query='+encodeURIComponent('Barangay '+name+', City of Koronadal, South Cotabato, Philippines');
+        compare.target='_blank';
+        compare.rel='noopener noreferrer';
+        compare.textContent='Find this barangay on Google Maps';
+        compare.setAttribute('aria-label','Find Barangay '+name+' on Google Maps for comparison');
+        content.append(heading,stats,boundary,compare);
         if(popup)popup.remove();
-        popup=new maplibregl.Popup({offset:12,closeButton:true}).setLngLat(event.lngLat)
-          .setText('Barangay '+feature.properties.name+' · Population '+(population2024.has(feature.properties.name) ? population2024.get(feature.properties.name).toLocaleString('en-PH') : 'unavailable')+' (2024 PSA Census) · Boundary: '+(feature.properties.boundarySource || 'indicative reference')).addTo(map);
+        popup=new maplibregl.Popup({offset:12,closeButton:true,closeOnClick:true})
+          .setLngLat(event.lngLat).setDOMContent(content).addTo(map);
       });
       if (reload) reload.addEventListener('click',()=>load(true));
       if (showAll) showAll.addEventListener('click',()=>{
