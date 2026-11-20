@@ -55,7 +55,7 @@ if (is_array($officialsData)) {
 
 
   <link rel="stylesheet" href="city-portal.css?v=20261119-17" />
-  <link rel="stylesheet" href="home-showcase.css?v=20261120-9" />
+  <link rel="stylesheet" href="home-showcase.css?v=20261120-10" />
 </head>
 
 <body class="portal-home-page">
@@ -110,6 +110,7 @@ if (is_array($officialsData)) {
               aria-hidden="true"></i></button>
           <button id="submitSearch" type="button" class="portal-search-submit">Search</button>
         </div>
+        <div class="kd-quick-services-heading"><span>QUICK SEARCH</span><strong>Choose a city service</strong></div>
         <nav class="kd-showcase-tiles" aria-label="Popular city services">
           <a class="kd-showcase-tile<?= cityServiceUnavailable('business-permits', $serviceStatus) ? ' kd-showcase-unavailable' : '' ?>"
             <?= cityServiceUnavailable('business-permits', $serviceStatus) ? 'aria-disabled="true" tabindex="-1"' : 'href="https://koronadalcityportal.com/login" target="_blank" rel="noopener noreferrer"' ?>>
