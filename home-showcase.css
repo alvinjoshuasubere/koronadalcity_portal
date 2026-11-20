@@ -301,3 +301,99 @@ html body.portal-home-page .kd-showcase-intro{
   background:rgba(255,255,255,.82)!important;
  }
 }
+
+/* Clean image-led Koronadal hero: use the supplied desktop/mobile backgrounds
+   without ornamental layers. Keep functional service links and search intact. */
+html body.portal-home-page .portal-shell > .home-hero.kd-showcase-hero{
+ background:#bfe3fa url("desktop.png") center center / cover no-repeat!important;
+ background-image:url("desktop.png")!important;
+ background-position:center center!important;
+ background-size:cover!important;
+}
+html body.portal-home-page .kd-showcase-hero::before,
+html body.portal-home-page .kd-showcase-hero::after,
+html body.portal-home-page .kd-showcase-decor{display:none!important;content:none!important}
+html body.portal-home-page .kd-showcase-intro{
+ background:rgba(255,255,255,.86)!important;
+ -webkit-backdrop-filter:none!important;backdrop-filter:none!important;
+ border:1px solid rgba(255,255,255,.8)!important;
+ box-shadow:0 5px 22px rgba(15,53,97,.08);
+}
+html body.portal-home-page .kd-showcase-greeting{
+ display:block;margin:0 auto 12px;
+ color:#104d8d!important;font-size:clamp(20px,2.2vw,33px)!important;
+ font-weight:850!important;line-height:1.3!important;letter-spacing:-.02em;
+ text-align:center!important;
+}
+html body.portal-home-page .kd-showcase-intro #gatewayHeading{
+ color:#102e60!important;text-shadow:none!important;
+}
+html body.portal-home-page .kd-showcase-intro #gatewayHeading span{
+ color:#1766b1!important;
+}
+html body.portal-home-page .kd-showcase-intro p{color:#234f79!important}
+html body.portal-home-page .kd-showcase-featured{
+ grid-template-columns:minmax(0,1fr) auto!important;
+ padding:22px 25px!important;min-height:0!important;
+}
+html body.portal-home-page .kd-showcase-featured-art{display:none!important}
+html body.portal-home-page .kd-showcase-search{
+ overflow:visible!important;
+}
+html body.portal-home-page .kd-showcase-search #clearSearch{
+ flex:0 0 auto!important;position:static!important;inset:auto!important;
+ width:36px!important;height:36px!important;min-width:36px!important;
+ display:grid!important;place-items:center!important;border:0!important;
+ border-radius:50%!important;background:transparent!important;
+ color:#456b93!important;box-shadow:none!important;
+}
+html body.portal-home-page .kd-showcase-search #clearSearch:hover{
+ background:#edf5fc!important;color:#104d8d!important;
+}
+html body.portal-home-page .kd-showcase-search .portal-search-submit{
+ display:inline-flex!important;align-items:center!important;justify-content:center!important;
+ width:auto!important;min-width:128px!important;flex:0 0 auto!important;
+ height:52px!important;min-height:52px!important;padding:0 23px!important;
+ border:0!important;border-radius:30px!important;
+ background:#1766b1!important;color:#fff!important;
+ white-space:nowrap!important;cursor:pointer!important;
+ transition:background-color .2s ease,transform .2s ease!important;
+}
+html body.portal-home-page .kd-showcase-search .portal-search-submit:hover{
+ background:#104d8d!important;
+}
+@media(max-width:760px){
+ html body.portal-home-page .portal-shell > .home-hero.kd-showcase-hero{
+  background:#c5e4f8 url("mobile.png") center top / cover no-repeat!important;
+  background-image:url("mobile.png")!important;
+  background-position:center top!important;background-size:cover!important;
+ }
+ html body.portal-home-page .kd-showcase-intro{
+  background:rgba(255,255,255,.89)!important;
+  border-radius:15px!important;padding:14px 12px!important;
+ }
+ html body.portal-home-page .kd-showcase-greeting{
+  font-size:clamp(19px,5vw,26px)!important;margin:0 auto 8px!important;
+ }
+ html body.portal-home-page .kd-showcase-featured{
+  grid-template-columns:1fr!important;padding:16px!important;
+ }
+ html body.portal-home-page .kd-showcase-search #clearSearch{
+  width:28px!important;height:32px!important;min-width:28px!important;
+ }
+ html body.portal-home-page .kd-showcase-search .portal-search-submit{
+  height:42px!important;min-height:42px!important;min-width:75px!important;
+  padding:0 12px!important;font-size:12px!important;
+ }
+ html body.portal-home-page .kd-showcase-search input{
+  font-size:16px!important;min-width:0!important;
+ }
+}
+@media(max-width:360px){
+ html body.portal-home-page .kd-showcase-search .portal-search-submit{
+  min-width:65px!important;padding:0 8px!important;
+ }
+ html body.portal-home-page .kd-showcase-search #clearSearch{
+  width:24px!important;min-width:24px!important;
+ }
+}
