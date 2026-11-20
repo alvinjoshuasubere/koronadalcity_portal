@@ -55,7 +55,7 @@ if (is_array($officialsData)) {
 
 
   <link rel="stylesheet" href="city-portal.css?v=20261119-17" />
-  <link rel="stylesheet" href="home-showcase.css?v=20261120-7" />
+  <link rel="stylesheet" href="home-showcase.css?v=20261120-8" />
 </head>
 
 <body class="portal-home-page">
@@ -94,7 +94,7 @@ if (is_array($officialsData)) {
   </header>
   <main class="portal-shell" id="home">
     <section class="home-hero kd-showcase-hero" aria-labelledby="gatewayHeading">
-      <img class="kd-mobile-hero-photo" src="desktop.png" alt="Koronadal City welcome banner" loading="eager" decoding="async">
+      <div class="kd-mobile-hero-sides" aria-hidden="true"><span class="kd-mobile-hero-left"></span><span class="kd-mobile-hero-right"></span></div>
       <div class="hero-content kd-showcase-content">
         <div class="kd-showcase-intro">
           <span class="kd-hero-eyebrow"><i class="fas fa-circle-check" aria-hidden="true"></i> CITY GOVERNMENT OF
