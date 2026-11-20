@@ -8,7 +8,7 @@ declare(strict_types=1);
 header('Content-Type: application/geo+json; charset=utf-8');
 header('Cache-Control: public, max-age=3600');
 
-$cache = sys_get_temp_dir() . '/koronadal-psa-barangays-v3.geojson';
+$cache = sys_get_temp_dir() . '/koronadal-psa-barangays-v4.geojson';
 $validCache = static function () use ($cache): ?string {
     if (!is_file($cache)) return null;
     $body = @file_get_contents($cache);
@@ -29,7 +29,7 @@ $url = 'https://portal.georisk.gov.ph/arcgis/rest/services/PSA/Barangay/MapServe
         'outFields' => 'objectid,brgy_name,brgy_code,psgc_10d,city_name,city_code,prov_name',
         'returnGeometry' => 'true',
         'outSR' => '4326',
-        'geometryPrecision' => '5',
+        'geometryPrecision' => '7',
         'f' => 'geojson',
     ], '', '&', PHP_QUERY_RFC3986);
 
