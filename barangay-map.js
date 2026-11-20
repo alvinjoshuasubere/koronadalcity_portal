@@ -44,12 +44,12 @@
     }
   }
   const featureCollection = features => ({type:'FeatureCollection',features});
-  const CACHE_KEY = 'koronadal-psa-priority-v9';
+  const CACHE_KEY = 'koronadal-psa-full-precision-v10';
   const PSA_BASE = 'https://portal.georisk.gov.ph/arcgis/rest/services/PSA/Barangay/MapServer/4/query';
   const PSA_QUERY = new URLSearchParams({
     where:"city_name LIKE '%Koronadal%' AND prov_name LIKE '%South Cotabato%'",
     outFields:'brgy_name,city_name,prov_name,city_code,brgy_code,psgc_10d,objectid',
-    returnGeometry:'true',outSR:'4326',geometryPrecision:'5',f:'geojson'
+    returnGeometry:'true',outSR:'4326',geometryPrecision:'7',f:'geojson'
   });
   const OVERPASS = 'https://overpass.kumi.systems/api/interpreter';
   let map = null, request = null, hoverId = null, pickedId = null, popup = null, cachedFeatures = [], currentSourceLabel = '';
@@ -97,7 +97,7 @@
       if (!isPolygon(f) || !name || seen.has(name) || !String(p.psgc || '').startsWith('1206306') || !isLocal(f.geometry)) continue;
       seen.add(name);
       features.push({type:'Feature',id:features.length+1,
-        properties:{name,shade:features.length%4,population:population2024.get(name)},
+        properties:{name,shade:features.length%4,population:population2024.get(name),boundarySource:'Local reference polygon (approximate)'},
         geometry:f.geometry});
     }
     if (features.length<1) throw new Error('No verified Koronadal polygons found in local data');
@@ -115,7 +115,7 @@
       const province = String(props.prov_name || props.PROV_NAME || '');
       if (!name || seen.has(name) || !/koronadal/i.test(city) || !/south cotabato/i.test(province) || !isLocal(feature.geometry)) continue;
       seen.add(name);
-      result.push({type:'Feature',id:result.length+1,properties:{name,shade:result.length%4,population:population2024.get(name)},geometry:feature.geometry});
+      result.push({type:'Feature',id:result.length+1,properties:{name,shade:result.length%4,population:population2024.get(name),boundarySource:'PSA GeoRisk (indicative 2016)'},geometry:feature.geometry});
     }
     return featureCollection(result);
   }
@@ -304,11 +304,11 @@
     const candidates = [
       async ()=>({data:cleanPSA(await getJson('barangay-boundaries.php?v=5',{},17000)),source:'PSA GeoRisk (indicative 2016)'}),
       async ()=>({data:cleanPSA(await getJson(PSA_BASE+'?'+PSA_QUERY,{},18000)),source:'PSA GeoRisk (indicative 2016)'}),
-      async ()=>({data:cleanLocal(await getJson('data/koronadal-barangays.geojson?v=20261120-2',{},10000)),source:'Local PSGC/NAMRIA-OCHA fallback'}),
+      async ()=>({data:cleanLocal(await getJson('data/koronadal-barangays.geojson?v=20261120-2',{},10000)),source:'Local reference polygons (approximate)'}),
       async ()=>{
         const query='[out:json][timeout:18];relation["boundary"="administrative"]["admin_level"~"^(6|8)$"]["name"~"Koronadal",i](6.34,124.70,6.60,125.04)->.city;.city map_to_area->.a;relation["boundary"="administrative"]["admin_level"="10"](area.a);out body;>;out skel qt;';
         const json=await getJson(OVERPASS,{method:'POST',body:new URLSearchParams({data:query})},21000);
-        return {data:cleanOSM(json),source:'OpenStreetMap fallback'};
+        return {data:cleanOSM(json),source:'OpenStreetMap community boundaries'};
       }
     ];
     const merged = new Map();
@@ -391,7 +391,7 @@
           map.setFeatureState({source:'kd-koronadal-barangays',id:hoverId},{hover:false});
         hoverId=feature.id;
         map.setFeatureState({source:'kd-koronadal-barangays',id:hoverId},{hover:true});
-        popup.setLngLat(event.lngLat).setText('Barangay '+feature.properties.name+' · Population '+(population2024.has(feature.properties.name) ? population2024.get(feature.properties.name).toLocaleString('en-PH') : 'unavailable')+' (2024 PSA Census)').addTo(map);
+        popup.setLngLat(event.lngLat).setText('Barangay '+feature.properties.name+' · Population '+(population2024.has(feature.properties.name) ? population2024.get(feature.properties.name).toLocaleString('en-PH') : 'unavailable')+' (2024 PSA Census) · Boundary: '+(feature.properties.boundarySource || 'indicative reference')).addTo(map);
         map.getCanvas().style.cursor='pointer';
       });
       map.on('mouseleave','kd-zones-fill',()=>{
@@ -404,7 +404,7 @@
         if (!feature) return;
         if(popup)popup.remove();
         popup=new maplibregl.Popup({offset:12,closeButton:true}).setLngLat(event.lngLat)
-          .setText('Barangay '+feature.properties.name+' · Population '+(population2024.has(feature.properties.name) ? population2024.get(feature.properties.name).toLocaleString('en-PH') : 'unavailable')+' (2024 PSA Census)').addTo(map);
+          .setText('Barangay '+feature.properties.name+' · Population '+(population2024.has(feature.properties.name) ? population2024.get(feature.properties.name).toLocaleString('en-PH') : 'unavailable')+' (2024 PSA Census) · Boundary: '+(feature.properties.boundarySource || 'indicative reference')).addTo(map);
       });
       if (reload) reload.addEventListener('click',()=>load(true));
       if (showAll) showAll.addEventListener('click',()=>{
