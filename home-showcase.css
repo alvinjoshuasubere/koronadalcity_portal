@@ -434,3 +434,53 @@ html body.portal-home-page .kd-mobile-hero-photo{display:none!important}
   padding:14px!important;margin:0!important;flex:none!important;
  }
 }
+
+/* Mobile hero: show the people at BOTH edges of desktop.png as one split
+   banner, cropping the empty middle instead of shrinking the whole picture. */
+html body.portal-home-page .kd-mobile-hero-sides{display:none!important}
+@media(max-width:760px){
+ html body.portal-home-page .portal-shell > .home-hero.kd-showcase-hero{
+  position:relative!important;display:flex!important;flex-direction:column!important;
+  align-items:stretch!important;overflow:hidden!important;
+  padding:0 0 18px!important;
+  background:#dcefff!important;background-image:none!important;
+ }
+ html body.portal-home-page .kd-mobile-hero-sides{
+  display:flex!important;position:relative!important;inset:auto!important;
+  width:100%!important;height:clamp(180px,52vw,330px)!important;
+  min-height:0!important;flex:0 0 auto!important;
+  overflow:hidden!important;background:#c7e7fc!important;
+ }
+ html body.portal-home-page .kd-mobile-hero-sides > span{
+  display:block!important;position:relative!important;width:50%!important;
+  height:100%!important;flex:0 0 50%!important;
+  background-image:url("desktop.png")!important;
+  background-repeat:no-repeat!important;
+  background-size:auto 100%!important;
+ }
+ html body.portal-home-page .kd-mobile-hero-left{
+  background-position:left center!important;
+ }
+ html body.portal-home-page .kd-mobile-hero-right{
+  background-position:right center!important;
+ }
+ html body.portal-home-page .kd-mobile-hero-sides::after{
+  content:"";position:absolute;inset:0;pointer-events:none;
+  background:linear-gradient(to bottom,transparent 68%,#dcefff 100%);
+ }
+ html body.portal-home-page .home-hero.kd-showcase-hero > .hero-content.kd-showcase-content{
+  z-index:2!important;position:relative!important;
+  width:100%!important;max-width:100%!important;box-sizing:border-box!important;
+  padding:0 14px 16px!important;margin:-16px 0 0!important;flex:none!important;
+ }
+ html body.portal-home-page .kd-showcase-intro{
+  background:rgba(255,255,255,.94)!important;
+  border:1px solid #fff!important;
+  box-shadow:0 6px 19px rgba(19,66,120,.1)!important;
+ }
+}
+@media(max-width:400px){
+ html body.portal-home-page .kd-mobile-hero-sides{
+  height:clamp(170px,57vw,245px)!important;
+ }
+}
