@@ -55,7 +55,7 @@ if (is_array($officialsData)) {
 
 
   <link rel="stylesheet" href="city-portal.css?v=20261119-17" />
-  <link rel="stylesheet" href="home-showcase.css?v=20261120-3" />
+  <link rel="stylesheet" href="home-showcase.css?v=20261120-4" />
 </head>
 
 <body class="portal-home-page">
@@ -94,16 +94,11 @@ if (is_array($officialsData)) {
   </header>
   <main class="portal-shell" id="home">
     <section class="home-hero kd-showcase-hero" aria-labelledby="gatewayHeading">
-      <div class="kd-showcase-decor kd-showcase-decor-left" aria-hidden="true">
-        <i class="fas fa-mobile-screen-button"></i><i class="fas fa-leaf"></i>
-      </div>
-      <div class="kd-showcase-decor kd-showcase-decor-right" aria-hidden="true">
-        <i class="fas fa-tree"></i><i class="fas fa-camera"></i>
-      </div>
       <div class="hero-content kd-showcase-content">
         <div class="kd-showcase-intro">
           <span class="kd-hero-eyebrow"><i class="fas fa-circle-check" aria-hidden="true"></i> CITY GOVERNMENT OF
             KORONADAL</span>
+          <span class="kd-showcase-greeting">Maayong Adlaw, Koronadaleño!</span>
           <h1 id="gatewayHeading">Explore, Transact, and Connect with <span>Koronadal!</span></h1>
           <p>Your city services, opportunities, and information in one convenient place.</p>
         </div>
@@ -151,12 +146,6 @@ if (is_array($officialsData)) {
           </a>
         </nav>
         <article class="kd-showcase-featured">
-          <div class="kd-showcase-featured-art" aria-hidden="true">
-            <span class="kd-showcase-sun"></span>
-            <i class="fas fa-tree kd-showcase-art-tree"></i>
-            <i class="fas fa-monument kd-showcase-art-landmark"></i>
-            <i class="fas fa-people-group kd-showcase-art-people"></i>
-          </div>
           <div class="kd-showcase-featured-content">
             <span class="kd-showcase-featured-tag">FEATURED</span>
             <h2>Discover More of Koronadal!</h2>
