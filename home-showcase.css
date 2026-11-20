@@ -208,3 +208,68 @@ html body.portal-home-page .kd-showcase-decor i:nth-child(2){color:#3b9849}
 @media(prefers-reduced-motion:reduce){
  html body.portal-home-page .kd-showcase-tile{transition:none}
 }
+
+/* Unified portal homepage palette: navy, civic blue, sky blue and white.
+   Keep green only for landscape illustrations and the separate Ask chatbot. */
+html body.portal-home-page .kd-showcase-hero{
+ --kd-home-primary:#1766b1;
+ --kd-home-primary-dark:#104d8d;
+ --kd-home-navy:#123c70;
+ --kd-home-sky:#eaf4ff;
+ --kd-home-outline:#cfe2f5;
+}
+html body.portal-home-page .kd-showcase-intro #gatewayHeading span{
+ color:var(--kd-home-primary)!important;
+}
+html body.portal-home-page .kd-showcase-intro .kd-hero-eyebrow{
+ color:var(--kd-home-navy)!important;
+ border-color:var(--kd-home-outline)!important;
+}
+html body.portal-home-page .kd-showcase-search .portal-search-submit,
+html body.portal-home-page .kd-showcase-more{
+ background:var(--kd-home-primary)!important;
+ color:#fff!important;
+ border-color:var(--kd-home-primary)!important;
+ box-shadow:0 6px 16px rgba(23,102,177,.19)!important;
+}
+html body.portal-home-page .kd-showcase-search .portal-search-submit:hover,
+html body.portal-home-page .kd-showcase-more:hover{
+ background:var(--kd-home-primary-dark)!important;
+ border-color:var(--kd-home-primary-dark)!important;
+}
+html body.portal-home-page .kd-showcase-tile{
+ border-color:#fff!important;
+ background:linear-gradient(145deg,#fff,#f4f9ff)!important;
+ color:var(--kd-home-navy)!important;
+}
+html body.portal-home-page .kd-showcase-tile:hover,
+html body.portal-home-page .kd-showcase-tile:focus-visible{
+ border-color:#8dc3f1!important;
+ background:linear-gradient(145deg,#fff,var(--kd-home-sky))!important;
+}
+html body.portal-home-page .kd-showcase-tile-icon,
+html body.portal-home-page .kd-showcase-tile-icon i,
+html body.portal-home-page .kd-showcase-emergency i:last-child,
+html body.portal-home-page .kd-showcase-barangays i:last-child,
+html body.portal-home-page .kd-showcase-tourism i{
+ color:var(--kd-home-primary)!important;
+}
+html body.portal-home-page .kd-showcase-featured-tag{
+ background:var(--kd-home-primary)!important;color:#fff!important;
+}
+html body.portal-home-page .kd-showcase-featured{
+ background:rgba(255,255,255,.97)!important;
+ border-color:#fff!important;
+}
+html body.portal-home-page .kd-showcase-featured-content h2{
+ color:var(--kd-home-navy)!important;
+}
+html body.portal-home-page .kd-showcase-search:focus-within{
+ border-color:var(--kd-home-primary)!important;
+ box-shadow:0 0 0 3px rgba(23,102,177,.13),0 11px 25px rgba(17,75,139,.12)!important;
+}
+html body.portal-home-page .kd-showcase-tile:focus-visible,
+html body.portal-home-page .kd-showcase-more:focus-visible,
+html body.portal-home-page .kd-showcase-search .portal-search-submit:focus-visible{
+ outline:3px solid #79bafa!important;outline-offset:3px!important;
+}
