@@ -55,7 +55,7 @@ if (is_array($officialsData)) {
 
 
   <link rel="stylesheet" href="city-portal.css?v=20261119-17" />
-  <link rel="stylesheet" href="home-showcase.css?v=20261120-5" />
+  <link rel="stylesheet" href="home-showcase.css?v=20261120-6" />
 </head>
 
 <body class="portal-home-page">
