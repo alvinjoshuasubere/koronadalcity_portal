@@ -44,7 +44,7 @@
     }
   }
   const featureCollection = features => ({type:'FeatureCollection',features});
-  const CACHE_KEY = 'koronadal-verified-local-27-v8';
+  const CACHE_KEY = 'koronadal-psa-priority-v9';
   const PSA_BASE = 'https://portal.georisk.gov.ph/arcgis/rest/services/PSA/Barangay/MapServer/4/query';
   const PSA_QUERY = new URLSearchParams({
     where:"city_name LIKE '%Koronadal%' AND prov_name LIKE '%South Cotabato%'",
@@ -159,9 +159,8 @@
     return b;
   }
   function selectedFeatures() {
-    return cachedFeatures.filter(f=>selectedNames.has(f.properties.name)).map(f=>({
-      ...f,properties:{...f.properties,picked:activeName===f.properties.name}
-    }));
+    // Preserve every verified barangay polygon; tapping one must never hide the others.
+    return cachedFeatures;
   }
   function updateFilters(fit) {
     if (filterList) filterList.querySelectorAll('input[type="checkbox"]').forEach(input=>{
@@ -189,13 +188,12 @@
     }
     if (cachedFeatures.length) {
       if (map && map.getLayer('kd-zones-labels')) {
-        map.setLayoutProperty('kd-zones-labels','visibility',activeName?'visible':'none');
+        map.setLayoutProperty('kd-zones-labels','visibility','visible');
       }
       const available = shown.length;
       if (counter) counter.textContent = available+' of '+cachedFeatures.length+' mapped barangays visible';
-      setStatus(selectedNames.size+' barangays selected. '+available+
-        ' mapped boundaries visible from '+currentSourceLabel+'. Hover or tap to see names.'+
-        (available<selectedNames.size?' Some selected barangays have no available polygon.':''));
+      setStatus(available+' of 27 barangay boundaries loaded from '+currentSourceLabel+'. Zoom in to view individual names. Hover or tap to view population.'+
+        (available<officialNames.length?' Some barangay polygons are unavailable.':''));
     }
   }
   function setupFilters() {
@@ -248,19 +246,18 @@
   }
   function render(collection,sourceLabel) {
     if (!map || !map.getStyle()) return;
-    hideUnrelatedMapLabels();
     showMapMessage('');
     cachedFeatures = collection.features;
     currentSourceLabel=sourceLabel;
     upsert('kd-koronadal-barangays',featureCollection(selectedFeatures()));
     if (!map.getLayer('kd-zones-fill')) {
       map.addLayer({id:'kd-zones-fill',type:'fill',source:'kd-koronadal-barangays',
-        paint:{'fill-color':['match',['get','shade'],0,'#b8dcff',1,'#cce7ff',2,'#9bccfa','#a9d3ff'],'fill-opacity':0.52}});
+        paint:{'fill-color':['match',['get','shade'],0,'#b8dcff',1,'#cce7ff',2,'#9bccfa','#a9d3ff'],'fill-opacity':0.24}});
       map.addLayer({id:'kd-zones-hover',type:'fill',source:'kd-koronadal-barangays',
-        paint:{'fill-color':'#2275dc','fill-opacity':['case',['boolean',['feature-state','hover'],false],0.38,0]}});
+        paint:{'fill-color':'#1e74c7','fill-opacity':['case',['boolean',['feature-state','hover'],false],0.37,0]}});
       map.addLayer({id:'kd-zones-outline',type:'line',source:'kd-koronadal-barangays',
         paint:{'line-color':['match',['get','shade'],0,'#1766b1',1,'#2474c9',2,'#155ea9','#347fd2'],
-          'line-width':3.5,'line-opacity':1}});
+          'line-width':['interpolate',['linear'],['zoom'],9,1.5,12,2.2,15,3],'line-opacity':0.96}});
       map.addLayer({id:'kd-zones-picked-fill',type:'fill',source:'kd-koronadal-barangays',
         paint:{'fill-color':'#267ce8',
           'fill-opacity':['case',['boolean',['get','picked'],false],0.45,0]}});
@@ -269,9 +266,10 @@
           'line-width':['case',['boolean',['get','picked'],false],5.5,0],
           'line-opacity':['case',['boolean',['get','picked'],false],1,0]}});
       map.addLayer({id:'kd-zones-labels',type:'symbol',source:'kd-koronadal-barangays',
-        layout:{'visibility':'none','text-field':['get','name'],'text-size':12,
-          'text-allow-overlap':true,'text-ignore-placement':true,
-          'text-font':['Noto Sans Regular'],'text-max-width':11},
+        minzoom:11,layout:{'visibility':'visible','text-field':['get','name'],
+          'text-size':['interpolate',['linear'],['zoom'],11,10,14,13],
+          'text-allow-overlap':false,'text-ignore-placement':false,
+          'text-font':['Noto Sans Regular'],'text-max-width':12},
         paint:{'text-color':'#124f99','text-halo-color':'#ffffff','text-halo-width':2.2}});
     }
     updateFilters(false);
@@ -300,14 +298,17 @@
     setStatus('Loading Koronadal City barangay boundaries...');
     if (!cachedFeatures.length) showMapMessage('Loading barangay map…');
     if (reload) reload.disabled=true;
+    // Prefer boundaries from the PSA GeoRisk service. Use locally hosted
+    // 2026 PSGC polygons only for gaps and offline fallback; do not allow a
+    // coarse fallback to overwrite a PSA polygon that has already loaded.
     const candidates = [
-      async ()=>({data:cleanLocal(await getJson('data/koronadal-barangays.geojson?v=20261119-1',{},10000)),source:'Bundled PSGC map'}),
-      async ()=>({data:cleanPSA(await getJson('barangay-boundaries.php?v=4',{},16000)),source:'PSA'}),
-      async ()=>({data:cleanPSA(await getJson(PSA_BASE+'?'+PSA_QUERY,{},18000)),source:'PSA'}),
+      async ()=>({data:cleanPSA(await getJson('barangay-boundaries.php?v=5',{},17000)),source:'PSA GeoRisk (indicative 2016)'}),
+      async ()=>({data:cleanPSA(await getJson(PSA_BASE+'?'+PSA_QUERY,{},18000)),source:'PSA GeoRisk (indicative 2016)'}),
+      async ()=>({data:cleanLocal(await getJson('data/koronadal-barangays.geojson?v=20261120-2',{},10000)),source:'Local PSGC/NAMRIA-OCHA fallback'}),
       async ()=>{
         const query='[out:json][timeout:18];relation["boundary"="administrative"]["admin_level"~"^(6|8)$"]["name"~"Koronadal",i](6.34,124.70,6.60,125.04)->.city;.city map_to_area->.a;relation["boundary"="administrative"]["admin_level"="10"](area.a);out body;>;out skel qt;';
         const json=await getJson(OVERPASS,{method:'POST',body:new URLSearchParams({data:query})},21000);
-        return {data:cleanOSM(json),source:'OpenStreetMap'};
+        return {data:cleanOSM(json),source:'OpenStreetMap fallback'};
       }
     ];
     const merged = new Map();
@@ -318,15 +319,18 @@
       try {
         const result = await run();
         if (!result.data.features.length) throw Error('No matching Koronadal barangays returned');
-        sourceNames.add(result.source);
+        let added = 0;
         for (const feature of result.data.features) {
-          if (!merged.has(feature.properties.name)) merged.set(feature.properties.name,feature);
+          if (!merged.has(feature.properties.name)) {
+            merged.set(feature.properties.name,{...feature,properties:{...feature.properties,boundarySource:result.source}});
+            added++;
+          }
         }
+        if (added) sourceNames.add(result.source);
         const sorted = officialNames.filter(name=>merged.has(name)).map((name,i)=>({
           ...merged.get(name),id:i+1,properties:{...merged.get(name).properties,name,shade:i%4}
         }));
         const combined = featureCollection(sorted);
-        // Show boundaries as soon as the first source responds.
         render(combined,Array.from(sourceNames).join(' + '));
         saveCache(combined,Array.from(sourceNames).join(' + '));
         lastSuccess = true;
@@ -342,7 +346,7 @@
       else {
         if (counter) counter.textContent='Boundaries unavailable';
         setStatus('Unable to load Koronadal barangay map. Please refresh.');
-        showMapMessage('Map boundaries are unavailable. Select Refresh boundaries to try again.');
+        showMapMessage('Barangay boundaries are temporarily unavailable. Reload this page to retry.');
       }
     }
     if (reload) reload.disabled=false;
@@ -379,7 +383,7 @@
         console.warn('Koronadal map:',event.error || event);
         if(!cachedFeatures.length)showMapMessage('Map tiles could not load. Check your connection or refresh this page.');
       });
-      map.on('styledata',hideUnrelatedMapLabels);
+      // Keep road, neighborhood and place labels visible for geographic context.
       map.on('mousemove','kd-zones-fill',event=>{
         if (!event.features || !event.features.length) return;
         const feature=event.features[0];
